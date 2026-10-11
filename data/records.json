@@ -3277,6 +3277,24 @@
     {
       "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
       "draft": false,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "2c47125cbb0619dc63ccdf64c9c583f064240aeb",
+      "kappa_decimal": "0.001120864952258278604621028",
+      "kappa_den": 250000000000000000000000000,
+      "kappa_num": 280216238064569651155257,
+      "pr": 275,
+      "pr_updated_at": "2026-10-11T15:24:10Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/lydakis/integer-mult-bounds/tree/2c47125cbb0619dc63ccdf64c9c583f064240aeb",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/275"
+      },
+      "tier": "claimed",
+      "title": "Finite assembly, source-basis cost reduction, and E8 verification"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": false,
       "fetched_at": "2026-10-11T13:37:08Z",
       "head_sha": "697c3807b3c843d5e91b93f880d0ce5046561344",
       "kappa_decimal": "0.001120864952258278604621028",
@@ -3289,6 +3307,9 @@
         "head_url": "https://github.com/lydakis/integer-mult-bounds/tree/697c3807b3c843d5e91b93f880d0ce5046561344",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/275"
       },
+      "stale": true,
+      "stale_reason": "superseded-head",
+      "superseded_by": "2c47125cbb0619dc63ccdf64c9c583f064240aeb",
       "tier": "claimed",
       "title": "Finite assembly, source-basis cost reduction, and E8 verification"
     },
@@ -4911,6 +4932,27 @@
         "head_url": "https://github.com/applecrusher/integer-mult-bounds/tree/2b1d823acd6b8f9a6b2455eff44fb380c2bb8dc3",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/376"
       },
+      "stale": true,
+      "stale_reason": "superseded-head",
+      "superseded_by": "77bda1abfb4ac52612929e59ae109cb22be47aac",
+      "tier": "claimed",
+      "title": "Conditional κ=0.0011208649522582786: split centres with complete signed admission"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "77bda1abfb4ac52612929e59ae109cb22be47aac",
+      "kappa_decimal": "0.0011208649522582786",
+      "kappa_den": 40000000000000000000000000,
+      "kappa_num": 44834598090331144184841,
+      "pr": 376,
+      "pr_updated_at": "2026-10-11T15:56:40Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/applecrusher/integer-mult-bounds/tree/77bda1abfb4ac52612929e59ae109cb22be47aac",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/376"
+      },
       "tier": "claimed",
       "title": "Conditional κ=0.0011208649522582786: split centres with complete signed admission"
     },
@@ -5865,8 +5907,29 @@
         "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/6558967675aefdeabb34b89cb08b39104c8f1f60",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/434"
       },
+      "stale": true,
+      "stale_reason": "superseded-head",
+      "superseded_by": "6c0c0522665dda10201673c17fbb589f737d226c",
       "tier": "claimed",
       "title": "Conditional kappa 0.001245293130733870: R740 retiming with idle-data hosting"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "6c0c0522665dda10201673c17fbb589f737d226c",
+      "kappa_decimal": "0.001249035299298004",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1249035299298004,
+      "pr": 434,
+      "pr_updated_at": "2026-10-11T14:12:58Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/6c0c0522665dda10201673c17fbb589f737d226c",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/434"
+      },
+      "tier": "claimed",
+      "title": "Conditional kappa 0.001249035299298004: hosting-selected rank147 kernel"
     },
     {
       "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
@@ -5889,6 +5952,24 @@
     {
       "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
       "draft": false,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "8f6b8297b08ad863940d5168a2db5402fad3690f",
+      "kappa_decimal": "0.001128983115440183",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1128983115440183,
+      "pr": 436,
+      "pr_updated_at": "2026-10-11T14:11:28Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/eumemic/integer-mult-bounds/tree/8f6b8297b08ad863940d5168a2db5402fad3690f",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/436"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 1.128983115440183e-3: an E8 bit word with 740 helpers under #433's complex supplier"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": false,
       "fetched_at": "2026-10-11T13:37:08Z",
       "head_sha": "da8ca2025472553ac9b36f4400138ed48a6a0e3b",
       "kappa_decimal": "0.001128983115440183",
@@ -5901,6 +5982,9 @@
         "head_url": "https://github.com/eumemic/integer-mult-bounds/tree/da8ca2025472553ac9b36f4400138ed48a6a0e3b",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/436"
       },
+      "stale": true,
+      "stale_reason": "superseded-head",
+      "superseded_by": "8f6b8297b08ad863940d5168a2db5402fad3690f",
       "tier": "claimed",
       "title": "Conditional κ = 1.128983115440183e-3: an E8 bit word with 740 helpers under #433's complex supplier"
     },
@@ -6029,6 +6113,150 @@
       },
       "tier": "claimed",
       "title": "Conditional κ = 0.001138823042306561: retain rank138 with complete 32-replica banks"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": false,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "8c4242ea61c67827fe62b07b2edc093d7ddfa631",
+      "kappa_decimal": "0.001246073505487942",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1246073505487942,
+      "pr": 444,
+      "pr_updated_at": "2026-10-11T15:41:40Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/8c4242ea61c67827fe62b07b2edc093d7ddfa631",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/444"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001246073505487942: R740 replicated kernel with idle-data hosting"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "40ab91daf2b5e87fc4071dedae1699d5d7e7cecc",
+      "kappa_decimal": "0.001263365464781156",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1263365464781156,
+      "pr": 445,
+      "pr_updated_at": "2026-10-11T14:15:35Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/40ab91daf2b5e87fc4071dedae1699d5d7e7cecc",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/445"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001263365464781156: eleven-stage R740 hosting with complete row bound"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "d3cf3079091bb7e93a23e9cd98e82ccb89697328",
+      "kappa_decimal": "0.001265848755025709",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1265848755025709,
+      "pr": 447,
+      "pr_updated_at": "2026-10-11T14:44:15Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/d3cf3079091bb7e93a23e9cd98e82ccb89697328",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/447"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001265848755025709: rank147 kernel with eleven-stage hosting"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "33311e2aeaa8026cebddad31155f9c070c77357e",
+      "kappa_decimal": "0.001330733966732373",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1330733966732373,
+      "pr": 448,
+      "pr_updated_at": "2026-10-11T15:57:10Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/higherbeing/integer-mult-bounds/tree/33311e2aeaa8026cebddad31155f9c070c77357e",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/448"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001330733966732373: cross-copy idle-axis hosting, one residual on two copies of one idle child (+5.13% over #447)"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": false,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "e36181b4f300a8e785e8d04bad5c9d926481ebc9",
+      "kappa_decimal": "0.001347744547714835",
+      "kappa_den": 200000000000000000,
+      "kappa_num": 269548909542967,
+      "pr": 450,
+      "pr_updated_at": "2026-10-11T15:55:09Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/DreamingOfClouds/integer-mult-bounds/tree/e36181b4f300a8e785e8d04bad5c9d926481ebc9",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/450"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001347744547714835: eleven-stage cross-copy hosting with target mixing (+1.278% over #448)"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "f3a38153678b55063fc005901cc968266166507d",
+      "kappa_decimal": "0.001265931727546219",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1265931727546219,
+      "pr": 451,
+      "pr_updated_at": "2026-10-11T15:46:13Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/f3a38153678b55063fc005901cc968266166507d",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/451"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001265931727546219: dual eleven-stage whole-residual hosting"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "cff79050526545e7b66d24a7f4c65f22c1da8618",
+      "kappa_decimal": "0.001347781996192312",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1347781996192312,
+      "pr": 453,
+      "pr_updated_at": "2026-10-11T15:48:21Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/cff79050526545e7b66d24a7f4c65f22c1da8618",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/453"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001347781996192312: rank137 cross-copy kernel with target mixing"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T15:58:47Z",
+      "head_sha": "d14eb0dd425bd681e3b43f208d089e679d600176",
+      "kappa_decimal": "0.00126653614863031",
+      "kappa_den": 100000000000000000,
+      "kappa_num": 126653614863031,
+      "pr": 454,
+      "pr_updated_at": "2026-10-11T15:43:24Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/d14eb0dd425bd681e3b43f208d089e679d600176",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/454"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001266536148630310: target mixing with whole-residual hosting"
     }
   ]
 }
