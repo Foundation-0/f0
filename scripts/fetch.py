@@ -12,10 +12,12 @@ Env: GH_TOKEN or GITHUB_TOKEN for authenticated REST (anonymous allowed but tiny
 """
 import argparse
 import base64
+import hashlib
 import json
 import math
 import os
 import re
+import shutil
 import sys
 import urllib.error
 import urllib.request
@@ -157,10 +159,63 @@ def _try_anchor(rest):
 
 RANK = {'pair': 0, 'fraction': 1, 'decimal': 2}
 
+# ---- F5 (Shaka QA-VERDICT): non-construction frame exclusions -------------------
+# A κ value stated inside a model/ceiling/pricing-model/advance/no-new-κ/no-witness
+# frame is NOT a construction claim. Document level: the PR title declares the
+# package's own status, so a title marker vetoes the whole PR (re-validated live
+# per PR head, same discipline as tier promotion). Anchor level: a marker in the
+# claim clause (sentence span around token+value) rejects that anchor only.
+# Measured on the full pinned snapshot (QA probe + mozi sizing): kills exactly the
+# 9 contaminated non-construction rows (229, 203, 221, 214, 204, 201, 192, 233, 304);
+# all four golden constructions, the certificate-bound #279 row, and the current
+# frontier leaders (#442/#441/#440/#433...) keep their exact values. Ambiguity note
+# (per Leo's F5 brief): keyword frames cannot be perfect; this set is conservative
+# on the documented upstream framing vocabulary, not a general NLP classifier.
+# DOC set stays on DECLARATORY phrases only (bare "model"/"pricing"/"unchanged"
+# are legitimate construction prose here, e.g. "exact pricing gives", "unchanged
+# bit supplier"; measured false-kill of #383 and of valid low-k rows 82/98/106).
+DOC_FRAME_RE = re.compile(
+    r"no new|no additional|not a construction|would need|would take|"
+    r"\bceiling\b|hypothetical|\bpricing model\b", re.I)
+CLAUSE_FRAME_RE = re.compile(
+    r"no new|not a construction|would need|would take|\bceiling\b|hypothetical",
+    re.I)
+CLAUSE_BACK_BOUND = re.compile(r"[.!?\n]")
+CLAUSE_FWD_BOUND = re.compile(r"[.!?:;\n]")
 
-def parse_kappa(raw):
+
+def _clause_span(text, start, end):
+    """Sentence-ish span around an anchor: back to a clause boundary (decimals'
+    interior dots included), forward to the next boundary (decimal dots skipped).
+    Hard caps (back 100 / fwd 120) keep the span on the claim sentence: a frame
+    word in the NEXT sentence must not veto a clean construction anchor (measured
+    false-rejection of #262's fraction anchor at wider caps)."""
+    i, steps = start, 0
+    while i > 0 and steps < 100:
+        if CLAUSE_BACK_BOUND.match(text[i - 1]):
+            break
+        i -= 1
+        steps += 1
+    j, steps = end, 0
+    while j < len(text) and steps < 120:
+        c = text[j]
+        if c == "." and j + 1 < len(text) and text[j + 1].isdigit():
+            j += 1
+            steps += 1
+            continue
+        if CLAUSE_FWD_BOUND.match(c):
+            break
+        j += 1
+        steps += 1
+    return text[i:j + 1]
+
+
+def parse_kappa(raw, title=None):
     """Scan every kappa-claim anchor; prefer fraction+decimal pair agreement.
-    -> dict(num, den, decimal, agree, kind) | None."""
+    -> dict(num, den, decimal, agree, kind) | None.
+    A document-level frame marker in `title` vetoes the whole claim set (F5)."""
+    if title is not None and DOC_FRAME_RE.search(title):
+        return None
     text = normalize(raw)
     best = mismatch = None
     for m in TOK.finditer(text):
@@ -170,6 +225,9 @@ def parse_kappa(raw):
             continue
         cand = _try_anchor(tail[sm.end():])
         if not cand:
+            continue
+        vend = min(m.end() + sm.end() + 90, len(text))
+        if CLAUSE_FRAME_RE.search(_clause_span(text, m.start(), vend)):
             continue
         kind, n, d, s, agree = cand
         rec = dict(num=n, den=d, decimal=s, agree=agree, kind=kind)
@@ -280,8 +338,14 @@ def looks_like_claim(text):
 def build_record(pr, fetched_at, cert_kappa, cert_decimal, cert_sha):
     """One record per (pr, head_sha). tier: claimed default; human-verified only on
     exact certificate binding (fraction AND decimal AND sha)."""
-    text = (pr.get('title') or '') + '\n' + (pr.get('body') or '')
-    r = parse_kappa(text)
+    title = pr.get('title') or ''
+    # F5 document veto: a PR that frames its package as model/ceiling/pricing-model/
+    # advance/no-new-κ is not making a construction claim at all -> no record,
+    # exactly like a prose-only tooling PR.
+    if DOC_FRAME_RE.search(title):
+        return None
+    text = title + '\n' + (pr.get('body') or '')
+    r = parse_kappa(text, title=title)
     head = pr['head']['sha']
     base = pr['base']['sha']
     href = (pr.get('head') or {}).get('repo')
@@ -333,7 +397,27 @@ def build_record(pr, fetched_at, cert_kappa, cert_decimal, cert_sha):
 def emit_views(records, cert, main_sha, generated_at):
     """Deterministic (sorted, stable) feed + chart views. Pure function of inputs.
     Quarantined (stale) records are kept in records.json and surfaced under
-    feed.quarantined; excluded from records[]/chart arrays until re-resolved."""
+    feed.quarantined; excluded from records[]/chart arrays until re-resolved.
+
+    Always-on F2 invariant: (pr, head_sha) is the ledger identity, so the emitted
+    views must never contain two rows with the same composite key. Any duplicate
+    (including a row appearing in both records[] and quarantined[]) raises, which
+    the gate (check2 + check1) and the fetch path surface as a blocking error.
+    """
+    seen = {}
+    ok = True
+    for r in records:
+        k = (r['pr'], r['head_sha'])
+        if k in seen:
+            ok = False
+            seen[k] += 1
+        else:
+            seen[k] = 1
+    if not ok:
+        dups = sorted(k for k, n in seen.items() if n > 1)
+        raise ValueError(
+            "F2 identity violation: duplicate (pr, head_sha) row(s) in records: "
+            + ", ".join(f"#{p}@{h[:8]}" for p, h in dups))
     clean = [r for r in records if not r.get('stale')]
     quarantined = [r for r in records if r.get('stale')]
     feed = {
@@ -362,6 +446,139 @@ def emit_views(records, cert, main_sha, generated_at):
 
 def canonical_bytes(obj):
     return (json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=False) + '\n').encode()
+
+
+def _capture_cert_artifact(args, selected, artifact_digest):
+    """F4: fetch/validate the authoritative certificate artifact (the file named by
+    the mirror's `certificate`/`certificate_sha256`) and store its bytes at
+    data/certificate.artifact.json for the gate to recompute sha256 over."""
+    cert_path = selected.get('certificate')
+    if not cert_path or not artifact_digest:
+        print('NOTE: mirror declares no certificate artifact path; binding check '
+              'will skip byte recompute (still binds mirror+sha256 of mirror bytes)')
+        return
+    dest = os.path.join(DATA, 'certificate.artifact.json')
+    if os.path.exists(dest):
+        # reuse a prior capture only if it still re-hashes to the declared digest;
+        # otherwise overwrite (the upstream artifact won the digest, not our cache)
+        with open(dest, 'rb') as f:
+            if hashlib.sha256(f.read()).hexdigest() == artifact_digest:
+                return
+    try:
+        data = None
+        if args.snapshot and os.path.exists(os.path.join(args.snapshot, 'certificate.artifact.json')):
+            with open(os.path.join(args.snapshot, 'certificate.artifact.json'), 'rb') as f:
+                data = f.read()
+        else:
+            url = f"{API}/repos/{args.repo}/contents/{cert_path.lstrip('/')}"
+            req = urllib.request.Request(url)
+            req.add_header('Accept', 'application/vnd.github+json')
+            req.add_header('User-Agent', 'frontier-math-dashboard')
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                raw = json.loads(resp.read().decode('utf-8'))
+                data = base64.b64decode(raw.get('content') or '')
+                if raw.get('sha'):
+                    blob = hashlib.sha1(b'blob %d\0' % len(data) + data).hexdigest()
+                    if blob != raw['sha']:
+                        print(f"FATAL: certificate artifact {cert_path} git-blob "
+                              f"sha mismatch", file=sys.stderr)
+                        sys.exit(1)
+                if raw.get('size') is not None and raw['size'] != len(data):
+                    print(f"FATAL: certificate artifact {cert_path} size mismatch",
+                          file=sys.stderr)
+                    sys.exit(1)
+        with open(dest, 'wb') as f:
+            f.write(data)
+        if hashlib.sha256(data).hexdigest() != artifact_digest:
+            print(f"FATAL: certificate artifact {cert_path} sha256 does not match "
+                  f"mirror-declared certificate_sha256 (trust root broken)",
+                  file=sys.stderr)
+            sys.exit(1)
+    except Exception as e:
+        print(f"FATAL: could not capture authoritative certificate artifact "
+              f"{cert_path}: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def merge_records(old_records, pulls, fetched_at, cert_kappa, cert_decimal, cert_sha):
+    """Append-only merge on (pr, head_sha) + F3 supersede/re-resolve pass.
+
+    Returns (records, stats). Pure function of inputs; tests drive it directly.
+    - F2: (pr, head_sha) is the ledger identity; a colliding row is never
+      overwritten (build_record derives `pr` from the pull object, so collisions
+      inside one run mean the same PR arrived twice; the gate enforces composite
+      uniqueness over emitted artifacts).
+    - F3 (ARCHITECTURE quarantine rule): a head that is no longer that PR's live
+      head -> stale:true, stale_reason 'superseded-head', kept with tier
+      unchanged, excluded from feed.records[]/chart by emit_views until a re-fetch
+      re-resolves it. Force-push reversion (head live again) rebuilds the row from
+      the pinned source and lifts the quarantine. A live head whose pinned
+      title/body no longer yields a construction claim (F5 re-validated live) ->
+      'no-construction-claim', same quarantine.
+    """
+    index = {}
+    n_dup_hist = 0
+    for r in old_records:
+        k = (r['pr'], r['head_sha'])
+        if k in index:
+            n_dup_hist += 1  # corrupt history input: first row wins, gate blocks
+            continue
+        index[k] = r
+    live_heads = {}
+    live_keys = set()
+    stats = dict(new=0, unchanged=0, quarantined=0, superseded=0,
+                 declaimed=0, reresolved=0, dup_history=n_dup_hist)
+    for pr in pulls:
+        live_heads[pr['number']] = pr['head']['sha']
+        rec = build_record(pr, fetched_at, cert_kappa, cert_decimal, cert_sha)
+        if rec is None:
+            continue
+        key = (rec['pr'], rec['head_sha'])
+        if rec.get('stale'):
+            stats['quarantined'] += 1
+        live_keys.add(key)
+        if key in index:
+            stats['unchanged'] += 1
+            prev = index[key]
+            # head unchanged: keep the ORIGINAL row (append-only, determinism).
+            # Exception: a row we quarantined (superseded/non-claim) whose head is
+            # live again (force-push reversion) -> re-resolve against the pinned
+            # source, per ARCHITECTURE "excluded ... until re-resolved".
+            # Parser-stale rows (unparseable/mismatch) keep history.
+            if prev.get('stale') and prev.get('stale_reason') in ('superseded-head',
+                                                                  'no-construction-claim'):
+                index[key] = rec
+                stats['reresolved'] += 1
+            continue
+        index[key] = rec
+        stats['new'] += 1
+
+    for (pr_num, head), rec in index.items():
+        live = live_heads.get(pr_num)
+        # F5 doc-veto re-validation: the row's own pinned title snapshot carries
+        # the document frame declaration. This covers both heads that are live
+        # this run (re-parsed below via live_keys) and rows for PRs absent from
+        # this run's pull set (page cap), so persisted non-construction rows are
+        # quarantined deterministically without any hardcoded PR list.
+        if not rec.get('stale') and DOC_FRAME_RE.search(rec.get('title') or ''):
+            rec['stale'] = True
+            rec['stale_reason'] = 'no-construction-claim'
+            stats['declaimed'] += 1
+            continue
+        if live is None:
+            continue
+        if head != live:
+            if not rec.get('stale'):
+                stats['superseded'] += 1
+            rec['stale'] = True
+            rec['stale_reason'] = 'superseded-head'
+            rec['superseded_by'] = live
+        elif (pr_num, head) not in live_keys and not rec.get('stale'):
+            rec['stale'] = True
+            rec['stale_reason'] = 'no-construction-claim'
+            stats['declaimed'] += 1
+    records = [index[k] for k in sorted(index)]
+    return records, stats
 
 
 def main():
@@ -400,41 +617,62 @@ def main():
     if cert_raw is None:
         print('FATAL: upstream certificate unavailable', file=sys.stderr)
         sys.exit(1)
+    cert_bytes = base64.b64decode(cert_raw['content'])
+    # F4 capture integrity (trust root): the pinned mirror must be the bytes the
+    # contents API actually served. Verify git-blob SHA1, size and path identity
+    # BEFORE the mirror is written, so a tampered or truncated capture can never
+    # become the binding artifact the gate and human-verified promotion trust.
+    blob_sha1 = hashlib.sha1(b'blob %d\0' % len(cert_bytes) + cert_bytes).hexdigest()
+    if cert_raw.get('sha') and cert_raw['sha'] != blob_sha1:
+        print('FATAL: certificate capture git-blob sha mismatch (mirror refused)',
+              file=sys.stderr)
+        sys.exit(1)
+    if cert_raw.get('size') is not None and cert_raw['size'] != len(cert_bytes):
+        print('FATAL: certificate capture size mismatch (mirror refused)',
+              file=sys.stderr)
+        sys.exit(1)
     dump_json(os.path.join(DATA, 'selected-result.raw.json'), cert_raw)
     dump_json(os.path.join(DATA, 'main_ref.json'), main_ref)
-    cert_bytes = base64.b64decode(cert_raw['content'])
     selected = json.loads(cert_bytes.decode('utf-8'))
     cert = {"kappa": selected['kappa'], "decimal": selected['decimal'],
-            "certificate_sha256": selected['certificate_sha256']}
+            "certificate_sha256": selected['certificate_sha256'],
+            # F4 audit fields (additive; schema permits): sha256 of the mirror
+            # artifact bytes themselves, plus the pinned upstream blob identity.
+            "selected_result_sha256": hashlib.sha256(cert_bytes).hexdigest(),
+            "source_blob_sha": cert_raw.get('sha'),
+            "source_path": cert_raw.get('path')}
     cert_kappa = tuple(selected['kappa'].split('/'))
     cert_decimal = selected['decimal']
     with open(os.path.join(DATA, 'selected-result.json'), 'wb') as f:
         f.write(cert_bytes)
 
+    # F4: capture the AUTHORITATIVE certificate artifact bytes (the file the
+    # mirror's `certificate` + `certificate_sha256` name) so the gate can recompute
+    # the digest over real bytes instead of trusting two self-consistent JSON
+    # fields. The captured bytes must re-hash to the mirror-declared digest.
+    artifact_digest = selected.get('certificate_sha256')
+    _capture_cert_artifact(args, selected, artifact_digest)
+
     # append-only merge on (pr, head_sha)
     old = load_json(os.path.join(DATA, 'records.json'), {"records": []})
-    index = {(r['pr'], r['head_sha']): r for r in old['records']}
-    n_new = n_seen = n_quar = 0
-    for pr in pulls:
-        rec = build_record(pr, fetched_at, cert_kappa, cert_decimal,
-                           selected['certificate_sha256'])
-        if rec is None:
-            continue
-        key = (rec['pr'], rec['head_sha'])
-        if rec.get('stale'):
-            n_quar += 1
-        if key in index:
-            n_seen += 1
-            # head unchanged: keep the ORIGINAL fetched_at (append-only, determinism)
-            continue
-        index[key] = rec
-        n_new += 1
-    records = [index[k] for k in sorted(index)]
+    records, stats = merge_records(old['records'], pulls, fetched_at,
+                                   cert_kappa, cert_decimal,
+                                   selected['certificate_sha256'])
     dump_json(os.path.join(DATA, 'records.json'), {"records": records})
+    n_new, n_seen, n_quar = stats['new'], stats['unchanged'], stats['quarantined']
+    n_superseded, n_declaimed, n_reresolved = (stats['superseded'],
+                                               stats['declaimed'],
+                                               stats['reresolved'])
 
     feed, chart = emit_views(records, cert, upstream_main_sha, fetched_at)
     dump_json(os.path.join(DOCS, 'feed.json'), feed)
     dump_json(os.path.join(DOCS, 'chart-data.json'), chart)
+    # F1 (QA-VERDICT): publish readiness. Pages serves only docs/ as docroot, so
+    # the schema link in index.html resolves to docs/feed.schema.json. Keep a
+    # byte-identical copy of the authoritative repo-root schema in the docroot at
+    # emit time; the gate (check1) verifies it matches.
+    shutil.copyfile(os.path.join(ROOT, 'feed.schema.json'),
+                    os.path.join(DOCS, 'feed.schema.json'))
     dump_json(os.path.join(DATA, 'etags.json'), etags)
     state = {"last_generated_at": fetched_at, "requests": api.requests,
              "not_modified": api.not_modified,
@@ -448,7 +686,8 @@ def main():
     claimed = sum(1 for r in feed['records'] if r['tier'] == 'claimed')
     verified = sum(1 for r in feed['records'] if r['tier'] != 'claimed')
     print(f"records total={len(records)} new={n_new} unchanged={n_seen} "
-          f"feed_clean={len(feed['records'])} quarantined={n_quar}")
+          f"feed_clean={len(feed['records'])} quarantined={n_quar} "
+          f"superseded={n_superseded} declaimed={n_declaimed} reresolved={n_reresolved}")
     print(f"claimed={claimed} verified={verified} upstream_open_prs={len(pulls)}")
     print(f"http requests={api.requests} not_modified={api.not_modified} "
           f"rate_limit_remaining={api.remaining} main_sha={upstream_main_sha}")

@@ -34,12 +34,15 @@ jobs:
       - name: Golden parser regression (no network)
         run: python3 tests/run_golden.py
 
+      - name: F1-F5 finding regressions (no network)
+        run: python3 tests/run_regressions.py
+
       - name: Commit generated data only if gate passed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain -- data/records.json data/selected-result.json docs/feed.json docs/chart-data.json)" ]; then
-            git add data/records.json data/selected-result.json docs/feed.json docs/chart-data.json
+          if [ -n "$(git status --porcelain -- data/records.json data/selected-result.json data/certificate.artifact.json docs/feed.json docs/chart-data.json docs/feed.schema.json)" ]; then
+            git add data/records.json data/selected-result.json data/certificate.artifact.json docs/feed.json docs/chart-data.json docs/feed.schema.json
             git commit -m "data: update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             git push
           else

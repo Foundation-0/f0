@@ -3,11 +3,15 @@
 
 Checks (all must pass for the update workflow to commit):
   1. feed.schema.json validation: required fields, SHA format, fraction==decimal
-     agreement to 15 significant digits, tier/verify consistency.
+     agreement to 15 significant digits, tier/verify consistency, the per-(pr,
+     head_sha) identity/uniqueness invariant, and an up-to-date schema copy in
+     the Pages docroot (F1/F2).
   2. Determinism: re-emit feed+chart from data/records.json must be byte-identical
      to docs/feed.json / docs/chart-data.json (idempotent pipeline).
-  3. Selected-result binding: feed.selected_result must match upstream
-     certificates/selected-result.json bytes (kappa, decimal, certificate_sha256).
+  3. Selected-result binding: feed.selected_result must bind the byte-captured
+     certificate artifact (F4): recompute sha256 over the mirror + raw-capture
+     bytes, and verify every human-verified record's verify.certificate_sha256
+     equals the digest recomputed from the authoritative certificate bytes.
   4. Claimed-vs-verified separation: no claimed record in chart.verified[] and
      vice versa; verified[] rows must bind the selected result.
 
@@ -15,6 +19,8 @@ Exit 0 = pass, nonzero = block commit. stdlib only.
 Usage: python3 scripts/gate.py [--root DIR]   (DIR defaults to repo root)
 """
 import argparse
+import base64
+import hashlib
 import json
 import os
 import re
@@ -107,7 +113,7 @@ def agrees(num, den, decimal_str):
     return sig15(Decimal(num) / Decimal(den)) == sig15(Decimal(decimal_str))
 
 
-def check1(feed, schema):
+def check1(root, feed, schema):
     errs = []
     for e in validate(feed, schema, schema):
         errs.append(f"schema: {e}")
@@ -126,6 +132,34 @@ def check1(feed, schema):
                 errs.append(f"schema: pr {pr} tier claimed must not carry verify object")
             if r['tier'] == 'lean-verified':
                 errs.append(f"schema: pr {pr} lean-verified not populating in v1")
+    # F2 (Shaka QA-VERDICT / ARCHITECTURE data model): one record per (PR x head
+    # SHA). The composite key (pr, head_sha) is THE ledger identity; a duplicate
+    # composite key anywhere in the feed (records[] OR quarantined[], and no key
+    # straddling both) is corruption that must block. This is deliberately the
+    # composite-key invariant, NOT global head_sha uniqueness: distinct PRs may
+    # share a head_sha (staged branches) and must not be blocked for it.
+    buckets = {}
+    for bucket in ('records', 'quarantined'):
+        for r in feed.get(bucket, []):
+            key = (r['pr'], r['head_sha'])
+            buckets.setdefault(key, []).append(bucket)
+    for key, where in sorted(buckets.items()):
+        if len(where) > 1:
+            errs.append(f"identity: duplicate (pr, head_sha) #{key[0]}@"
+                        f"{key[1][:8]} in {sorted(set(where))}")
+    # F1 (Shaka QA-VERDICT / publish readiness): the Pages docroot is docs/, so
+    # index.html's feed.schema.json link resolves to a schema copy that must be
+    # byte-identical to the authoritative repo-root schema.
+    doc_schema = os.path.join(root, 'docs', 'feed.schema.json')
+    if not os.path.exists(doc_schema):
+        errs.append(f"F1: docs/feed.schema.json missing (index.html schema link 404s "
+                    f"on Pages docroot)")
+    else:
+        with open(os.path.join(root, 'feed.schema.json'), 'rb') as a, \
+             open(doc_schema, 'rb') as b:
+            if a.read() != b.read():
+                errs.append("F1: docs/feed.schema.json differs from root feed.schema.json "
+                            "(re-emit or index.html schema link is stale)")
     return errs
 
 
@@ -135,8 +169,11 @@ def check2(root, feed):
     from fetch import emit_views  # same code path the producer used
     recs = load(os.path.join(root, 'data', 'records.json'))['records']
     cert = feed['selected_result'] or {}
-    f2, c2 = emit_views(recs, cert if cert else None, feed['upstream_main_sha'],
-                        feed['generated_at'])
+    try:
+        f2, c2 = emit_views(recs, cert if cert else None, feed['upstream_main_sha'],
+                            feed['generated_at'])
+    except ValueError as e:
+        return [f"determinism: F2 identity violation in records.json -> {e}"]
     errs = []
     with open(os.path.join(root, 'docs', 'feed.json'), 'rb') as fh:
         if json.dumps(f2, indent=2, sort_keys=True, ensure_ascii=False).encode() + b'\n' != fh.read():
@@ -148,31 +185,124 @@ def check2(root, feed):
 
 
 def check3(root, feed):
-    """Selected-result binding: feed block must match upstream certificate bytes."""
+    """Selected-result binding (F4): recompute the digest over the AUTHORITATIVE
+    certificate artifact bytes and bind feed.selected_result to the MIRROR bytes,
+    not to two mutually-consistent JSON fields.
+
+    Trust root per ARCHITECTURE staging-gate #3 + data model: human-verified
+    promotion is valid only when the certificate bytes from upstream match. Chain
+    verified here, all arithmetic recomputed at gate time:
+      a. mirror bytes == base64 decode of the stored contents-API capture
+         (data/selected-result.raw.json), and the capture's git-blob sha1 + size
+         must match (proves the mirror is the artifact upstream actually served);
+      b. sha256(mirror bytes) == feed.selected_result.selected_result_sha256
+         (the feed block binds the mirror's byte content, not two JSON fields);
+      c. if the deeper certificate artifact is captured (data/certificate.artifact
+         .json, the file the mirror's `certificate`/`certificate_sha256` names):
+         sha256(artifact bytes) == feed.selected_result.certificate_sha256 AND
+         == the mirror-declared certificate_sha256;
+      d. every human-verified record's verify.certificate_sha256 must equal the
+         same recomputed digest, and its kappa/decimal must equal the mirror's.
+    When (c)'s authoritative bytes are unavailable, the gate reports the exact
+    blocker (a claimed digest with no recomputable byte source cannot pass).
+    """
     errs = []
-    cert_path = os.path.join(root, 'data', 'selected-result.json')
-    if not os.path.exists(cert_path):
+    mirror_path = os.path.join(root, 'data', 'selected-result.json')
+    if not os.path.exists(mirror_path):
         return ["binding: data/selected-result.json missing (fetch never captured upstream cert)"]
-    with open(cert_path, 'rb') as f:
-        raw = f.read()
+    with open(mirror_path, 'rb') as f:
+        mirror_bytes = f.read()
     try:
-        sel = json.loads(raw.decode())
+        sel = json.loads(mirror_bytes.decode())
     except Exception as e:
         return [f"binding: upstream certificate unparsable: {e}"]
     fb = feed.get('selected_result') or {}
+
+    # (a) mirror bytes == contents-API capture, blob-verified
+    raw_path = os.path.join(root, 'data', 'selected-result.raw.json')
+    if os.path.exists(raw_path):
+        raw = load(raw_path)
+        decoded = base64.b64decode(raw.get('content') or '')
+        if decoded != mirror_bytes:
+            errs.append("binding: mirror bytes differ from base64 content of "
+                        "selected-result.raw.json capture (mirror is not the "
+                        "artifact upstream served)")
+        if raw.get('sha'):
+            blob = hashlib.sha1(b'blob %d\0' % len(decoded) + decoded).hexdigest()
+            if blob != raw['sha']:
+                errs.append(f"binding: capture git-blob sha {raw['sha']} does not "
+                            f"recompute from mirror bytes ({blob})")
+        if raw.get('size') is not None and raw['size'] != len(decoded):
+            errs.append(f"binding: capture size {raw['size']} != mirror bytes "
+                        f"{len(decoded)}")
+
+    # (b) feed.selected_result binds the mirror byte content
+    feed_mirror_sha = fb.get('selected_result_sha256')
+    recomputed_mirror_sha = hashlib.sha256(mirror_bytes).hexdigest()
+    if feed_mirror_sha != recomputed_mirror_sha:
+        errs.append(f"binding: selected_result.selected_result_sha256 "
+                    f"{feed_mirror_sha!r} != sha256(mirror bytes) "
+                    f"{recomputed_mirror_sha!r}")
+
+    # (b2) feed kappa/decimal must equal the values parsed from the mirror bytes
     for field in ('kappa', 'decimal'):
         if fb.get(field) != sel.get(field):
-            errs.append(f"binding: selected_result.{field} {fb.get(field)!r} != upstream {sel.get(field)!r}")
-    if fb.get('certificate_sha256') != sel.get('certificate_sha256'):
-        errs.append("binding: selected_result.certificate_sha256 differs from upstream certificate")
-    # every human-verified record must equal the bound kappa exactly
+            errs.append(f"binding: selected_result.{field} {fb.get(field)!r} != "
+                        f"mirror {sel.get(field)!r}")
+
+    # (c) the deeper certificate artifact digest is recomputed from its bytes
+    declared_digest = sel.get('certificate_sha256')
+    artifact_path = os.path.join(root, 'data', 'certificate.artifact.json')
+    if os.path.exists(artifact_path):
+        with open(artifact_path, 'rb') as f:
+            art_bytes = f.read()
+        recomputed = hashlib.sha256(art_bytes).hexdigest()
+        if recomputed != fb.get('certificate_sha256'):
+            errs.append(f"binding: selected_result.certificate_sha256 "
+                        f"{fb.get('certificate_sha256')!r} != sha256(named "
+                        f"certificate artifact bytes) {recomputed}")
+        if declared_digest and recomputed != declared_digest:
+            errs.append(f"binding: sha256(named certificate artifact) {recomputed} "
+                        f"!= mirror-declared certificate_sha256 {declared_digest}")
+        if not fb.get('certificate_sha256'):
+            errs.append("binding: selected_result missing certificate_sha256 "
+                        "(human-verified can't be bound)")
+    else:
+        # authoritative bytes unavailable: a claimed digest with no recomputable
+        # byte source must not silently pass (F4 blocker, not an invented check)
+        if fb.get('certificate_sha256') or declared_digest:
+            errs.append(
+                "binding: certificate artifact bytes not captured "
+                "(data/certificate.artifact.json); certificate_sha256 cannot be "
+                "recomputed against authoritative bytes -> blocked")
+
+    # (d) every human-verified record binds the same digest + mirror kappa/decimal
     ck, cd = sel.get('kappa'), sel.get('decimal')
     if ck and cd:
         kn, kd = (int(x) for x in ck.split('/'))
-        for r in feed.get('records', []):
-            if r['tier'] == 'human-verified' and (r['kappa_num'] != kn or r['kappa_den'] != kd
-                                                  or r['kappa_decimal'] != cd):
-                errs.append(f"binding: pr {r['pr']} human-verified but does not match certificate kappa/decimal")
+    art_exists = os.path.exists(os.path.join(root, 'data', 'certificate.artifact.json'))
+    for r in feed.get('records', []):
+        if r['tier'] != 'human-verified':
+            continue
+        verify = r.get('verify') or {}
+        if ck and cd:
+            if r['kappa_num'] != kn or r['kappa_den'] != kd or r['kappa_decimal'] != cd:
+                errs.append(f"binding: pr {r['pr']} human-verified but kappa/dec "
+                            f"!= certificate ({kn}/{kd}, {cd})")
+        vdigest = verify.get('certificate_sha256')
+        if art_exists:
+            with open(os.path.join(root, 'data', 'certificate.artifact.json'), 'rb') as f:
+                rca = hashlib.sha256(f.read()).hexdigest()
+            if vdigest != rca:
+                errs.append(f"binding: pr {r['pr']} verify.certificate_sha256 "
+                            f"{vdigest!r} != recomputed artifact digest {rca}")
+            if vdigest != fb.get('certificate_sha256'):
+                errs.append(f"binding: pr {r['pr']} verify.certificate_sha256 "
+                            f"{vdigest!r} != selected_result.certificate_sha256 "
+                            f"{fb.get('certificate_sha256')!r}")
+        elif vdigest != fb.get('certificate_sha256') or vdigest != declared_digest:
+            errs.append(f"binding: pr {r['pr']} verify.certificate_sha256 "
+                        f"{vdigest!r} not bound to any recomputable certificate bytes")
     return errs
 
 
@@ -207,7 +337,7 @@ def main():
     schema = load(os.path.join(root, 'feed.schema.json'))
 
     results = {
-        '1-schema+agreement': check1(feed, schema),
+        '1-schema+agreement': check1(root, feed, schema),
         '2-determinism': check2(root, feed),
         '3-selected-result-binding': check3(root, feed),
         '4-claimed-verified-separation': check4(root, feed),

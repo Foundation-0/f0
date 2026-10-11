@@ -1,7 +1,188 @@
 {
   "feed_version": 1,
   "generated_at": "2026-10-11T13:37:08Z",
-  "quarantined": [],
+  "quarantined": [
+    {
+      "base_sha": "efaa57eb626a3a48bdb8ac17f4344d0298126b87",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "ba52fac95ebc7cd25d284888aefee2284b670fd6",
+      "kappa_decimal": "0.0006558894",
+      "kappa_den": 10000000000,
+      "kappa_num": 6558894,
+      "pr": 192,
+      "pr_updated_at": "2026-10-09T13:25:21Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/DaysSky/integer-mult-bounds/tree/ba52fac95ebc7cd25d284888aefee2284b670fd6",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/192"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "A κ ceiling of 7.010e-4 for every frame layout of #168's word (no new κ)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "b3c128ec4c3a4ac1a095f45a8d86e387bbda05ec",
+      "kappa_decimal": "0.0006618855",
+      "kappa_den": 10000000000,
+      "kappa_num": 6618855,
+      "pr": 201,
+      "pr_updated_at": "2026-10-09T14:27:52Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/DaysSky/integer-mult-bounds/tree/b3c128ec4c3a4ac1a095f45a8d86e387bbda05ec",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/201"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "A κ ceiling of 2.5592e-3 for every word on #144's paired-cube design (no new κ)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": true,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "d2873e20750d0949d2ad75cbc4cd82b5b1a74e84",
+      "kappa_decimal": "0.01",
+      "kappa_den": 100,
+      "kappa_num": 1,
+      "pr": 203,
+      "pr_updated_at": "2026-10-09T15:05:12Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/huxint/integer-mult-bounds/tree/d2873e20750d0949d2ad75cbc4cd82b5b1a74e84",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/203"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "Research: structural barriers for kappa = 0.01 (no new exponent)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "525ed356ec4928f4c31c7668ecb547f575278f4e",
+      "kappa_decimal": "0.0006773148",
+      "kappa_den": 2500000000,
+      "kappa_num": 1693287,
+      "pr": 204,
+      "pr_updated_at": "2026-10-10T00:25:21Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/525ed356ec4928f4c31c7668ecb547f575278f4e",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/204"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "Composed diagonal-bit bootstrap: the pricing model that called PR205's banked row, audits the queue, and prices the next ladder of κ gains"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "0d584fad684b7999ae94edc6a1914901bdc9efa7",
+      "kappa_decimal": "0.0006768823",
+      "kappa_den": 10000000000,
+      "kappa_num": 6768823,
+      "pr": 214,
+      "pr_updated_at": "2026-10-09T18:10:34Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/antoine-olivier/integer-mult-bounds/tree/0d584fad684b7999ae94edc6a1914901bdc9efa7",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/214"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "Replays of the verifiers of #207, #202, #197 and #199 (no new κ)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "aa947f2f0fb624e17c027a463286b42fc810fdeb",
+      "kappa_decimal": "0.0006838643131376",
+      "kappa_den": 10000000000000000,
+      "kappa_num": 6838643131376,
+      "pr": 221,
+      "pr_updated_at": "2026-10-09T19:28:23Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/aa947f2f0fb624e17c027a463286b42fc810fdeb",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/221"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "PR212's frame floor on PR217's butterfly word: κ < 6.968e-4 banked, +1.77% of frame room left (no new κ)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "cf64f1cb29f7af951db375f460ad683ec6d16419",
+      "kappa_decimal": "0.0015250667618335",
+      "kappa_den": 10000000000000000,
+      "kappa_num": 15250667618335,
+      "pr": 229,
+      "pr_updated_at": "2026-10-10T00:25:25Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/cf64f1cb29f7af951db375f460ad683ec6d16419",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/229"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "Six families per word: where the bank ladder tops out, and what the bit rank-6 rung would need (model, no new κ)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "109a857a329d18ed5552d5573f17ddfa886ae57f",
+      "kappa_decimal": "0.0006768823",
+      "kappa_den": 10000000000,
+      "kappa_num": 6768823,
+      "pr": 233,
+      "pr_updated_at": "2026-10-10T01:45:07Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/109a857a329d18ed5552d5573f17ddfa886ae57f",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/233"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "A stronger complex supplier: PR200's reuse pairing on the source-assisted v4 word, complex saving 7.0991·10⁻⁴ (+1.28% over #194; no new κ, bit binds)"
+    },
+    {
+      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
+      "draft": false,
+      "fetched_at": "2026-10-11T13:37:08Z",
+      "head_sha": "7ac169c58c96cebdb5cd490842331dff3610af62",
+      "kappa_decimal": "0.000749983",
+      "kappa_den": 1000000000,
+      "kappa_num": 749983,
+      "pr": 304,
+      "pr_updated_at": "2026-10-10T21:35:50Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/DreamingOfClouds/integer-mult-bounds/tree/7ac169c58c96cebdb5cd490842331dff3610af62",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/304"
+      },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
+      "tier": "claimed",
+      "title": "A stronger complex supplier: compile-cost-annealed complex modules, five-stage complex saving 7635/10⁷ (+1.17% over #233; no new κ)"
+    }
+  ],
   "records": [
     {
       "base_sha": "bcd4ebde8692383539f8a48734e5fbf3a18a32c2",
@@ -2236,24 +2417,6 @@
       "title": "Source-assisted complex word on PR168 v4 modules: conditional κ = 6.626307e-4"
     },
     {
-      "base_sha": "efaa57eb626a3a48bdb8ac17f4344d0298126b87",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "ba52fac95ebc7cd25d284888aefee2284b670fd6",
-      "kappa_decimal": "0.0006558894",
-      "kappa_den": 10000000000,
-      "kappa_num": 6558894,
-      "pr": 192,
-      "pr_updated_at": "2026-10-09T13:25:21Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/DaysSky/integer-mult-bounds/tree/ba52fac95ebc7cd25d284888aefee2284b670fd6",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/192"
-      },
-      "tier": "claimed",
-      "title": "A κ ceiling of 7.010e-4 for every frame layout of #168's word (no new κ)"
-    },
-    {
       "base_sha": "d1d6c070f5a8c684727ee7ec35d930f9ebfa9758",
       "draft": false,
       "fetched_at": "2026-10-11T13:37:08Z",
@@ -2383,24 +2546,6 @@
       "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
       "draft": false,
       "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "b3c128ec4c3a4ac1a095f45a8d86e387bbda05ec",
-      "kappa_decimal": "0.0006618855",
-      "kappa_den": 10000000000,
-      "kappa_num": 6618855,
-      "pr": 201,
-      "pr_updated_at": "2026-10-09T14:27:52Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/DaysSky/integer-mult-bounds/tree/b3c128ec4c3a4ac1a095f45a8d86e387bbda05ec",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/201"
-      },
-      "tier": "claimed",
-      "title": "A κ ceiling of 2.5592e-3 for every word on #144's paired-cube design (no new κ)"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
       "head_sha": "8d8d67bcf69c5ea67d3a29dbc64ba588156d6e8d",
       "kappa_decimal": "0.0006768823",
       "kappa_den": 10000000000,
@@ -2414,42 +2559,6 @@
       },
       "tier": "claimed",
       "title": "Compose the v4 source-assisted complex word with the PR200 bit supplier: conditional κ = 6.768823e-4"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": true,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "d2873e20750d0949d2ad75cbc4cd82b5b1a74e84",
-      "kappa_decimal": "0.01",
-      "kappa_den": 100,
-      "kappa_num": 1,
-      "pr": 203,
-      "pr_updated_at": "2026-10-09T15:05:12Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/huxint/integer-mult-bounds/tree/d2873e20750d0949d2ad75cbc4cd82b5b1a74e84",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/203"
-      },
-      "tier": "claimed",
-      "title": "Research: structural barriers for kappa = 0.01 (no new exponent)"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "525ed356ec4928f4c31c7668ecb547f575278f4e",
-      "kappa_decimal": "0.0006773148",
-      "kappa_den": 2500000000,
-      "kappa_num": 1693287,
-      "pr": 204,
-      "pr_updated_at": "2026-10-10T00:25:21Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/525ed356ec4928f4c31c7668ecb547f575278f4e",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/204"
-      },
-      "tier": "claimed",
-      "title": "Composed diagonal-bit bootstrap: the pricing model that called PR205's banked row, audits the queue, and prices the next ladder of κ gains"
     },
     {
       "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
@@ -2527,24 +2636,6 @@
       "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
       "draft": false,
       "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "0d584fad684b7999ae94edc6a1914901bdc9efa7",
-      "kappa_decimal": "0.0006768823",
-      "kappa_den": 10000000000,
-      "kappa_num": 6768823,
-      "pr": 214,
-      "pr_updated_at": "2026-10-09T18:10:34Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/antoine-olivier/integer-mult-bounds/tree/0d584fad684b7999ae94edc6a1914901bdc9efa7",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/214"
-      },
-      "tier": "claimed",
-      "title": "Replays of the verifiers of #207, #202, #197 and #199 (no new κ)"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
       "head_sha": "34abdc58ed77329c8bf9af5634531fc41939ba3c",
       "kappa_decimal": "0.0006838643131376",
       "kappa_den": 625000000000000,
@@ -2576,24 +2667,6 @@
       },
       "tier": "claimed",
       "title": "Conditional κ = 6.84696826673891e-4: paid XOR butterflies with cascade-optimized frames"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "aa947f2f0fb624e17c027a463286b42fc810fdeb",
-      "kappa_decimal": "0.0006838643131376",
-      "kappa_den": 10000000000000000,
-      "kappa_num": 6838643131376,
-      "pr": 221,
-      "pr_updated_at": "2026-10-09T19:28:23Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/aa947f2f0fb624e17c027a463286b42fc810fdeb",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/221"
-      },
-      "tier": "claimed",
-      "title": "PR212's frame floor on PR217's butterfly word: κ < 6.968e-4 banked, +1.77% of frame room left (no new κ)"
     },
     {
       "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
@@ -2666,42 +2739,6 @@
       },
       "tier": "claimed",
       "title": "Refine PR195 frame witness to κ = 0.000662832575455842015647"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "cf64f1cb29f7af951db375f460ad683ec6d16419",
-      "kappa_decimal": "0.0015250667618335",
-      "kappa_den": 10000000000000000,
-      "kappa_num": 15250667618335,
-      "pr": 229,
-      "pr_updated_at": "2026-10-10T00:25:25Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/cf64f1cb29f7af951db375f460ad683ec6d16419",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/229"
-      },
-      "tier": "claimed",
-      "title": "Six families per word: where the bank ladder tops out, and what the bit rank-6 rung would need (model, no new κ)"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "109a857a329d18ed5552d5573f17ddfa886ae57f",
-      "kappa_decimal": "0.0006768823",
-      "kappa_den": 10000000000,
-      "kappa_num": 6768823,
-      "pr": 233,
-      "pr_updated_at": "2026-10-10T01:45:07Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/109a857a329d18ed5552d5573f17ddfa886ae57f",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/233"
-      },
-      "tier": "claimed",
-      "title": "A stronger complex supplier: PR200's reuse pairing on the source-assisted v4 word, complex saving 7.0991·10⁻⁴ (+1.28% over #194; no new κ, bit binds)"
     },
     {
       "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
@@ -3728,24 +3765,6 @@
       },
       "tier": "claimed",
       "title": "Conditional κ = 7.49982571369270e-4: fixed-prime eight-level transfer on #300's gen5b-full package (+4.1e-12)"
-    },
-    {
-      "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
-      "draft": false,
-      "fetched_at": "2026-10-11T13:37:08Z",
-      "head_sha": "7ac169c58c96cebdb5cd490842331dff3610af62",
-      "kappa_decimal": "0.000749983",
-      "kappa_den": 1000000000,
-      "kappa_num": 749983,
-      "pr": 304,
-      "pr_updated_at": "2026-10-10T21:35:50Z",
-      "source_refs": {
-        "certificate_path": null,
-        "head_url": "https://github.com/DreamingOfClouds/integer-mult-bounds/tree/7ac169c58c96cebdb5cd490842331dff3610af62",
-        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/304"
-      },
-      "tier": "claimed",
-      "title": "A stronger complex supplier: compile-cost-annealed complex modules, five-stage complex saving 7635/10⁷ (+1.17% over #233; no new κ)"
     },
     {
       "base_sha": "3b6b66891c0ac888521cf591fe306c6286601d4f",
@@ -6019,7 +6038,10 @@
   "selected_result": {
     "certificate_sha256": "6a457a34b4db57417e5b253cf1c169da2bd6aff4c21363a31fd85dc931d49589",
     "decimal": "0.000723571590007464",
-    "kappa": "90446448750933/125000000000000000"
+    "kappa": "90446448750933/125000000000000000",
+    "selected_result_sha256": "df836c6d34509e980d067bd5678489c968bc6e329af9dd82c6207abf6443da89",
+    "source_blob_sha": "af3efd2f0145c4909d5314e1d93721336727be0c",
+    "source_path": "certificates/selected-result.json"
   },
   "upstream_main_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b"
 }

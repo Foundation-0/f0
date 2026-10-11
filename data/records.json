@@ -2247,6 +2247,8 @@
         "head_url": "https://github.com/DaysSky/integer-mult-bounds/tree/ba52fac95ebc7cd25d284888aefee2284b670fd6",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/192"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "A κ ceiling of 7.010e-4 for every frame layout of #168's word (no new κ)"
     },
@@ -2391,6 +2393,8 @@
         "head_url": "https://github.com/DaysSky/integer-mult-bounds/tree/b3c128ec4c3a4ac1a095f45a8d86e387bbda05ec",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/201"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "A κ ceiling of 2.5592e-3 for every word on #144's paired-cube design (no new κ)"
     },
@@ -2427,6 +2431,8 @@
         "head_url": "https://github.com/huxint/integer-mult-bounds/tree/d2873e20750d0949d2ad75cbc4cd82b5b1a74e84",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/203"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "Research: structural barriers for kappa = 0.01 (no new exponent)"
     },
@@ -2445,6 +2451,8 @@
         "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/525ed356ec4928f4c31c7668ecb547f575278f4e",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/204"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "Composed diagonal-bit bootstrap: the pricing model that called PR205's banked row, audits the queue, and prices the next ladder of κ gains"
     },
@@ -2535,6 +2543,8 @@
         "head_url": "https://github.com/antoine-olivier/integer-mult-bounds/tree/0d584fad684b7999ae94edc6a1914901bdc9efa7",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/214"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "Replays of the verifiers of #207, #202, #197 and #199 (no new κ)"
     },
@@ -2589,6 +2599,8 @@
         "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/aa947f2f0fb624e17c027a463286b42fc810fdeb",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/221"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "PR212's frame floor on PR217's butterfly word: κ < 6.968e-4 banked, +1.77% of frame room left (no new κ)"
     },
@@ -2679,6 +2691,8 @@
         "head_url": "https://github.com/maxime-fleury/integer-mult-bounds/tree/cf64f1cb29f7af951db375f460ad683ec6d16419",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/229"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "Six families per word: where the bank ladder tops out, and what the bit rank-6 rung would need (model, no new κ)"
     },
@@ -2697,6 +2711,8 @@
         "head_url": "https://github.com/chafreaky/integer-mult-bounds/tree/109a857a329d18ed5552d5573f17ddfa886ae57f",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/233"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "A stronger complex supplier: PR200's reuse pairing on the source-assisted v4 word, complex saving 7.0991·10⁻⁴ (+1.28% over #194; no new κ, bit binds)"
     },
@@ -3741,6 +3757,8 @@
         "head_url": "https://github.com/DreamingOfClouds/integer-mult-bounds/tree/7ac169c58c96cebdb5cd490842331dff3610af62",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/304"
       },
+      "stale": true,
+      "stale_reason": "no-construction-claim",
       "tier": "claimed",
       "title": "A stronger complex supplier: compile-cost-annealed complex modules, five-stage complex saving 7635/10⁷ (+1.17% over #233; no new κ)"
     },
