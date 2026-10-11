@@ -6627,8 +6627,29 @@
         "head_url": "https://github.com/DreamingOfClouds/integer-mult-bounds/tree/1b1de4833686bfa335509b21266afc44baef0fd2",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/463"
       },
+      "stale": true,
+      "stale_reason": "superseded-head",
+      "superseded_by": "cdf0c1c6540df987467988fd771340670f4136f3",
       "tier": "claimed",
       "title": "[Draft] E8 bit word R715 (carrier lower bound + F2 overlap cancellation): bit c ≈ 1.28513e-3, projected κ ≈ 1.2835e-3 with #458's complex"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": false,
+      "fetched_at": "2026-10-11T17:41:10Z",
+      "head_sha": "cdf0c1c6540df987467988fd771340670f4136f3",
+      "kappa_decimal": "0.001283479303751122",
+      "kappa_den": 500000000000000000,
+      "kappa_num": 641739651875561,
+      "pr": 463,
+      "pr_updated_at": "2026-10-11T17:34:40Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/DreamingOfClouds/integer-mult-bounds/tree/cdf0c1c6540df987467988fd771340670f4136f3",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/463"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001283479303751122: E8 bit word R715 (carrier lower bound + F2 overlap cancellation) with #458's complex supplier (+0.711% over #460)"
     },
     {
       "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
@@ -6699,6 +6720,27 @@
         "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/71bf8114f72f6bb58986d60a0f3f44330ff4b809",
         "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/467"
       },
+      "stale": true,
+      "stale_reason": "superseded-head",
+      "superseded_by": "e28109cd3fe2f2853449e4c49a55887790e16ba2",
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001289283116193775: R715 shared kernel, retiming and whole pooling"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T17:41:10Z",
+      "head_sha": "e28109cd3fe2f2853449e4c49a55887790e16ba2",
+      "kappa_decimal": "0.001289283116193775",
+      "kappa_den": 40000000000000000,
+      "kappa_num": 51571324647751,
+      "pr": 467,
+      "pr_updated_at": "2026-10-11T17:39:33Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/e28109cd3fe2f2853449e4c49a55887790e16ba2",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/467"
+      },
       "tier": "claimed",
       "title": "Conditional κ = 0.001289283116193775: R715 shared kernel, retiming and whole pooling"
     },
@@ -6719,6 +6761,24 @@
       },
       "tier": "claimed",
       "title": "Conditional κ = 0.001350580884553120: gate-frame retiming of #450's eleven-stage cross-copy word (+0.2105%)"
+    },
+    {
+      "base_sha": "12a4934d15006e8c10f9b2264f13f8f341be802b",
+      "draft": true,
+      "fetched_at": "2026-10-11T17:41:10Z",
+      "head_sha": "9b80c0aafdab562d0e1fc52af0cf98bbdf9e01f1",
+      "kappa_decimal": "0.001289658858369261",
+      "kappa_den": 1000000000000000000,
+      "kappa_num": 1289658858369261,
+      "pr": 470,
+      "pr_updated_at": "2026-10-11T17:40:58Z",
+      "source_refs": {
+        "certificate_path": null,
+        "head_url": "https://github.com/rohanarun/integer-mult-bounds/tree/9b80c0aafdab562d0e1fc52af0cf98bbdf9e01f1",
+        "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/470"
+      },
+      "tier": "claimed",
+      "title": "Conditional κ = 0.001289658858369261: reselect R715 kernel after retiming"
     }
   ]
 }
