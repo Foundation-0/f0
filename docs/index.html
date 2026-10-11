@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frontier-Math — integer multiplication κ race</title>
+<style>
+  :root { --bg:#0d1117; --fg:#e6edf3; --muted:#8b949e; --accent:#f85149; --line:#30363d;
+          --ok:#3fb950; --claim:#79c0ff; --draft:#6e7681; --panel:#010409; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:2rem 1.5rem; overflow-wrap:anywhere; background:var(--bg); color:var(--fg);
+         font:15px/1.55 system-ui, sans-serif; max-width:1080px; margin-inline:auto; }
+  a { color:#79c0ff; }
+  h1 { font-size:1.4rem; margin:0 0 .25rem; }
+  h2 { font-size:1.1rem; margin:1.5rem 0 .5rem; }
+  .sub { color:var(--muted); margin-bottom:1rem; }
+  /* STALENESS BANNER — content must stay red + verbatim-obligated wording below. */
+  #stale-banner { display:block; background:#67060c; border:1px solid var(--accent);
+     color:#ffdcd7; padding:.75rem 1rem; border-radius:8px; margin-bottom:1.25rem;
+     font-weight:600; }
+  #stale-banner .age { font-weight:400; color:#ffb3ab; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem;
+           margin:0 0 1rem; }
+  .stat { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:.6rem .8rem; }
+  .stat .k { color:var(--muted); font-size:.75rem; text-transform:uppercase; letter-spacing:.04em; }
+  .stat .v { font-size:1.15rem; font-weight:600; font-variant-numeric:tabular-nums; }
+  .stat .v small { font-size:.75rem; color:var(--muted); font-weight:400; }
+  .stat.lead .v { color:var(--claim); }  .stat.ver .v { color:var(--ok); }
+  .gap { background:#161b22; border-left:3px solid var(--ok); padding:.6rem .9rem; border-radius:0 8px 8px 0; }
+  #chart { width:100%; height:auto; background:var(--panel); border:1px solid var(--line);
+           border-radius:8px; margin:0 0 .5rem; display:block; }
+  #chart text { font:11px system-ui, sans-serif; fill:var(--muted); }
+  #chart .tick { stroke:#21262d; }
+  #chart .axis { stroke:var(--line); }
+  #chart .lbl { fill:var(--fg); font-weight:600; }
+  #chart circle:hover { stroke-width:3; }
+  .legend { color:var(--muted); font-size:.8rem; margin:.25rem 0 1rem; }
+  .legend .sw { display:inline-block; width:.8em; height:.8em; border-radius:50%; vertical-align:-1px; margin-right:.3em; }
+  .ctl { font-size:.8rem; color:var(--muted); margin:0 0 .75rem; }
+  .ctl label { margin-right:1rem; cursor:pointer; }
+  #table { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:.85rem; }
+  th, td { border-bottom:1px solid var(--line); padding:.35rem .5rem; text-align:left; vertical-align:top; }
+  th { color:var(--muted); font-weight:600; position:sticky; top:0; background:var(--bg); }
+  td.num { font-variant-numeric:tabular-nums; white-space:nowrap; }
+  tr.draft td { color:var(--muted); }
+  tr.lead td { color:var(--claim); }
+  code { background:#161b22; padding:.1rem .35rem; border-radius:4px; }
+  .title { color:var(--muted); font-size:.8rem; }
+</style>
+</head>
+<body>
+  <div id="stale-banner">
+    PR race moves ~every 10 min — every head SHA below must be re-checked;
+    nothing here is a live quote.
+    <span class="age" id="banner-age"></span>
+  </div>
+
+  <h1>Integer multiplication: conditional κ frontier</h1>
+  <p class="sub">v1 dashboard — upstream race
+    <a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>.
+    Method and tier definitions: <a href="method.html">method.html</a>.
+    Machine-readable feed: <a href="feed.json">feed.json</a> (schema
+    <a href="feed.schema.json">feed.schema.json</a>).</p>
+
+  <div class="stats" id="stats"></div>
+
+  <p class="gap" id="gap">The leading claim sits <span id="gap-pct">…</span> percent above the last verified result.
+    The certificate at <code>certificates/selected-result.json</code> still certifies
+    <span id="gap-ver">…</span>, the gen4 result from PR 279. Every point above that line on
+    the chart is an unconfirmed claim until the maintainers publish a new selection.</p>
+
+  <p class="ctl">
+    <label><input type="radio" name="scale" value="race" checked> Race view (κ near the frontier)</label>
+    <label><input type="radio" name="scale" value="log"> All claims (log scale)</label>
+    <label><input type="checkbox" id="show-drafts" checked> Show drafts</label>
+  </p>
+  <svg id="chart" viewBox="0 0 960 460" role="img"
+       aria-label="κ versus upstream PR number: claimed hollow circles, draft grey circles, frontier step line, human-verified reference line"></svg>
+  <p class="legend">
+    <span class="sw" style="border:1.5px solid var(--fg)"></span> claimed
+    &nbsp; <span class="sw" style="background:var(--draft)"></span> draft (never promoted)
+    &nbsp; <span style="color:var(--claim)">—</span> frontier of non-draft claims
+    &nbsp; <span style="color:var(--ok)">- -</span> human-verified selected result
+    &nbsp; <span style="color:#d29922">★</span> lean-verified (reserved, empty in v1).
+    X: upstream PR number; Y: κ decimal. Hover a point for its title.
+  </p>
+
+  <h2>All plotted points (inline source per point — unsourced points forbidden)</h2>
+  <div id="table"></div>
+
+<script>
+/* Reads the generated views only. Never hand-edit chart-data.json; produced by
+   scripts/fetch.py, verified by scripts/gate.py pre-commit. */
+const NS = 'http://www.w3.org/2000/svg';
+function el(n, a, text) { const e = document.createElementNS(NS, n);
+  for (const k in a) e.setAttribute(k, a[k]); if (text != null) e.textContent = text; return e; }
+const f = v => parseFloat(v);
+function fmtK(v, d) { return v.toExponential(d == null ? 4 : d).replace('e-', 'e−'); }
+function niceTicks(lo, hi, n) {
+  const span = hi - lo, raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const steps = [1, 2, 2.5, 5, 10]; let step = mag;
+  for (const s of steps) { if (raw <= s * mag) { step = s * mag; break; } }
+  const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-12; v += step) out.push(v);
+  return out;
+}
+
+let DATA = null;
+async function boot() {
+  const [chart, feed] = await Promise.all([
+    fetch('chart-data.json').then(r => r.json()),
+    fetch('feed.json').then(r => r.json()),
+  ]);
+  const titles = new Map(feed.records.map(r => [r.pr + ':' + r.head_sha, r.title]));
+  const verified = f(feed.selected_result.decimal);
+  const claimed = chart.claimed.map(r => ({...r, k: f(r.kappa_decimal),
+    title: titles.get(r.pr + ':' + r.head_sha) || ''}));
+  const live = claimed.filter(r => !r.draft);
+  const leader = live.reduce((a, b) => (b.k > a.k ? b : a), live[0]);
+  const gapPct = (leader.k / verified - 1) * 100;
+  const now = Date.now();
+  DATA = {chart, feed, claimed, live, leader, verified, now};
+
+  // headline stats
+  const stats = [
+    ['lead', 'Leading claim', `${fmtK(leader.k)} <small>#${leader.pr}</small>`],
+    ['ver', 'Human-verified', `${fmtK(verified)} <small>PR 279</small>`],
+    ['', 'Gap to certificate', `+${gapPct.toFixed(1)}%`],
+    ['', 'Open claims', `${live.length} <small>+ ${claimed.length - live.length} drafts</small>`],
+    ['', 'Quarantined', `${(feed.quarantined || []).length} <small>not plotted</small>`],
+    ['', 'Upstream main', `<small>${(feed.upstream_main_sha || '').slice(0, 8)}</small>`],
+  ];
+  document.getElementById('stats').innerHTML = stats.map(([c, k, v]) =>
+    `<div class="stat ${c}"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+  document.getElementById('gap-pct').textContent = gapPct.toFixed(1);
+  document.getElementById('gap-ver').textContent = feed.selected_result.decimal;
+
+  if (location.hash === '#log') document.querySelector('input[value=log]').checked = true;
+  if (location.hash === '#nodrafts') document.getElementById('show-drafts').checked = false;
+  draw();
+  document.querySelectorAll('input[name=scale], #show-drafts').forEach(i => i.addEventListener('change', draw));
+
+  // table: every plotted point, inline source (pr_url + head link + tier + age + title)
+  const rows = [...claimed].sort((a, b) => b.k - a.k);
+  const tb = rows.map(r => {
+    const age = Math.max(0, now - Date.parse(r.pr_updated_at)) / 3600e3;
+    const cls = r === leader ? 'lead' : (r.draft ? 'draft' : '');
+    const headUrl = r.pr_url.replace(/\/pull\/\d+$/, '') + '/pull/' + r.pr + '/commits/' + r.head_sha;
+    return `<tr class="${cls}"><td><a href="${r.pr_url}">#${r.pr}</a></td>` +
+      `<td><a href="${headUrl}"><code>${r.head_sha.slice(0, 8)}</code></a></td>` +
+      `<td class="num">${r.kappa_decimal}</td>` +
+      `<td>${r.draft ? 'claimed (draft)' : 'claimed'}</td><td class="num">${age.toFixed(1)} h</td>` +
+      `<td class="title">${esc(r.title)}</td></tr>`;
+  }).join('');
+  document.getElementById('table').innerHTML =
+    `<table><thead><tr><th>PR</th><th>head</th><th>κ decimal</th><th>tier</th>` +
+    `<th>pr_updated age</th><th>title</th></tr></thead><tbody>${tb}</tbody></table>`;
+
+  const fedAge = (now - Date.parse(feed.generated_at)) / 60e3;
+  document.getElementById('banner-age').textContent =
+    ` Feed generated ${fedAge.toFixed(1)} min ago.`;
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function draw() {
+  const {claimed, live, leader, verified} = DATA;
+  const mode = document.querySelector('input[name=scale]:checked').value;
+  const showDrafts = document.getElementById('show-drafts').checked;
+  const pts = showDrafts ? claimed : live;
+  const svg = document.getElementById('chart');
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  const W = 960, H = 460, M = {l: 84, r: 24, t: 24, b: 44};
+  const prMin = Math.min(...pts.map(r => r.pr)), prMax = Math.max(...pts.map(r => r.pr));
+  const sx = p => M.l + (p - prMin) / (prMax - prMin || 1) * (W - M.l - M.r);
+
+  // y scale: race view zooms to the frontier band; log view shows every decade.
+  let yLo, yHi, ty, inv, yticks, ylab;
+  if (mode === 'race') {
+    const top = Math.max(leader.k, verified);
+    const band = live.map(r => r.k).filter(k => k >= verified * 0.5);
+    yLo = Math.min(verified, ...band) * 0.97; yHi = top * 1.04;
+    ty = v => H - M.b - (v - yLo) / (yHi - yLo) * (H - M.t - M.b);
+    yticks = niceTicks(yLo, yHi, 7); ylab = v => fmtK(v, 3);
+  } else {
+    const ks = pts.map(r => r.k).filter(k => k > 0);
+    yLo = Math.floor(Math.log10(Math.min(...ks))); yHi = Math.ceil(Math.log10(Math.max(...ks, verified)));
+    ty = v => H - M.b - (Math.log10(v) - yLo) / (yHi - yLo) * (H - M.t - M.b);
+    yticks = []; for (let e = yLo; e <= yHi; e++) yticks.push(Math.pow(10, e));
+    ylab = v => '1e' + Math.round(Math.log10(v)).toString().replace('-', '−');
+  }
+  const sy = v => ty(v);
+  const below = mode === 'race' ? pts.filter(r => r.k < yLo) : [];
+  const clampY = v => Math.max(M.t, Math.min(H - M.b, sy(v)));
+
+  // grid + axes
+  for (const v of yticks) {
+    const y = sy(v); if (y < M.t - 1 || y > H - M.b + 1) continue;
+    svg.appendChild(el('line', {x1: M.l, y1: y, x2: W - M.r, y2: y, class: 'tick'}));
+    svg.appendChild(el('text', {x: M.l - 8, y: y + 4, 'text-anchor': 'end'}, ylab(v)));
+  }
+  const xstep = (prMax - prMin) > 300 ? 50 : 25;
+  for (let p = Math.ceil(prMin / xstep) * xstep; p <= prMax; p += xstep) {
+    const x = sx(p);
+    svg.appendChild(el('line', {x1: x, y1: M.t, x2: x, y2: H - M.b, class: 'tick'}));
+    svg.appendChild(el('text', {x, y: H - M.b + 16, 'text-anchor': 'middle'}, '#' + p));
+  }
+  svg.appendChild(el('line', {x1: M.l, y1: H - M.b, x2: W - M.r, y2: H - M.b, class: 'axis'}));
+  svg.appendChild(el('line', {x1: M.l, y1: M.t, x2: M.l, y2: H - M.b, class: 'axis'}));
+  svg.appendChild(el('text', {x: W - M.r, y: H - 6, 'text-anchor': 'end'}, 'upstream PR number →'));
+  svg.appendChild(el('text', {x: M.l - 8, y: M.t - 8, 'text-anchor': 'end'}, 'κ'));
+
+  // unverified gap band: between the certificate and the frontier
+  const yv = sy(verified), yl = sy(leader.k);
+  if (yl < yv) {
+    svg.appendChild(el('rect', {x: M.l, y: yl, width: W - M.l - M.r, height: yv - yl,
+      fill: '#79c0ff', opacity: .05}));
+  }
+
+  // frontier step-line over non-draft claims (running max by PR number)
+  {
+    const sorted = [...live].sort((a, b) => a.pr - b.pr);
+    let best = -Infinity, d = '', started = false;
+    for (const r of sorted) {
+      if (r.k > best) {
+        const x = sx(r.pr).toFixed(1);
+        if (started) d += `L${x},${clampY(best).toFixed(1)}`;
+        d += `${started ? 'L' : 'M'}${x},${clampY(r.k).toFixed(1)}`;
+        best = r.k; started = true;
+      }
+    }
+    d += `L${sx(prMax).toFixed(1)},${clampY(best).toFixed(1)}`;
+    svg.appendChild(el('path', {d, stroke: '#79c0ff', 'stroke-width': 1.8, fill: 'none', opacity: .9}));
+  }
+
+  // points
+  for (const r of pts) {
+    const x = sx(r.pr), y = clampY(r.k), off = mode === 'race' && r.k < yLo;
+    const c = el('circle', {cx: x, cy: off ? H - M.b - 3 : y, r: off ? 2.5 : 4.5,
+      fill: r.draft ? '#30363d' : '#0d1117',
+      stroke: r === leader ? '#79c0ff' : (r.draft ? '#6e7681' : '#e6edf3'),
+      'stroke-width': r === leader ? 2.5 : 1.4, opacity: off ? .5 : 1});
+    c.appendChild(el('title', {}, `#${r.pr}${r.draft ? ' (draft)' : ''} κ=${r.kappa_decimal}` +
+      (r.title ? `\n${r.title}` : '') + (off ? '\n(below race view range)' : '')));
+    svg.appendChild(c);
+  }
+  if (below.length) {
+    svg.appendChild(el('text', {x: M.l + 6, y: H - M.b - 8, 'font-size': 10},
+      `${below.length} claim${below.length > 1 ? 's' : ''} below ${fmtK(yLo, 2)} drawn on the baseline`));
+  }
+
+  // selected-result reference line
+  svg.appendChild(el('line', {x1: M.l, y1: yv, x2: W - M.r, y2: yv,
+    stroke: '#3fb950', 'stroke-dasharray': '5 4', 'stroke-width': 1.3}));
+  svg.appendChild(el('text', {x: M.l + 6, y: yv + 14, fill: '#3fb950', class: 'lbl'},
+    `human-verified ${fmtK(verified)} (PR 279)`));
+  // leader label
+  svg.appendChild(el('text', {x: Math.min(sx(leader.pr), W - M.r - 150), y: yl - 10,
+    fill: '#79c0ff', class: 'lbl'}, `leading claim #${leader.pr} ${fmtK(leader.k)}`));
+}
+boot().catch(e => {
+  document.getElementById('table').textContent = 'feed/chart data failed to load: ' + e;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+name: update
+# v1 pipeline per leo/ARCHITECTURE.md §Update pipeline.
+# NOTE (owner decision D-1): Pages stays OFF until the owner enables it; until then
+# Pages publishing does not exist and the schedule below does not run while this PR
+# is unmerged (GitHub Actions schedules only fire on the default branch). After
+# merge, keep cron enabled but treat commits as data-only; Shaka gates first.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch upstream + parse kappa + emit feed/chart
+        run: python3 scripts/fetch.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Staging gate (schema, determinism, selected-result binding, separation)
+        run: python3 scripts/gate.py
+
+      - name: Golden parser regression (no network)
+        run: python3 tests/run_golden.py
+
+      - name: F1-F5 finding regressions (no network)
+        run: python3 tests/run_regressions.py
+
+      - name: Commit generated data only if gate passed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain -- data/records.json data/selected-result.json data/certificate.artifact.json docs/feed.json docs/chart-data.json docs/feed.schema.json)" ]; then
+            git add data/records.json data/selected-result.json data/certificate.artifact.json docs/feed.json docs/chart-data.json docs/feed.schema.json
+            git commit -m "data: update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          else
+            echo "no data changes; nothing to commit"
+          fi

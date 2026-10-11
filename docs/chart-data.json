@@ -1,0 +1,2606 @@
+{
+  "claimed": [
+    {
+      "draft": true,
+      "head_sha": "bfb168a5611c9eb219d04cf7d551edf1517ecd78",
+      "kappa_decimal": "0.0000000000000000017523184",
+      "pr": 1,
+      "pr_updated_at": "2026-10-07T20:58:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1"
+    },
+    {
+      "draft": false,
+      "head_sha": "8bb07d55f6898bc8ec919222cf7596e987e9b69f",
+      "kappa_decimal": "0.000000000000000001843143693225357537812669761478900909423828125",
+      "pr": 2,
+      "pr_updated_at": "2026-10-08T16:19:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2"
+    },
+    {
+      "draft": false,
+      "head_sha": "dfe5b818aad4d386cb5dd7d76df108088107765d",
+      "kappa_decimal": "0.00000000059",
+      "pr": 3,
+      "pr_updated_at": "2026-10-08T02:28:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3"
+    },
+    {
+      "draft": false,
+      "head_sha": "8c225e619168c0141dcfcba3b68a65bbed6a8729",
+      "kappa_decimal": "0.000000000591",
+      "pr": 4,
+      "pr_updated_at": "2026-10-08T03:45:41Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4"
+    },
+    {
+      "draft": false,
+      "head_sha": "d3d370c34937503bd3fa63c83d505a05e8e50893",
+      "kappa_decimal": "0.000000001479",
+      "pr": 5,
+      "pr_updated_at": "2026-10-08T04:09:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5"
+    },
+    {
+      "draft": false,
+      "head_sha": "5015011bd9a655da038910171eee9f431f4590ff",
+      "kappa_decimal": "0.000000001624",
+      "pr": 6,
+      "pr_updated_at": "2026-10-08T05:23:30Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/6"
+    },
+    {
+      "draft": false,
+      "head_sha": "6725c6a17b17871a35353fd29157f4ed851bc114",
+      "kappa_decimal": "0.00000000373",
+      "pr": 7,
+      "pr_updated_at": "2026-10-08T06:12:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/7"
+    },
+    {
+      "draft": false,
+      "head_sha": "4920e44843512014f742d685e01341f6787bbd5f",
+      "kappa_decimal": "0.00000000059",
+      "pr": 8,
+      "pr_updated_at": "2026-10-09T00:43:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/8"
+    },
+    {
+      "draft": false,
+      "head_sha": "cfd6a2baded9dba990b987934474a7721d6ca3fb",
+      "kappa_decimal": "0.0000000038",
+      "pr": 9,
+      "pr_updated_at": "2026-10-08T08:22:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/9"
+    },
+    {
+      "draft": false,
+      "head_sha": "35d31e30f28bc5da0ae6a88e7b03d75ebc855534",
+      "kappa_decimal": "0.00000012649",
+      "pr": 12,
+      "pr_updated_at": "2026-10-08T08:47:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/12"
+    },
+    {
+      "draft": false,
+      "head_sha": "3ef246fa4f69c87ebfed78376418afa9ffcad145",
+      "kappa_decimal": "0.0000007699",
+      "pr": 13,
+      "pr_updated_at": "2026-10-08T09:01:22Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/13"
+    },
+    {
+      "draft": false,
+      "head_sha": "1fa5b9a9aaccbebb3eb29ac7ea55811f46464eee",
+      "kappa_decimal": "0.00000090799",
+      "pr": 14,
+      "pr_updated_at": "2026-10-08T09:19:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/14"
+    },
+    {
+      "draft": false,
+      "head_sha": "a17cab396ce1c79c288bde9d06002cefdc0af8e6",
+      "kappa_decimal": "0.000001076678",
+      "pr": 15,
+      "pr_updated_at": "2026-10-08T09:26:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/15"
+    },
+    {
+      "draft": false,
+      "head_sha": "a80f5e676c84b59def9791495df0655efe89a04f",
+      "kappa_decimal": "0.0000009799",
+      "pr": 16,
+      "pr_updated_at": "2026-10-08T09:36:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/16"
+    },
+    {
+      "draft": false,
+      "head_sha": "c915b4117626a512dd470adbdbd76963108f5cb3",
+      "kappa_decimal": "0.000001248342",
+      "pr": 17,
+      "pr_updated_at": "2026-10-08T10:04:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/17"
+    },
+    {
+      "draft": false,
+      "head_sha": "817aeb7b1225717d1b784d507570bf02ed89294c",
+      "kappa_decimal": "0.000002093495",
+      "pr": 19,
+      "pr_updated_at": "2026-10-08T10:36:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/19"
+    },
+    {
+      "draft": true,
+      "head_sha": "4f8d6c8272b5ff307a0da51df545ec3cd96a8b6e",
+      "kappa_decimal": "0.0000011668950558467842",
+      "pr": 20,
+      "pr_updated_at": "2026-10-08T10:57:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/20"
+    },
+    {
+      "draft": false,
+      "head_sha": "5ba6cf0bfb68f2be8d15610e7972207c50254d6a",
+      "kappa_decimal": "0.000005499",
+      "pr": 21,
+      "pr_updated_at": "2026-10-08T10:24:48Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/21"
+    },
+    {
+      "draft": false,
+      "head_sha": "c2f03ed48637fbe69803b6cecdcd50686e3274af",
+      "kappa_decimal": "0.0000057114918",
+      "pr": 22,
+      "pr_updated_at": "2026-10-08T11:46:40Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/22"
+    },
+    {
+      "draft": false,
+      "head_sha": "661ebabc1076c9f525d7ce4967c876b203fa9827",
+      "kappa_decimal": "0.00001099",
+      "pr": 23,
+      "pr_updated_at": "2026-10-08T10:43:55Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/23"
+    },
+    {
+      "draft": false,
+      "head_sha": "003f366cfa99e19fbeacd9300a219f2d44c8cff0",
+      "kappa_decimal": "0.000011447067",
+      "pr": 25,
+      "pr_updated_at": "2026-10-08T10:57:42Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/25"
+    },
+    {
+      "draft": false,
+      "head_sha": "c297233e788a23e9833ad1ee07fc8517accd0f42",
+      "kappa_decimal": "0.0000119720853",
+      "pr": 27,
+      "pr_updated_at": "2026-10-08T11:44:43Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/27"
+    },
+    {
+      "draft": false,
+      "head_sha": "bb1143d0714bf315a0043cebeabe96b987af935e",
+      "kappa_decimal": "0.000012260937",
+      "pr": 28,
+      "pr_updated_at": "2026-10-08T11:16:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/28"
+    },
+    {
+      "draft": false,
+      "head_sha": "9d963275075fa98f1da821e27757b238dafd6b3c",
+      "kappa_decimal": "0.000015536",
+      "pr": 29,
+      "pr_updated_at": "2026-10-08T11:20:11Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/29"
+    },
+    {
+      "draft": false,
+      "head_sha": "122e6453e80330633af701eabd1a6a72dfefd286",
+      "kappa_decimal": "0.000015878574",
+      "pr": 31,
+      "pr_updated_at": "2026-10-08T11:37:30Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/31"
+    },
+    {
+      "draft": false,
+      "head_sha": "a499a345c040aa15b68e984a0904eadc485c7a7e",
+      "kappa_decimal": "0.00001638103206",
+      "pr": 33,
+      "pr_updated_at": "2026-10-08T11:49:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/33"
+    },
+    {
+      "draft": false,
+      "head_sha": "7fecbe3651e095fb0f450756afdeefd2a9ee80a2",
+      "kappa_decimal": "0.00001639226629",
+      "pr": 34,
+      "pr_updated_at": "2026-10-08T12:10:06Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/34"
+    },
+    {
+      "draft": false,
+      "head_sha": "9c345a2a11e5f4f3649f7c68214bf9a2a0a3fe9c",
+      "kappa_decimal": "0.000016631776",
+      "pr": 35,
+      "pr_updated_at": "2026-10-08T12:37:15Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/35"
+    },
+    {
+      "draft": false,
+      "head_sha": "605323bab4ba330de3d1785dc5b3ecb14e8ab747",
+      "kappa_decimal": "0.00003886224",
+      "pr": 38,
+      "pr_updated_at": "2026-10-08T13:01:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/38"
+    },
+    {
+      "draft": false,
+      "head_sha": "e3bf3ab0cb1ec48588e279b31a97e7a49c72f99e",
+      "kappa_decimal": "0.00003918734894",
+      "pr": 40,
+      "pr_updated_at": "2026-10-08T13:36:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/40"
+    },
+    {
+      "draft": false,
+      "head_sha": "03bde70c0c2a453f1ceae20c619b602841405467",
+      "kappa_decimal": "0.00004034168124",
+      "pr": 41,
+      "pr_updated_at": "2026-10-08T13:46:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/41"
+    },
+    {
+      "draft": false,
+      "head_sha": "a92fc98c456f6c8863b8bba90079ba71b97d2dc0",
+      "kappa_decimal": "0.00004099494519",
+      "pr": 42,
+      "pr_updated_at": "2026-10-08T14:04:50Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/42"
+    },
+    {
+      "draft": false,
+      "head_sha": "1a21794eb5384db0e96d7bc2b11aa6f28cff7a85",
+      "kappa_decimal": "0.00004100629254",
+      "pr": 44,
+      "pr_updated_at": "2026-10-08T14:35:23Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/44"
+    },
+    {
+      "draft": false,
+      "head_sha": "117caf164e3b235ef20188aa2dc1b49617e9255c",
+      "kappa_decimal": "0.00004105106623",
+      "pr": 47,
+      "pr_updated_at": "2026-10-08T15:05:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/47"
+    },
+    {
+      "draft": false,
+      "head_sha": "5e42f913e827990f30d0f0918e54a803d830f13e",
+      "kappa_decimal": "0.00005102757",
+      "pr": 63,
+      "pr_updated_at": "2026-10-08T19:27:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/63"
+    },
+    {
+      "draft": false,
+      "head_sha": "b0cea06d7fd5ac10f76169b01d3114f208fc7448",
+      "kappa_decimal": "0.000051028985071975",
+      "pr": 65,
+      "pr_updated_at": "2026-10-08T19:12:43Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/65"
+    },
+    {
+      "draft": false,
+      "head_sha": "701b1246e2def8b022a14309b5171138f2b12a52",
+      "kappa_decimal": "0.0000483109396",
+      "pr": 66,
+      "pr_updated_at": "2026-10-08T19:53:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/66"
+    },
+    {
+      "draft": false,
+      "head_sha": "46991a21d13f37faf2350591de7d794cfaa4455e",
+      "kappa_decimal": "0.000051033760584215",
+      "pr": 67,
+      "pr_updated_at": "2026-10-08T19:34:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/67"
+    },
+    {
+      "draft": false,
+      "head_sha": "b1b2af3415ecb494a0552b16c18045bf3ee05e95",
+      "kappa_decimal": "0.00005103512721785",
+      "pr": 68,
+      "pr_updated_at": "2026-10-08T19:25:57Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/68"
+    },
+    {
+      "draft": true,
+      "head_sha": "6817afefcf0e42fb378f29f36945f4ae551b493d",
+      "kappa_decimal": "0.00005136837484",
+      "pr": 69,
+      "pr_updated_at": "2026-10-09T00:19:00Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/69"
+    },
+    {
+      "draft": false,
+      "head_sha": "11a4e3176511ece840d57b7db045772945d9703c",
+      "kappa_decimal": "0.0000510403292611078",
+      "pr": 70,
+      "pr_updated_at": "2026-10-08T19:05:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/70"
+    },
+    {
+      "draft": false,
+      "head_sha": "f59cb9f54d12a2a02b665afef24a9bb5061ae011",
+      "kappa_decimal": "0.000051414646104039",
+      "pr": 71,
+      "pr_updated_at": "2026-10-08T19:58:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/71"
+    },
+    {
+      "draft": true,
+      "head_sha": "ecb79f2c56b1b08efad21a6b087f0b95fb121a71",
+      "kappa_decimal": "0.00007808981744031",
+      "pr": 74,
+      "pr_updated_at": "2026-10-09T00:56:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/74"
+    },
+    {
+      "draft": false,
+      "head_sha": "da9b6cbebb33e8b8293a604dde0eace9de53406b",
+      "kappa_decimal": "0.0000514154245470094",
+      "pr": 75,
+      "pr_updated_at": "2026-10-08T19:34:43Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/75"
+    },
+    {
+      "draft": true,
+      "head_sha": "2333abcea79793fe301b479a7c971cc2be45596c",
+      "kappa_decimal": "0.000051738676045141",
+      "pr": 76,
+      "pr_updated_at": "2026-10-08T19:55:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/76"
+    },
+    {
+      "draft": false,
+      "head_sha": "17c979eb6dcd4c300e6263c66111f220a9e926e7",
+      "kappa_decimal": "0.000052062354654791",
+      "pr": 77,
+      "pr_updated_at": "2026-10-08T22:27:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/77"
+    },
+    {
+      "draft": false,
+      "head_sha": "7c3793131155fa5795920eff35057672be38833a",
+      "kappa_decimal": "0.000051428783626028",
+      "pr": 78,
+      "pr_updated_at": "2026-10-08T20:50:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/78"
+    },
+    {
+      "draft": false,
+      "head_sha": "79dd6e134855bc8a7b8950c3aa0eb279fe148ceb",
+      "kappa_decimal": "0.000051745625472866",
+      "pr": 79,
+      "pr_updated_at": "2026-10-08T20:33:40Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/79"
+    },
+    {
+      "draft": false,
+      "head_sha": "4fb50b65e3542592bb1674a0211b0b5faa3ed920",
+      "kappa_decimal": "0.000051778825456819",
+      "pr": 80,
+      "pr_updated_at": "2026-10-08T20:50:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/80"
+    },
+    {
+      "draft": false,
+      "head_sha": "acae4964aef41c69f3c57e72a45e76afc4d4934d",
+      "kappa_decimal": "0.000051915547765237",
+      "pr": 81,
+      "pr_updated_at": "2026-10-08T20:18:40Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/81"
+    },
+    {
+      "draft": false,
+      "head_sha": "67b446ccdb9d23cae9683f6059fb607b52285004",
+      "kappa_decimal": "0.00005203279888519",
+      "pr": 82,
+      "pr_updated_at": "2026-10-08T21:00:34Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/82"
+    },
+    {
+      "draft": false,
+      "head_sha": "424ef44609eda377250b2985a5210cb336ade19e",
+      "kappa_decimal": "0.0000522712890914",
+      "pr": 84,
+      "pr_updated_at": "2026-10-08T21:22:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/84"
+    },
+    {
+      "draft": false,
+      "head_sha": "dd7690a5a7a3027afcb002aa8ef41d0e29bde58f",
+      "kappa_decimal": "0.000052272192668365",
+      "pr": 85,
+      "pr_updated_at": "2026-10-08T21:33:52Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/85"
+    },
+    {
+      "draft": false,
+      "head_sha": "f0fe4453a088c62af3ee795691fa92c502ed8b57",
+      "kappa_decimal": "0.000052275423755251",
+      "pr": 86,
+      "pr_updated_at": "2026-10-08T22:01:34Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/86"
+    },
+    {
+      "draft": false,
+      "head_sha": "466fc99e67d872831d1d192394f346a28e909e09",
+      "kappa_decimal": "0.000052431959054651",
+      "pr": 87,
+      "pr_updated_at": "2026-10-08T21:23:40Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/87"
+    },
+    {
+      "draft": false,
+      "head_sha": "d5a5b936844104db18c5bdd871f89da2fbf99551",
+      "kappa_decimal": "0.000052514124198891",
+      "pr": 88,
+      "pr_updated_at": "2026-10-08T22:02:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/88"
+    },
+    {
+      "draft": false,
+      "head_sha": "6e3d667ee119cc630eb5ffc69ea4c222f967ce2d",
+      "kappa_decimal": "0.000052445080818074",
+      "pr": 89,
+      "pr_updated_at": "2026-10-08T22:22:55Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/89"
+    },
+    {
+      "draft": false,
+      "head_sha": "8d1a0838f3e906d372818df02b3564c8b36495cc",
+      "kappa_decimal": "0.000052789616935221",
+      "pr": 91,
+      "pr_updated_at": "2026-10-08T22:30:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/91"
+    },
+    {
+      "draft": false,
+      "head_sha": "2b4dca843b7a719512595896aab29de28bc4ea1f",
+      "kappa_decimal": "0.000052111890493145",
+      "pr": 92,
+      "pr_updated_at": "2026-10-10T00:25:17Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/92"
+    },
+    {
+      "draft": false,
+      "head_sha": "f5f5ebdfc92fa6001d209aafba432a36ff9d86f5",
+      "kappa_decimal": "0.000052790906739644",
+      "pr": 93,
+      "pr_updated_at": "2026-10-08T23:05:52Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/93"
+    },
+    {
+      "draft": false,
+      "head_sha": "0c440e40c9d4a5a02ca5bd028a2ebb5ebbca55d7",
+      "kappa_decimal": "0.000052790937858556",
+      "pr": 94,
+      "pr_updated_at": "2026-10-08T22:00:47Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/94"
+    },
+    {
+      "draft": false,
+      "head_sha": "641aae7baf14ae21b69145d54e8232bf20076fce",
+      "kappa_decimal": "0.00005279109590448",
+      "pr": 95,
+      "pr_updated_at": "2026-10-08T23:19:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/95"
+    },
+    {
+      "draft": false,
+      "head_sha": "e15350b66e4bf796153a68c240a6cc1b788abe3e",
+      "kappa_decimal": "0.000063965813",
+      "pr": 97,
+      "pr_updated_at": "2026-10-08T23:01:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/97"
+    },
+    {
+      "draft": false,
+      "head_sha": "6862c47f5fcb69dfb424e1bb7f32f415d8659063",
+      "kappa_decimal": "0.000052791461623702",
+      "pr": 98,
+      "pr_updated_at": "2026-10-09T00:37:23Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/98"
+    },
+    {
+      "draft": true,
+      "head_sha": "0622dcce6a897567e4eb6bdfedc7def66ab21346",
+      "kappa_decimal": "0.000063982820832686571",
+      "pr": 99,
+      "pr_updated_at": "2026-10-08T23:01:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/99"
+    },
+    {
+      "draft": false,
+      "head_sha": "22dc19dd7123dd582110a912a6ca687e31e2243f",
+      "kappa_decimal": "0.000063978919675787",
+      "pr": 100,
+      "pr_updated_at": "2026-10-09T00:09:25Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/100"
+    },
+    {
+      "draft": false,
+      "head_sha": "3fc54ebacb1fbbd1f0e0e66f9dbd32202934661c",
+      "kappa_decimal": "0.000063974824",
+      "pr": 102,
+      "pr_updated_at": "2026-10-08T22:58:51Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/102"
+    },
+    {
+      "draft": false,
+      "head_sha": "75ab1f70d146c21c7611ce0df9eb5f645f51ac0e",
+      "kappa_decimal": "0.00006398282083297",
+      "pr": 103,
+      "pr_updated_at": "2026-10-09T00:14:57Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/103"
+    },
+    {
+      "draft": false,
+      "head_sha": "34c066390b9b0026789d8ce9b0e044bc30253b2b",
+      "kappa_decimal": "0.000052805219274162",
+      "pr": 106,
+      "pr_updated_at": "2026-10-08T23:21:31Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/106"
+    },
+    {
+      "draft": false,
+      "head_sha": "eb231b7b63f7fc99d51ffc16e0356831c3af1c22",
+      "kappa_decimal": "0.00007798412662809",
+      "pr": 107,
+      "pr_updated_at": "2026-10-09T00:15:02Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/107"
+    },
+    {
+      "draft": false,
+      "head_sha": "4974895daf92b51d2cc4a954bc6b77be2d7ff4c4",
+      "kappa_decimal": "0.00007988289348441",
+      "pr": 108,
+      "pr_updated_at": "2026-10-09T00:38:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/108"
+    },
+    {
+      "draft": false,
+      "head_sha": "45389b383b31092d83d19007dd6faaa8543db961",
+      "kappa_decimal": "0.000079961717358",
+      "pr": 109,
+      "pr_updated_at": "2026-10-09T00:42:36Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/109"
+    },
+    {
+      "draft": false,
+      "head_sha": "09775e9f3fbf1900175010bcd0c3d6d1dbf65ffe",
+      "kappa_decimal": "0.0000858478",
+      "pr": 110,
+      "pr_updated_at": "2026-10-09T00:02:51Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/110"
+    },
+    {
+      "draft": false,
+      "head_sha": "5b3add9415bf7ef19e1dfe739903d09d66c1d9ca",
+      "kappa_decimal": "0.00008578151200855",
+      "pr": 111,
+      "pr_updated_at": "2026-10-09T00:48:42Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/111"
+    },
+    {
+      "draft": false,
+      "head_sha": "502761e7e02e25c737f61be718e29bca3f391d19",
+      "kappa_decimal": "0.0000939074",
+      "pr": 113,
+      "pr_updated_at": "2026-10-09T01:22:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/113"
+    },
+    {
+      "draft": false,
+      "head_sha": "77227550987a49eec5f335b61ab233fc5c93dbe8",
+      "kappa_decimal": "0.000123988197806",
+      "pr": 114,
+      "pr_updated_at": "2026-10-09T02:04:56Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/114"
+    },
+    {
+      "draft": false,
+      "head_sha": "295a48a3b966428896057a98c6b4834c0b4b7416",
+      "kappa_decimal": "0.000098699350338",
+      "pr": 116,
+      "pr_updated_at": "2026-10-09T11:12:02Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/116"
+    },
+    {
+      "draft": false,
+      "head_sha": "cbb05ce504d571546d9b7794c186a613c659c3bf",
+      "kappa_decimal": "0.0001044939",
+      "pr": 117,
+      "pr_updated_at": "2026-10-09T00:39:23Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/117"
+    },
+    {
+      "draft": false,
+      "head_sha": "51fd1bbff9b73e3ad6e8bc6d53318909c3785484",
+      "kappa_decimal": "0.000108542805968",
+      "pr": 118,
+      "pr_updated_at": "2026-10-09T11:12:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/118"
+    },
+    {
+      "draft": false,
+      "head_sha": "446dd07dbe14f6dcfcca629f3a9cb01cb148f003",
+      "kappa_decimal": "0.00008032517",
+      "pr": 121,
+      "pr_updated_at": "2026-10-09T01:05:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/121"
+    },
+    {
+      "draft": false,
+      "head_sha": "b1a6f24e57141637b3ff040d6f2ce9d896ffb9bb",
+      "kappa_decimal": "0.00010941620808215",
+      "pr": 122,
+      "pr_updated_at": "2026-10-09T01:11:36Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/122"
+    },
+    {
+      "draft": false,
+      "head_sha": "4634e11162691478556c1ef88fa6a369c2622abf",
+      "kappa_decimal": "0.000109285663466",
+      "pr": 123,
+      "pr_updated_at": "2026-10-09T11:12:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/123"
+    },
+    {
+      "draft": false,
+      "head_sha": "3657b5d62fabc0bd2b1c596ad86b97002e437ea8",
+      "kappa_decimal": "0.00011038332094346",
+      "pr": 124,
+      "pr_updated_at": "2026-10-09T02:06:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/124"
+    },
+    {
+      "draft": false,
+      "head_sha": "dda535bdcfc321a13a1ebd3c2d70e2b5bb72368e",
+      "kappa_decimal": "0.000110591581647",
+      "pr": 125,
+      "pr_updated_at": "2026-10-09T01:30:32Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/125"
+    },
+    {
+      "draft": true,
+      "head_sha": "31ceb5ead3055ea780e13654b05b546d26c3d6ed",
+      "kappa_decimal": "0.000111192082577",
+      "pr": 126,
+      "pr_updated_at": "2026-10-09T01:58:09Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/126"
+    },
+    {
+      "draft": true,
+      "head_sha": "ca8725485a822769f24c2e4e9b8955b31a42b044",
+      "kappa_decimal": "0.00011239534209971",
+      "pr": 127,
+      "pr_updated_at": "2026-10-09T01:34:34Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/127"
+    },
+    {
+      "draft": false,
+      "head_sha": "530588a019b4a74f09180680c9e3961bf649ec89",
+      "kappa_decimal": "0.00012310001053253",
+      "pr": 128,
+      "pr_updated_at": "2026-10-09T01:36:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/128"
+    },
+    {
+      "draft": false,
+      "head_sha": "59fade1f7790db61a56b69e0d3974c0a97b41f4d",
+      "kappa_decimal": "0.000129186205798",
+      "pr": 129,
+      "pr_updated_at": "2026-10-09T02:50:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/129"
+    },
+    {
+      "draft": false,
+      "head_sha": "3acf2f944abd069301600ce468f16f1dd8f1f9e4",
+      "kappa_decimal": "0.000332205398986",
+      "pr": 131,
+      "pr_updated_at": "2026-10-09T02:52:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/131"
+    },
+    {
+      "draft": false,
+      "head_sha": "2c97e8ab1578d05d0aacf03903f458b088c7dd50",
+      "kappa_decimal": "0.000111513943837",
+      "pr": 133,
+      "pr_updated_at": "2026-10-09T02:51:02Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/133"
+    },
+    {
+      "draft": true,
+      "head_sha": "2bb675bba25771ae1cafd4ff7804b9bc094dd415",
+      "kappa_decimal": "0.000362108222954",
+      "pr": 135,
+      "pr_updated_at": "2026-10-09T03:15:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/135"
+    },
+    {
+      "draft": false,
+      "head_sha": "c205b7d9df0ab933c4b7392ea6625c05dbd5e4c0",
+      "kappa_decimal": "0.000413596233702",
+      "pr": 137,
+      "pr_updated_at": "2026-10-09T03:48:25Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/137"
+    },
+    {
+      "draft": false,
+      "head_sha": "c5a48c3ed0b1f16cdda7601ea0555b9998e9e734",
+      "kappa_decimal": "0.000413596646966",
+      "pr": 138,
+      "pr_updated_at": "2026-10-09T05:04:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/138"
+    },
+    {
+      "draft": false,
+      "head_sha": "3ddc4dcf7312ec5ab3bff843fd3e8c10cce041dc",
+      "kappa_decimal": "0.000112802185097556",
+      "pr": 141,
+      "pr_updated_at": "2026-10-09T03:49:54Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/141"
+    },
+    {
+      "draft": false,
+      "head_sha": "2fc6cf548523fb22bba1d88aaadc367fd0a0b499",
+      "kappa_decimal": "0.000420151003347",
+      "pr": 142,
+      "pr_updated_at": "2026-10-09T04:16:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/142"
+    },
+    {
+      "draft": false,
+      "head_sha": "803b28a5e373442974385396e9d4d3f6e75fd5e7",
+      "kappa_decimal": "0.000424830828577",
+      "pr": 143,
+      "pr_updated_at": "2026-10-09T06:45:22Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/143"
+    },
+    {
+      "draft": false,
+      "head_sha": "ce7a86f674c6f83a0fe33348c0a046064fefe901",
+      "kappa_decimal": "0.000337546392004",
+      "pr": 145,
+      "pr_updated_at": "2026-10-09T04:50:38Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/145"
+    },
+    {
+      "draft": false,
+      "head_sha": "70355a3192028852598e96624ae29b389e664451",
+      "kappa_decimal": "0.000461028508707",
+      "pr": 146,
+      "pr_updated_at": "2026-10-09T04:59:22Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/146"
+    },
+    {
+      "draft": true,
+      "head_sha": "975c3cf5d4ee0c90d5a76500d431bfc59102bb72",
+      "kappa_decimal": "0.0004611281",
+      "pr": 148,
+      "pr_updated_at": "2026-10-09T05:05:50Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/148"
+    },
+    {
+      "draft": false,
+      "head_sha": "4ead11e6e10cc7f13a340563990f50f86cc2668b",
+      "kappa_decimal": "0.0005108294",
+      "pr": 153,
+      "pr_updated_at": "2026-10-09T06:23:28Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/153"
+    },
+    {
+      "draft": false,
+      "head_sha": "f571bcbd6e06618aeae0b8279da48060032dc74b",
+      "kappa_decimal": "0.00004764513337",
+      "pr": 154,
+      "pr_updated_at": "2026-10-09T07:37:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/154"
+    },
+    {
+      "draft": false,
+      "head_sha": "6e086603f936dbb95c6d7171132ed943cc024db9",
+      "kappa_decimal": "0.0005557315",
+      "pr": 158,
+      "pr_updated_at": "2026-10-09T07:07:00Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/158"
+    },
+    {
+      "draft": false,
+      "head_sha": "da3385314d935e57f8129c8734c27104b125e572",
+      "kappa_decimal": "0.0005616446",
+      "pr": 160,
+      "pr_updated_at": "2026-10-10T14:00:08Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/160"
+    },
+    {
+      "draft": false,
+      "head_sha": "279b2ff6d3f0a1abe4a61c1f2ea4944bca7cf3dd",
+      "kappa_decimal": "0.0005901881",
+      "pr": 162,
+      "pr_updated_at": "2026-10-09T13:39:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/162"
+    },
+    {
+      "draft": false,
+      "head_sha": "e1813796ef5c3ca38c5dd7b9e8d81b3908ff5997",
+      "kappa_decimal": "0.000593970203079492",
+      "pr": 163,
+      "pr_updated_at": "2026-10-09T08:02:58Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/163"
+    },
+    {
+      "draft": false,
+      "head_sha": "4391a60bb26f75ea47a4c55c508c88a036b5a2b8",
+      "kappa_decimal": "0.000594035602295411",
+      "pr": 164,
+      "pr_updated_at": "2026-10-09T08:04:53Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/164"
+    },
+    {
+      "draft": false,
+      "head_sha": "7518fed2688baf25c7c32bae32674f3334b517da",
+      "kappa_decimal": "0.000594272360424954",
+      "pr": 165,
+      "pr_updated_at": "2026-10-09T08:24:48Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/165"
+    },
+    {
+      "draft": false,
+      "head_sha": "4a3c769e5c5430e7114c4d3e099ff34664677f17",
+      "kappa_decimal": "0.0006558894",
+      "pr": 168,
+      "pr_updated_at": "2026-10-09T10:10:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/168"
+    },
+    {
+      "draft": false,
+      "head_sha": "4895ba1104cedc7908b6d6ba64fdd6290e0ed7ae",
+      "kappa_decimal": "0.0006105562",
+      "pr": 169,
+      "pr_updated_at": "2026-10-09T08:36:30Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/169"
+    },
+    {
+      "draft": true,
+      "head_sha": "29892e2fe8a90714ef61bd8cbfb1a74bec6f8fd4",
+      "kappa_decimal": "0.000596818007",
+      "pr": 170,
+      "pr_updated_at": "2026-10-09T08:47:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/170"
+    },
+    {
+      "draft": false,
+      "head_sha": "89d0c75f8bf97131db21bc610e7546b699afcb9a",
+      "kappa_decimal": "0.000611068410271618",
+      "pr": 171,
+      "pr_updated_at": "2026-10-09T09:03:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/171"
+    },
+    {
+      "draft": false,
+      "head_sha": "55d19073972c9a334203228e3af8f84997a1c2ad",
+      "kappa_decimal": "0.00061297",
+      "pr": 173,
+      "pr_updated_at": "2026-10-09T09:18:08Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/173"
+    },
+    {
+      "draft": true,
+      "head_sha": "855a1c9488f60d7295d61cc088bfa82f62bbacc5",
+      "kappa_decimal": "0.000461144586716",
+      "pr": 177,
+      "pr_updated_at": "2026-10-09T22:07:57Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/177"
+    },
+    {
+      "draft": false,
+      "head_sha": "0bffdfa5aafdc23e668e035ae2b179212b4b3d9a",
+      "kappa_decimal": "0.00065591780345",
+      "pr": 178,
+      "pr_updated_at": "2026-10-09T12:21:11Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/178"
+    },
+    {
+      "draft": false,
+      "head_sha": "15e21dca486b4deacb07608d65021962e5e6086a",
+      "kappa_decimal": "0.000655920176686219",
+      "pr": 179,
+      "pr_updated_at": "2026-10-09T10:58:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/179"
+    },
+    {
+      "draft": true,
+      "head_sha": "33f3f1e3eba2797caf9c355bcca1cbdb800bfd24",
+      "kappa_decimal": "0.000661885549259599216694",
+      "pr": 180,
+      "pr_updated_at": "2026-10-09T13:06:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/180"
+    },
+    {
+      "draft": false,
+      "head_sha": "7fb2194801e3a10f54772c7f0d5505035a4fc0ad",
+      "kappa_decimal": "0.000659180578557293",
+      "pr": 181,
+      "pr_updated_at": "2026-10-09T11:21:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/181"
+    },
+    {
+      "draft": false,
+      "head_sha": "af90b94783f7d104a0be75c762ade758bec75855",
+      "kappa_decimal": "0.000660216552061722",
+      "pr": 182,
+      "pr_updated_at": "2026-10-09T11:38:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/182"
+    },
+    {
+      "draft": false,
+      "head_sha": "561d6ecbbeb94a11b67862ccedd32bfcbad2cae0",
+      "kappa_decimal": "0.000660627334074291",
+      "pr": 185,
+      "pr_updated_at": "2026-10-09T11:53:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/185"
+    },
+    {
+      "draft": false,
+      "head_sha": "12f488264cdd74a3b60d0fb534f4955792384f5c",
+      "kappa_decimal": "0.000661885549259598",
+      "pr": 186,
+      "pr_updated_at": "2026-10-11T09:15:54Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/186"
+    },
+    {
+      "draft": false,
+      "head_sha": "201737a1ec4f936e166e2481fb9e88104cb2ccc7",
+      "kappa_decimal": "0.000661755179959122",
+      "pr": 187,
+      "pr_updated_at": "2026-10-09T12:14:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/187"
+    },
+    {
+      "draft": false,
+      "head_sha": "c6eea3e8a46bf122878b512590f9f91a20260800",
+      "kappa_decimal": "0.000616027622",
+      "pr": 188,
+      "pr_updated_at": "2026-10-09T13:36:09Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/188"
+    },
+    {
+      "draft": false,
+      "head_sha": "0a4091175b3981267a97a62ab7492cb9ba528916",
+      "kappa_decimal": "0.000661755179959122",
+      "pr": 189,
+      "pr_updated_at": "2026-10-09T12:17:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/189"
+    },
+    {
+      "draft": false,
+      "head_sha": "15fa62d52bd7d08f29fd09fffe33dfc7a15ba8a0",
+      "kappa_decimal": "0.0006626307",
+      "pr": 191,
+      "pr_updated_at": "2026-10-09T12:16:23Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/191"
+    },
+    {
+      "draft": false,
+      "head_sha": "187e1010ac8b259af8e9b5166f68b64bc27b4b47",
+      "kappa_decimal": "0.0006647872",
+      "pr": 193,
+      "pr_updated_at": "2026-10-09T19:17:30Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/193"
+    },
+    {
+      "draft": false,
+      "head_sha": "a8c87783785be6fe20c4a8bb2ac4b3eec295a179",
+      "kappa_decimal": "0.0006674324",
+      "pr": 194,
+      "pr_updated_at": "2026-10-09T12:43:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/194"
+    },
+    {
+      "draft": false,
+      "head_sha": "d3e6b83af33c3aad940e737776937706e25b0b19",
+      "kappa_decimal": "0.000662651985348746",
+      "pr": 195,
+      "pr_updated_at": "2026-10-09T13:00:17Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/195"
+    },
+    {
+      "draft": false,
+      "head_sha": "5b09c35ee837e0157342a7cd1fbd933467cfe90b",
+      "kappa_decimal": "0.000665046903615388",
+      "pr": 196,
+      "pr_updated_at": "2026-10-09T14:19:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/196"
+    },
+    {
+      "draft": false,
+      "head_sha": "8c5e1cf07c23d843642bf2d4c76f882669edc43f",
+      "kappa_decimal": "0.000676080316519385",
+      "pr": 197,
+      "pr_updated_at": "2026-10-09T17:34:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/197"
+    },
+    {
+      "draft": false,
+      "head_sha": "5c1fb8346615968844bc182a5376c399109670ca",
+      "kappa_decimal": "0.0006678525",
+      "pr": 199,
+      "pr_updated_at": "2026-10-10T00:25:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/199"
+    },
+    {
+      "draft": false,
+      "head_sha": "a1175449f34d39ff933d9d8ab23ced1f32b290ec",
+      "kappa_decimal": "0.000665046903615388",
+      "pr": 200,
+      "pr_updated_at": "2026-10-09T19:17:32Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/200"
+    },
+    {
+      "draft": false,
+      "head_sha": "8d8d67bcf69c5ea67d3a29dbc64ba588156d6e8d",
+      "kappa_decimal": "0.0006768823",
+      "pr": 202,
+      "pr_updated_at": "2026-10-09T14:40:09Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/202"
+    },
+    {
+      "draft": false,
+      "head_sha": "95c58706ad231d532bd7038308946a0344d08186",
+      "kappa_decimal": "0.000683061299399923",
+      "pr": 205,
+      "pr_updated_at": "2026-10-09T21:01:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/205"
+    },
+    {
+      "draft": false,
+      "head_sha": "cd14825023b75af4f5919a30e5e6d548b6ade5bc",
+      "kappa_decimal": "0.0006831904550365",
+      "pr": 207,
+      "pr_updated_at": "2026-10-09T16:00:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/207"
+    },
+    {
+      "draft": false,
+      "head_sha": "b0c058ba979c748bb3a8604bfb6502e9fac9b84d",
+      "kappa_decimal": "0.000710069340338651",
+      "pr": 210,
+      "pr_updated_at": "2026-10-09T23:14:11Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/210"
+    },
+    {
+      "draft": true,
+      "head_sha": "c63e50a5dde96fe1459d6b29e55e47f42f104347",
+      "kappa_decimal": "0.000683847872495777",
+      "pr": 211,
+      "pr_updated_at": "2026-10-09T17:14:57Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/211"
+    },
+    {
+      "draft": false,
+      "head_sha": "34abdc58ed77329c8bf9af5634531fc41939ba3c",
+      "kappa_decimal": "0.0006838643131376",
+      "pr": 216,
+      "pr_updated_at": "2026-10-09T18:28:00Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/216"
+    },
+    {
+      "draft": false,
+      "head_sha": "b739fc226a54a4a507989aa1bef092d491287451",
+      "kappa_decimal": "0.000684696826673891",
+      "pr": 217,
+      "pr_updated_at": "2026-10-09T18:50:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/217"
+    },
+    {
+      "draft": false,
+      "head_sha": "8786fec0148a41409874cad133123da227d93751",
+      "kappa_decimal": "0.00069214460425006",
+      "pr": 223,
+      "pr_updated_at": "2026-10-09T20:38:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/223"
+    },
+    {
+      "draft": false,
+      "head_sha": "1e9d959fead8b7daebb94a406420dc1d507a8231",
+      "kappa_decimal": "0.00004131076535",
+      "pr": 226,
+      "pr_updated_at": "2026-10-09T20:06:38Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/226"
+    },
+    {
+      "draft": false,
+      "head_sha": "418bd6a80f3190d1998780a2fb7f66a073367de1",
+      "kappa_decimal": "0.0006947753951612",
+      "pr": 227,
+      "pr_updated_at": "2026-10-09T20:33:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/227"
+    },
+    {
+      "draft": false,
+      "head_sha": "ffa872f4d8ad3e9ab46a7a1a97b02a1250b2c925",
+      "kappa_decimal": "0.000662832575455842015647",
+      "pr": 228,
+      "pr_updated_at": "2026-10-09T20:36:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/228"
+    },
+    {
+      "draft": false,
+      "head_sha": "af3fe331ca60c936229e060681ffccbc1c208678",
+      "kappa_decimal": "0.000703701743496697",
+      "pr": 234,
+      "pr_updated_at": "2026-10-09T22:17:15Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/234"
+    },
+    {
+      "draft": false,
+      "head_sha": "63e3e9e2f852c72634d4b09d0bbb8fcf1081481d",
+      "kappa_decimal": "0.000708582414684555347682",
+      "pr": 235,
+      "pr_updated_at": "2026-10-09T22:47:08Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/235"
+    },
+    {
+      "draft": false,
+      "head_sha": "f825b6fdfd763f189db3aa1c02fdd5d604c85a01",
+      "kappa_decimal": "0.0004609169",
+      "pr": 236,
+      "pr_updated_at": "2026-10-09T22:34:50Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/236"
+    },
+    {
+      "draft": false,
+      "head_sha": "a8b0ce212bc9f09353a8161bf8a5cee9cefd600c",
+      "kappa_decimal": "0.000708582410781108",
+      "pr": 237,
+      "pr_updated_at": "2026-10-09T22:23:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/237"
+    },
+    {
+      "draft": false,
+      "head_sha": "1068237fdb977f45e68107d118d0eaf0c7a4b516",
+      "kappa_decimal": "0.000709424406659975",
+      "pr": 240,
+      "pr_updated_at": "2026-10-09T23:00:35Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/240"
+    },
+    {
+      "draft": false,
+      "head_sha": "ef47efc3256a57bacf4273c35faf4b5148be5014",
+      "kappa_decimal": "0.000710046193592262",
+      "pr": 242,
+      "pr_updated_at": "2026-10-09T23:29:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/242"
+    },
+    {
+      "draft": false,
+      "head_sha": "ab482ea45dd73f0cb80796641528f0ab930c13b5",
+      "kappa_decimal": "0.000709424410568125629699",
+      "pr": 243,
+      "pr_updated_at": "2026-10-09T23:33:36Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/243"
+    },
+    {
+      "draft": false,
+      "head_sha": "a568d94f941929232ab393c7d33dc5a30e017892",
+      "kappa_decimal": "0.000710346589668175",
+      "pr": 244,
+      "pr_updated_at": "2026-10-09T23:43:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/244"
+    },
+    {
+      "draft": false,
+      "head_sha": "e347f31c5960323f6dca8bfb5a1f529ebac4537e",
+      "kappa_decimal": "0.000693078488574615",
+      "pr": 245,
+      "pr_updated_at": "2026-10-09T23:51:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/245"
+    },
+    {
+      "draft": false,
+      "head_sha": "e56591cbf0b18b6d0f959f3742c05c7d8cc41f75",
+      "kappa_decimal": "0.000710346593569665610798",
+      "pr": 248,
+      "pr_updated_at": "2026-10-10T00:05:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/248"
+    },
+    {
+      "draft": false,
+      "head_sha": "96495746c786d6d0339dbb38c7f553d4af3f88ed",
+      "kappa_decimal": "0.000710392186446856",
+      "pr": 249,
+      "pr_updated_at": "2026-10-10T00:06:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/249"
+    },
+    {
+      "draft": false,
+      "head_sha": "2b030c06a811473ae8ed49dce07bc7ea50b72e9e",
+      "kappa_decimal": "0.000710433687047883",
+      "pr": 251,
+      "pr_updated_at": "2026-10-10T00:27:52Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/251"
+    },
+    {
+      "draft": false,
+      "head_sha": "45121f754db92f91d1e105061125e6b1fa4c2dc0",
+      "kappa_decimal": "0.000710392190350878237015",
+      "pr": 252,
+      "pr_updated_at": "2026-10-10T01:38:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/252"
+    },
+    {
+      "draft": false,
+      "head_sha": "9ce32efb421132420242cfdb91ddd9eabe2c3795",
+      "kappa_decimal": "0.00071046520063283",
+      "pr": 254,
+      "pr_updated_at": "2026-10-10T01:14:01Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/254"
+    },
+    {
+      "draft": false,
+      "head_sha": "3ba1c146c523c0305fe5f1a7bc4d3c5aebb9192c",
+      "kappa_decimal": "0.000710465204542247142217",
+      "pr": 255,
+      "pr_updated_at": "2026-10-10T01:35:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/255"
+    },
+    {
+      "draft": false,
+      "head_sha": "cf82ca09322d1327ab887cfd1cce97591b8d3cfa",
+      "kappa_decimal": "0.00071046804825911",
+      "pr": 258,
+      "pr_updated_at": "2026-10-10T02:17:47Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/258"
+    },
+    {
+      "draft": false,
+      "head_sha": "a53ec0ca4d59634f16630dd16adf035c9f12595c",
+      "kappa_decimal": "0.000711029386054035",
+      "pr": 259,
+      "pr_updated_at": "2026-10-10T03:27:51Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/259"
+    },
+    {
+      "draft": true,
+      "head_sha": "87aa555a455cca84a3e3296ced2440623d39fc4d",
+      "kappa_decimal": "0.000710436534421701",
+      "pr": 260,
+      "pr_updated_at": "2026-10-10T02:11:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/260"
+    },
+    {
+      "draft": true,
+      "head_sha": "d2c63486d895860a65f25b80a51f4b2ec4f3c6ef",
+      "kappa_decimal": "0.000711029389987426878345881",
+      "pr": 261,
+      "pr_updated_at": "2026-10-10T02:54:02Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/261"
+    },
+    {
+      "draft": false,
+      "head_sha": "dd3bec29abd124b94e8642d84a3552f2459a3faa",
+      "kappa_decimal": "0.000833954588938818",
+      "pr": 262,
+      "pr_updated_at": "2026-10-10T02:45:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/262"
+    },
+    {
+      "draft": false,
+      "head_sha": "87129308f762f86a9d8e9a60f5d6c8ef23ce1f6e",
+      "kappa_decimal": "0.000711032238200698",
+      "pr": 263,
+      "pr_updated_at": "2026-10-10T02:34:06Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/263"
+    },
+    {
+      "draft": false,
+      "head_sha": "a64076340dcfd6d77ebe3dc3a1eb30a6a4c74793",
+      "kappa_decimal": "0.000662502871668435",
+      "pr": 264,
+      "pr_updated_at": "2026-10-10T02:40:55Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/264"
+    },
+    {
+      "draft": false,
+      "head_sha": "fc00fcf07a554ff6847b2a8764ecc26f5a99542a",
+      "kappa_decimal": "0.000711032242134072",
+      "pr": 265,
+      "pr_updated_at": "2026-10-10T02:47:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/265"
+    },
+    {
+      "draft": false,
+      "head_sha": "8cff894317648ae8d4f170b3d33456a76a7822c7",
+      "kappa_decimal": "0.000714026746429965",
+      "pr": 266,
+      "pr_updated_at": "2026-10-10T04:42:46Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/266"
+    },
+    {
+      "draft": false,
+      "head_sha": "4f849bd0c08787d588d211ef5f5dbe60f32542b2",
+      "kappa_decimal": "0.000711074913688782665281379",
+      "pr": 267,
+      "pr_updated_at": "2026-10-10T03:00:59Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/267"
+    },
+    {
+      "draft": false,
+      "head_sha": "dbb653bb249e0087f9aa32e77149cc9043ac72c1",
+      "kappa_decimal": "0.000711191385398487",
+      "pr": 268,
+      "pr_updated_at": "2026-10-10T03:01:58Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/268"
+    },
+    {
+      "draft": false,
+      "head_sha": "d4ca9aacd885375e6b6ce555bfb2d228ca71e1c7",
+      "kappa_decimal": "0.000711426001276118",
+      "pr": 269,
+      "pr_updated_at": "2026-10-10T03:51:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/269"
+    },
+    {
+      "draft": false,
+      "head_sha": "9b48fd73531eaf09ebbbd5acb0f7a3eb338d9a2a",
+      "kappa_decimal": "0.000711457853376510082124745",
+      "pr": 270,
+      "pr_updated_at": "2026-10-10T03:25:42Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/270"
+    },
+    {
+      "draft": false,
+      "head_sha": "ebc1defe8c13f39f86e5901c3437c1be52886a2b",
+      "kappa_decimal": "0.00071366215638961",
+      "pr": 271,
+      "pr_updated_at": "2026-10-10T04:13:01Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/271"
+    },
+    {
+      "draft": false,
+      "head_sha": "65768f62d4fde0d1fa7fc84f71678522a84aaa6c",
+      "kappa_decimal": "0.000712074434532274423885827",
+      "pr": 272,
+      "pr_updated_at": "2026-10-10T05:30:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/272"
+    },
+    {
+      "draft": false,
+      "head_sha": "45f13d0568033c3c27a96abc99f65a50a3a9133f",
+      "kappa_decimal": "0.000711948953756315",
+      "pr": 273,
+      "pr_updated_at": "2026-10-10T03:57:56Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/273"
+    },
+    {
+      "draft": false,
+      "head_sha": "697c3807b3c843d5e91b93f880d0ce5046561344",
+      "kappa_decimal": "0.001120864952258278604621028",
+      "pr": 275,
+      "pr_updated_at": "2026-10-11T13:17:03Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/275"
+    },
+    {
+      "draft": false,
+      "head_sha": "c2f07d311bfdad0d89bf961e4da133ee97bb78de",
+      "kappa_decimal": "0.0007110455476244",
+      "pr": 277,
+      "pr_updated_at": "2026-10-10T04:22:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/277"
+    },
+    {
+      "draft": false,
+      "head_sha": "8ddcabe87b874c0cb6d7ece0bd58a6f7d969bd3e",
+      "kappa_decimal": "0.0007110455476244",
+      "pr": 278,
+      "pr_updated_at": "2026-10-10T04:40:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/278"
+    },
+    {
+      "draft": false,
+      "head_sha": "913ccc48a0bc1173709ea92280b96252256b7754",
+      "kappa_decimal": "0.000724098741932703",
+      "pr": 279,
+      "pr_updated_at": "2026-10-10T05:21:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/279"
+    },
+    {
+      "draft": false,
+      "head_sha": "f063aab8d6e514188e53db57218515df9cdd186e",
+      "kappa_decimal": "0.000724189082265949363570532",
+      "pr": 280,
+      "pr_updated_at": "2026-10-10T04:56:20Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/280"
+    },
+    {
+      "draft": false,
+      "head_sha": "7542b215a7ff49d264e2b4691ca7fa9bc3be82d9",
+      "kappa_decimal": "0.000725113717934416",
+      "pr": 281,
+      "pr_updated_at": "2026-10-10T05:40:08Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/281"
+    },
+    {
+      "draft": false,
+      "head_sha": "841a99b8cf0609ce461b208ed6367463459dd7f5",
+      "kappa_decimal": "0.000724733001963261",
+      "pr": 282,
+      "pr_updated_at": "2026-10-10T07:08:41Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/282"
+    },
+    {
+      "draft": false,
+      "head_sha": "19d148bd7aa199378816cf1fb9ff746eb4d815da",
+      "kappa_decimal": "0.000726111344123732762670617",
+      "pr": 283,
+      "pr_updated_at": "2026-10-10T13:27:05Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/283"
+    },
+    {
+      "draft": false,
+      "head_sha": "2c991a3ac400057059145c837e8b32bba9128346",
+      "kappa_decimal": "0.000726291692225845",
+      "pr": 284,
+      "pr_updated_at": "2026-10-10T06:55:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/284"
+    },
+    {
+      "draft": false,
+      "head_sha": "b40c1a3d8f40ee3764b9f13fe850f663f2d8c834",
+      "kappa_decimal": "0.000742785663120535",
+      "pr": 285,
+      "pr_updated_at": "2026-10-10T21:35:48Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/285"
+    },
+    {
+      "draft": false,
+      "head_sha": "13a523a250f471e7cc880e8a24060d654ba9c78b",
+      "kappa_decimal": "0.000726319877913759",
+      "pr": 286,
+      "pr_updated_at": "2026-10-10T07:33:51Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/286"
+    },
+    {
+      "draft": false,
+      "head_sha": "9f85de891c5eec5de4e33a9185157c9e573bb315",
+      "kappa_decimal": "0.000744136146100942",
+      "pr": 287,
+      "pr_updated_at": "2026-10-10T08:59:56Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/287"
+    },
+    {
+      "draft": false,
+      "head_sha": "04e14102a36a33b9f9eef4e4c76119fd6e54b445",
+      "kappa_decimal": "0.000744127392470948",
+      "pr": 289,
+      "pr_updated_at": "2026-10-10T08:45:46Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/289"
+    },
+    {
+      "draft": false,
+      "head_sha": "739c3bb0ad0596f427e0a72a2ebeca23277217a3",
+      "kappa_decimal": "0.000744714499357628",
+      "pr": 290,
+      "pr_updated_at": "2026-10-10T08:48:14Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/290"
+    },
+    {
+      "draft": false,
+      "head_sha": "5c296797e06101c74d15b0162dfe372c186ec330",
+      "kappa_decimal": "0.000744728650221677",
+      "pr": 291,
+      "pr_updated_at": "2026-10-10T12:53:32Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/291"
+    },
+    {
+      "draft": false,
+      "head_sha": "0687febc3a57c580b1b8cbee83a82d0bfb29fcbe",
+      "kappa_decimal": "0.000744719882668682",
+      "pr": 292,
+      "pr_updated_at": "2026-10-10T09:21:22Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/292"
+    },
+    {
+      "draft": false,
+      "head_sha": "e65a690f87bdade17b361f9c66554861bb85a5c1",
+      "kappa_decimal": "0.000744728654228590183370616",
+      "pr": 293,
+      "pr_updated_at": "2026-10-10T09:33:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/293"
+    },
+    {
+      "draft": false,
+      "head_sha": "a41781bb9bb45c368046e4e387c6ffeb041c8208",
+      "kappa_decimal": "0.000745513573133379",
+      "pr": 295,
+      "pr_updated_at": "2026-10-10T09:56:15Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/295"
+    },
+    {
+      "draft": false,
+      "head_sha": "b15a33ce4f0e31379be685139f78b9c1e7ffa77b",
+      "kappa_decimal": "0.000746709720962478",
+      "pr": 296,
+      "pr_updated_at": "2026-10-10T10:02:56Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/296"
+    },
+    {
+      "draft": false,
+      "head_sha": "2006a8f9288fd7222ae3dc3aeb2e817bbb403be0",
+      "kappa_decimal": "0.000745287034630032",
+      "pr": 297,
+      "pr_updated_at": "2026-10-10T16:46:06Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/297"
+    },
+    {
+      "draft": false,
+      "head_sha": "7e7a6d796bf9dbc51d1d6d0855cc67bcf0668fbe",
+      "kappa_decimal": "0.000744714499649771",
+      "pr": 298,
+      "pr_updated_at": "2026-10-10T11:01:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/298"
+    },
+    {
+      "draft": false,
+      "head_sha": "11b69525c7b2bb116cf29b17f976781003ef33b4",
+      "kappa_decimal": "0.000750237961741364",
+      "pr": 299,
+      "pr_updated_at": "2026-10-10T12:19:15Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/299"
+    },
+    {
+      "draft": false,
+      "head_sha": "56eb64125a76b3427986f4a3fcfc4b6f4cf55591",
+      "kappa_decimal": "0.000749982567267028",
+      "pr": 300,
+      "pr_updated_at": "2026-10-10T12:53:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/300"
+    },
+    {
+      "draft": true,
+      "head_sha": "ebd6a08ed7d517387794c066490aa02aadcc78d4",
+      "kappa_decimal": "0.000749906929903449",
+      "pr": 301,
+      "pr_updated_at": "2026-10-10T11:14:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/301"
+    },
+    {
+      "draft": true,
+      "head_sha": "9bb199dedb3ecdd9c40c31eac79459dc81154ad3",
+      "kappa_decimal": "0.000749940157923873",
+      "pr": 302,
+      "pr_updated_at": "2026-10-10T20:05:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/302"
+    },
+    {
+      "draft": false,
+      "head_sha": "363134af67f7aa2e0f887e79c6c22963280682d0",
+      "kappa_decimal": "0.000749982571369270160072237",
+      "pr": 303,
+      "pr_updated_at": "2026-10-10T12:53:38Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/303"
+    },
+    {
+      "draft": false,
+      "head_sha": "a17c42903bbe8d9d26c4bc712d7216a7176237e9",
+      "kappa_decimal": "0.000751140529238897",
+      "pr": 305,
+      "pr_updated_at": "2026-10-10T12:17:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/305"
+    },
+    {
+      "draft": false,
+      "head_sha": "0314371983b8837f01723f5af2c70217f75b01cc",
+      "kappa_decimal": "0.000751458925311258",
+      "pr": 306,
+      "pr_updated_at": "2026-10-10T13:21:52Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/306"
+    },
+    {
+      "draft": false,
+      "head_sha": "b4f85afd6a54a2d593519c59690586a34fac2dfc",
+      "kappa_decimal": "0.000751154847341386",
+      "pr": 307,
+      "pr_updated_at": "2026-10-10T13:16:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/307"
+    },
+    {
+      "draft": false,
+      "head_sha": "02d769b6a4dc1ac351bab06f4e9afd74d9c3995e",
+      "kappa_decimal": "0.000751472114011902",
+      "pr": 308,
+      "pr_updated_at": "2026-10-10T13:32:25Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/308"
+    },
+    {
+      "draft": false,
+      "head_sha": "aeb4808af1392e565e7071cbeb2c29608201cf24",
+      "kappa_decimal": "0.000751499335697559705920828",
+      "pr": 309,
+      "pr_updated_at": "2026-10-10T17:58:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/309"
+    },
+    {
+      "draft": false,
+      "head_sha": "484b85f1d1fada27fda2ddab3ec952c1314d84c7",
+      "kappa_decimal": "0.000752893499605334868002344",
+      "pr": 310,
+      "pr_updated_at": "2026-10-10T14:13:47Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/310"
+    },
+    {
+      "draft": false,
+      "head_sha": "298f9baf71c261a326e54eb8407ee414c1109f79",
+      "kappa_decimal": "0.000753508664880762517753401",
+      "pr": 311,
+      "pr_updated_at": "2026-10-10T16:45:57Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/311"
+    },
+    {
+      "draft": false,
+      "head_sha": "328086061dc09499039a7a33fa6510c37e796522",
+      "kappa_decimal": "0.000754549816771013",
+      "pr": 312,
+      "pr_updated_at": "2026-10-11T09:15:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/312"
+    },
+    {
+      "draft": false,
+      "head_sha": "9646345a82f7858e266f71a005a06aaf2c30eba9",
+      "kappa_decimal": "0.000754077687633330234295251",
+      "pr": 313,
+      "pr_updated_at": "2026-10-10T16:45:59Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/313"
+    },
+    {
+      "draft": false,
+      "head_sha": "3984049ab4658f8126475aa1860367bdb79b40cc",
+      "kappa_decimal": "0.000755120411314104",
+      "pr": 314,
+      "pr_updated_at": "2026-10-10T16:46:02Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/314"
+    },
+    {
+      "draft": false,
+      "head_sha": "64bccfb67494f7c4549bfb2f186b400a3cfefb42",
+      "kappa_decimal": "0.000764230861320245",
+      "pr": 315,
+      "pr_updated_at": "2026-10-10T21:35:53Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/315"
+    },
+    {
+      "draft": false,
+      "head_sha": "9e7200bc7b87bde52568b56ec8e2b96af8303d6c",
+      "kappa_decimal": "0.000765146115390441",
+      "pr": 316,
+      "pr_updated_at": "2026-10-10T16:46:04Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/316"
+    },
+    {
+      "draft": false,
+      "head_sha": "0a0b61a7f4601a96036af8bb6a6338c58f035d2e",
+      "kappa_decimal": "0.00076817007781759",
+      "pr": 317,
+      "pr_updated_at": "2026-10-10T16:26:45Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/317"
+    },
+    {
+      "draft": false,
+      "head_sha": "a45747d2559141a594916475f52642e4fab86e02",
+      "kappa_decimal": "0.00004764513337",
+      "pr": 318,
+      "pr_updated_at": "2026-10-10T16:39:36Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/318"
+    },
+    {
+      "draft": false,
+      "head_sha": "14af8e5cd27d8024cbdcbc3273ef183d2db1c65c",
+      "kappa_decimal": "0.000768257328708259",
+      "pr": 319,
+      "pr_updated_at": "2026-10-10T16:43:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/319"
+    },
+    {
+      "draft": false,
+      "head_sha": "e912cbdd649fcbd292293c70511882b06266b276",
+      "kappa_decimal": "0.000769553898621543",
+      "pr": 320,
+      "pr_updated_at": "2026-10-11T09:15:30Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/320"
+    },
+    {
+      "draft": false,
+      "head_sha": "c76247701762feb2c5bea5bcf302b010eb7d1bc3",
+      "kappa_decimal": "0.000769209697879598867900724",
+      "pr": 321,
+      "pr_updated_at": "2026-10-10T18:02:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/321"
+    },
+    {
+      "draft": false,
+      "head_sha": "8ce22e5e487e9d1017c26702adc09d5646565d0c",
+      "kappa_decimal": "0.000769556690340075",
+      "pr": 322,
+      "pr_updated_at": "2026-10-10T18:05:01Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/322"
+    },
+    {
+      "draft": false,
+      "head_sha": "e51f5ffee8ab574e5b8249a4612411b2ca5f100d",
+      "kappa_decimal": "0.000769557449978832",
+      "pr": 323,
+      "pr_updated_at": "2026-10-10T18:10:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/323"
+    },
+    {
+      "draft": false,
+      "head_sha": "6bc86cb3ddeb2c39e64035a4e657ae892aab61a0",
+      "kappa_decimal": "0.000769557449978832",
+      "pr": 324,
+      "pr_updated_at": "2026-10-10T18:14:36Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/324"
+    },
+    {
+      "draft": false,
+      "head_sha": "0eca9340a3df6141b8e71a41638c3937b3522888",
+      "kappa_decimal": "0.000769684039383334",
+      "pr": 325,
+      "pr_updated_at": "2026-10-10T21:35:55Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/325"
+    },
+    {
+      "draft": false,
+      "head_sha": "34af22b4f972f46870ba6b8c9dfaae1d0bb1b25d",
+      "kappa_decimal": "0.000772285110892838493685197",
+      "pr": 328,
+      "pr_updated_at": "2026-10-10T19:11:14Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/328"
+    },
+    {
+      "draft": false,
+      "head_sha": "60ca7b5eeedf45301bcf3326b65f3b6a3ca9bf35",
+      "kappa_decimal": "0.000776518649004426",
+      "pr": 329,
+      "pr_updated_at": "2026-10-11T09:15:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/329"
+    },
+    {
+      "draft": false,
+      "head_sha": "6d1faafc1ac58adb885349b2b08813467a938563",
+      "kappa_decimal": "0.00077652200910342944936985",
+      "pr": 330,
+      "pr_updated_at": "2026-10-10T19:39:14Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/330"
+    },
+    {
+      "draft": false,
+      "head_sha": "c0fa7e1be9e5f9f2316bb1f88e4c77298014492e",
+      "kappa_decimal": "0.000776523967665819025774905",
+      "pr": 331,
+      "pr_updated_at": "2026-10-10T19:56:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/331"
+    },
+    {
+      "draft": false,
+      "head_sha": "f9136e76568100034aa37337251f93d684496c13",
+      "kappa_decimal": "0.000777268259042371640048112",
+      "pr": 332,
+      "pr_updated_at": "2026-10-10T20:17:54Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/332"
+    },
+    {
+      "draft": false,
+      "head_sha": "f04a11279fe1eedb54ac97c80d5a71ddc0275b13",
+      "kappa_decimal": "0.000777268259042371640048112",
+      "pr": 333,
+      "pr_updated_at": "2026-10-10T21:03:08Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/333"
+    },
+    {
+      "draft": false,
+      "head_sha": "367f55f22e5f5e3aff47e6437bf0dfbf743bacec",
+      "kappa_decimal": "0.000777596191161693861459874",
+      "pr": 334,
+      "pr_updated_at": "2026-10-10T21:15:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/334"
+    },
+    {
+      "draft": false,
+      "head_sha": "fa693bff1fc171a3be18fdaddaf1e196ecef9463",
+      "kappa_decimal": "0.000777607473791708458474546",
+      "pr": 335,
+      "pr_updated_at": "2026-10-10T21:34:52Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/335"
+    },
+    {
+      "draft": false,
+      "head_sha": "f566fe33384cd295fc1416cf3ed882500135a1f2",
+      "kappa_decimal": "0.0007776299656948249002253",
+      "pr": 336,
+      "pr_updated_at": "2026-10-10T22:14:48Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/336"
+    },
+    {
+      "draft": false,
+      "head_sha": "bc97a6e8ddd3150f7533fdf119c2a6b5df0e57ea",
+      "kappa_decimal": "0.000777646134698096194171091",
+      "pr": 337,
+      "pr_updated_at": "2026-10-10T22:19:08Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/337"
+    },
+    {
+      "draft": false,
+      "head_sha": "0faf57c8c7530d866bfed2d208e7a8dcf62b8292",
+      "kappa_decimal": "0.000777667758368047375562422",
+      "pr": 338,
+      "pr_updated_at": "2026-10-10T22:41:23Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/338"
+    },
+    {
+      "draft": false,
+      "head_sha": "56964cfb850d37c6c7f35810b71552dfc18508f4",
+      "kappa_decimal": "0.000777699286748588506644032",
+      "pr": 339,
+      "pr_updated_at": "2026-10-10T22:42:41Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/339"
+    },
+    {
+      "draft": true,
+      "head_sha": "05a4ee7fdb97607de3e151e774ba93cb1967fb6e",
+      "kappa_decimal": "0.000777661809286514",
+      "pr": 340,
+      "pr_updated_at": "2026-10-10T23:06:38Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/340"
+    },
+    {
+      "draft": false,
+      "head_sha": "6ee2d78d7773b2406762d35e41a5636231310ed9",
+      "kappa_decimal": "0.000777709755852032951391533",
+      "pr": 341,
+      "pr_updated_at": "2026-10-10T23:04:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/341"
+    },
+    {
+      "draft": false,
+      "head_sha": "69cdb327d3c7cf93f711c983cb51606856dc3f07",
+      "kappa_decimal": "0.000777733996775530073717409",
+      "pr": 342,
+      "pr_updated_at": "2026-10-10T23:13:00Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/342"
+    },
+    {
+      "draft": false,
+      "head_sha": "1d9c3b64b07395912877f103dc1d0f3214f662f1",
+      "kappa_decimal": "0.000777751087387777005145646",
+      "pr": 343,
+      "pr_updated_at": "2026-10-10T23:20:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/343"
+    },
+    {
+      "draft": false,
+      "head_sha": "da0c805eab7e88d8b9fcce112ff8ed4b720bea8a",
+      "kappa_decimal": "0.000777947425336102317479703",
+      "pr": 344,
+      "pr_updated_at": "2026-10-10T23:28:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/344"
+    },
+    {
+      "draft": false,
+      "head_sha": "9e15e4d5ed41f8df20bd8393ece9f62e910cd49c",
+      "kappa_decimal": "0.00077809154371141892133459",
+      "pr": 345,
+      "pr_updated_at": "2026-10-10T23:43:59Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/345"
+    },
+    {
+      "draft": false,
+      "head_sha": "11b4de5ff8ed5fccf55d4af1043358d257308e8e",
+      "kappa_decimal": "0.000792580093369946",
+      "pr": 346,
+      "pr_updated_at": "2026-10-10T23:45:40Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/346"
+    },
+    {
+      "draft": false,
+      "head_sha": "db6a9a004f2d3a1f9281b7e75dfc671189a9ccdb",
+      "kappa_decimal": "0.000778097715735654505738899",
+      "pr": 347,
+      "pr_updated_at": "2026-10-10T23:46:17Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/347"
+    },
+    {
+      "draft": false,
+      "head_sha": "2b8b3d87870f68e646d295bb2d32c6dd918dee9d",
+      "kappa_decimal": "0.000793392809291691",
+      "pr": 348,
+      "pr_updated_at": "2026-10-11T09:15:24Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/348"
+    },
+    {
+      "draft": false,
+      "head_sha": "a1793b04e2a02ad494c0c4acd2988e8c125ddc99",
+      "kappa_decimal": "0.000793469326753735",
+      "pr": 350,
+      "pr_updated_at": "2026-10-11T00:56:09Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/350"
+    },
+    {
+      "draft": false,
+      "head_sha": "c0f9f480440a25f89a8a00e1b2076467cf484754",
+      "kappa_decimal": "0.000793392809671713586967588",
+      "pr": 351,
+      "pr_updated_at": "2026-10-11T00:41:47Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/351"
+    },
+    {
+      "draft": false,
+      "head_sha": "04b4c3c478b5bd8797d2663d89d8db4dfd0ad9f2",
+      "kappa_decimal": "0.000801083628465007",
+      "pr": 352,
+      "pr_updated_at": "2026-10-11T11:38:38Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/352"
+    },
+    {
+      "draft": true,
+      "head_sha": "3901d29f07d3953438779a2c9d58b15522cfed7d",
+      "kappa_decimal": "0.000801598358635541",
+      "pr": 353,
+      "pr_updated_at": "2026-10-11T01:31:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/353"
+    },
+    {
+      "draft": false,
+      "head_sha": "2e3f3cf37d2d53d902cf78200c5d59668280cf5b",
+      "kappa_decimal": "0.00080313716516349",
+      "pr": 354,
+      "pr_updated_at": "2026-10-11T09:15:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/354"
+    },
+    {
+      "draft": false,
+      "head_sha": "e59117a865452b4562891d80c3d2b154b60cb5cf",
+      "kappa_decimal": "0.000801967436473393",
+      "pr": 355,
+      "pr_updated_at": "2026-10-11T01:51:48Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/355"
+    },
+    {
+      "draft": false,
+      "head_sha": "c3d16f4249d07274fe234bd57ab9354779b97fbc",
+      "kappa_decimal": "0.000803161884970454053300282",
+      "pr": 356,
+      "pr_updated_at": "2026-10-11T01:57:54Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/356"
+    },
+    {
+      "draft": true,
+      "head_sha": "0866809c02f30d6e12244a4e69670a323351858b",
+      "kappa_decimal": "0.000803654539036015",
+      "pr": 357,
+      "pr_updated_at": "2026-10-11T02:06:59Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/357"
+    },
+    {
+      "draft": false,
+      "head_sha": "e76d7a94e6ad819e2aa9dc99083ecfa3e7842e0b",
+      "kappa_decimal": "0.00080367971186626189473809",
+      "pr": 358,
+      "pr_updated_at": "2026-10-11T02:14:43Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/358"
+    },
+    {
+      "draft": false,
+      "head_sha": "e428efc9bea88c06ab3df89cb3b48eca13757813",
+      "kappa_decimal": "0.000804303459176812",
+      "pr": 359,
+      "pr_updated_at": "2026-10-11T09:15:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/359"
+    },
+    {
+      "draft": false,
+      "head_sha": "edef1a7d6da2c628d1adecda234a711e6fff8152",
+      "kappa_decimal": "0.00080351298055091",
+      "pr": 360,
+      "pr_updated_at": "2026-10-11T02:29:06Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/360"
+    },
+    {
+      "draft": false,
+      "head_sha": "d7b59136fa7dc6e2abfcd9fe41c6be6e886382f7",
+      "kappa_decimal": "0.000804849251275843",
+      "pr": 361,
+      "pr_updated_at": "2026-10-11T09:15:15Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/361"
+    },
+    {
+      "draft": false,
+      "head_sha": "f46ddb51f66381a1668da3801bb1632aacebe224",
+      "kappa_decimal": "0.000804849251275843",
+      "pr": 362,
+      "pr_updated_at": "2026-10-11T03:46:51Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/362"
+    },
+    {
+      "draft": false,
+      "head_sha": "f8c6a47abfec24b87cb1eb0a138dd73dfce2abe4",
+      "kappa_decimal": "0.000804879370798932",
+      "pr": 364,
+      "pr_updated_at": "2026-10-11T03:46:49Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/364"
+    },
+    {
+      "draft": false,
+      "head_sha": "d3d84202e528d6e147a8ea62463ae5c0125997cf",
+      "kappa_decimal": "0.000804939789231485",
+      "pr": 366,
+      "pr_updated_at": "2026-10-11T04:50:45Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/366"
+    },
+    {
+      "draft": true,
+      "head_sha": "a8d05f093d347477d0ed267f4df9592d21dad5db",
+      "kappa_decimal": "0.000804946219504150552",
+      "pr": 369,
+      "pr_updated_at": "2026-10-11T05:38:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/369"
+    },
+    {
+      "draft": false,
+      "head_sha": "b7fe9cdf2da009c947ff6b334c562bc190b30373",
+      "kappa_decimal": "0.000875481145306751",
+      "pr": 370,
+      "pr_updated_at": "2026-10-11T05:05:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/370"
+    },
+    {
+      "draft": false,
+      "head_sha": "e2fae6a92775b8f609d917a9cc93b31e2559dd5f",
+      "kappa_decimal": "0.000723571593879006127174",
+      "pr": 372,
+      "pr_updated_at": "2026-10-11T05:17:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/372"
+    },
+    {
+      "draft": false,
+      "head_sha": "3ff87b5dc0b22a57958547ee347d5da25b7f9401",
+      "kappa_decimal": "0.00093191395651209",
+      "pr": 373,
+      "pr_updated_at": "2026-10-11T05:26:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/373"
+    },
+    {
+      "draft": false,
+      "head_sha": "4316086532cb7424c25777ccfcc272b16c675608",
+      "kappa_decimal": "0.000954395132518163",
+      "pr": 374,
+      "pr_updated_at": "2026-10-11T11:37:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/374"
+    },
+    {
+      "draft": false,
+      "head_sha": "79874623cf86d92325c26ccafc31413d12e9d248",
+      "kappa_decimal": "0.00095424356568133",
+      "pr": 375,
+      "pr_updated_at": "2026-10-11T05:43:05Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/375"
+    },
+    {
+      "draft": true,
+      "head_sha": "2b1d823acd6b8f9a6b2455eff44fb380c2bb8dc3",
+      "kappa_decimal": "0.0011208649522582786",
+      "pr": 376,
+      "pr_updated_at": "2026-10-11T13:18:01Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/376"
+    },
+    {
+      "draft": false,
+      "head_sha": "d0a620fcc99ba012468d61d01f5bb14007076d50",
+      "kappa_decimal": "0.000998243154231047",
+      "pr": 377,
+      "pr_updated_at": "2026-10-11T11:37:34Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/377"
+    },
+    {
+      "draft": false,
+      "head_sha": "54a1eb4e6d0b1bc584f1cc5b21d091b0ce3f5c68",
+      "kappa_decimal": "0.00095464544449649",
+      "pr": 378,
+      "pr_updated_at": "2026-10-11T09:15:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/378"
+    },
+    {
+      "draft": false,
+      "head_sha": "e01bcc51ca7ee93cec54350afae8f163aafc8f93",
+      "kappa_decimal": "0.00090456959714325",
+      "pr": 379,
+      "pr_updated_at": "2026-10-11T11:32:49Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/379"
+    },
+    {
+      "draft": false,
+      "head_sha": "6e95ce5fb4112e5e98382886d7904aee29e31c56",
+      "kappa_decimal": "0.000967261003170394",
+      "pr": 380,
+      "pr_updated_at": "2026-10-11T11:37:35Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/380"
+    },
+    {
+      "draft": false,
+      "head_sha": "00765b291d0f924f337298eb1e2930cb0878b95e",
+      "kappa_decimal": "0.000995656966441037",
+      "pr": 381,
+      "pr_updated_at": "2026-10-11T06:14:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/381"
+    },
+    {
+      "draft": false,
+      "head_sha": "536329e6cddd37d70a6b52cbe2c2604ea18c5e83",
+      "kappa_decimal": "0.000998243154231047",
+      "pr": 382,
+      "pr_updated_at": "2026-10-11T11:37:36Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/382"
+    },
+    {
+      "draft": false,
+      "head_sha": "26b8600364803eddd66c25a187c7fb8435b7f632",
+      "kappa_decimal": "0.000996761861969671",
+      "pr": 383,
+      "pr_updated_at": "2026-10-11T06:47:01Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/383"
+    },
+    {
+      "draft": false,
+      "head_sha": "3fa794621ee566edcad56f86d2e4d0ab53da490e",
+      "kappa_decimal": "0.000998634656132003",
+      "pr": 384,
+      "pr_updated_at": "2026-10-11T09:15:05Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/384"
+    },
+    {
+      "draft": false,
+      "head_sha": "ad7647ef25b1df0e51189a41072d08a928d759d5",
+      "kappa_decimal": "0.000998390813251625",
+      "pr": 385,
+      "pr_updated_at": "2026-10-11T11:37:37Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/385"
+    },
+    {
+      "draft": false,
+      "head_sha": "dd11cf8069554f0333afde398f12a56c3a7c29dd",
+      "kappa_decimal": "0.000998243154231047",
+      "pr": 386,
+      "pr_updated_at": "2026-10-11T06:44:27Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/386"
+    },
+    {
+      "draft": false,
+      "head_sha": "d9fb9410b1ae6f6ada376a1e7fd12bc176e476ea",
+      "kappa_decimal": "0.000998634658090835",
+      "pr": 387,
+      "pr_updated_at": "2026-10-11T11:38:41Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/387"
+    },
+    {
+      "draft": false,
+      "head_sha": "783e019de2a27c30cd0dc858f4611f044e6fe77a",
+      "kappa_decimal": "0.000993946061393808",
+      "pr": 388,
+      "pr_updated_at": "2026-10-11T06:47:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/388"
+    },
+    {
+      "draft": false,
+      "head_sha": "b3c45822ca847aec8c0c019bb04db30881fc2966",
+      "kappa_decimal": "0.000998634658090834606116833",
+      "pr": 389,
+      "pr_updated_at": "2026-10-11T07:38:55Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/389"
+    },
+    {
+      "draft": false,
+      "head_sha": "0e790f2dfb64e17bdee154aee151bb0c1dddb28e",
+      "kappa_decimal": "0.001000220222889528",
+      "pr": 390,
+      "pr_updated_at": "2026-10-11T11:37:42Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/390"
+    },
+    {
+      "draft": false,
+      "head_sha": "efd5bb117722075e0f9f80f35de51b862bb1e197",
+      "kappa_decimal": "0.000993946061393808",
+      "pr": 391,
+      "pr_updated_at": "2026-10-11T07:13:59Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/391"
+    },
+    {
+      "draft": false,
+      "head_sha": "ac55c57035c197f744390fe4bc9cf49df1b61816",
+      "kappa_decimal": "0.00100022022485611",
+      "pr": 392,
+      "pr_updated_at": "2026-10-11T07:46:57Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/392"
+    },
+    {
+      "draft": false,
+      "head_sha": "baead918497269357c7da7eefc78eb56a9e4d9aa",
+      "kappa_decimal": "0.001000385913854264",
+      "pr": 394,
+      "pr_updated_at": "2026-10-11T09:15:02Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/394"
+    },
+    {
+      "draft": true,
+      "head_sha": "c60df7a806d1525c461b4b674598c37685c5ff3a",
+      "kappa_decimal": "0.001001256225581264",
+      "pr": 395,
+      "pr_updated_at": "2026-10-11T08:08:49Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/395"
+    },
+    {
+      "draft": true,
+      "head_sha": "ba07af491bc299269436a7e2454a5043d53a6ad0",
+      "kappa_decimal": "0.001001098432210898",
+      "pr": 396,
+      "pr_updated_at": "2026-10-11T09:09:55Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/396"
+    },
+    {
+      "draft": false,
+      "head_sha": "c3251c8f33fac9332fb3606c2dc0bd4f32de4615",
+      "kappa_decimal": "0.001002494659629864",
+      "pr": 398,
+      "pr_updated_at": "2026-10-11T07:58:05Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/398"
+    },
+    {
+      "draft": false,
+      "head_sha": "3e04107b9381d957a7da7e632ddb662b518429c8",
+      "kappa_decimal": "0.001002661106042177",
+      "pr": 399,
+      "pr_updated_at": "2026-10-11T09:14:59Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/399"
+    },
+    {
+      "draft": false,
+      "head_sha": "b73a8b4f3d8b32676e7527005911a11a60a1c4fd",
+      "kappa_decimal": "0.001002683712533373",
+      "pr": 400,
+      "pr_updated_at": "2026-10-11T08:43:31Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/400"
+    },
+    {
+      "draft": false,
+      "head_sha": "7844f72c6051a4408284c3092490687061675c1a",
+      "kappa_decimal": "0.00101331088745971",
+      "pr": 401,
+      "pr_updated_at": "2026-10-11T08:44:39Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/401"
+    },
+    {
+      "draft": false,
+      "head_sha": "ac91a9ce6780bdea6b1753cee90fcf437ca4c783",
+      "kappa_decimal": "0.001013357935292321",
+      "pr": 402,
+      "pr_updated_at": "2026-10-11T09:43:21Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/402"
+    },
+    {
+      "draft": false,
+      "head_sha": "4e3ef5fe92652b1a740b32cbea90d0fea678062e",
+      "kappa_decimal": "0.001013370540420331",
+      "pr": 403,
+      "pr_updated_at": "2026-10-11T09:35:11Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/403"
+    },
+    {
+      "draft": false,
+      "head_sha": "12f488264cdd74a3b60d0fb534f4955792384f5c",
+      "kappa_decimal": "0.001016422320428301",
+      "pr": 404,
+      "pr_updated_at": "2026-10-11T09:16:42Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/404"
+    },
+    {
+      "draft": true,
+      "head_sha": "66bc6cbfd0f93bcb88f7e36205ae8b160c9e5845",
+      "kappa_decimal": "0.001013417593791468",
+      "pr": 405,
+      "pr_updated_at": "2026-10-11T09:20:30Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/405"
+    },
+    {
+      "draft": true,
+      "head_sha": "5d0d8dff39db99f922ead6d11963aa643511e3ee",
+      "kappa_decimal": "0.001016469657190768",
+      "pr": 406,
+      "pr_updated_at": "2026-10-11T09:46:14Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/406"
+    },
+    {
+      "draft": false,
+      "head_sha": "2eca2715826bb899a17d013552d5cf35d42567d1",
+      "kappa_decimal": "0.001016526770666368",
+      "pr": 407,
+      "pr_updated_at": "2026-10-11T10:43:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/407"
+    },
+    {
+      "draft": false,
+      "head_sha": "26332a3a4bed23484d5cde2c9d4f72b6de130a9b",
+      "kappa_decimal": "0.001017022657082799",
+      "pr": 408,
+      "pr_updated_at": "2026-10-11T09:40:25Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/408"
+    },
+    {
+      "draft": true,
+      "head_sha": "212e03d7665d08fc6a037d3e33612cb7fc60874d",
+      "kappa_decimal": "0.001017250500928266",
+      "pr": 409,
+      "pr_updated_at": "2026-10-11T10:09:17Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/409"
+    },
+    {
+      "draft": false,
+      "head_sha": "95ad14d5359d62a89e7bb06eb59b68029e77fb6f",
+      "kappa_decimal": "0.001017562145187818",
+      "pr": 410,
+      "pr_updated_at": "2026-10-11T09:57:46Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/410"
+    },
+    {
+      "draft": false,
+      "head_sha": "f58d95f2c5da03445e704ea9c72cc55df9e68190",
+      "kappa_decimal": "0.001017629458064773",
+      "pr": 411,
+      "pr_updated_at": "2026-10-11T10:02:50Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/411"
+    },
+    {
+      "draft": false,
+      "head_sha": "616d9d678c00d79693b869934464003ba5b8d1b1",
+      "kappa_decimal": "0.001017776060460931",
+      "pr": 412,
+      "pr_updated_at": "2026-10-11T11:37:44Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/412"
+    },
+    {
+      "draft": true,
+      "head_sha": "cacb1f486a2ef5a184829b7f4d0cc4e357b47001",
+      "kappa_decimal": "0.001017671197486403",
+      "pr": 413,
+      "pr_updated_at": "2026-10-11T10:22:00Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/413"
+    },
+    {
+      "draft": false,
+      "head_sha": "7132ca3ebee286fbb01ff5a2f61a6fc32d36ecd4",
+      "kappa_decimal": "0.001017660918442154",
+      "pr": 414,
+      "pr_updated_at": "2026-10-11T10:20:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/414"
+    },
+    {
+      "draft": true,
+      "head_sha": "4ad1ef5c67e9943d21ee8c13325ca5705546ae28",
+      "kappa_decimal": "0.001017786140030308",
+      "pr": 415,
+      "pr_updated_at": "2026-10-11T10:31:07Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/415"
+    },
+    {
+      "draft": false,
+      "head_sha": "c76d101df11ad4152c52fd9d68344c064e453d3a",
+      "kappa_decimal": "0.001017798035290733",
+      "pr": 416,
+      "pr_updated_at": "2026-10-11T10:24:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/416"
+    },
+    {
+      "draft": true,
+      "head_sha": "ff8737920a4bb1a910eb069a5f86db6efdefa589",
+      "kappa_decimal": "0.001017923290728024",
+      "pr": 418,
+      "pr_updated_at": "2026-10-11T10:45:10Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/418"
+    },
+    {
+      "draft": false,
+      "head_sha": "70a276cb948e5be6071cde3f1bebdaf2f995ab8e",
+      "kappa_decimal": "0.001017962405296845",
+      "pr": 419,
+      "pr_updated_at": "2026-10-11T11:59:38Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/419"
+    },
+    {
+      "draft": false,
+      "head_sha": "079d514cdb40b2152ffa743853556b0117b98438",
+      "kappa_decimal": "0.001017812636706245",
+      "pr": 420,
+      "pr_updated_at": "2026-10-11T10:40:46Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/420"
+    },
+    {
+      "draft": false,
+      "head_sha": "6dfe3f978e2fcf3701523bda73744d56a1f8ac6f",
+      "kappa_decimal": "0.001017889833900852",
+      "pr": 421,
+      "pr_updated_at": "2026-10-11T10:51:15Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/421"
+    },
+    {
+      "draft": true,
+      "head_sha": "dc7a552857c04f936daad0dc8e8b0164e5797f1a",
+      "kappa_decimal": "0.001018475695250068",
+      "pr": 422,
+      "pr_updated_at": "2026-10-11T11:55:14Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/422"
+    },
+    {
+      "draft": false,
+      "head_sha": "997613cb3064b4096b996409a671e558251d55f8",
+      "kappa_decimal": "0.001018335129864748",
+      "pr": 423,
+      "pr_updated_at": "2026-10-11T10:56:01Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/423"
+    },
+    {
+      "draft": false,
+      "head_sha": "92c6ea78f5cf726dc7621854d53140512ba1c46a",
+      "kappa_decimal": "0.001018509848057013",
+      "pr": 424,
+      "pr_updated_at": "2026-10-11T12:23:54Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/424"
+    },
+    {
+      "draft": true,
+      "head_sha": "e11ccea1d092beb1b01b4ee4ce49da478234254c",
+      "kappa_decimal": "0.001048005508028206",
+      "pr": 425,
+      "pr_updated_at": "2026-10-11T13:23:19Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/425"
+    },
+    {
+      "draft": false,
+      "head_sha": "360d1b182a5f098619d435339d060d9b0cd9f469",
+      "kappa_decimal": "0.001018364819189613",
+      "pr": 427,
+      "pr_updated_at": "2026-10-11T11:17:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/427"
+    },
+    {
+      "draft": false,
+      "head_sha": "700e057c910245e8a5ad2249d23831c9e45504b3",
+      "kappa_decimal": "0.001018419742888184",
+      "pr": 428,
+      "pr_updated_at": "2026-10-11T11:22:11Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/428"
+    },
+    {
+      "draft": true,
+      "head_sha": "b25cbe3350e32efb211508c1dd41a134770fba16",
+      "kappa_decimal": "0.001019646575559504",
+      "pr": 429,
+      "pr_updated_at": "2026-10-11T11:52:18Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/429"
+    },
+    {
+      "draft": true,
+      "head_sha": "71c5988803b1fc66fc9e8c2bc50949033be06e37",
+      "kappa_decimal": "0.001056975315151441",
+      "pr": 431,
+      "pr_updated_at": "2026-10-11T13:23:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/431"
+    },
+    {
+      "draft": false,
+      "head_sha": "642b702149b975e3a535f139243cd3afd286e868",
+      "kappa_decimal": "0.001019752143318808",
+      "pr": 432,
+      "pr_updated_at": "2026-10-11T12:24:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/432"
+    },
+    {
+      "draft": false,
+      "head_sha": "6d9244518175caf9e0089f92486959bc2c317273",
+      "kappa_decimal": "0.001120864952258278",
+      "pr": 433,
+      "pr_updated_at": "2026-10-11T13:23:14Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/433"
+    },
+    {
+      "draft": true,
+      "head_sha": "6558967675aefdeabb34b89cb08b39104c8f1f60",
+      "kappa_decimal": "0.00124529313073387",
+      "pr": 434,
+      "pr_updated_at": "2026-10-11T13:36:58Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/434"
+    },
+    {
+      "draft": false,
+      "head_sha": "2c9c833ac8709402c37fc88a6a23393fb0d397fb",
+      "kappa_decimal": "0.001128832830332521",
+      "pr": 435,
+      "pr_updated_at": "2026-10-11T12:21:29Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/435"
+    },
+    {
+      "draft": false,
+      "head_sha": "da8ca2025472553ac9b36f4400138ed48a6a0e3b",
+      "kappa_decimal": "0.001128983115440183",
+      "pr": 436,
+      "pr_updated_at": "2026-10-11T12:21:51Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/436"
+    },
+    {
+      "draft": false,
+      "head_sha": "ba6c10ba78e788764cfaa250d6a250d278580482",
+      "kappa_decimal": "0.001128922474816875",
+      "pr": 437,
+      "pr_updated_at": "2026-10-11T13:24:46Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/437"
+    },
+    {
+      "draft": false,
+      "head_sha": "e3b56de7869f6af88d48ac0ab1d7959c4c9e6176",
+      "kappa_decimal": "0.001133508328719775",
+      "pr": 438,
+      "pr_updated_at": "2026-10-11T12:36:25Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/438"
+    },
+    {
+      "draft": true,
+      "head_sha": "fa3a588ec1e383083abb8de9c51904fb9d689ad4",
+      "kappa_decimal": "0.00113392804387286",
+      "pr": 439,
+      "pr_updated_at": "2026-10-11T12:46:32Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/439"
+    },
+    {
+      "draft": false,
+      "head_sha": "bd03373b6d4d4e380d0b6ea7d55cd2ac8f163544",
+      "kappa_decimal": "0.001136403735815528",
+      "pr": 440,
+      "pr_updated_at": "2026-10-11T13:04:16Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/440"
+    },
+    {
+      "draft": false,
+      "head_sha": "6160c13526f5f957902910b462164c93c1d8f39a",
+      "kappa_decimal": "0.001138798055343319",
+      "pr": 441,
+      "pr_updated_at": "2026-10-11T13:17:26Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/441"
+    },
+    {
+      "draft": false,
+      "head_sha": "4e16d001d505d4f21dd2bcfc44591f9be4c279bd",
+      "kappa_decimal": "0.001237551733247294",
+      "pr": 442,
+      "pr_updated_at": "2026-10-11T13:18:56Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/442"
+    },
+    {
+      "draft": true,
+      "head_sha": "5a514e94f156edcc5fd827b87494d962f79d0f6c",
+      "kappa_decimal": "0.001138823042306561",
+      "pr": 443,
+      "pr_updated_at": "2026-10-11T13:34:12Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/443"
+    }
+  ],
+  "generated_at": "2026-10-11T13:37:08Z",
+  "verified": []
+}

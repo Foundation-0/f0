@@ -1,0 +1,8 @@
+# Generated data lives in the repo; runtime HTTP caches do not.
+data/etags.json
+data/pulls_page*.json
+data/selected-result.raw.json
+data/main_ref.json
+data/fetch_state.json
+__pycache__/
+*.pyc
