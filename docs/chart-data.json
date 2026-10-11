@@ -2098,10 +2098,10 @@
     },
     {
       "draft": true,
-      "head_sha": "0d4b13baf9e0f83731de0c2b032a9b526b58ddfd",
+      "head_sha": "036e8acbcca9774e4077341bcde7be0765a8e30d",
       "kappa_decimal": "0.0011208649522582786",
       "pr": 376,
-      "pr_updated_at": "2026-10-11T16:09:42Z",
+      "pr_updated_at": "2026-10-11T16:43:10Z",
       "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/376"
     },
     {
@@ -2703,8 +2703,48 @@
       "pr": 459,
       "pr_updated_at": "2026-10-11T16:33:51Z",
       "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/459"
+    },
+    {
+      "draft": true,
+      "head_sha": "f30e2caf7d3053d16cd88fac1e06d3e3447994f0",
+      "kappa_decimal": "0.001274415506145115",
+      "pr": 460,
+      "pr_updated_at": "2026-10-11T17:00:35Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/460"
+    },
+    {
+      "draft": false,
+      "head_sha": "dc297912ad446779f983818816617c03dfc76e16",
+      "kappa_decimal": "0.00127403259208805",
+      "pr": 461,
+      "pr_updated_at": "2026-10-11T16:50:06Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/461"
+    },
+    {
+      "draft": true,
+      "head_sha": "4fc07b29dfd8d9f924b60208b43f9a63c1c5b292",
+      "kappa_decimal": "0.001274494971185576",
+      "pr": 462,
+      "pr_updated_at": "2026-10-11T17:01:11Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/462"
+    },
+    {
+      "draft": true,
+      "head_sha": "1b1de4833686bfa335509b21266afc44baef0fd2",
+      "kappa_decimal": "0.0012835",
+      "pr": 463,
+      "pr_updated_at": "2026-10-11T16:59:33Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/463"
+    },
+    {
+      "draft": false,
+      "head_sha": "8c546e9918ae37d842916d89ffe28f2c08cdb3d3",
+      "kappa_decimal": "0.001347744550711765",
+      "pr": 464,
+      "pr_updated_at": "2026-10-11T17:01:22Z",
+      "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/464"
     }
   ],
-  "generated_at": "2026-10-11T16:36:01Z",
+  "generated_at": "2026-10-11T17:01:49Z",
   "verified": []
 }
