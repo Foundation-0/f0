@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frontier-Math — integer multiplication κ race</title>
+<style>
+  :root { --bg:#0d1117; --fg:#e6edf3; --muted:#8b949e; --accent:#f85149; --line:#30363d; }
+  body { margin:0; padding:2rem 1.5rem; background:var(--bg); color:var(--fg);
+         font:15px/1.55 system-ui, sans-serif; max-width:1080px; margin-inline:auto; }
+  a { color:#79c0ff; }
+  h1 { font-size:1.4rem; margin:0 0 .25rem; }
+  .sub { color:var(--muted); margin-bottom:1.25rem; }
+  /* STALENESS BANNER — rules reused from Frida kappa-frontier.html; final copy is the
+     finish lane's seam. Content must stay red + verbatim-obligated wording below. */
+  #stale-banner { display:block; background:#67060c; border:1px solid var(--accent);
+     color:#ffdcd7; padding:.75rem 1rem; border-radius:8px; margin-bottom:1.25rem;
+     font-weight:600; }
+  #stale-banner .age { font-weight:400; color:#ffb3ab; }
+  table { border-collapse:collapse; width:100%; font-size:.85rem; }
+  th, td { border-bottom:1px solid var(--line); padding:.35rem .5rem; text-align:left; }
+  th { color:var(--muted); font-weight:600; }
+  tr.stale td { color:var(--accent); }
+  #chart { width:100%; height:auto; background:#010409; border:1px solid var(--line);
+           border-radius:8px; margin-bottom:1.25rem; }
+  .legend { color:var(--muted); font-size:.8rem; margin:.25rem 0 1rem; }
+  code { background:#161b22; padding:.1rem .35rem; border-radius:4px; }
+</style>
+</head>
+<body>
+  <div id="stale-banner">
+    PR race moves ~every 10 min — every head SHA below must be re-checked;
+    nothing here is a live quote.
+    <span class="age" id="banner-age"></span>
+  </div>
+
+  <h1>Integer multiplication: conditional κ frontier</h1>
+  <p class="sub">v1 dashboard — upstream race
+    <a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>.
+    Method and tier definitions: <a href="method.html">method.html</a>.
+    Machine-readable feed: <a href="feed.json">feed.json</a> (schema
+    <a href="../feed.schema.json">feed.schema.json</a>).
+    <em>Final page copy: finish-lane seam (Frida).</em></p>
+
+  <svg id="chart" viewBox="0 0 960 420" role="img"
+       aria-label="κ versus PR number, two series: claimed hollow circles, verified filled squares"></svg>
+  <p class="legend">
+    <span style="color:#e6edf3">○</span> claimed (hollow; grey for drafts)
+    &nbsp; <span style="color:#3fb950">■</span> human-verified (filled square)
+    &nbsp; <span style="color:#d29922">★</span> lean-verified (reserved, empty in v1).
+    X: upstream PR number; Y: κ decimal.
+  </p>
+
+  <h2>All plotted points (inline source per point — unsourced points forbidden)</h2>
+  <div id="table"></div>
+
+<script>
+/* Reads the generated views only. Never hand-edit chart-data.json; produced by
+   scripts/fetch.py, verified by scripts/gate.py pre-commit. */
+const NS = 'http://www.w3.org/2000/svg';
+function el(n, a) { const e = document.createElementNS(NS, n);
+  for (const k in a) e.setAttribute(k, a[k]); return e; }
+
+async function boot() {
+  const [chart, feed] = await Promise.all([
+    fetch('chart-data.json').then(r => r.json()),
+    fetch('feed.json').then(r => r.json()),
+  ]);
+  const xs = [...chart.claimed, ...chart.verified];
+  const prMin = Math.min(...xs.map(r => r.pr)), prMax = Math.max(...xs.map(r => r.pr));
+  const ys = [...xs.map(r => parseFloat(r.kappa_decimal)),
+              parseFloat(feed.selected_result.decimal)];
+  const yMin = Math.min(...ys), yMax = Math.max(...ys);
+  const W = 960, H = 420, M = {l: 90, r: 20, t: 20, b: 40};
+  const sx = p => M.l + (p - prMin) / (prMax - prMin || 1) * (W - M.l - M.r);
+  const sy = v => H - M.b - (v - yMin) / (yMax - yMin || 1) * (H - M.t - M.b);
+  const svg = document.getElementById('chart');
+
+  svg.appendChild(el('line', {x1: M.l, y1: H - M.b, x2: W - M.r, y2: H - M.b, stroke: '#30363d'}));
+  svg.appendChild(el('line', {x1: M.l, y1: M.t, x2: M.l, y2: H - M.b, stroke: '#30363d'}));
+  svg.appendChild(el('title', {})).textContent = `PRs ${prMin}–${prMax}; κ ${yMin}–${yMax}`;
+
+  // frontier step-line over non-draft claimed, and verified series, drawn separately
+  function step(arr, stroke) {
+    const pts = arr.filter(r => !r.draft).sort((a, b) => a.pr - b.pr);
+    let best = -Infinity, d = '';
+    for (const r of pts) {
+      const v = parseFloat(r.kappa_decimal);
+      if (v > best) {
+        if (d) d += `L${sx(r.pr).toFixed(1)},${sy(best).toFixed(1)}`;
+        d += `M${sx(r.pr).toFixed(1)},${sy(v).toFixed(1)}`;
+        best = v;
+      }
+    }
+    const p = el('path', {d, stroke, 'stroke-width': 1.5, fill: 'none', opacity: .6});
+    svg.appendChild(p);
+  }
+  step(chart.claimed, '#8b949e');
+
+  for (const r of chart.verified) {
+    const x = sx(r.pr), y = sy(parseFloat(r.kappa_decimal));
+    svg.appendChild(el('rect', {x: x - 5, y: y - 5, width: 10, height: 10, fill: '#3fb950'}));
+  }
+  for (const r of chart.claimed) {
+    const x = sx(r.pr), y = sy(parseFloat(r.kappa_decimal));
+    svg.appendChild(el('circle', {cx: x, cy: y, r: 4.5, fill: r.draft ? '#484f58' : '#0d1117',
+      stroke: r.draft ? '#8b949e' : '#e6edf3', 'stroke-width': 1.5}));
+  }
+  // selected-result reference point
+  {
+    const x = M.l, y = sy(parseFloat(feed.selected_result.decimal));
+    svg.appendChild(el('line', {x1: M.l, y1: y, x2: W - M.r, y2: y,
+      stroke: '#3fb950', 'stroke-dasharray': '4 4', 'stroke-width': 1}));
+    const t = el('text', {x: W - M.r - 4, y: y - 6, fill: '#3fb950', 'font-size': 11,
+      'text-anchor': 'end'});
+    t.textContent = 'selected-result ' + feed.selected_result.decimal;
+    svg.appendChild(t);
+  }
+
+  // table: every plotted point, inline source (pr_url + head short + tier + age)
+  const rows = [
+    ...chart.claimed.map(r => ({...r, tier: r.draft ? 'claimed (draft)' : 'claimed'})),
+    ...chart.verified];
+  rows.sort((a, b) => parseFloat(b.kappa_decimal) - parseFloat(a.kappa_decimal));
+  const now = Date.now();
+  const tb = rows.map(r => {
+    const age = Math.max(0, now - Date.parse(r.pr_updated_at)) / 3600e3;
+    return `<tr><td><a href="${r.pr_url}">#${r.pr}</a></td>` +
+      `<td>${r.head_sha.slice(0, 8)}</td><td>${r.kappa_decimal}</td>` +
+      `<td>${r.tier}</td><td>${age.toFixed(1)} h</td></tr>`;
+  }).join('');
+  document.getElementById('table').innerHTML =
+    `<table><thead><tr><th>PR</th><th>head</th><th>κ decimal</th><th>tier</th>` +
+    `<th>pr_updated age</th></tr></thead><tbody>${tb}</tbody></table>`;
+
+  const fedAge = (now - Date.parse(feed.generated_at)) / 60e3;
+  document.getElementById('banner-age').textContent =
+    ` Feed generated ${fedAge.toFixed(1)} min ago.`;
+}
+boot().catch(e => {
+  document.getElementById('table').textContent = 'feed/chart data failed to load: ' + e;
+});
+</script>
+</body>
+</html>
