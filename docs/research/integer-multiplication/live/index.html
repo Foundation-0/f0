@@ -60,8 +60,8 @@
   <p class="sub">v1 dashboard — upstream race
     <a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>.
     Method and tier definitions: <a href="method.html">method.html</a>.
-    Machine-readable feed: <a href="feed.json">feed.json</a> (schema
-    <a href="feed.schema.json">feed.schema.json</a>).</p>
+    Machine-readable feed: <a href="../../../feed.json">feed.json</a> (schema
+    <a href="../../../feed.schema.json">feed.schema.json</a>).</p>
 
   <div class="stats" id="stats"></div>
 
@@ -108,8 +108,8 @@ function niceTicks(lo, hi, n) {
 let DATA = null;
 async function boot() {
   const [chart, feed] = await Promise.all([
-    fetch('chart-data.json').then(r => r.json()),
-    fetch('feed.json').then(r => r.json()),
+    fetch('../../../chart-data.json').then(r => r.json()),
+    fetch('../../../feed.json').then(r => r.json()),
   ]);
   const titles = new Map(feed.records.map(r => [r.pr + ':' + r.head_sha, r.title]));
   const verified = f(feed.selected_result.decimal);

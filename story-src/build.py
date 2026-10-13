@@ -277,6 +277,6 @@ page = f"""<!doctype html>
 <body>{BODY}<script>{JS}</script></body></html>
 """
 
-out = os.path.join(HERE, '..', 'docs', 'story', 'index.html')
+out = os.path.join(HERE, '..', 'docs', 'research', 'integer-multiplication', 'story', 'index.html')
 open(out, 'w').write(page)
-print('wrote docs/story/index.html', len(page), 'bytes;', len(k), 'kappa points; growth %.2fx' % grow)
+print('wrote docs/research/integer-multiplication/story/index.html', len(page), 'bytes;', len(k), 'kappa points; growth %.2fx' % grow)
