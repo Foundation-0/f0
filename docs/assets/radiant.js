@@ -41,7 +41,7 @@
   /* Founding members' work in the ledger. Credit lines follow docs/data/members.json and projects.json. */
   var MEMBERS = {
     'integer-mult-bounds-community': 'Founding member Doug Colkitt runs this race; eumemic, rohanarun and Ryan Shea contribute. Aska built the tracker that grew into this site.',
-    'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska built its website and four merged pipeline fixes.',
+    'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska built the first version of its website and sent ten merged pull requests, four of them pipeline fixes.',
     'gf2m-aes-field-multiplier-112': 'Swapnil Jain’s result. Aska contributed verified multipliers for four more fields to the same repository.',
     'mobius-x1-gf2-mobius-below-nlogn': 'Swapnil Jain’s claim. Aska wrote and ran the full-network check behind Theorem 2.',
     'aska-cab-to-fcc-exact-fold': 'Aska Digital’s own work: founding member Ahraz Arifuddin with a team of AI agents.',

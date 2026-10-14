@@ -54,43 +54,43 @@
    "kind": "research",
    "member": "eumemic",
    "owner": "eumemic",
-   "contribution": "Aska built the website and contributed four merged pipeline fixes.",
+   "contribution": "Aska built the first version of the project's website and contributed nine more merged pull requests, among them four pipeline fixes; one fix (PR #6) led to a re-search that added 120 counted candidates.",
    "page": "research/exoplanets/",
    "accent": "#f0b25a",
    "title": "Exoplanets",
-   "dek": "Faint shadows in old starlight: 533 small-planet candidates in public NASA data.",
+   "dek": "Faint shadows in old starlight: 665 small-planet candidates in public NASA data, as of 14 Oct 2026.",
    "status": "Candidates · not confirmed · not peer reviewed",
    "links": [
     {
      "label": "Site",
-     "url": "https://ahrazzle.github.io/exoplanets/"
+     "url": "https://eumemic.github.io/exoplanets/"
     },
     {
      "label": "Repository",
      "url": "https://github.com/eumemic/exoplanets"
     }
    ],
-   "one_line": "An independent, AI-built search of 4,039,203 stars in NASA's public TESS data that found 533 small transiting-planet candidates the official pipelines had passed over; Aska Digital built its website and fixed four flaws in its pipeline.",
+   "one_line": "An independent, AI-built search of 4,039,203 stars in NASA's public TESS data that, as of 14 October 2026, counts 665 small transiting-planet candidates the official pipelines had passed over; Aska Digital built its website and fixed flaws in its pipeline.",
    "stats": [
     {
      "value": "4,039,203",
      "label": "stars searched in the full-sky search, TESS sectors 1-104",
-     "source": "eumemic/exoplanets README.md lines 328-330"
+     "source": "eumemic/exoplanets README.md, full-sky search table, at 58c6318"
     },
     {
-     "value": "533",
-     "label": "planet candidates counted on 13 Oct 2026 (473 full-sky + 60 earlier); not confirmed",
-     "source": "README.md lines 8-13; recomputed from results_public/candidates_allsky.csv + tiers_earlier_candidates.csv at da72261"
+     "value": "665",
+     "label": "planet candidates counted on 14 Oct 2026 (607 full-sky + 58 earlier); not confirmed",
+     "source": "README.md, note of 14 Oct 2026; recomputed from results_public/candidates_allsky.csv + tiers_earlier_candidates.csv at 58c6318"
     },
     {
      "value": "7,459,491 → 13,986",
      "label": "repeating dips found, then those passing all 17 LEO-Vetter tests",
-     "source": "README.md lines 331-335"
+     "source": "README.md, full-sky search table, at 58c6318"
     },
     {
      "value": "82%",
      "label": "of full-sky candidates are on stars NASA's multi-sector search never covers (full-frame images only)",
-     "source": "validation/findability.md; findability.csv (360 of 438)"
+     "source": "validation/findability.md at 58c6318 (404 of 494, updated 13 Oct 2026)"
     }
    ]
   },

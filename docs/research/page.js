@@ -42,14 +42,14 @@
       ] },
     'exoplanets': {
       acc: '--acc-exoplanets', field: 'Astronomy', who: 'eumemic, with Aska',
-      credit: '<b>Founding member eumemic’s project</b>, built with Claude Code. Aska built the website and sent four merged fixes to the search; one of them, a fairer test of the false-alarm filter, changed which signals made today’s list.',
+      credit: '<b>Founding member eumemic’s project</b>, built with Claude Code. Aska built the first version of its website and sent ten merged pull requests; one fix, restoring light curves the data reader had dropped (PR #6), led to a re-search that added 120 counted candidates.',
       glyph: 'stack', gk: 'SCHEMATIC · STACKING PASSES', gr: '',
       aria: 'Schematic: as more passes of a planet are stacked, simulated noise shrinks and a 398 parts-per-million dip in the star’s light stands out.',
       cap: 'Why stacking works: noise shrinks like 1/√N as passes are added, until a dip too small to see once stands out. The dip is TIC 4206066’s published 398 ppm, 1.7 h signal; the noise is simulated.',
       loop: [
-        ['7,459,491', 'repeating dips found by the search in NASA’s public TESS data', 'eumemic/exoplanets README.md lines 331-335'],
-        ['13,986', 'of them passed all 17 LEO-Vetter tests', 'README.md lines 331-335'],
-        ['533', 'listed as planet candidates on 13 Oct 2026, each with predicted transit times anyone can test; none confirmed yet', 'README.md lines 8-13']
+        ['7,459,491', 'repeating dips found by the first full-sky search in NASA’s public TESS data', 'eumemic/exoplanets README.md, full-sky search table'],
+        ['13,986', 'of them passed all 17 LEO-Vetter tests', 'README.md, full-sky search table'],
+        ['665', 'counted as planet candidates on 14 Oct 2026, each with predicted transit times anyone can test; none confirmed yet', 'README.md, note of 14 Oct 2026 (58c6318)']
       ] },
     'integer-multiplication': {
       acc: '--acc-intmult', field: 'Algorithms', who: 'Doug Colkitt + crowd',

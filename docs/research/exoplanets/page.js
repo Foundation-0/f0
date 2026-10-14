@@ -1,11 +1,14 @@
 /* Exoplanets page: five figures, vanilla JS, no dependencies.
-   1 sky map of the 533 candidates (canvas; Hammer projection, or period against radius)
+   1 sky map of the counted candidates (canvas; Hammer projection, or period against radius)
    2 find the heartbeat (canvas; real TESS light curve of TIC 4206066, live box search)
    3 why stacking works (canvas + SVG; signal-to-noise against transits stacked)
    4 turn the sky upside down (canvas; L 98-59 flipped, a false alarm, measured rates)
    5 funnel tooltips
-   Data: candidates.json and lightcurves.json in this folder, derived from github.com/eumemic/exoplanets at
-   da72261 (results and data CC BY 4.0, eumemic). Colours come from tokens via F0.css; every canvas redraws
+   Data: candidates.json and lightcurves.json in this folder, derived from github.com/eumemic/exoplanets
+   (results and data CC BY 4.0, eumemic): candidates.json is rebuilt by scripts/exoplanets_data.py and names
+   its commit and date (58c6318, 14 Oct 2026); lightcurves.json is from da72261 (its source is unchanged since).
+   The sky map's counts (title, tiers, table) are rendered from candidates.json; the HTML keeps a copy for readers
+   without JavaScript (scripts/prerender.mjs). Colours come from tokens via F0.css; every canvas redraws
    on F0.onTheme. Nothing moves until a visitor presses a button, and nothing moves with motion off. */
 (function () {
   'use strict';
@@ -55,7 +58,7 @@
   function tipAt(el, html) { var r = el.getBoundingClientRect(); F0.tip.show(html, r.left + r.width / 2, r.top + r.height / 2); }
 
   /* =========================================================================
-     1. Sky map of the 533 counted candidates
+     1. Sky map of the counted candidates
      ========================================================================= */
   (function sky() {
     var cv = $('sky-canvas'); if (!cv) return;
@@ -187,7 +190,7 @@
     function details(i, long) {
       var t = D.tier[i];
       var s = '<b>TIC ' + D.tic[i] + '</b> · tier ' + TIERS[t] + ' (' + TIER_TXT[t] + ')<br><span class="mono">P = ' + fmt(D.P[i], 4) + ' d · ' + fmt(D.rp[i], 2) + ' Earth radii · depth ' + grp(D.depth[i]) + ' ppm · T = ' + fmt(D.tmag[i], 2) + ' · RA ' + fmt(D.ra[i], 2) + '°, Dec ' + (D.dec[i] >= 0 ? '+' : '−') + fmt(Math.abs(D.dec[i]), 2) + '°</span>';
-      if (long) s += '<br><a href="https://exofop.ipac.caltech.edu/tess/target.php?id=' + D.tic[i] + '">ExoFOP page</a><a href="https://ahrazzle.github.io/exoplanets/candidates.html?q=' + D.tic[i] + '">In the project&rsquo;s explorer</a>';
+      if (long) s += '<br><a href="https://exofop.ipac.caltech.edu/tess/target.php?id=' + D.tic[i] + '">ExoFOP page</a><a href="https://eumemic.github.io/exoplanets/candidates.html?q=' + D.tic[i] + '">In the project&rsquo;s explorer</a>';
       return s;
     }
     var readDefault = $('sky-read').innerHTML, readOrb = '';
@@ -256,6 +259,9 @@
     C.resize(draw); F0.onTheme(draw);
     F0.json('candidates.json').then(function (d) {
       D = d; D.u = []; D.draw = [];
+      // counts in the figure's title, tier buttons and table summary, from the data
+      document.querySelectorAll('[data-sky-n]').forEach(function (e) { e.textContent = D.n; });
+      document.querySelectorAll('[data-sky-tier]').forEach(function (e) { var t = +e.getAttribute('data-sky-tier'); e.textContent = D.tier.filter(function (x) { return x === t; }).length; });
       for (var i = 0; i < D.n; i++) { D.u.push(hammer(D.ra[i], D.dec[i])); D.draw.push(i); }
       // draw faint stars first so bright ones sit on top
       D.draw.sort(function (a, b) { return D.tmag[b] - D.tmag[a]; });
@@ -272,7 +278,7 @@
         if (!tw.open || done) return; done = true;
         var idx = []; for (var i = 0; i < D.n; i++) idx.push(i);
         idx.sort(function (a, b) { return D.tier[a] - D.tier[b] || D.P[a] - D.P[b]; });
-        var h = '<table class="tbl"><caption>The 533 counted candidates, by tier and period (as of 13 Oct 2026)</caption><thead><tr><th>TIC</th><th>Tier</th><th class="n">Period (d)</th><th class="n">Radius (Earths)</th><th class="n">Depth (ppm)</th><th class="n">T mag</th><th class="n">RA (°)</th><th class="n">Dec (°)</th></tr></thead><tbody>';
+        var h = '<table class="tbl"><caption>The ' + D.n + ' counted candidates, by tier and period' + (D.commit ? ' (eumemic/exoplanets at ' + D.commit + ', ' + F0.fmtDate(D.date) + ')' : '') + '</caption><thead><tr><th>TIC</th><th>Tier</th><th class="n">Period (d)</th><th class="n">Radius (Earths)</th><th class="n">Depth (ppm)</th><th class="n">T mag</th><th class="n">RA (°)</th><th class="n">Dec (°)</th></tr></thead><tbody>';
         idx.forEach(function (i) {
           h += '<tr><td><a href="https://exofop.ipac.caltech.edu/tess/target.php?id=' + D.tic[i] + '">' + D.tic[i] + '</a></td><td>' + TIERS[D.tier[i]] + '</td><td class="n">' + fmt(D.P[i], 4) + '</td><td class="n">' + fmt(D.rp[i], 2) + '</td><td class="n">' + grp(D.depth[i]) + '</td><td class="n">' + fmt(D.tmag[i], 2) + '</td><td class="n">' + fmt(D.ra[i], 3) + '</td><td class="n">' + fmt(D.dec[i], 3) + '</td></tr>';
         });

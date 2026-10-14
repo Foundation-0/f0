@@ -49,7 +49,7 @@
   /* Who did what on Foundation0's own entries (credit per docs/data/projects.json, members.json and the project dossiers). */
   var CREDIT = {
     'aska-cab-to-fcc-exact-fold': 'Founding member Ahraz Arifuddin’s own work at Aska Digital, done with a team of AI agents.',
-    'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska Digital built the project’s website and fixed four flaws in its pipeline; the authors merged all four fixes.',
+    'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska Digital built the first version of the project’s website and sent ten pull requests, four of them pipeline fixes; the authors merged all ten.',
     'integer-mult-bounds-community': 'Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member rohanarun holds the current reviewed κ record (PR #1094); eumemic and Ryan Shea also contribute. Aska built the live tracker that grew into this site.',
     'erdos-875-sharp-carry-lemma': 'Founding member Doug Colkitt’s repository and AI pipeline.',
     'matroid-prophet-one-sample-constant-shea': 'Founding member Ryan Shea’s note, written with OpenAI Codex.',

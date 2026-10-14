@@ -351,6 +351,26 @@
      03 The κ staircase. Records from kappa-history.json; Aska's two claims; optional open claims from
      this site's chart-data.json (11 Oct snapshot); a "now" step when the live record is newer.
      ====================================================================== */
+  /* the table twin under the staircase: every reviewed record, then Aska's two claims. The HTML carries a
+     pre-rendered copy (scripts/prerender.mjs) for readers without JavaScript. */
+  function stairTable(d) {
+    var tb = $('#s-table tbody'); if (!tb) return;
+    function when(t) { return utc(t).replace(/ UTC$/, ''); }
+    function kap(r) {
+      if (/^2\^/.test(r.kappa)) return '2<sup>' + minus(r.kappa.slice(2)) + '</sup>';
+      return String(r.decimal).indexOf('0.0000000') === 0 ? sci(parseFloat(r.decimal), 2) : esc(r.decimal);
+    }
+    var rows = d.records.map(function (r, i) {
+      var src = i === 0 ? '<a href="' + esc(r.link) + '">preprint</a>' : r.commit_url ? '<a href="' + esc(r.commit_url) + '">' + esc(r.commit) + '</a>' : '';
+      return '<tr><td>' + esc(i === 0 ? utc(r.t, true) : when(r.t)) + '</td><td class="n">' + kap(r) + '</td><td class="n">' + minus(r.log2.toFixed(2)) + '</td>' +
+        '<td>' + esc(r.what) + (r.who ? ' <span class="im-who-t">' + esc(r.who) + '</span>' : '') + '</td><td>' + src + '</td></tr>';
+    });
+    (d.aska_claims || []).forEach(function (a) {
+      rows.push('<tr class="im-row-aska"><td>' + esc(when(a.t)) + '</td><td class="n">' + esc(a.decimal) + '</td><td class="n">' + minus(Math.log2(parseFloat(a.decimal)).toFixed(2)) + '</td>' +
+        '<td>Aska #' + (+a.pr) + ': ' + esc(a.what) + ' <span class="im-who-t">' + esc(a.status) + '</span></td><td><a href="https://github.com/CrocSwap/integer-mult-bounds/pull/' + (+a.pr) + '">PR #' + (+a.pr) + '</a></td></tr>');
+    });
+    tb.innerHTML = rows.join('');
+  }
   function initStair() {
     var svg = $('#s-svg'); if (!svg) return;
     var detail = $('#s-detail'), out = $('#s-out');
@@ -595,6 +615,7 @@
     var rw = 0, ro = 'ResizeObserver' in window ? new ResizeObserver(function () { var w = Math.round(svg.parentNode.getBoundingClientRect().width); if (st.data && w !== rw) { rw = w; draw(); } }) : null;
     if (ro) ro.observe(svg.parentNode);
     F0.json('kappa-history.json').then(function (d) {
+      stairTable(d);
       st.data = d; build(); st.sel = selIdx(function (x) { return x.kind === 'rec'; }); draw(); showDetail(items[st.sel]);
       onLive(function (lv) {
         st.live = lv; var cur = items[st.sel]; build();

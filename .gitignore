@@ -6,3 +6,4 @@ data/main_ref.json
 data/fetch_state.json
 __pycache__/
 *.pyc
+node_modules/

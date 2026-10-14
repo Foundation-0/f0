@@ -151,9 +151,18 @@
           <div class="ctrl"><span id="size-l">Size</span><div class="seg" role="group" aria-labelledby="size-l"><button type="button" data-size="n" aria-pressed="true">Manuscripts</button><button type="button" data-size="1" aria-pressed="false">One per family</button></div></div>
           <div class="ctrl"><span id="snap-l">Snapshot</span><div class="seg" role="group" aria-labelledby="snap-l"><button type="button" data-snap="day1" aria-pressed="false">6 Oct</button><button type="button" data-snap="oct7" aria-pressed="true">7 Oct</button></div></div>
           <label class="ctrl mm-find">Find <input type="search" id="map-q" placeholder="e.g. Ramsey, conjecture, 160" autocomplete="off" spellcheck="false"></label>
-          <output class="mm-count" id="map-count" for="map-q">372 families</output>
+          <output class="mm-count" id="map-count" for="map-q"><!--prerender:map-count-->372 families · 719 manuscripts<!--/prerender:map-count--></output>
         </div>
-        <ul class="mm-fields" id="map-fields" aria-label="Fields: press one to highlight it"></ul>
+        <ul class="mm-fields" id="map-fields" aria-label="Fields: press one to highlight it"><!--prerender:map-fields-->
+          <li><button type="button" data-field="algorithms" aria-pressed="false">Algorithms and complexity <b>48</b></button></li>
+          <li><button type="button" data-field="combinatorics" aria-pressed="false">Combinatorics <b>36</b></button></li>
+          <li><button type="button" data-field="number-theory" aria-pressed="false">Number theory <b>31</b></button></li>
+          <li><button type="button" data-field="analysis" aria-pressed="false">Analysis <b>79</b></button></li>
+          <li><button type="button" data-field="geometry" aria-pressed="false">Geometry and topology <b>98</b></button></li>
+          <li><button type="button" data-field="algebra" aria-pressed="false">Algebra <b>32</b></button></li>
+          <li><button type="button" data-field="probability" aria-pressed="false">Probability <b>30</b></button></li>
+          <li><button type="button" data-field="other" aria-pressed="false">Other <b>18</b></button></li>
+        <!--/prerender:map-fields--></ul>
         <div class="mm-map-stage" id="map-stage" tabindex="0" role="group" aria-roledescription="map" aria-label="Map of OpenAI's 372 result families. Arrow keys move between families; Enter opens the entry for a family our members built on." aria-describedby="map-info">
           <noscript><p class="mm-noscript">The map needs JavaScript. The full list of families is in <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>.</p></noscript>
         </div>
@@ -287,7 +296,7 @@
   <!-- 03 THE SLACK -->
   <section class="sec alt" id="slack" data-index="The slack" data-num="03" aria-labelledby="slack-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The slack</p><span class="chip">Six refinements &middot; <span data-nsteps>52</span> public steps</span></div>
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The slack</p><span class="chip">Six refinements &middot; <span data-nsteps><!--prerender:nsteps-->52<!--/prerender:nsteps--></span> public steps</span></div>
       <h2 class="h2" id="slack-h">First proofs leave room. People found it.</h2>
       <p class="lede">A first proof only has to work. To keep it short, its author picks safe, loose numbers wherever the argument allows, much as a first route to a new place takes the roads you already know. That looseness is <dfn class="term">slack</dfn>. Tightening it rarely needs a new idea at first, just patience, and people with AI agents have patience to spare.</p>
       <div class="split mm-slack-intro">

@@ -108,7 +108,7 @@
     function mk(ys, items) {
       var from = Math.min.apply(null, ys), to = Math.max.apply(null, ys), c = { instrument: 0, collaborator: 0, originator: 0 };
       items.forEach(function (m) { c[m.ai_role]++; });
-      return { from: from, to: to, n: items.length, c: c, label: from === to ? String(from) : from + '–' + String(to).slice(2) };
+      return { from: from, to: to, n: items.length, c: c, label: from === to ? String(from) : from + '–' + (Math.floor(from / 100) === Math.floor(to / 100) ? String(to).slice(2) : String(to)) };
     }
     return { bins: bins.reverse(), rest: cur.length ? mk(ys, cur) : null };
   }
@@ -251,7 +251,7 @@
     'incentre-lattice': { field: 'Geometry', role: 'Our own work', who: 'Aska Digital', acc: '--acc-incentre', feature: true, fact: 1, factK: 'exact certificate coefficients, all ≥ 0, rule out any collision along the fold',
       glyph: 'incentre', gk: 'PACKING DENSITY ALONG THE FOLD', gr: 'ρ 0.7405', aria: 'Packing density along the exact fold rises from 0.2233 to 0.7405, the Kepler bound pi over root 18.',
       cap: 'Computed in your browser from the fold’s exact formula, from the open scaffold (22.3%) to π/√18 ≈ 74.05%, the densest packing possible.' },
-    'exoplanets': { field: 'Astronomy', role: 'Member’s project', acc: '--acc-exoplanets', fact: 1, factK: 'candidates on 13 Oct 2026; none confirmed',
+    'exoplanets': { field: 'Astronomy', role: 'Member’s project', acc: '--acc-exoplanets', fact: 1, factK: 'candidates on 14 Oct 2026; none confirmed',
       glyph: 'transit', gk: 'MODEL · 3.18-DAY SIGNAL', gr: 'Δ −398 ppm', aria: 'Model of a planet crossing its star and the dip it makes in the star’s light.',
       cap: 'A planet crossing TIC 4206066, the star that inspired the method, modelled from its published 398 ppm, 1.7 h dip. Depth exaggerated.' },
     'integer-multiplication': { field: 'Algorithms', role: 'Member’s race', who: 'Doug Colkitt + crowd', acc: '--acc-intmult', fact: 'kappa',

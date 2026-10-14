@@ -48,6 +48,9 @@ the Asimov estate, his publishers or Apple.
   `projects.json`, `writing.json`, `openai-math-families.json`.
 - `scripts/check_site.py` gates the site: ledger schema, data files, internal links and anchors, page
   metadata, no third-party scripts.
+- `scripts/prerender.mjs` writes the no-JavaScript copy of every data-rendered part (lists, cards, counts)
+  into the pages, between `<!--prerender:NAME-->` markers. Run it after changing `docs/data`; the
+  `prerender` workflow runs it on `main`. `scripts/og/` renders the share image `docs/assets/og.png`.
 
 ### The integer-multiplication race tracker
 
@@ -71,6 +74,7 @@ Claims are never promoted by this repository; the only verified tier is the upst
 ```
 python3 scripts/check_site.py
 python3 scripts/gate.py && python3 tests/run_golden.py && python3 tests/run_regressions.py && python3 tests/run_gate_corruptions.py
+node scripts/prerender.mjs               # after changing docs/data (needs Playwright, see CONTRIBUTING.md)
 python3 -m http.server -d docs 8000      # then open http://localhost:8000/
 python3 scripts/fetch.py                 # refresh the race feed; needs GH_TOKEN
 ```

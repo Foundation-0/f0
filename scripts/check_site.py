@@ -6,7 +6,8 @@
   2  projects: docs/data/projects.json and docs/data/writing.json are well formed
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
-  4  pages:    every page has <title>, a description, lang, and a viewport
+  4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
+               resolves to a file inside docs/ (the share image, docs/assets/og.png)
   5  scripts:  no third-party script origins (the site must run with no CDN)
 
 Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
@@ -174,6 +175,7 @@ class Page(html.parser.HTMLParser):
         super().__init__(convert_charrefs=True)
         self.refs, self.ids, self.scripts = [], set(), []
         self.title = self.desc = self.viewport = self.lang = False
+        self.og_images = []
         self._in_title = False
 
     def handle_starttag(self, tag, attrs):
@@ -190,6 +192,8 @@ class Page(html.parser.HTMLParser):
             self.desc = True
         if tag == 'meta' and a.get('name') == 'viewport':
             self.viewport = True
+        if tag == 'meta' and a.get('property') == 'og:image' and a.get('content'):
+            self.og_images.append(a['content'])
         for attr in ('href', 'src', 'data-src', 'poster'):
             if a.get(attr):
                 self.refs.append((tag, a[attr]))
@@ -247,6 +251,13 @@ def check_pages(external_urls):
                            (p.viewport, 'meta viewport'), (p.lang, '<html lang>')):
             if not flag:
                 err('pages', f'{rel}: missing {what}')
+        if not p.og_images:
+            err('pages', f'{rel}: missing og:image')
+        for og in p.og_images:
+            if EXTERNAL.match(og):
+                external_urls.add(og)
+            elif resolve_internal(rel, og) is None:
+                err('pages', f'{rel}: og:image {og} does not resolve to a file in docs/')
         refs = [r for _, r in p.refs]
         refs += re.findall(r"""fetch\(\s*['"]([^'"$`]+)['"]""", src)
         for ref in refs:

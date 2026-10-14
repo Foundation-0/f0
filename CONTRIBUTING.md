@@ -38,12 +38,38 @@ Sources: one to four, primary first (the paper, the preprint, the official post,
 `foundation0: true` marks work by a founding member, or work a founding member contributed to. Set
 `page` when the site has a page about it.
 
+## After changing `docs/data`, run the prerender
+
+Pages draw their lists, cards and counts from `docs/data/*.json` in the browser, and each of those parts
+also carries a static copy in the HTML so the page reads without JavaScript. After changing anything in
+`docs/data` (or a page script that renders from it), run:
+
+```
+node scripts/prerender.mjs
+```
+
+It serves `docs/` locally, opens every page that has `<!--prerender:NAME-->` markers in headless Chromium
+with the network to GitHub blocked, and writes what each page's own script rendered back between its
+markers. Commit the changed `docs/**/*.html` with the data. It needs Playwright
+(`npm i --no-save playwright@1.56.1 && npx playwright install chromium`; set `PRERENDER_CHROMIUM=playwright`
+to use that browser). `node scripts/prerender.mjs --check` only reports whether any page is out of date.
+On `main`, the `prerender` workflow does the same and commits the result.
+
+After a change to `docs/data/ledger.json`, also refresh the share image, which shows every milestone and their
+count: `node scripts/og/shoot.mjs` writes `docs/assets/og.png` (1200×630) from the ledger. Look at it before you
+commit it.
+
+To make a new data-rendered part prerendered, put the two markers as the only content of the element the
+page script writes into, for example `<ol id="members-list"><!--prerender:members--><!--/prerender:members--></ol>`,
+and run the script. The full rules are at the top of [`scripts/prerender.mjs`](scripts/prerender.mjs).
+
 ## Check before you open a pull request
 
 ```
 python3 scripts/check_site.py     # ledger schema, data files, links, page metadata
 python3 scripts/gate.py           # the kappa-race feed
 python3 tests/run_golden.py && python3 tests/run_regressions.py && python3 tests/run_gate_corruptions.py
+node scripts/prerender.mjs --check   # the no-JavaScript copies match the data
 python3 -m http.server -d docs 8000
 ```
 

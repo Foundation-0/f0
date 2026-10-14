@@ -12319,11 +12319,11 @@
    "title": "TESS search built with Claude Code finds hundreds of faint planet candidates",
    "domain": "astronomy-space",
    "subfield": "exoplanets",
-   "summary": "An open search stacking all available TESS sectors for 4.04 million FGKM dwarfs, plus nearby K/M dwarfs and TOI hosts, finds transits too weak to see in any one sector. Its 13 October 2026 update lists 671 counted candidates, up from 533 earlier that day, including a possible third planet around TOI-4342. None is confirmed.",
+   "summary": "An open search stacking all available TESS sectors for 4.04 million FGKM dwarfs, plus nearby K/M dwarfs and TOI hosts, finds transits too weak to see in any one sector. On 14 October 2026 it counts 665 candidates (607 full-sky, 58 earlier), up from 533 the day before, including a possible third planet around TOI-4342. None is confirmed.",
    "before_after": {
     "metric": "Counted planet candidates (changes with each update)",
     "before": "12 (first release, 2026-10-07)",
-    "after": "671 (2026-10-13)"
+    "after": "665 (2026-10-14, commit 58c6318)"
    },
    "why_it_matters": "It shows a small independent team, working with an AI coding agent, can mine public mission data at full scale and release reproducible candidates for others to check.",
    "ai_systems": [
@@ -12341,16 +12341,16 @@
    "significance": 2,
    "sources": [
     {
-     "label": "eumemic/exoplanets repository README, updated 2026-10-13",
+     "label": "eumemic/exoplanets repository README, updated 2026-10-14",
      "url": "https://github.com/eumemic/exoplanets"
     },
     {
-     "label": "README (raw), 2026-10-13",
-     "url": "https://raw.githubusercontent.com/eumemic/exoplanets/main/README.md"
+     "label": "README at commit 58c6318, 2026-10-14",
+     "url": "https://github.com/eumemic/exoplanets/blob/58c6318/README.md"
     },
     {
-     "label": "Project site (built by Aska Digital)",
-     "url": "https://ahrazzle.github.io/exoplanets/"
+     "label": "Project website (first built by Aska Digital)",
+     "url": "https://eumemic.github.io/exoplanets/"
     }
    ],
    "foundation0": true,

@@ -81,14 +81,14 @@
           <a class="btn" href="#zeroth">Why &ldquo;zero&rdquo;?</a>
         </div>
         <dl class="stats" aria-label="The Ledger in numbers">
-          <div class="stat"><dt class="k">milestones on the record</dt><dd class="v" data-stat="count" style="margin:0">243</dd></div>
-          <div class="stat"><dt class="k">years covered</dt><dd class="v" data-stat="span" style="margin:0">1965&ndash;2026</dd></div>
-          <div class="stat"><dt class="k">formally verified by a proof checker</dt><dd class="v" data-stat="verified" style="margin:0">26</dd></div>
-          <div class="stat"><dt class="k">contested, and labelled as such</dt><dd class="v" data-stat="contested" style="margin:0">24</dd></div>
+          <div class="stat"><dt class="k">milestones on the record</dt><dd class="v" data-stat="count" style="margin:0"><!--prerender:stat-count-->341<!--/prerender:stat-count--></dd></div>
+          <div class="stat"><dt class="k">years covered</dt><dd class="v" data-stat="span" style="margin:0"><!--prerender:stat-span-->1965–2026<!--/prerender:stat-span--></dd></div>
+          <div class="stat"><dt class="k">formally verified by a proof checker</dt><dd class="v" data-stat="verified" style="margin:0"><!--prerender:stat-verified-->27<!--/prerender:stat-verified--></dd></div>
+          <div class="stat"><dt class="k">contested, and labelled as such</dt><dd class="v" data-stat="contested" style="margin:0"><!--prerender:stat-contested-->31<!--/prerender:stat-contested--></dd></div>
         </dl>
         <div class="prov">
           <a class="chip" href="data/ledger.json"><span class="dot live" aria-hidden="true"></span>live from data/ledger.json</a>
-          <span class="chip" data-stat="updated">updated 2026-10-14</span>
+          <span class="chip" data-stat="updated"><!--prerender:stat-updated-->updated 2026-10-14<!--/prerender:stat-updated--></span>
         </div>
       </div>
 
@@ -96,8 +96,8 @@
         <div class="radiant-stage frame" id="radiant-stage">
           <div class="radiant-box"><noscript><p class="rad-noscript"><span>The Radiant draws every Ledger milestone with JavaScript, which is off. The <a href="ledger/">Ledger</a> lists the same milestones, and <a href="data/ledger.json">data/ledger.json</a> holds them all.</span></p></noscript><canvas id="radiant-canvas" role="img" aria-label="The Radiant: every ledger milestone as a mark, arranged by field around the circle and by date from the centre (oldest) to the rim (newest). The list of milestones that follows can be explored with the keyboard."></canvas></div>
           <span class="corner tl" id="radiant-title">The Radiant<span class="wide-only"> // Ledger</span></span>
-          <span class="corner tr radiant-readout" id="radiant-readout" aria-hidden="true">243 marks</span>
-          <span class="corner bl" id="radiant-centre" aria-hidden="true">Centre: 1928 &middot; Rim: now</span>
+          <span class="corner tr radiant-readout" id="radiant-readout" aria-hidden="true"><!--prerender:radiant-readout-->341 MARKS · 1965–2026<!--/prerender:radiant-readout--></span>
+          <span class="corner bl" id="radiant-centre" aria-hidden="true"><!--prerender:radiant-centre-->Centre: 1928 · Rim: 14 Oct 2026<!--/prerender:radiant-centre--></span>
           <span class="corner br" aria-hidden="true">&larr; &rarr; time &middot; &uarr; &darr; field</span>
           <ol class="sr-only" id="radiant-list" aria-label="Ledger milestones, oldest first. Left and right arrows move through time; up and down move between fields; Enter opens the entry."></ol>
         </div>
@@ -105,7 +105,7 @@
           <button class="tbtn play" type="button" id="rad-play" aria-pressed="false" aria-label="Play the record from the oldest milestone"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Play</span><span class="i-pause">Pause</span></span></button>
           <label for="rad-range">Up to</label>
           <input class="range" type="range" id="rad-range" min="0" max="1000" step="1" value="1000">
-          <output id="rad-out" for="rad-range">Now &middot; 243 of 243</output>
+          <output id="rad-out" for="rad-range"><!--prerender:radiant-time-->Now, 14 Oct 2026 · 341 of 341<!--/prerender:radiant-time--></output>
         </div>
         <figcaption class="radiant-cap">
           <span><b>How to read:</b> angle is the field; distance from the centre is the date, and each ring reaches 1+&radic;2 &asymp; 2.414 times further back; size is significance (our editorial judgement, 1&ndash;5). The slider hides what came later.</span>
@@ -168,9 +168,9 @@
   <!-- 01 LEDGER TEASER -->
   <section class="sec" id="ledger" data-index="The Ledger" data-num="01" aria-labelledby="ledger-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The Ledger</p><span class="chip">Curated &middot; <span data-stat="count">243</span> entries &middot; growing</span></div>
-      <h2 class="h2" id="ledger-h" data-insight-h>AI is moving from instrument to colleague.</h2>
-      <p class="lede" data-insight-p>In the milestones we record, the share where AI only served as a tool has fallen, and the share where AI produced the result itself has risen.</p>
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The Ledger</p><span class="chip">Curated &middot; <span data-stat="count"><!--prerender:ledger-count-->341<!--/prerender:ledger-count--></span> entries &middot; growing</span></div>
+      <h2 class="h2" id="ledger-h" data-insight-h><!--prerender:role-insight-h-->AI is moving from instrument to colleague.<!--/prerender:role-insight-h--></h2>
+      <p class="lede" data-insight-p><!--prerender:role-insight-p-->In 1976–2015, AI was only the instrument in 50% of the milestones we record, and produced the result itself in 30%. In 2026 so far, those shares are 30% and 36%.<!--/prerender:role-insight-p--></p>
       <div class="ledger-grid">
         <figure class="chart frame" id="role-chart" aria-labelledby="role-title">
           <div class="chart-head">
@@ -185,7 +185,10 @@
             <li><span class="sw" style="background:var(--mark-dig)" aria-hidden="true"></span><span><b>Originator</b> &middot; produced the result; people checked</span></li>
           </ul>
           <div id="role-svg-host"><noscript><p class="chart-foot">This chart needs JavaScript; the Ledger page has the same numbers as a table.</p></noscript></div>
-          <div class="chart-foot" id="role-foot"></div>
+          <div class="chart-foot" id="role-foot"><!--prerender:role-foot-->
+            <p>Not charted: 2 milestones from 1965–1969, too few per year for a share (0 originator, 2 collaborator, 0 instrument; see the table). 2026 runs to 14 Oct 2026. </p>
+            <p>Caveat: this is a curated record, so it shows what we chose to log, and recent years are logged in more detail. Roles are editorial judgements under the rules in the ledger schema. Source: data/ledger.json, 341 milestones, updated 2026-10-14.</p>
+          <!--/prerender:role-foot--></div>
           <div class="chart-tools">
             <button class="tbtn" type="button" id="role-table-btn" aria-expanded="false" aria-controls="role-table">Show the numbers</button>
           </div>
@@ -193,15 +196,15 @@
         </figure>
         <div>
           <p class="evid-head">How sure is each entry?</p>
-          <ul class="evid" id="evid-list" aria-label="Milestones by strength of evidence">
-            <li><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Formally verified</span><span class="ct">26</span></li>
-            <li><span class="ladder" data-r="4" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Independently replicated</span><span class="ct">12</span></li>
-            <li><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Peer reviewed</span><span class="ct">145</span></li>
-            <li><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Deployed</span><span class="ct">17</span></li>
-            <li><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Preprint</span><span class="ct">29</span></li>
-            <li><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Claimed</span><span class="ct">14</span></li>
-            <li><span aria-hidden="true" style="font:600 15px/1 var(--f-mono);color:var(--st-contested);text-align:center">×</span><span class="nm">Contested (any rung)</span><span class="ct">24</span></li>
-          </ul>
+          <ul class="evid" id="evid-list" aria-label="Milestones by strength of evidence"><!--prerender:evidence-->
+            <li><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Formally verified</span><span class="ct">27</span></li>
+            <li><span class="ladder" data-r="4" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Independently replicated</span><span class="ct">13</span></li>
+            <li><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Peer reviewed</span><span class="ct">206</span></li>
+            <li><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Deployed</span><span class="ct">31</span></li>
+            <li><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Preprint</span><span class="ct">44</span></li>
+            <li><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nm">Claimed</span><span class="ct">20</span></li>
+            <li><span aria-hidden="true" style="font:600 15px/1 var(--f-mono);color:var(--st-contested);text-align:center">×</span><span class="nm">Contested (any rung)</span><span class="ct">31</span></li>
+          <!--/prerender:evidence--></ul>
           <p class="evid-note">Every entry carries one evidence label, and claimed is never shown as verified. The ladder glyph counts rungs: a claim is one, a proof checked by a machine proof checker is five.</p>
           <a class="more" href="ledger/">Open the Ledger</a>
         </div>
@@ -213,15 +216,15 @@
   <section class="sec alt" id="members" data-index="Founding members" data-num="02" aria-labelledby="members-h">
     <div class="wrap">
       <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Founding members</p><span class="chip">No portraits, by design</span></div>
-      <h2 class="h2" id="members-h"><span data-members-count>Five</span> people who already work this way.</h2>
+      <h2 class="h2" id="members-h"><span data-members-count><!--prerender:members-count-->Five<!--/prerender:members-count--></span> people who already work this way.</h2>
       <p class="lede">Each runs open research with AI agents and publishes what the agents did. The work is the introduction.</p>
-      <ol class="members" id="members-list">
+      <ol class="members" id="members-list"><!--prerender:members-->
         <li class="member" id="m-ahrazzle"><span class="idx">M·01</span><h3>Ahraz Arifuddin</h3><a class="gh" href="https://github.com/ahrazzle">@ahrazzle</a><div class="mp">Main project<a href="research/incentre-lattice/">Incentre lattice</a></div><p>Runs Aska Digital's team of AI agents and points it at open questions.</p><div class="mw"><span>Also</span><ul><li><a href="https://github.com/eumemic/exoplanets">Exoplanets: pipeline fixes and website</a></li><li><a href="https://github.com/Swapnil-jain/mobius-x1/pull/1">mobius-x1: full-network check</a></li><li><a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">gf2m-circuits: field multipliers</a></li><li class="more-n"><a href="charter/#m-ahrazzle">+1 more on the charter page</a></li></ul></div></li>
         <li class="member" id="m-eumemic"><span class="idx">M·02</span><h3>eumemic</h3><a class="gh" href="https://github.com/eumemic">@eumemic</a><div class="mp">Main project<a href="research/exoplanets/">Exoplanets</a></div><p>Builds software for long-running AI agents and puts those agents to work on open science.</p><div class="mw"><span>Also</span><ul><li><a href="https://github.com/CrocSwap/integer-mult-bounds">Integer-multiplication race</a></li><li><a href="https://github.com/eumemic/exact-dft-bounds">exact-dft-bounds</a></li><li><a href="https://github.com/eumemic/rlmath">rlmath</a></li></ul></div></li>
         <li class="member" id="m-Mister-Meeseeks"><span class="idx">M·03</span><h3>Doug Colkitt</h3><a class="gh" href="https://github.com/Mister-Meeseeks">@Mister-Meeseeks</a><div class="mp">Main project<a href="research/integer-multiplication/">integer-mult-bounds</a></div><p>Started and maintains the open race to multiply huge numbers faster than n log n.</p><div class="mw"><span>Also</span><ul><li><a href="https://github.com/Mister-Meeseeks/erdos-875-carry-lemmas">erdos-875-carry-lemmas</a></li><li><a href="https://github.com/Mister-Meeseeks/g2c">Gradients to ChatGPT (g2c)</a></li></ul></div></li>
         <li class="member" id="m-rohanarun"><span class="idx">M·04</span><h3>rohanarun</h3><a class="gh" href="https://github.com/rohanarun">@rohanarun</a><div class="mp">Main project<a href="instruments/#auto-research">Auto-research-agent</a></div><p>Builds software that lets AI coding agents work on open research problems, including Auto-research-agent, a Mac app that sends Codex or Claude Code to an open problem in one click.</p><div class="mw"><span>Also</span><ul><li><a href="https://github.com/CrocSwap/integer-mult-bounds">Integer-multiplication race</a></li><li><a href="https://github.com/rohanarun/van-der-waerden-refinement">van-der-waerden-refinement</a></li><li><a href="https://github.com/rohanarun/sidorenko-template-refinements">sidorenko-template-refinements</a></li><li class="more-n"><a href="charter/#m-rohanarun">+3 more on the charter page</a></li></ul></div></li>
         <li class="member" id="m-shea256"><span class="idx">M·05</span><h3>Ryan Shea</h3><a class="gh" href="https://github.com/shea256">@shea256</a><div class="mp">Main project<a href="instruments/#autofoundry">autofoundry</a></div><p>Builds tools for AI-run experiments, such as autofoundry, which rents GPUs from four cloud providers and runs the same experiment across them.</p><div class="mw"><span>Also</span><ul><li><a href="https://github.com/shea256/fourier-transform-below-nlogn">fourier-transform-below-nlogn</a></li><li><a href="https://github.com/shea256/matroid-prophet-inequality">matroid-prophet-inequality</a></li></ul></div></li>
-      </ol>
+      <!--/prerender:members--></ol>
       <p class="chart-foot">Source: <a href="data/members.json">data/members.json</a>, names as each member shows them on GitHub.</p>
       <a class="more" href="charter/#members">All members and their work</a>
     </div>
@@ -233,14 +236,14 @@
       <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>Research</p><span class="chip">Point at or focus a card to run its figure</span></div>
       <h2 class="h2" id="research-h">What we found, and what we helped others find.</h2>
       <p class="lede">Each card says whose work it is, exactly what Aska Digital contributed, and how far the evidence goes. None of it is peer reviewed yet, and every card says so.</p>
-      <div class="cards bal" id="research-cards">
+      <div class="cards bal" id="research-cards"><!--prerender:research-cards-->
         <article class="card feature" data-slug="incentre-lattice" style="--acc:var(--acc-incentre)"><div class="f-text"><p class="kick"><span>Geometry</span><span>Aska Digital</span></p><h3><a href="research/incentre-lattice/">Incentre lattice</a></h3><p class="dek">From a doodle to the densest packing of balls.</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Preprint</span><span class="badge n">Not peer reviewed</span></div><p class="credit"><b>Aska Digital’s own work</b>: founding member Ahraz Arifuddin with a team of AI agents.</p><div class="fact" title="Exact certificate coefficients, all ≥ 0 (3,248 collision tests) · source: results/fold-continuous-fcc/certificate.json"><span class="v">16,240</span><span class="k">exact certificate coefficients, all ≥ 0, rule out any collision along the fold</span></div><p class="links"><a href="https://aska-digital.github.io/incentre-lattice/">Site</a><a href="https://github.com/aska-digital/incentre-lattice">Repository</a><a href="https://doi.org/10.5281/zenodo.23340326">Preprint v2 (Zenodo)</a></p></div><div class="f-fig"><div class="glyph"><canvas data-glyph="incentre" role="img" aria-label="Packing density along the exact fold rises from 0.2233 to 0.7405, the Kepler bound pi over root 18."></canvas><span class="gk">PACKING DENSITY ALONG THE FOLD</span><span class="gr" data-readout="">ρ 0.7405</span></div><p class="gcap">Computed in your browser from the fold’s exact formula, from the open scaffold (22.3%) to π/√18 ≈ 74.05%, the densest packing possible.</p></div></article>
-        <article class="card" data-slug="exoplanets" style="--acc:var(--acc-exoplanets)"><p class="kick"><span>Astronomy</span><span>eumemic + Aska</span></p><h3><a href="research/exoplanets/">Exoplanets</a></h3><p class="dek">Faint shadows in old starlight: 533 small-planet candidates in public NASA data.</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Candidates · not confirmed</span><span class="badge n">Not peer reviewed</span></div><p class="credit"><b>Founding member eumemic’s project.</b> Aska built the website and contributed four merged pipeline fixes.</p><div class="glyph"><canvas data-glyph="transit" role="img" aria-label="Model of a planet crossing its star and the dip it makes in the star’s light."></canvas><span class="gk">MODEL · 3.18-DAY SIGNAL</span><span class="gr" data-readout="">Δ −398 ppm</span></div><p class="gcap">A planet crossing TIC 4206066, the star that inspired the method, modelled from its published 398 ppm, 1.7 h dip. Depth exaggerated.</p><div class="fact" title="planet candidates counted on 13 Oct 2026 (473 full-sky + 60 earlier); not confirmed · source: README.md lines 8-13; recomputed from results_public/candidates_allsky.csv + tiers_earlier_candidates.csv at da72261"><span class="v">533</span><span class="k">candidates on 13 Oct 2026; none confirmed</span></div><p class="links"><a href="https://ahrazzle.github.io/exoplanets/">Site</a><a href="https://github.com/eumemic/exoplanets">Repository</a></p></article>
+        <article class="card" data-slug="exoplanets" style="--acc:var(--acc-exoplanets)"><p class="kick"><span>Astronomy</span><span>eumemic + Aska</span></p><h3><a href="research/exoplanets/">Exoplanets</a></h3><p class="dek">Faint shadows in old starlight: 665 small-planet candidates in public NASA data, as of 14 Oct 2026.</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Candidates · not confirmed</span><span class="badge n">Not peer reviewed</span></div><p class="credit"><b>Founding member eumemic’s project.</b> Aska built the first version of the project's website and contributed nine more merged pull requests, among them four pipeline fixes; one fix (PR #6) led to a re-search that added 120 counted candidates.</p><div class="glyph"><canvas data-glyph="transit" role="img" aria-label="Model of a planet crossing its star and the dip it makes in the star’s light."></canvas><span class="gk">MODEL · 3.18-DAY SIGNAL</span><span class="gr" data-readout="">Δ −398 ppm</span></div><p class="gcap">A planet crossing TIC 4206066, the star that inspired the method, modelled from its published 398 ppm, 1.7 h dip. Depth exaggerated.</p><div class="fact" title="planet candidates counted on 14 Oct 2026 (607 full-sky + 58 earlier); not confirmed · source: README.md, note of 14 Oct 2026; recomputed from results_public/candidates_allsky.csv + tiers_earlier_candidates.csv at 58c6318"><span class="v">665</span><span class="k">candidates on 14 Oct 2026; none confirmed</span></div><p class="links"><a href="https://eumemic.github.io/exoplanets/">Site</a><a href="https://github.com/eumemic/exoplanets">Repository</a></p></article>
         <article class="card" data-slug="integer-multiplication" style="--acc:var(--acc-intmult)"><p class="kick"><span>Algorithms</span><span>Doug Colkitt + crowd</span></p><h3><a href="research/integer-multiplication/">Integer multiplication below n log n</a></h3><p class="dek">A public race of people and AI agents to shave the logarithm.</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional · maintainer-reviewed</span><span class="badge n">Not peer reviewed</span></div><p class="credit"><b>Founding member Doug Colkitt’s project (CrocSwap).</b> Aska built the live race tracker that grew into this site, and submitted two small claims that were later superseded.</p><div class="glyph"><canvas data-glyph="kappa" role="img" aria-label="Staircase of the exponent saving kappa on a log scale, from 2 to the minus 182 on 23 September to about 2 to the minus 9.22 by 13 October 2026."></canvas><span class="gk">LOG₂ κ · 23 SEP → NOW</span><span class="gr" data-readout="">log₂κ −9.22</span></div><p class="gcap">Every reviewed record, from the AI-written paper’s 2⁻¹⁸² to today, on a halvings scale. All rest on that unreviewed paper.</p><div class="fact live-val" data-kappa=""><a class="chip" data-k-src="" href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span data-k-when="">snapshot · 13 Oct 2026, 18:45 UTC (live file unreachable)</span></a><span class="v" data-k-v="">0.001672660197076918</span><span class="k" data-k-k="">current reviewed κ, conditional · PR #1094 by founding member rohanarun</span></div><p class="links"><a href="https://github.com/CrocSwap/integer-mult-bounds">Repository</a><a href="research/integer-multiplication/live/">Live race</a><a href="research/integer-multiplication/story/">The story</a></p></article>
         <article class="card" data-slug="machine-mathematics" style="--acc:var(--acc-mm)"><p class="kick"><span>Mathematics</span><span>Members + crowd</span></p><h3><a href="research/machine-mathematics/">After the 722</a></h3><p class="dek">OpenAI published 722 machine-written maths papers. Here is what people and their agents did next.</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Mostly conditional</span><span class="badge n">Not peer reviewed</span></div><p class="credit"><b>OpenAI’s 722 machine-written papers</b>, then eumemic, Doug Colkitt, rohanarun and Ryan Shea built on 7 of its 372 families, alongside many others.</p><div class="glyph hit"><canvas data-glyph="families" role="img" aria-label="372 squares, one per family of OpenAI’s machine-written papers; 242 link a Lean scope document. Founding members built on 7: Matrix multiplication with exponent at most 9/4; Integer multiplication below nlog n; One-sample matroid prophet inequalities against an almighty adversary; Exact Fourier transforms below nlog n; Superexponential van der Waerden numbers; Counterexamples to Sidorenko’s conjecture and the forcing conjecture; Planar distinct distances and unit-distance bounds."></canvas><span class="gk">THE 372 FAMILIES</span><span class="gr" data-readout="">7 built on by members</span></div><p class="gcap">One square per family of OpenAI’s papers. <span class="lg"><i class="sq" style="background:var(--acc-mm)"></i>links a Lean scope document (a plan for machine-checking, not a finished check)</span><span class="lg"><i class="sq" style="border:1px solid var(--ink-3)"></i>no such document</span><span class="lg"><i class="sq" style="border:1.5px solid var(--hair)"></i>founding members built on it</span></p><div class="fact"><span class="v">722</span><span class="k">machine-written papers in 372 families on day one; 242 families link a Lean scope document</span></div><p class="links"><a href="https://github.com/openai/math">openai/math</a><a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster (essay)</a></p></article>
         <article class="card tail2" data-slug="mobius-x1" style="--acc:var(--acc-mobius)"><p class="kick"><span>Circuits</span><span>Swapnil Jain + Aska</span></p><h3><a href="research/mobius-x1/">mobius-x1</a></h3><p class="dek">Beating a 1937 recipe, eventually: the GF(2) Möbius transform below N log N.</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Not peer reviewed · AI-refereed only</span></div><p class="credit"><b>Swapnil Jain’s repository.</b> Aska wrote and ran the full-network check behind Theorem 2 (merged PR #1).</p><div class="glyph"><canvas data-glyph="pascal" role="img" aria-label="Pascal’s triangle modulo 2 for 32 inputs, the matrix the transform computes, beside the XOR counts of the naive method (211) and Yates’ method (80)."></canvas><span class="gk">PASCAL MOD 2 · N = 32</span><span class="gr" data-readout="">row 31 · 32 inputs</span></div><p class="gcap">The transform’s matrix, computed here. The claimed saving only appears when the input size has billions of digits.</p><div class="fact" title="Bank-swap failures in Aska's E1 network check at h = 10 (43,200 invocations) · source: certificates/run_e1_rep_h10_bad0.txt l.4"><span class="v">0 / 3,456,000</span><span class="k">failures in Aska’s full-network check</span></div><p class="links"><a href="https://github.com/Swapnil-jain/mobius-x1">Repository</a><a href="https://github.com/Swapnil-jain/mobius-x1/pull/1">Aska PR #1</a></p></article>
         <article class="card tail2 tail1" data-slug="gf2m-circuits" style="--acc:var(--acc-gf2m)"><p class="kick"><span>Cryptography</span><span>Swapnil Jain + Aska</span></p><h3><a href="research/gf2m-circuits/">gf2m-circuits</a></h3><p class="dek">Fewer gates for the arithmetic inside AES.</p><div class="badges"><span class="badge n">Not peer reviewed</span><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Machine-verified + Lean-proved</span></div><p class="credit"><b>Swapnil Jain’s repository.</b> Aska contributed verified multipliers for more binary fields (merged PR #1; not records).</p><div class="glyph"><canvas data-glyph="gates" role="img" aria-label="Gates against circuit depth: the 2010 record of 117 gates at depth 6, and the 2026 circuits of 112 gates at depth 6, 110 at 7, 108 at 12 and 107 at 13."></canvas><span class="gk">GATES vs DEPTH</span><span class="gr" data-readout="">−5 gates at depth 6</span></div><p class="gcap">Each new circuit is checked on all 65,536 input pairs and proved in Lean. Hollow mark: the 2010 record.</p><div class="fact" title="gates to multiply in the AES field at the 2010 record's depth (6); 107 at depth 13 · source: papers/Jain_GF2m_multipliers_2026.pdf Table 1/2; re-verified with multipliers/tools/verify.py"><span class="v">117 → 112</span><span class="k">gates at depth 6, the 2010 record’s depth</span></div><p class="links"><a href="https://github.com/Swapnil-jain/gf2m-circuits">Repository</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">Aska PR #1</a></p></article>
-      </div>
+      <!--/prerender:research-cards--></div>
       <p class="chart-foot">Source: <a href="data/projects.json">data/projects.json</a> and <a href="data/openai-math-families.json">data/openai-math-families.json</a>; the reviewed &kappa; is fetched live from the race&rsquo;s own repository when you open this page.</p>
       <a class="more" href="research/">All research, grouped by member</a>
     </div>
@@ -272,17 +275,17 @@
           <div>
             <div class="badges"><span class="badge n">Private preview</span><span class="badge n">Early build &middot; no outside review</span><span class="badge sealed">Open source when ready to ship</span></div>
             <h3>Exo and Exo OS</h3>
-            <p data-proj="exo:one_line">Aska Digital&rsquo;s harness around AI models: one agent with one lasting memory, a signed record of what it did, a meter for which model answered and what it cost, and a gate that needs consent to the exact words before anything leaves your machine. Exo OS is its planned operating-system form.</p>
+            <p data-proj="exo:one_line"><!--prerender:exo-one-line-->Aska Digital's harness around AI models: one agent with one lasting memory, a signed record of what it did, a meter for which model answered and what it cost, and a gate that needs consent to the exact words before anything leaves your machine. Exo OS is its planned operating-system form.<!--/prerender:exo-one-line--></p>
             <ul class="facts">
-              <li><div class="v" data-stat-v="exo:0">3 of 5</div><div class="k" data-stat-k="exo:0">build waves built and in daily use on one agent</div></li>
-              <li><div class="v" data-stat-v="exo:2">7 days</div><div class="k">the longest an &ldquo;always allow&rdquo; lasts for anything that leaves your machine; credentials can never be granted</div></li>
+              <li><div class="v" data-stat-v="exo:0"><!--prerender:exo-stat-0-->3 of 5<!--/prerender:exo-stat-0--></div><div class="k" data-stat-k="exo:0"><!--prerender:exo-stat-0-label-->build waves built and in daily use on one agent<!--/prerender:exo-stat-0-label--></div></li>
+              <li><div class="v" data-stat-v="exo:2"><!--prerender:exo-stat-2-->7 days<!--/prerender:exo-stat-2--></div><div class="k">the longest an &ldquo;always allow&rdquo; lasts for anything that leaves your machine; credentials can never be granted</div></li>
               <li><div class="v">0</div><div class="k">releases so far; every number here is the maintainer&rsquo;s own, from the public site</div></li>
             </ul>
             <p class="links" style="padding:12px 0 0;display:flex;gap:16px;flex-wrap:wrap;font:500 12px/1.4 var(--f-mono)"><a href="https://exo.askaconsult.com/">exo.askaconsult.com</a><a href="https://exo.askaconsult.com/whitepaper/">Whitepaper</a><a href="https://exo.askaconsult.com/roadmap/">Roadmap</a></p>
           </div>
         </article>
       </div>
-      <p class="also"><b>Members&rsquo; instruments</b><a href="https://github.com/rohanarun/Auto-research-agent">Auto-research-agent</a> by rohanarun: <span data-proj="auto-research-agent:dek">A Mac app that sends your own coding agent to an open problem in one click.</span> &middot; <a href="https://github.com/shea256/autofoundry">autofoundry</a> by Ryan Shea: <span data-proj="autofoundry:dek">Rent GPUs across four clouds and run one AI experiment everywhere.</span></p>
+      <p class="also"><b>Members&rsquo; instruments</b><a href="https://github.com/rohanarun/Auto-research-agent">Auto-research-agent</a> by rohanarun: <span data-proj="auto-research-agent:dek"><!--prerender:auto-research-agent-dek-->A Mac app that sends your own coding agent to an open problem in one click.<!--/prerender:auto-research-agent-dek--></span> &middot; <a href="https://github.com/shea256/autofoundry">autofoundry</a> by Ryan Shea: <span data-proj="autofoundry:dek"><!--prerender:autofoundry-dek-->Rent GPUs across four clouds and run one AI experiment everywhere.<!--/prerender:autofoundry-dek--></span></p>
       <a class="more" href="instruments/">About the instruments</a>
     </div>
   </section>
@@ -298,10 +301,10 @@
           <p class="kick">Medicine &middot; billing codes</p>
           <h3>MedCode: accuracy needs evidence</h3>
           <div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Research snapshot &middot; 3 Oct 2026</span><span class="badge n">Demo not clinically validated</span></div>
-          <p>A public study of AI tools that turn US doctors&rsquo; notes into billing codes. Of <span data-stat-v="medcode:0">25</span> vendors reviewed, <span data-stat-v="medcode:2" data-words>none</span> had a public, independent, head-to-head accuracy audit. A free demo searches 161,282 official US code entries inside your browser; your case text never leaves it.</p>
+          <p>A public study of AI tools that turn US doctors&rsquo; notes into billing codes. Of <span data-stat-v="medcode:0"><!--prerender:medcode-stat-0-->25<!--/prerender:medcode-stat-0--></span> vendors reviewed, <span data-stat-v="medcode:2" data-words><!--prerender:medcode-stat-2-->none<!--/prerender:medcode-stat-2--></span> had a public, independent, head-to-head accuracy audit. A free demo searches 161,282 official US code entries inside your browser; your case text never leaves it.</p>
           <div class="glyph">
             <div id="medcode-host"></div>
-            <ul class="vlegend" id="medcode-legend" style="margin-top:8px"><li><span class="sw" style="background:var(--st-verified)" aria-hidden="true"></span><span><b>18</b> verified &#10003;</span></li><li><span class="sw" style="background:var(--st-claimed);opacity:.55" aria-hidden="true"></span><span><b>33</b> unverified ?</span></li><li><span class="sw" style="background:var(--st-preprint);opacity:.8" aria-hidden="true"></span><span><b>16</b> vendor claim only</span></li></ul>
+            <ul class="vlegend" id="medcode-legend" style="margin-top:8px"><li><span class="sw" style="background:var(--st-verified)" aria-hidden="true"></span><span><b><!--prerender:medcode-verified-->18<!--/prerender:medcode-verified--></b> verified &#10003;</span></li><li><span class="sw" style="background:var(--st-claimed);opacity:.55" aria-hidden="true"></span><span><b><!--prerender:medcode-unverified-->33<!--/prerender:medcode-unverified--></b> unverified ?</span></li><li><span class="sw" style="background:var(--st-preprint);opacity:.8" aria-hidden="true"></span><span><b><!--prerender:medcode-vendor-->16<!--/prerender:medcode-vendor--></b> vendor claim only</span></li></ul>
           </div>
           <p class="links"><a href="https://medcode.askaconsult.com/">Research</a><a href="https://medcode.askaconsult.com/app/">Try the demo</a></p>
         </article>
@@ -309,7 +312,7 @@
           <p class="kick">Nutrition &middot; offline app</p>
           <h3>Nutrak: a tracker that shows its work</h3>
           <div class="badges"><span class="badge n">Live demo &middot; engine not public</span><span class="badge n">Not clinically validated</span></div>
-          <p>A free, offline nutrition tracker with a plain-words &ldquo;why this number?&rdquo; receipt under every one of its <span data-stat-v="nutrak:2">35</span> nutrient targets. It judges vitamins and minerals on a week of eating, never on one day.</p>
+          <p>A free, offline nutrition tracker with a plain-words &ldquo;why this number?&rdquo; receipt under every one of its <span data-stat-v="nutrak:2"><!--prerender:nutrak-stat-2-->35<!--/prerender:nutrak-stat-2--></span> nutrient targets. It judges vitamins and minerals on a week of eating, never on one day.</p>
           <div class="glyph">
             <div id="nutrak-host"></div>
           </div>
@@ -325,12 +328,12 @@
     <div class="wrap">
       <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Writing</p><span class="chip">Aska Digital b.log &middot; not peer reviewed</span></div>
       <h2 class="h2" id="writing-h">Look past the claim.</h2>
-      <ol class="posts" id="posts-list">
+      <ol class="posts" id="posts-list"><!--prerender:posts-->
         <li class="post"><time datetime="2026-10-07">2026-10-07</time><div><h3><a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a></h3><p>OpenAI published 722 machine-written mathematics manuscripts in 372 result families on 2026-10-06; ASKA read the corpus on day one, ranked the headline claims and checked the evidence behind each.</p></div><span class="cat">AI · Mathematics</span></li>
         <li class="post"><time datetime="2026-10-03">2026-10-03</time><div><h3><a href="https://digital.askaconsult.com/blog/post-training-your-own-models.html">Post-Training Your Own Models</a></h3><p>A practical guide to teaching an open-weight model a task, a workflow or your writing voice: methods, memory math, prices, tools, evaluation and three playbooks.</p></div><span class="cat">AI · Machine Learning</span></li>
         <li class="post"><time datetime="2026-09-18">2026-09-18</time><div><h3><a href="https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html">The Naming Decides Who Will Run the Machines</a></h3><p>ASKA's IR-Taxonomy gives non-engineers five plain names for agentic systems, so a buyer knows what kind of machine they own before a demo decides for them.</p></div><span class="cat">Agentic Systems</span></li>
         <li class="post"><time datetime="2026-09-10">2026-09-10</time><div><h3><a href="https://askaconsult.com/insights/subtractive-fragility/">Subtractive Fragility</a></h3><p>Long calm periods make systems fragile less by piling up risk than by quietly removing capacities that only pay off in a crisis.</p></div><span class="cat">Featured essay</span></li>
-      </ol>
+      <!--/prerender:posts--></ol>
       <a class="more" href="writing/">All writing</a>
     </div>
   </section>
@@ -352,7 +355,7 @@
     </div>
     <div class="stamp">
       <span>Terminus colophon</span>
-      <span data-stat="stamp">Ledger updated 2026-10-14 &middot; 243 milestones</span>
+      <span data-stat="stamp"><!--prerender:stat-stamp-->Ledger updated 2026-10-14 · 341 milestones<!--/prerender:stat-stamp--></span>
       <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
       <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
     </div>
