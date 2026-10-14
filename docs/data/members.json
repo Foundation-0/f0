@@ -1,0 +1,216 @@
+{
+ "updated": "2026-10-14",
+ "note": "Founding members of Foundation0. No pictures by design. Names as each member shows them on GitHub or in their own published work.",
+ "members": [
+  {
+   "login": "ahrazzle",
+   "name": "Ahraz Arifuddin",
+   "github": "https://github.com/ahrazzle",
+   "main_project": {
+    "name": "Incentre lattice",
+    "url": "https://github.com/aska-digital/incentre-lattice",
+    "site": "https://aska-digital.github.io/incentre-lattice/",
+    "page": "research/incentre-lattice/"
+   },
+   "summary": "Runs Aska Digital's team of AI agents and points it at open questions. The main project follows a childhood doodle (a square, its diagonals, one dot per triangle) into crystal geometry, ending in an exact proof that a loose ball-and-rod scaffold folds, without stretching, into the densest stacking of equal balls.",
+   "work": [
+    {
+     "name": "Incentre lattice",
+     "url": "https://github.com/aska-digital/incentre-lattice",
+     "status": "Preprint · not peer reviewed",
+     "note": "Exact fold from density 0.2233 to 0.7405 (the Kepler bound), with 16,240 exact certificate coefficients."
+    },
+    {
+     "name": "Exoplanets: pipeline fixes and website",
+     "url": "https://github.com/eumemic/exoplanets",
+     "status": "Merged · credited",
+     "note": "Four merged fixes to eumemic's search, one of which produced today's 533-candidate list, and the project website."
+    },
+    {
+     "name": "mobius-x1: full-network check",
+     "url": "https://github.com/Swapnil-jain/mobius-x1/pull/1",
+     "status": "Merged",
+     "note": "The whole-network test behind Theorem 2: 0 failures in 3,456,000 checks."
+    },
+    {
+     "name": "gf2m-circuits: field multipliers",
+     "url": "https://github.com/Swapnil-jain/gf2m-circuits/pull/1",
+     "status": "Merged · not records",
+     "note": "Verified multiplier circuits for more binary fields, e.g. GF(2^9) in 136 gates against a 142 baseline."
+    },
+    {
+     "name": "Foundation0",
+     "url": "https://github.com/aska-digital/frontier-math",
+     "status": "This site",
+     "note": "Began as a live tracker of the integer-multiplication race."
+    }
+   ]
+  },
+  {
+   "login": "eumemic",
+   "name": "eumemic",
+   "github": "https://github.com/eumemic",
+   "main_project": {
+    "name": "Exoplanets",
+    "url": "https://github.com/eumemic/exoplanets",
+    "site": "https://ahrazzle.github.io/exoplanets/",
+    "page": "research/exoplanets/"
+   },
+   "summary": "Builds software for long-running AI agents and puts those agents to work on open science. The main project, built with Claude Code, searched NASA's public TESS data for more than four million stars and lists 533 small-planet candidates too faint to see in any single month of data.",
+   "work": [
+    {
+     "name": "Exoplanets",
+     "url": "https://github.com/eumemic/exoplanets",
+     "status": "Candidates · not confirmed",
+     "note": "4,039,203 stars searched; 533 candidates as of 13 Oct 2026."
+    },
+    {
+     "name": "Integer-multiplication race",
+     "url": "https://github.com/CrocSwap/integer-mult-bounds",
+     "status": "Conditional · maintainer-reviewed",
+     "note": "80 pull requests to the community circuit; the current record builds on their #555.",
+     "builds_on": "OpenAI #109"
+    },
+    {
+     "name": "exact-dft-bounds",
+     "url": "https://github.com/eumemic/exact-dft-bounds",
+     "status": "Claimed · superseded",
+     "note": "Exact Fourier transforms below n log n with saving 4.856×10⁻⁴; held the best claim for about six hours.",
+     "builds_on": "OpenAI #130"
+    },
+    {
+     "name": "rlmath",
+     "url": "https://github.com/eumemic/rlmath",
+     "status": "In progress",
+     "note": "A test bench for training an AI to split Lean theorems into lemmas a smaller prover can finish."
+    }
+   ]
+  },
+  {
+   "login": "Mister-Meeseeks",
+   "name": "Doug Colkitt",
+   "github": "https://github.com/Mister-Meeseeks",
+   "main_project": {
+    "name": "integer-mult-bounds",
+    "url": "https://github.com/CrocSwap/integer-mult-bounds",
+    "page": "research/integer-multiplication/"
+   },
+   "summary": "Started and maintains the open race to multiply huge numbers faster than n log n. People and their AI agents took a machine-written paper's saving of 2^−182 and grew it to about 2^−9.2 in a week, every step checked in exact arithmetic, all still resting on the unreviewed original paper.",
+   "work": [
+    {
+     "name": "integer-mult-bounds",
+     "url": "https://github.com/CrocSwap/integer-mult-bounds",
+     "status": "Conditional · not peer reviewed",
+     "note": "Creator and maintainer; κ from 2^−182 to 0.00167266 (PR #1094, 13 Oct 2026).",
+     "builds_on": "OpenAI #109"
+    },
+    {
+     "name": "erdos-875-carry-lemmas",
+     "url": "https://github.com/Mister-Meeseeks/erdos-875-carry-lemmas",
+     "status": "Partly Lean-checked · no human review",
+     "note": "One model proves, a rival model attacks: a sharp carry lemma behind the best construction for Erdős Problem 875. Not a resolution of the problem."
+    },
+    {
+     "name": "Gradients to ChatGPT (g2c)",
+     "url": "https://github.com/Mister-Meeseeks/g2c",
+     "status": "Course",
+     "note": "A build-it-yourself course on how language models work."
+    }
+   ]
+  },
+  {
+   "login": "rohanarun",
+   "name": "rohanarun",
+   "github": "https://github.com/rohanarun",
+   "main_project": {
+    "name": "Auto-research-agent",
+    "url": "https://github.com/rohanarun/Auto-research-agent",
+    "page": "instruments/"
+   },
+   "summary": "Builds software that lets AI coding agents work on open research problems, including Auto-research-agent, a Mac app that sends Codex or Claude Code to an open problem in one click. With those agents, the most active contributor to the integer-multiplication race, and the author of conditional refinements to four of OpenAI's machine-written papers.",
+   "work": [
+    {
+     "name": "Auto-research-agent",
+     "url": "https://github.com/rohanarun/Auto-research-agent",
+     "status": "Released software",
+     "note": "A native Mac app: one click sends your own coding agent, or several in parallel, to an open problem."
+    },
+    {
+     "name": "Integer-multiplication race",
+     "url": "https://github.com/CrocSwap/integer-mult-bounds",
+     "status": "Current reviewed record",
+     "note": "142 pull requests; PR #1094 holds the reviewed record κ = 0.001672660197076918.",
+     "builds_on": "OpenAI #109"
+    },
+    {
+     "name": "van-der-waerden-refinement",
+     "url": "https://github.com/rohanarun/van-der-waerden-refinement",
+     "status": "Conditional · no human review",
+     "note": "The constant in OpenAI's van der Waerden bound rose from 1/100000 to 1/9, jointly with other contributors.",
+     "builds_on": "OpenAI #160"
+    },
+    {
+     "name": "sidorenko-template-refinements",
+     "url": "https://github.com/rohanarun/sidorenko-template-refinements",
+     "status": "Exact certificates · not peer reviewed",
+     "note": "No smaller certificate than OpenAI's 35-vertex counterexample exists inside its template; one constant cut from 1641 to 189.",
+     "builds_on": "OpenAI #161"
+    },
+    {
+     "name": "matrix-multiplication-sector-barrier",
+     "url": "https://github.com/rohanarun/matrix-multiplication-sector-barrier",
+     "status": "Proof + exact tests · not peer reviewed",
+     "note": "Shows where one step of OpenAI's 9/4 matrix-multiplication method must stop.",
+     "builds_on": "OpenAI #107"
+    },
+    {
+     "name": "unit-distance-grid-refinement",
+     "url": "https://github.com/rohanarun/unit-distance-grid-refinement",
+     "status": "Conditional · not peer reviewed",
+     "note": "Shrinks the final grid in OpenAI's unit-distance proof from 20×5 to 8×4.",
+     "builds_on": "OpenAI #167"
+    },
+    {
+     "name": "integer-multiplication-illustrated",
+     "url": "https://github.com/rohanarun/integer-multiplication-illustrated",
+     "status": "Exposition",
+     "note": "An illustrated reading guide and annotated edition of OpenAI's integer-multiplication paper.",
+     "builds_on": "OpenAI #109"
+    }
+   ]
+  },
+  {
+   "login": "shea256",
+   "name": "Ryan Shea",
+   "github": "https://github.com/shea256",
+   "main_project": {
+    "name": "autofoundry",
+    "url": "https://github.com/shea256/autofoundry",
+    "page": "instruments/"
+   },
+   "summary": "Builds tools for AI-run experiments, such as autofoundry, which rents GPUs from four cloud providers and runs the same experiment across them. Working with Codex and Claude on OpenAI's machine-written problems, co-holds the Lean-verified record for exact Fourier transforms below n log n, with Jeremy Kothe, whose circuit it uses.",
+   "work": [
+    {
+     "name": "autofoundry",
+     "url": "https://github.com/shea256/autofoundry",
+     "status": "Open-source software",
+     "note": "Rents GPUs across RunPod, Vast.ai, PRIME Intellect and Lambda, runs one experiment everywhere, reports best, mean and worst."
+    },
+    {
+     "name": "fourier-transform-below-nlogn",
+     "url": "https://github.com/shea256/fourier-transform-below-nlogn",
+     "status": "Lean-verified · human review pending",
+     "note": "Exact Fourier transforms of any length in O(n (log n)^(1−δ)) steps with δ = 0.0012331685; rank 1 on the Big O Speedrun board, shared with Jeremy Kothe.",
+     "builds_on": "OpenAI #130"
+    },
+    {
+     "name": "matroid-prophet-inequality",
+     "url": "https://github.com/shea256/matroid-prophet-inequality",
+     "status": "Written proof + exact certificates · not reviewed",
+     "note": "Raises a guaranteed fraction in the one-sample matroid prophet problem from 2^−293 to above (35/32)·2^−31.",
+     "builds_on": "OpenAI #111"
+    }
+   ]
+  }
+ ]
+}
