@@ -6,8 +6,13 @@
    dial     = AI role: share of the disc filled cyan (digital) vs gold (human): 1/4, 1/2, 3/4
    ring     = evidence: the thin outer ring closes as evidence firms up (claimed 1/5 ... formally verified 5/5)
    hairline = founding members' work, or work Aska contributed to (Asimov's red hairlines: contributions added later)
-   Motion: a slow sweep travels from the centre (past) to the rim (now); paused off-screen, in a hidden tab,
-   after 60 s idle, with the motion toggle off, and under prefers-reduced-motion (a still frame). */
+   Motion, two modes:
+   - opts.time = {range, play, output}: the figure starts paused on the full record ("now"); the range scrubs
+     through time (marks newer than the chosen date fade) and the play button runs the record from the centre
+     to the rim once (stepped ring by ring when motion is off). Used on the home page.
+   - no opts.time (legacy): a slow ambient sweep from the centre to the rim, paused off-screen, in a hidden tab,
+     after 60 s idle, with the motion toggle off, and under prefers-reduced-motion (a still frame).
+   opts.members = [{name, login}] (data/members.json) names founding members in the hairline notes. */
 (function () {
   'use strict';
   var DELTA = 1 + Math.SQRT2, TAU = 0.5, TWO_PI = Math.PI * 2;
@@ -37,8 +42,23 @@
   var MEMBERS = {
     'integer-mult-bounds-community': 'Founding member Doug Colkitt runs this race; eumemic, rohanarun and Ryan Shea contribute. Aska built the tracker that grew into this site.',
     'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska built its website and four merged pipeline fixes.',
-    'gf2m-aes-field-multiplier-112': 'Swapnil Jain’s result. Aska contributed verified multipliers for four more fields to the same repository.'
+    'gf2m-aes-field-multiplier-112': 'Swapnil Jain’s result. Aska contributed verified multipliers for four more fields to the same repository.',
+    'mobius-x1-gf2-mobius-below-nlogn': 'Swapnil Jain’s claim. Aska wrote and ran the full-network check behind Theorem 2.',
+    'aska-cab-to-fcc-exact-fold': 'Aska Digital’s own work: founding member Ahraz Arifuddin with a team of AI agents.',
+    'exact-dft-lean-record-shea-kothe': 'Founding member Ryan Shea’s record, shared with Jeremy Kothe, whose circuit it uses.',
+    'vdw-coefficient-community-refinement': 'Founding member rohanarun’s refinements; the last steps came from contributors DaysSky and artuskg.'
   };
+  var MEMBER_NAMES = [{ name: 'Ahraz Arifuddin', login: 'ahrazzle' }, { name: 'eumemic', login: 'eumemic' }, { name: 'Doug Colkitt', login: 'Mister-Meeseeks' },
+    { name: 'rohanarun', login: 'rohanarun' }, { name: 'Ryan Shea', login: 'shea256' }];
+  /* a credit line for a ledger item flagged foundation0 that has no hand-written note above */
+  function memberNote(m, people) {
+    var orgs = (m.organizations || []).join(' | ');
+    var hit = people.filter(function (p) { return orgs.indexOf(p.name) >= 0 || orgs.indexOf(p.login) >= 0; }).map(function (p) { return p.name; });
+    if (hit.length === 1) return 'Founding member ' + hit[0] + '’s work.';
+    if (hit.length > 1) return 'Work by founding members ' + hit.slice(0, -1).join(', ') + ' and ' + hit[hit.length - 1] + '.';
+    if (/Aska/.test(orgs)) return 'Aska Digital did or contributed to this work.';
+    return 'Work by Foundation0’s founding members.';
+  }
   var MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
   function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return ((h >>> 0) % 100000) / 100000; }
@@ -72,11 +92,12 @@
       var k = Math.log(1 + age / TAU) / Math.log(DELTA);
       maxK = Math.max(maxK, k);
       return { m: m, i: i, k: k, f: ROLE_F[m.ai_role] || 0.5, rung: RUNG[m.evidence] || 1, d: domains.indexOf(m.domain),
-        member: MEMBERS[m.id] || (m.foundation0 ? 'Aska Digital did or contributed to this work.' : ''), x: 0, y: 0, r: 0, rho: 0 };
+        member: MEMBERS[m.id] || (m.foundation0 ? memberNote(m, opts.members || MEMBER_NAMES) : ''), x: 0, y: 0, r: 0, rho: 0 };
     });
     var K = Math.max(4, Math.ceil(maxK));
     var G = {}, staticCv = document.createElement('canvas'), sctx = staticCv.getContext('2d');
     var hover = -1, kbd = false, filter = null, sweep = 0, t0 = 0, loop, lastTap = -1;
+    var T = opts.time || null, tw = 1, playing = false, lastNow = 0, stepTimer = 0, DUR = 12000;
     var tok = {}, sprites = {};
 
     function readTokens() {
@@ -182,8 +203,10 @@
       x.font = '500 ' + G.font + 'px ' + F0.css('--f-mono');
       var labs = [{ r: G.R, t: yearLabel(nowY, nowY, G.small) }];
       for (var j = 1; j < K; j++) labs.push({ r: ringR(j), t: yearLabel(nowY - ageAtK(j), nowY, G.small) });
+      var lastR = Infinity, lastT = '';
       labs.forEach(function (L, j) {
-        if (j > 0 && labs[j - 1].r - L.r < G.font + 4) return;
+        if (lastR - L.r < G.font + 4 || L.t === lastT) return;
+        lastR = L.r; lastT = L.t;
         var w = x.measureText(L.t).width + 10;
         x.fillStyle = F0.css('--bg-1'); x.fillRect(cx - w / 2, cy - L.r - G.font / 2 - 3, w, G.font + 6);
         x.fillStyle = j === 0 ? tok['--ink-2'] : tok['--ink-3']; x.fillText(L.t, cx, cy - L.r);
@@ -219,16 +242,23 @@
     }
 
     /* ---- one frame ---- */
+    function inTime(n) { return !T || n.rho <= tw + 1e-6; }
     function match(n) {
+      if (!inTime(n)) return false;
       if (!filter) return true;
       if (filter === 'members') return !!n.member;
       return n.m.ai_role === filter;
     }
     function draw(now) {
-      var x = ctx, animating = !!(loop && loop.running && !F0.idle());
+      var x = ctx, animating = !T && !!(loop && loop.running && !F0.idle());
       x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, canvas.width, canvas.height); x.drawImage(staticCv, 0, 0);
       x.setTransform(C.dpr, 0, 0, C.dpr, 0, 0);
-      var w = -1;
+      var w = T && tw < 0.9995 ? tw : -1;
+      if (w >= 0) {
+        var rt = G.r0 + (G.R - G.r0) * w;
+        x.strokeStyle = tok['--dig']; x.globalAlpha = tok.dark ? 0.5 : 0.55; x.lineWidth = 1.2;
+        x.beginPath(); x.arc(G.cx, G.cy, rt, 0, TWO_PI); x.stroke(); x.globalAlpha = 1;
+      }
       if (animating) {
         var P = 11000, ph = ((now - t0) % P) / P;
         sweep = ph < 0.82 ? 0.5 - 0.5 * Math.cos(Math.PI * ph / 0.82) : 1;
@@ -272,7 +302,10 @@
       }
       if (readout) {
         var txt;
-        if (animating && w >= 0) {
+        if (T && w >= 0) {
+          var seenT = 0; nodes.forEach(function (n) { if (n.rho <= w + 1e-6) seenT++; });
+          txt = 'TO ' + timeLabel(w).toUpperCase() + ' · ' + seenT + '/' + nodes.length;
+        } else if (animating && w >= 0) {
           var yr = nowY - ageAtK(K * (1 - w)), seen = 0;
           nodes.forEach(function (n) { if (n.rho <= w) seen++; });
           txt = 'SWEEP ' + Math.max(Math.floor(yr), 1928) + ' · ' + seen + ' OF ' + nodes.length;
@@ -338,7 +371,7 @@
       canvas.style.cursor = i >= 0 ? 'pointer' : 'crosshair';
       showTip(i, cx, cy);
     }
-    function running() { return loop && loop.running && !F0.idle(); }
+    function running() { return T ? playing && loop && loop.running : loop && loop.running && !F0.idle(); }
 
     canvas.addEventListener('pointermove', function (e) {
       var b = canvas.getBoundingClientRect();
@@ -351,6 +384,40 @@
       if (e.pointerType === 'touch' && lastTap !== i) { lastTap = i; setHover(i, false, e.clientX, e.clientY); return; }
       location.href = (opts.base || 'ledger/') + '#' + encodeURIComponent(nodes[i].m.id);
     });
+
+    /* ---- time control (opts.time) ---- */
+    var MONL = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    function yearAt(w) { return nowY - ageAtK(K * (1 - w)); }
+    function timeLabel(w) {
+      var y = yearAt(w), yr = Math.floor(y), mo = Math.min(11, Math.floor((y - yr) * 12));
+      return (nowY - y) < 9 ? MONL[mo] + ' ' + yr : String(yr);
+    }
+    function countAt(w) { var c = 0; nodes.forEach(function (n) { if (n.rho <= w + 1e-6) c++; }); return c; }
+    function syncTime() {
+      if (!T) return;
+      var full = tw >= 0.9995, txt = (full ? 'Now, ' + F0.fmtDate(ledger.updated) : 'Up to ' + timeLabel(tw)) + ' · ' + countAt(tw) + ' of ' + nodes.length;
+      if (T.range) { T.range.value = String(Math.round(tw * 1000)); T.range.setAttribute('aria-valuetext', txt + ' milestones'); }
+      if (T.output && T.output.textContent !== txt) T.output.textContent = txt;
+      if (T.play) { T.play.setAttribute('aria-pressed', playing ? 'true' : 'false'); T.play.setAttribute('aria-label', playing ? 'Pause' : (full ? 'Play the record from the oldest milestone' : 'Continue playing the record')); }
+    }
+    function stopPlay() {
+      playing = false; if (loop) loop.stop(); clearInterval(stepTimer); stepTimer = 0; syncTime(); draw(performance.now());
+    }
+    function startPlay() {
+      if (tw >= 0.9995) tw = 0;
+      playing = true; setHover(-1);
+      if (F0.motion()) { lastNow = 0; loop.start(); }
+      else stepTimer = setInterval(function () { // motion off: step ring by ring
+        tw = Math.min(1, (Math.floor(tw * K + 1e-6) + 1) / K); syncTime(); draw(performance.now());
+        if (tw >= 1) stopPlay();
+      }, 700);
+      syncTime(); draw(performance.now());
+    }
+    this.setTime = function (w) { if (playing) stopPlay(); tw = Math.max(0, Math.min(1, w)); syncTime(); draw(performance.now()); };
+    if (T) {
+      if (T.range) T.range.addEventListener('input', function () { if (playing) stopPlay(); tw = (+T.range.value) / 1000; if (hover >= 0 && !match(nodes[hover])) setHover(-1); syncTime(); draw(performance.now()); });
+      if (T.play) T.play.addEventListener('click', function () { if (playing) stopPlay(); else startPlay(); });
+    }
 
     /* ---- keyboard: a real list of links behind the canvas, with roving focus ---- */
     var links = [];
@@ -369,6 +436,8 @@
       listEl.addEventListener('focusin', function (e) {
         var i = +e.target.dataset.i; if (isNaN(i)) return;
         links.forEach(function (a, j) { a.tabIndex = j === i ? 0 : -1; });
+        var cb = canvas.getBoundingClientRect(), my = cb.top + nodes[i].y, vh = window.innerHeight;
+        if (my < 90 || my > vh - 60) window.scrollBy({ top: my - vh / 2, behavior: 'auto' }); // keep the focused mark in view
         setHover(i, true);
       });
       listEl.addEventListener('focusout', function (e) { if (!listEl.contains(e.relatedTarget)) { kbd = false; setHover(-1); } });
@@ -391,7 +460,7 @@
         else if (e.key === 'PageDown') j = Math.min(nodes.length - 1, i + 10);
         else if (e.key === 'Escape') { links[i].blur(); return; }
         else return;
-        e.preventDefault(); links[j].focus();
+        e.preventDefault(); links[j].focus({ preventScroll: true });
       });
     }
 
@@ -402,11 +471,23 @@
     readTokens(); layout(); draw(performance.now());
     C.resize(function () { layout(); draw(performance.now()); });
     F0.onTheme(function () { readTokens(); drawStatic(); draw(performance.now()); });
-    loop = F0.loop(draw);
     var visible = false;
-    function sync() { if (visible && F0.motion() && !F0.idle()) { if (!loop.running) t0 = performance.now(); loop.start(); } else { loop.stop(); draw(performance.now()); } }
-    F0.whenVisible(stage, function () { visible = true; sync(); }, function () { visible = false; sync(); });
-    F0.onMotion(sync); F0.onIdle(sync);
+    if (T) {
+      loop = F0.loop(function (now) {
+        if (!lastNow) lastNow = now;
+        tw = Math.min(1, tw + (now - lastNow) / DUR); lastNow = now;
+        draw(now); syncTime();
+        if (tw >= 1) stopPlay();
+      });
+      F0.whenVisible(stage, function () { visible = true; if (playing && stepTimer === 0) { lastNow = 0; loop.start(); } }, function () { visible = false; loop.stop(); });
+      F0.onMotion(function () { if (playing) stopPlay(); });
+      syncTime();
+    } else {
+      loop = F0.loop(draw);
+      var sync = function () { if (visible && F0.motion() && !F0.idle()) { if (!loop.running) t0 = performance.now(); loop.start(); } else { loop.stop(); draw(performance.now()); } };
+      F0.whenVisible(stage, function () { visible = true; sync(); }, function () { visible = false; sync(); });
+      F0.onMotion(sync); F0.onIdle(sync);
+    }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawStatic(); draw(performance.now()); });
     if (opts.centre) opts.centre.textContent = 'Centre: ' + Math.round(nowY - ageAtK(K)) + ' \u00b7 Rim: ' + F0.fmtDate(ledger.updated);
     this.nodes = nodes; this.domains = domains;

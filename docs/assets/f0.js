@@ -1,9 +1,11 @@
 /* Foundation0 runtime (window.F0). Plain script, no modules, no dependencies.
    API per SPEC §4: reduced, theme(), onTheme(), css(), json(), tip, whenVisible(), canvas(), fmtDate(), esc().
-   Additions: motion(), onMotion(), loop(), idle-pause, section index. */
+   Additions: motion(), onMotion(), loop(), idle-pause, section index,
+   root (relative path to docs/), statusBadges(), kappa() (live reviewed κ). Guide: assets/README.md */
 (function () {
   'use strict';
   var root = document.documentElement;
+  var me = document.currentScript;
   var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var mqDark = window.matchMedia('(prefers-color-scheme: dark)');
   var F0 = window.F0 = window.F0 || {};
@@ -159,6 +161,73 @@
   }
   ['pointermove', 'pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (ev) { window.addEventListener(ev, wake, { passive: true }); });
   F0.idle = function () { return isIdle; };
+
+  /* ---- relative path from this page to docs/ ('' on the home page, '../../' two levels down) ---- */
+  F0.root = (function () {
+    var src = me && me.getAttribute('src');
+    return src ? src.replace(/assets\/f0\.js(?:[?#].*)?$/, '') : '';
+  })();
+
+  /* ---- status string -> badges. "Conditional · maintainer-reviewed · not peer reviewed" becomes two badges:
+     an evidence badge with its ladder glyph (rungs: claimed 1, preprint 2, reviewed or deployed 3,
+     replicated 4, formally verified 5) and a neutral one. Text is kept exactly as given (CSS sets caps). ---- */
+  var BADGE_RULES = [
+    [/retract/i, 'rt', 0], [/contested/i, 'x', 0],
+    [/not confirmed|unreviewed|claim|candidate|superseded/i, 'c', 1],
+    [/^(not|no) |refereed only|pending|not clinically/i, 'n', 0],
+    [/partly/i, 'p', 2],
+    [/lean|formally|machine-verified|machine-checked|proof checker/i, 'v', 5],
+    [/replicated/i, 'v', 4],
+    [/peer[- ]reviewed|published in/i, 'r', 3],
+    [/deployed|released|live demo|daily use|software/i, 'd', 3],
+    [/preprint|conditional|maintainer|certificate|proof/i, 'p', 2],
+    [/private|in design|in progress|sealed/i, 'sealed', 0]
+  ];
+  F0.ladderHTML = F0.ladderHTML || function (r) { return '<span class="ladder" data-r="' + r + '" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>'; };
+  F0.classifyStatus = function (seg) {
+    for (var i = 0; i < BADGE_RULES.length; i++) if (BADGE_RULES[i][0].test(seg)) return { cls: BADGE_RULES[i][1], rung: BADGE_RULES[i][2] };
+    return { cls: 'n', rung: 0 };
+  };
+  F0.statusBadges = function (status, opts) {
+    opts = opts || {};
+    var groups = [];
+    String(status || '').split(/\s+·\s+/).filter(Boolean).forEach(function (seg) {
+      var c = F0.classifyStatus(seg), g = groups[groups.length - 1];
+      if (g && g.cls === c.cls && g.rung === c.rung) g.text.push(seg); else groups.push({ cls: c.cls, rung: c.rung, text: [seg] });
+    });
+    if (opts.ladder && groups.length && !groups.some(function (g) { return g.rung; })) { groups[0].rung = opts.ladder; if (groups[0].cls === 'n') groups[0].cls = 'c'; }
+    return groups.map(function (g) {
+      var t = g.text.join(' · ');
+      return '<span class="badge ' + g.cls + '">' + (g.rung ? F0.ladderHTML(g.rung) : '') + (g.cls === 'x' ? '<span class="xm" aria-hidden="true">×</span>' : '') + F0.esc(t.charAt(0).toUpperCase() + t.slice(1)) + '</span>';
+    }).join('');
+  };
+
+  /* ---- the live reviewed κ for integer multiplication (CrocSwap/integer-mult-bounds).
+     Resolves {decimal, kappa, pr, prs, source: 'live'|'feed', at, url}. 'live' is the maintainer's
+     certificates/selected-result.json fetched now (at = fetch time); 'feed' is the local feed.json
+     snapshot (at = its generated_at). Always show which one and when. ---- */
+  var kappaP = null;
+  F0.KAPPA_URL = 'https://raw.githubusercontent.com/CrocSwap/integer-mult-bounds/main/certificates/selected-result.json';
+  F0.kappa = function () {
+    if (kappaP) return kappaP;
+    var ctl = 'AbortController' in window ? new AbortController() : null, timer = ctl && setTimeout(function () { ctl.abort(); }, 8000);
+    kappaP = fetch(F0.KAPPA_URL, { cache: 'no-cache', signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error('selected-result.json: ' + r.status); return r.json(); })
+      .then(function (d) {
+        clearTimeout(timer);
+        if (!d || !/^0\.\d+$/.test(String(d.decimal))) throw new Error('selected-result.json: no decimal');
+        var prs = Array.isArray(d.source_prs) ? d.source_prs : [];
+        return { decimal: String(d.decimal), kappa: d.kappa, pr: prs[0] || null, prs: prs, source: 'live', at: new Date().toISOString(), url: F0.KAPPA_URL };
+      })
+      .catch(function () {
+        clearTimeout(timer);
+        return F0.json(F0.root + 'feed.json').then(function (f) {
+          var s = f.selected_result || {};
+          return { decimal: String(s.decimal), kappa: s.kappa, pr: null, prs: [], source: 'feed', at: f.generated_at, url: F0.root + 'feed.json' };
+        });
+      });
+    return kappaP;
+  };
 
   /* ---- toggles and section index ---- */
   function bind() {

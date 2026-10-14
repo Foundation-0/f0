@@ -23,7 +23,7 @@
   /* project accents (card bar + glyph line) */
   --acc-incentre: #127a48; --acc-exoplanets: #8a5a10; --acc-intmult: #2a5fb0;
   --acc-mobius: #a3333a; --acc-gf2m: #8a2f9a; --acc-rohan: #1f5f8f; --acc-shea: #4a6f12;
-  --acc-exo: #b23a06; --acc-medcode: #0e6b5c; --acc-nutrak: #8a6508;
+  --acc-exo: #b23a06; --acc-medcode: #0e6b5c; --acc-nutrak: #8a6508; --acc-mm: #6b45ad;
   --glow: 0;               /* light theme: no additive glow */
   --shadow-panel: 0 18px 40px -28px rgba(22,33,62,.25);
   --header-bg: rgba(245,240,230,.88);
@@ -69,7 +69,7 @@
     --st-claimed: #d8c9a6; --st-contested: #f2909e; --st-retracted: #a2a9ad; --st-deployed: #c9a8ff;
     --acc-incentre: #37ff9a; --acc-exoplanets: #f0b25a; --acc-intmult: #5b9cf0;
     --acc-mobius: #f07a7a; --acc-gf2m: #e58cf0; --acc-rohan: #9ad1ff; --acc-shea: #b5f27a;
-    --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521;
+    --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff;
     --glow: 1;
     --shadow-panel: 0 30px 60px -40px rgba(0,0,0,.9);
     --header-bg: rgba(7,11,14,.86);
@@ -88,7 +88,7 @@
   --st-claimed: #d8c9a6; --st-contested: #f2909e; --st-retracted: #a2a9ad; --st-deployed: #c9a8ff;
   --acc-incentre: #37ff9a; --acc-exoplanets: #f0b25a; --acc-intmult: #5b9cf0;
   --acc-mobius: #f07a7a; --acc-gf2m: #e58cf0; --acc-rohan: #9ad1ff; --acc-shea: #b5f27a;
-  --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521;
+  --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff;
   --glow: 1;
   --shadow-panel: 0 30px 60px -40px rgba(0,0,0,.9);
   --header-bg: rgba(7,11,14,.86);
@@ -113,6 +113,8 @@ a:hover { text-decoration-color: currentColor; }
 button { font: inherit; color: inherit; }
 ::selection { background: color-mix(in srgb, var(--dig) 35%, transparent); }
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+/* items inside a visually hidden list stay at its corner, so focusing one never scrolls the page away */
+.sr-only > li { position: absolute; left: 0; top: 0; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--bg-2); color: var(--ink); padding: 10px 14px; border: 1px solid var(--line-ui); font: 500 14px var(--f-mono); }
 .skip:focus { top: 12px; }
 .wrap { width: min(var(--max), 100% - 2 * var(--gutter)); margin-inline: auto; }
@@ -223,6 +225,9 @@ html[data-motion="on"] .chip .dot.live { animation: pulse 2.8s var(--ease-io) in
 .kicker .pair i { width: 7px; height: 7px; border-radius: 50%; display: block; }
 .kicker .pair i:first-child { background: var(--bio); } .kicker .pair i:last-child { background: var(--dig); }
 .display { font: 600 var(--fs-display)/.92 var(--f-sans); letter-spacing: -.055em; margin-top: var(--s-5); margin-left: -.04em; white-space: nowrap; }
+/* The wordmark is ~5.4em wide: size it from its own column so it can never run into the Radiant (360-1920px). */
+.hero-text { min-width: 0; container-type: inline-size; }
+@supports (width: 1cqi) { .hero .display { font-size: min(var(--fs-display), 17.2cqi); } }
 .display .zero {
   background: linear-gradient(118deg, var(--bio) 0 49.5%, var(--dig) 50.5% 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -238,14 +243,23 @@ html[data-motion="on"] .chip .dot.live { animation: pulse 2.8s var(--ease-io) in
 .prov { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s-4); }
 
 /* Radiant figure */
-.radiant { margin: 0; }
+.radiant { margin: 0; --rad-w: 780px; }
+@media (min-width: 1081px) { .radiant { --rad-w: min(780px, max(560px, calc(100vh - 210px))); } }
+.radiant-stage, .rad-time, .radiant-cap, .legend, .rad-table-wrap { max-width: var(--rad-w) !important; }
 .radiant-stage { position: relative; width: 100%; max-width: 780px; margin-inline: auto; background: var(--bg-1); }
 .radiant-box { position: relative; aspect-ratio: 1 / 1; width: 100%; }
 .radiant-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: manipulation; cursor: crosshair; }
 @media (max-width: 640px) {
   .radiant-stage { padding: 30px 0 28px; }
   .radiant-stage .corner.br { display: none; }
+  .radiant-stage .corner { font-size: 10.5px; letter-spacing: .1em; }
+  .radiant-stage .corner .wide-only { display: none; }
 }
+/* time control under the Radiant: play button, range, live output */
+.rad-time { display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto; align-items: center; gap: 10px 12px; max-width: 780px; margin: var(--s-3) auto 0; padding: 8px 12px; border: 1px solid var(--line); background: var(--bg-1); }
+.rad-time label { font: 500 11px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.rad-time output { font: 500 12.5px/1.3 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; text-align: right; min-width: 15ch; }
+@media (max-width: 640px) { .rad-time { grid-template-columns: auto minmax(0, 1fr); } .rad-time label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } .rad-time output { grid-column: 1 / -1; text-align: left; } }
 .radiant-stage:focus-within { outline: 2px solid var(--focus); outline-offset: 4px; }
 .radiant-stage .corner { z-index: 2; }
 .radiant-readout { color: var(--ink-2); }
@@ -264,6 +278,8 @@ html[data-motion="on"] .chip .dot.live { animation: pulse 2.8s var(--ease-io) in
 .rad-actions .tbtn { height: 36px; }
 .rad-table-wrap { max-width: 780px; margin: var(--s-3) auto 0; max-height: 420px; overflow: auto; border: 1px solid var(--line); background: var(--bg-2); }
 .rad-table-wrap[hidden] { display: none; }
+html:not(.js) .rad-time, html:not(.js) .rad-actions, html:not(.js) .chart-tools { display: none; }
+.rad-noscript { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; font: 400 var(--fs-sm)/1.55 var(--f-sans); color: var(--ink-2); }
 
 @media (max-width: 1080px) {
   .hero .wrap { grid-template-columns: minmax(0, 1fr); }
@@ -371,6 +387,12 @@ html[data-motion="on"] .chip .dot.live { animation: pulse 2.8s var(--ease-io) in
 .member .mp { margin-top: 14px; font: 500 11px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
 .member .mp a { display: block; margin-top: 4px; font: 500 14px/1.35 var(--f-sans); letter-spacing: 0; text-transform: none; overflow-wrap: anywhere; }
 .member p { font: 400 14px/1.55 var(--f-sans); color: var(--ink-2); margin-top: 12px; }
+.member .mw { margin-top: auto; padding-top: 14px; }
+.member .mw > span { display: block; font: 500 11px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); border-top: 1px dashed var(--line); padding-top: 10px; }
+.member .mw ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.member .mw li { font: 500 12.5px/1.35 var(--f-mono); overflow-wrap: anywhere; }
+.member .mw li a { display: inline-block; padding: 4px 0; }
+.member .mw .more-n { color: var(--ink-3); font-size: 11.5px; padding-top: 4px; }
 @media (max-width: 1180px) { .members { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .members { grid-template-columns: minmax(0, 1fr); } }
 
@@ -393,7 +415,19 @@ html[data-motion="on"] .chip .dot.live { animation: pulse 2.8s var(--ease-io) in
 .card h3 a:hover { text-decoration: underline; text-decoration-color: var(--acc); }
 .card h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; } /* whole card clickable */
 .card .badges { padding: 12px 18px 0; position: relative; z-index: 2; }
+.card .dek { font: 400 15.5px/1.45 var(--f-serif); color: var(--ink-2); padding: 6px 18px 0; margin: 0; max-width: none; }
+/* .cards.bal (home): the last row never leaves a hole. JS marks the tail cards (.tail2 at 3 columns, .tail1 at 2). */
+@media (min-width: 1101px) { .cards.bal { grid-template-columns: repeat(6, minmax(0, 1fr)); } .cards.bal > .card { grid-column: span 2; } .cards.bal > .card.feature { grid-column: 1 / -1; } .cards.bal > .card.tail2 { grid-column: span 3; } }
+@media (min-width: 701px) and (max-width: 1100px) { .cards.bal > .card.tail1 { grid-column: 1 / -1; } }
 .card .credit { font: 400 14px/1.55 var(--f-sans); color: var(--ink-2); padding: 10px 18px 0; }
+.card .fact.live-val { display: grid; gap: 6px; align-items: start; }
+.card .fact.live-val .v { font: 500 17px/1.25 var(--f-mono); white-space: normal; overflow-wrap: anywhere; }
+.card .fact.live-val .chip { position: relative; z-index: 2; justify-self: start; text-decoration: none; }
+.card .fact.live-val .chip:hover { color: var(--ink); border-color: var(--line-ui); }
+.glyph.hit { z-index: 2; }
+.gcap .lg { display: inline-flex; align-items: baseline; gap: 6px; margin-right: 12px; }
+.gcap .sq { display: inline-block; width: 9px; height: 9px; flex: none; transform: translateY(1px); }
+.glyph.hit canvas { cursor: crosshair; }
 .card .credit b { color: var(--ink); font-weight: 600; }
 .glyph { position: relative; margin: 14px 18px 0; height: 116px; background: var(--bg-1); border: 1px solid var(--line); }
 .glyph canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -484,3 +518,217 @@ html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="
   .frame::before, .frame::after, .card::before, .ccard::before, .member::before { forced-color-adjust: none; }
   .badge { border: 1px solid CanvasText; }
 }
+
+/* =====================================================================
+   19. Shared components for inner pages (additive; see assets/README.md)
+   Every block below is new: no rule here changes a class used above.
+   ===================================================================== */
+:root { --fs-h1: clamp(36px, 4.4vw + 14px, 76px); --read: 760px; --wide: 1040px; }
+
+/* 19.1 Page hero: breadcrumb, kicker, h1, dek, meta row. Optional --acc bar.
+   <header class="page-hero" style="--acc:var(--acc-incentre)"><div class="wrap">
+     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="./">Research</a></li><li aria-current="page">Exoplanets</li></ol></nav>
+     <p class="kicker">…</p><h1 class="h1">…</h1><p class="dek">…</p><div class="meta-row">badges + chips</div>
+   </div></header>  Add .has-fig to put a figure (.ph-fig) on the right. */
+.page-hero { --acc: var(--bio); position: relative; padding: clamp(28px, 4vw, 56px) 0 clamp(36px, 5vw, 64px); border-bottom: 1px solid var(--line); overflow: hidden; }
+.page-hero::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--acc); }
+.page-hero .wrap { position: relative; }
+.page-hero.has-fig .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+@media (max-width: 960px) { .page-hero.has-fig .wrap { grid-template-columns: minmax(0, 1fr); } }
+.page-hero .kicker { margin-top: var(--s-5); }
+.h1 { font: 600 var(--fs-h1)/1.02 var(--f-sans); letter-spacing: -.04em; margin-top: var(--s-4); max-width: 18ch; }
+.dek { font: 400 var(--fs-lede)/1.5 var(--f-serif); color: var(--ink-2); margin-top: var(--s-5); max-width: 56ch; }
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: var(--s-5); }
+.ph-fig { margin: 0; min-width: 0; }
+.crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 0; font: 500 var(--fs-label)/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.crumbs li + li::before { content: "/"; padding: 0 .7em; color: var(--line-ui); }
+.crumbs a { color: var(--ink-2); text-decoration: none; padding: 6px 0; }
+.crumbs a:hover { color: var(--ink); text-decoration: underline; }
+.crumbs [aria-current="page"] { color: var(--ink); }
+
+/* 19.2 Reading layout: a 760px text column; .wide breaks figures out to 1040px. */
+.read { width: min(var(--read), 100% - 2 * var(--gutter)); margin-inline: auto; }
+.wide { width: min(var(--wide), 100vw - 2 * var(--gutter)); margin-inline: calc(50% - min(var(--wide), 100vw - 2 * var(--gutter)) / 2); }
+.prose h3 { font: 600 var(--fs-h3)/1.25 var(--f-sans); letter-spacing: -.015em; color: var(--ink); margin: 1.6em 0 .2em; }
+.prose h3 + p { margin-top: .4em; }
+.prose ul, .prose ol { margin: 1em 0; padding-left: 1.3em; }
+.prose li + li { margin-top: .35em; }
+.prose li::marker { color: var(--ink-3); font-family: var(--f-mono); font-size: .8em; }
+.prose blockquote { margin: 1.2em 0; padding-left: var(--s-4); border-left: 2px solid var(--dig); color: var(--ink); font-style: italic; }
+.prose code, .code { font: 500 .86em/1.4 var(--f-mono); background: var(--bg-3); padding: .08em .35em; border-radius: var(--r-chip); color: var(--ink); }
+.prose b, .prose strong { color: var(--ink); font-weight: 600; }
+.prose a { color: var(--link); }
+.prose > * + .fig, .prose > * + .callout, .prose > * + .split { margin-top: var(--s-6); }
+.prose > .fig + *, .prose > .split + * { margin-top: var(--s-6); }
+.h2 + .prose, .lede + .prose, .h2 + .split, .lede + .split { margin-top: var(--s-5); }
+
+/* 19.3 Two columns: prose + figure. The figure sticks while the prose scrolls past (wide screens).
+   <div class="split"><div class="prose">…</div><figure class="fig sticky">…</figure></div>   .rev swaps sides. */
+.split { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 64px); align-items: start; margin-top: var(--s-6); }
+.split.rev > :first-child { order: 2; }
+.split > .sticky { position: sticky; top: 84px; }
+@media (max-width: 960px) { .split { grid-template-columns: minmax(0, 1fr); } .split.rev > :first-child { order: 0; } .split > .sticky { position: relative; top: auto; } }
+
+/* 19.4 Explainer figure: frame + head (title, how to read) + stage + controls + foot (source) + twin.
+   <figure class="fig frame" aria-labelledby="f1-t">
+     <div class="fig-head"><p class="fig-title" id="f1-t">Title</p><p class="fig-how"><b>How to read:</b> …</p></div>
+     <div class="fig-stage" style="--ratio:16/9"><canvas role="img" aria-label="…"></canvas><span class="corner tr fig-out">readout</span></div>
+     <div class="fig-ctrl" role="group" aria-label="Controls"><span class="ctrl-label">Ctrl //</span>
+       <button class="tbtn play" aria-pressed="false" aria-label="Play">…</button>
+       <label class="ctrl">Period <input class="range" type="range"> <output>3.18 d</output></label>
+       <div class="seg" role="group" aria-label="Scale"><button aria-pressed="true">Log</button><button aria-pressed="false">Linear</button></div></div>
+     <figcaption class="fig-foot"><span class="fig-src">Source: <a>…</a></span></figcaption>
+     <details class="twin"><summary>Show the numbers</summary><div class="table-wrap">…</div></details>
+   </figure> */
+.fig { margin: 0; padding: 18px clamp(14px, 2vw, 24px) 16px; min-width: 0; }
+.fig-head { display: grid; gap: 4px; }
+.fig-title { font: 600 17px/1.3 var(--f-sans); color: var(--ink); }
+.fig-how { font: 400 var(--fs-xs)/1.5 var(--f-sans); color: var(--ink-2); max-width: 72ch; }
+.fig-how b, .fig-src b { font-weight: 600; color: var(--ink); }
+.fig-stage { position: relative; margin-top: 14px; aspect-ratio: var(--ratio, 16 / 9); background: var(--bg-1); border: 1px solid var(--line); overflow: hidden; }
+.fig-stage > canvas, .fig-stage > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fig-stage.auto { aspect-ratio: auto; }
+.fig-stage.auto > svg { position: static; height: auto; }
+.fig-stage .corner { z-index: 1; }
+.fig-out { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.fig-ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 12px; padding: 10px 12px; border: 1px solid var(--line); background: var(--bg-1); }
+.ctrl-label { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--bio); }
+.ctrl { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font: 500 11.5px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.ctrl output, .fig-ctrl output { font: 500 12.5px/1.3 var(--f-mono); letter-spacing: .02em; text-transform: none; color: var(--ink); font-variant-numeric: tabular-nums; min-width: 6ch; }
+.fig-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 10px; font: 400 12.5px/1.5 var(--f-sans); color: var(--ink-3); }
+.fig-src a { color: var(--link); }
+.twin { margin-top: 12px; }
+.twin > summary { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); cursor: pointer; list-style: none; font: 500 11.5px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.twin > summary::-webkit-details-marker { display: none; }
+.twin > summary::before { content: "+"; font-family: var(--f-sans); letter-spacing: 0; color: var(--ink-3); }
+.twin[open] > summary::before { content: "\2212"; }
+.twin > summary:hover { color: var(--ink); border-color: var(--ink-3); }
+.twin .table-wrap { max-height: 440px; overflow: auto; background: var(--bg-2); }
+@media (max-width: 760px) { .twin > summary { min-height: 44px; } }
+
+/* range slider: thin track, gold-ringed thumb, visible focus */
+.range { -webkit-appearance: none; appearance: none; width: 100%; min-width: 120px; height: 28px; background: transparent; cursor: pointer; margin: 0; }
+.range:focus { outline: none; }
+.range:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.range::-webkit-slider-runnable-track { height: 2px; background: linear-gradient(90deg, var(--bio), var(--dig)); border-radius: 1px; }
+.range::-moz-range-track { height: 2px; background: linear-gradient(90deg, var(--bio), var(--dig)); border-radius: 1px; }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -8px; border-radius: 50%; background: var(--bg-2); border: 2px solid var(--ink); box-shadow: 0 0 0 3px var(--bg-1); }
+.range::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--bg-2); border: 2px solid var(--ink); }
+@media (max-width: 760px) { .range { height: 44px; } }
+
+/* segmented toggle: real buttons with aria-pressed */
+.seg { display: inline-flex; border: 1px solid var(--line-ui); border-radius: var(--r-btn); overflow: hidden; }
+.seg button { min-height: 32px; padding: 0 12px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; font: 500 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; }
+.seg button + button { border-left: 1px solid var(--line-ui); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.seg button:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+@media (max-width: 760px) { .seg button { min-height: 44px; } }
+
+/* play / pause button: put both icons inside; aria-pressed="true" shows pause */
+.tbtn.play .i-pause, .tbtn.play[aria-pressed="true"] .i-play { display: none; }
+.tbtn.play[aria-pressed="true"] .i-pause { display: inline; }
+.tbtn.play svg { width: 14px; height: 14px; }
+
+/* 19.5 Callouts: plain-words definition, note, honesty caveat.
+   <aside class="callout def"><p class="c-k">Definition</p><p><dfn>Transit</dfn>: a planet passing in front of its star.</p></aside> */
+.callout { position: relative; margin: var(--s-5) 0; padding: 14px 16px 14px 18px; background: var(--bg-2); border: 1px solid var(--line); max-width: var(--measure); font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); }
+.callout::before { content: ""; position: absolute; left: -1px; top: -1px; bottom: -1px; width: 2px; background: var(--dig); }
+.callout .c-k { font: 500 11px/1.3 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+.callout p + p { margin-top: .6em; }
+.callout b, .callout strong { color: var(--ink); font-weight: 600; }
+.callout dfn { font-style: normal; font-weight: 600; color: var(--ink); }
+.callout.def { font: 400 var(--fs-base)/1.6 var(--f-serif); }
+.callout.def::before { background: var(--bio); }
+.callout.note { border-style: dashed; border-color: var(--line-ui); background: transparent; }
+.callout.note::before { display: none; }
+.callout.caveat::before { background: var(--st-contested); }
+.callout.caveat .c-k { color: var(--st-contested); }
+dfn.term { font-style: normal; border-bottom: 1px dotted var(--ink-3); }
+
+/* 19.6 Sources and footnotes.
+   In text: <a class="fnref" href="#fn-1" id="fnr-1" aria-label="Source 1">1</a>
+   List:    <ol class="notes"><li id="fn-1">Text <a href="…">link</a> <a class="back" href="#fnr-1" aria-label="Back to text">&#8617;</a></li></ol> */
+.fnref { font: 600 .68em/1 var(--f-mono); vertical-align: super; text-decoration: none; color: var(--dig); padding: 0 .15em; }
+.fnref:hover { text-decoration: underline; }
+.notes { list-style: none; counter-reset: fn; margin: var(--s-5) 0 0; padding: 0; border-top: 1px solid var(--line); max-width: var(--measure); }
+.notes li { counter-increment: fn; position: relative; padding: 10px 0 10px 42px; border-bottom: 1px solid var(--line); font: 400 var(--fs-xs)/1.55 var(--f-sans); color: var(--ink-2); overflow-wrap: anywhere; }
+.notes li::before { content: counter(fn, decimal-leading-zero); position: absolute; left: 0; top: 10px; font: 500 11.5px/1.6 var(--f-mono); color: var(--ink-3); }
+.notes li:target { background: color-mix(in srgb, var(--dig) 8%, transparent); }
+.notes .back { text-decoration: none; margin-left: 6px; }
+.src-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.src-list a { display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; border: 1px solid var(--line); border-radius: var(--r-chip); font: 500 11.5px/1.3 var(--f-mono); color: var(--link); text-decoration: none; }
+.src-list a:hover { border-color: var(--line-ui); text-decoration: underline; }
+
+/* 19.7 Status badges, extra states (the ladder glyph and .v .r .p .c .x .n are in section 6).
+   F0.statusBadges("Preprint · not peer reviewed") builds them from a status string. */
+.badge.d { --c: var(--st-deployed); }
+.badge.rt { --c: var(--st-retracted); text-decoration: line-through; }
+.badge .xm { font: 600 13px/1 var(--f-mono); }
+
+/* 19.8 Stat row: hairline grid of number + label + provenance (auto-fits 1 to 4 columns). */
+.statrow { list-style: none; padding: 0; margin: var(--s-5) 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.statrow > li, .statrow > div { background: var(--bg-2); padding: 14px 16px 12px; min-width: 0; }
+.statrow .v { font: 500 var(--fs-stat)/1.05 var(--f-mono); letter-spacing: -.02em; color: var(--ink); overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.statrow .k { font: 400 var(--fs-xs)/1.45 var(--f-sans); color: var(--ink-2); margin-top: 6px; }
+.statrow .src { display: block; margin-top: 8px; font: 500 11px/1.35 var(--f-mono); letter-spacing: .04em; color: var(--ink-3); overflow-wrap: anywhere; }
+.statrow .src a { color: var(--ink-3); }
+
+/* 19.9 Member card (full version; the home page uses the compact .member strip). No pictures, by design.
+   <article class="mcard"><p class="idx">M·03</p><h3>Name</h3><a class="gh" href>@login</a>
+     <p class="sum">…</p><ul class="worklist"><li><a href>repo</a><span class="badge n">status</span><p>note</p></li></ul></article> */
+.mcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: var(--s-6); }
+.mcard { position: relative; background: var(--bg-2); border: 1px solid var(--line); padding: 18px 20px 20px; min-width: 0; }
+.mcard::before { content: ""; position: absolute; left: -1px; top: 18px; width: 2px; height: 40px; background: var(--hair); }
+.mcard .idx { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; color: var(--ink-3); }
+.mcard h3 { font: 600 var(--fs-h3)/1.2 var(--f-sans); letter-spacing: -.015em; margin-top: 10px; }
+.mcard .gh { display: inline-block; font: 500 12.5px/1.3 var(--f-mono); margin-top: 4px; padding: 4px 0; overflow-wrap: anywhere; }
+.mcard .sum { font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); margin-top: 10px; }
+.worklist { list-style: none; margin: 14px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.worklist li { padding: 10px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+.worklist li > a { font: 500 14px/1.35 var(--f-sans); overflow-wrap: anywhere; }
+.worklist li p { font: 400 13px/1.5 var(--f-sans); color: var(--ink-2); }
+.worklist .badge { justify-self: start; white-space: normal; }
+
+/* 19.10 Door cards: navigation tiles for index pages.
+   <ul class="doors"><li><a class="door" href style="--acc:…"><span class="n">01</span><span class="t">Title</span><span class="d">One line</span></a></li></ul> */
+.doors { list-style: none; padding: 0; margin: var(--s-6) 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+.door { --acc: var(--ink-3); position: relative; display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 18px 18px 20px; background: var(--bg-2); border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: border-color var(--t-micro) linear, transform var(--t-ui) var(--ease-out); }
+.door::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--acc); }
+.door .n { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; color: var(--ink-3); }
+.door .t { font: 600 19px/1.25 var(--f-sans); letter-spacing: -.01em; }
+.door .d { font: 400 14px/1.5 var(--f-sans); color: var(--ink-2); }
+.door:hover { border-color: var(--line-ui); transform: translateY(-2px); }
+.door:hover .t { text-decoration: underline; text-decoration-color: var(--acc); text-underline-offset: 4px; }
+
+/* 19.11 Key/value list and table of contents. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0; margin: var(--s-4) 0 0; border-top: 1px solid var(--line); }
+.kv dt, .kv dd { margin: 0; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); }
+.kv dt { font: 500 11px/1.6 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.kv dd { font: 400 var(--fs-sm)/1.5 var(--f-sans); color: var(--ink-2); overflow-wrap: anywhere; }
+@media (max-width: 520px) { .kv { grid-template-columns: minmax(0, 1fr); } .kv dt { border-bottom: 0; padding-bottom: 0; } }
+.toc { list-style: none; margin: var(--s-5) 0 0; padding: 0; columns: 2 220px; column-gap: var(--s-6); }
+.toc li { break-inside: avoid; }
+.toc a { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); font: 400 var(--fs-sm)/1.4 var(--f-sans); }
+.toc a span { font: 500 11.5px/1.6 var(--f-mono); color: var(--bio); min-width: 2.4ch; }
+.toc a:hover { color: var(--link); }
+
+/* 19.12 Previous / next footer for inner pages. */
+.prevnext { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: var(--s-7); }
+.prevnext a { display: grid; gap: 6px; padding: 16px 18px; background: var(--bg-1); text-decoration: none; color: var(--ink); font: 500 var(--fs-sm)/1.4 var(--f-sans); }
+.prevnext a span { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.prevnext a.next { text-align: right; }
+.prevnext a:hover { background: var(--bg-2); color: var(--link); }
+@media (max-width: 520px) { .prevnext { grid-template-columns: minmax(0, 1fr); } .prevnext a.next { text-align: left; } }
+
+/* 19.13 Live value: a number fetched at view time, with what it is and when (see F0.kappa). */
+.live-val { display: grid; gap: 4px; }
+.live-val .v { font: 500 16px/1.25 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.live-val .k { font: 400 13px/1.45 var(--f-sans); color: var(--ink-2); }
+.live-val .chip { justify-self: start; }
+.chip .dot.stale { background: var(--ink-3); }
+
+@media print {
+  .fig-ctrl, .twin > summary, .prevnext, .rad-time { display: none !important; }
+  .twin > :not(summary) { display: block !important; }
+}
+@media (forced-colors: active) { .page-hero::before, .door::before, .mcard::before, .callout::before { forced-color-adjust: none; } }
