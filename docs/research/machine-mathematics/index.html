@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>After the 722 · Foundation0</title>
+<meta name="description" content="OpenAI published 722 machine-written mathematics manuscripts in 372 families on 6 October 2026. A map of all of them, the seven families our founding members built on, and how much slack people with AI agents found in the first proofs.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="After the 722 · Foundation0">
+<meta property="og:description" content="722 machine-written maths manuscripts, 372 families, and what people with AI agents did in the week after: every refinement with its before, its after and its status.">
+<meta property="og:image" content="../../assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="machine-mathematics">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <header class="page-hero has-fig mm-hero" style="--acc:var(--acc-mm)">
+    <div class="wrap">
+      <div class="mm-hero-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">After the 722</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Research // machine-written mathematics</p>
+        <h1 class="h1">After the 722</h1>
+        <p class="dek">On 6 October 2026 OpenAI published 722 mathematics manuscripts written by one of its AI models, grouped into 372 families of results. No human referee had checked them. Within a week, people working with their own AI agents had tightened the numbers in several. Here is the whole collection, the seven families our founding members built on, and how much room the first proofs left.</p>
+        <div class="meta-row">
+          <span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Mostly conditional</span>
+          <span class="badge n">Not peer reviewed</span>
+          <a class="chip" href="https://github.com/openai/math">openai/math &middot; Apache-2.0</a>
+          <span class="chip">Facts as of 14 Oct 2026</span>
+        </div>
+        <p class="mm-jump"><a href="#map">The map</a><a href="#families">Seven families</a><a href="#slack">The slack</a><a href="#conditional">What &ldquo;conditional&rdquo; means</a></p>
+      </div>
+
+      <figure class="fig frame ph-fig mm-tl-fig" id="tl-fig" aria-labelledby="tl-t">
+        <div class="fig-head">
+          <p class="fig-title" id="tl-t">Two weeks of writing, then a week of tightening</p>
+          <p class="fig-how"><b>How to read:</b> each bar counts the manuscripts whose folder carries that date. Below the line, each dot is one public step that improved one of six results after the collection went public; the dot is half gold, half cyan because people and AI agents took each step together. Point at a day, or focus the chart and use the arrow keys.</p>
+        </div>
+        <div class="mm-tl-stage" id="tl-stage" tabindex="0" role="group" aria-roledescription="chart" aria-label="Manuscripts by date, 10 September to 6 October 2026, and refinement steps, 7 to 13 October. Use the left and right arrow keys to move through the days." aria-describedby="tl-out">
+          <noscript><p class="mm-noscript">This chart needs JavaScript. The same counts are in the table below the chart and in section 03.</p></noscript>
+        </div>
+        <p class="mm-readout" id="tl-out" aria-live="polite">717 of the 722 manuscripts are dated between 22 September and 5 October.</p>
+        <ul class="vlegend mm-tl-legend" aria-label="Legend">
+          <li><span class="sw" style="background:var(--mark-dig)" aria-hidden="true"></span><span><b>Manuscripts</b> written by OpenAI&rsquo;s model, by folder date</span></li>
+          <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="6" style="fill:var(--mark-bio)"/><path d="M0 -6A6 6 0 0 1 0 6Z" style="fill:var(--mark-dig)"/></svg><span><b>Refinement steps</b> by people with AI agents</span></li>
+        </ul>
+        <figcaption class="fig-foot"><span class="fig-src">Source: folder names in <a href="https://github.com/openai/math/tree/adc7f12/preprints">openai/math @ adc7f12</a>; steps and their sources in <a href="#slack">section 03</a>.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary><div class="table-wrap" id="tl-table"></div></details>
+      </figure>
+    </div>
+  </header>
+
+  <!-- 00 THE RELEASE -->
+  <section class="sec" id="release" data-index="The release" data-num="00" aria-labelledby="release-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>The release</p><a class="chip" href="https://github.com/openai/math/blob/adc7f12/README.md">openai/math README @ adc7f12</a></div>
+      <h2 class="h2" id="release-h">A library of mathematics, written by one model, posted in one commit.</h2>
+      <p class="lede">A manuscript here is a draft research paper: a claim and its proof, written out in full. OpenAI grouped its manuscripts into families, one per main result, so a family can hold a paper and the papers that build on it.</p>
+      <ul class="statrow mm-stats" aria-label="The release in numbers">
+        <li><div class="v">722</div><div class="k">manuscripts in the first commit, 6 Oct 2026</div><span class="src"><a href="https://github.com/openai/math/blob/adc7f12/README.md">README @ adc7f12</a></span></li>
+        <li><div class="v">372</div><div class="k">families of results</div><span class="src"><a href="https://github.com/openai/math/blob/adc7f12/CONTENTS.md">CONTENTS.md @ adc7f12</a></span></li>
+        <li><div class="v">~4,000</div><div class="k">problems posed to the model; how the 722 were picked is not public</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/README.md">README @ fd4aeeb</a></span></li>
+        <li><div class="v">3 hours</div><div class="k">of ChatGPT Pro thinking compute per result, on average</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/README.md">README @ fd4aeeb</a></span></li>
+        <li><div class="v">235 &rarr; 242</div><div class="k">families linking a Lean scope document, 6 Oct &rarr; 7 Oct</div><span class="src"><a href="../../data/openai-math-families.json">data/openai-math-families.json</a></span></li>
+        <li><div class="v">3</div><div class="k">manuscripts withdrawn on 7 Oct after a sign error</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/history.md">history.md @ fd4aeeb</a></span></li>
+      </ul>
+      <div class="split mm-release">
+        <div class="prose">
+          <p>The repository says the manuscripts and their proof files were &ldquo;produced by an internal OpenAI model&rdquo;, and it is plain about the risk: &ldquo;Some of the unformalized results could have issues.&rdquo; The first commit is signed &ldquo;Anonymous&rdquo; and dated 6 October 2026, 14:58 Pacific time. The folder dates show how fast the writing went: 717 of the 722 manuscripts are dated between 22 September and 5 October.</p>
+          <h3>What a Lean scope document is</h3>
+          <p><dfn class="term">Lean</dfn> is a proof checker: a program that accepts a proof only if every step follows from the rules, taking nothing on trust. For 235 of the 372 families, OpenAI linked a <dfn class="term">scope document</dfn>, a plan saying which statements in that family are to be checked in Lean. A plan is not a finished check. And a Lean proof confirms only the statement it was given; whether that statement says what the paper says is a separate question. OpenAI&rsquo;s own catalogue marks its formal proofs as made by agents and not yet reviewed.</p>
+          <p>The next day, 7 October, OpenAI withdrew three manuscripts because &ldquo;a sign error invalidates a stabilization-trace cancellation argument&rdquo;, revised fourteen others and added formal proofs. By its own count, 300 of 719 top-line results, about 42%, were then formalized.</p>
+        </div>
+        <div>
+          <aside class="callout def"><p class="c-k">Plain words</p><p><dfn>Preprint</dfn>: a paper made public before any referee has checked it. Every manuscript in the collection is a preprint, and so is almost everything on this page.</p></aside>
+          <aside class="callout def"><p class="c-k">Plain words</p><p><dfn>Bound</dfn>: a proved limit, such as &ldquo;this takes at most so many steps&rdquo;. A <dfn>constant</dfn> is a fixed number inside a bound. Making the constant better makes the whole statement stronger.</p></aside>
+          <aside class="callout note"><p class="c-k">Our earlier reading</p><p>Aska&rsquo;s essay <a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a> (7 Oct) read the collection on day one and argued that checking proofs, not finding them, is now the slow part. It predates the withdrawals above.</p></aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 THE MAP -->
+  <section class="sec alt" id="map" data-index="The map" data-num="01" aria-labelledby="map-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The map</p><span class="chip">Fields: our editorial classification</span></div>
+      <h2 class="h2" id="map-h">All 372 families on one page.</h2>
+      <p class="lede">Each cell is one family, and its area is how many manuscripts it holds. Filled cells link a Lean scope document; outlined cells do not. A red ring marks the seven families our founding members built on. The fields are our own classification, made from each family&rsquo;s title: OpenAI&rsquo;s catalogue does not assign fields, and some families sit between two.</p>
+      <figure class="fig frame mm-map-fig" aria-labelledby="map-t">
+        <div class="fig-head">
+          <p class="fig-title" id="map-t">OpenAI&rsquo;s 372 result families, grouped by field</p>
+          <p class="fig-how"><b>How to read:</b> big cells hold many manuscripts; the largest, family 034, holds 14. Point at a cell for its title, counts and dates, or focus the map and use the arrow keys: left and right step through families, up and down jump between fields, Enter opens the entry for a ringed family. Type in the search box to light up matching titles.</p>
+        </div>
+        <div class="fig-ctrl mm-map-ctrl" role="group" aria-label="Map controls">
+          <span class="ctrl-label">Ctrl //</span>
+          <div class="ctrl"><span id="size-l">Size</span><div class="seg" role="group" aria-labelledby="size-l"><button type="button" data-size="n" aria-pressed="true">Manuscripts</button><button type="button" data-size="1" aria-pressed="false">One per family</button></div></div>
+          <div class="ctrl"><span id="snap-l">Snapshot</span><div class="seg" role="group" aria-labelledby="snap-l"><button type="button" data-snap="day1" aria-pressed="false">6 Oct</button><button type="button" data-snap="oct7" aria-pressed="true">7 Oct</button></div></div>
+          <label class="ctrl mm-find">Find <input type="search" id="map-q" placeholder="e.g. Ramsey, conjecture, 160" autocomplete="off" spellcheck="false"></label>
+          <output class="mm-count" id="map-count" for="map-q">372 families</output>
+        </div>
+        <ul class="mm-fields" id="map-fields" aria-label="Fields: press one to highlight it"></ul>
+        <div class="mm-map-stage" id="map-stage" tabindex="0" role="group" aria-roledescription="map" aria-label="Map of OpenAI's 372 result families. Arrow keys move between families; Enter opens the entry for a family our members built on." aria-describedby="map-info">
+          <noscript><p class="mm-noscript">The map needs JavaScript. The full list of families is in <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>.</p></noscript>
+        </div>
+        <div class="mm-info" id="map-info" aria-live="polite"><p class="mm-info-k">Point at a cell, or focus the map and use the arrow keys.</p></div>
+        <ul class="vlegend mm-map-legend" aria-label="Legend">
+          <li><span class="sw" style="background:var(--acc-mm)" aria-hidden="true"></span><span><b>Filled</b> &middot; links a Lean scope document (a plan, not a finished check)</span></li>
+          <li><span class="sw mm-sw-hollow" aria-hidden="true"></span><span><b>Outlined</b> &middot; no scope document</span></li>
+          <li><span class="sw mm-sw-ring" aria-hidden="true"></span><span><b>Red ring</b> &middot; founding members built on it</span></li>
+        </ul>
+        <figcaption class="fig-foot"><span class="fig-src">Source: <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>, compiled from <a href="https://github.com/openai/math/blob/adc7f12/CONTENTS.md">CONTENTS.md @ adc7f12</a> (6 Oct) and <a href="https://github.com/openai/math/blob/fd4aeeb/CONTENTS.md">@ fd4aeeb</a> (7 Oct). Fields: Foundation0&rsquo;s classification from the titles.</span></figcaption>
+        <details class="twin" id="map-twin"><summary>Show all 372 as a table</summary><div class="table-wrap" id="map-table"></div></details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 02 SEVEN FAMILIES -->
+  <section class="sec" id="families" data-index="Seven families" data-num="02" aria-labelledby="fam-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Seven families</p><span class="chip">Founding members&rsquo; work: red hairline</span></div>
+      <h2 class="h2" id="fam-h">Seven families, built on within a week.</h2>
+      <p class="lede">Founding members Doug Colkitt, rohanarun, eumemic and Ryan Shea, and Swapnil Jain with Aska&rsquo;s help, took seven of the 372 families further. They were not alone: each effort drew in other people and their AI agents, named below where the record names them.</p>
+
+      <div class="mm-entries">
+        <article class="mm-entry" id="f-109">
+          <p class="mm-e-k"><span>Entry &middot; family 109</span><span>Algorithms and complexity</span></p>
+          <h3>Integer multiplication below <i>n</i>&thinsp;log&thinsp;<i>n</i></h3>
+          <p class="mm-e-meta">1 manuscript, dated 23 Sep 2026 &middot; no Lean scope document</p>
+          <p class="mm-e-plain">Two <i>n</i>-digit numbers can be multiplied in about <i>n</i>&middot;log&thinsp;<i>n</i> steps, and in 1971 Sch&ouml;nhage and Strassen guessed that was the floor. OpenAI&rsquo;s manuscript claims a sliver less on the simplest model of a computer, a multitape Turing machine: <i>n</i>&middot;(log&thinsp;<i>n</i>)<sup>1&minus;&kappa;</sup> steps with &kappa; = 2<sup>&minus;182</sup>. A bigger &kappa; is a bigger saving.</p>
+          <div class="mm-ba"><span class="mm-ba-k">Before &rarr; after</span><span class="mm-ba-v">&kappa;: 2<sup>&minus;182</sup> &rarr; 0.001672660197076918 &asymp; 2<sup>&minus;9.22</sup></span><span class="mm-ba-n">the maintainer-reviewed record on 13 Oct, about 10<sup>52</sup> times larger</span></div>
+          <p class="mm-live live-val" id="kappa-live" hidden><a class="chip" data-k-src href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span data-k-when>checking</span></a><span class="v" data-k-v></span><span class="k" data-k-k></span></p>
+          <ul class="mm-who">
+            <li><b>Doug Colkitt</b>, founding member: opened the public race on 7 Oct and maintains it, reviewing and selecting each record.</li>
+            <li><b>rohanarun</b>, founding member: its most active contributor, with 142 pull requests, and holder of the current reviewed record, PR #1094.</li>
+            <li><b>eumemic</b>, founding member: 80 pull requests; on 13 Oct the record&rsquo;s bit supplier still built on their PR #555.</li>
+            <li><b>Aska Digital</b>: built the live race tracker that grew into this site, and submitted two small claims (PRs #464, #469) that were never reviewed and were soon overtaken.</li>
+            <li><b>Many others</b>: 1,334 pull requests had been opened by 13 Oct.</li>
+          </ul>
+          <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional &middot; maintainer-reviewed</span><span class="badge n">Not peer reviewed</span><span class="badge n">No complete Lean proof</span></div>
+          <p class="mm-e-links"><a href="../integer-multiplication/">The race, on Foundation0</a><a href="https://github.com/CrocSwap/integer-mult-bounds">Repository</a><a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094">PR #1094</a><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="109">Show on the map</button></p>
+        </article>
+
+        <article class="mm-entry" id="f-130">
+          <p class="mm-e-k"><span>Entry &middot; family 130</span><span>Algorithms and complexity</span></p>
+          <h3>Exact Fourier transforms below <i>n</i>&thinsp;log&thinsp;<i>n</i></h3>
+          <p class="mm-e-meta">2 manuscripts, dated 25 Sep 2026 &middot; Lean scope document (for the finite circuit result only)</p>
+          <p class="mm-e-plain">The discrete Fourier transform splits a list of numbers into its frequencies, the way an ear splits a chord into notes; the fast Fourier transform does it in about <i>n</i>&middot;log&thinsp;<i>n</i> steps. OpenAI&rsquo;s manuscript claims an exact method, with no rounding, in <i>n</i>&middot;(log&thinsp;<i>n</i>)<sup>1&minus;&delta;</sup> steps with &delta; = 10<sup>&minus;13</sup>.</p>
+          <div class="mm-ba"><span class="mm-ba-k">Before &rarr; after</span><span class="mm-ba-v">&delta;: 10<sup>&minus;13</sup> &rarr; 0.0012331685</span><span class="mm-ba-n">checked in Lean on 12 Oct, about 12 billion times larger</span></div>
+          <ul class="mm-who">
+            <li><b>Ryan Shea</b>, founding member, with <b>Jeremy Kothe</b>, whose circuit it uses: &delta; = 0.0012331685, rebuilt from source and checked in Lean by the Big O Speedrun leaderboard, which ranks it first and credits both. By their own account, Ryan Shea&rsquo;s part was converting the circuit and checking this instance of it; the Lean engine is Jacob Sussman&rsquo;s, and one extension came from Nil Mamano.</li>
+            <li><b>eumemic</b>, founding member: claimed &delta; = 607/1,250,000 &asymp; 0.00049 on 9 Oct, with an exact certificate but no formal proof. It was the best claim for about six hours.</li>
+            <li><b>Swapnil Jain</b>: <a href="../mobius-x1/">mobius-x1</a> carries the same construction into arithmetic on bits, for the M&ouml;bius transform over GF(2). Aska wrote and ran the full-network check behind its Theorem 2 (merged PR #1).</li>
+          </ul>
+          <div class="badges"><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-verified</span><span class="badge n">Human review pending</span></div>
+          <p class="mm-e-links"><a href="https://github.com/shea256/fourier-transform-below-nlogn">fourier-transform-below-nlogn</a><a href="https://bigospeedrun.com/exact-dft">Leaderboard</a><a href="https://github.com/eumemic/exact-dft-bounds">exact-dft-bounds</a><a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="130">Show on the map</button></p>
+        </article>
+
+        <article class="mm-entry" id="f-160">
+          <p class="mm-e-k"><span>Entry &middot; family 160</span><span>Combinatorics</span></p>
+          <h3>Superexponential van der Waerden numbers</h3>
+          <p class="mm-e-meta">1 manuscript, dated 23 Sep 2026 &middot; Lean scope document</p>
+          <p class="mm-e-plain">Colour the numbers 1, 2, 3,&nbsp;&hellip; with <i>r</i> colours. If the row is long enough, one colour must hold <i>k</i> evenly spaced numbers, like 4, 9, 14, 19. The van der Waerden number is the shortest row that forces this. OpenAI&rsquo;s manuscript proves it is longer than <i>k</i><sup><i>c</i>&middot;<i>k</i>&middot;&lfloor;log<sub>2</sub>&thinsp;<i>r</i>&rfloor;</sup> with <i>c</i> = 1/100000.</p>
+          <div class="mm-ba"><span class="mm-ba-k">Before &rarr; after</span><span class="mm-ba-v"><i>c</i>: 1/100000 &rarr; 1/9</span><span class="mm-ba-n">about 11,111 times larger, conditional on the manuscript</span></div>
+          <ul class="mm-who">
+            <li><b>rohanarun</b>, founding member, with Codex and Claude, started the repository on 9 Oct: <i>c</i> = 1/200, then 1/193, then 1/25, and a proof that this line of attack cannot pass 1/24.</li>
+            <li><b>artuskg</b>, with GPT-6 Pro and Codex: 1/19, from a new construction.</li>
+            <li><b>DaysSky</b>, with Claude: 1/16, then 2/25, then 1/9.</li>
+            <li>A partial Lean check of 84 statements, by rohanarun, is open for review (PR #10).</li>
+          </ul>
+          <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional</span><span class="badge n">No human review</span></div>
+          <p class="mm-e-links"><a href="https://github.com/rohanarun/van-der-waerden-refinement">van-der-waerden-refinement</a><a href="https://github.com/rohanarun/van-der-waerden-refinement/pull/7">PR #7 (1/9)</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Quantitative-Superexponential-Bounds-for-van-der-Waerden-Numbers-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="160">Show on the map</button></p>
+        </article>
+
+        <article class="mm-entry" id="f-161">
+          <p class="mm-e-k"><span>Entry &middot; family 161</span><span>Combinatorics</span></p>
+          <h3>Counterexamples to Sidorenko&rsquo;s conjecture and the forcing conjecture</h3>
+          <p class="mm-e-meta">1 manuscript, dated 23 Sep 2026 &middot; Lean scope document</p>
+          <p class="mm-e-plain">A graph is a network of dots and lines. Sidorenko&rsquo;s conjecture predicted that every two-sided pattern (a bipartite graph) appears in any network at least as often as in a random network with the same number of lines. OpenAI&rsquo;s manuscript disproves it with a pattern on 35 dots.</p>
+          <div class="mm-ba"><span class="mm-ba-k">Before &rarr; after</span><span class="mm-ba-v">one counting constant: 1641 &rarr; 189</span><span class="mm-ba-n">and no smaller certificate than 35 dots inside the manuscript&rsquo;s own template</span></div>
+          <ul class="mm-who">
+            <li><b>rohanarun</b>, founding member, with Codex and Claude: enumerated every candidate shape up to 12 points, killed each with an exact certificate, and found nothing smaller inside the template. Then cut the constant in one counting step from 1641 to 1032, 978 and finally 189.</li>
+            <li>The minimum holds only inside that template, not for every possible counterexample.</li>
+          </ul>
+          <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Exact certificates</span><span class="badge n">Not peer reviewed</span></div>
+          <p class="mm-e-links"><a href="https://github.com/rohanarun/sidorenko-template-refinements">sidorenko-template-refinements</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="161">Show on the map</button></p>
+        </article>
+
+        <article class="mm-entry" id="f-167">
+          <p class="mm-e-k"><span>Entry &middot; family 167</span><span>Combinatorics</span></p>
+          <h3>Planar distinct distances and unit-distance bounds</h3>
+          <p class="mm-e-meta">2 manuscripts, dated 23 Sep 2026 &middot; Lean scope document</p>
+          <p class="mm-e-plain">Scatter <i>n</i> points on a flat plane. How many pairs can be exactly one unit apart? OpenAI&rsquo;s manuscript claims a power saving: a provably smaller maximum than the best bound before it. Its last algebra step needs a 20&times;5 grid: 100 selected pairs.</p>
+          <div class="mm-ba"><span class="mm-ba-k">Before &rarr; after</span><span class="mm-ba-v">final grid: 20&times;5 = 100 &rarr; 8&times;4 = 32 pairs</span><span class="mm-ba-n">a simpler last step; the unit-distance bound itself does not change</span></div>
+          <ul class="mm-who">
+            <li><b>rohanarun</b>, founding member, with Codex and Claude: a 9&times;4 grid on 9 Oct, then 8&times;4 on 10 Oct, and smaller grids still when a curve in the argument is a straight line.</li>
+          </ul>
+          <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional</span><span class="badge n">Not peer reviewed</span></div>
+          <p class="mm-e-links"><a href="https://github.com/rohanarun/unit-distance-grid-refinement">unit-distance-grid-refinement</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-power-saving-for-planar-unit-distances-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="167">Show on the map</button></p>
+        </article>
+
+        <article class="mm-entry" id="f-107">
+          <p class="mm-e-k"><span>Entry &middot; family 107</span><span>Algorithms and complexity</span></p>
+          <h3>Matrix multiplication with exponent at most 9/4</h3>
+          <p class="mm-e-meta">3 manuscripts, dated 24 Sep to 2 Oct 2026 &middot; Lean scope document</p>
+          <p class="mm-e-plain">Multiplying two <i>n</i>&times;<i>n</i> tables of numbers (matrices) the school way takes <i>n</i><sup>3</sup> multiplications. OpenAI&rsquo;s manuscripts claim about <i>n</i><sup>9/4</sup> = <i>n</i><sup>2.25</sup> are enough.</p>
+          <div class="mm-ba"><span class="mm-ba-k">What changed</span><span class="mm-ba-v">a limit, not a new bound</span><span class="mm-ba-n">one step of the method cannot go further on its own, and one lemma&rsquo;s constant, 3/(2&Gamma;(4/3)) &asymp; 1.67977, is already the best possible</span></div>
+          <ul class="mm-who">
+            <li><b>rohanarun</b>, founding member, with Codex and Claude: built an explicit example that meets every constraint that step keeps, yet grows only like <i>a</i><sup>4/3</sup>.</li>
+            <li>A limit on one proof method: not a new algorithm, and not a proof that 9/4 is the best exponent.</li>
+          </ul>
+          <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Proof + exact tests</span><span class="badge n">Not peer reviewed</span></div>
+          <p class="mm-e-links"><a href="https://github.com/rohanarun/matrix-multiplication-sector-barrier">matrix-multiplication-sector-barrier</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="107">Show on the map</button></p>
+        </article>
+
+        <article class="mm-entry" id="f-111">
+          <p class="mm-e-k"><span>Entry &middot; family 111</span><span>Algorithms and complexity</span></p>
+          <h3>One-sample matroid prophet inequalities against an almighty adversary</h3>
+          <p class="mm-e-meta">1 manuscript, dated 23 Sep 2026 &middot; Lean scope document</p>
+          <p class="mm-e-plain">Items arrive one at a time, in an order chosen by an opponent who knows everything. You keep or drop each on the spot, may keep only sets that a fixed rule allows (a <dfn class="term">matroid</dfn>, such as &ldquo;at most <i>k</i> items&rdquo;), and know just one earlier sample of each item&rsquo;s value. OpenAI&rsquo;s manuscript proves a strategy that always earns a fixed fraction of the best possible total.</p>
+          <div class="mm-ba"><span class="mm-ba-k">Before &rarr; after</span><span class="mm-ba-v">fraction: 2<sup>&minus;293</sup> &rarr; more than (35/32)&middot;2<sup>&minus;31</sup> &asymp; 5.1&times;10<sup>&minus;10</sup></span><span class="mm-ba-n">2<sup>&minus;293</sup> is what the manuscript&rsquo;s own derivation gives; its headline says 2<sup>&minus;310</sup></span></div>
+          <ul class="mm-who">
+            <li><b>Ryan Shea</b>, founding member, with Codex: six versions in two days, from 2<sup>&minus;36</sup> on 10 Oct to (35/32)&middot;2<sup>&minus;31</sup> on 11 Oct, each with exact certificates.</li>
+          </ul>
+          <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Written proof + exact certificates</span><span class="badge n">Not reviewed</span><span class="badge n">Not formalized</span></div>
+          <p class="mm-e-links"><a href="https://github.com/shea256/matroid-prophet-inequality">matroid-prophet-inequality</a><a href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Sample-Suffices-for-Matroid-Prophet-Inequalities-against-an-Almighty-Adversary-September-23-2026/final.pdf">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="111">Show on the map</button></p>
+        </article>
+      </div>
+      <p class="chart-foot">Counts and statuses from each repository on 13&ndash;14 Oct 2026; family titles, manuscript counts and dates from <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>; who built on what from <a href="../../data/members.json">data/members.json</a> and <a href="../../data/projects.json">data/projects.json</a>.</p>
+    </div>
+  </section>
+
+  <!-- 03 THE SLACK -->
+  <section class="sec alt" id="slack" data-index="The slack" data-num="03" aria-labelledby="slack-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The slack</p><span class="chip">Six refinements &middot; 52 public steps</span></div>
+      <h2 class="h2" id="slack-h">First proofs leave room. People found it.</h2>
+      <p class="lede">A first proof only has to work. To keep it short, its author picks safe, loose numbers wherever the argument allows, much as a first route to a new place takes the roads you already know. That looseness is <dfn class="term">slack</dfn>. Tightening it rarely needs a new idea at first, just patience, and people with AI agents have patience to spare.</p>
+      <div class="split mm-slack-intro">
+        <div class="prose">
+          <p>The numbers here span a huge range, from 2<sup>&minus;293</sup>, a decimal point followed by 88 zeros, up to 1641. So the chart uses a <dfn class="term">log scale</dfn>: each step along the axis multiplies the value by ten, and the length of an arrow counts how many times over the value grew.</p>
+          <p>Four of the six numbers are better when bigger: a bigger saving, a bigger guaranteed fraction. Two are better when smaller: a smaller constant, a smaller grid. Their arrows point left.</p>
+        </div>
+        <aside class="callout caveat"><p class="c-k">Read with care</p><p>An arrow&rsquo;s length shows how loose the first number was, not how important the result is. The 10<sup>79</sup>-fold jump in the matroid fraction is still a fraction below one in a billion, and nobody&rsquo;s computer multiplies faster because of the integer-multiplication race.</p></aside>
+      </div>
+
+      <figure class="fig frame mm-slack-fig" aria-labelledby="sk-t">
+        <div class="fig-head">
+          <p class="fig-title" id="sk-t">How far six numbers moved, 6 to 14 October 2026</p>
+          <p class="fig-how"><b>How to read:</b> the hollow circle is the number in OpenAI&rsquo;s manuscript; the filled circle is the best public value by the date on the slider. Drag the slider or press play to watch the week happen. Choose a row to see its steps below. <span class="mm-only-factor">In &ldquo;factor gained&rdquo; view every arrow starts at &times;1.</span></p>
+        </div>
+        <div class="fig-ctrl mm-sk-ctrl" role="group" aria-label="Time and view controls">
+          <span class="ctrl-label">Ctrl //</span>
+          <button class="tbtn play" type="button" id="sk-play" aria-pressed="false" aria-label="Play the week from 6 October"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Play</span><span class="i-pause">Pause</span></span></button>
+          <button class="tbtn" type="button" id="sk-prev" aria-label="Previous step">&larr;</button>
+          <button class="tbtn" type="button" id="sk-next" aria-label="Next step">&rarr;</button>
+          <label class="ctrl mm-sk-range"><span>Up to</span><input class="range" type="range" id="sk-range" min="0" max="1000" step="1" value="1000"></label>
+          <output id="sk-out" for="sk-range">14 Oct 2026 &middot; 52 of 52 steps</output>
+          <div class="seg" role="group" aria-label="Axis"><button type="button" data-view="value" aria-pressed="true">Values</button><button type="button" data-view="factor" aria-pressed="false">Factor gained</button></div>
+        </div>
+        <div class="mm-sk" id="sk-host">
+          <noscript><p class="mm-noscript">This chart needs JavaScript; the table below lists every step.</p></noscript>
+        </div>
+        <div class="mm-sk-detail" id="sk-detail" aria-live="polite"></div>
+        <ul class="vlegend mm-sk-legend" aria-label="Legend">
+          <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="5" style="fill:none;stroke:var(--ink-2);stroke-width:1.6"/></svg><span><b>Before</b> &middot; OpenAI&rsquo;s manuscript</span></li>
+          <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="5.5" style="fill:var(--acc-mm)"/></svg><span><b>After</b> &middot; best public value by that date</span></li>
+          <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="4.5" style="fill:var(--bg-2);stroke:var(--acc-mm);stroke-width:1.8"/></svg><span><b>Claimed only</b> &middot; not checked by anyone else when posted</span></li>
+        </ul>
+        <figcaption class="fig-foot"><span class="fig-src">Sources: each row&rsquo;s repository history and pull requests; the Fourier steps from the <a href="https://bigospeedrun.com/exact-dft">Big O Speedrun leaderboard</a> (read 14 Oct, Pacific times converted to UTC); the &kappa; records from <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a> history. Snapshot to 14 Oct 2026.</span></figcaption>
+        <details class="twin"><summary>Show every step</summary><div class="table-wrap" id="sk-table"></div></details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 04 CONDITIONAL -->
+  <section class="sec" id="conditional" data-index="What conditional means" data-num="04" aria-labelledby="cond-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>What &ldquo;conditional&rdquo; means</p><span class="chip">Read before you cite</span></div>
+      <h2 class="h2" id="cond-h">Most of this stands on a foundation nobody has checked.</h2>
+      <p class="lede">A <dfn class="term">conditional</dfn> result says: if that earlier result is true, then this one is too. Here the earlier result is a machine-written preprint. A careful refinement of a flawed proof is still a refinement of a flawed proof.</p>
+      <div class="split mm-cond">
+        <div class="prose">
+          <p>Every number in section 03 began in an OpenAI manuscript that no human referee has checked. The people who improved them say so in their own repositories: &ldquo;conditional&rdquo;, &ldquo;not peer reviewed&rdquo;, &ldquo;no human review&rdquo;. What they checked, they checked exactly: certificates in exact arithmetic, every case of a finite search, every input of a circuit. Those checks confirm their own step. They cannot confirm the manuscript underneath.</p>
+          <p>A proof checked end to end in Lean is different. The Fourier record was rebuilt from source by an outside leaderboard and accepted by Lean&rsquo;s kernel against that leaderboard&rsquo;s exact statement of the problem, so it does not lean on OpenAI&rsquo;s prose at all. What remains open is whether that formal statement says exactly what we mean in words, which is why human review is still listed as pending.</p>
+          <p>This is not a hypothetical worry. On 7 October, one day after release, OpenAI withdrew three manuscripts in family 032: a sign error broke one argument, and two papers that depended on it went too. The family shrank from eight manuscripts to five.</p>
+          <blockquote>&ldquo;For centuries, finding a proof was the hard part and checking it was routine. That ratio inverted on October 6.&rdquo;</blockquote>
+          <p class="mm-q-src">From Aska&rsquo;s essay <a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a>, 7 Oct 2026.</p>
+        </div>
+        <figure class="fig frame sticky mm-found-fig" aria-labelledby="fd-t">
+          <div class="fig-head">
+            <p class="fig-title" id="fd-t">Pull out the foundation</p>
+            <p class="fig-how"><b>How to read:</b> each row is one refinement, standing on the OpenAI manuscript beneath it. Press the button to suppose that manuscript had a gap, and see what each result would still have. Press again to put it back.</p>
+          </div>
+          <div class="fig-ctrl"><span class="ctrl-label">Ctrl //</span><button class="tbtn mm-pull" type="button" id="fd-btn" aria-pressed="false">Suppose the manuscript had a gap</button></div>
+          <ol class="mm-found" id="fd-list">
+            <li data-fate="falls"><span class="mm-f-base">OpenAI #109 &middot; unreviewed</span><span class="mm-f-top"><b>&kappa; = 0.00167</b> integer multiplication<span class="mm-f-if">Stated as conditional on the manuscript&rsquo;s framework: it would lose its footing.</span></span></li>
+            <li data-fate="stands"><span class="mm-f-base">OpenAI #130 &middot; unreviewed</span><span class="mm-f-top"><b>&delta; = 0.00123</b> exact Fourier transform<span class="mm-f-if">Proved end to end in Lean: still proved, if the formal statement is the right one.</span></span></li>
+            <li data-fate="falls"><span class="mm-f-base">OpenAI #160 &middot; unreviewed</span><span class="mm-f-top"><b><i>c</i> = 1/9</b> van der Waerden<span class="mm-f-if">Imports the manuscript&rsquo;s lemmas: it would lose its footing.</span></span></li>
+            <li data-fate="check"><span class="mm-f-base">OpenAI #111 &middot; unreviewed</span><span class="mm-f-top"><b>(35/32)&middot;2<sup>&minus;31</sup></b> matroid prophet<span class="mm-f-if">Refines the manuscript&rsquo;s construction with its own unreviewed written proof: it would need checking again.</span></span></li>
+            <li data-fate="part"><span class="mm-f-base">OpenAI #161 &middot; unreviewed</span><span class="mm-f-top"><b>1641 &rarr; 189</b> Sidorenko<span class="mm-f-if">The finite search over shapes stands on its own; the 189 is one step inside the manuscript&rsquo;s proof and would fall with it.</span></span></li>
+            <li data-fate="falls"><span class="mm-f-base">OpenAI #167 &middot; unreviewed</span><span class="mm-f-top"><b>20&times;5 &rarr; 8&times;4</b> unit distances<span class="mm-f-if">Stated as conditional on the manuscript&rsquo;s lemmas: it would lose its footing.</span></span></li>
+          </ol>
+          <p class="mm-readout" id="fd-out" aria-live="polite">All six stand, as long as the manuscripts beneath them hold.</p>
+          <figcaption class="fig-foot"><span class="fig-src">Each row&rsquo;s wording follows its own repository&rsquo;s statement of scope; see the entries in <a href="#families">section 02</a>.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 SOURCES -->
+  <section class="sec alt" id="sources" data-index="Sources" data-num="05" aria-labelledby="src-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Sources</p><span class="chip">Pinned commits where we have them</span></div>
+      <h2 class="h2" id="src-h">Where every number comes from.</h2>
+      <ol class="notes mm-notes">
+        <li>OpenAI, <a href="https://github.com/openai/math">openai/math</a>, Apache-2.0. First commit <a href="https://github.com/openai/math/tree/adc7f12">adc7f12</a> (6 Oct 2026: 722 manuscripts, 372 families); update <a href="https://github.com/openai/math/tree/fd4aeeb">fd4aeeb</a> (7 Oct: 719 manuscripts); <a href="https://github.com/openai/math/blob/fd4aeeb/history.md">history.md</a> for the withdrawals.</li>
+        <li>Family index with Lean scope flags, dates and our field classification: <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>.</li>
+        <li>Integer multiplication: <a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>, maintained by Doug Colkitt; record PR <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094">#1094</a> by rohanarun; Foundation0&rsquo;s <a href="../integer-multiplication/live/">live race tracker</a>.</li>
+        <li>Exact Fourier transform: <a href="https://github.com/shea256/fourier-transform-below-nlogn">shea256/fourier-transform-below-nlogn</a>; <a href="https://bigospeedrun.com/exact-dft">Big O Speedrun exact-DFT leaderboard</a>; <a href="https://github.com/eumemic/exact-dft-bounds">eumemic/exact-dft-bounds</a>; <a href="https://github.com/Swapnil-jain/mobius-x1">Swapnil-jain/mobius-x1</a> and Aska&rsquo;s <a href="https://github.com/Swapnil-jain/mobius-x1/pull/1">PR #1</a>.</li>
+        <li>Van der Waerden: <a href="https://github.com/rohanarun/van-der-waerden-refinement">rohanarun/van-der-waerden-refinement</a>, pull requests #1&ndash;#7 and #10.</li>
+        <li>Sidorenko: <a href="https://github.com/rohanarun/sidorenko-template-refinements">rohanarun/sidorenko-template-refinements</a>. Unit distances: <a href="https://github.com/rohanarun/unit-distance-grid-refinement">rohanarun/unit-distance-grid-refinement</a>. Matrix multiplication: <a href="https://github.com/rohanarun/matrix-multiplication-sector-barrier">rohanarun/matrix-multiplication-sector-barrier</a>.</li>
+        <li>Matroid prophet: <a href="https://github.com/shea256/matroid-prophet-inequality">shea256/matroid-prophet-inequality</a>, README progress table and BASELINE.md (2<sup>&minus;293</sup> derived, 2<sup>&minus;310</sup> headline).</li>
+        <li>Aska Research, <a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a>, 7 Oct 2026, a day-one reading of the collection.</li>
+      </ol>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../"><span>&larr; Back to</span>All research</a>
+        <a class="next" href="../integer-multiplication/"><span>Next &rarr;</span>Integer multiplication below n log n</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 14 Oct 2026 against openai/math at adc7f12 and fd4aeeb</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
