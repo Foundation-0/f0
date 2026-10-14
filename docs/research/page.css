@@ -89,7 +89,6 @@ html[data-motion="on"] .ri-stats .dot.live { animation: pulse 2.8s var(--ease-io
 .ri-bo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
 .ri-bo span { font: 500 11px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
 .ri-bo a { font: 400 13px/1.45 var(--f-sans); padding: 2px 0; }
-.worklist li[hidden] { display: none; }
 
 .mcard.ri-empty .worklist::after { content: "Nothing in this view."; display: block; padding: 10px 0; font: 400 13px/1.4 var(--f-sans); color: var(--ink-3); font-style: italic; }
 

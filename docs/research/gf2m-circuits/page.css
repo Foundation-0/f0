@@ -1,6 +1,6 @@
 /* gf2m-circuits page (research/gf2m-circuits). f0.css tokens only, plus one chart-mark step of the project accent.
    Emphasis form throughout: the accent (--mk) marks the thing that matters (AND gates, the new circuits),
-   --mark-mid is context. dataviz validate_palette.js: light #8a2f9a vs #b3b1ab on #fbf8f1 — CVD 30.5, normal 33.3;
+   --mark-mid is context (since darkened to #8f8d86 for 3:1 contrast). dataviz validate_palette.js: light #8a2f9a vs #b3b1ab on #fbf8f1 — CVD 30.5, normal 33.3;
    dark #c06bd0 vs #61696d on #0b1216 — in band, CVD 15.9, normal 22.3, contrast >= 3:1. The grey fails the chroma
    floor by design (de-emphasis) and its light-mode contrast WARN is relieved by direct labels and table twins.
    Gate type is never colour alone: AND = square, XOR = circle, XNOR = circle with an inner ring. */
@@ -192,3 +192,13 @@
   .ht-seg button { min-width: 0; padding: 0 7px; }
 }
 .sb-stage.vert { aspect-ratio: 3 / 5; }
+
+/* ---------- layout refinements ---------- */
+.sec .wide.fig { width: auto; margin-inline: 0; }
+.ht-corner { background: var(--bg-1); border: 1px solid var(--line); color: var(--ink-2); }
+@media (min-width: 1100px) { .f4-stage { aspect-ratio: 5 / 4; } }
+/* S-box wires: faint by default, lit on hover */
+.sb-w { fill: none; stroke: var(--ink-3); stroke-width: 1; opacity: .14; }
+.sb-w.v1 { stroke: var(--ink-2); opacity: .3; }
+.sb-w.hi-in { stroke: var(--mk); stroke-width: 2; opacity: 1; }
+.sb-w.hi-out { stroke: var(--ink); stroke-width: 1.4; opacity: .85; }

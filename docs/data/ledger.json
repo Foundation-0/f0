@@ -7822,7 +7822,7 @@
     }
    ],
    "foundation0": true,
-   "page": "research/machine-mathematics/"
+   "page": "research/#m-Mister-Meeseeks"
   },
   {
    "id": "jacobian-conjecture-counterexample",
@@ -8729,7 +8729,8 @@
      "url": "https://github.com/Swapnil-jain/gf2m-circuits"
     }
    ],
-   "foundation0": false
+   "foundation0": false,
+   "page": "research/gf2m-circuits/"
   },
   {
    "id": "gf2m-aes-field-multiplier-112",

@@ -203,12 +203,16 @@
   };
 
   /* ---- the live reviewed κ for integer multiplication (CrocSwap/integer-mult-bounds).
-     Resolves {decimal, kappa, pr, prs, source: 'live'|'feed', at, url}. 'live' is the maintainer's
-     certificates/selected-result.json fetched now (at = fetch time); 'feed' is the local feed.json
-     snapshot (at = its generated_at). Always show which one and when. ---- */
+     F0.kappa(opts) resolves {decimal, kappa, pr, prs, status, source: 'live'|'feed'|'snapshot', at, url, feedAt}.
+     'live'     the maintainer's certificates/selected-result.json fetched now (at = fetch time; status = its status field);
+     'feed'     this site's feed.json selected result (at = its generated_at), used only when it is newer than the snapshot;
+     'snapshot' F0.KAPPA_SNAPSHOT (or opts.snapshot): the record as last read by hand, with its own date.
+     The upstream fetch is made once per page; opts only changes which fallback wins. Always show which one and when. ---- */
   var kappaP = null;
   F0.KAPPA_URL = 'https://raw.githubusercontent.com/CrocSwap/integer-mult-bounds/main/certificates/selected-result.json';
-  F0.kappa = function () {
+  F0.KAPPA_SNAPSHOT = { decimal: '0.001672660197076918', kappa: '836330098538459/500000000000000000', pr: 1094, prs: [1094], status: null,
+    source: 'snapshot', at: '2026-10-13T18:45:23Z', url: 'https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json', note: 'selected-result.json @ 0a31ad884' };
+  function kappaBase() {
     if (kappaP) return kappaP;
     var ctl = 'AbortController' in window ? new AbortController() : null, timer = ctl && setTimeout(function () { ctl.abort(); }, 8000);
     kappaP = fetch(F0.KAPPA_URL, { cache: 'no-cache', signal: ctl ? ctl.signal : undefined })
@@ -217,16 +221,26 @@
         clearTimeout(timer);
         if (!d || !/^0\.\d+$/.test(String(d.decimal))) throw new Error('selected-result.json: no decimal');
         var prs = Array.isArray(d.source_prs) ? d.source_prs : [];
-        return { decimal: String(d.decimal), kappa: d.kappa, pr: prs[0] || null, prs: prs, source: 'live', at: new Date().toISOString(), url: F0.KAPPA_URL };
+        return { decimal: String(d.decimal), kappa: d.kappa, pr: prs[0] || null, prs: prs, status: d.status || null, source: 'live', at: new Date().toISOString(), url: F0.KAPPA_URL };
       })
       .catch(function () {
         clearTimeout(timer);
         return F0.json(F0.root + 'feed.json').then(function (f) {
           var s = f.selected_result || {};
-          return { decimal: String(s.decimal), kappa: s.kappa, pr: null, prs: [], source: 'feed', at: f.generated_at, url: F0.root + 'feed.json' };
-        });
+          if (!/^0\.\d+$/.test(String(s.decimal))) return null;
+          return { decimal: String(s.decimal), kappa: s.kappa, pr: null, prs: [], status: null, source: 'feed', at: f.generated_at, url: F0.root + 'feed.json' };
+        }, function () { return null; });
       });
     return kappaP;
+  }
+  F0.kappa = function (opts) {
+    var snap = (opts && opts.snapshot) || F0.KAPPA_SNAPSHOT;
+    return kappaBase().then(function (k) {
+      if (k && k.source === 'live') return k;
+      if (k && snap && !(Date.parse(k.at) > Date.parse(snap.at))) { var o = {}; for (var x in snap) o[x] = snap[x]; o.source = 'snapshot'; o.feedAt = k.at; return o; }
+      if (k) return k;
+      var c = {}; for (var y in snap) c[y] = snap[y]; c.source = 'snapshot'; return c;
+    });
   };
 
   /* ---- toggles and section index ---- */

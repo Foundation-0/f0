@@ -51,7 +51,7 @@
   <div class="wrap">
     <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
     <nav class="nav" aria-label="Main">
-      <a href="../../ledger/">Ledger</a><a href="../" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+      <a href="../../ledger/">Ledger</a><a href="../../research/" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
     </nav>
     <div class="tools">
       <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
@@ -60,7 +60,7 @@
     <details class="menu">
       <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
       <nav class="menu-panel" aria-label="Main (compact)">
-        <a href="../../ledger/">Ledger <span>01</span></a><a href="../" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../../research/" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
       </nav>
     </details>
   </div>
@@ -79,6 +79,7 @@
           <span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Mostly conditional</span>
           <span class="badge n">Not peer reviewed</span>
           <a class="chip" href="https://github.com/openai/math">openai/math &middot; Apache-2.0</a>
+          <a class="chip" href="../../ledger/#openai-722-math-manuscripts">On the Ledger</a>
           <span class="chip">Facts as of 14 Oct 2026</span>
         </div>
         <p class="mm-jump"><a href="#map">The map</a><a href="#families">Seven families</a><a href="#slack">The slack</a><a href="#conditional">What &ldquo;conditional&rdquo; means</a></p>
@@ -139,7 +140,7 @@
     <div class="wrap">
       <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The map</p><span class="chip">Fields: our editorial classification</span></div>
       <h2 class="h2" id="map-h">All 372 families on one page.</h2>
-      <p class="lede">Each cell is one family, and its area is how many manuscripts it holds. Filled cells link a Lean scope document; outlined cells do not. A red ring marks the seven families our founding members built on. The fields are our own classification, made from each family&rsquo;s title: OpenAI&rsquo;s catalogue does not assign fields, and some families sit between two.</p>
+      <p class="lede">Each cell is one family, and its area is how many manuscripts it holds. Filled cells link a Lean scope document; outlined cells do not. A red ring marks the seven families our <a href="../../charter/#members">founding members</a> built on. The fields are our own classification, made from each family&rsquo;s title: OpenAI&rsquo;s catalogue does not assign fields, and some families sit between two.</p>
       <figure class="fig frame mm-map-fig" aria-labelledby="map-t">
         <div class="fig-head">
           <p class="fig-title" id="map-t">OpenAI&rsquo;s 372 result families, grouped by field</p>
@@ -191,7 +192,7 @@
             <li><b>Many others</b>: 1,334 pull requests had been opened by 13 Oct.</li>
           </ul>
           <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional &middot; maintainer-reviewed</span><span class="badge n">Not peer reviewed</span><span class="badge n">No complete Lean proof</span></div>
-          <p class="mm-e-links"><a href="../integer-multiplication/">The race, on Foundation0</a><a href="https://github.com/CrocSwap/integer-mult-bounds">Repository</a><a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094">PR #1094</a><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="109">Show on the map</button></p>
+          <p class="mm-e-links"><a href="../integer-multiplication/">The race, on Foundation0</a><a href="https://github.com/CrocSwap/integer-mult-bounds">Repository</a><a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094">PR #1094</a><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="109">Show on the map</button><a href="../../ledger/#integer-mult-bounds-community">On the Ledger</a></p>
         </article>
 
         <article class="mm-entry" id="f-130">
@@ -206,7 +207,7 @@
             <li><b>Swapnil Jain</b>: <a href="../mobius-x1/">mobius-x1</a> carries the same construction into arithmetic on bits, for the M&ouml;bius transform over GF(2). Aska wrote and ran the full-network check behind its Theorem 2 (merged PR #1).</li>
           </ul>
           <div class="badges"><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-verified</span><span class="badge n">Human review pending</span></div>
-          <p class="mm-e-links"><a href="https://github.com/shea256/fourier-transform-below-nlogn">fourier-transform-below-nlogn</a><a href="https://bigospeedrun.com/exact-dft">Leaderboard</a><a href="https://github.com/eumemic/exact-dft-bounds">exact-dft-bounds</a><a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="130">Show on the map</button></p>
+          <p class="mm-e-links"><a href="https://github.com/shea256/fourier-transform-below-nlogn">fourier-transform-below-nlogn</a><a href="https://bigospeedrun.com/exact-dft">Leaderboard</a><a href="https://github.com/eumemic/exact-dft-bounds">exact-dft-bounds</a><a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="130">Show on the map</button><a href="../../ledger/#exact-dft-lean-record-shea-kothe">On the Ledger</a></p>
         </article>
 
         <article class="mm-entry" id="f-160">
@@ -222,7 +223,7 @@
             <li>A partial Lean check of 84 statements, by rohanarun, is open for review (PR #10).</li>
           </ul>
           <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional</span><span class="badge n">No human review</span></div>
-          <p class="mm-e-links"><a href="https://github.com/rohanarun/van-der-waerden-refinement">van-der-waerden-refinement</a><a href="https://github.com/rohanarun/van-der-waerden-refinement/pull/7">PR #7 (1/9)</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Quantitative-Superexponential-Bounds-for-van-der-Waerden-Numbers-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="160">Show on the map</button></p>
+          <p class="mm-e-links"><a href="https://github.com/rohanarun/van-der-waerden-refinement">van-der-waerden-refinement</a><a href="https://github.com/rohanarun/van-der-waerden-refinement/pull/7">PR #7 (1/9)</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Quantitative-Superexponential-Bounds-for-van-der-Waerden-Numbers-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="160">Show on the map</button><a href="../../ledger/#vdw-coefficient-community-refinement">On the Ledger</a></p>
         </article>
 
         <article class="mm-entry" id="f-161">
@@ -236,7 +237,7 @@
             <li>The minimum holds only inside that template, not for every possible counterexample.</li>
           </ul>
           <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Exact certificates</span><span class="badge n">Not peer reviewed</span></div>
-          <p class="mm-e-links"><a href="https://github.com/rohanarun/sidorenko-template-refinements">sidorenko-template-refinements</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="161">Show on the map</button></p>
+          <p class="mm-e-links"><a href="https://github.com/rohanarun/sidorenko-template-refinements">sidorenko-template-refinements</a><a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="161">Show on the map</button><a href="../../ledger/#sidorenko-template-minimum-residual-189">On the Ledger</a></p>
         </article>
 
         <article class="mm-entry" id="f-167">
@@ -276,7 +277,7 @@
             <li><b>Ryan Shea</b>, founding member, with Codex: six versions in two days, from 2<sup>&minus;36</sup> on 10 Oct to (35/32)&middot;2<sup>&minus;31</sup> on 11 Oct, each with exact certificates.</li>
           </ul>
           <div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Written proof + exact certificates</span><span class="badge n">Not reviewed</span><span class="badge n">Not formalized</span></div>
-          <p class="mm-e-links"><a href="https://github.com/shea256/matroid-prophet-inequality">matroid-prophet-inequality</a><a href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Sample-Suffices-for-Matroid-Prophet-Inequalities-against-an-Almighty-Adversary-September-23-2026/final.pdf">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="111">Show on the map</button></p>
+          <p class="mm-e-links"><a href="https://github.com/shea256/matroid-prophet-inequality">matroid-prophet-inequality</a><a href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Sample-Suffices-for-Matroid-Prophet-Inequalities-against-an-Almighty-Adversary-September-23-2026/final.pdf">OpenAI manuscript</a><button class="tbtn mm-show" type="button" data-show="111">Show on the map</button><a href="../../ledger/#matroid-prophet-one-sample-constant-shea">On the Ledger</a></p>
         </article>
       </div>
       <p class="chart-foot">Counts and statuses from each repository on 13&ndash;14 Oct 2026; family titles, manuscript counts and dates from <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>; who built on what from <a href="../../data/members.json">data/members.json</a> and <a href="../../data/projects.json">data/projects.json</a>.</p>
@@ -393,7 +394,7 @@
       </div>
       <div class="foot-cols">
         <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
-        <div><h4>Work</h4><ul><li><a href="../">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../research/">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
         <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
       </div>
     </div>

@@ -46,6 +46,8 @@ Use tokens only; never hard-code a colour. Light ("Encyclopedia paper") is the d
 - **Project accents** (2px card bar, figure line): `--acc-incentre`, `--acc-exoplanets`, `--acc-intmult`, `--acc-mm` (After the 722), `--acc-mobius`, `--acc-gf2m`, `--acc-rohan`, `--acc-shea`, `--acc-exo`, `--acc-medcode`, `--acc-nutrak`. Set `style="--acc:var(--acc-…)"` on the component.
 - **Type:** `--f-sans` Geist (headings, UI), `--f-serif` Newsreader (explanations), `--f-mono` Geist Mono (labels, data; uppercase with `--tr-label`). Sizes: `--fs-label` 11.5 (never below 11px), `--fs-xs` 13, `--fs-sm` 15, `--fs-ui` 16, `--fs-base` 18, `--fs-lede`, `--fs-h3`, `--fs-h2`, `--fs-h1`, `--fs-display`, `--fs-stat`.
 - **Space:** `--s-1`…`--s-10` (4, 8, 12, 16, 24, 32, 48, 64, 96, 128), `--sec-pad`, `--max` 1320, `--gutter`, `--read` 760 (text column), `--wide` 1040 (figure breakout), `--measure` 68ch.
+- **Hidden:** `[hidden]` always wins (`display: none !important`), so toggling `el.hidden` works on any component without page CSS.
+- **Tool buttons:** below 760px the header's `.tbtn` collapse to icons; buttons inside `.fig` / `.fig-ctrl` keep their visible text.
 - **Motion:** `--t-micro` 120ms, `--t-ui` 220ms, `--t-reveal`, `--t-draw`; `--ease-out`, `--ease-io`. `html[data-motion="off"]` kills every CSS animation and transition.
 
 ## 3. Components
@@ -57,7 +59,7 @@ Added for inner pages (section 19 of `f0.css`; each has a commented snippet ther
 | Class | Use |
 |---|---|
 | `.page-hero` (+ `.has-fig`, `.ph-fig`), `.crumbs`, `.h1`, `.dek`, `.meta-row` | Inner-page hero: breadcrumb, kicker, title, dek, badges row; optional figure on the right; `--acc` sets its top bar |
-| `.read`, `.wide` | 760px reading column; figures break out to 1040px |
+| `.read`, `.wide` (alias `.breakout`) | 760px reading column; figures break out to 1040px, centred (also on a `.fig`). `.wide` is global: give page-specific variants another name (`.wide-fig`) |
 | `.prose h3, ul, ol, blockquote, code` | Long-form text inside `.prose` |
 | `.split` (+ `.rev`, `> .sticky`) | Prose beside a figure that sticks while you read |
 | `.fig` (+ `.frame`), `.fig-head`, `.fig-title`, `.fig-how`, `.fig-stage` (`--ratio`), `.fig-out`, `.fig-ctrl`, `.ctrl-label`, `.ctrl`, `.fig-foot`, `.fig-src`, `details.twin` | The explainer frame: title, how to read, stage, controls row, source line, and the "show the numbers" twin |
@@ -82,7 +84,7 @@ Added for inner pages (section 19 of `f0.css`; each has a commented snippet ther
 - `F0.tip.show(html, x, y)`, `F0.tip.hide()`: the one tooltip, clamped to the viewport. Classes for its content: `.tip-k`, `.tip-t`, `.tip-rows`, `.tip-row`, `.tip-v`, `.tip-note`, `.tip-foot`.
 - `F0.fmtDate('2026-10-13')` → `13 Oct 2026` (also `YYYY-MM`, `YYYY`); `F0.decYear(s)` → decimal year.
 - `F0.statusBadges(status, {ladder})` → badge HTML from a status string such as `projects.json`'s `"Conditional · maintainer-reviewed · not peer reviewed"`. `F0.ladderHTML(rung)` draws the 5-rung evidence ladder (claimed 1, preprint 2, peer reviewed or deployed 3, replicated 4, formally verified 5). `radiant.js` adds `F0.EVID`, `F0.RUNG`, `F0.PLAIN` (field names), `F0.ROLE_TXT`, `F0.dialSVG`.
-- `F0.kappa()` → Promise `{decimal, kappa, pr, prs, source, at, url}`: the maintainer-reviewed κ from `CrocSwap/integer-mult-bounds` `certificates/selected-result.json` (`source: 'live'`, `at` = fetch time), else the local `feed.json` snapshot (`source: 'feed'`, `at` = its `generated_at`). Always print which and when.
+- `F0.kappa(opts)` → Promise `{decimal, kappa, pr, prs, status, source, at, url, feedAt}`: the maintainer-reviewed κ from `CrocSwap/integer-mult-bounds` `certificates/selected-result.json` (`source: 'live'`, `at` = fetch time, `status` = the file's own status field); if that cannot be reached, the newer of the local `feed.json` (`source: 'feed'`, `at` = its `generated_at`) and `F0.KAPPA_SNAPSHOT` (`source: 'snapshot'`, the record as last read by hand, 13 Oct 2026 18:45 UTC; pass `opts.snapshot` to use your page's own). The upstream file is fetched once per page. Always print which and when.
 - `F0.Radiant(stage, ledger, opts)`: the ledger figure. `opts.time = {range, play, output}` gives it a time slider and a play button and starts it paused on the full record; without it you get the legacy ambient sweep. `opts.list` (an `<ol>` for keyboard access), `opts.readout`, `opts.base` (link prefix), `opts.members`.
 
 ## 5. Every figure

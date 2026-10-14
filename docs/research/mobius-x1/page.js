@@ -293,7 +293,7 @@
         el('text', { x: g.labW, y: Y(0) + 5, 'text-anchor': 'end', 'class': 'bf-t' }, gT, '∅');
         el('text', { x: g.labW, y: Y(N - 1) + 5, 'text-anchor': 'end', 'class': 'bf-t' }, gT, 'all');
       }
-      $('#fa-bf-desc').textContent = "Yates' butterfly for k = " + k + ': ' + k + ' passes of ' + (N / 2) + ' XOR gates. ' + pass + ' of ' + k + ' passes done.' + (pass === k ? ' Outputs: ' + L[k].join(' ') + '.' : '');
+      $('#fa-bf-desc').textContent = "Yates' butterfly for k = " + k + ': ' + k + (k === 1 ? ' pass of 1 XOR gate. ' : ' passes of ' + (N / 2) + ' XOR gates each. ') + pass + ' of ' + k + ' passes done.' + (pass === k ? ' Outputs: ' + L[k].join(' ') + '.' : '');
     }
     bf.addEventListener('click', function (e) { var g = e.target.closest('.bf-in'); if (g) flip(+g.getAttribute('data-i')); });
     function hiRow() { /* outline the hovered output row in the butterfly */
@@ -318,10 +318,10 @@
     function flip(i) { x[i] ^= 1; compute(); render(); }
     function renderCount() {
       var yates = k * N / 2, naive = Math.pow(3, k) - N, used = pass * N / 2;
-      count.innerHTML = '<div class="fa-bar"><span class="fa-bk">Yates&rsquo; butterfly</span><span class="fa-track"><i class="fa-fill y" style="width:' + (100 * yates / naive).toFixed(1) + '%"></i></span><span class="fa-bv">' + fmt(yates) + ' XORs</span></div>' +
-        '<div class="fa-bar"><span class="fa-bk">Every sub-choice separately</span><span class="fa-track"><i class="fa-fill n" style="width:100%"></i></span><span class="fa-bv">' + fmt(naive) + ' XORs</span></div>';
+      count.innerHTML = '<div class="fa-bar"><span class="fa-bk">Yates&rsquo; butterfly</span><span class="fa-track"><i class="fa-fill y" style="width:' + (100 * yates / naive).toFixed(1) + '%"></i></span><span class="fa-bv">' + fmt(yates) + (yates === 1 ? ' XOR' : ' XORs') + '</span></div>' +
+        '<div class="fa-bar"><span class="fa-bk">Every sub-choice separately</span><span class="fa-track"><i class="fa-fill n" style="width:100%"></i></span><span class="fa-bv">' + fmt(naive) + (naive === 1 ? ' XOR' : ' XORs') + '</span></div>';
       var ok = true; for (var i = 0; i < N; i++) if (L[k][i] !== yDirect(i)) ok = false;
-      cap.textContent = 'k = ' + k + ', N = ' + N + ': ' + (pass === k ? 'all ' + k + ' passes done, ' + fmt(yates) + ' XOR gates. ' + (ok ? 'The outputs match the grid.' : 'MISMATCH') : pass + ' of ' + k + ' passes done, ' + fmt(used) + ' of ' + fmt(yates) + ' XOR gates used.');
+      cap.textContent = 'k = ' + k + ', N = ' + N + ': ' + (pass === k ? (k === 1 ? 'the 1 pass is done, 1 XOR gate. ' : 'all ' + k + ' passes done, ' + fmt(yates) + ' XOR gates. ') + (ok ? 'The outputs match the grid.' : 'MISMATCH') : pass + ' of ' + k + ' passes done, ' + fmt(used) + ' of ' + fmt(yates) + ' XOR gates used.');
       passOut.textContent = 'pass ' + pass + ' of ' + k;
       back.disabled = pass === 0; fwd.disabled = pass === k;
     }
@@ -606,7 +606,10 @@
         el('line', { 'class': 'mark', x1: X(M.Xc), x2: X(M.Xc), y1: Y(0), y2: mt + ph }, root);
         el('circle', { 'class': 'dot', cx: X(M.Xc), cy: Y(0), r: 5 }, root);
         var lab = 'crossover: ' + digitsText(M.Lc, false) + ' digits';
-        el('text', { 'class': 'mx-svg-t strong', x: narrow ? ml + 8 : X(M.Xc) - 8, y: Y(0) + 18, 'text-anchor': narrow ? 'start' : 'end' }, root, lab);
+        if (narrow) {
+          var tl = el('text', { 'class': 'mx-svg-t strong', x: X(M.Xc) - 8, y: Y(0) + 16, 'text-anchor': 'end' }, root, 'crossover:');
+          el('tspan', { x: X(M.Xc) - 8, dy: 14 }, tl, digitsText(M.Lc, false) + ' digits');
+        } else el('text', { 'class': 'mx-svg-t strong', x: X(M.Xc) - 8, y: Y(0) + 18, 'text-anchor': 'end' }, root, lab);
       }
       /* cursor */
       var cx = +range.value, cy = Math.max(YMIN, M.r(cx));
@@ -620,7 +623,7 @@
     function readout(M) {
       var X = +range.value, L = Math.pow(10, X), lr = M.r(X), ratio = Math.pow(10, lr);
       var kTxt = L < 1e6 ? 'k has ' + fmt(Math.round(L)) + ' digit' + (Math.round(L) === 1 ? '' : 's') : 'k has ' + sci(L, 1, true) + ' digits';
-      var rTxt = ratio >= 1.05 ? '≈ ' + (ratio >= 100 ? fmt(Math.round(ratio)) : ratio.toFixed(ratio >= 10 ? 0 : 1)) + '× Yates' : ratio > 0.95 ? '≈ the same as Yates' : (ratio > 1e-3 ? '≈ ' + ratio.toFixed(2) + '× Yates' : '< 0.001× Yates');
+      var rTxt = ratio >= 1.05 ? '≈ ' + (ratio >= 100 ? fmt(Math.round(ratio)) : ratio.toFixed(ratio >= 10 ? 0 : 1)) + '× Yates' : ratio > 0.95 ? '≈ the same as Yates' : (ratio >= 0.1 ? '≈ ' + ratio.toFixed(2) + '× Yates' : ratio > 1e-3 ? '≈ ' + ratio.toPrecision(2) + '× Yates' : '< 0.001× Yates');
       var win = ratio < 1;
       read.innerHTML = '<div><p class="k">Problem size</p><p class="v">' + kTxt + '</p><p class="s">' + (X < Math.log10(2) + 1e-9 ? 'Real computers live here: no machine can hold N = 2<sup>64</sup> bits.' : 'N = 2<sup>k</sup> inputs. Merely writing down how many digits N has would take about ' + (L < 1e6 ? fmt(Math.round(L)) : sci(L, 1, true)) + ' digits.') + '</p></div>' +
         '<div><p class="k">New circuit&rsquo;s cost</p><p class="v">' + rTxt + '</p><p class="s">' + (ratio > 0.95 && ratio < 1.05 ? 'Within 5% of Yates: this is the crossover.' : win ? 'Cheaper by ' + Math.min(99.9, (1 - ratio) * 100).toFixed(1) + '%: the new circuit wins.' : 'More expensive by a factor of ' + (ratio >= 10 ? fmt(Math.round(ratio)) : ratio.toFixed(1)) + ': Yates wins.') + '</p></div>' +

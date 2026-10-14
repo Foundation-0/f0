@@ -8,6 +8,7 @@
 .ex-hero .h1 { max-width: 13ch; }
 .ex-credit { font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); margin-top: var(--s-5); max-width: 58ch; padding-left: 14px; border-left: 2px solid var(--acc-exoplanets); }
 .ex-credit b { color: var(--ink); font-weight: 600; }
+.ex-credit.ex-moved { margin-top: var(--s-3); border-left: 2px dashed var(--line-ui); }
 .ex-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: var(--s-4); font: 500 12.5px/1.4 var(--f-mono); letter-spacing: .02em; }
 .ex-links a { padding: 8px 0; }
 .ex-links a::after { content: " \2197"; font-family: var(--f-sans); }
@@ -95,7 +96,6 @@
 .fl-steps { margin-top: 14px; display: flex; flex-wrap: wrap; }
 .fl-steps button { flex: 1 1 auto; }
 .fl-panel { margin-top: 0; }
-.fl-panel[hidden] { display: none; }
 .fl-stage { background: var(--bg-1); }
 .fl-two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 10px; }
 .fl-two .fig-stage { aspect-ratio: auto; height: clamp(200px, 26vw, 280px); }

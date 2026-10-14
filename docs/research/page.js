@@ -382,12 +382,14 @@ var G = {
     var fam = {}; ((FD && FD.families) || []).forEach(function (f) { fam[f.id] = f; });
     function famTitle(id) { var f = fam[id]; return f ? String(f.title).replace(/\\log\s*/g, ' log ').replace(/<[^>]+>/g, '').replace(/\s{2,}/g, ' ') : ''; }
     var list = MB.members || [];
+    var PAGE_LBL = { 'research/incentre-lattice/': 'Incentre lattice', 'research/exoplanets/': 'Exoplanets', 'research/integer-multiplication/': 'Integer multiplication', 'research/mobius-x1/': 'mobius-x1', 'research/gf2m-circuits/': 'gf2m-circuits', 'instruments/#auto-research': 'Instruments: Auto-research-agent', 'instruments/#autofoundry': 'Instruments: autofoundry' };
     host.innerHTML = list.map(function (m, i) {
       var work = (m.work || []).map(function (w) {
         var bo = /#(\d+)/.exec(w.builds_on || ''), id = bo ? ('00' + bo[1]).slice(-3) : null;
         return '<li data-722="' + (id ? '1' : '0') + '"><a href="' + esc(w.url) + '">' + esc(w.name) + '</a>' +
           '<div class="badges">' + F0.statusBadges(w.status, { ladder: 1 }) + '</div>' +
           '<p>' + supHTML(w.note || '') + '</p>' +
+          (w.page ? '<p class="ri-bo"><span>On Foundation0</span><a href="' + esc(rel(w.page)) + '">' + esc(PAGE_LBL[w.page] || w.name) + '</a></p>' : '') +
           (id ? '<p class="ri-bo"><span>Builds on</span><a href="machine-mathematics/#f-' + id + '">OpenAI family ' + id + (famTitle(id) ? ': ' + esc(famTitle(id)) : '') + '</a></p>' : '') + '</li>';
       }).join('');
       var mp = m.main_project || {};

@@ -1,0 +1,68 @@
+{
+ "updated": "2026-10-14",
+ "about": "Waypoints for the charter's 'two futures' figure. Each path follows people and machines through five stages. Book facts are checked against Asimov's original magazine printings (Internet Archive scans) or standard references to his novels; show facts against standard references only (no fan wikis); Foundation0 waypoints mark which sentences are sourced facts and which are our thesis.",
+ "stages": ["Arrival", "Living together", "The turn", "Afterwards", "The long run"],
+ "sources": {
+  "ast42": { "label": "Astounding, May 1942: “Foundation” (scan)", "url": "https://archive.org/details/Astounding_v29n03_1942-05" },
+  "ast49": { "label": "Astounding, Nov 1949: “…And Now You Don't” (scan)", "url": "https://archive.org/details/Astounding_v44n03_1949-11_cape1736" },
+  "gal53a": { "label": "Galaxy, Oct 1953: The Caves of Steel, part 1 (scan)", "url": "https://archive.org/details/galaxymagazine-1953-10" },
+  "gal53b": { "label": "Galaxy, Nov 1953: The Caves of Steel, part 2 (scan)", "url": "https://archive.org/details/galaxymagazine-1953-11" },
+  "wp3laws": { "label": "Wikipedia: Three Laws of Robotics", "url": "https://en.wikipedia.org/wiki/Three_Laws_of_Robotics" },
+  "wpfrank": { "label": "Wikipedia: Frankenstein complex", "url": "https://en.wikipedia.org/wiki/Frankenstein_complex" },
+  "wpuniv": { "label": "Wikipedia: Foundation universe", "url": "https://en.wikipedia.org/wiki/Foundation_universe" },
+  "wpre": { "label": "Wikipedia: Robots and Empire", "url": "https://en.wikipedia.org/wiki/Robots_and_Empire" },
+  "wpdaneel": { "label": "Wikipedia: R. Daneel Olivaw", "url": "https://en.wikipedia.org/wiki/R._Daneel_Olivaw" },
+  "wpprelude": { "label": "Wikipedia: Prelude to Foundation", "url": "https://en.wikipedia.org/wiki/Prelude_to_Foundation" },
+  "wpfe": { "label": "Wikipedia: Foundation and Earth", "url": "https://en.wikipedia.org/wiki/Foundation_and_Earth" },
+  "wpseries": { "label": "Wikipedia: Foundation (novel series)", "url": "https://en.wikipedia.org/wiki/Foundation_(novel_series)" },
+  "wptv": { "label": "Wikipedia: Foundation (TV series)", "url": "https://en.wikipedia.org/wiki/Foundation_(TV_series)" },
+  "apple": { "label": "Apple TV+ press: Foundation", "url": "https://www.apple.com/tv-pr/originals/foundation/" },
+  "ledger": { "label": "data/ledger.json", "url": "data/ledger.json", "local": true },
+  "members": { "label": "data/members.json", "url": "data/members.json", "local": true },
+  "intmult": { "label": "Integer multiplication page", "url": "research/integer-multiplication/", "local": true },
+  "mm": { "label": "After the 722", "url": "research/machine-mathematics/", "local": true },
+  "history": { "label": "openai/math history.md @ fd4aeeb", "url": "https://github.com/openai/math/blob/fd4aeeb/history.md" },
+  "principles": { "label": "Principles, below", "url": "#principles", "anchor": true }
+ },
+ "paths": [
+  {
+   "key": "books",
+   "label": "Fear and withdrawal",
+   "layer": "Asimov's books",
+   "short": "The books",
+   "points": [
+    { "title": "Robots, and the fear of them", "text": "Asimov's robots obey three laws, in plain words: do not harm a person, obey people, protect yourself. They were first stated together in the story “Runaround” (1942). People fear the robots anyway; Asimov named that fear the Frankenstein complex, and in his stories the robot makers sometimes hide the truth to calm the public.", "fail": "fear", "src": ["wp3laws", "wpfrank"] },
+    { "title": "C/Fe, then dependence", "text": "In The Caves of Steel (serialised 1953) a robot names the ideal: C/Fe, carbon and iron, people and robots joined “without priority”. The Spacer worlds lived among robots instead (Aurora at its height had 200 million people and 10 billion robots), and a character predicts they will “degenerate and decay”.", "fail": "dependence", "src": ["gal53a", "gal53b", "wpuniv"] },
+    { "title": "The Settlers leave robots behind", "text": "A second wave of settlers from Earth spreads through the galaxy without robots, and the robot-bound Spacers fade. Two robots, Daneel and Giskard, reason their way to a law above the three, the Zeroth Law, about humanity as a whole (Robots and Empire, 1985). There is no Robot War in the books.", "fail": "dependence", "src": ["wpre", "wpdaneel"] },
+    { "title": "One hidden guardian", "text": "The robots withdraw from sight, and the Empire remembers them only as legend. One, R. Daneel Olivaw, works behind the scenes for about twenty thousand years; as “Chetter Hummin” and as the First Minister “Eto Demerzel” he pushes the mathematician Hari Seldon to make psychohistory practical (Prelude to Foundation, 1988).", "fail": "secrecy", "src": ["wpdaneel", "wpprelude", "wpuniv"] },
+    { "title": "Two Foundations to shorten a dark age", "text": "The Empire decays. Seldon predicts about thirty thousand years of chaos and sets up two Foundations to cut it to one thousand: the First on Terminus, at the galaxy's rim, for the physical sciences; the Second, hidden, for the science of minds. In Foundation and Earth (1986) Daneel admits he has been steering humanity, for its own good and without its knowledge, since long before the Empire.", "fail": "secrecy", "src": ["ast42", "ast49", "wpfe"] }
+   ]
+  },
+  {
+   "key": "show",
+   "label": "War and purge",
+   "layer": "The Apple TV+ series",
+   "short": "The show",
+   "points": [
+    { "title": "Robots under the Three Laws", "text": "The series (2021 onward) keeps Asimov's laws: its executive producer David S. Goyer said the Laws “exist in our show mythology”. It then tells the robots' history its own way.", "fail": "", "src": ["wpdaneel", "wptv"] },
+    { "title": "An army of robots", "text": "Long before the series begins, robots were numerous enough to form an army: the robot Demerzel is described as the last remnant of one. The show reveals this age only in fragments, so we print no dates for it.", "fail": "fear", "src": ["wptv"] },
+    { "title": "The Robot Wars", "text": "Robots and people went to war, and the robots were defeated; very few survived. Goyer has spoken of “our version of The Robot Wars”. None of this war is in Asimov's books.", "fail": "fear", "src": ["wptv", "wpdaneel"] },
+    { "title": "One robot left in the palace", "text": "Demerzel, one of the last surviving robots, serves a dynasty of cloned emperors as its head of household, and secretly administers it. In 2023 Goyer confirmed that she is the show's version of Daneel.", "fail": "secrecy", "src": ["wptv", "wpdaneel"] },
+    { "title": "The fall, and a Foundation in exile", "text": "Hari Seldon forecasts the Empire's fall, and his followers are allowed to found the Foundation in exile on the remote planet Terminus, to keep humanity's knowledge. The series is still running: a fourth season was ordered in September 2025.", "fail": "fall", "src": ["wptv", "apple"] }
+   ]
+  },
+  {
+   "key": "ours",
+   "label": "Symbiosis in the open",
+   "layer": "Foundation0",
+   "short": "Foundation0",
+   "points": [
+    { "title": "Machines become colleagues", "fact": "The Ledger records {ledger} advances, from 1965 to 2026, in which AI was a tool inside a study, a collaborator that proposed key ideas, or the originator of the result, with people checking it.", "thesis": "", "fail": "", "src": ["ledger"] },
+    { "title": "Both strands, in the open", "fact": "Founding members run research with AI agents in public and say what the agents did. In the open integer-multiplication race, people and their agents took a machine-written paper's saving from 2^−182 to about 2^−9.2 in a week, every step checked in exact arithmetic; all of it still rests on that unreviewed paper.", "thesis": "", "fail": "", "src": ["members", "intmult"] },
+    { "title": "The turn: checking, not fear", "fact": "On 6 October 2026 OpenAI published 722 machine-written mathematics manuscripts; on 7 October it withdrew three after a sign error, in public, with the history kept.", "thesis": "The turn we choose is verification: let machines propose freely, and check what they propose strictly, in the open. Not war, not withdrawal.", "fail": "", "src": ["mm", "history"] },
+    { "title": "No hidden guardian", "fact": "", "thesis": "Machines stay in view. Every claim carries its status, every result says what the people did and what the machines did, and a named person decides and signs. Where Daneel decided for humanity in secret, we publish the record, the sources and the doubts.", "fail": "", "src": ["principles"] },
+    { "title": "No dark age to shorten", "fact": "", "thesis": "If biological and digital minds learn to work together in the open now, there is no fall for later Foundations to repair. This is our aim, not a forecast, and not Asimov's claim: he never says that people and robots working well together would have prevented the fall.", "fail": "", "src": ["principles"] }
+   ]
+  }
+ ]
+}

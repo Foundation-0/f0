@@ -14,7 +14,7 @@
   --bio: #82560f; --bio-hi: #6b470c; --dig: #0a6a85; --dig-hi: #07546a;
   --link: #0a6a85; --focus: #875a12;
   /* chart marks (validated with dataviz validate_palette.js, light surface) */
-  --mark-bio: #a26e15; --mark-mid: #b3b1ab; --mark-dig: #1588a8;
+  --mark-bio: #a26e15; --mark-mid: #8f8d86; --mark-dig: #1588a8; /* mark-mid ≥ 3:1 on --bg-1 and --bg-2 */
   /* the Radiant's red hairline: founding members' work */
   --hair: #ba3728;
   /* evidence status (always paired with a label and a ladder glyph) */
@@ -111,6 +111,8 @@ a { color: var(--link); text-decoration: underline; text-decoration-color: color
 a:hover { text-decoration-color: currentColor; }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 1px; }
 button { font: inherit; color: inherit; }
+/* the hidden attribute always wins over component display rules (.fig-ctrl, .seg, grids …) */
+[hidden] { display: none !important; }
 ::selection { background: color-mix(in srgb, var(--dig) 35%, transparent); }
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 /* items inside a visually hidden list stay at its corner, so focusing one never scrolls the page away */
@@ -152,7 +154,9 @@ button { font: inherit; color: inherit; }
 .menu-panel a:last-child { border-bottom: 0; }
 .menu-panel a span { color: var(--ink-3); }
 @media (max-width: 1080px) { .nav { display: none; } .menu { display: block; } .tools { margin-left: auto; } }
-@media (max-width: 760px) { .tbtn { height: 44px; min-width: 44px; } .tbtn .t-txt { display: none; } .site-head { height: 60px; } }
+@media (max-width: 760px) { .tbtn { height: 44px; min-width: 44px; } .tbtn .t-txt { display: none; } .site-head { height: 60px; }
+  /* only the header's tool buttons collapse to icons; figure controls keep their visible text (and accessible name) */
+  .fig-ctrl .tbtn .t-txt, .fig .tbtn .t-txt { display: inline; } }
 @media (max-width: 380px) { .brand { letter-spacing: .16em; font-size: 13px; } .site-head .wrap { gap: 10px; } }
 
 /* ---------- 4. Section scaffolding ---------- */
@@ -366,7 +370,7 @@ html:not(.js) .rad-time, html:not(.js) .rad-actions, html:not(.js) .chart-tools 
 .tbl td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; text-align: right; }
 .tbl th.n { text-align: right; }
 .tbl a { color: var(--link); }
-.table-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid var(--line); }
+.table-wrap { position: relative; overflow-x: auto; margin-top: 12px; border: 1px solid var(--line); } /* relative: keeps .sr-only text inside the scroll box */
 .table-wrap[hidden] { display: none; }
 .evid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .evid li { background: var(--bg-2); display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 14px; }
@@ -495,6 +499,7 @@ html:not(.js) .rad-time, html:not(.js) .rad-actions, html:not(.js) .chart-tools 
 @media (max-width: 860px) { .foot-grid { grid-template-columns: minmax(0, 1fr); } .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- 16. Section index (HUD rail, wide screens only) ---------- */
+.hud:empty { display: none !important; }
 .hud { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 30; display: none; }
 .hud ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
 .hud a { display: flex; align-items: center; justify-content: flex-end; gap: 8px; height: 26px; text-decoration: none; color: var(--ink-3); font: 500 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; }
@@ -546,9 +551,10 @@ html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="
 .crumbs a:hover { color: var(--ink); text-decoration: underline; }
 .crumbs [aria-current="page"] { color: var(--ink); }
 
-/* 19.2 Reading layout: a 760px text column; .wide breaks figures out to 1040px. */
+/* 19.2 Reading layout: a 760px text column; .wide (alias .breakout) breaks figures out to 1040px.
+   Note: .wide is a global class; name page-specific variants something else (e.g. .wide-fig). */
 .read { width: min(var(--read), 100% - 2 * var(--gutter)); margin-inline: auto; }
-.wide { width: min(var(--wide), 100vw - 2 * var(--gutter)); margin-inline: calc(50% - min(var(--wide), 100vw - 2 * var(--gutter)) / 2); }
+.wide, .breakout { width: min(var(--wide), 100vw - 2 * var(--gutter)); margin-inline: calc(50% - min(var(--wide), 100vw - 2 * var(--gutter)) / 2); }
 .prose h3 { font: 600 var(--fs-h3)/1.25 var(--f-sans); letter-spacing: -.015em; color: var(--ink); margin: 1.6em 0 .2em; }
 .prose h3 + p { margin-top: .4em; }
 .prose ul, .prose ol { margin: 1em 0; padding-left: 1.3em; }
@@ -581,6 +587,8 @@ html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="
      <details class="twin"><summary>Show the numbers</summary><div class="table-wrap">…</div></details>
    </figure> */
 .fig { margin: 0; padding: 18px clamp(14px, 2vw, 24px) 16px; min-width: 0; }
+/* a breakout figure stays centred (the .fig margin reset above would otherwise pin it to the left) */
+.fig.wide, .fig.breakout { margin-inline: calc(50% - min(var(--wide), 100vw - 2 * var(--gutter)) / 2); }
 .fig-head { display: grid; gap: 4px; }
 .fig-title { font: 600 17px/1.3 var(--f-sans); color: var(--ink); }
 .fig-how { font: 400 var(--fs-xs)/1.5 var(--f-sans); color: var(--ink-2); max-width: 72ch; }

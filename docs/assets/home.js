@@ -235,10 +235,10 @@
       var others = (m.work || []).filter(function (w) { return w.url !== main.url; });
       return '<li class="member" id="m-' + esc(m.login) + '"><span class="idx">M·' + String(i + 1).padStart(2, '0') + '</span>' +
         '<h3>' + esc(m.name) + '</h3><a class="gh" href="' + esc(m.github) + '">@' + esc(m.login) + '</a>' +
-        '<div class="mp">Main project<a href="' + esc(main.url) + '">' + esc(main.name) + '</a></div>' +
+        '<div class="mp">Main project<a href="' + esc(main.page ? R + main.page : main.url) + '">' + esc(main.name) + '</a></div>' +
         '<p>' + esc(firstSentence(m.summary)) + '</p>' +
         (others.length ? '<div class="mw"><span>Also</span><ul>' + others.slice(0, 3).map(function (w) { return '<li><a href="' + esc(w.url) + '">' + esc(w.name) + '</a></li>'; }).join('') +
-          (others.length > 3 ? '<li class="more-n">+' + (others.length - 3) + ' more on the charter page</li>' : '') + '</ul></div>' : '') +
+          (others.length > 3 ? '<li class="more-n"><a href="' + R + 'charter/#m-' + esc(m.login) + '">+' + (others.length - 3) + ' more on the charter page</a></li>' : '') + '</ul></div>' : '') +
         '</li>';
     }).join('');
     $$('[data-members-count]').forEach(function (e) { e.textContent = WORDS[list.length] || String(list.length); });

@@ -11,9 +11,14 @@
 <title>Not on the record · Foundation0</title>
 <meta name="description" content="This page is not on the record. Find your way back to the Ledger, the research, or the home page of Foundation0.">
 <meta name="robots" content="noindex">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Not on the record · Foundation0">
 <meta property="og:description" content="This page is not on the record.">
 <meta property="og:image" content="assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -35,7 +40,6 @@
   .nf .dek { max-width: 46ch; }
   .nf .dek code { font: 500 .8em/1.4 var(--f-mono); background: var(--bg-3); padding: .1em .35em; border-radius: var(--r-chip); color: var(--ink); overflow-wrap: anywhere; }
   .nf-moved { margin-top: var(--s-5); }
-  .nf-moved[hidden] { display: none; }
   .nf-search label { display: block; font: 500 var(--fs-label)/1.4 var(--f-mono); letter-spacing: var(--tr-label); text-transform: uppercase; color: var(--ink-3); }
   .nf-search input { width: 100%; margin-top: 8px; min-height: 48px; padding: 0 14px; background: var(--bg-2); color: var(--ink); border: 1px solid var(--line-ui); border-radius: var(--r-btn); font: 400 var(--fs-ui)/1.4 var(--f-sans); }
   .nf-search input::placeholder { color: var(--ink-3); }
@@ -94,6 +98,7 @@
     </details>
   </div>
 </header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
 
 <main id="main">
   <section class="nf" aria-labelledby="nf-h">
@@ -135,7 +140,7 @@
       <div>
         <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
         <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
-        <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this site links to a data file or a source.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
       </div>
       <div class="foot-cols">
         <div><h4>Record</h4><ul><li><a href="ledger/">The Ledger</a></li><li><a href="data/ledger.json">Ledger data (JSON)</a></li><li><a href="charter/">Charter</a></li></ul></div>

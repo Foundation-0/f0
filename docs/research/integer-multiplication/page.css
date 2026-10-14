@@ -133,7 +133,6 @@
 .im-key-aska { border: 1.6px solid var(--mark-bio); transform: rotate(45deg) scale(.85); }
 .im-key-claim { border-radius: 50%; background: var(--ink-3); transform: scale(.6); }
 .im-legend svg { width: 22px; height: 12px; }
-.im-legend li[hidden] { display: none; }
 #s-svg .grid { stroke: var(--grid); stroke-width: 1; }
 #s-svg .axis { stroke: var(--line-ui); stroke-width: 1; }
 #s-svg text { font-family: var(--f-mono); font-size: 12px; fill: var(--ink-3); }

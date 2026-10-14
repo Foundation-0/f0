@@ -120,7 +120,8 @@
       count: M.length, span: S.yMin + '–' + Math.max.apply(null, M.map(function (m) { return m.y; })), fields: S.rows.length,
       verified: c(function (m) { return m.evidence === 'formally-verified'; }), contested: c(function (m) { return m.contested; }),
       members: c(function (m) { return m.foundation0; }), updated: 'Updated ' + S.updated,
-      srcline: M.length + ' milestones, updated ' + S.updated
+      srcline: M.length + ' milestones, updated ' + S.updated,
+      stamp: 'Ledger updated ' + S.updated + ' · ' + M.length + ' milestones'
     };
     ROLES.forEach(function (r) { map['r-' + r] = c(function (m) { return m.ai_role === r; }); });
     EVS.forEach(function (e) { map['e-' + e] = c(function (m) { return m.evidence === e; }); });

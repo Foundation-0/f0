@@ -261,15 +261,15 @@
     function draw() {
       var w = dims.w, h = dims.h, c = cir(), L = layout(c), sig = evalScalar(c, [A & 1, A >> 1 & 1, A >> 2 & 1, A >> 3 & 1, B & 1, B >> 1 & 1, B >> 2 & 1, B >> 3 & 1]);
       svg.textContent = ''; el('desc', { id: 'f4-desc' }, svg, '');
-      var top = 30, bot = h - 18, nR = L.rows.length, gapY = (bot - top) / (nR - 1), pos = {};
-      var r = Math.max(7, Math.min(11, gapY * 0.27, (w - 20) / 12 * 0.32));
+      var side = w >= 520, LW = side ? 104 : 0, labels = [];
+      var top = side ? 22 : 30, bot = h - 18, nR = L.rows.length, gapY = (bot - top) / (nR - 1), pos = {};
+      var r = Math.max(7, Math.min(11, gapY * 0.27, (w - LW - 20) / 12 * 0.32));
       L.rows.forEach(function (row, ri) {
-        var n = row.ids.length, sp = Math.min(54, (w - 24) / Math.max(n, 1)), x0 = w / 2 - sp * (n - 1) / 2, yy = top + ri * gapY;
+        var n = row.ids.length, sp = Math.min(54, (w - LW - 24) / Math.max(n, 1)), x0 = LW + (w - LW) / 2 - sp * (n - 1) / 2, yy = top + ri * gapY;
         row.ids.forEach(function (id, k) { pos[id] = { x: x0 + k * sp, y: yy }; });
         if (!row.cont) {
           var cnt = row.band === 'top' ? L.counts[0] + ' XOR' : row.band === 'and' ? L.counts[1] + ' AND' : row.band === 'bot' ? L.counts[2] + ' XOR' : '';
-          var t = el('text', { 'class': 'f4-band', x: 6, y: yy - r - (w < 480 ? 10 : 7) }, svg, BANDTXT[row.band] + (cnt ? ' · ' : ''));
-          if (cnt) el('tspan', { 'class': 'n' }, t, cnt);
+          labels.push({ t: BANDTXT[row.band], n: cnt, y: yy });
         }
       });
       var gW = el('g', {}, svg), gN = el('g', {}, svg);
@@ -295,6 +295,16 @@
         node(s, kindC, kn ? sig[s] : null, '', '<div class="tip-k">Gate ' + (g2 + 1) + ' · ' + (kindC === 'and' ? 'AND' : 'XOR') + ' · depth ' + c.dep[s] + '</div><div class="tip-t">' + nm(c.x[g2]) + (kindC === 'and' ? ' AND ' : ' XOR ') + nm(c.y[g2]) + ' = ' + sig[s] + '</div>');
       }
       c.o.forEach(function (s2, k) { node('o' + k, 'io', known(s2) ? sig[s2] : null, 'c' + k); });
+      var gL = el('g', { 'aria-hidden': 'true' }, svg);
+      labels.forEach(function (lb) {
+        if (side) {
+          var t = el('text', { 'class': 'f4-band', x: 4, y: lb.n ? lb.y - 2 : lb.y + 4 }, gL, lb.t);
+          if (lb.n) el('tspan', { 'class': 'n', x: 4, dy: 14 }, t, lb.n);
+        } else {
+          var t2 = el('text', { 'class': 'f4-band', x: 4, y: lb.y - r - 8 }, gL, lb.t + (lb.n ? ' · ' : ''));
+          if (lb.n) el('tspan', { 'class': 'n' }, t2, lb.n);
+        }
+      });
       $('#f4-desc', svg).textContent = (which === 'jain' ? "Jain's 30-gate circuit" : 'The schoolbook 31-gate circuit') + ' computing ' + A + ' × ' + B + '. Output bits c3 c2 c1 c0 = ' + c.o.slice().reverse().map(function (s3) { return sig[s3]; }).join(' ') + '.';
       return sig;
     }
@@ -384,7 +394,7 @@
         g.addEventListener('blur', function () { F0.tip.hide(); });
       });
       el('text', { 'class': 'gf-svg-t strong', x: X(6) + 9, y: Y(117) + 4 }, root, '117 · 2010');
-      el('text', { 'class': 'gf-svg-t strong', x: w < 480 ? X(6) + 2 : X(6) - 9, y: w < 480 ? Y(112) + 22 : Y(112) + 4, 'text-anchor': w < 480 ? 'middle' : 'end' }, root, '112');
+      el('text', { 'class': 'gf-svg-t strong', x: w < 480 ? X(6) + 2 : X(6) - 15, y: w < 480 ? Y(112) + 22 : Y(112) + 4, 'text-anchor': w < 480 ? 'middle' : 'end' }, root, '112');
       el('text', { 'class': 'gf-svg-t strong', x: X(13) + 9, y: Y(107) + 13 }, root, '107');
       if (b) el('circle', { 'class': 'ring', cx: X(b.d), cy: Y(b.g), r: 10 }, root);
       $('#st-desc', svg).textContent = 'Gates against depth for AES-field multipliers. With depth at most ' + D2 + ', the smallest is ' + (b ? b.g + ' gates (' + b.who + ', depth ' + b.d + ')' : 'none') + '.';
@@ -439,8 +449,10 @@
       svg.parentNode.classList.toggle('vert', vert);
       var colW = vert ? (h - mt - mb) / cols : (w - ml - mr) / cols, rowH = vert ? (w - ml - mr) / maxPer : (h - mt - mb) / maxPer;
       var sz = Math.max(3, Math.min(colW * 0.62, rowH * 0.72, 16));
-      function cell(px, py, kind, v, tipHtml) {
+      var P = {}, gW = el('g', { 'class': 'sb-wires', 'aria-hidden': 'true' }, svg), wIn = {}, wOut = {};
+      function cell(px, py, kind, v, tipHtml, key) {
         var cx = vert ? py : px, cy = vert ? px : py, hw = vert ? rowH : colW, hh = vert ? colW : rowH;
+        if (key != null) P[key] = { x: cx, y: cy };
         var g2 = el('g', {}, svg), cl = 'sb-c ' + kind + (v == null ? ' unk' : ' v' + v);
         if (kind === 'and') el('rect', { 'class': cl, x: cx - sz / 2, y: cy - sz / 2, width: sz, height: sz, rx: 1.5 }, g2);
         else el('circle', { 'class': cl, cx: cx, cy: cy, r: sz / 2 }, g2);
@@ -448,17 +460,32 @@
         if (tipHtml) {
           el('rect', { 'class': 'sb-hit', x: cx - hw / 2, y: cy - hh / 2, width: hw, height: hh }, g2);
           g2.addEventListener('pointermove', function (ev) { F0.tip.show(tipHtml(), ev.clientX, ev.clientY); });
-          g2.addEventListener('pointerleave', function () { F0.tip.hide(); });
+          g2.addEventListener('pointerenter', function () { hl(key, true); });
+          g2.addEventListener('pointerleave', function () { F0.tip.hide(); hl(key, false); });
         }
       }
+      function hl(key, on) {
+        (wIn[key] || []).forEach(function (pth) { pth.classList.toggle('hi-in', on); });
+        (wOut[key] || []).forEach(function (pth) { pth.classList.toggle('hi-out', on); });
+      }
+      function wire(from, to, v) {
+        var a = P[from], b = P[to]; if (!a || !b) return;
+        var d;
+        if (vert) { var my = (a.y + b.y) / 2; d = 'M' + a.x.toFixed(1) + ',' + (a.y + sz / 2).toFixed(1) + 'C' + a.x.toFixed(1) + ',' + my.toFixed(1) + ' ' + b.x.toFixed(1) + ',' + my.toFixed(1) + ' ' + b.x.toFixed(1) + ',' + (b.y - sz / 2).toFixed(1); }
+        else { var mx = (a.x + b.x) / 2; d = 'M' + (a.x + sz / 2).toFixed(1) + ',' + a.y.toFixed(1) + 'C' + mx.toFixed(1) + ',' + a.y.toFixed(1) + ' ' + mx.toFixed(1) + ',' + b.y.toFixed(1) + ' ' + (b.x - sz / 2).toFixed(1) + ',' + b.y.toFixed(1); }
+        var pth = el('path', { 'class': 'sb-w' + (v === 1 ? ' v1' : ''), d: d }, gW);
+        (wIn[to] = wIn[to] || []).push(pth); (wOut[from] = wOut[from] || []).push(pth);
+      }
       var X0 = function (col) { return (vert ? mt : ml) + (col + 0.5) * colW; }, Yy = function (k, n) { return (vert ? w / 2 : mt + (h - mt - mb) / 2) + (k - (n - 1) / 2) * rowH; };
-      for (var j = 0; j < 8; j++) (function (j) { cell(X0(0), Yy(j, 8), 'io', r.s[j], function () { return '<div class="tip-k">Input bit U' + j + '</div><div class="tip-t">' + r.s[j] + '</div>'; }); })(j);
+      for (var j = 0; j < 8; j++) (function (j) { cell(X0(0), Yy(j, 8), 'io', r.s[j], function () { return '<div class="tip-k">Input bit U' + j + '</div><div class="tip-t">' + r.s[j] + '</div>'; }, j); })(j);
       for (var dd = 1; dd <= c.depth; dd++) (byD[dd] || []).forEach(function (s, k, arr) {
         var gi = s - 8, kind = c.op[gi] === 1 ? 'and' : c.op[gi] === 2 ? 'xnor' : 'xor', kn = dd <= reveal;
-        cell(X0(dd), Yy(k, arr.length), kind, kn ? r.s[s] : null, function () { return '<div class="tip-k">Gate ' + (gi + 1) + ' · ' + kind.toUpperCase() + ' · depth ' + dd + '</div><div class="tip-t">output ' + r.s[s] + '</div><div class="tip-note">inputs: ' + sname(c.x[gi]) + ' and ' + sname(c.y[gi]) + '</div>'; });
+        cell(X0(dd), Yy(k, arr.length), kind, kn ? r.s[s] : null, function () { return '<div class="tip-k">Gate ' + (gi + 1) + ' · ' + kind.toUpperCase() + ' · depth ' + c.dep[s] + '</div><div class="tip-t">output ' + r.s[s] + '</div><div class="tip-note">inputs: ' + sname(c.x[gi]) + ' and ' + sname(c.y[gi]) + '</div>'; }, s);
       });
       var done = reveal >= c.depth;
-      for (var o = 0; o < 8; o++) (function (o) { var s = c.o[o]; cell(X0(cols - 1), Yy(o, 8), 'io', done ? r.s[s] : null, function () { return '<div class="tip-k">Output bit S' + o + '</div><div class="tip-t">' + r.s[s] + '</div>'; }); })(o);
+      for (var o = 0; o < 8; o++) (function (o) { var s = c.o[o]; cell(X0(cols - 1), Yy(o, 8), 'io', done ? r.s[s] : null, function () { return '<div class="tip-k">Output bit S' + o + '</div><div class="tip-t">' + r.s[s] + '</div>'; }, 'o' + o); })(o);
+      for (var gw = 0; gw < c.n; gw++) { var sg = 8 + gw, kw = c.dep[sg] <= reveal; wire(c.x[gw], sg, kw ? r.s[c.x[gw]] : 0); wire(c.y[gw], sg, kw ? r.s[c.y[gw]] : 0); }
+      for (var ow = 0; ow < 8; ow++) wire(c.o[ow], 'o' + ow, done ? r.s[c.o[ow]] : 0);
       if (vert) {
         el('text', { 'class': 'gf-svg-t', x: 4, y: X0(0) + 4 }, svg, 'in');
         el('text', { 'class': 'gf-svg-t', x: 4, y: X0(cols - 1) + 4 }, svg, 'out');

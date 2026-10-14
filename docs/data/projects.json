@@ -376,22 +376,22 @@
     {
      "value": "25",
      "label": "AI medical-coding vendors scanned (snapshot 2026-10-03)",
-     "source": "/home/user/medcode/index.html L245"
+     "source": "https://medcode.askaconsult.com/ (page source L245)"
     },
     {
      "value": "35",
      "label": "competitive claims checked against named sources by a separate verifier",
-     "source": "/home/user/medcode/index.html L246, L536"
+     "source": "https://medcode.askaconsult.com/ (page source L246, L536)"
     },
     {
      "value": "0",
      "label": "public independent head-to-head accuracy audits found among those 25",
-     "source": "/home/user/medcode/index.html L248, L546"
+     "source": "https://medcode.askaconsult.com/ (page source L248, L546)"
     },
     {
      "value": "18 of 67",
      "label": "evidence tags in the vendor table marked VERIFIED (33 unverified, 16 vendor-only)",
-     "source": "counted from /home/user/medcode/index.html L301-325"
+     "source": "counted from the vendor table at https://medcode.askaconsult.com/ (page source L301-325)"
     }
    ]
   },
@@ -420,7 +420,7 @@
     {
      "value": "2,645–3,045 kcal",
      "label": "Energy shown as a range, never a single number (demo profile)",
-     "source": "/home/user/ahrazzle/nutrak/demo/fixture.json L32-33"
+     "source": "https://github.com/ahrazzle/nutrak/blob/main/demo/fixture.json L32-33"
     },
     {
      "value": "5 → 1",

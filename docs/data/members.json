@@ -17,24 +17,28 @@
     {
      "name": "Incentre lattice",
      "url": "https://github.com/aska-digital/incentre-lattice",
+     "page": "research/incentre-lattice/",
      "status": "Preprint · not peer reviewed",
      "note": "Exact fold from density 0.2233 to 0.7405 (the Kepler bound), with 16,240 exact certificate coefficients."
     },
     {
      "name": "Exoplanets: pipeline fixes and website",
      "url": "https://github.com/eumemic/exoplanets",
+     "page": "research/exoplanets/",
      "status": "Merged · credited",
      "note": "Four merged fixes to eumemic's search, one of which produced today's 533-candidate list, and the project website."
     },
     {
      "name": "mobius-x1: full-network check",
      "url": "https://github.com/Swapnil-jain/mobius-x1/pull/1",
+     "page": "research/mobius-x1/",
      "status": "Merged",
      "note": "The whole-network test behind Theorem 2: 0 failures in 3,456,000 checks."
     },
     {
      "name": "gf2m-circuits: field multipliers",
      "url": "https://github.com/Swapnil-jain/gf2m-circuits/pull/1",
+     "page": "research/gf2m-circuits/",
      "status": "Merged · not records",
      "note": "Verified multiplier circuits for more binary fields, e.g. GF(2^9) in 136 gates against a 142 baseline."
     },
@@ -61,12 +65,14 @@
     {
      "name": "Exoplanets",
      "url": "https://github.com/eumemic/exoplanets",
+     "page": "research/exoplanets/",
      "status": "Candidates · not confirmed",
      "note": "4,039,203 stars searched; 533 candidates as of 13 Oct 2026."
     },
     {
      "name": "Integer-multiplication race",
      "url": "https://github.com/CrocSwap/integer-mult-bounds",
+     "page": "research/integer-multiplication/",
      "status": "Conditional · maintainer-reviewed",
      "note": "80 pull requests to the community circuit; the current record builds on their #555.",
      "builds_on": "OpenAI #109"
@@ -100,6 +106,7 @@
     {
      "name": "integer-mult-bounds",
      "url": "https://github.com/CrocSwap/integer-mult-bounds",
+     "page": "research/integer-multiplication/",
      "status": "Conditional · not peer reviewed",
      "note": "Creator and maintainer; κ from 2^−182 to 0.00167266 (PR #1094, 13 Oct 2026).",
      "builds_on": "OpenAI #109"
@@ -125,20 +132,22 @@
    "main_project": {
     "name": "Auto-research-agent",
     "url": "https://github.com/rohanarun/Auto-research-agent",
-    "page": "instruments/"
+    "page": "instruments/#auto-research"
    },
    "summary": "Builds software that lets AI coding agents work on open research problems, including Auto-research-agent, a Mac app that sends Codex or Claude Code to an open problem in one click. With those agents, the most active contributor to the integer-multiplication race, and the author of conditional refinements to four of OpenAI's machine-written papers.",
    "work": [
     {
      "name": "Auto-research-agent",
      "url": "https://github.com/rohanarun/Auto-research-agent",
+     "page": "instruments/#auto-research",
      "status": "Released software",
      "note": "A native Mac app: one click sends your own coding agent, or several in parallel, to an open problem."
     },
     {
      "name": "Integer-multiplication race",
      "url": "https://github.com/CrocSwap/integer-mult-bounds",
-     "status": "Current reviewed record",
+     "page": "research/integer-multiplication/",
+     "status": "Current reviewed record · conditional · maintainer-reviewed",
      "note": "142 pull requests; PR #1094 holds the reviewed record κ = 0.001672660197076918.",
      "builds_on": "OpenAI #109"
     },
@@ -186,13 +195,14 @@
    "main_project": {
     "name": "autofoundry",
     "url": "https://github.com/shea256/autofoundry",
-    "page": "instruments/"
+    "page": "instruments/#autofoundry"
    },
    "summary": "Builds tools for AI-run experiments, such as autofoundry, which rents GPUs from four cloud providers and runs the same experiment across them. Working with Codex and Claude on OpenAI's machine-written problems, co-holds the Lean-verified record for exact Fourier transforms below n log n, with Jeremy Kothe, whose circuit it uses.",
    "work": [
     {
      "name": "autofoundry",
      "url": "https://github.com/shea256/autofoundry",
+     "page": "instruments/#autofoundry",
      "status": "Open-source software",
      "note": "Rents GPUs across RunPod, Vast.ai, PRIME Intellect and Lambda, runs one experiment everywhere, reports best, mean and worst."
     },

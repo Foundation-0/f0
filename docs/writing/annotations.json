@@ -1,0 +1,127 @@
+{
+ "updated": "2026-10-14",
+ "about": "Foundation0's own notes on each essay in data/writing.json, keyed by URL: a short title for the theses map, what kind of piece it is, a status line, a plain-words 'why it matters to Foundation0' (rewritten from the relevance field), and the site pages each essay leads to, with the theme that justifies each link.",
+ "theme_labels": {
+  "frontier": "Frontier",
+  "symbiosis": "Symbiosis",
+  "public-good": "Public good",
+  "instruments": "Instruments",
+  "markets": "Markets"
+ },
+ "pages": [
+  { "key": "mm", "label": "After the 722", "path": "research/machine-mathematics/", "what": "What people and their AI agents did with OpenAI's 722 machine-written manuscripts in the week after they appeared." },
+  { "key": "ledger", "label": "The Ledger", "path": "ledger/", "what": "The sourced record of advances AI caused or helped to cause, each labelled by how sure anyone can be." },
+  { "key": "research", "label": "Research", "path": "research/", "what": "Our own research and the projects we contributed to, grouped by founding member." },
+  { "key": "instruments", "label": "Instruments", "path": "instruments/", "what": "Tools that let one person direct a team of AI agents: Aska's Exo, and the members' research harnesses." },
+  { "key": "charter", "label": "Charter", "path": "charter/", "what": "The Foundation0 story and the principles we work by." },
+  { "key": "commons", "label": "Commons", "path": "commons/", "what": "Free public-benefit tools, MedCode and Nutrak, that run in your browser and show their working." }
+ ],
+ "essays": {
+  "https://digital.askaconsult.com/blog/math-faster.html": {
+   "short": "Math, faster",
+   "type": "Day-one review",
+   "status": "Written on day one; predates OpenAI's 7 Oct withdrawals",
+   "why": "This is the kind of advance the Ledger exists to record: a machine wrote the proofs, and only checking by people and proof-checking software can say which are true. It also gave this site its words for how sure a claim is: claimed, machine-checked, reviewed, withdrawn.",
+   "paths": [["frontier", "mm"], ["frontier", "ledger"], ["frontier", "research"]]
+  },
+  "https://digital.askaconsult.com/blog/crypto-industry-lowdown.html": {
+   "short": "Crypto Industry Lowdown",
+   "type": "Field guide · dated",
+   "status": "Not investment advice",
+   "why": "A side thread for us: AI agents are starting to hold wallets and pay each other, and AI now helps audit code, though the essay is clear it cannot fix how keys are kept.",
+   "paths": []
+  },
+  "https://digital.askaconsult.com/blog/post-training-your-own-models.html": {
+   "short": "Post-Training Your Own Models",
+   "type": "Practical guide",
+   "status": "Prices are web-research snapshots, not live",
+   "why": "It shows that one person with one graphics card can now teach an open AI model a new task, which is what our Instruments work is for: tools that put lab-grade methods in an independent researcher's hands.",
+   "paths": [["instruments", "instruments"]]
+  },
+  "https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html": {
+   "short": "The Naming Decides",
+   "type": "Plain-words taxonomy",
+   "status": "Says itself it is not a standard",
+   "why": "If the people who deploy AI systems can name what kind of machine they own, they stay answerable for what it does. Shared plain words are part of working with machines rather than under them.",
+   "paths": [["symbiosis", "charter"], ["instruments", "instruments"]]
+  },
+  "https://askaconsult.com/insights/subtractive-fragility/": {
+   "short": "Subtractive Fragility",
+   "type": "Traced argument",
+   "status": "7 dated predictions, none scored yet",
+   "why": "Its seventh prediction names a precise risk for people working with AI: if AI removes junior jobs, nobody is trained to become the next experts. Its rule for funding what must last is a model for a public-benefit foundation.",
+   "paths": [["symbiosis", "charter"], ["public-good", "charter"]]
+  },
+  "https://digital.askaconsult.com/blog/prediction-market-outlook.html": {
+   "short": "Prediction Market Outlook",
+   "type": "Market snapshot · dated",
+   "status": "Prices as of 8 Sep 2026; not betting advice",
+   "why": "Mostly a dated snapshot. Worth reading for how plainly it states its own limits: 23 markets, not a random sample, and a fit that explains how lopsided prices are, not how accurate.",
+   "paths": []
+  },
+  "https://digital.askaconsult.com/blog/the-agents-are-replaceable.html": {
+   "short": "The Agents Are Replaceable",
+   "type": "Working example",
+   "status": "Says itself its value is asserted, not yet shown",
+   "why": "Aska's own working example of a person and a team of AI agents cooperating under written rules, and honest about its limit: nothing is proven until a stranger takes the kit and runs a real team on it.",
+   "paths": [["symbiosis", "charter"], ["instruments", "instruments"]]
+  },
+  "https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html": {
+   "short": "The Institution Is the Bottleneck",
+   "type": "Argument",
+   "status": "Sources named by publisher and year",
+   "why": "It explains why free tools such as MedCode and Nutrak need someone who owns the outcome, a way to measure it and a way to reach people, not just good software.",
+   "paths": [["public-good", "commons"]]
+  },
+  "https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html": {
+   "short": "The Money Skips the Public Good",
+   "type": "Argument",
+   "status": "Canadian funding as of Aug 2026",
+   "why": "It is about how a public-benefit AI organisation, a foundation, has to be set up and funded so that its mission survives the money, and so that its free tools stay free.",
+   "paths": [["public-good", "commons"], ["public-good", "charter"]]
+  },
+  "https://digital.askaconsult.com/blog/no-coup-just-comfort.html": {
+   "short": "No Coup, Just Comfort",
+   "type": "Argument",
+   "status": "About decentralised networks",
+   "why": "The same drift threatens people working with AI: help becomes habit, and habit becomes dependence. Its rule, measure what is being taken away and not only what is added, is one we work by.",
+   "paths": [["symbiosis", "charter"]]
+  }
+ },
+ "map_order": [
+  "https://digital.askaconsult.com/blog/math-faster.html",
+  "https://digital.askaconsult.com/blog/post-training-your-own-models.html",
+  "https://digital.askaconsult.com/blog/the-agents-are-replaceable.html",
+  "https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html",
+  "https://digital.askaconsult.com/blog/no-coup-just-comfort.html",
+  "https://askaconsult.com/insights/subtractive-fragility/",
+  "https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html",
+  "https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html",
+  "https://digital.askaconsult.com/blog/crypto-industry-lowdown.html",
+  "https://digital.askaconsult.com/blog/prediction-market-outlook.html"
+ ],
+ "theme_order": ["frontier", "instruments", "symbiosis", "public-good", "markets"],
+ "predictions": {
+  "essay": "https://askaconsult.com/insights/subtractive-fragility/",
+  "published": "2026-09-10",
+  "checked": "2026-10-14",
+  "note": "Claims, fail conditions, baselines and confidence are the essay's own (its tracker section), restated in plain words. Status is the essay's own: all seven Pending on 14 Oct 2026.",
+  "items": [
+   { "n": 1, "movement": "One", "target": "2027-12", "label": "Dec 2027", "claim": "US lead times for large power transformers are still above 80 weeks, despite announced factory expansions.", "fails": "Lead times drop below 80 weeks.", "baseline": "128 weeks on average in 2026 (IndustrialSage)", "confidence": "Moderate", "thesis": false },
+   { "n": 2, "movement": "One", "target": "2028-12", "label": "Dec 2028", "claim": "US output of heavy-duty gas turbines has grown by less than 40% compared with 2025.", "fails": "Output rises more than 40%.", "baseline": "GE Vernova backlog of 116 GW in 2025 (company filings)", "confidence": "High", "thesis": false },
+   { "n": 3, "movement": "One", "target": "2030-12", "label": "Through 2030", "claim": "US electricity demand grows between 1.5% and 3.5% a year, every year through 2030.", "fails": "Growth exceeds 4% in any year, or falls below 1% for two years running.", "baseline": "2.1% a year, five-year average to 2025 (EIA)", "confidence": "High", "thesis": false },
+   { "n": 4, "movement": "One", "target": "2030-11", "label": "Nov 2030", "claim": "The price of electricity becomes a first-rank issue in a US federal election, with datacenter siting or who pays for the grid as explicit policy planks.", "fails": "It stays a matter for state regulators.", "baseline": "57 to 70% oppose a local datacenter (Gallup, Brookings, 2026)", "confidence": "High", "thesis": false },
+   { "n": 5, "movement": "One", "target": "2032-12", "label": "Dec 2032", "claim": "Even if AI spending falls by more than half from its 2026 peak, US grid capacity ends up higher than in 2026 and gets used, not stranded.", "fails": "An AI spending collapse is followed by measurable stranded capacity.", "baseline": "2,600 GW waiting in interconnection queues (FERC, 2026)", "confidence": "Moderate", "thesis": true },
+   { "n": 6, "movement": "Two", "target": "2032-12", "label": "Dec 2032", "claim": "No US scheme that pays to keep new antibiotics available, comparable to the PASTEUR Act, has passed and paid out at scale.", "fails": "One passes and pays out.", "baseline": "PASTEUR Act reintroduced Feb 2026, still unpassed (Congress.gov)", "confidence": "High", "thesis": false },
+   { "n": 7, "movement": "Four", "target": "2035-12", "label": "Dec 2035", "claim": "At least one high-skill profession shows a measurable shortage of senior experts that hiring cannot fix, because the people who would now be senior were never trained as juniors.", "fails": "Senior pipelines refill normally, or senior roles are restructured rather than lost.", "baseline": "Junior employment down about 8% since early 2023 at firms adopting generative AI (Harvard working paper)", "confidence": "Moderate", "thesis": true }
+  ],
+  "undated": {
+   "essay": "https://digital.askaconsult.com/blog/math-faster.html",
+   "items": [
+    "A second lab reproduces the pipeline.",
+    "Lean coverage grows on a visible schedule.",
+    "One falsifiable core gets killed or confirmed in public."
+   ]
+  }
+ }
+}
