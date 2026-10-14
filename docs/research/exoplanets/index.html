@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exoplanets: faint shadows in old starlight · Foundation0</title>
+<meta name="description" content="Founding member eumemic, working with an AI coding agent, searched NASA TESS data for four million stars and kept 533 small planet candidates the official searches had passed over. Candidates, not confirmed, not peer reviewed. Aska Digital built the website and fixed four flaws in the search.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exoplanets: faint shadows in old starlight · Foundation0">
+<meta property="og:description" content="533 small planet candidates found by stacking years of NASA TESS starlight. Candidates, not confirmed, not peer reviewed.">
+<meta property="og:image" content="../../assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="research-exoplanets">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+    <symbol id="sh-a" viewBox="-6 -6 12 12"><circle r="4.6"/></symbol>
+    <symbol id="sh-b" viewBox="-6 -6 12 12"><rect x="-4.1" y="-4.1" width="8.2" height="8.2"/></symbol>
+    <symbol id="sh-n" viewBox="-6 -6 12 12"><path d="M0 -5.2L4.9 3.6H-4.9Z"/></symbol>
+    <symbol id="sh-l" viewBox="-6 -6 12 12"><path d="M0 -5.4L5.4 0L0 5.4L-5.4 0Z"/></symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="page-hero has-fig ex-hero" style="--acc:var(--acc-exoplanets)">
+    <div class="wrap">
+      <div class="ph-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">Exoplanets</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Astronomy &middot; a founding member&rsquo;s project &middot; Aska contributed</p>
+        <h1 class="h1">Faint shadows in old starlight</h1>
+        <p class="dek">A small planet crossing its star dims it by less than the flicker in a month of measurements. Founding member eumemic, working with an AI coding agent, combed NASA&rsquo;s TESS data for four million stars and kept 533 candidate signals that the official searches had passed over.</p>
+        <div class="meta-row">
+          <span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Candidates</span>
+          <span class="badge n">Not confirmed</span>
+          <span class="badge n">Not peer reviewed</span>
+          <span class="chip">As of 13 Oct 2026 &middot; commit da72261</span>
+        </div>
+        <p class="ex-credit"><b>eumemic&rsquo;s project.</b> Founding member eumemic designed and ran the search with Claude Code (Anthropic). Aska Digital found and fixed four flaws in the pipeline, all merged by eumemic, and built the project&rsquo;s website.</p>
+        <p class="ex-links"><a href="https://github.com/eumemic/exoplanets">Repository &middot; eumemic/exoplanets</a><a href="https://ahrazzle.github.io/exoplanets/">Project website (built by Aska Digital)</a><a href="https://ahrazzle.github.io/exoplanets/candidates.html">Candidate explorer</a></p>
+      </div>
+
+      <figure class="ph-fig fig frame sky" aria-labelledby="sky-title">
+        <div class="fig-head">
+          <p class="fig-title" id="sky-title">All 533 candidates</p>
+          <p class="fig-how"><b>How to read:</b> each mark is one candidate. In the sky view it sits at its star&rsquo;s place on the sky (right ascension grows to the left) and bigger marks are brighter stars; in the size view it sits at its orbital period and radius. Shape is the project&rsquo;s reliability tier. Point at a mark, or focus the figure and use the arrow keys.</p>
+        </div>
+        <div class="fig-stage sky-stage" style="--ratio:16/10">
+          <canvas id="sky-canvas" tabindex="0" role="img" aria-label="Sky map of the 533 counted candidates in a Hammer equal-area projection, with the ecliptic and the plane of the Milky Way. Use the left and right arrow keys to step through the candidates; details appear below the map."></canvas>
+          <span class="corner tl" id="sky-corner" aria-hidden="true">Whole sky &middot; Hammer projection</span>
+          <span class="corner tr fig-out" id="sky-count" aria-hidden="true">533 shown</span>
+        </div>
+        <div class="fig-ctrl sky-ctrl" role="group" aria-label="Sky map controls">
+          <div class="seg" role="group" aria-label="View">
+            <button type="button" id="sky-v-sky" aria-pressed="true">Sky</button><button type="button" id="sky-v-orb" aria-pressed="false">Size vs orbit</button>
+          </div>
+          <ul class="sky-legend" aria-label="Tiers: press to show or hide">
+            <li><button type="button" data-tier="0" aria-pressed="true" title="Tier A: more than one signal on the star"><svg aria-hidden="true"><use href="#sh-a"/></svg>A <span>36</span></button></li>
+            <li><button type="button" data-tier="1" aria-pressed="true" title="Tier B: one signal, clean field"><svg aria-hidden="true"><use href="#sh-b"/></svg>B <span>292</span></button></li>
+            <li><button type="button" data-tier="2" aria-pressed="true" title="Tier N: a neighbour star within 15 arcseconds, cleared by a statistical test"><svg aria-hidden="true"><use href="#sh-n"/></svg>N <span>152</span></button></li>
+            <li><button type="button" data-tier="3" aria-pressed="true" title="Tier L1: weaker signals picked out by a false-alarm classifier"><svg aria-hidden="true"><use href="#sh-l"/></svg>L1 <span>53</span></button></li>
+          </ul>
+        </div>
+        <p class="sky-read" id="sky-read" aria-live="polite">132 of the 533 (25%) sit within 30&deg; of an ecliptic pole, where TESS watches longest and so collects the most transits.</p>
+        <figcaption class="fig-foot"><span class="fig-src">Source: <a href="candidates.json">candidates.json</a>, the counted tiers of <a href="https://github.com/eumemic/exoplanets/blob/da72261/results_public/candidates_allsky.csv">candidates_allsky.csv</a> and <a href="https://github.com/eumemic/exoplanets/blob/da72261/results_public/tiers_earlier_candidates.csv">tiers_earlier_candidates.csv</a>, with positions from <a href="https://github.com/eumemic/exoplanets/blob/da72261/candidates/ephemerides.csv">ephemerides.csv</a> (CC BY 4.0, eumemic).</span></figcaption>
+        <details class="twin" id="sky-twin"><summary>Show all 533 as a table</summary>
+          <div class="table-wrap" id="sky-table" tabindex="0" role="region" aria-label="All 533 candidates"><p class="twin-note">Loading&hellip;</p></div>
+        </details>
+      </figure>
+
+      <ul class="statrow ex-stats" aria-label="The search in numbers">
+        <li><div class="v">4,039,203</div><div class="k">stars searched in the full-sky search, using every TESS sector from 1 to 104 (2018 to 2026)</div><span class="src"><a href="https://github.com/eumemic/exoplanets/blob/da72261/README.md#full-sky-search-8-october-2026">README &middot; full-sky search</a></span></li>
+        <li><div class="v">533</div><div class="k">candidates counted on 13 Oct 2026: 473 from the full-sky search and 60 from earlier searches, on 526 stars</div><span class="src"><a href="candidates.json">candidates.json</a></span></li>
+        <li><div class="v">82%</div><div class="k">of the full-sky candidates checked (360 of 438) are on stars seen only in wide-field images, which NASA&rsquo;s multi-sector search does not cover</div><span class="src"><a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/findability.md">validation/findability.md</a></span></li>
+        <li><div class="v">798,769</div><div class="k">stars searched again with their light curves turned upside down, to count how often noise fools the search</div><span class="src"><a href="https://github.com/eumemic/exoplanets/blob/da72261/README.md#full-sky-search-second-release-9-october-2026">README &middot; false alarms, measured</a></span></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 00 A PLANET IS A CLOCK -->
+  <section class="sec" id="clock" data-index="A planet is a clock" data-num="00" aria-labelledby="clock-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>First principles</p><span class="chip">Schematic, to scale in depth</span></div>
+      <h2 class="h2" id="clock-h">You cannot see the planet. You can see its shadow.</h2>
+      <p class="lede">A planet around another star is a speck lost in a glare millions of times brighter. But if its orbit is edge-on to us, once per orbit it passes in front of the star and blocks a little of the light.</p>
+      <div class="ex-cols">
+        <div class="prose">
+          <aside class="callout def"><p class="c-k">Definitions</p><p><dfn>Transit</dfn>: a planet passing in front of its star, as seen from here. <dfn>Light curve</dfn>: a star&rsquo;s brightness, measured again and again over time. <dfn>ppm</dfn>: parts per million; 1,000 ppm is a dip of 0.1%.</p></aside>
+          <p>How much light does the planet block? The star dims by the share of its disc the planet covers: the ratio of the two discs&rsquo; areas, (planet radius &divide; star radius)&sup2;. An Earth crossing the Sun would block about 84 ppm, one part in 11,900, for about 13 hours, once a year.</p>
+          <p>NASA&rsquo;s <dfn class="term">TESS</dfn> satellite (the Transiting Exoplanet Survey Satellite) has been photographing most of the sky since 2018, one strip at a time, for about 27 days per strip. Each 27-day stretch is called a <dfn class="term">sector</dfn>. For a small planet, the dip in one sector is often smaller than the random flicker of the measurements, so no single look shows it.</p>
+        </div>
+        <div class="prose">
+          <p>The trick is that a planet is a clock. Its dips come back at exactly the same interval, its <dfn class="term">period</dfn>. Guess the period right, cut years of data into pieces that long and stack them, and the random flicker averages away while the dip adds up. Guess wrong by a few seconds and, hundreds of orbits later, the dips no longer line up.</p>
+          <p>So a search tries many thousands of periods for every star. That is the work this project did, for millions of stars, with an AI coding agent writing and running the code. The next three figures use the project&rsquo;s own light curves to show why it works, and how the search checks itself.</p>
+          <figure class="ex-depths" aria-labelledby="dp-cap">
+            <svg viewBox="0 0 460 150" role="img" aria-labelledby="dp-cap">
+              <g class="dp-axis"><line x1="40" x2="450" y1="24" y2="24"/><text x="34" y="28" text-anchor="end">0</text><text x="34" y="138" text-anchor="end">&minus;1%</text><line x1="40" x2="450" y1="134" y2="134" class="dp-grid"/></g>
+              <path class="dp-line" d="M40 24H80V24.9H120V24H190V37.9H230V24H300V139.5H340V24H450"/>
+              <text class="dp-lab" x="100" y="50" text-anchor="middle">Earth</text><text class="dp-val" x="100" y="66" text-anchor="middle">84 ppm</text>
+              <text class="dp-lab" x="210" y="60" text-anchor="middle">Neptune</text><text class="dp-val" x="210" y="76" text-anchor="middle">1,260 ppm</text>
+              <text class="dp-lab" x="350" y="70">Jupiter</text><text class="dp-val" x="350" y="86">10,500 ppm</text>
+            </svg>
+            <figcaption id="dp-cap">How deep each planet&rsquo;s shadow would be in front of the Sun, drawn to scale (depth = (planet radius &divide; Sun&rsquo;s radius)&sup2;). Earth&rsquo;s dip is less than one pixel. The 533 candidates have a median depth of 1,132 ppm.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 FIND THE HEARTBEAT -->
+  <section class="sec alt" id="heartbeat" data-index="Find the heartbeat" data-num="01" aria-labelledby="hb-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>Find the heartbeat</p><span class="chip">Real TESS data &middot; TIC 4206066</span></div>
+      <h2 class="h2" id="hb-h">Stack seven years of starlight at the right rhythm, and a dip appears.</h2>
+      <p class="lede">This is the real record of one nearby orange dwarf star, TIC 4206066: 4,075 brightness measurements, each averaged over 30 minutes, from three sectors in 2018, 2020 and 2025.</p>
+      <div class="ex-cols">
+        <div class="prose">
+          <p>In September 2026 Pavel Rabtsevich reported two transit-like signals on this star. The project&rsquo;s method follows his, and its search found both signals again without being told where they were: periods of 3.18278 and 11.13274 days, against his 3.182785 and 11.13274. The inner one would be a planet about 1.4 times Earth&rsquo;s width, blocking 398 ppm for 1.7 hours.</p>
+          <p>Each measurement wobbles by about 300 ppm, so a 398 ppm dip lasting three or four measurements is invisible in the raw record. Choose a trial period and the figure cuts the record into pieces that long and lays them on top of each other.</p>
+        </div>
+        <div class="prose">
+          <p>How exact must the guess be? The record spans 2,577 days, about 810 orbits. Get the period wrong by 8 seconds and the error builds up to 810 &times; 8 s, nearly two hours, by 2025: the late dips slide right off the early ones. That is why a search has to test hundreds of thousands of periods per star.</p>
+          <p>The bottom panel is such a search, which Foundation0 ran on this record: 373,825 trial periods from 1 to 13 days. Two peaks stand clear of the noise, one for each signal. The shorter peaks are noise, and the echoes at half and twice the period.</p>
+        </div>
+      </div>
+
+      <figure class="fig frame hb wide-fig" aria-labelledby="hb-title">
+        <div class="fig-head">
+          <p class="fig-title" id="hb-title">Find the heartbeat</p>
+          <p class="fig-how"><b>How to read:</b> top, the raw record (each dot is 30 minutes of starlight; ticks mark where the trial period says dips should fall). Middle, the record stacked at the trial period; the line is the average. Bottom, how strongly a dip stands out at every period tried. Move the slider, nudge by seconds, or press a button.</p>
+        </div>
+        <div class="fig-stage hb-stage" style="--ratio:16/11">
+          <canvas id="hb-canvas" role="img" aria-label="Three panels: the raw light curve of TIC 4206066 from 2018, 2020 and 2025; the same data stacked at the trial period; and the signal-to-noise ratio of the deepest dip at every period from 1 to 13 days. The readout below the figure gives the numbers."></canvas>
+        </div>
+        <dl class="hb-read" id="hb-read" aria-live="polite">
+          <div><dt>Trial period</dt><dd id="hb-r-p">3.182773 d</dd></div>
+          <div><dt>Off from the best fit</dt><dd id="hb-r-off">0 s</dd></div>
+          <div><dt>Deepest dip in the stack</dt><dd id="hb-r-dep">&mdash;</dd></div>
+          <div><dt>Signal-to-noise</dt><dd id="hb-r-snr">&mdash;</dd></div>
+          <div class="full"><dt>Verdict</dt><dd id="hb-r-v">&mdash;</dd></div>
+        </dl>
+        <div class="fig-ctrl" role="group" aria-label="Trial period">
+          <span class="ctrl-label">Period //</span>
+          <label class="ctrl hb-slider" for="hb-p">Trial period <input class="range" type="range" id="hb-p" min="0" max="20000" step="1" value="9000"> <output id="hb-p-out" for="hb-p">3.182773 d</output></label>
+          <div class="seg hb-nudge" role="group" aria-label="Nudge the trial period">
+            <button type="button" data-nudge="-10" aria-label="Ten seconds shorter">&minus;10 s</button><button type="button" data-nudge="-1" aria-label="One second shorter">&minus;1 s</button><button type="button" data-nudge="1" aria-label="One second longer">+1 s</button><button type="button" data-nudge="10" aria-label="Ten seconds longer">+10 s</button>
+          </div>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Try these periods">
+          <span class="ctrl-label">Try //</span>
+          <button class="tbtn" type="button" data-preset="best">Best fit</button>
+          <button class="tbtn" type="button" data-preset="s8">8 s off</button>
+          <button class="tbtn" type="button" data-preset="m1">1 min off</button>
+          <button class="tbtn" type="button" data-preset="three">A guess: 3.1 days</button>
+          <button class="tbtn" type="button" data-preset="p2">Second signal</button>
+          <button class="tbtn play" type="button" id="hb-scan" aria-pressed="false"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="hb-scan-txt" id="hb-scan-txt">Let the computer search</span></button>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="View">
+          <span class="ctrl-label">View //</span>
+          <div class="seg" role="group" aria-label="Middle panel"><button type="button" id="hb-v-orbit" aria-pressed="false">Whole orbit</button><button type="button" id="hb-v-zoom" aria-pressed="true">&plusmn;6 hours</button></div>
+          <div class="seg" role="group" aria-label="Bottom panel"><button type="button" id="hb-s-all" aria-pressed="true">1&ndash;13 days</button><button type="button" id="hb-s-fine" aria-pressed="false">&plusmn;90 seconds</button></div>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Light curve: <a href="https://github.com/eumemic/exoplanets/tree/da72261/video/public/data">video/public/data/lc.json</a> (eumemic, CC BY 4.0), copied to <a href="lightcurves.json">lightcurves.json</a>. Fitted periods and depths: the project&rsquo;s blind recovery (<a href="https://github.com/eumemic/exoplanets/blob/da72261/README.md#validation">README, Validation</a>). The search and its signal-to-noise are Foundation0&rsquo;s simplified version (one box 1.70 h wide), not the project&rsquo;s pipeline. Rabtsevich&rsquo;s study: <a href="https://doi.org/10.5281/zenodo.22967456">doi:10.5281/zenodo.22967456</a>.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="The deepest dip at a few trial periods (computed from the light curve as the figure does)"><table class="tbl"><caption>The deepest dip at a few trial periods (computed from the light curve as the figure does)</caption>
+            <thead><tr><th>Trial period</th><th class="n">Days</th><th class="n">Off from the fit</th><th class="n">Deepest dip (ppm)</th><th class="n">Signal-to-noise</th></tr></thead>
+            <tbody id="hb-tbody"></tbody></table></div>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 02 WHY STACKING WORKS -->
+  <section class="sec" id="stacking" data-index="Why stacking works" data-num="02" aria-labelledby="st-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Why stacking works</p><span class="chip">Real TESS data &middot; 28 transits</span></div>
+      <h2 class="h2" id="st-h">Noise shrinks with the square root of the number of looks.</h2>
+      <p class="lede">Average N noisy measurements and the noise in the average shrinks by &radic;N: four times the data, half the noise. The dip does not shrink, so its signal-to-noise ratio grows as &radic;N.</p>
+      <div class="split rev">
+        <div class="prose">
+          <aside class="callout def"><p class="c-k">Signal-to-noise ratio</p><p>The dip&rsquo;s depth divided by the typical error in measuring it. Below about 7 a dip is easily mimicked by chance; well above 10 it stands out.</p></aside>
+          <p>The record of TIC 4206066 holds 28 transits of the inner signal: 6 in 2018, 8 in 2020 and 14 in 2025. Stack them one at a time, in the order they were observed. One transit is three or four measurements, each off by about 280 ppm, so a 400 ppm dip is lost (signal-to-noise about 3.5).</p>
+          <p>After the six transits of 2018 the ratio reaches about 7, the level NASA&rsquo;s own pipeline needs in a single sector. With all 28 it is about 15. The measured points follow the &radic;N curve closely; where they stray, it is real noise, not a smooth model.</p>
+          <p>The project found that this is exactly how its candidates were missed: half of them (223 of 438 checked) never reach 7.1 in any single sector. Only by joining every sector does the dip stand out.</p>
+          <p class="ex-note">Signal-to-noise here is Foundation0&rsquo;s simple estimate (mean depth over the scatter of all points, divided by &radic;n); the project quotes 15.6 for this signal with its own fit.</p>
+        </div>
+
+        <figure class="fig frame sticky st" aria-labelledby="st-title">
+          <div class="fig-head">
+            <p class="fig-title" id="st-title">Stack the transits one by one</p>
+            <p class="fig-how"><b>How to read:</b> top, the measurements near each stacked transit (dots) and their average in half-hour bins, with error bars that shrink as transits are added. Bottom, the signal-to-noise for every number of transits (dots) against the &radic;N rule (line).</p>
+          </div>
+          <div class="fig-stage st-stage" style="--ratio:16/9">
+            <canvas id="st-canvas" role="img" aria-label="The measurements within six hours of each stacked transit, and their half-hour averages with error bars."></canvas>
+            <span class="corner tl" aria-hidden="true">Hours from mid-transit</span>
+            <span class="corner tr fig-out" id="st-corner" aria-hidden="true">6 of 28</span>
+          </div>
+          <div class="st-chart"><svg id="st-svg" viewBox="0 0 480 222" role="img" aria-labelledby="st-svg-cap"></svg></div>
+          <p class="sr-only" id="st-svg-cap">Signal-to-noise against the number of transits stacked, from about 3.5 for one transit to about 15 for all 28, following the square-root rule.</p>
+          <dl class="hb-read st-read" id="st-read" aria-live="polite">
+            <div><dt>Transits stacked</dt><dd id="st-r-n">6</dd></div>
+            <div><dt>Points in the dip</dt><dd id="st-r-pts">20</dd></div>
+            <div><dt>Dip depth</dt><dd id="st-r-dep">&mdash;</dd></div>
+            <div><dt>Signal-to-noise</dt><dd id="st-r-snr">&mdash;</dd></div>
+          </dl>
+          <div class="fig-ctrl" role="group" aria-label="Stacking controls">
+            <span class="ctrl-label">Ctrl //</span>
+            <button class="tbtn play" type="button" id="st-play" aria-pressed="false" aria-label="Add transits one by one"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt" id="st-play-txt">Play</span></button>
+            <label class="ctrl st-slider" for="st-n">Transits <input class="range" type="range" id="st-n" min="1" max="28" step="1" value="6"> <output id="st-n-out" for="st-n">6 of 28</output></label>
+            <div class="seg st-seg" role="group" aria-label="Jump to">
+              <button type="button" data-n="1" aria-pressed="false">1</button><button type="button" data-n="6" aria-pressed="true">2018</button><button type="button" data-n="14" aria-pressed="false">+2020</button><button type="button" data-n="28" aria-pressed="false">+2025</button>
+            </div>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Same light curve and fitted period as figure 01 (<a href="lightcurves.json">lightcurves.json</a>). The 7.1 line is the single-sector threshold of NASA&rsquo;s SPOC pipeline, quoted in <a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/findability.md">findability.md</a>.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Signal-to-noise as transits are added, oldest first"><table class="tbl"><caption>Signal-to-noise as transits are added, oldest first</caption>
+              <thead><tr><th class="n">Transits</th><th>Last one added</th><th class="n">Points in the dip</th><th class="n">Depth (ppm)</th><th class="n">Error (ppm)</th><th class="n">Signal-to-noise</th><th class="n">&radic;N rule</th></tr></thead>
+              <tbody id="st-tbody"></tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TURN THE SKY UPSIDE DOWN -->
+  <section class="sec alt" id="flip" data-index="Turn the sky upside down" data-num="03" aria-labelledby="fl-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>Turn the sky upside down</p><span class="chip">Measured on 798,769 stars</span></div>
+      <h2 class="h2" id="fl-h">To count your false alarms, search data where the answer must be &ldquo;nothing&rdquo;.</h2>
+      <p class="lede">Test hundreds of thousands of periods on millions of stars and noise will sometimes line up into something that looks like a dip. How often? The project measured it with a simple trick.</p>
+      <div class="split">
+        <div class="prose">
+          <p>Turn a light curve upside down. Every real dip, from a planet or an eclipsing pair of stars, becomes a bump, and a search for dips ignores bumps. The random wiggles of noise go both ways, so the flipped curve still has &ldquo;dips&rdquo;. Anything the search finds in it must be a false alarm.</p>
+          <p>The project ran its full pipeline on the flipped light curves of 798,769 stars, in two independent samples of about 400,000, and scaled the count up to the 4,039,203 stars it searched. Step 2 shows one of the false alarms it found: it passed every one of the 17 automated tests of LEO-Vetter, a published vetting tool, and would look convincing in a catalogue.</p>
+          <p>Step 3 is the payoff. Among clean signals at signal-to-noise 9 or more, the project found 726 in the real data and expects 96 from noise alone. In the weaker band from 7.5 to 9 it found 382 and expects 314: most of those are noise. False alarms crowd at low strength, so tiers A, B and N require a strength (MES, below) of at least 10, and from the weaker band only the signals a separate classifier picks out are counted.</p>
+          <aside class="callout def"><p class="c-k">MES</p><p>The <dfn>multiple event statistic</dfn>: the signal-to-noise of all of a signal&rsquo;s transits combined, as the search measures it.</p></aside>
+        </div>
+
+        <figure class="fig frame sticky fl" aria-labelledby="fl-title">
+          <div class="fig-head">
+            <p class="fig-title" id="fl-title">Turn the sky upside down</p>
+            <p class="fig-how"><b>How to read:</b> three steps. Pick one with the buttons; in step 1, press <b>Flip</b> to turn the light curve over.</p>
+          </div>
+          <div class="seg fl-steps" role="group" aria-label="Step">
+            <button type="button" data-step="1" aria-pressed="true">1 &middot; Flip a known star</button><button type="button" data-step="2" aria-pressed="false">2 &middot; A false alarm</button><button type="button" data-step="3" aria-pressed="false">3 &middot; Count them</button>
+          </div>
+
+          <div class="fl-panel" id="fl-p1">
+            <div class="fig-stage fl-stage" style="--ratio:16/10">
+              <canvas id="fl-c1" role="img" aria-label="Twelve days of the star L 98-59 from TESS Sector 2, with the transits of its three known planets b, c and d marked."></canvas>
+              <span class="corner tl" id="fl-c1-tl" aria-hidden="true">L 98-59 &middot; Sector 2 &middot; as observed</span>
+              <span class="corner br" aria-hidden="true">Days</span>
+            </div>
+            <div class="fig-ctrl" role="group" aria-label="Flip">
+              <span class="ctrl-label">Ctrl //</span>
+              <button class="tbtn" type="button" id="fl-flip" aria-pressed="false">Flip it</button>
+              <span class="fl-key"><i class="k-pl" aria-hidden="true"></i>known planet transits b, c, d</span>
+            </div>
+            <p class="fl-cap" id="fl-cap1" aria-live="polite">L 98-59 has three known planets. As observed, their transits are dips (marked). Press Flip.</p>
+          </div>
+
+          <div class="fl-panel" id="fl-p2" hidden>
+            <div class="fl-two">
+              <div class="fig-stage fl-stage" style="--ratio:4/3">
+                <canvas id="fl-c2" role="img" aria-label="Sector 5 light curve of TIC 37904598 turned upside down, with the false-alarm event marked."></canvas>
+                <span class="corner tl" aria-hidden="true">TIC 37904598 &middot; flipped</span>
+              </div>
+              <div class="fig-stage fl-stage" style="--ratio:4/3">
+                <canvas id="fl-c3" role="img" aria-label="The false alarm stacked over its four events: a dip about 2,900 ppm deep that looks like a transit."></canvas>
+                <span class="corner tl" aria-hidden="true">Stacked &middot; 4 events</span>
+              </div>
+            </div>
+            <dl class="hb-read fl-read">
+              <div><dt>Period</dt><dd>17.049 d</dd></div>
+              <div><dt>Depth</dt><dd>2,932 ppm</dd></div>
+              <div><dt>MES</dt><dd>11.3</dd></div>
+              <div><dt>LEO-Vetter</dt><dd>0 of 17 tests failed</dd></div>
+            </dl>
+            <p class="fl-cap">In the real light curve these were brief brightenings. Flipped, they look like a transit that repeats every 17.05 days. It cannot be a planet: there is nothing to find in a flipped light curve.</p>
+          </div>
+
+          <div class="fl-panel" id="fl-p3" hidden>
+            <p class="fl-sub">Share of clean signals (signal-to-noise &ge; 9) expected to be false alarms, by strength</p>
+            <ul class="fa-bars" id="fa-bars">
+              <li data-k="0"><span class="fa-k">MES below 10</span><span class="fa-tr" aria-hidden="true"><i style="width:46%"></i></span><span class="fa-v">46%</span></li>
+              <li data-k="1"><span class="fa-k">MES 10 to 12</span><span class="fa-tr" aria-hidden="true"><i style="width:16%"></i></span><span class="fa-v">16%</span></li>
+              <li data-k="2"><span class="fa-k">MES above 12</span><span class="fa-tr" aria-hidden="true"><i style="width:2%"></i></span><span class="fa-v">2%</span></li>
+            </ul>
+            <p class="fa-key" aria-hidden="true"><span><i class="k-fa"></i>expected false alarms</span><span><i class="k-ok"></i>the rest</span></p>
+            <div class="table-wrap fa-tbl" tabindex="0" role="region" aria-label="Clean signals in the real data, and false alarms expected from the flipped data (scaled to 4,039,203 stars; found in the flipped sample in brackets)"><table class="tbl"><caption>Clean signals in the real data, and false alarms expected from the flipped data (scaled to 4,039,203 stars; found in the flipped sample in brackets)</caption>
+              <thead><tr><th>Band</th><th class="n">Real</th><th class="n">Expected false alarms</th></tr></thead>
+              <tbody>
+                <tr><td>Signal-to-noise &ge; 9</td><td class="n">726</td><td class="n">96 (19)</td></tr>
+                <tr><td>Signal-to-noise 7.5 to 9</td><td class="n">382</td><td class="n">314 (62)</td></tr>
+              </tbody></table></div>
+            <p class="fl-cap">So tiers A, B and N require MES of at least 10, and from the weak band only the 53 signals a classifier picks out (tier L1) are counted.</p>
+          </div>
+
+          <figcaption class="fig-foot"><span class="fig-src">Light curves: <a href="lightcurves.json">lightcurves.json</a> (from the project&rsquo;s <a href="https://github.com/eumemic/exoplanets/tree/da72261/video/public/data">video data</a>, CC BY 4.0). Rates and counts: <a href="https://github.com/eumemic/exoplanets/blob/da72261/README.md#full-sky-search-second-release-9-october-2026">README, &ldquo;False alarms, measured&rdquo;</a>; the false alarm: <a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/inverted_lightcurves_vetted.csv">inverted_lightcurves_vetted.csv</a>.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="The three known planets of L 98-59 in this stretch of Sector 2"><table class="tbl"><caption>The three known planets of L 98-59 in this stretch of Sector 2</caption>
+              <thead><tr><th>Planet</th><th class="n">Period (d)</th><th class="n">Transits shown</th><th class="n">Mean flux in transit, as observed (ppm)</th><th class="n">Flipped (ppm)</th></tr></thead>
+              <tbody id="fl-tbody"></tbody></table></div>
+            <p class="twin-note">The false alarm, TIC 37904598: period 17.0492 d, depth 2,932 ppm, duration 1.68 h, MES 11.34, four events at BTJD 1448.36, 2181.47, 2198.52 and 4039.83; no LEO-Vetter test failed.</p>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 WHAT SURVIVED -->
+  <section class="sec" id="survived" data-index="What survived" data-num="04" aria-labelledby="sv-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>What survived</p><span class="chip">Full-sky search &middot; 8&ndash;13 Oct 2026</span></div>
+      <h2 class="h2" id="sv-h">Seven and a half million repeating dips. Almost all of them are not planets.</h2>
+      <p class="lede">Most repeating dips are noise, spacecraft glitches, or two stars eclipsing each other, often a faint pair sharing a camera pixel with the target. TESS pixels are 21 arcseconds wide, so one pixel can hold several stars.</p>
+      <div class="sv-grid">
+        <figure class="fig frame funnel" aria-labelledby="fn-title">
+          <div class="fig-head">
+            <p class="fig-title" id="fn-title">The full-sky funnel</p>
+            <p class="fig-how"><b>How to read:</b> each bar is one stage of the search, on a logarithmic scale (each step of the grid is ten times more). Hover or focus a bar for what the stage checks.</p>
+          </div>
+          <ol class="fn-list" id="fn-list">
+            <li tabindex="0" data-tip="Every FGKM dwarf brighter than TESS magnitude 13.5 that the earlier searches had not covered, with TESS light curves from Sectors 1&ndash;104."><span class="fn-k">Stars searched</span><span class="fn-tr" aria-hidden="true"><i style="--w:96.1%"></i></span><span class="fn-v">4,039,203</span></li>
+            <li tabindex="0" data-tip="Repeating dips the period search reported, before any checks."><span class="fn-k">Repeating dips found</span><span class="fn-tr" aria-hidden="true"><i style="--w:100%"></i></span><span class="fn-v">7,459,491</span></li>
+            <li tabindex="0" data-tip="Signal-to-noise at least 9, at least three transits, and a duration and shape a planet could have."><span class="fn-k">Strong enough, 3+ transits</span><span class="fn-tr" aria-hidden="true"><i style="--w:84.2%"></i></span><span class="fn-v">609,021</span></li>
+            <li tabindex="0" data-tip="Not a known planet, TOI or reported signal, and passing all 17 LEO-Vetter tests."><span class="fn-k">Unknown, pass all 17 tests</span><span class="fn-tr" aria-hidden="true"><i style="--w:60.3%"></i></span><span class="fn-v">13,986</span></li>
+            <li tabindex="0" data-tip="MES at least 7.1, and depths consistent from sector to sector."><span class="fn-k">Consistent across sectors</span><span class="fn-tr" aria-hidden="true"><i style="--w:58.2%"></i></span><span class="fn-v">9,962</span></li>
+            <li tabindex="0" data-tip="The light dropped on the target itself, and no catalogued neighbour within 15 arcseconds is bright enough to fake the dip."><span class="fn-k">Clean in the pixels</span><span class="fn-tr" aria-hidden="true"><i style="--w:41.6%"></i></span><span class="fn-v">726</span></li>
+          </ol>
+          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://github.com/eumemic/exoplanets/blob/da72261/README.md#full-sky-search-8-october-2026">README, full-sky funnel</a>. The first row counts stars; the others count signals.</span></figcaption>
+        </figure>
+        <div class="sv-side">
+          <h3 class="h3s">Where the 533 come from</h3>
+          <ul class="comp" aria-label="The 533 counted candidates by tier">
+            <li><span class="ck"><svg aria-hidden="true"><use href="#sh-a"/></svg><b>A</b> several signals on one star</span><span class="cbar" aria-hidden="true"><i style="width:12.3%"></i></span><span class="cv">11 + 25</span></li>
+            <li><span class="ck"><svg aria-hidden="true"><use href="#sh-b"/></svg><b>B</b> one signal, clean field</span><span class="cbar" aria-hidden="true"><i style="width:100%"></i></span><span class="cv">257 + 35</span></li>
+            <li><span class="ck"><svg aria-hidden="true"><use href="#sh-n"/></svg><b>N</b> a neighbour within 15&Prime;, cleared statistically</span><span class="cbar" aria-hidden="true"><i style="width:52.1%"></i></span><span class="cv">152</span></li>
+            <li><span class="ck"><svg aria-hidden="true"><use href="#sh-l"/></svg><b>L1</b> weaker band, picked by a classifier</span><span class="cbar" aria-hidden="true"><i style="width:18.2%"></i></span><span class="cv">53</span></li>
+          </ul>
+          <p class="comp-note">Full-sky + earlier searches. Tiers A and B come from the clean signals after binary-star, grazing and literature checks. Tier N signals have a neighbour star close enough to fake the dip; a statistical test (TRICERATOPS, combined with where the light dropped) must still put the chance of a false positive below one half. Tier L1 comes from the noisy 7.5&ndash;9 band, picked by a classifier trained on flipped light curves. Not counted: tier C (grazing orbits, or a star whose Gaia measurements hint at a companion), likely binaries and likely false alarms.</p>
+          <h3 class="h3s">Why the official searches passed them over</h3>
+          <ul class="why">
+            <li><span class="wv">82%</span><span class="wk">are on stars seen only in wide-field images, which NASA&rsquo;s multi-sector searches do not cover</span><span class="meter" aria-hidden="true"><i style="width:82%"></i></span></li>
+            <li><span class="wv">51%</span><span class="wk">never reach 7.1, NASA&rsquo;s single-sector threshold, in any one sector</span><span class="meter" aria-hidden="true"><i style="width:51%"></i></span></li>
+            <li><span class="wv">47%</span><span class="wk">would already reach signal-to-noise 9 with data through September 2022; 93% with data through September 2025</span><span class="meter" aria-hidden="true"><i style="width:47%"></i><b style="width:46%"></b></span></li>
+          </ul>
+          <p class="comp-note">Of 438 full-sky candidates in tiers A, B and N checked on 12 October (<a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/findability.md">findability.md</a>). The data were not new; the signals were weak in any one look.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 WHO DID WHAT -->
+  <section class="sec alt" id="credit" data-index="Who did what" data-num="05" aria-labelledby="cr-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Who did what</p><span class="chip">From the git history and the README</span></div>
+      <h2 class="h2" id="cr-h">One researcher and an AI agent, six days, and outside fixes through pull requests.</h2>
+      <p class="lede">From the first commit on 7 October to the 533-candidate release on 13 October took less than six days. The project says it was &ldquo;built with Claude Code (Anthropic)&rdquo;.</p>
+      <div class="ex-who">
+        <div class="who-col bio-col">
+          <p class="who-k"><i aria-hidden="true"></i>Human</p>
+          <h3>eumemic &middot; founding member</h3>
+          <ul>
+            <li>Owns the project and its decisions: the method (after Pavel Rabtsevich&rsquo;s study), the star samples, the checks, and the rules for what counts as a candidate.</li>
+            <li>Ran the search of 4,039,203 stars on rented cloud computers, and the earlier searches of nearby K and M dwarfs, faint M dwarfs and the hosts of 6,430 TESS Objects of Interest (stars already known to have planets or planet candidates).</li>
+            <li>Measured the search&rsquo;s own failure rates: flipped light curves, injected fake transits, known planets found again blind.</li>
+            <li>Reviewed and merged the outside fixes, acknowledged them in the README, and re-ran the affected steps.</li>
+          </ul>
+        </div>
+        <div class="who-col dig-col">
+          <p class="who-k"><i aria-hidden="true"></i>Digital</p>
+          <h3>Claude Code &middot; Anthropic</h3>
+          <ul>
+            <li>48 of eumemic&rsquo;s 50 commits carry a &ldquo;Co-Authored-By: Claude Opus 5.5&rdquo; line; the two without are the merges of outside fixes.</li>
+            <li>That covers the pipeline code, the cloud search, the vetting, the validation notes and the explainer film (whose narration is a synthetic ElevenLabs voice, with music made in Suno).</li>
+            <li>Inside the pipeline, a machine-learning classifier (gradient-boosted trees, trained on flipped light curves) picks tier L1 out of the noisy band.</li>
+          </ul>
+          <p class="who-note">Model names as recorded in the commit trailers; Foundation0 has not verified them independently.</p>
+        </div>
+      </div>
+
+      <h3 class="h3s ex-aska-h">What Aska Digital contributed</h3>
+      <p class="ex-aska-lede">Four fixes, each merged by eumemic on 13 October 2026, plus the website and six open pull requests. Every file in the project&rsquo;s <span class="mono">tests/</span> folder came from these fixes.</p>
+      <ol class="prs">
+        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/4">PR #4</a><span class="badge v">Merged</span></div><p class="pr-t">The false-alarm classifier was tested on stars it had seen in training.</p><p>Its check let signals from the same star sit on both sides of the split between training and testing, which flatters the score. Grouped by star, 8 tier L1 candidates fell below the cut and 11 others joined. <b>This produced today&rsquo;s count of 533.</b></p></li>
+        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/6">PR #6</a><span class="badge v">Merged</span></div><p class="pr-t">Light curves with an empty error column were silently thrown away.</p><p>In the earlier searches that removed 24&ndash;82% of one data product&rsquo;s light curves in Sectors 94&ndash;97 and 101&ndash;104. The project estimates about 900,000 were missing from the full-sky search; a re-search is planned.</p></li>
+        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/12">PR #12</a><span class="badge v">Merged</span></div><p class="pr-t">Re-delivered data files were not indexed.</p><p>NASA&rsquo;s archive re-issued Sectors 74&ndash;79 of the same product as version 2; the index looked only for version 1, so it held none of those light curves.</p></li>
+        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/13">PR #13</a><span class="badge v">Merged</span></div><p class="pr-t">Fast-moving stars were never matched to the Gaia catalogue.</p><p>Matching without correcting for motion missed stars moving faster than about 0.19 arcseconds a year, so a binary-star check could never fire for them. Applying it would move 3 counted candidates to tier C; the fix leaves that decision to the authors.</p></li>
+      </ol>
+      <p class="ex-open">Open, as of 13 October: <a href="https://github.com/eumemic/exoplanets/pull/8">#8</a> the website, live at <a href="https://ahrazzle.github.io/exoplanets/">ahrazzle.github.io/exoplanets</a>; <a href="https://github.com/eumemic/exoplanets/pull/7">#7</a> independent re-checks of the 29 signals the classifier fix affected, on 210 public light curves; <a href="https://github.com/eumemic/exoplanets/pull/14">#14</a>&ndash;<a href="https://github.com/eumemic/exoplanets/pull/17">#17</a> prediction tidy-up, a data dictionary, automated tests and README images. 16 of Aska&rsquo;s 19 commits carry a Claude Opus 5.5 co-author line; the commits behind #4, #6 and #7 record no AI tool.</p>
+    </div>
+  </section>
+
+  <!-- 06 HOW SURE -->
+  <section class="sec" id="status" data-index="How sure" data-num="06" aria-labelledby="hs-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>How sure</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Candidates</span><span class="badge n">Not confirmed</span><span class="badge n">Not peer reviewed</span></div></div>
+      <h2 class="h2" id="hs-h">Candidates, checked many ways, and testable by anyone with a telescope.</h2>
+      <p class="lede">None of the 533 is a confirmed planet. Confirming one needs other telescopes: ground-based photometry, sharp imaging to rule out a close neighbour, or measurements of the star&rsquo;s wobble. The authors expect false positives of tens of percent in tier B.</p>
+      <div class="table-wrap ex-status" tabindex="0" role="region" aria-label="How the search checks itself (all by the same team; not independent replication)">
+        <table class="tbl">
+          <caption>How the search checks itself (all by the same team; not independent replication)</caption>
+          <thead><tr><th>Check</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Blind recovery of known signals</td><td>Both of Rabtsevich&rsquo;s signals on TIC 4206066; the known planets of TOI-700 and L 98-59</td></tr>
+            <tr><td>Known candidates in its own light curves</td><td>6,258 of 6,321 TESS Objects of Interest (99.0%) detected at their catalogue periods</td></tr>
+            <tr><td>Fake transits injected at signal-to-noise 10</td><td>300 into earlier targets and 700 into full-sky targets; recovery is measured, and red noise lowers it</td></tr>
+            <tr><td>False alarms</td><td>Flipped light curves of 798,769 stars; rates by strength (section 03)</td></tr>
+            <tr><td>Which star dimmed</td><td>Per-sector centroid test: never rejects the target for 565 known planets (at p &lt; 0.001), catches 73% of 175 signals known to come from neighbours</td></tr>
+            <tr><td>Binary stars and close companions</td><td>Gaia DR3, binary catalogues, and TRICERATOPS with Gaia limits; a 1&ndash;2&Prime; blind spot remains that only sharp imaging can close</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ex-cols ex-limits">
+        <aside class="callout caveat"><p class="c-k">The count will change</p><p>It has changed with almost every update (543, 546, 528, 530, 533 in four days). Still pending: about 900,000 light curves missing from the full-sky search, a timing error in archive files for Sectors 99&ndash;104, and three candidates that the Gaia fix (PR #13) could move to tier C. Several signals were also posted independently by other researchers within days.</p></aside>
+        <aside class="callout note"><p class="c-k">The test that will settle it</p><p>Before the data exist, the project committed each candidate&rsquo;s future transit times to the public repository: 566 registered candidates and more than 36,000 predicted transits through June 2027; the median uncertainty of each candidate&rsquo;s next transit is 12 minutes. A real planet must dim its star on schedule, by the predicted amount. Anyone can check.</p></aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 SOURCES -->
+  <section class="sec alt" id="sources" data-index="Sources" data-num="07" aria-labelledby="src-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>Sources</p><span class="chip">Checked 13&ndash;14 Oct 2026</span></div>
+      <h2 class="h2" id="src-h">Every table, script and prediction is public.</h2>
+      <p class="lede">Code under the MIT licence; results, tables and figures under CC BY 4.0. The numbers on this page are from the repository at commit da72261, or computed here from its data.</p>
+      <div class="il-src ex-src">
+        <div>
+          <p class="src-h">The project</p>
+          <ul class="src-list">
+            <li><a href="https://github.com/eumemic/exoplanets">Repository (eumemic)</a></li>
+            <li><a href="https://ahrazzle.github.io/exoplanets/">Website (by Aska Digital)</a></li>
+            <li><a href="https://ahrazzle.github.io/exoplanets/candidates.html">Candidate explorer</a></li>
+            <li><a href="https://ahrazzle.github.io/exoplanets/transits.html">Transit planner</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/tree/da72261/video">Explainer film source</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="src-h">Tables and predictions</p>
+          <ul class="src-list">
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/results_public/candidates_allsky.csv">candidates_allsky.csv</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/results_public/tiers_earlier_candidates.csv">tiers_earlier_candidates.csv</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/candidates/ephemerides.csv">ephemerides.csv</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/candidates/predictions.csv">predictions.csv</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/results_public/novelty_check.md">Novelty check</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="src-h">Validation notes</p>
+          <ul class="src-list">
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/findability.md">Why earlier searches missed them</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/false_alarm_classifier.md">False-alarm classifier</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/centroid_sectors.md">Centroids in every sector</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/qlp_missing_errors.md">Missing light curves (PR #6)</a></li>
+            <li><a href="https://github.com/eumemic/exoplanets/blob/da72261/validation/gaia_proper_motion.md">Gaia matching (PR #13)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="src-h">Methods and prior work</p>
+          <ul class="src-list">
+            <li><a href="https://doi.org/10.5281/zenodo.22967456">Rabtsevich 2026, TIC 4206066</a></li>
+            <li><a href="https://github.com/mkunimoto/LEO-vetter">LEO-Vetter</a></li>
+            <li><a href="https://github.com/stevengiacalone/triceratops">TRICERATOPS</a></li>
+            <li><a href="https://tess.mit.edu/">TESS mission</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="chart-foot ex-lic">Data on this page: <a href="candidates.json">candidates.json</a> (533 rows) and <a href="lightcurves.json">lightcurves.json</a> (three light curves and Foundation0&rsquo;s box search), both derived from the repository at da72261 and released under CC BY 4.0 with credit to eumemic. The project&rsquo;s own website, built by Aska Digital, lives on Aska&rsquo;s fork until the open pull request is merged.</p>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../incentre-lattice/"><span>&larr; Previous</span>Incentre lattice: from a doodle to the densest packing</a>
+        <a class="next" href="../integer-multiplication/"><span>Next &rarr;</span>Integer multiplication: the crowd race for &kappa;</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 14 Oct 2026 against eumemic/exoplanets at da72261</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

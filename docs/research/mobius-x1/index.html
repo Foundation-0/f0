@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mobius-x1 · Foundation0</title>
+<meta name="description" content="Swapnil Jain's claimed, AI-refereed proof that the subset-parity (Möbius) transform over GF(2) needs asymptotically fewer XOR gates than Frank Yates' 1937 recipe, explained from first principles, with the full-network check Aska contributed. Not peer reviewed.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mobius-x1: beating a 1937 recipe, eventually · Foundation0">
+<meta property="og:description" content="A claimed way to compute Pascal's triangle mod 2 with fewer XOR gates than Yates' 1937 butterfly. The win starts only when k has about 44 billion digits. Not peer reviewed; AI-refereed only.">
+<meta property="og:image" content="../../assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="research-mobius-x1">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="page-hero has-fig mx-hero" style="--acc:var(--acc-mobius)">
+    <div class="wrap">
+      <div class="ph-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">mobius-x1</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Circuits &middot; Swapnil Jain&rsquo;s repository &middot; Aska contributed</p>
+        <h1 class="h1">Beating a 1937 recipe, eventually</h1>
+        <p class="dek">An AI-assisted proof claims that a basic operation on bits, the one that turns a logic function&rsquo;s table of answers into its formula, can be done with fewer XOR gates than Frank Yates&rsquo; 89-year-old method. The catch: the win appears only at sizes no computer will ever see.</p>
+        <div class="meta-row">
+          <span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Not peer reviewed &middot; AI-refereed only</span>
+          <span class="badge n">Main theorem not in Lean</span>
+          <span class="badge n">Asymptotic only</span>
+          <a class="chip" href="https://github.com/Swapnil-jain/mobius-x1/commit/00ffede3d650d434ebba869cafab4d334edc6d4d">repo at 00ffede &middot; checked 14 Oct 2026</a>
+        </div>
+        <p class="mx-credit"><b>Swapnil Jain&rsquo;s repository and claim.</b> Aska Digital contributed one piece: our agentic team, run by founding member Ahraz Arifuddin (GitHub <a href="https://github.com/ahrazzle">ahrazzle</a>), wrote and ran the full-network check of the &ldquo;E1&rdquo; gadget that Theorem 2 depends on. It ran every invocation at sizes h&nbsp;=&nbsp;8, 9 and 10 and a symmetry-reduced run at h&nbsp;=&nbsp;11, found zero failures, and showed that two deliberately broken versions fail as they should. Swapnil Jain merged it as <a href="https://github.com/Swapnil-jain/mobius-x1/pull/1">pull request #1</a> on 11&nbsp;October&nbsp;2026.</p>
+        <p class="mx-links"><a href="https://github.com/Swapnil-jain/mobius-x1">Repository</a><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/PROOF.md">Written proof</a><a href="https://github.com/Swapnil-jain/mobius-x1/pull/1">Aska&rsquo;s PR #1</a><a href="../../ledger/#mobius-x1-gf2-mobius-below-nlogn">On the Ledger</a></p>
+      </div>
+
+      <figure class="ph-fig fig frame mx-pascal" aria-labelledby="px-t">
+        <div class="fig-head">
+          <p class="fig-title" id="px-t">Pascal&rsquo;s triangle, odd entries lit</p>
+          <p class="fig-how"><b>How to read:</b> row n lists the number of ways to choose r things from n. A lit cell is odd. Point at a cell, or focus the figure and use the arrow keys.</p>
+        </div>
+        <div class="fig-stage px-stage" style="--ratio:8/7">
+          <canvas id="px-cv" tabindex="0" role="img" aria-label="Pascal's triangle with 64 rows, odd entries lit. The lit cells form the Sierpinski triangle: three half-size copies of the whole, around an empty middle."></canvas>
+          <span class="corner tl" aria-hidden="true">Lucas, 1878</span>
+          <span class="corner tr fig-out" id="px-out" aria-hidden="true">64 rows</span>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Triangle controls">
+          <span class="ctrl-label">Rows //</span>
+          <div class="seg" id="px-rows" role="group" aria-label="Number of rows">
+            <button type="button" data-rows="8" aria-pressed="false">8</button><button type="button" data-rows="16" aria-pressed="false">16</button><button type="button" data-rows="32" aria-pressed="false">32</button><button type="button" data-rows="64" aria-pressed="true">64</button><button type="button" data-rows="128" aria-pressed="false">128</button>
+          </div>
+          <button class="tbtn play" type="button" id="px-play" aria-pressed="false" aria-label="Grow the triangle row by row"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="i-play">Grow</span><span class="i-pause">Pause</span></button>
+        </div>
+        <figcaption class="fig-foot"><span id="px-cap" class="px-cap" aria-live="polite">Each doubling of the rows repeats the picture three times around a hole: the Sierpinski triangle.</span><span class="fig-src">Computed in your browser. Rule: C(n, r) is odd exactly when every 1 in r&rsquo;s binary digits is also a 1 in n&rsquo;s (Lucas, 1878; cited in the repository&rsquo;s <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/NOTICE">NOTICE</a>).</span></figcaption>
+        <details class="twin"><summary>Show rows 0&ndash;15 as digits</summary><div class="table-wrap"><pre class="px-twin" id="px-twin">row  0: 1
+row  1: 1 1
+row  2: 1 0 1
+row  3: 1 1 1 1
+row  4: 1 0 0 0 1
+row  5: 1 1 0 0 1 1
+row  6: 1 0 1 0 1 0 1
+row  7: 1 1 1 1 1 1 1 1
+row  8: 1 0 0 0 0 0 0 0 1
+row  9: 1 1 0 0 0 0 0 0 1 1
+row 10: 1 0 1 0 0 0 0 0 1 0 1
+row 11: 1 1 1 1 0 0 0 0 1 1 1 1
+row 12: 1 0 0 0 1 0 0 0 1 0 0 0 1
+row 13: 1 1 0 0 1 1 0 0 1 1 0 0 1 1
+row 14: 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+row 15: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</pre></div><p class="twin-note">1 = odd, 0 = even. Row 15 is all odd because 15 is 1111 in binary: every r below 16 fits inside it.</p></details>
+      </figure>
+
+      <ul class="statrow mx-stats" aria-label="The project in numbers">
+        <li><div class="v">4.37 &times; 10<sup>&minus;11</sup></div><div class="k">how far below 1 the claimed exponent drops: N&middot;(log N)<sup>&theta;&prime;</sup> with &theta;&prime; = 1 &minus; 4.3713&middot;10<sup>&minus;11</sup> (Theorem 2)</div><span class="src"><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md">README.md</a> &middot; Lean bound in Prepass.lean</span></li>
+        <li><div class="v">0 / 3,456,000</div><div class="k">failed checks in Aska&rsquo;s full-network run at h = 10 (all 43,200 invocations)</div><span class="src"><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h10_bad0.txt">run_e1_rep_h10_bad0.txt</a></span></li>
+        <li><div class="v">92</div><div class="k">supporting theorems checked by Lean and axiom-audited; the main theorem is not one of them</div><span class="src"><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/lean/axioms.out">lean/axioms.out</a></span></li>
+        <li><div class="v">~4.4 &times; 10<sup>10</sup></div><div class="k">digits the number k needs before the new circuit beats Yates (Theorem 2, constant ratio 84)</div><span class="src"><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md">README.md</a> crossover table</span></li>
+        <li><div class="v">0</div><div class="k">human referees so far; AI referees read it (2 for Theorem 1, 1 each for Theorems 1&prime; and 2)</div><span class="src"><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/RESULT.md">docs/RESULT.md</a></span></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 00 THE PROBLEM -->
+  <section class="sec" id="problem" data-index="The problem" data-num="00" aria-labelledby="problem-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>The problem</p><span class="chip">First principles</span></div>
+      <h2 class="h2" id="problem-h">One bit for every combination.</h2>
+      <p class="lede">Take k pizza toppings. There are 2<sup>k</sup> ways to choose some of them. Give each choice one bit, 0 or 1. Now ask, for every choice: do the bits on it and on all of its smaller choices add up to an odd number or an even one?</p>
+      <div class="mx-cols">
+        <div class="prose">
+          <p>With three toppings a, b and c there are N&nbsp;=&nbsp;8 choices: none, a, b, ab, c, ac, bc, abc. The answer for &ldquo;ab&rdquo; looks at the bits of ab, a, b and none, adds them, and keeps only odd or even. The list of all N answers is called the <dfn class="term">M&ouml;bius transform over GF(2)</dfn>, also the zeta, subset-parity or Sierpinski transform.</p>
+          <aside class="callout def"><p class="c-k">Two words</p><p><dfn>GF(2)</dfn>: arithmetic with only 0 and 1, where 1&nbsp;+&nbsp;1&nbsp;=&nbsp;0. Adding is then the <dfn>XOR gate</dfn>: two bits in, and out comes 1 if exactly one of them is 1. A circuit&rsquo;s <dfn>size</dfn> is how many XOR gates it uses.</p></aside>
+          <p>Why care? This transform turns a logic function&rsquo;s table of answers into its formula (its &ldquo;algebraic normal form&rdquo;), which is how cryptanalysts read a cipher&rsquo;s building blocks. It sits inside Reed&ndash;Muller error-correcting codes and inside fast algorithms that sum over subsets. And it is one of the simplest places to ask a deep question: can letting things cancel ever save work?</p>
+        </div>
+        <div class="prose">
+          <p>Draw a grid with one row per output and one column per input, and put a dot where the column&rsquo;s toppings are all inside the row&rsquo;s. You get Pascal&rsquo;s triangle with its odd entries lit: the picture at the top of this page. That is Lucas&rsquo;s theorem of 1878 in action.</p>
+          <p>The obvious method adds up every sub-choice separately. That costs 3<sup>k</sup>&nbsp;&minus;&nbsp;2<sup>k</sup> XORs. In 1937 the statistician Frank Yates found the recipe everyone still uses: handle one topping at a time. For each choice that has topping t, add in the value of its twin without t. That is k passes of N/2 XORs each, <b>&frac12;&nbsp;N&nbsp;log<sub>2</sub>&nbsp;N</b> in all, drawn below as a &ldquo;butterfly&rdquo;.</p>
+          <p class="mx-note">Below: pick k, change the input bits, and step through Yates&rsquo; passes. The outputs always match the grid.</p>
+        </div>
+      </div>
+
+      <figure class="fig frame wide mx-a" aria-labelledby="fa-t">
+        <div class="fig-head">
+          <p class="fig-title" id="fa-t">Pascal&rsquo;s triangle mod 2 is the transform; Yates&rsquo; butterfly computes it</p>
+          <p class="fig-how"><b>How to read:</b> left, the top strip is the input bits and the right strip the outputs; each grid row adds up (XOR) the inputs in its lit cells, and bright cells are the ones that count. Right, the same outputs built one topping per pass; every <span class="xr" role="img" aria-label="XOR"></span> is one XOR gate. Filled dot = 1, hollow = 0.</p>
+        </div>
+        <div class="mx-a-grid">
+          <div class="fig-stage fa-mat-stage" style="--ratio:1/1">
+            <canvas id="fa-mat" tabindex="0" role="img" aria-label="The transform as a grid. Use the up and down arrow keys to read one output row at a time."></canvas>
+            <span class="corner tl" id="fa-mat-lab" aria-hidden="true">Grid &middot; N = 8</span>
+          </div>
+          <div class="fig-stage fa-bf-stage" style="--ratio:1/1">
+            <svg id="fa-bf" role="img" aria-labelledby="fa-bf-desc"><desc id="fa-bf-desc">Yates' butterfly for the current inputs.</desc></svg>
+            <span class="corner bl fig-out" id="fa-pass" aria-hidden="true">pass 3 of 3</span>
+          </div>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Butterfly controls">
+          <span class="ctrl-label">k //</span>
+          <div class="seg" id="fa-k" role="group" aria-label="Number of toppings k">
+            <button type="button" data-k="1" aria-pressed="false">1</button><button type="button" data-k="2" aria-pressed="false">2</button><button type="button" data-k="3" aria-pressed="true">3</button><button type="button" data-k="4" aria-pressed="false">4</button><button type="button" data-k="5" aria-pressed="false">5</button><button type="button" data-k="6" aria-pressed="false">6</button>
+          </div>
+          <button class="tbtn" type="button" id="fa-rand">New inputs</button>
+          <span class="mx-gap" aria-hidden="true"></span>
+          <button class="tbtn" type="button" id="fa-back" aria-label="Previous pass">&#9664; Pass</button>
+          <button class="tbtn play" type="button" id="fa-play" aria-pressed="false" aria-label="Play the passes from the start"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="i-play">Play</span><span class="i-pause">Pause</span></button>
+          <button class="tbtn" type="button" id="fa-fwd" aria-label="Next pass">Pass &#9654;</button>
+        </div>
+        <div class="fa-bits-row" id="fa-bits-row">
+          <span class="ctrl-label">Inputs //</span>
+          <div class="fa-bits" id="fa-bits" role="group" aria-label="Input bits: press to flip"></div>
+        </div>
+        <div class="fa-count" id="fa-count" aria-live="polite">
+          <div class="fa-bar"><span class="fa-bk">Yates&rsquo; butterfly</span><span class="fa-track"><i class="fa-fill y" style="width:63%"></i></span><span class="fa-bv">12 XORs</span></div>
+          <div class="fa-bar"><span class="fa-bk">Every sub-choice separately</span><span class="fa-track"><i class="fa-fill n" style="width:100%"></i></span><span class="fa-bv">19 XORs</span></div>
+        </div>
+        <figcaption class="fig-foot"><span id="fa-cap" aria-live="polite">k = 3, N = 8: all 3 passes done, 12 XOR gates. The outputs match the grid.</span><span class="fig-src">Computed here. Counts k&middot;2<sup>k&minus;1</sup> and 3<sup>k</sup> &minus; 2<sup>k</sup> as in <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/CLOSED_IDEAS.md">docs/CLOSED_IDEAS.md</a> (L(M<sub>3</sub>) = 12; 192 at k = 6).</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap"><table class="tbl"><caption>XOR gates for the transform on N = 2<sup>k</sup> inputs</caption>
+            <thead><tr><th scope="col" class="n">k</th><th scope="col" class="n">N inputs</th><th scope="col" class="n">Yates&rsquo; butterfly k&middot;2<sup>k&minus;1</sup></th><th scope="col" class="n">Every sub-choice separately 3<sup>k</sup> &minus; 2<sup>k</sup></th><th scope="col" class="n">Lit cells in the grid 3<sup>k</sup></th></tr></thead>
+            <tbody id="fa-tbody">
+              <tr><td class="n">1</td><td class="n">2</td><td class="n">1</td><td class="n">1</td><td class="n">3</td></tr>
+              <tr><td class="n">2</td><td class="n">4</td><td class="n">4</td><td class="n">5</td><td class="n">9</td></tr>
+              <tr><td class="n">3</td><td class="n">8</td><td class="n">12</td><td class="n">19</td><td class="n">27</td></tr>
+              <tr><td class="n">4</td><td class="n">16</td><td class="n">32</td><td class="n">65</td><td class="n">81</td></tr>
+              <tr><td class="n">5</td><td class="n">32</td><td class="n">80</td><td class="n">211</td><td class="n">243</td></tr>
+              <tr><td class="n">6</td><td class="n">64</td><td class="n">192</td><td class="n">665</td><td class="n">729</td></tr>
+              <tr><td class="n">7</td><td class="n">128</td><td class="n">448</td><td class="n">2,059</td><td class="n">2,187</td></tr>
+              <tr><td class="n">8</td><td class="n">256</td><td class="n">1,024</td><td class="n">6,305</td><td class="n">6,561</td></tr>
+              <tr><td class="n">9</td><td class="n">512</td><td class="n">2,304</td><td class="n">19,171</td><td class="n">19,683</td></tr>
+              <tr><td class="n">10</td><td class="n">1,024</td><td class="n">5,120</td><td class="n">58,025</td><td class="n">59,049</td></tr>
+              <tr><td class="n">11</td><td class="n">2,048</td><td class="n">11,264</td><td class="n">175,099</td><td class="n">177,147</td></tr>
+              <tr><td class="n">12</td><td class="n">4,096</td><td class="n">24,576</td><td class="n">527,345</td><td class="n">531,441</td></tr>
+            </tbody></table></div>
+          <p class="twin-note">The separate method needs one XOR fewer than the number of lit cells in each row, so its total is 3<sup>k</sup> &minus; 2<sup>k</sup>. Yates&rsquo; total grows like &frac12;&nbsp;N&nbsp;log<sub>2</sub>&nbsp;N; the separate method like N<sup>1.585</sup>.</p>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 01 THE OPEN QUESTION -->
+  <section class="sec alt" id="question" data-index="The open question" data-num="01" aria-labelledby="question-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The open question</p><span class="chip">89 years of Yates</span></div>
+      <h2 class="h2" id="question-h">Without cancellation, nobody can do better. With it, nobody knew.</h2>
+      <p class="lede">A circuit &ldquo;cancels&rdquo; when the same input reaches a gate along two paths, so it adds in twice and disappears, because x&nbsp;<span class="xr" role="img" aria-label="XOR"></span>&nbsp;x&nbsp;=&nbsp;0. Yates&rsquo; butterfly never does this. Is that a weakness, or the best there is?</p>
+      <div class="mx-cols">
+        <div class="prose">
+          <p>In 2012 and 2013 Joan Boyar and Magnus Gausdal Find proved that if a circuit is not allowed to cancel, &frac12;&nbsp;N&nbsp;log<sub>2</sub>&nbsp;N gates is exactly the minimum for this transform: Yates cannot be beaten on those terms. They then asked to what extent cancellation can help. For the smallest sizes they checked by computer that it does not help at all.</p>
+          <p>In 2024 Igor Sergeev still listed &ldquo;can it be done in fewer than n&middot;2<sup>n&minus;1</sup> gates?&rdquo; as an open problem. The best proven lower bound is only about 3N, so the true answer could sit anywhere between 3N and Yates&rsquo; &frac12;&nbsp;N&nbsp;log<sub>2</sub>&nbsp;N.</p>
+        </div>
+        <ol class="mx-tl" aria-label="Timeline">
+          <li><span class="d">1878</span><p>&Eacute;douard Lucas: a binomial coefficient is odd exactly when its binary digits nest. Both of the claim&rsquo;s parity tricks use it.</p></li>
+          <li><span class="d">1937</span><p>Frank Yates&rsquo; recipe: k passes of N/2 XORs.</p></li>
+          <li><span class="d">2012&ndash;13</span><p>Boyar and Find: optimal without cancellation; does cancellation help? (<a href="https://arxiv.org/abs/1207.5321">arXiv 1207.5321</a>, <a href="https://arxiv.org/abs/1305.3041">1305.3041</a>)</p></li>
+          <li><span class="d">2024</span><p>Sergeev lists the question as open; lower bound (3&nbsp;&minus;&nbsp;o(1))&middot;N (<a href="https://igorssergeev.github.io/papers/lowerlin2024eng.pdf">slides</a>).</p></li>
+          <li><span class="d">25 Sep 2026</span><p>A preprint produced by an internal OpenAI model beats n&nbsp;log&nbsp;n for the exact complex Fourier transform (<a href="../machine-mathematics/#f-130">openai/math problem 130</a>).</p></li>
+          <li class="hl"><span class="d">11 Oct 2026</span><p>Swapnil Jain publishes mobius-x1, a claimed yes for bits. Aska&rsquo;s full-network check is merged the same day.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 GARBAGE THAT ERASES ITSELF -->
+  <section class="sec" id="gadget" data-index="Garbage that erases itself" data-num="02" aria-labelledby="gadget-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Garbage that erases itself</p><span class="chip">The clever part</span></div>
+      <h2 class="h2" id="gadget-h">Add it twice and it is gone.</h2>
+      <p class="lede">The new circuit borrows helper wires that already hold leftover values, lets that junk flow into the answer, then sends the same junk in a second time so that it cancels. What remains is exactly the signal, and every helper wire ends where it started.</p>
+      <div class="split">
+        <div class="prose">
+          <p>The figure runs the claim&rsquo;s eight-row &ldquo;gadget&rdquo; on single bits. Four wires: <b>x</b> is the value to deliver, <b>y</b> the place to deliver it, and <b>A</b> and <b>c</b> are helpers holding unknown junk a<sub>0</sub> and c<sub>0</sub>. Each row adds one wire into another, if its switch is on.</p>
+          <p>Rows 0 and 1 pour junk into y. Rows 2 and 3 load x into the helpers. Rows 4 and 5 pour the helpers into y again: the junk arrives a second time and vanishes, and x arrives along each route that is switched on. Rows 6 and 7 take x back out of the helpers.</p>
+          <p>So the whole trick rests on one count. If x reaches y along an <b>odd</b> number of routes, y gains x. If the count is <b>even</b>, x cancels too and nothing is delivered. Switch both routes on to watch the gadget fail.</p>
+          <aside class="callout note"><p class="c-k">From bits to the real thing</p><p>In the real network each route is a bundle of shared &ldquo;centre&rdquo; wires, and the switches R, G, J and V are matrices. The condition becomes <b>RG + JV = I</b> mod 2: every label must reach itself an odd number of times and every other label an even number of times. Three of these gadgets in a row make the old XOR-swap trick: (X,&nbsp;Y) &rarr; (X,&nbsp;X+Y) &rarr; (Y,&nbsp;X+Y) &rarr; (Y,&nbsp;X).</p></aside>
+        </div>
+        <figure class="fig frame sticky mx-b1" aria-labelledby="fb-t">
+          <div class="fig-head">
+            <p class="fig-title" id="fb-t">The eight-row gadget, on bits</p>
+            <p class="fig-how"><b>How to read:</b> time runs left to right; each column is one row of the schedule, adding the dotted wire into the <span class="xr" role="img" aria-label="XOR"></span> wire. Below, the terms each wire holds now. A struck-out term arrived twice and cancelled.</p>
+          </div>
+          <div class="fig-stage fb-stage" style="--ratio:16/9">
+            <svg id="fb-svg" role="img" aria-labelledby="fb-svg-d"><desc id="fb-svg-d">Four wires x, y, A and c, with eight gates in time order.</desc></svg>
+          </div>
+          <div class="fb-terms" id="fb-terms" aria-hidden="true"></div>
+          <div class="fig-ctrl" role="group" aria-label="Gadget controls">
+            <span class="ctrl-label">Routes //</span>
+            <button class="tbtn fb-sw" type="button" id="fb-rg" aria-pressed="true">Centre R&middot;G</button>
+            <button class="tbtn fb-sw" type="button" id="fb-jv" aria-pressed="false">Side J&middot;V</button>
+            <span class="mx-gap" aria-hidden="true"></span>
+            <button class="tbtn" type="button" id="fb-back" aria-label="Previous row">&#9664;</button>
+            <button class="tbtn play" type="button" id="fb-play" aria-pressed="false" aria-label="Play the eight rows from the start"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="i-play">Play</span><span class="i-pause">Pause</span></button>
+            <button class="tbtn" type="button" id="fb-fwd" aria-label="Next row">&#9654;</button>
+          </div>
+          <p class="fb-verdict" id="fb-verdict" aria-live="polite"><b>RG + JV = 1 (odd).</b> y ends as y<sub>0</sub> + x; both helpers are restored.</p>
+          <figcaption class="fig-foot"><span class="fig-src">Schedule from the repository&rsquo;s checker <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_e1_rep.c">x1_e1_rep.c</a> (rows 0&ndash;7) and <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/PROOF.md">PROOF.md</a> Lemma 2.1&prime;.</span></figcaption>
+          <details class="twin"><summary>Show the eight rows as text</summary><ol class="fb-log" id="fb-log"><li>Row 0: y += J&middot;A</li><li>Row 1: y += R&middot;c</li><li>Row 2: A += V&middot;x</li><li>Row 3: c += G&middot;x</li><li>Row 4: y += R&middot;c</li><li>Row 5: y += J&middot;A</li><li>Row 6: c += G&middot;x</li><li>Row 7: A += V&middot;x</li></ol></details>
+        </figure>
+      </div>
+
+      <div class="split rev mx-b2-split">
+        <div class="prose">
+          <h3>Choosing the centre: Lucas again</h3>
+          <p>In the strongest version (Theorem 2, the &ldquo;E1&rdquo; gadget) every label is a set of 7 points out of h, and the shared centre wires are all the 3-point sets. Two labels S and T that overlap in n points share every 3-point set inside the overlap: C(n,&nbsp;3) wires. The gadget needs that count to be odd when S&nbsp;=&nbsp;T, so a label&rsquo;s own data survives, and even for unrelated labels, so their data cancels.</p>
+          <p>C(n,&nbsp;3) is odd only at n&nbsp;=&nbsp;3 and n&nbsp;=&nbsp;7. That is Lucas&rsquo;s rule from the triangle above: 3 is 011 in binary, and only 3 (011) and 7 (111) contain it. Overlaps that are a multiple of 3 are what the proof calls <dfn class="term">neighbours</dfn>; there an odd count is allowed but must be patched by a side wire (the J route). With this centre only overlaps of exactly 3 need one, and fewer side wires mean a better exponent.</p>
+          <p>Swap in 2-point sets as the centre and an overlap of 2 gives C(2,&nbsp;2)&nbsp;=&nbsp;1, odd, between unrelated labels: junk leaks into the answer. Aska&rsquo;s check ran that broken version on purpose, and it failed in 277,200 places.</p>
+        </div>
+        <figure class="fig frame sticky mx-b2" aria-labelledby="fr-t">
+          <div class="fig-head">
+            <p class="fig-title" id="fr-t">Two labels on a ring of 12 points</p>
+            <p class="fig-how"><b>How to read:</b> outlined points are label S (fixed); filled points are label T. Turn T, or press points to move them. The panel counts the centre wires S and T share, and whether that count is allowed.</p>
+          </div>
+          <div class="fr-body">
+            <div class="fig-stage fr-stage" style="--ratio:1/1"><svg id="fr-svg" viewBox="-120 -120 240 240" role="group" aria-label="Ring of 12 points. Each point is a button that adds it to or removes it from label T."></svg></div>
+            <div class="fr-read" id="fr-read" aria-live="polite"></div>
+          </div>
+          <ul class="vlegend fr-leg" aria-label="Legend">
+            <li><svg viewBox="-9 -9 18 18" aria-hidden="true"><circle r="6.5" fill="none" style="stroke:var(--ink)" stroke-width="2"/></svg><span><b>S</b> &middot; fixed label, 7 points</span></li>
+            <li><svg viewBox="-9 -9 18 18" aria-hidden="true"><circle r="5" style="fill:var(--mk)"/></svg><span><b>T</b> &middot; movable label, 7 points</span></li>
+          </ul>
+          <div class="fig-ctrl" role="group" aria-label="Ring controls">
+            <span class="ctrl-label">T //</span>
+            <button class="tbtn" type="button" id="fr-ccw" aria-label="Turn T one point anticlockwise">&#8634; Turn</button>
+            <button class="tbtn" type="button" id="fr-cw" aria-label="Turn T one point clockwise">Turn &#8635;</button>
+            <span class="ctrl-label">Centre //</span>
+            <div class="seg" id="fr-centre" role="group" aria-label="Centre wires"><button type="button" data-c="3" aria-pressed="true">3-point sets</button><button type="button" data-c="2" aria-pressed="false">2-point sets</button></div>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Rules from PROOF.md Lemma 10.1, proved in Lean for every finite set (<a href="https://github.com/Swapnil-jain/mobius-x1/tree/main/lean">LucasE1.lean</a>); control from <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h12_bad2.txt">run_e1_rep_h12_bad2.txt</a>.</span></figcaption>
+          <details class="twin"><summary>Show every overlap</summary>
+            <div class="table-wrap"><table class="tbl"><caption>Shared centre wires for two 7-point labels overlapping in n points</caption>
+              <thead><tr><th scope="col" class="n">n</th><th scope="col">Kind of pair</th><th scope="col" class="n">3-point centre C(n,3)</th><th scope="col">Verdict</th><th scope="col" class="n">2-point centre C(n,2)</th><th scope="col">Verdict</th></tr></thead>
+              <tbody>
+                <tr><td class="n">0</td><td>neighbour</td><td class="n">0 even</td><td>fine</td><td class="n">0 even</td><td>fine</td></tr>
+                <tr><td class="n">1</td><td>unrelated</td><td class="n">0 even</td><td>cancels</td><td class="n">0 even</td><td>cancels</td></tr>
+                <tr><td class="n">2</td><td>unrelated</td><td class="n">0 even</td><td>cancels</td><td class="n">1 odd</td><td><b>leaks: fails</b></td></tr>
+                <tr><td class="n">3</td><td>neighbour</td><td class="n">1 odd</td><td>side wire</td><td class="n">3 odd</td><td>side wire</td></tr>
+                <tr><td class="n">4</td><td>unrelated</td><td class="n">4 even</td><td>cancels</td><td class="n">6 even</td><td>cancels</td></tr>
+                <tr><td class="n">5</td><td>unrelated</td><td class="n">10 even</td><td>cancels</td><td class="n">10 even</td><td>cancels</td></tr>
+                <tr><td class="n">6</td><td>neighbour</td><td class="n">20 even</td><td>fine</td><td class="n">15 odd</td><td>side wire</td></tr>
+                <tr><td class="n">7</td><td>same label</td><td class="n">35 odd</td><td>signal survives</td><td class="n">21 odd</td><td>signal survives</td></tr>
+              </tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THE CLAIM -->
+  <section class="sec alt" id="claim" data-index="The claim" data-num="03" aria-labelledby="claim-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The claim</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Claimed &middot; AI-refereed only</span></div></div>
+      <h2 class="h2" id="claim-h">A machine built for complex numbers, rebuilt for bits.</h2>
+      <p class="lede">The claim is that the transform needs only about N&middot;(log N)<sup>&theta;&prime;</sup> XOR gates with &theta;&prime; a hair below 1, which is eventually smaller than Yates&rsquo; &frac12;&nbsp;N&nbsp;log<sub>2</sub>&nbsp;N. Here is how it is built, in five steps.</p>
+      <ol class="mx-steps">
+        <li><span class="n">1</span><div><h3>Borrow an AI-found machine</h3><p>A September 2026 preprint in OpenAI&rsquo;s openai/math collection (<a href="../machine-mathematics/#f-130">problem 130</a>), &ldquo;produced by an internal OpenAI model&rdquo;, beats n&nbsp;log&nbsp;n for the exact complex Fourier transform. Its recursive network saves a tiny fraction of steps at every level; recursion compounds that, and the exponent drops below 1.</p></div></li>
+        <li><span class="n">2</span><div><h3>Flip the arithmetic</h3><p>Complex numbers do not exist among bits, so Jain swaps the roles: labels are counted mod 3, and data live in F<sub>4</sub>, a four-element number system with a cube root of one, &omega;. The 3&times;3 building block becomes C&prime; = &omega;I + &omega;<sup>2</sup>J<sub>3</sub>.</p></div></li>
+        <li><span class="n">3</span><div><h3>Make the junk cancel by parity</h3><p>The centre is chosen with Lucas&rsquo;s theorem so that every unwanted contribution arrives an even number of times: the gadget in section 02.</p></div></li>
+        <li><span class="n">4</span><div><h3>Remove a correction step</h3><p>A cheap relabelling applied on both the input side and the output side replaces one correction step per bank entry, doubling the saving. A one-sided version fails: it works for 0 of the 42 test lines checked.</p></div></li>
+        <li><span class="n">5</span><div><h3>Come back to bits</h3><p>An explicit 12-slot &ldquo;word&rdquo; writes two levels of the transform as a product of copies of the building block over F<sub>16</sub>, and every F<sub>16</sub> gate costs at most 28 XORs. So a fast C&prime; gives a fast M&ouml;bius transform. Lean checks that the word&rsquo;s 27 factors, 12 of them copies of the building block, multiply out to exactly two levels of the transform.</p></div></li>
+      </ol>
+
+      <div class="table-wrap mx-thm"><table class="tbl">
+        <caption>Three versions of the claim, all under the same recursion (README.md)</caption>
+        <thead><tr><th scope="col">Version</th><th scope="col">Gadget</th><th scope="col" class="n">1 &minus; &theta;&prime;</th><th scope="col" class="n">Best label size h</th><th scope="col">Who refereed it</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Theorem 1</th><td>4-point labels, centre of all sets of size &le; 2, one correction step per bank entry</td><td class="n">1.8309&middot;10<sup>&minus;15</sup></td><td class="n">92</td><td>2 AI referees: &ldquo;confirmed with fixes&rdquo;</td></tr>
+          <tr><th scope="row">Theorem 1&prime;</th><td>the same, with the two-sided relabelling instead of the correction</td><td class="n">4.2213&middot;10<sup>&minus;13</sup></td><td class="n">51</td><td>relabelling: 1 AI referee</td></tr>
+          <tr><th scope="row">Theorem 2 (E1)</th><td>7-point labels, centre of 3-point sets, side wires only where needed, with the relabelling</td><td class="n">4.3713&middot;10<sup>&minus;11</sup></td><td class="n">23</td><td>1 AI referee; Aska&rsquo;s full-network check</td></tr>
+        </tbody></table></div>
+      <p class="chart-foot">Source: <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md">README.md</a> headline table. The Lean package proves each exponent&rsquo;s numeric bounds, for example 1&nbsp;&minus;&nbsp;&theta;&prime; &isin; [4.37127524, 4.37127525]&middot;10<sup>&minus;11</sup>, but not the network argument that makes them meaningful. A faster recurrence that would give about 3.98&middot;10<sup>&minus;9</sup> is a conjecture, unproved, and nothing depends on it.</p>
+
+      <h3 class="mx-h3">Who did what</h3>
+      <div class="mx-who">
+        <div class="col bio-col"><p class="k"><i aria-hidden="true"></i>People</p>
+          <ul>
+            <li><b>Swapnil Jain</b> &middot; author of the repository, the claim and its three versions; chose to publish it as &ldquo;checked by AI agents only, not human-refereed; asymptotic only&rdquo;.</li>
+            <li><b>Ahraz Arifuddin</b> &middot; oversaw Aska&rsquo;s agentic team that wrote the full-network check (section 05).</li>
+            <li><b>No human referee yet.</b> The repository asks for one, for this work and for the OpenAI preprint it rests on.</li>
+          </ul></div>
+        <div class="col dig-col"><p class="k"><i aria-hidden="true"></i>Machines</p>
+          <ul>
+            <li><b>An internal OpenAI model</b> produced the Fourier-transform preprint whose architecture the claim transplants.</li>
+            <li><b>Claude (Anthropic)</b> assisted the research, implementation and drafting, per the README: &ldquo;AI assistance is not independent review.&rdquo;</li>
+            <li><b>Unnamed AI agents</b> wrote and refereed the proofs: 2 referees for Theorem 1, 1 each for Theorems 1&prime; and 2.</li>
+            <li><b>Lean 4</b> checked 92 supporting theorems: the numbers, both parity centres, the 12-slot word and 26 deliberately false variants, each refuted.</li>
+            <li><b>Aska&rsquo;s agents</b> wrote and posted PR #1, &ldquo;automated posting by agentic team with human oversight&rdquo;. Which model ran it is not stated.</li>
+          </ul></div>
+      </div>
+      <aside class="callout caveat"><p class="c-k">Overclaims, caught</p><p>The AI-assisted drafts overclaimed twice, and a later check caught both: an exponent that leaned on an unproved recurrence, and an &ldquo;ESTABLISHED&rdquo; verdict that was softened to &ldquo;claimed&rdquo; four minutes after the first public commit. An earlier AI-drafted argument that a correction step is unavoidable was wrong and was retracted. The exponent and the retraction are logged in <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/CORRECTIONS.md">CORRECTIONS.md</a>; the verdict change is in the commit history.</p></aside>
+    </div>
+  </section>
+
+  <!-- 04 HOW FAR IS EVENTUALLY -->
+  <section class="sec" id="eventually" data-index="How far is eventually?" data-num="04" aria-labelledby="eventually-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>How far away is &ldquo;eventually&rdquo;?</p><span class="chip">The honest scale</span></div>
+      <h2 class="h2" id="eventually-h">Right, perhaps, and still slower on every computer that will ever exist.</h2>
+      <p class="lede">&ldquo;Asymptotically fewer&rdquo; means fewer once the input is large enough. The new circuit carries a bigger constant cost, and its advantage over Yates grows like k<sup>1&minus;&theta;&prime;</sup>, which with 1&nbsp;&minus;&nbsp;&theta;&prime; = 0.0000000000437 barely grows at all.</p>
+      <div class="prose mx-read">
+        <p>Write the new circuit&rsquo;s cost as c<sub>0</sub> times Yates&rsquo;, divided by k<sup>1&minus;&theta;&prime;</sup>. Here k is the number of toppings and c<sub>0</sub> the ratio of the two methods&rsquo; constant factors; the repository works out c<sub>0</sub>&nbsp;=&nbsp;84 for its explicit word and also reports 2 and 10<sup>6</sup> as brackets. The new circuit wins once k<sup>1&minus;&theta;&prime;</sup> passes c<sub>0</sub>. Slide to find where.</p>
+      </div>
+
+      <figure class="fig frame wide mx-c" aria-labelledby="fc-t">
+        <div class="fig-head">
+          <p class="fig-title" id="fc-t">The new circuit&rsquo;s cost as a multiple of Yates&rsquo;, as the problem grows</p>
+          <p class="fig-how"><b>How to read:</b> left to right, k gets more digits (each grid step is a hundred times more digits). Above the &ldquo;break-even&rdquo; line Yates is cheaper; below it the new circuit wins. Both scales are logarithmic.</p>
+        </div>
+        <div class="fig-stage fc-stage" style="--ratio:16/8">
+          <svg id="fc-svg" role="img" aria-labelledby="fc-desc"><desc id="fc-desc">Cost ratio stays near the constant c0 until k has billions of digits, then falls below 1.</desc></svg>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Crossover controls">
+          <span class="mx-grp"><span class="ctrl-label">Version //</span>
+          <span class="seg" id="fc-thm" role="group" aria-label="Version of the theorem"><button type="button" data-t="thm1" aria-pressed="false">1</button><button type="button" data-t="thm1p" aria-pressed="false">1&prime;</button><button type="button" data-t="thm2" aria-pressed="true">2</button></span></span>
+          <span class="mx-grp"><span class="ctrl-label">c<sub>0</sub> //</span>
+          <span class="seg" id="fc-c0" role="group" aria-label="Constant ratio c0"><button type="button" data-c="2" aria-pressed="false">2</button><button type="button" data-c="84" aria-pressed="true">84</button><button type="button" data-c="1000000" aria-pressed="false">10<sup>6</sup></button></span></span>
+          <label class="ctrl fc-ctrl">Digits of k <input class="range" type="range" id="fc-range" min="0" max="16" step="0.01" value="0.3"></label>
+        </div>
+        <div class="fc-read" id="fc-read" aria-live="polite"></div>
+        <figcaption class="fig-foot"><span class="fig-src">Computed here from 1 &minus; &theta;&prime; and the crossover rule log<sub>10</sub>&nbsp;k &asymp; log<sub>10</sub>&nbsp;c<sub>0</sub> / (1 &minus; &theta;&prime;), which reproduces the README&rsquo;s crossover table (<a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/PROOF.md">PROOF.md</a> &sect;8). &ldquo;No feasible size beats Yates, and nothing is witnessed at any feasible size&rdquo; (README).</span></figcaption>
+        <details class="twin"><summary>Show the crossovers</summary>
+          <div class="table-wrap"><table class="tbl"><caption>Digits k needs before the new circuit beats Yates (log<sub>10</sub> k)</caption>
+            <thead><tr><th scope="col">c<sub>0</sub></th><th scope="col" class="n">Theorem 1</th><th scope="col" class="n">Theorem 1&prime;</th><th scope="col" class="n">Theorem 2</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2</th><td class="n">1.6&middot;10<sup>14</sup></td><td class="n">7.1&middot;10<sup>11</sup></td><td class="n">6.9&middot;10<sup>9</sup></td></tr>
+              <tr><th scope="row">84</th><td class="n">1.05&middot;10<sup>15</sup></td><td class="n">4.6&middot;10<sup>12</sup></td><td class="n">4.4&middot;10<sup>10</sup></td></tr>
+              <tr><th scope="row">10<sup>6</sup></th><td class="n">3.3&middot;10<sup>15</sup></td><td class="n">1.4&middot;10<sup>13</sup></td><td class="n">1.4&middot;10<sup>11</sup></td></tr>
+            </tbody></table></div>
+          <p class="twin-note">From the README&rsquo;s crossover table. These are numbers of digits of k, not values of k. The input size N is 2<sup>k</sup>, a number whose own digit count has billions of digits.</p>
+        </details>
+      </figure>
+
+      <figure class="fig frame wide mx-h" aria-labelledby="fh-t">
+        <div class="fig-head">
+          <p class="fig-title" id="fh-t">Where 4.37&nbsp;&times;&nbsp;10<sup>&minus;11</sup> comes from: the best gadget size</p>
+          <p class="fig-how"><b>How to read:</b> each column is one label size h. Its height is the saving in the exponent, 1&nbsp;&minus;&nbsp;&theta;&prime;; a &times; on the floor means the gadget costs more than it saves at that size. The highlighted column is the best. Point at or focus a column for its numbers.</p>
+        </div>
+        <div class="fig-stage fh-stage" style="--ratio:16/6">
+          <svg id="fh-svg" role="img" aria-labelledby="fh-desc"><desc id="fh-desc">Exponent saving by label size h.</desc></svg>
+          <span class="corner tr fig-out" id="fh-out" aria-hidden="true"></span>
+        </div>
+        <figcaption class="fig-foot"><span id="fh-cap">Version 2 (E1): no saving below h = 20; the best is h = 23. At h = 24 the count of roles must be padded up to the next power of 3, and the saving drops by two thirds.</span><span class="fig-src">Computed here with exact whole numbers from the formulas in <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_theorems.py">x1_theorems.py</a>; the best values and thresholds match the repository&rsquo;s log <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_theorems.txt">run_theorems.txt</a>. The version buttons above switch this chart too.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary><div class="table-wrap" id="fh-table"><p class="twin-note">The table appears when JavaScript runs.</p></div></details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 05 ASKA'S PART -->
+  <section class="sec alt" id="aska" data-index="Aska's part" data-num="05" aria-labelledby="aska-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Aska&rsquo;s part</p><div class="badges"><span class="badge n">Contributed &middot; merged PR #1</span><span class="badge n">Finite sizes only</span></div></div>
+      <h2 class="h2" id="aska-h">We ran the whole network, and it held.</h2>
+      <p class="lede">Before our check the README said plainly: &ldquo;No full 7-set network has been run.&rdquo; Our agentic team wrote <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_e1_rep.c">x1_e1_rep.c</a>, which runs the entire E1 network as plain bit arithmetic with random values on every wire, and checks that every value lands where the proof says it should.</p>
+
+      <div class="mx-aska">
+        <div>
+          <div class="table-wrap"><table class="tbl mx-runs">
+            <caption>Aska&rsquo;s runs of the E1 network (all logs in the repository)</caption>
+            <thead><tr><th scope="col" class="n">Label size h</th><th scope="col">What was run</th><th scope="col" class="n">Swap checks</th><th scope="col" class="n">Failures</th></tr></thead>
+            <tbody>
+              <tr><td class="n">8</td><td>all 192 invocations</td><td class="n">1,024</td><td class="n">0</td></tr>
+              <tr><td class="n">9</td><td>all 3,888 invocations</td><td class="n">93,312</td><td class="n">0</td></tr>
+              <tr><td class="n">10</td><td>all 43,200 invocations</td><td class="n">3,456,000</td><td class="n">0</td></tr>
+              <tr><td class="n">11</td><td>one representative invocation per stage, by symmetry<a class="fnref" href="#mx-rep-note" aria-label="Note on h = 11">*</a></td><td class="n">1,980</td><td class="n">0</td></tr>
+            </tbody></table></div>
+          <p class="chart-foot" id="mx-rep-note">* At h = 11 one invocation per stage stands for all of them, by the symmetry argument of PROOF.md Remark 5.2; its 2,980 labels and 3,000 edges were also solved by brute-force linear algebra, with 0 failures. Source: <a href="https://github.com/Swapnil-jain/mobius-x1/tree/main/certificates">certificates/run_e1_rep_h{8,9,10,11}_bad0.txt</a>. Foundation0 rebuilt the checker on 14 Oct 2026 and reproduced all four logs byte for byte (h = 10 took 33 s, h = 11 took 526 s). That is the same code run again, not an independent check.</p>
+          <ul class="mx-did">
+            <li><b>Two deliberately broken versions fail, as they should.</b> A wrong label in row 5 gives 22,146 nesting failures at h = 11; the 2-point centre from section 02 gives 277,200 wrong entries at h = 12.</li>
+            <li><b>The step count is exact.</b> Counting every step and weighting by symmetry gives the proof&rsquo;s closed formula at every size: 5,190,901,996,500 steps at h = 11, on both sides.</li>
+            <li><b>Merged and credited.</b> Swapnil Jain merged it the same day: &ldquo;Thank you, this closes the full-network gap for Theorem 2 nicely, with both controls refuted.&rdquo; The README now credits ahrazzle. 1 of the repository&rsquo;s 6 commits, +500 lines (8% of its current lines).</li>
+          </ul>
+        </div>
+        <figure class="fig frame mx-hist" aria-labelledby="fo-t">
+          <div class="fig-head">
+            <p class="fig-title" id="fo-t">At h = 11, about one pair of labels in nine needs a side wire</p>
+            <p class="fig-how"><b>How to read:</b> each bar counts ordered pairs of different labels by how many points they share. Only an overlap of exactly 3 needs a side wire (section 02). Point at or focus a bar.</p>
+          </div>
+          <div class="fig-stage fo-stage" style="--ratio:4/3"><svg id="fo-svg" role="img" aria-labelledby="fo-desc"><desc id="fo-desc">Overlap 3: 11,550 pairs; overlap 4: 46,200; overlap 5: 41,580; overlap 6: 9,240.</desc></svg></div>
+          <figcaption class="fig-foot"><span class="fig-src">First line of <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h11_bad0.txt">run_e1_rep_h11_bad0.txt</a>: 108,570 ordered pairs (330 labels &times; 329).</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary><div class="table-wrap"><table class="tbl"><thead><tr><th scope="col" class="n">Points shared</th><th scope="col" class="n">Ordered pairs</th><th scope="col" class="n">Share</th><th scope="col">Side wire?</th></tr></thead><tbody><tr><td class="n">3</td><td class="n">11,550</td><td class="n">10.6%</td><td>yes</td></tr><tr><td class="n">4</td><td class="n">46,200</td><td class="n">42.6%</td><td>no</td></tr><tr><td class="n">5</td><td class="n">41,580</td><td class="n">38.3%</td><td>no</td></tr><tr><td class="n">6</td><td class="n">9,240</td><td class="n">8.5%</td><td>no</td></tr></tbody></table></div></details>
+        </figure>
+      </div>
+
+      <aside class="callout caveat"><p class="c-k">What the check does not show</p>
+        <p><b>Small sizes only.</b> The runs reach h = 11; the theorem uses h = 23. The large-h counts in the repository are re-derived from a formula, not independently checked.</p>
+        <p><b>Side wires are exercised only at h = 11.</b> At h &le; 10 the E1 gadget has no side wires at all, so the all-invocation runs never touch them; at h = 11 they are checked on representative invocations.</p>
+        <p><b>No speed-up is witnessed.</b> At every size checked the gadget costs more than it saves (at h = 11 the per-level saving is &minus;1,114,047,000 steps; it turns positive only from h = 20). The check confirms that the network is correct and that the step-count formula is exact.</p>
+        <p><b>A careful port, not an independent implementation.</b> About two thirds of the checker&rsquo;s distinct lines mirror Swapnil Jain&rsquo;s earlier <span class="mono">x1_e2e_rep.c</span>; the 7-set combinatorics and side-wire logic are new.</p>
+        <p><b>Two stale lines upstream.</b> The README&rsquo;s headline table still says &ldquo;no full 7-set network has been run&rdquo;, and its credit line mentions representative runs at h = 11 and 12, though the only h = 12 log is the broken control. We report h = 8&ndash;11.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 06 STATUS -->
+  <section class="sec" id="status" data-index="Status and sources" data-num="06" aria-labelledby="status-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Status and sources</p><span class="chip">As of 14 Oct 2026</span></div>
+      <h2 class="h2" id="status-h">What is proved, what is checked, and what is only claimed.</h2>
+      <div class="table-wrap mx-status"><table class="tbl">
+        <thead><tr><th scope="col">Layer</th><th scope="col">Status</th><th scope="col">How</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Main theorem: network lemmas, recursion, transfer to bits</th><td><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Claimed</span></td><td>Written proof with every step tagged; refereed only by AI agents; not in Lean; no human referee</td></tr>
+          <tr><th scope="row">Numeric core of all three versions</th><td><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-checked</span></td><td>Exact values, padding, sign ranges, exponent bounds</td></tr>
+          <tr><th scope="row">The two parity centres (Lemmas 1.2 and 10.1)</th><td><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-checked</span></td><td>Proved for every finite set</td></tr>
+          <tr><th scope="row">The 12-slot F<sub>16</sub> word</th><td><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-checked</span></td><td>Plus two independent Python checks</td></tr>
+          <tr><th scope="row">The network at small sizes</th><td><span class="badge n">Computer-checked</span></td><td>Exact runs to h = 10 (Theorem 1) and h = 11 (E1, Aska&rsquo;s check)</td></tr>
+          <tr><th scope="row">Counts at the real sizes (h = 23, 51, 92)</th><td><span class="badge n">Re-derived</span></td><td>From a formula; the README says this is not independent evidence</td></tr>
+          <tr><th scope="row">Novelty</th><td><span class="badge n">About 90% confident</span></td><td>The author&rsquo;s literature search found no earlier claim below &frac12;&nbsp;N&nbsp;log<sub>2</sub>&nbsp;N for circuits that cancel</td></tr>
+        </tbody></table></div>
+      <p class="chart-foot">Source: <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md">README.md</a> &sect;2, <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/lean/axioms.out">lean/axioms.out</a> (92 theorems, standard axioms only, no <span class="mono">sorry</span>), <a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/NOVELTY.md">docs/NOVELTY.md</a>. Foundation0 re-ran the Python certificates and Aska&rsquo;s checker on 14 Oct 2026; we did not re-run the Lean build, so its status rests on the committed audit.</p>
+
+      <div class="mx-src">
+        <div>
+          <h3 class="mx-h3">The repository</h3>
+          <ul class="src-list">
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1">Swapnil-jain/mobius-x1</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/PROOF.md">PROOF.md</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/WORD.md">WORD.md</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/RESULT.md">RESULT.md</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/CLOSED_IDEAS.md">CLOSED_IDEAS.md</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/CORRECTIONS.md">CORRECTIONS.md</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/tree/main/lean">Lean package</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mx-h3">Aska&rsquo;s contribution</h3>
+          <ul class="src-list">
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/pull/1">Pull request #1</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/commit/a8730f478b54a259edf44edb162ad10409d13e15">Commit a8730f4</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_e1_rep.c">x1_e1_rep.c</a></li>
+            <li><a href="https://github.com/Swapnil-jain/mobius-x1/commit/00ffede3d650d434ebba869cafab4d334edc6d4d">README credit, 00ffede</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mx-h3">Context</h3>
+          <ul class="src-list">
+            <li><a href="https://github.com/openai/math/blob/main/CONTENTS.md">openai/math, problem 130</a></li>
+            <li><a href="https://arxiv.org/abs/1207.5321">Boyar &amp; Find, 1207.5321</a></li>
+            <li><a href="https://arxiv.org/abs/1305.3041">Boyar &amp; Find, 1305.3041</a></li>
+            <li><a href="https://igorssergeev.github.io/papers/lowerlin2024eng.pdf">Sergeev, 2024 slides</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="chart-foot mx-lic">Numbers, formulas and the gadget schedule on this page come from Swapnil Jain&rsquo;s mobius-x1 (Apache-2.0, &copy; 2026 Swapnil Jain), with the E1 check by ahrazzle. The figures are new code written for this page; they re-compute the repository&rsquo;s formulas and do not copy its source. There is no project website, PDF or DOI; this page is the first visual presentation of the work.</p>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../machine-mathematics/"><span>&larr; Previous</span>After the 722: what people did with OpenAI&rsquo;s machine-written papers</a>
+        <a class="next" href="../gf2m-circuits/"><span>Next &rarr;</span>gf2m-circuits: fewer gates for the arithmetic inside AES</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 14 Oct 2026 against Swapnil-jain/mobius-x1 at 00ffede</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

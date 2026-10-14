@@ -78,6 +78,8 @@
 .dm-chart svg { width: 100%; height: auto; overflow: visible; }
 .dm-chart text, .dm-poly text { font-family: var(--f-mono); }
 @media (max-width: 560px) { .dm-stage { grid-template-columns: minmax(0, 1fr); } }
+.dm .ctrl { flex: 1 1 260px; }
+.dm .ctrl .range { flex: 1 1 140px; width: auto; }
 .dm-read, .fd-read { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 12px 0 0; }
 .dm-read > div, .fd-read > div { background: var(--bg-2); padding: 8px 10px; min-width: 0; }
 .dm-read dt, .fd-read dt { font: 500 11px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
@@ -159,3 +161,13 @@
 .il-lic { margin-top: var(--s-6); max-width: 90ch; }
 @media (max-width: 1100px) { .il-src { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .il-src { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 700px) {
+  .il-status table, .il-status tbody, .il-status tr, .il-status td { display: block; width: 100%; }
+  .il-status thead { display: none; }
+  .il-status caption { display: block; text-align: left; }
+  .il-status tr { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .il-status td { border: 0 !important; padding: 3px 0 !important; min-width: 0 !important; }
+  .il-status td::before { content: attr(data-label); display: block; font: 500 11px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .il-status td:first-child::before { display: none; }
+  .il-status td:first-child { font-size: 15px; }
+}

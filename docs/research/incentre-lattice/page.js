@@ -81,10 +81,11 @@
     // layer 4: the touching points
     var touch = [[(1 + R) / 2, (1 + R) / 2], [2 - (1 + R) / 2, (1 + R) / 2], [(1 + R) / 2, 2 - (1 + R) / 2], [2 - (1 + R) / 2, 2 - (1 + R) / 2], [1, 0], [2, 1], [1, 2], [0, 1]];
     touch.forEach(function (p) { el('circle', { cx: p[0], cy: p[1], r: .032, 'class': 'dd-touch' }, L[4]); });
-    var tl = el('text', { x: (1 + R) / 2 - .5, y: (1 + R) / 2 - .1, 'class': 'dd-lab' }, L[4]); tl.textContent = 'touch';
+    var tl = el('text', { x: -.07, y: 1.04, 'text-anchor': 'end', 'class': 'dd-lab' }, L[4]); tl.textContent = 'touch';
 
     function show(step) {
       for (var k = 1; k <= 5; k++) L[k].classList.toggle('off', k > step);
+      svg.setAttribute('viewBox', step >= 5 ? '-1.25 -1.25 4.5 4.5' : '-0.55 -0.55 3.1 3.1');
       side.style.display = step >= 5 ? 'none' : '';
       document.querySelectorAll('.dd-seg button').forEach(function (b) { pressed(b, +b.dataset.step === step); });
       cap.textContent = CAPS[step];
@@ -181,7 +182,7 @@
       var r = draw();
       var P = r.P, e = r.e;
       var ang = Math.atan2(P[1], P[0]) * 180 / Math.PI;
-      $('mr-angle').textContent = 'Angle at the corner ' + fmt(ang, 2) + '°';
+      $('mr-angle').textContent = (C.w < 440 ? '' : 'Angle at the corner ') + fmt(ang, 2) + '°';
       bars.forEach(function (b, i) {
         var none = e[i] < 1e-6;
         b.querySelector('.tr i').style.width = (none ? 0 : Math.min(100, e[i] / 1.2 * 100)) + '%';
@@ -423,17 +424,18 @@
     var CW = 320, CH = 230, M = { l: 44, r: 14, t: 26, b: 40 };
     var xs = function (s) { return M.l + s * (CW - M.l - M.r); };
     var ys = function (v) { return M.t + (1 - (v - .2) / (.78 - .2)) * (CH - M.t - M.b); };
-    [.3, .4, .5, .6, .7].forEach(function (v) {
+    [.3, .4, .5, .6].forEach(function (v) {
       el('line', { x1: M.l, x2: CW - M.r, y1: ys(v), y2: ys(v), stroke: 'var(--grid)', 'stroke-width': 1 }, svg);
-      var t = el('text', { x: M.l - 7, y: ys(v) + 4, 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--ink-3)' }, svg); t.textContent = Math.round(v * 100) + '%';
+      var t = el('text', { x: M.l - 7, y: ys(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--ink-3)' }, svg); t.textContent = Math.round(v * 100) + '%';
     });
     var kep = Math.PI / Math.sqrt(18);
     el('line', { x1: M.l, x2: CW - M.r, y1: ys(kep), y2: ys(kep), stroke: 'var(--ink-2)', 'stroke-width': 1 }, svg);
-    var kt = el('text', { x: M.l, y: ys(kep) - 7, 'font-size': 10.5, fill: 'var(--ink-2)' }, svg); kt.textContent = 'Kepler bound π/√18 ≈ 74.05% (Hales 2005)';
-    var ttl = el('text', { x: M.l, y: 14, 'font-size': 10.5, fill: 'var(--ink-3)', 'letter-spacing': '.08em' }, svg); ttl.textContent = 'SPACE FILLED';
+    var kt = el('text', { x: M.l + 6, y: ys(kep) + 15, 'font-size': 11, fill: 'var(--ink-2)' }, svg); kt.textContent = 'Kepler bound π/√18 ≈ 74.05%';
+    var kt2 = el('text', { x: M.l + 6, y: ys(kep) + 29, 'font-size': 11, fill: 'var(--ink-3)' }, svg); kt2.textContent = '(proved by Hales, 2005)';
+    var ttl = el('text', { x: M.l, y: 14, 'font-size': 11, fill: 'var(--ink-3)', 'letter-spacing': '.08em' }, svg); ttl.textContent = 'SPACE FILLED';
     el('line', { x1: M.l, x2: CW - M.r, y1: CH - M.b, y2: CH - M.b, stroke: 'var(--line-ui)', 'stroke-width': 1 }, svg);
-    [['0', 0, 'start'], ['s = 1', 1, 'end']].forEach(function (a) { var t = el('text', { x: xs(a[1]), y: CH - M.b + 16, 'text-anchor': a[2], 'font-size': 10.5, fill: 'var(--ink-3)' }, svg); t.textContent = a[0]; });
-    var xl = el('text', { x: (M.l + CW - M.r) / 2, y: CH - M.b + 16, 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--ink-3)' }, svg); xl.textContent = 'fold parameter s';
+    [['0', 0, 'start'], ['s = 1', 1, 'end']].forEach(function (a) { var t = el('text', { x: xs(a[1]), y: CH - M.b + 16, 'text-anchor': a[2], 'font-size': 11, fill: 'var(--ink-3)' }, svg); t.textContent = a[0]; });
+    var xl = el('text', { x: (M.l + CW - M.r) / 2, y: CH - M.b + 16, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--ink-3)' }, svg); xl.textContent = 'fold parameter s';
     var dpath = '';
     for (var i = 0; i <= 120; i++) { var s = i / 120; dpath += (i ? 'L' : 'M') + fmt(xs(s), 2) + ' ' + fmt(ys(state(s).density), 2); }
     el('path', { d: dpath, fill: 'none', stroke: 'var(--acc-incentre)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
@@ -546,58 +548,71 @@
         desc: 'iter4: stage-A step scaled by 1/m (fixes iter3 continuity bug); fold only to 30 deg then free continuation, m=2',
         plain: 'Fix the step size for bigger blocks, fold only to 30°, then let the box shear freely. It reached 74.05%, the Kepler ceiling, with every ball touching 12 others: hexagonal close packing.' }
     ];
-    var W = 520, H = 300, M = { l: 52, r: 18, t: 30, b: 42 };
+    var W = 520, H = 300, M = { l: 52, r: 18, t: 30, b: 42 }, marks = [], guide = null;
     function sec(t) { var p = t.split(':').map(Number); return p[0] * 3600 + p[1] * 60 + p[2]; }
     var t0 = sec('07:55:20'), t1 = sec('08:07:50');
     var xs = function (t) { return M.l + (sec(t) - t0) / (t1 - t0) * (W - M.l - M.r); };
     var ys = function (v) { return M.t + (1 - (v - .4) / (.78 - .4)) * (H - M.t - M.b); };
-    [.45, .55, .65, .75].forEach(function (v) {
-      el('line', { x1: M.l, x2: W - M.r, y1: ys(v), y2: ys(v), stroke: 'var(--grid)', 'stroke-width': 1 }, svg);
-      var t = el('text', { x: M.l - 8, y: ys(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--ink-3)' }, svg); t.textContent = Math.round(v * 100) + '%';
-    });
-    var hd = el('text', { x: M.l, y: 15, 'font-size': 11, fill: 'var(--ink-3)', 'letter-spacing': '.08em' }, svg); hd.textContent = 'HIGHEST DENSITY ON THE PATH';
-    var kep = .74048;
-    el('line', { x1: M.l, x2: W - M.r, y1: ys(kep), y2: ys(kep), stroke: 'var(--ink-2)', 'stroke-width': 1 }, svg);
-    var kt = el('text', { x: W - M.r, y: ys(kep) - 7, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--ink-2)' }, svg); kt.textContent = 'Kepler ceiling 74.05%';
-    el('line', { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, stroke: 'var(--line-ui)', 'stroke-width': 1 }, svg);
-    ['07:56:00', '07:58:00', '08:00:00', '08:02:00', '08:04:00', '08:06:00'].forEach(function (t) {
-      var x = xs(t);
-      el('line', { x1: x, x2: x, y1: H - M.b, y2: H - M.b + 4, stroke: 'var(--line-ui)', 'stroke-width': 1 }, svg);
-      var tx = el('text', { x: x, y: H - M.b + 18, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--ink-3)' }, svg); tx.textContent = t.slice(0, 5);
-    });
-    var xl = el('text', { x: W - M.r, y: H - 6, 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--ink-3)' }, svg); xl.textContent = 'clock time, 12 Oct 2026';
-    // best valid so far: a step line
-    var best = 0, d = '';
-    RUNS.forEach(function (r, i) {
-      if (r.valid && r.max > best) { d += (d ? 'H' + fmt(xs(r.time), 1) + 'V' : 'M' + fmt(xs(r.time), 1) + ' ') + fmt(ys(r.max), 1); best = r.max; }
-    });
-    d += 'H' + (W - M.r);
-    el('path', { d: d, fill: 'none', stroke: 'var(--st-verified)', 'stroke-width': 2, 'stroke-opacity': .55, 'stroke-linejoin': 'round' }, svg);
-    var bl = el('text', { x: xs('07:56:30') + 10, y: ys(.710861) + 16, 'font-size': 10.5, fill: 'var(--ink-3)' }, svg); bl.textContent = 'best valid so far';
-    var guide = el('line', { y1: M.t, y2: H - M.b, stroke: 'var(--ink-3)', 'stroke-width': 1 }, svg);
-    var marks = RUNS.map(function (r, i) {
-      var g = el('g', { 'class': 'sl-run' }, svg), x = xs(r.time), y = ys(r.max);
-      el('circle', { cx: x, cy: y, r: 16, fill: 'transparent', 'class': 'sl-hit' }, g);
-      var ring = el('circle', { cx: x, cy: y, r: 13, fill: 'none', stroke: 'var(--focus)', 'stroke-width': 2, opacity: 0 }, g);
-      if (r.out === 'kept') {
-        el('circle', { cx: x, cy: y, r: 8.5, fill: 'var(--st-verified)', stroke: 'var(--bg-1)', 'stroke-width': 2 }, g);
-        el('path', { d: 'M' + (x - 3.6) + ' ' + y + 'l2.6 2.8 4.8-5.4', fill: 'none', stroke: 'var(--bg-1)', 'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
-      } else if (r.out === 'disc') {
-        el('circle', { cx: x, cy: y, r: 7.5, fill: 'var(--bg-1)', stroke: 'var(--ink-3)', 'stroke-width': 2 }, g);
-      } else {
-        el('circle', { cx: x, cy: y, r: 8.5, fill: 'var(--st-contested)', stroke: 'var(--bg-1)', 'stroke-width': 2 }, g);
-        el('path', { d: 'M' + (x - 3.2) + ' ' + (y - 3.2) + 'l6.4 6.4M' + (x + 3.2) + ' ' + (y - 3.2) + 'l-6.4 6.4', stroke: 'var(--bg-1)', 'stroke-width': 1.8, 'stroke-linecap': 'round' }, g);
-      }
-      var lab = el('text', { x: x, y: y + (i === 1 ? -16 : 24), 'text-anchor': i === 4 ? 'end' : 'middle', 'font-size': 11, fill: 'var(--ink-2)' }, g);
-      lab.textContent = (r.valid ? fmt(r.max * 100, 2) + '%' : 'rejected');
-      if (i === 4) lab.setAttribute('x', x - 4);
-      g.addEventListener('click', function () { select(i); });
-      g.addEventListener('pointermove', function (ev) {
-        F0.tip.show('<div class="tip-k">Run ' + (i + 1) + ' · ' + r.time + '</div><div class="tip-t">' + (r.valid ? fmt(r.max * 100, 2) + '% reached' : 'Invalid path') + '</div><div class="tip-note">' + F0.esc(r.label) + '</div>', ev.clientX, ev.clientY);
+    // drawn at the container's own width so its text keeps its true size on phones
+    function build() {
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      W = Math.max(300, Math.min(600, Math.round(svg.parentNode.clientWidth || 520)));
+      var narrow = W < 420;
+      M = { l: narrow ? 40 : 52, r: narrow ? 12 : 18, t: 30, b: 42 };
+      H = narrow ? 280 : 300;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      [.45, .55, .65, .75].forEach(function (v) {
+        el('line', { x1: M.l, x2: W - M.r, y1: ys(v), y2: ys(v), stroke: 'var(--grid)', 'stroke-width': 1 }, svg);
+        var t = el('text', { x: M.l - 8, y: ys(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--ink-3)' }, svg); t.textContent = Math.round(v * 100) + '%';
       });
-      g.addEventListener('pointerleave', function () { F0.tip.hide(); });
-      return { ring: ring, x: x };
-    });
+      var hd = el('text', { x: M.l, y: 15, 'font-size': 11, fill: 'var(--ink-3)', 'letter-spacing': '.08em' }, svg); hd.textContent = narrow ? 'HIGHEST DENSITY' : 'HIGHEST DENSITY ON THE PATH';
+      var kep = .74048;
+      el('line', { x1: M.l, x2: W - M.r, y1: ys(kep), y2: ys(kep), stroke: 'var(--ink-2)', 'stroke-width': 1 }, svg);
+      var kt = el('text', { x: xs('08:01:40'), y: ys(kep) - 7, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--ink-2)' }, svg); kt.textContent = narrow ? 'Kepler 74.05%' : 'Kepler ceiling 74.05%';
+      el('line', { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, stroke: 'var(--line-ui)', 'stroke-width': 1 }, svg);
+      (narrow ? ['07:56:00', '08:00:00', '08:04:00'] : ['07:56:00', '07:58:00', '08:00:00', '08:02:00', '08:04:00', '08:06:00']).forEach(function (t) {
+        var x = xs(t);
+        el('line', { x1: x, x2: x, y1: H - M.b, y2: H - M.b + 4, stroke: 'var(--line-ui)', 'stroke-width': 1 }, svg);
+        var tx = el('text', { x: x, y: H - M.b + 18, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--ink-3)' }, svg); tx.textContent = t.slice(0, 5);
+      });
+      var xl = el('text', { x: W - M.r, y: H - 6, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--ink-3)' }, svg); xl.textContent = 'clock time, 12 Oct 2026';
+      // best valid so far: a step line
+      var best = 0, d = '';
+      RUNS.forEach(function (r) {
+        if (r.valid && r.max > best) { d += (d ? 'H' + fmt(xs(r.time), 1) + 'V' : 'M' + fmt(xs(r.time), 1) + ' ') + fmt(ys(r.max), 1); best = r.max; }
+      });
+      d += 'H' + (W - M.r);
+      el('path', { d: d, fill: 'none', stroke: 'var(--st-verified)', 'stroke-width': 2, 'stroke-opacity': .55, 'stroke-linejoin': 'round' }, svg);
+      var bl = el('text', { x: xs('07:56:30') + 10, y: ys(.710861) + 16, 'font-size': 11, fill: 'var(--ink-3)' }, svg); bl.textContent = 'best valid so far';
+      guide = el('line', { y1: M.t, y2: H - M.b, stroke: 'var(--ink-3)', 'stroke-width': 1 }, svg);
+      marks = RUNS.map(function (r, i) {
+        var g = el('g', { 'class': 'sl-run' }, svg), x = xs(r.time), y = ys(r.max);
+        el('circle', { cx: x, cy: y, r: 16, fill: 'transparent', 'class': 'sl-hit' }, g);
+        var ring = el('circle', { cx: x, cy: y, r: 13, fill: 'none', stroke: 'var(--focus)', 'stroke-width': 2, opacity: 0 }, g);
+        if (r.out === 'kept') {
+          el('circle', { cx: x, cy: y, r: 8.5, fill: 'var(--st-verified)', stroke: 'var(--bg-1)', 'stroke-width': 2 }, g);
+          el('path', { d: 'M' + (x - 3.6) + ' ' + y + 'l2.6 2.8 4.8-5.4', fill: 'none', stroke: 'var(--bg-1)', 'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+        } else if (r.out === 'disc') {
+          el('circle', { cx: x, cy: y, r: 7.5, fill: 'var(--bg-1)', stroke: 'var(--ink-3)', 'stroke-width': 2 }, g);
+        } else {
+          el('circle', { cx: x, cy: y, r: 8.5, fill: 'var(--st-contested)', stroke: 'var(--bg-1)', 'stroke-width': 2 }, g);
+          el('path', { d: 'M' + (x - 3.2) + ' ' + (y - 3.2) + 'l6.4 6.4M' + (x + 3.2) + ' ' + (y - 3.2) + 'l-6.4 6.4', stroke: 'var(--bg-1)', 'stroke-width': 1.8, 'stroke-linecap': 'round' }, g);
+        }
+        var lab = el('text', { x: i === 4 ? x - 4 : i === 1 ? x + 13 : x, y: y + (i === 1 ? -4 : 24), 'text-anchor': i === 4 ? 'end' : i === 1 ? 'start' : 'middle', 'font-size': 11, fill: 'var(--ink-2)' }, g);
+        lab.textContent = (r.valid ? fmt(r.max * 100, 2) + '%' : 'rejected');
+        g.addEventListener('click', function () { select(i); });
+        g.addEventListener('pointermove', function (ev) {
+          F0.tip.show('<div class="tip-k">Run ' + (i + 1) + ' · ' + r.time + '</div><div class="tip-t">' + (r.valid ? fmt(r.max * 100, 2) + '% reached' : 'Invalid path') + '</div><div class="tip-note">' + F0.esc(r.label) + '</div>', ev.clientX, ev.clientY);
+        });
+        g.addEventListener('pointerleave', function () { F0.tip.hide(); });
+        return { ring: ring, x: x };
+      });
+    }
+    build();
+    if ('ResizeObserver' in window) new ResizeObserver(function () {
+      var w = Math.max(300, Math.min(600, svg.parentNode.clientWidth || 0));
+      if (w && Math.abs(w - W) > 6) { build(); select(cur); }
+    }).observe(svg.parentNode);
     var OUT = { kept: ['k-kept', '✓'], disc: ['k-disc', '○'], rej: ['k-rej', '×'] };
     var cur = 4, card = $('sl-card');
     function select(i) {

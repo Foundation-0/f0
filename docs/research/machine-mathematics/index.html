@@ -87,7 +87,7 @@
       <figure class="fig frame ph-fig mm-tl-fig" id="tl-fig" aria-labelledby="tl-t">
         <div class="fig-head">
           <p class="fig-title" id="tl-t">Two weeks of writing, then a week of tightening</p>
-          <p class="fig-how"><b>How to read:</b> each bar counts the manuscripts whose folder carries that date. Below the line, each dot is one public step that improved one of six results after the collection went public; the dot is half gold, half cyan because people and AI agents took each step together. Point at a day, or focus the chart and use the arrow keys.</p>
+          <p class="fig-how"><b>How to read:</b> each bar counts the manuscripts whose folder carries that date. Below the line, each dot is one public step that improved one of six results after the collection went public, stacked by day. A half-gold, half-cyan dot is a person working with AI agents; the one all-cyan dot is OpenAI&rsquo;s own follow-up. Point at a day, or focus the chart and use the arrow keys.</p>
         </div>
         <div class="mm-tl-stage" id="tl-stage" tabindex="0" role="group" aria-roledescription="chart" aria-label="Manuscripts by date, 10 September to 6 October 2026, and refinement steps, 7 to 13 October. Use the left and right arrow keys to move through the days." aria-describedby="tl-out">
           <noscript><p class="mm-noscript">This chart needs JavaScript. The same counts are in the table below the chart and in section 03.</p></noscript>
@@ -96,6 +96,7 @@
         <ul class="vlegend mm-tl-legend" aria-label="Legend">
           <li><span class="sw" style="background:var(--mark-dig)" aria-hidden="true"></span><span><b>Manuscripts</b> written by OpenAI&rsquo;s model, by folder date</span></li>
           <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="6" style="fill:var(--mark-bio)"/><path d="M0 -6A6 6 0 0 1 0 6Z" style="fill:var(--mark-dig)"/></svg><span><b>Refinement steps</b> by people with AI agents</span></li>
+          <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="6" style="fill:var(--mark-dig)"/></svg><span><b>OpenAI&rsquo;s own</b> follow-up step</span></li>
         </ul>
         <figcaption class="fig-foot"><span class="fig-src">Source: folder names in <a href="https://github.com/openai/math/tree/adc7f12/preprints">openai/math @ adc7f12</a>; steps and their sources in <a href="#slack">section 03</a>.</span></figcaption>
         <details class="twin"><summary>Show the numbers</summary><div class="table-wrap" id="tl-table"></div></details>
@@ -114,7 +115,7 @@
         <li><div class="v">372</div><div class="k">families of results</div><span class="src"><a href="https://github.com/openai/math/blob/adc7f12/CONTENTS.md">CONTENTS.md @ adc7f12</a></span></li>
         <li><div class="v">~4,000</div><div class="k">problems posed to the model; how the 722 were picked is not public</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/README.md">README @ fd4aeeb</a></span></li>
         <li><div class="v">3 hours</div><div class="k">of ChatGPT Pro thinking compute per result, on average</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/README.md">README @ fd4aeeb</a></span></li>
-        <li><div class="v">235 &rarr; 242</div><div class="k">families linking a Lean scope document, 6 Oct &rarr; 7 Oct</div><span class="src"><a href="../../data/openai-math-families.json">data/openai-math-families.json</a></span></li>
+        <li><div class="v">235&#8201;&rarr;&#8201;242</div><div class="k">families linking a Lean scope document, 6 Oct &rarr; 7 Oct</div><span class="src"><a href="../../data/openai-math-families.json">data/openai-math-families.json</a></span></li>
         <li><div class="v">3</div><div class="k">manuscripts withdrawn on 7 Oct after a sign error</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/history.md">history.md @ fd4aeeb</a></span></li>
       </ul>
       <div class="split mm-release">
@@ -155,9 +156,9 @@
         <div class="mm-map-stage" id="map-stage" tabindex="0" role="group" aria-roledescription="map" aria-label="Map of OpenAI's 372 result families. Arrow keys move between families; Enter opens the entry for a family our members built on." aria-describedby="map-info">
           <noscript><p class="mm-noscript">The map needs JavaScript. The full list of families is in <a href="../../data/openai-math-families.json">data/openai-math-families.json</a>.</p></noscript>
         </div>
-        <div class="mm-info" id="map-info" aria-live="polite"><p class="mm-info-k">Point at a cell, or focus the map and use the arrow keys.</p></div>
+        <div class="mm-info" id="map-info" aria-live="polite"><p class="mm-info-k">Point at a cell, or focus the map and use the arrow keys.</p><p class="mm-info-r"><span><span class="h" aria-hidden="true"></span>Ringed: the seven families our founding members built on, <a href="#f-107">107</a>, <a href="#f-109">109</a>, <a href="#f-111">111</a>, <a href="#f-130">130</a>, <a href="#f-160">160</a>, <a href="#f-161">161</a> and <a href="#f-167">167</a>.</span></p></div>
         <ul class="vlegend mm-map-legend" aria-label="Legend">
-          <li><span class="sw" style="background:var(--acc-mm)" aria-hidden="true"></span><span><b>Filled</b> &middot; links a Lean scope document (a plan, not a finished check)</span></li>
+          <li><span class="sw mm-sw-fill" aria-hidden="true"></span><span><b>Filled</b> &middot; links a Lean scope document (a plan, not a finished check)</span></li>
           <li><span class="sw mm-sw-hollow" aria-hidden="true"></span><span><b>Outlined</b> &middot; no scope document</span></li>
           <li><span class="sw mm-sw-ring" aria-hidden="true"></span><span><b>Red ring</b> &middot; founding members built on it</span></li>
         </ul>
@@ -285,21 +286,21 @@
   <!-- 03 THE SLACK -->
   <section class="sec alt" id="slack" data-index="The slack" data-num="03" aria-labelledby="slack-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The slack</p><span class="chip">Six refinements &middot; 52 public steps</span></div>
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The slack</p><span class="chip">Six refinements &middot; <span data-nsteps>52</span> public steps</span></div>
       <h2 class="h2" id="slack-h">First proofs leave room. People found it.</h2>
       <p class="lede">A first proof only has to work. To keep it short, its author picks safe, loose numbers wherever the argument allows, much as a first route to a new place takes the roads you already know. That looseness is <dfn class="term">slack</dfn>. Tightening it rarely needs a new idea at first, just patience, and people with AI agents have patience to spare.</p>
       <div class="split mm-slack-intro">
         <div class="prose">
-          <p>The numbers here span a huge range, from 2<sup>&minus;293</sup>, a decimal point followed by 88 zeros, up to 1641. So the chart uses a <dfn class="term">log scale</dfn>: each step along the axis multiplies the value by ten, and the length of an arrow counts how many times over the value grew.</p>
-          <p>Four of the six numbers are better when bigger: a bigger saving, a bigger guaranteed fraction. Two are better when smaller: a smaller constant, a smaller grid. Their arrows point left.</p>
+          <p>The numbers here span a huge range, from 2<sup>&minus;293</sup>, a decimal point followed by 88 zeros, up to 1641. So the chart uses a <dfn class="term">log scale</dfn>: each step along the axis multiplies the value by ten, so the length of a line counts how many times over the value changed.</p>
+          <p>Four of the six numbers are better when bigger: a bigger saving, a bigger guaranteed fraction. Two are better when smaller: a smaller constant, a smaller grid. Their lines run leftward, from the hollow circle to the filled one.</p>
         </div>
-        <aside class="callout caveat"><p class="c-k">Read with care</p><p>An arrow&rsquo;s length shows how loose the first number was, not how important the result is. The 10<sup>79</sup>-fold jump in the matroid fraction is still a fraction below one in a billion, and nobody&rsquo;s computer multiplies faster because of the integer-multiplication race.</p></aside>
+        <aside class="callout caveat"><p class="c-k">Read with care</p><p>A line&rsquo;s length shows how loose the first number was, not how important the result is. The 10<sup>79</sup>-fold jump in the matroid fraction is still a fraction below one in a billion, and nobody&rsquo;s computer multiplies faster because of the integer-multiplication race.</p></aside>
       </div>
 
       <figure class="fig frame mm-slack-fig" aria-labelledby="sk-t">
         <div class="fig-head">
           <p class="fig-title" id="sk-t">How far six numbers moved, 6 to 14 October 2026</p>
-          <p class="fig-how"><b>How to read:</b> the hollow circle is the number in OpenAI&rsquo;s manuscript; the filled circle is the best public value by the date on the slider. Drag the slider or press play to watch the week happen. Choose a row to see its steps below. <span class="mm-only-factor">In &ldquo;factor gained&rdquo; view every arrow starts at &times;1.</span></p>
+          <p class="fig-how"><b>How to read:</b> the hollow circle is the number in OpenAI&rsquo;s manuscript; the filled circle is the best public value by the date on the slider, and the line between them is the slack people found. Drag the slider or press play to watch the week happen. Choose a row to see its own steps, on its own scale, below. <span class="mm-only-factor">In &ldquo;times better&rdquo; view every line starts at &times;1.</span></p>
         </div>
         <div class="fig-ctrl mm-sk-ctrl" role="group" aria-label="Time and view controls">
           <span class="ctrl-label">Ctrl //</span>
@@ -308,7 +309,7 @@
           <button class="tbtn" type="button" id="sk-next" aria-label="Next step">&rarr;</button>
           <label class="ctrl mm-sk-range"><span>Up to</span><input class="range" type="range" id="sk-range" min="0" max="1000" step="1" value="1000"></label>
           <output id="sk-out" for="sk-range">14 Oct 2026 &middot; 52 of 52 steps</output>
-          <div class="seg" role="group" aria-label="Axis"><button type="button" data-view="value" aria-pressed="true">Values</button><button type="button" data-view="factor" aria-pressed="false">Factor gained</button></div>
+          <div class="seg" role="group" aria-label="Axis"><button type="button" data-view="value" aria-pressed="true">Values</button><button type="button" data-view="factor" aria-pressed="false">Times better</button></div>
         </div>
         <div class="mm-sk" id="sk-host">
           <noscript><p class="mm-noscript">This chart needs JavaScript; the table below lists every step.</p></noscript>
@@ -317,7 +318,6 @@
         <ul class="vlegend mm-sk-legend" aria-label="Legend">
           <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="5" style="fill:none;stroke:var(--ink-2);stroke-width:1.6"/></svg><span><b>Before</b> &middot; OpenAI&rsquo;s manuscript</span></li>
           <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="5.5" style="fill:var(--acc-mm)"/></svg><span><b>After</b> &middot; best public value by that date</span></li>
-          <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="4.5" style="fill:var(--bg-2);stroke:var(--acc-mm);stroke-width:1.8"/></svg><span><b>Claimed only</b> &middot; not checked by anyone else when posted</span></li>
         </ul>
         <figcaption class="fig-foot"><span class="fig-src">Sources: each row&rsquo;s repository history and pull requests; the Fourier steps from the <a href="https://bigospeedrun.com/exact-dft">Big O Speedrun leaderboard</a> (read 14 Oct, Pacific times converted to UTC); the &kappa; records from <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a> history. Snapshot to 14 Oct 2026.</span></figcaption>
         <details class="twin"><summary>Show every step</summary><div class="table-wrap" id="sk-table"></div></details>
