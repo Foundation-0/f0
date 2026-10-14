@@ -106,6 +106,40 @@
    "foundation0": false
   },
   {
+   "id": "top7-first-designed-novel-protein-fold",
+   "date": "2003-11-21",
+   "date_basis": "publication",
+   "title": "Rosetta designs Top7, a protein with a fold not seen in nature",
+   "domain": "biology",
+   "subfield": "computational protein design (pre-deep-learning)",
+   "summary": "Baker's group used Rosetta, a program that alternates between designing a sequence and predicting its structure, to design Top7, a 93-residue protein with a new topology. Top7 folded and was extremely stable. Its X-ray structure matched the computer design to 1.2 angstroms RMSD.",
+   "before_after": null,
+   "why_it_matters": "A computer invented a working protein from first principles instead of editing a natural one. The 2024 Chemistry Nobel background describes Top7 as the first protein entirely different from all known ones.",
+   "ai_systems": [
+    "Rosetta"
+   ],
+   "organizations": [
+    "University of Washington",
+    "Howard Hughes Medical Institute"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Kuhlman et al., Science, 2003-11-21",
+     "url": "https://doi.org/10.1126/science.1089427"
+    },
+    {
+     "label": "Nobel Prize in Chemistry 2024, popular information (Top7)",
+     "url": "https://www.nobelprize.org/prizes/chemistry/2024/popular-information/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "nasa-st5-evolved-antenna",
    "date": "2006-03-22",
    "date_basis": "deployment",
@@ -664,6 +698,42 @@
    "foundation0": false
   },
   {
+   "id": "snapshot-serengeti-deep-learning-camera-traps",
+   "date": "2018-06-05",
+   "date_basis": "publication",
+   "title": "Deep learning identifies wildlife in 3.2 million camera-trap images",
+   "domain": "biology",
+   "subfield": "ecology, camera-trap species identification",
+   "summary": "Deep neural networks learned to identify, count and describe 48 species in the 3.2-million-image Snapshot Serengeti set with over 93.8% accuracy. Keeping only confident calls automated 99.3% of images at 96.6% accuracy, matching volunteer crowds and saving over 8.4 years of human labelling.",
+   "before_after": {
+    "metric": "Images labelled automatically at volunteer-level accuracy (96.6%)",
+    "before": "0% (all labelled by volunteers)",
+    "after": "99.3% of 3.2 million images"
+   },
+   "why_it_matters": "Camera traps gather far more images than experts can label. Automatic species counts turn them into data on animal numbers and behaviour, cheap enough to monitor whole ecosystems.",
+   "ai_systems": [
+    "Deep convolutional neural networks"
+   ],
+   "organizations": [
+    "University of Wyoming",
+    "Auburn University",
+    "University of Minnesota",
+    "Uber AI"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Norouzzadeh et al., PNAS, 2018-06-05",
+     "url": "https://doi.org/10.1073/pnas.1719367115"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "higgs-bottom-quark-decay-ml",
    "date": "2018-08-28",
    "date_basis": "announcement",
@@ -742,6 +812,80 @@
     {
      "label": "Breakthrough Initiatives news, 2018-09-10",
      "url": "https://breakthroughinitiatives.org/news/22"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "alphafold-casp13-first-deep-learning-lead",
+   "date": "2018-12",
+   "date_basis": "competition",
+   "title": "AlphaFold wins CASP13 on hard targets: 24 of 43 at TM-score 0.7 or more",
+   "domain": "biology",
+   "subfield": "protein structure prediction",
+   "summary": "DeepMind's first AlphaFold trained a neural network to predict distances between pairs of amino acids, then optimized a protein shape to fit them. In the blind CASP13 test it ranked first on free-modelling targets, giving high-accuracy structures (TM-score 0.7 or more) for 24 of 43 domains against 14 for the next best method.",
+   "before_after": {
+    "metric": "Free-modelling domains at TM-score 0.7 or more (CASP13)",
+    "before": "14 of 43 (next best method)",
+    "after": "24 of 43 (AlphaFold)"
+   },
+   "why_it_matters": "Deep learning beat every other CASP13 entry at predicting the shape of hard protein targets, setting up AlphaFold 2 two years later.",
+   "ai_systems": [
+    "AlphaFold (version 1)"
+   ],
+   "organizations": [
+    "DeepMind",
+    "Francis Crick Institute",
+    "University College London"
+   ],
+   "ai_role": "originator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Senior et al., Nature, 2020-01-15",
+     "url": "https://doi.org/10.1038/s41586-019-1923-7"
+    },
+    {
+     "label": "Senior et al., Proteins, CASP13 system description, 2019-11-11",
+     "url": "https://doi.org/10.1002/prot.25834"
+    },
+    {
+     "label": "CASP13 conference page, 1-4 December 2018",
+     "url": "https://predictioncenter.org/casp13/index.cgi"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "spliceai-cryptic-splice-variants",
+   "date": "2019-01-17",
+   "date_basis": "publication",
+   "title": "SpliceAI reads RNA sequence to flag hidden splice-altering mutations",
+   "domain": "biology",
+   "subfield": "genomics, variant interpretation",
+   "summary": "Illumina's SpliceAI, a deep neural network, predicts splice junctions from transcript sequence and flags noncoding variants that cause cryptic splicing. Predicted splice-altering de novo variants were enriched in autism and intellectual-disability patients and validated in RNA-seq for 21 of 28. The authors estimate 9-11% of pathogenic mutations in rare disorders act this way.",
+   "before_after": null,
+   "why_it_matters": "Most disease-linked variants sit outside protein-coding sequence and are hard to interpret. Reading splicing from sequence gives geneticists a way to weigh variants that were previously overlooked.",
+   "ai_systems": [
+    "SpliceAI"
+   ],
+   "organizations": [
+    "Illumina",
+    "University of California, San Francisco",
+    "Stanford University"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Jaganathan et al., Cell, 2019-01-17",
+     "url": "https://doi.org/10.1016/j.cell.2018.12.015"
     }
    ],
    "foundation0": false
@@ -1261,6 +1405,37 @@
    "foundation0": false
   },
   {
+   "id": "hemibrain-fly-central-brain-connectome",
+   "date": "2020-09-07",
+   "date_basis": "publication",
+   "title": "Janelia and Google map about 25,000 neurons of the fly central brain",
+   "domain": "biology",
+   "subfield": "connectomics",
+   "summary": "Janelia and Google reconstructed the central brain of a fruit fly from electron-microscope images, using flood-filling neural networks plus over 50 person-years of human proofreading. The open map holds about 25,000 neurons and about 20 million chemical synapses, then the largest dense reconstruction to date.",
+   "before_after": null,
+   "why_it_matters": "A full wiring map lets scientists trace how circuits produce behaviour such as navigation, sleep and learning, rather than infer it from isolated recordings.",
+   "ai_systems": [
+    "Flood-filling networks",
+    "CycleGAN image normalization"
+   ],
+   "organizations": [
+    "HHMI Janelia Research Campus",
+    "Google Research"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Scheffer et al., eLife, 2020-09-07",
+     "url": "https://doi.org/10.7554/eLife.57443"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "chematica-natural-product-routes",
    "date": "2020-10-13",
    "date_basis": "publication",
@@ -1326,6 +1501,47 @@
    "foundation0": false
   },
   {
+   "id": "alphafold2-casp14-near-experimental-accuracy",
+   "date": "2020-11-30",
+   "date_basis": "competition",
+   "title": "AlphaFold 2 reaches near-experimental accuracy at CASP14",
+   "domain": "biology",
+   "subfield": "protein structure prediction",
+   "summary": "In the blind CASP14 test DeepMind's AlphaFold 2 reached a median 92.4 GDT across all targets (87.0 on the hardest), with average error near 1.6 angstroms. The 2021 Nature paper reports median backbone error of 0.96 Å against 2.8 Å for the next-best method; a carbon atom is about 1.4 Å wide.",
+   "before_after": {
+    "metric": "Median backbone error at CASP14 (r.m.s.d. at 95% coverage)",
+    "before": "2.8 Å (next best method)",
+    "after": "0.96 Å (AlphaFold 2)"
+   },
+   "why_it_matters": "Protein shape sets function, but each lab-solved structure took months or years. A predictor near lab accuracy puts structures within reach for almost any protein sequence.",
+   "ai_systems": [
+    "AlphaFold 2"
+   ],
+   "organizations": [
+    "DeepMind"
+   ],
+   "ai_role": "originator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 5,
+   "sources": [
+    {
+     "label": "DeepMind blog, 2020-11-30",
+     "url": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/"
+    },
+    {
+     "label": "Jumper et al., Nature, 2021-07-15",
+     "url": "https://doi.org/10.1038/s41586-021-03819-2"
+    },
+    {
+     "label": "CASP14 conference page, 30 November-4 December 2020",
+     "url": "https://predictioncenter.org/casp14/index.cgi"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "mlgo-llvm-compiler",
    "date": "2021-01-13",
    "date_basis": "preprint",
@@ -1358,6 +1574,36 @@
     {
      "label": "Google Research blog, 2022-07-06",
      "url": "https://www.research.google/blog/mlgo-a-machine-learning-framework-for-compiler-optimization/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "birdnet-984-species-sound-identification",
+   "date": "2021-01-27",
+   "date_basis": "publication",
+   "title": "BirdNET neural network identifies 984 bird species by sound",
+   "domain": "biology",
+   "subfield": "bioacoustics, biodiversity monitoring",
+   "summary": "Cornell and Chemnitz researchers trained a 27-million-parameter ResNet to name 984 North American and European bird species from audio. It scored mean average precision 0.791 on single-species recordings but F0.5 0.414 on annotated soundscapes, showing field audio remains much harder.",
+   "before_after": null,
+   "why_it_matters": "Bird counts track environmental change, but expert surveys cover little ground. Automatic sound identification lets recorders monitor continuously, although accuracy in noisy field audio is still limited.",
+   "ai_systems": [
+    "BirdNET (ResNet audio classifier)"
+   ],
+   "organizations": [
+    "Cornell Lab of Ornithology",
+    "Chemnitz University of Technology"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Kahl et al., Ecological Informatics 61:101236, online 2021-01-27",
+     "url": "https://doi.org/10.1016/j.ecoinf.2021.101236"
     }
    ],
    "foundation0": false
@@ -1567,6 +1813,41 @@
     {
      "label": "Communications of the ACM (critique, Markov), 2024-10-25",
      "url": "https://doi.org/10.1145/3676845"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "rosettafold-three-track-network",
+   "date": "2021-07-15",
+   "date_basis": "publication",
+   "title": "RoseTTAFold, a three-track network, nears AlphaFold 2 accuracy",
+   "domain": "biology",
+   "subfield": "protein structure prediction",
+   "summary": "The Baker lab's RoseTTAFold passes information between sequence, distance-map and 3D-coordinate levels, reaching accuracy approaching DeepMind's CASP14 results. After a 1.5-hour sequence search it predicts a backbone for proteins under 400 residues in about 10 minutes on one GPU, and builds protein-complex models from sequence alone.",
+   "before_after": null,
+   "why_it_matters": "Gave academic labs a fast, openly available structure predictor; the same network was later fine-tuned into RFdiffusion for protein design.",
+   "ai_systems": [
+    "RoseTTAFold"
+   ],
+   "organizations": [
+    "University of Washington Institute for Protein Design",
+    "Lawrence Berkeley National Laboratory",
+    "UT Southwestern Medical Center"
+   ],
+   "ai_role": "originator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Baek et al., Science, online 2021-07-15",
+     "url": "https://doi.org/10.1126/science.abj8754"
+    },
+    {
+     "label": "Open-access full text (PMC)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612213/"
     }
    ],
    "foundation0": false
@@ -1991,6 +2272,82 @@
    "foundation0": false
   },
   {
+   "id": "alphafold-database-214-million-structures",
+   "date": "2022-07-28",
+   "date_basis": "deployment",
+   "title": "AlphaFold database grows from under a million to 214 million structures",
+   "domain": "biology",
+   "subfield": "protein structure prediction",
+   "summary": "In July 2022 DeepMind and EMBL-EBI expanded the AlphaFold Protein Structure Database to 214,684,311 predicted structures, covering almost all of UniProt across plants, bacteria, animals and other organisms. The previous release, in December 2021, held 992,316 models. The structures are free to use.",
+   "before_after": {
+    "metric": "Predicted structures in the AlphaFold database",
+    "before": "992,316 (December 2021)",
+    "after": "214,684,311 (July 2022)"
+   },
+   "why_it_matters": "Instead of waiting for lab work, biologists can look up a predicted structure for nearly any catalogued protein, at no cost.",
+   "ai_systems": [
+    "AlphaFold 2"
+   ],
+   "organizations": [
+    "Google DeepMind",
+    "EMBL-EBI"
+   ],
+   "ai_role": "originator",
+   "evidence": "deployed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Google DeepMind blog, 2022-07-28",
+     "url": "https://deepmind.google/blog/alphafold-reveals-the-structure-of-the-protein-universe/"
+    },
+    {
+     "label": "EMBL-EBI blog on the new release (exact counts)",
+     "url": "https://ebi-biows.gitdocs.ebi.ac.uk/blog/2022-07-28-new-afdb-release"
+    },
+    {
+     "label": "Varadi et al., Nucleic Acids Research, AlphaFold DB in 2024, 2023-11-02",
+     "url": "https://doi.org/10.1093/nar/gkad1011"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "proteinmpnn-sequence-design",
+   "date": "2022-09-15",
+   "date_basis": "publication",
+   "title": "ProteinMPNN designs sequences that rescue previously failed protein designs",
+   "domain": "biology",
+   "subfield": "de novo protein design",
+   "summary": "ProteinMPNN, a message-passing neural network, designs amino-acid sequences for a given protein backbone. On native backbones it recovered 52.4% of residues against 32.9% for Rosetta. X-ray crystallography, cryo-EM and function tests showed it rescued earlier Rosetta- or AlphaFold-made designs that had failed.",
+   "before_after": {
+    "metric": "Native sequence recovery on native backbones",
+    "before": "32.9% (Rosetta)",
+    "after": "52.4% (ProteinMPNN)"
+   },
+   "why_it_matters": "Choosing amino acids that fold into a chosen shape is the second half of protein design. A faster, more reliable tool makes new proteins easier to make and test.",
+   "ai_systems": [
+    "ProteinMPNN"
+   ],
+   "organizations": [
+    "University of Washington Institute for Protein Design",
+    "Howard Hughes Medical Institute"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Dauparas et al., Science, online 2022-09-15",
+     "url": "https://doi.org/10.1126/science.add2187"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "alphatensor-matrix-multiplication",
    "date": "2022-10-05",
    "date_basis": "publication",
@@ -2130,6 +2487,36 @@
    "foundation0": false
   },
   {
+   "id": "deep-learning-de-novo-luciferases",
+   "date": "2023-02-22",
+   "date_basis": "publication",
+   "title": "Deep learning designs working luciferase enzymes from scratch",
+   "domain": "biology",
+   "subfield": "de novo enzyme design",
+   "summary": "University of Washington researchers used deep-learning 'family-wide hallucination' to generate idealized protein scaffolds with varied pockets, then designed artificial luciferases from scratch. The best, a 13.9 kDa enzyme stable above 95 °C, has catalytic efficiency near 10^6 per molar per second on diphenylterazine, comparable to natural luciferases but far more specific.",
+   "before_after": null,
+   "why_it_matters": "Building enzymes from scratch, rather than editing natural ones, opens catalysts for reactions nature never evolved. The authors point to broad biomedical applications.",
+   "ai_systems": [
+    "Family-wide hallucination (deep-network protein design)"
+   ],
+   "organizations": [
+    "University of Washington Institute for Protein Design",
+    "University of California, Los Angeles"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Yeh et al., Nature, 2023-02-22",
+     "url": "https://doi.org/10.1038/s41586-023-05696-3"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "go-players-improve-after-superhuman-ai",
    "date": "2023-03-13",
    "date_basis": "publication",
@@ -2161,6 +2548,37 @@
     {
      "label": "Full text, PubMed Central",
      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10041097/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "esmfold-metagenomic-atlas-617-million",
+   "date": "2023-03-16",
+   "date_basis": "publication",
+   "title": "ESMFold builds an atlas of 617 million metagenomic protein structures",
+   "domain": "biology",
+   "subfield": "protein structure prediction",
+   "summary": "Meta AI's protein language model, scaled to 15 billion parameters, predicts atomic-level structure directly from a single sequence, about ten times faster than earlier high-resolution methods. It built the ESM Metagenomic Atlas of more than 617 million predicted structures, over 225 million of them high confidence.",
+   "before_after": null,
+   "why_it_matters": "Most proteins in nature come from microbes never grown in a lab. A fast, alignment-free predictor lets researchers survey that unseen diversity at scale.",
+   "ai_systems": [
+    "ESMFold",
+    "ESM-2"
+   ],
+   "organizations": [
+    "Meta AI (FAIR)",
+    "New York University"
+   ],
+   "ai_role": "originator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Lin et al., Science, online 2023-03-16",
+     "url": "https://doi.org/10.1126/science.ade2574"
     }
    ],
    "foundation0": false
@@ -2265,6 +2683,41 @@
     {
      "label": "Nature Chemical Biology, 2023-05-25",
      "url": "https://doi.org/10.1038/s41589-023-01349-8"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "geneformer-transfer-learning-network-biology",
+   "date": "2023-05-31",
+   "date_basis": "publication",
+   "title": "Geneformer, pretrained on 30 million cells, predicts gene-network behaviour",
+   "domain": "biology",
+   "subfield": "single-cell foundation models",
+   "summary": "Geneformer, pretrained on about 30 million single-cell transcriptomes, learned gene-network structure without labels. With little extra data it improved predictions across chromatin and network tasks, and in cardiomyopathy disease modelling it flagged candidate therapeutic targets.",
+   "before_after": null,
+   "why_it_matters": "Mapping gene networks usually needs huge datasets. A pretrained model that works with little data could help study rare diseases and tissues that are hard to sample.",
+   "ai_systems": [
+    "Geneformer"
+   ],
+   "organizations": [
+    "Broad Institute",
+    "Massachusetts General Hospital",
+    "Dana-Farber Cancer Institute"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": true,
+   "contested_note": "Kedzierska et al. (Genome Biology, 2025-04-18) tested Geneformer and scGPT with no fine-tuning (zero-shot) and found that in some cases simpler methods could outperform them. The Nature paper's gains rest on fine-tuning, so the critique limits, rather than overturns, its claims.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Theodoris et al., Nature, 2023-05-31",
+     "url": "https://doi.org/10.1038/s41586-023-06139-9"
+    },
+    {
+     "label": "Zero-shot critique, Genome Biology, 2025-04-18",
+     "url": "https://doi.org/10.1186/s13059-025-03574-x"
     }
    ],
    "foundation0": false
@@ -2381,6 +2834,37 @@
    "foundation0": false
   },
   {
+   "id": "rfdiffusion-de-novo-protein-design",
+   "date": "2023-07-11",
+   "date_basis": "publication",
+   "title": "RFdiffusion generates new protein binders, assemblies and active sites",
+   "domain": "biology",
+   "subfield": "de novo protein design",
+   "summary": "Fine-tuning the RoseTTAFold structure network as a diffusion model gave a general generator of protein backbones, used for binders, symmetric assemblies, metal-binding proteins and enzyme active sites. Hundreds of designs were tested experimentally, and a cryo-EM structure of a designed binder matched its design model nearly exactly.",
+   "before_after": null,
+   "why_it_matters": "One general protein generator can replace bespoke design pipelines: specify a function such as binding a target and get candidate proteins to test.",
+   "ai_systems": [
+    "RFdiffusion",
+    "RoseTTAFold"
+   ],
+   "organizations": [
+    "University of Washington Institute for Protein Design",
+    "Massachusetts Institute of Technology"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Watson et al., Nature, 2023-07-11",
+     "url": "https://doi.org/10.1038/s41586-023-06415-8"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "med-palm-usmle-pass-mark",
    "date": "2023-07-12",
    "date_basis": "publication",
@@ -2491,6 +2975,44 @@
     {
      "label": "Full text, PubMed Central",
      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10468397/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "alphamissense-71-million-variants",
+   "date": "2023-09-19",
+   "date_basis": "publication",
+   "title": "AlphaMissense rates all 71 million possible missense variants",
+   "domain": "biology",
+   "subfield": "variant effect prediction",
+   "summary": "AlphaMissense, AlphaFold fine-tuned on human and primate variant frequencies, rated all 71 million possible human missense variants. At a threshold giving 90% precision on known disease variants it classified 89%: 57% likely benign, 32% likely pathogenic. Only about 0.1% of all possible variants had been confirmed by human experts.",
+   "before_after": null,
+   "why_it_matters": "Most human missense variants have unknown clinical meaning. Proteome-wide predictions give geneticists a starting point for ranking which rare changes may cause disease.",
+   "ai_systems": [
+    "AlphaMissense",
+    "AlphaFold"
+   ],
+   "organizations": [
+    "Google DeepMind"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": true,
+   "contested_note": "An independent rare-disease cohort study (npj Genomic Medicine, 2025-02-28) found AlphaMissense precision of 32.9% and recall of 57.6% for expert-curated pathogenic variants, and poor performance in intrinsically disordered regions. The 90% precision figure is from the developers' own known-variant set.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Cheng et al., Science, online 2023-09-19",
+     "url": "https://doi.org/10.1126/science.adg7492"
+    },
+    {
+     "label": "Google DeepMind blog, 2023-09-19",
+     "url": "https://deepmind.google/blog/a-catalogue-of-genetic-mutations-to-help-pinpoint-the-cause-of-diseases/"
+    },
+    {
+     "label": "Rare-disease cohort evaluation, npj Genomic Medicine, 2025-02-28",
+     "url": "https://doi.org/10.1038/s41525-025-00480-w"
     }
    ],
    "foundation0": false
@@ -3211,6 +3733,44 @@
    "foundation0": false
   },
   {
+   "id": "alphafold3-biomolecular-complexes",
+   "date": "2024-05-08",
+   "date_basis": "publication",
+   "title": "AlphaFold 3 predicts joint structures of proteins, DNA, RNA and ligands",
+   "domain": "biology",
+   "subfield": "protein structure prediction",
+   "summary": "AlphaFold 3 uses a diffusion-based architecture to predict joint structures of complexes containing proteins, nucleic acids, small molecules, ions and modified residues in one model. DeepMind reports about 50% higher accuracy than the best traditional methods on drug-like interactions in the PoseBusters benchmark, with no structural input.",
+   "before_after": null,
+   "why_it_matters": "Cells run on proteins bound to DNA, RNA and small molecules. One model covering them all lets researchers test binding ideas on screen before going to the lab.",
+   "ai_systems": [
+    "AlphaFold 3"
+   ],
+   "organizations": [
+    "Google DeepMind",
+    "Isomorphic Labs"
+   ],
+   "ai_role": "originator",
+   "evidence": "peer-reviewed",
+   "contested": true,
+   "contested_note": "Škrinjar et al. (Nature Structural & Molecular Biology, 2026-05-08) tested leading co-folding methods, AlphaFold 3 among them per the preprint, on 2,600 post-cutoff protein-ligand complexes and concluded they largely memorise ligand poses from training data, limiting use for de novo drug design.",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Abramson et al., Nature, 2024-05-08",
+     "url": "https://doi.org/10.1038/s41586-024-07487-w"
+    },
+    {
+     "label": "Google blog, 2024-05-08",
+     "url": "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/"
+    },
+    {
+     "label": "Generalization critique, Nature Structural & Molecular Biology, 2026-05-08",
+     "url": "https://doi.org/10.1038/s41594-026-01797-5"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "chemcrow-llm-chemistry-agent",
    "date": "2024-05-08",
    "date_basis": "publication",
@@ -3346,6 +3906,36 @@
     {
      "label": "Science, 2024-05-16 (online)",
      "url": "https://doi.org/10.1126/science.adk9227"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "agront-plant-genome-language-model",
+   "date": "2024-07-09",
+   "date_basis": "publication",
+   "title": "AgroNT, a language model of 48 plant genomes, scores regulatory DNA",
+   "domain": "biology",
+   "subfield": "plant genomics, crop science",
+   "summary": "InstaDeep trained AgroNT, a genome language model, on 48 plant species, mostly crops. It predicts regulatory annotations, promoter and terminator strength and tissue-specific expression, and was used for in-silico saturation mutagenesis of over 10 million cassava mutations, released as a resource.",
+   "before_after": null,
+   "why_it_matters": "Crop genomes hold many regulatory changes that breeders cannot test one by one. Predicted effects give a ranked starting list, though they still need field and lab checks.",
+   "ai_systems": [
+    "AgroNT (Agro Nucleotide Transformer)"
+   ],
+   "organizations": [
+    "InstaDeep",
+    "Google DeepMind"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Mendoza-Revilla et al., Communications Biology, 2024-07-09",
+     "url": "https://doi.org/10.1038/s42003-024-06465-2"
     }
    ],
    "foundation0": false
@@ -3559,6 +4149,43 @@
     {
      "label": "Nature Medicine, 2024-09-25",
      "url": "https://doi.org/10.1038/s41591-024-03233-x"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "flywire-whole-adult-fly-brain-connectome",
+   "date": "2024-10-02",
+   "date_basis": "publication",
+   "title": "FlyWire maps all 139,255 neurons and 54.5 million synapses of a fly brain",
+   "domain": "biology",
+   "subfield": "connectomics",
+   "summary": "A consortium built a wiring diagram of a whole adult fruit-fly brain from electron-microscope images. Neural networks segmented the images and the community proofread them in about 33 person-years. The map has 139,255 neurons and 54.5 million synapses, with cell types and neurotransmitter predictions.",
+   "before_after": {
+    "metric": "Neurons in a dense fly brain wiring map",
+    "before": "About 25,000 (central brain only, 2020)",
+    "after": "139,255 (whole brain)"
+   },
+   "why_it_matters": "Whole-brain wiring lets scientists follow signals from senses to movement across both hemispheres, and it is a template for mapping larger brains.",
+   "ai_systems": [
+    "Boundary-detecting convolutional networks (segmentation)",
+    "Synapse and neurotransmitter prediction networks"
+   ],
+   "organizations": [
+    "Princeton University",
+    "University of Cambridge",
+    "MRC Laboratory of Molecular Biology",
+    "Allen Institute"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Dorkenwald et al., Nature, 2024-10-02",
+     "url": "https://doi.org/10.1038/s41586-024-07558-y"
     }
    ],
    "foundation0": false
@@ -3990,6 +4617,37 @@
     {
      "label": "Nature, 2025-01-15",
      "url": "https://doi.org/10.1038/s41586-024-08393-x"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "esm3-esmgfp-fluorescent-protein",
+   "date": "2025-01-16",
+   "date_basis": "publication",
+   "title": "ESM3 generates a fluorescent protein only 58% identical to known ones",
+   "domain": "biology",
+   "subfield": "generative protein models",
+   "summary": "EvolutionaryScale's ESM3, a generative model reasoning over protein sequence, structure and function, was prompted to design fluorescent proteins. Of those synthesized, one bright protein, esmGFP, shares 58% sequence identity with known fluorescent proteins, which the authors estimate equals about 500 million years of evolution.",
+   "before_after": null,
+   "why_it_matters": "Shows a language model can propose functional proteins far from anything known, widening the search space for enzymes, sensors and therapeutics beyond what evolution sampled.",
+   "ai_systems": [
+    "ESM3"
+   ],
+   "organizations": [
+    "EvolutionaryScale",
+    "Arc Institute",
+    "University of California, Berkeley"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Hayes et al., Science, online 2025-01-16",
+     "url": "https://doi.org/10.1126/science.ads0018"
     }
    ],
    "foundation0": false
@@ -4448,6 +5106,42 @@
     {
      "label": "Nature, 2025-04-09",
      "url": "https://doi.org/10.1038/s41586-025-08866-7"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "microns-cubic-millimetre-mouse-visual-cortex",
+   "date": "2025-04-09",
+   "date_basis": "publication",
+   "title": "MICrONS joins activity and wiring in a cubic millimetre of mouse cortex",
+   "domain": "biology",
+   "subfield": "connectomics",
+   "summary": "MICrONS recorded calcium activity of about 75,000 neurons in an awake mouse's visual cortex, then reconstructed the same cubic millimetre from electron microscopy: over 200,000 cells and about 0.5 billion synapses. Convolutional networks did the automated tracing; a subset of neurons was proofread by hand. The data are open.",
+   "before_after": null,
+   "why_it_matters": "Linking what neurons do to how they are wired lets scientists test circuit rules directly, across thousands of neurons in one animal.",
+   "ai_systems": [
+    "Convolutional-network segmentation",
+    "Automated synapse detection"
+   ],
+   "organizations": [
+    "Allen Institute for Brain Science",
+    "Baylor College of Medicine",
+    "Princeton University"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "MICrONS Consortium, Nature, 2025-04-09",
+     "url": "https://doi.org/10.1038/s41586-025-08790-w"
+    },
+    {
+     "label": "MICrONS Explorer, cortical mm3 dataset page",
+     "url": "https://www.microns-explorer.org/cortical-mm3"
     }
    ],
    "foundation0": false
@@ -4923,6 +5617,38 @@
     {
      "label": "Nature Health (retrospective safety evaluation), 2026-03-10",
      "url": "https://doi.org/10.1038/s44360-026-00082-5"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "opencrispr-1-ai-designed-genome-editor",
+   "date": "2025-07-30",
+   "date_basis": "publication",
+   "title": "AI-designed OpenCRISPR-1 edits human cells, about 400 mutations from SpCas9",
+   "domain": "biology",
+   "subfield": "generative design of genome editors",
+   "summary": "Profluent mined over 1 million CRISPR operons from 26 terabases of sequence and trained language models that generated 4.8 times as many protein clusters across CRISPR-Cas families as nature holds. Several designed editors matched or beat SpCas9 in activity and specificity despite about 400 mutations; OpenCRISPR-1 also works with base editing.",
+   "before_after": null,
+   "why_it_matters": "Natural editors come from microbes and often work poorly in human cells. Designing editors with AI can bypass evolutionary constraints and widen the gene-editing toolbox.",
+   "ai_systems": [
+    "CRISPR-Cas protein language models (Profluent)",
+    "OpenCRISPR-1"
+   ],
+   "organizations": [
+    "Profluent Bio",
+    "École Polytechnique Fédérale de Lausanne",
+    "University of Washington"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Ruffolo et al., Nature, 2025-07-30",
+     "url": "https://doi.org/10.1038/s41586-025-09298-z"
     }
    ],
    "foundation0": false
@@ -5480,6 +6206,40 @@
    "foundation0": false
   },
   {
+   "id": "c2s-scale-silmitasertib-antigen-presentation",
+   "date": "2025-10-15",
+   "date_basis": "announcement",
+   "title": "27-billion-parameter cell model proposes a drug that held up in lab cells",
+   "domain": "biology",
+   "subfield": "single-cell language models, virtual cells",
+   "summary": "Google and Yale trained a 27-billion-parameter language model on single-cell data. A virtual screen nominated silmitasertib, a CK2 inhibitor, to raise antigen presentation only in an immune-active context. In human cell models unseen in training, silmitasertib plus low-dose interferon raised it roughly 50%, per the developers. Cell tests only; preprint.",
+   "before_after": null,
+   "why_it_matters": "Antigen presentation is a key immune trigger. A model that proposes a context-specific drug effect that then holds in cells is an early case of AI-guided hypothesis generation in biology.",
+   "ai_systems": [
+    "C2S-Scale 27B (Cell2Sentence-Scale, built on Gemma)"
+   ],
+   "organizations": [
+    "Google DeepMind",
+    "Yale University"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Google blog, 2025-10-15",
+     "url": "https://blog.google/innovation-and-ai/products/google-gemma-ai-cancer-therapy-discovery/"
+    },
+    {
+     "label": "bioRxiv preprint, posted 2025-04-17, revised 2025-10-11 and later",
+     "url": "https://doi.org/10.1101/2025.04.14.648850"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "discorl-discovered-rl-rule",
    "date": "2025-10-22",
    "date_basis": "publication",
@@ -5614,6 +6374,145 @@
    "foundation0": false
   },
   {
+   "id": "packingstar-kissing-numbers-25-31",
+   "date": "2025-11-17",
+   "date_basis": "preprint",
+   "title": "Reinforcement learning sets new kissing-number records in dimensions 25 to 31",
+   "domain": "mathematics",
+   "subfield": "discrete geometry / sphere packing",
+   "summary": "PackingStar, a reinforcement learning system that treats the kissing number problem as a two-player game of filling in tables of cosines between sphere centres, beat the best known lower bounds in every dimension from 25 to 31, for example from 197,048 to 197,056 touching spheres in 25 dimensions and from 232,874 to 238,350 in 31.",
+   "before_after": {
+    "metric": "Kissing number lower bound in 31 dimensions",
+    "before": "232,874",
+    "after": "238,350 (238,078 in the first version)"
+   },
+   "why_it_matters": "The kissing number, how many equal spheres can touch a central one, is known exactly in only six dimensions; the old records in dimensions 25 to 31 all came from one Leech-lattice construction.",
+   "ai_systems": [
+    "PackingStar"
+   ],
+   "organizations": [
+    "Peking University",
+    "Shanghai Academy of AI for Science",
+    "Fudan University"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "The configurations are explicit and checkable but not yet peer-reviewed. The 13-dimensional 1,146 beats only the 1,130 rational construction of 1971, not the 1,154 record. The September 2026 revision reports 15 improved bounds across kissing-type problems.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Ma et al., Finding Kissing Numbers with Game-theoretic Reinforcement Learning, arXiv:2511.13391",
+     "url": "https://arxiv.org/abs/2511.13391"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "gpt5-science-case-studies-erdos-848",
+   "date": "2025-11-20",
+   "date_basis": "preprint",
+   "title": "GPT-5 case studies include four new maths results, among them Erdős #848",
+   "domain": "mathematics",
+   "subfield": "combinatorial number theory / multiple fields",
+   "summary": "OpenAI and academic collaborators documented GPT-5 in live research, including four new, human-verified mathematics results. In one, GPT-5 Pro supplied an idea that, with earlier online comments, let Mehtaab Sawhney settle Erdős problem #848: for large N, the numbers ≡ 7 (mod 25) form a largest set in which no product-plus-one ab+1 is squarefree.",
+   "before_after": null,
+   "why_it_matters": "It records, with transcripts, where a general-purpose model actually moved research forward and where it failed, giving mathematicians concrete evidence rather than anecdotes.",
+   "ai_systems": [
+    "GPT-5",
+    "GPT-5 Pro"
+   ],
+   "organizations": [
+    "OpenAI",
+    "Columbia University",
+    "Harvard University",
+    "University of Oxford"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "The authors call the new results modest in scope. For #848, GPT-5's own attempts at a full proof had numerous errors; Sawhney turned its idea into the proof.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Bubeck et al., Early science acceleration experiments with GPT-5, arXiv:2511.16072",
+     "url": "https://arxiv.org/abs/2511.16072"
+    },
+    {
+     "label": "OpenAI, Early experiments in accelerating science with GPT-5 (2025-11-20)",
+     "url": "https://openai.com/index/accelerating-science-gpt-5/"
+    },
+    {
+     "label": "erdosproblems.com, Problem #848",
+     "url": "https://www.erdosproblems.com/848"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "aristotle-erdos-124-weaker-version",
+   "date": "2025-11-29",
+   "date_basis": "announcement",
+   "title": "Aristotle proves a version of Erdős problem #124 in Lean on its own",
+   "domain": "mathematics",
+   "subfield": "number theory / complete sequences",
+   "summary": "Working only from a formal statement in the Formal Conjectures project, Harmonic's Aristotle spent six hours on a Lean proof that, whenever 1/(d₁−1)+…+1/(d_r−1) ≥ 1, every whole number is a sum of one number per base dᵢ with base-dᵢ digits all 0 or 1. Boris Alexeev posted it on 29 November 2025.",
+   "before_after": null,
+   "why_it_matters": "An early case of an AI prover settling a listed problem end to end, and a lesson in how loosely stated problems can make 'solved' claims misleading.",
+   "ai_systems": [
+    "Aristotle"
+   ],
+   "organizations": [
+    "Harmonic",
+    "erdosproblems.com community"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": true,
+   "contested_note": "Thomas Bloom (forum, 30 Nov 2025): Aristotle solved 'a' version, with an olympiad-style proof, but not 'the' version; the Burr–Erdős–Graham–Li form, which excludes the digit 1s, remains open. The original formal statement also had a typo that weakened it, which Alexeev corrected.",
+   "significance": 1,
+   "sources": [
+    {
+     "label": "erdosproblems.com forum, Problem #124 thread",
+     "url": "https://www.erdosproblems.com/forum/thread/124"
+    },
+    {
+     "label": "erdosproblems.com, Problem #124",
+     "url": "https://www.erdosproblems.com/124"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "putnam-2025-axiomprover-lean-12-of-12",
+   "date": "2025-12-06",
+   "date_basis": "competition",
+   "title": "AxiomProver writes Lean proofs for all 12 Putnam 2025 problems",
+   "domain": "mathematics",
+   "subfield": "competition mathematics / formal proof",
+   "summary": "Axiom's AxiomProver received the Putnam 2025 problems section by section from an official proctor on 6 December 2025 and autonomously produced Lean proofs for all 12, eight of them before the exam closed. Axiom released the machine-checked proofs with commentary on 8 January 2026.",
+   "before_after": null,
+   "why_it_matters": "Every answer is machine-checked, so no human grader is needed to trust it. A formal prover handled a full, unseen, hard exam under time pressure.",
+   "ai_systems": [
+    "AxiomProver"
+   ],
+   "organizations": [
+    "Axiom Math"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Timing (8 of 12 within the exam window) is Axiom's own account, and a technical report was still to come. Some proofs are long and brute-force, such as a 1,061-line case analysis for B4.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Axiom, From Seeing Why to Checking Everything (2026-01-08)",
+     "url": "https://axiommath.ai/research/from-seeing-why-to-checking-everything"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "alphaqubit-2-real-time-decoding",
    "date": "2025-12-08",
    "date_basis": "preprint",
@@ -5678,6 +6577,78 @@
     {
      "label": "arXiv:2512.07087",
      "url": "https://arxiv.org/abs/2512.07087"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "erdos-1026-aristotle-alphaevolve-collaboration",
+   "date": "2025-12-08",
+   "date_basis": "announcement",
+   "title": "AI tools help pin down the exact answer to Erdős problem #1026",
+   "domain": "mathematics",
+   "subfield": "combinatorics / monotone subsequences",
+   "summary": "An ambiguous 1971 Erdős question on monotone subsequence sums was made precise and answered online. Harmonic's Aristotle proved the square case in Lean on 7 December 2025, AlphaEvolve data suggested a formula for every length, and an AI literature search found a 2024 packing result that completed it. Terence Tao wrote up the full proof.",
+   "before_after": null,
+   "why_it_matters": "A documented case of AI tools fitting into open collaborative mathematics, with formal proving, numerical exploration and literature search each checked by people.",
+   "ai_systems": [
+    "Aristotle",
+    "AlphaEvolve",
+    "AI deep research tools"
+   ],
+   "organizations": [
+    "Harmonic",
+    "Google DeepMind",
+    "UCLA",
+    "erdosproblems.com community"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "The square case Aristotle proved was already in Tidor, Wang and Yang (2016), whom erdosproblems.com credits with the first proof; Tao traces its packing idea to Seidenberg (1959). The final assembly relies on cited results and was not formalized.",
+   "significance": 1,
+   "sources": [
+    {
+     "label": "Terence Tao, The story of Erdős problem #1026 (2025-12-08)",
+     "url": "https://terrytao.wordpress.com/2025/12/08/the-story-of-erdos-problem-126/"
+    },
+    {
+     "label": "erdosproblems.com, Problem #1026",
+     "url": "https://www.erdosproblems.com/1026"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "gpt-5-2-learning-curve-monotonicity",
+   "date": "2025-12-11",
+   "date_basis": "preprint",
+   "title": "GPT-5.2 Pro proves Gaussian maximum likelihood improves with more data",
+   "domain": "mathematics",
+   "subfield": "statistical learning theory",
+   "summary": "Mark Sellke and Steven Yin report that GPT-5.2 Pro variants derived every result in their paper, the first nontrivial proofs that the maximum likelihood estimator's average log-loss never worsens with more data, for Gaussians with unknown covariance and Gamma variables with unknown scale. The Gaussian case was flagged open; humans only prompted and checked.",
+   "before_after": null,
+   "why_it_matters": "Learning theorists had shown that extra data can hurt some learners; settling the textbook Gaussian case shows when the basic intuition holds, and the proofs came from the model.",
+   "ai_systems": [
+    "GPT-5.2 Pro"
+   ],
+   "organizations": [
+    "OpenAI",
+    "Harvard University"
+   ],
+   "ai_role": "originator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "Not yet peer-reviewed; OpenAI says external experts reviewed the proofs.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Sellke and Yin, On Learning-Curve Monotonicity for Maximum Likelihood Estimators, arXiv:2512.10220",
+     "url": "https://arxiv.org/abs/2512.10220"
+    },
+    {
+     "label": "OpenAI, Advancing science and math with GPT-5.2 (2025-12-11)",
+     "url": "https://openai.com/index/gpt-5-2-for-science-and-math/"
     }
    ],
    "foundation0": false
@@ -5916,6 +6887,39 @@
    "foundation0": false
   },
   {
+   "id": "alphagenome-regulatory-variant-effects",
+   "date": "2026-01-28",
+   "date_basis": "publication",
+   "title": "AlphaGenome predicts regulatory effects of DNA variants from 1 million bases",
+   "domain": "biology",
+   "subfield": "regulatory genomics",
+   "summary": "AlphaGenome reads 1 million bases of DNA and predicts thousands of functional genomic tracks at up to single-base resolution, including gene expression, chromatin accessibility, transcription-factor binding and splicing. Trained on human and mouse genomes, it matches or beats the strongest external models in 25 of 26 variant-effect evaluations.",
+   "before_after": null,
+   "why_it_matters": "Most disease-linked DNA changes lie outside genes, in regulatory regions. One model scoring a variant across many layers of regulation helps researchers prioritize which changes matter.",
+   "ai_systems": [
+    "AlphaGenome"
+   ],
+   "organizations": [
+    "Google DeepMind"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Avsec et al., Nature, 2026-01-28",
+     "url": "https://doi.org/10.1038/s41586-025-10014-0"
+    },
+    {
+     "label": "Google DeepMind blog, 2025-06-25 (preprint announcement; updated for Nature)",
+     "url": "https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "fel-conjecture-axiomprover",
    "date": "2026-02-03",
    "date_basis": "preprint",
@@ -5944,6 +6948,68 @@
     {
      "label": "Axiom, 2026-02-05",
      "url": "https://axiommath.ai/research/proof-of-concept"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "claude-agent-team-c-compiler",
+   "date": "2026-02-05",
+   "date_basis": "announcement",
+   "title": "Sixteen Claude agents write a C compiler that builds the Linux kernel",
+   "domain": "computing",
+   "subfield": "compilers / autonomous software engineering",
+   "summary": "Nicholas Carlini ran 16 Claude Opus 4.6 agents in parallel, mostly unsupervised, over nearly 2,000 sessions and about $20,000 of API use. Without internet access they wrote a 100,000-line Rust C compiler that builds a bootable Linux 6.9 on x86, ARM and RISC-V and passes about 99% of most compiler test suites.",
+   "before_after": null,
+   "why_it_matters": "A compiler is a large, tightly specified system. Agents building one from scratch show autonomous teams can deliver big, testable software; output slower than unoptimized GCC shows the limits.",
+   "ai_systems": [
+    "Claude Opus 4.6"
+   ],
+   "organizations": [
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "claimed",
+   "contested": false,
+   "contested_note": "Anthropic lists limits: it calls GCC for 16-bit real-mode boot code, uses GCC's assembler and linker, and emits code slower than GCC with optimizations off. Chris Lattner (Modular, 2026-02-18) called it a competent textbook implementation tuned to pass tests rather than build general abstractions.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Anthropic Engineering, Building a C compiler with a team of parallel Claudes (2026-02-05)",
+     "url": "https://www.anthropic.com/engineering/building-c-compiler"
+    },
+    {
+     "label": "Chris Lattner, The Claude C Compiler: what it reveals about the future of software (2026-02-18)",
+     "url": "https://www.modular.com/blog/the-claude-c-compiler-what-it-reveals-about-the-future-of-software"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "claude-opus-4-6-500-open-source-vulnerabilities",
+   "date": "2026-02-05",
+   "date_basis": "announcement",
+   "title": "Claude Opus 4.6 finds 500+ high-severity bugs in heavily fuzzed open-source code",
+   "domain": "computing",
+   "subfield": "vulnerability discovery / open-source security",
+   "summary": "Anthropic's red team ran Claude Opus 4.6 in a virtual machine with standard tools against open-source projects and validated more than 500 high-severity vulnerabilities, some missed for decades despite years of fuzzing. Examples in Ghostscript, OpenSC and the CGIF library are now patched by maintainers; human researchers validated each finding and wrote the first patches.",
+   "before_after": null,
+   "why_it_matters": "Fuzzers miss bugs that need reasoning about code history or an algorithm's logic; finding them at scale helps under-resourced maintainers fix flaws before attackers find them.",
+   "ai_systems": [
+    "Claude Opus 4.6"
+   ],
+   "organizations": [
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "claimed",
+   "contested": false,
+   "contested_note": "The 500+ count is Anthropic's own. Most reports were still in disclosure and the work focused on memory-corruption bugs, so the total cannot yet be checked independently.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Anthropic Frontier Red Team, Evaluating and mitigating the growing risk of LLM-discovered 0-days (2026-02-05)",
+     "url": "https://www.anthropic.com/research/zero-days"
     }
    ],
    "foundation0": false
@@ -6138,6 +7204,42 @@
    "foundation0": false
   },
   {
+   "id": "evo-2-genome-language-model",
+   "date": "2026-03-04",
+   "date_basis": "publication",
+   "title": "Evo 2 DNA model scores genetic variants without task-specific training",
+   "domain": "biology",
+   "subfield": "genome language models",
+   "summary": "Evo 2, from Arc Institute, NVIDIA and others, is a 40-billion-parameter DNA model trained on about 9 trillion bases with a 1-million-base context. It scores genetic variants, including BRCA1 variants, without task-specific training. Zero-shot human gene-essentiality prediction is modest (AUROC 0.66), within the range of simple conservation scores.",
+   "before_after": null,
+   "why_it_matters": "A DNA model needing no per-task training could help read mutation effects in any species, though its own gene-essentiality result shows clear limits.",
+   "ai_systems": [
+    "Evo 2"
+   ],
+   "organizations": [
+    "Arc Institute",
+    "NVIDIA",
+    "Stanford University",
+    "University of California, Berkeley"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Brixi et al., Nature, 2026-03-04",
+     "url": "https://doi.org/10.1038/s41586-026-10176-5"
+    },
+    {
+     "label": "bioRxiv preprint, posted February 2025",
+     "url": "https://doi.org/10.1101/2025.02.18.638918"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "claude-firefox-vulnerabilities",
    "date": "2026-03-06",
    "date_basis": "announcement",
@@ -6167,6 +7269,41 @@
     {
      "label": "Anthropic, 2026-03-06",
      "url": "https://www.anthropic.com/news/mozilla-firefox-security"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "alphaevolve-ramsey-lower-bounds",
+   "date": "2026-03-10",
+   "date_basis": "preprint",
+   "title": "AlphaEvolve raises lower bounds for nine classical Ramsey numbers",
+   "domain": "mathematics",
+   "subfield": "combinatorics / Ramsey theory",
+   "summary": "Google researchers used AlphaEvolve to evolve search programs that build graphs with no large cliques or independent sets. They raised lower bounds for nine Ramsey numbers, such as R(3,13) from 60 to 61 and R(4,19) from 213 to 219, five in March and four more by April, and recovered every known exact lower bound.",
+   "before_after": {
+    "metric": "Lower bound on Ramsey number R(4,19)",
+    "before": "213",
+    "after": "219"
+   },
+   "why_it_matters": "Ramsey records usually come from bespoke searches and can stand for years. One AI meta-method finding many improvements points to a general tool for extremal constructions, each easy to check.",
+   "ai_systems": [
+    "AlphaEvolve"
+   ],
+   "organizations": [
+    "Google DeepMind",
+    "Google",
+    "UC Berkeley"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Nagda, Raghavan, Thakurta, Reinforced Generation of Combinatorial Structures: Ramsey Numbers, arXiv:2603.09172",
+     "url": "https://arxiv.org/abs/2603.09172"
     }
    ],
    "foundation0": false
@@ -6245,6 +7382,37 @@
    "foundation0": false
   },
   {
+   "id": "automatic-graduate-textbook-formalization",
+   "date": "2026-04-03",
+   "date_basis": "preprint",
+   "title": "30,000 Claude agents formalize a 500-page graduate textbook in Lean in a week",
+   "domain": "mathematics",
+   "subfield": "formal proof / algebraic combinatorics",
+   "summary": "Researchers at Meta FAIR and École des Ponts ran about 30,000 Claude 4.5 Opus agents in parallel on a shared code base to formalize Darij Grinberg's 500-plus-page graduate algebraic combinatorics textbook in Lean: 130,000 lines and 5,900 declarations, with all 340 target definitions and theorems formalized, in one week for about $100,000.",
+   "before_after": null,
+   "why_it_matters": "Formalizing new research needs foundational texts in Lean faster than volunteers can write them; converting a whole graduate textbook automatically shows that bottleneck can be lifted.",
+   "ai_systems": [
+    "Claude 4.5 Opus"
+   ],
+   "organizations": [
+    "Meta FAIR",
+    "École des Ponts (CERMICS)",
+    "Korea Institute for Advanced Study"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Gloeckle et al., Automatic Textbook Formalization, arXiv:2604.03071",
+     "url": "https://arxiv.org/abs/2604.03071"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "claude-mythos-zero-days",
    "date": "2026-04-07",
    "date_basis": "announcement",
@@ -6282,6 +7450,49 @@
     {
      "label": "AISLE blog (critique), 2026-04-07",
      "url": "https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "firefox-150-mythos-271-fixes",
+   "date": "2026-04-21",
+   "date_basis": "deployment",
+   "title": "Firefox 150 ships fixes for 271 bugs found with Claude Mythos Preview",
+   "domain": "computing",
+   "subfield": "vulnerability discovery / browser security",
+   "summary": "Mozilla's Firefox 150, released 21 April 2026, fixed 271 security bugs that its pipeline found with an early Claude Mythos Preview: 180 rated sec-high, 80 moderate and 11 low, including a 20-year-old XSLT memory bug and several sandbox escapes. Firefox 148 had fixed 22 security bugs found with Claude Opus 4.6.",
+   "before_after": {
+    "metric": "Security bugs found with Claude and fixed in one Firefox release",
+    "before": "22 (Firefox 148, Claude Opus 4.6)",
+    "after": "271 (Firefox 150, Claude Mythos Preview)"
+   },
+   "why_it_matters": "A heavily fuzzed, mature browser shipped hundreds of AI-found security fixes in one release, showing defenders can now use these models to harden critical code at scale.",
+   "ai_systems": [
+    "Claude Mythos Preview",
+    "Claude Opus 4.6"
+   ],
+   "organizations": [
+    "Mozilla",
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "deployed",
+   "contested": false,
+   "contested_note": "Severity ratings rest on crash symptoms, not confirmed exploits. Advisory MFSA 2026-30 groups internally found bugs into rollup CVEs, so the 271 do not appear individually; Mozilla's 7 May post reconciles the counts.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Mozilla, The zero-days are numbered (2026-04-21)",
+     "url": "https://blog.mozilla.org/en/privacy-security/ai-security-zero-day-vulnerabilities/"
+    },
+    {
+     "label": "Mozilla Hacks, Behind the Scenes Hardening Firefox with Claude Mythos Preview (2026-05-07)",
+     "url": "https://hacks.mozilla.org/2026/05/behind-the-scenes-hardening-firefox/"
+    },
+    {
+     "label": "Mozilla Security Advisory MFSA 2026-30",
+     "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-30/"
     }
    ],
    "foundation0": false
@@ -6467,6 +7678,110 @@
    "foundation0": false
   },
   {
+   "id": "plant-tf-binding-deep-learning-arabidopsis-maize",
+   "date": "2026-06-03",
+   "date_basis": "publication",
+   "title": "Deep learning reads plant regulatory DNA in Arabidopsis and transfers to maize",
+   "domain": "biology",
+   "subfield": "plant regulatory genomics, crop science",
+   "summary": "One neural network trained on 568 Arabidopsis DNA-binding datasets covering 46 transcription-factor families predicts where regulators bind DNA. Of 7,364 trait-linked variants, 20.72% were predicted to gain or lose binding sites; reporter assays on 340 constructs supported several predictions. The model also transferred to maize heat-stress data.",
+   "before_after": null,
+   "why_it_matters": "Many crop-trait variants sit in regulatory DNA, not genes. Predicting how they alter transcription-factor binding could help pinpoint causal variants, even in species with little data.",
+   "ai_systems": [
+    "Multi-label convolutional neural network"
+   ],
+   "organizations": [
+    "IPK Leibniz Institute",
+    "Forschungszentrum Jülich",
+    "Heinrich Heine University Düsseldorf",
+    "Max Planck Institute for Plant Breeding Research"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Peleke et al., Nature Communications, 2026-06-03",
+     "url": "https://doi.org/10.1038/s41467-026-73634-8"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "nise-zero-shot-small-molecule-binders",
+   "date": "2026-06-24",
+   "date_basis": "publication",
+   "title": "Neural networks design proteins that bind two drugs, with 100% and 83% success",
+   "domain": "biology",
+   "subfield": "de novo protein design",
+   "summary": "Dana-Farber and Harvard researchers paired two neural networks in a design loop to make proteins from scratch that bind two chemically distinct drugs, exatecan and apixaban, with success rates of 100% and 83%. The tightest had picomolar-to-nanomolar affinity, and the exatecan binder protected the drug's labile lactone ring from hydrolysis for days.",
+   "before_after": {
+    "metric": "Affinity of tightest binder versus next-leading method",
+    "before": "1x (next-leading method)",
+    "after": "70x (exatecan); nearly 10,000x (apixaban)"
+   },
+   "why_it_matters": "Proteins that grab small molecules can deliver drugs, sense them or catalyze reactions. Zero-shot design with high success cuts the trial and error that limited earlier methods.",
+   "ai_systems": [
+    "LASErMPNN",
+    "NISE (neural iterative selection-expansion)"
+   ],
+   "organizations": [
+    "Dana-Farber Cancer Institute",
+    "Harvard Medical School"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Fry, Slaw and Polizzi, Nature, 2026-06-24",
+     "url": "https://doi.org/10.1038/s41586-026-10670-w"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "cycle-double-cover-conjecture-proof",
+   "date": "2026-07-10",
+   "date_basis": "announcement",
+   "title": "OpenAI model proves the 50-year-old cycle double cover conjecture",
+   "domain": "mathematics",
+   "subfield": "graph theory",
+   "summary": "OpenAI released a three-page proof, credited entirely to GPT-5.6 Sol Ultra, that every bridgeless graph has a family of cycles covering each edge exactly twice, a 1970s conjecture of Tutte, Itai and Rodeh, Szekeres and Seymour. Sang-il Oum and Jim Geelen wrote expositions, Johannes Carmesin confirmed it, and Lean formalizations exist.",
+   "before_after": null,
+   "why_it_matters": "One of graph theory's best-known open problems fell to a short argument built on classical flow theorems, suggesting some famous conjectures are hard to spot rather than deep.",
+   "ai_systems": [
+    "GPT-5.6 Sol Ultra"
+   ],
+   "organizations": [
+    "OpenAI"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Correctness is not disputed. Thomas Bloom noted that using nowhere-zero F₂³-flows on cubic graphs to study cycle double covers goes back at least to Bermond, Jackson and Jaeger (1983).",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "OpenAI, A proof of the cycle double cover conjecture (PDF, 2026-07-10)",
+     "url": "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf"
+    },
+    {
+     "label": "Sang-il Oum, exposition, arXiv:2607.16356",
+     "url": "https://arxiv.org/abs/2607.16356"
+    },
+    {
+     "label": "Johannes Carmesin, The cycle double cover theorem, The Matroid Union (2026-07-21)",
+     "url": "https://matroidunion.org/?p=6255"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "erdos-875-sharp-carry-lemma",
    "date": "2026-07-10",
    "date_basis": "announcement",
@@ -6510,6 +7825,80 @@
    "page": "research/machine-mathematics/"
   },
   {
+   "id": "jacobian-conjecture-counterexample",
+   "date": "2026-07-19",
+   "date_basis": "announcement",
+   "title": "Claude Fable 5 finds a counterexample to the 1939 Jacobian conjecture",
+   "domain": "mathematics",
+   "subfield": "algebraic geometry / polynomial maps",
+   "summary": "Anthropic mathematician Levent Alpöge posted a degree-7 polynomial map in three variables, credited to Claude Fable 5, whose Jacobian determinant is the constant −2 yet which is generically three-to-one, so it has no inverse. This disproves the Jacobian conjecture in every dimension above two; the two-variable case remains open.",
+   "before_after": null,
+   "why_it_matters": "An 87-year-old conjecture, the target of many failed proofs, was settled by a machine-found example that anyone can check with computer algebra in seconds.",
+   "ai_systems": [
+    "Claude Fable 5"
+   ],
+   "organizations": [
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "independently-replicated",
+   "contested": false,
+   "contested_note": "The counterexample is not disputed, but how it was found has not been disclosed. Adrian Vasiu said an AI-written exposition borrowed notation and ideas from an unpublished Borisov–Gabber–Vasiu draft; Alpöge later said their method deserves credit too (Wikipedia).",
+   "significance": 5,
+   "sources": [
+    {
+     "label": "Terence Tao, A digestion of the Jacobian conjecture counterexample (2026-07-21)",
+     "url": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/"
+    },
+    {
+     "label": "The Conversation, 'hello there the jacobian conjecture is false thanx' (2026-07-22)",
+     "url": "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883"
+    },
+    {
+     "label": "Wikipedia, Jacobian conjecture",
+     "url": "https://en.wikipedia.org/wiki/Jacobian_conjecture"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "claude-mythos-hawk-aes-cryptanalysis",
+   "date": "2026-07-28",
+   "date_basis": "announcement",
+   "title": "Claude Mythos Preview finds new attacks on HAWK signatures and 7-round AES",
+   "domain": "computing",
+   "subfield": "cryptanalysis",
+   "summary": "Anthropic reported two attacks found largely by Claude Mythos Preview. A lattice symmetry cuts expected key recovery for HAWK-256, challenge parameters of a NIST post-quantum signature candidate, from 2^64 to 2^38 operations. A new meet-in-the-middle attack on 7-round AES-128 runs 200–800 times faster than the best before. Full AES is unaffected.",
+   "before_after": {
+    "metric": "Expected key-recovery cost for HAWK-256",
+    "before": "2^64",
+    "after": "2^38"
+   },
+   "why_it_matters": "Encryption standards rest on years of expert attack. An AI weakening a post-quantum candidate in about 60 hours of work shows such review can be greatly accelerated before deployment.",
+   "ai_systems": [
+    "Claude Mythos Preview"
+   ],
+   "organizations": [
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "Daniel Apon said the reduction checks out (NIST pqc-forum, 28 July), but no independent end-to-end key recovery is reported. HAWK-512 and HAWK-1024 stay exponential (about 2^108 and 2^182). The HAWK work had occasional human guidance, and Anthropic's validators were not cryptography specialists.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Anthropic, Discovering cryptographic weaknesses with Claude (2026-07-28)",
+     "url": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses"
+    },
+    {
+     "label": "Implicator.ai, Anthropic posts AI-found HAWK attack to NIST forum (2026-07-29)",
+     "url": "https://www.implicator.ai/anthropic-posts-ai-found-hawk-attack-to-nist-forum-cryptographer-confirms-math/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "openai-ten-advances-lean",
    "date": "2026-08-01",
    "date_basis": "announcement",
@@ -6542,6 +7931,240 @@
     {
      "label": "SiliconANGLE, 2026-08-02",
      "url": "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "riemann-zeta-zeros-critical-line-67-percent",
+   "date": "2026-08-10",
+   "date_basis": "announcement",
+   "title": "Claude proves over two thirds of zeta zeros are simple and on the critical line",
+   "domain": "mathematics",
+   "subfield": "analytic number theory",
+   "summary": "Asked by a non-mathematician to attack the Riemann hypothesis, an unreleased Claude model running about 60 subagents proved that over two thirds (67.25%) of zeta's nontrivial zeros are simple and on the critical line, up from 5/12. Two Anthropic mathematicians checked it, a Lean proof followed, and Youness Lamzouri found a simpler one.",
+   "before_after": {
+    "metric": "Proven share of zeta zeros that are simple and on the critical line",
+    "before": "5/12 (about 41.7%)",
+    "after": "over 2/3 (67.25%)"
+   },
+   "why_it_matters": "The share of zeros proven on the critical line is a standard yardstick of progress toward the Riemann hypothesis; this moves it past two thirds, though it does not lead to a proof.",
+   "ai_systems": [
+    "Claude (unreleased research model)"
+   ],
+   "organizations": [
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Not yet peer-reviewed. The argument builds on unconditional pair-correlation results of Aryan and of Baluyot, Goldston, Suriajaya and Turnage-Butterbaugh; Lamzouri calls Claude's version intricate, with a mechanism that is not immediately transparent.",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "Anthropic, Claude improves a lower bound on zeta zeros on the critical line (2026-08-10)",
+     "url": "https://www.anthropic.com/research/riemann-zeta"
+    },
+    {
+     "label": "Alpöge and Furman, More than two thirds of the zeta zeros are simple and on the critical line, arXiv:2608.13637",
+     "url": "https://arxiv.org/abs/2608.13637"
+    },
+    {
+     "label": "Lamzouri, A new proof that more than 2/3 of the zeros are simple and on the critical line, arXiv:2609.02882",
+     "url": "https://arxiv.org/abs/2609.02882"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "alphaevolve-matrix-exponent-2-371177",
+   "date": "2026-08-17",
+   "date_basis": "preprint",
+   "title": "AlphaEvolve helps lower the matrix multiplication exponent to ω < 2.371177",
+   "domain": "mathematics",
+   "subfield": "algorithms / algebraic complexity",
+   "summary": "Google DeepMind researchers, with Josh Alman and Virginia Vassilevska Williams, reformulated the optimization problem inside the laser method's 'combination loss analysis', solved it with a new gradient-based optimizer and refined that solver with AlphaEvolve. The result lowers the best upper bound on the matrix multiplication exponent ω from 2.371339 to 2.371177.",
+   "before_after": {
+    "metric": "Upper bound on the matrix multiplication exponent ω",
+    "before": "2.371339",
+    "after": "2.371177"
+   },
+   "why_it_matters": "ω sets the asymptotic cost of multiplying matrices and of the many algorithms that reduce to it; each small improvement has taken years of human work.",
+   "ai_systems": [
+    "AlphaEvolve"
+   ],
+   "organizations": [
+    "Google DeepMind",
+    "Carnegie Mellon University",
+    "Columbia University",
+    "MIT"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "About 0.97×10⁻⁴ of the 1.6×10⁻⁴ gain came from the reformulation and gradient-based optimizer before AlphaEvolve was applied.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Dupont et al., Improving the matrix multiplication exponent with modern optimization and AlphaEvolve, arXiv:2608.16884",
+     "url": "https://arxiv.org/abs/2608.16884"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "axiomprover-prime-gaps-246-lean",
+   "date": "2026-08-17",
+   "date_basis": "announcement",
+   "title": "AxiomProver formalizes in Lean that prime gaps of at most 246 recur forever",
+   "domain": "mathematics",
+   "subfield": "analytic number theory / formal proof",
+   "summary": "Axiom Math released a Lean 4 proof, produced by its AxiomProver system from a human-written blueprint and curated by its team, that infinitely many consecutive primes differ by at most 246. It covers Maynard's sieve and the Polymath8b refinement that cut the bound from 600 to 246, assuming only the Bombieri–Vinogradov theorem.",
+   "before_after": null,
+   "why_it_matters": "246 is the best proven step toward the twin prime conjecture; a reusable machine-checked library of sieve methods lets later work on prime gaps build on verified foundations.",
+   "ai_systems": [
+    "AxiomProver"
+   ],
+   "organizations": [
+    "Axiom Math"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "This formalizes known results rather than proving new ones; the Bombieri–Vinogradov theorem is assumed rather than formalized, and people wrote the blueprint.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Axiom Math, Lean formalization of bounded gaps between primes",
+     "url": "https://primegaps.axiommath.ai/"
+    },
+    {
+     "label": "IEEE Spectrum, AI used to verify toughest mathematics proof yet (2026-08-17)",
+     "url": "https://spectrum.ieee.org/axiom-math-246-theorem-formalization"
+    },
+    {
+     "label": "Axiom Math, blueprint (PDF)",
+     "url": "https://primegaps.axiommath.ai/blueprint.pdf"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "percolation-no-infinite-cluster-at-criticality",
+   "date": "2026-08-28",
+   "date_basis": "preprint",
+   "title": "Claude-written Lean proof: no percolation at the critical point in any dimension",
+   "domain": "mathematics",
+   "subfield": "probability / percolation theory",
+   "summary": "On 28 August 2026 Anthropic's Justin Leder posted to Anthropic's GitHub a Lean proof, written autonomously by Claude models under his direction, that critical bond percolation on Z^d has no infinite cluster for any d ≥ 2, by proving a 2024 gluing conjecture of Gady Kozma and Shahaf Nitzan. Dimensions 3 to 10 were open.",
+   "before_after": {
+    "metric": "Dimensions where θ(p_c) = 0 is proven",
+    "before": "d = 2 and d ≥ 11",
+    "after": "all d ≥ 2"
+   },
+   "why_it_matters": "Whether three-dimensional percolation has a continuous phase transition was a central open problem of probability theory; one expert said solving it would earn a Fields Medal.",
+   "ai_systems": [
+    "Claude (Anthropic models)"
+   ],
+   "organizations": [
+    "Anthropic"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Not refereed. Kozma awaits a human-readable version; Ahmed Bou-Rabee calls it clever but without substantial new ideas (Quanta, 1 Oct). Arthur Blanc-Renaudie posted a short human proof built from the AI's ideas. The files are no longer on the repository's main branch, and Anthropic has made no announcement.",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "anthropics/formal-math, percolation README (commit 795efb8)",
+     "url": "https://github.com/anthropics/formal-math/blob/795efb86f191735c5481675763537cfb4ff37e55/percolation/README.md"
+    },
+    {
+     "label": "Blanc-Renaudie, Notes on Kozma and Nitzan's proof of θ(p_c)=0, arXiv:2610.10502",
+     "url": "https://arxiv.org/abs/2610.10502"
+    },
+    {
+     "label": "Scientific American, AI solves a 'holy grail' problem from probability theory (2026-09-30)",
+     "url": "https://www.scientificamerican.com/article/ai-solves-a-holy-grail-problem-from-probability-theory/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "state-virtual-cell-perturbation-model",
+   "date": "2026-08-31",
+   "date_basis": "publication",
+   "title": "State model predicts how cells respond to perturbations in unseen contexts",
+   "domain": "biology",
+   "subfield": "virtual cell models",
+   "summary": "Arc Institute's State predicts how genetic, signalling and chemical perturbations change gene expression across cell contexts. Its cell embeddings are trained on observational data from 167 million cells. The authors report more than 30% better discrimination of perturbation effects than baselines on large datasets, and introduce the Cell-Eval evaluation framework.",
+   "before_after": null,
+   "why_it_matters": "A reliable virtual cell would let researchers test perturbations on screen before costly experiments, but independent benchmarks so far show the problem is hard.",
+   "ai_systems": [
+    "State (State Embedding and State Transition)"
+   ],
+   "organizations": [
+    "Arc Institute",
+    "University of California, San Francisco",
+    "Stanford University"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": true,
+   "contested_note": "Ahlmann-Eltze et al. (Nature Methods, 2025-08-04) tested earlier deep-learning perturbation models, not State, and found none beat simple linear baselines. State's authors say it is the first to consistently beat such baselines (Arc Institute, 2025-06-23); we found no independent head-to-head test.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Adduri et al., Cell, published online 2026-08-31",
+     "url": "https://doi.org/10.1016/j.cell.2026.07.052"
+    },
+    {
+     "label": "Arc Institute announcement, 2025-06-23",
+     "url": "https://arcinstitute.org/news/virtual-cell-model-state"
+    },
+    {
+     "label": "Ahlmann-Eltze et al., Nature Methods, 2025-08-04",
+     "url": "https://doi.org/10.1038/s41592-025-02772-6"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "male-fly-cns-connectome-sexual-dimorphism",
+   "date": "2026-09-03",
+   "date_basis": "publication",
+   "title": "Complete male fly nervous system mapped: 166,700 neurons in brain and nerve cord",
+   "domain": "biology",
+   "subfield": "connectomics",
+   "summary": "HHMI Janelia, Google Research, Cambridge and collaborators published the connectome of a whole male fruit-fly central nervous system, brain plus nerve cord: 166,700 fully proofread neurons in 11,710 types, about 125 million synaptic connections (Google figure). AI helped trace neurons and humans proofread. Sex differences concentrate in higher brain centres.",
+   "before_after": null,
+   "why_it_matters": "A complete brain-and-cord map lets scientists follow sensory input to motor output end to end and compare the sexes at synaptic resolution.",
+   "ai_systems": [
+    "Automated neuron segmentation and synapse detection"
+   ],
+   "organizations": [
+    "HHMI Janelia Research Campus",
+    "Google Research",
+    "MRC Laboratory of Molecular Biology",
+    "University of Cambridge"
+   ],
+   "ai_role": "instrument",
+   "evidence": "peer-reviewed",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Berg et al., Cell, 2026-09-03",
+     "url": "https://doi.org/10.1016/j.cell.2026.08.015"
+    },
+    {
+     "label": "Google Research blog, 2026-09-03",
+     "url": "https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/"
+    },
+    {
+     "label": "MRC LMB news, 2026-09-03",
+     "url": "https://mrclmb.ac.uk/news-events/articles/first-complete-connectome-of-male-fly-central-nervous-system-allows-for-unprecedented-male-female-brain-comparison/"
     }
    ],
    "foundation0": false
@@ -6590,6 +8213,158 @@
    "foundation0": false
   },
   {
+   "id": "forced-euler-blowup-lean-buckmaster-alpoge",
+   "date": "2026-09-07",
+   "date_basis": "announcement",
+   "title": "AI-assisted, Lean-checked proofs show forced 3D Euler flows can blow up",
+   "domain": "mathematics",
+   "subfield": "PDE / fluid dynamics",
+   "summary": "Tristan Buckmaster (NYU) and Levent Alpöge (Anthropic) posted proofs that the 3D incompressible Euler equations, the 2D Boussinesq system and the porous-medium equation can form finite-time singularities under a smooth external force, extending Córdoba and Martínez-Zoroa's method. Claude and OpenAI's Codex helped heavily; Claude wrote all the Lean, which uses only standard axioms.",
+   "before_after": null,
+   "why_it_matters": "Blow-up for the frictionless Euler equations is a recognized stepping stone toward the Navier–Stokes Millennium problem, and here the whole argument is machine-checked.",
+   "ai_systems": [
+    "Claude",
+    "OpenAI Codex"
+   ],
+   "organizations": [
+    "New York University",
+    "Anthropic"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Not peer-reviewed. Terence Tao called it a remarkable achievement with significant AI input, released earlier than planned because of external events. The force is an added ingredient; the unforced problem stays open.",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Science News, AI may have solved one of math's biggest puzzles (2026-09-09)",
+     "url": "https://www.sciencenews.org/article/ai-math-puzzle-navier-stokes-openai"
+    },
+    {
+     "label": "tristanbuckmaster/fluid_lean, euler-blowup (Lean)",
+     "url": "https://github.com/tristanbuckmaster/fluid_lean/tree/main/euler-blowup"
+    },
+    {
+     "label": "Terence Tao on Mathstodon (2026-09-08)",
+     "url": "https://mathstodon.xyz/@tao/117233527638291447"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "pinn-unforced-euler-blowup-candidate",
+   "date": "2026-09-07",
+   "date_basis": "preprint",
+   "title": "Neural-network search finds a candidate stable blow-up for unforced 3D Euler",
+   "domain": "mathematics",
+   "subfield": "PDE / fluid dynamics",
+   "summary": "Anima Anandkumar's Caltech group used a physics-informed neural network, steered away from trivial solutions and refined with splines for certified error bounds, to find an approximate self-similar blow-up of the 3D Euler equations in free space, with no boundary or force. It appears numerically stable; a rigorous stability proof is still missing.",
+   "before_after": null,
+   "why_it_matters": "Unforced blow-up in free space is the version fluid experts care most about; a precise, stable candidate is the usual first step toward a computer-assisted proof.",
+   "ai_systems": [
+    "Physics-informed neural network (PINN)"
+   ],
+   "organizations": [
+    "Caltech"
+   ],
+   "ai_role": "instrument",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "Terence Tao (Mathstodon, 2026-09-08): a promising candidate that appears numerically stable, but a rigorous demonstration of stability is still lacking and may need enormous effort.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Anima Anandkumar, Stable singularity of the Euler equations on R^3 without forcing (2026-09-07)",
+     "url": "https://anima-ai.org/2026/09/07/stable-singularity-of-the-euler-equations-on-r3-without-forcing/"
+    },
+    {
+     "label": "Terence Tao on Mathstodon (2026-09-08)",
+     "url": "https://mathstodon.xyz/@tao/117234157753860650"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "openai-navier-stokes-forced-blowup-claim",
+   "date": "2026-09-08",
+   "date_basis": "announcement",
+   "title": "OpenAI claims Lean-checked forced blow-up for Navier–Stokes, a Clay problem",
+   "domain": "mathematics",
+   "subfield": "PDE / fluid dynamics",
+   "summary": "OpenAI said an internal model, running about 10,000 agents at a time, produced a 166-page proof that 3D Navier–Stokes flow starting from rest can reach unbounded velocity in finite time under a smooth, compactly supported force, an option the Clay problem allows. It released a Lean formalization and will not claim the $1 million prize.",
+   "before_after": null,
+   "why_it_matters": "If it stands, it settles a Millennium Prize problem as stated, but only through a forced version experts call unnatural; the unforced question that matters most for fluids stays open.",
+   "ai_systems": [
+    "Unreleased OpenAI internal model"
+   ],
+   "organizations": [
+    "OpenAI"
+   ],
+   "ai_role": "originator",
+   "evidence": "preprint",
+   "contested": true,
+   "contested_note": "Experts in Scientific American (21 Sept) call the forcing a loophole; Constantin, Ignatova and Vicol (arXiv:2609.20803) show such constructions need a non-analytic force at the singularity. Bastounis, Circelli and Hansen (arXiv:2610.08144) argue the Lean code does not match the written proof. Buckmaster disputes credit; OpenAI denies using his work.",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "OpenAI, Finite Time Blowup for Navier–Stokes (PDF, 166 pp.)",
+     "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+    },
+    {
+     "label": "Scientific American, Did OpenAI solve the wrong Navier-Stokes problem? (2026-09-21)",
+     "url": "https://www.scientificamerican.com/article/did-openai-solve-the-wrong-navier-stokes-problem/"
+    },
+    {
+     "label": "Bastounis, Circelli, Hansen, Navier-Stokes lost in translation, arXiv:2610.08144",
+     "url": "https://arxiv.org/abs/2610.08144"
+    }
+   ],
+   "foundation0": false
+  },
+  {
+   "id": "3sum-apsp-hypotheses-refuted",
+   "date": "2026-10-05",
+   "date_basis": "preprint",
+   "title": "Claude-found algorithm refutes the 3SUM and APSP hypotheses",
+   "domain": "computing",
+   "subfield": "algorithms / fine-grained complexity",
+   "summary": "Asked to check cryptographic constructions, an internal Claude model instead discovered, in a 16-million-token session with no human input, an algorithm refuting the 3SUM, APSP and Exact Triangle hypotheses. Josh Alman and Virginia Vassilevska Williams simplified and extended it: deterministic 3SUM in O(n^1.9992) and APSP in O(n^2.9995) time. Anthropic Lean-checked the main theorems.",
+   "before_after": {
+    "metric": "Time exponent for 3SUM on polynomial-size integers",
+    "before": "2 (no polynomial improvement known)",
+    "after": "1.9992"
+   },
+   "why_it_matters": "Many conditional lower bounds in fine-grained complexity assumed 3SUM and APSP need essentially quadratic and cubic time. Refuting both reshapes the field and speeds up many reducible problems at once.",
+   "ai_systems": [
+    "Claude (internal research model)"
+   ],
+   "organizations": [
+    "Anthropic",
+    "Columbia University",
+    "MIT"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Lean covers Theorems 19 and 22 and the zero-weight case of Corollary 39; real-input and some other results are not formalized. Not yet peer-reviewed.",
+   "significance": 5,
+   "sources": [
+    {
+     "label": "Alman and Vassilevska Williams, Truly Subquadratic 3SUM and Truly Subcubic APSP, arXiv:2610.06783",
+     "url": "https://arxiv.org/abs/2610.06783"
+    },
+    {
+     "label": "anthropics/formal-math, 3sum-apsp (Lean)",
+     "url": "https://github.com/anthropics/formal-math/tree/main/3sum-apsp"
+    },
+    {
+     "label": "Big O Speedrun, 3SUM leaderboard",
+     "url": "https://bigospeedrun.com/3sum"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "integer-mult-bounds-community",
    "date": "2026-10-06",
    "date_basis": "preprint",
@@ -6630,6 +8405,48 @@
    "page": "research/integer-multiplication/"
   },
   {
+   "id": "matrix-multiplication-omega-nine-fourths-lean",
+   "date": "2026-10-06",
+   "date_basis": "announcement",
+   "title": "Machine-written proof that ω ≤ 9/4 passes independent Lean checks",
+   "domain": "mathematics",
+   "subfield": "algorithms / algebraic complexity",
+   "summary": "OpenAI's 6 October release included an internal-model proof, dated 2 October, that n×n complex matrices can be multiplied with O(n^(9/4+ε)) arithmetic operations, far below August's 2.371177. The Big O Speedrun tracker rebuilt OpenAI's Lean proof from source and kernel-checked it against its exact problem statement.",
+   "before_after": {
+    "metric": "Upper bound on the matrix multiplication exponent ω over ℂ",
+    "before": "2.371177 (August 2026)",
+    "after": "2.25 (Lean-checked, not peer-reviewed)"
+   },
+   "why_it_matters": "It would be far larger than any improvement since 1990. A kernel-checked proof makes the claim hard to dismiss, though experts have yet to review the mathematics.",
+   "ai_systems": [
+    "Unreleased OpenAI internal model"
+   ],
+   "organizations": [
+    "OpenAI",
+    "Big O Speedrun (verification)"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "No published expert review as of 2026-10-14; Scientific American (8 Oct) reported no independent check of the mathematics. The result is asymptotic and gives no faster practical algorithm.",
+   "significance": 4,
+   "sources": [
+    {
+     "label": "OpenAI, An Upper Bound of 9/4 for the Matrix Multiplication Exponent (openai/math @ fd4aeeb)",
+     "url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026/paper.pdf"
+    },
+    {
+     "label": "Big O Speedrun, Matrix Multiplication leaderboard",
+     "url": "https://bigospeedrun.com/matrix-multiplication"
+    },
+    {
+     "label": "Scientific American, The most exciting claims from OpenAI's heap of new proofs (2026-10-08)",
+     "url": "https://www.scientificamerican.com/article/the-most-exciting-claims-from-openais-heap-of-new-proofs/"
+    }
+   ],
+   "foundation0": false
+  },
+  {
    "id": "openai-722-math-manuscripts",
    "date": "2026-10-06",
    "date_basis": "announcement",
@@ -6666,6 +8483,49 @@
    ],
    "foundation0": false,
    "page": "research/machine-mathematics/"
+  },
+  {
+   "id": "openai-quasi-riemann-hypothesis-7-8",
+   "date": "2026-10-06",
+   "date_basis": "announcement",
+   "title": "OpenAI model's Lean proof: zeta has no zeros with real part above 7/8",
+   "domain": "mathematics",
+   "subfield": "analytic number theory",
+   "summary": "A manuscript in OpenAI's 6 October release, dated 30 September, claims every Dirichlet L-function, the Riemann zeta function included, has no zeros with real part above 7/8, the 'quasi-Riemann hypothesis'. Its Lean proof of the zeta and Dirichlet statements was independently rebuilt with no errors. Contributors' agents have since posted claimed refinements to 0.874861.",
+   "before_after": {
+    "metric": "Zero-free half-plane Re s > θ for the Riemann zeta function",
+    "before": "none known (only regions shrinking toward Re s = 1)",
+    "after": "θ = 7/8 (Lean-checked); 0.874861 claimed"
+   },
+   "why_it_matters": "No zero-free half-plane for zeta of any width was known; one gives a power-saving error term when counting primes. It is not the Riemann hypothesis, which needs 1/2.",
+   "ai_systems": [
+    "Unreleased OpenAI internal model",
+    "Contributors' AI agents (refinements)"
+   ],
+   "organizations": [
+    "OpenAI",
+    "Big O Speedrun (tracking)"
+   ],
+   "ai_role": "originator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Not peer-reviewed. OpenAI says its zeta work did not follow its standard procedure and a companion write-up was human-edited. The Hecke L-function part is not in Lean, and the refinements are unchecked. Hector Pasten told Scientific American some see it as progress toward Riemann, others not.",
+   "significance": 5,
+   "sources": [
+    {
+     "label": "OpenAI, The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re s > 7/8 (openai/math @ adc7f12)",
+     "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf"
+    },
+    {
+     "label": "tomoto0, independent verification of the 7/8 Lean proof",
+     "url": "https://github.com/tomoto0/quasi-riemann-hypothesis-7-8-verification"
+    },
+    {
+     "label": "Big O Speedrun, Quasi-Riemann hypothesis board",
+     "url": "https://bigospeedrun.com/other/quasi-riemann"
+    }
+   ],
+   "foundation0": false
   },
   {
    "id": "eumemic-tess-faint-transit-candidates",
@@ -6791,6 +8651,48 @@
    ],
    "foundation0": true,
    "page": "research/machine-mathematics/"
+  },
+  {
+   "id": "3sum-apsp-exponents-community-lean",
+   "date": "2026-10-11",
+   "date_basis": "announcement",
+   "title": "Agent-driven entrants push Lean-verified 3SUM to n^1.962 and APSP to n^2.99556",
+   "domain": "computing",
+   "subfield": "algorithms / fine-grained complexity",
+   "summary": "Within a week of the 3SUM and APSP preprint, people pointing AI agents at it submitted better exponents to the Big O Speedrun verifier, which rebuilds each Lean proof and checks it against a fixed statement. On 11 October c0ldzy17 reached O(n^1.962) for 3SUM and Li Xuanji O(n^2.995561) for APSP, from 1.9992 and 2.99942.",
+   "before_after": {
+    "metric": "Lean-verified 3SUM time exponent",
+    "before": "1.9992 (5 October)",
+    "after": "1.962 (11 October)"
+   },
+   "why_it_matters": "Kernel-checked leaderboards let anyone with AI agents contribute to frontier algorithms and be trusted without peer review, compressing incremental progress into days.",
+   "ai_systems": [
+    "Contributors' AI agents"
+   ],
+   "organizations": [
+    "Big O Speedrun",
+    "independent contributors"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "formally-verified",
+   "contested": false,
+   "contested_note": "Records change quickly; human review of the improved constructions is pending.",
+   "significance": 2,
+   "sources": [
+    {
+     "label": "Big O Speedrun, 3SUM leaderboard",
+     "url": "https://bigospeedrun.com/3sum"
+    },
+    {
+     "label": "Big O Speedrun, APSP leaderboard",
+     "url": "https://bigospeedrun.com/apsp"
+    },
+    {
+     "label": "Nil Mamano, Academia 2.0 (2026-10-12)",
+     "url": "https://nilmamano.com/blog/big-o-speedrun"
+    }
+   ],
+   "foundation0": false
   },
   {
    "id": "aes-sbox-106-gates",
