@@ -39,6 +39,10 @@ Alternate `.sec` and `.sec.alt` for banding. Inner pages open with a `.page-hero
 ### The wordmark and the mark
 
 - **Mark** (`#zero`, `favicon.svg`): the founding drawing of the incentre-lattice research. A square, its two diagonals, and the incircle of each of the four triangles; with half-side 1 the radius is √2 − 1, and neighbouring incircles touch. Opposite pairs are gold (`--bio`) and cyan (`--dig`), so every gold circle touches both cyan ones.
+  - **Every true line is an ink edge, not a stroke centre.** Rings are inked inside their circle, the frame outside its square, so each contact is two edges meeting: gold and cyan touch at one point, neither on top ("without priority"). Never centre a stroke on the geometry; the strokes would overlap and one strand would cover the other.
+  - **Weights** (half-side 40): rings 7.5 (the two strands carry the mark), frame 2.8 in `--ink-2`, diagonals 1.6 in `--ink-3`, incentre dots r 3.1. Scale them together; `radiant.js` draws the same proportions on canvas.
+  - **Small cut** (`favicon.svg`, 32 px and below): rings and frame only, heavier (ring 9, frame 4 at half-side 38), on the dark tile. Diagonals and dots fall under a pixel there; the contact points still lie on the diagonals.
+  - **Exports** in `brand/`: the full mark for dark and light grounds (`f0-mark-dark.svg`, `f0-mark-light.svg`) and a 512 px avatar (`f0-avatar-512.png`, safe for a circular crop) for GitHub and Discord.
 - **Wordmark**: "Foundation0" in Geist 600 with a dotted zero (`.display .zero::after`): the font's own 0 with the incentre as a dot at the centre of its counter, which also tells 0 from O.
 - **Ordinals**: write 0<sup>th</sup> with `<sup>` in HTML text, and "0ᵗʰ" (U+1D57, U+02B0) where markup is impossible (attributes, titles, JSON shown as text).
 

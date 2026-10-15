@@ -33,12 +33,13 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <symbol id="zero" viewBox="-50 -50 100 100">
-      <!-- The incentre mark: a square, its diagonals, and the incircle of each triangle (r = (sqrt2 - 1) x half-side).
-           Neighbouring incircles touch at one point: gold (biological) meets cyan (digital). -->
-      <path d="M-40-40L40 40M40-40L-40 40" fill="none" stroke-width="2" style="stroke:var(--ink-3)"/>
-      <g fill="none" stroke-width="4"><circle cy="-23.431" r="16.569" style="stroke:var(--bio)"/><circle cy="23.431" r="16.569" style="stroke:var(--bio)"/><circle cx="-23.431" r="16.569" style="stroke:var(--dig)"/><circle cx="23.431" r="16.569" style="stroke:var(--dig)"/></g>
-      <g><circle cy="-23.431" r="3.4" style="fill:var(--bio)"/><circle cy="23.431" r="3.4" style="fill:var(--bio)"/><circle cx="-23.431" r="3.4" style="fill:var(--dig)"/><circle cx="23.431" r="3.4" style="fill:var(--dig)"/></g>
-      <rect x="-40" y="-40" width="80" height="80" fill="none" stroke-width="4.4" style="stroke:var(--ink)"/>
+      <!-- The incentre mark: a square (half-side 40), its diagonals, and the incircle of each triangle (r = (sqrt2 - 1) x 40).
+           Every true line is an ink edge, not a stroke centre: rings are inked inside their circle, the frame outside its
+           square, so each contact is two edges meeting. Gold (biological) touches cyan (digital) without overlap, neither on top. -->
+      <path d="M-40-40L40 40M40-40L-40 40" fill="none" stroke-width="1.6" style="stroke:var(--ink-3)"/>
+      <g fill="none" stroke-width="7.5"><circle cy="-23.431" r="12.819" style="stroke:var(--bio)"/><circle cy="23.431" r="12.819" style="stroke:var(--bio)"/><circle cx="-23.431" r="12.819" style="stroke:var(--dig)"/><circle cx="23.431" r="12.819" style="stroke:var(--dig)"/></g>
+      <g><circle cy="-23.431" r="3.1" style="fill:var(--bio)"/><circle cy="23.431" r="3.1" style="fill:var(--bio)"/><circle cx="-23.431" r="3.1" style="fill:var(--dig)"/><circle cx="23.431" r="3.1" style="fill:var(--dig)"/></g>
+      <rect x="-41.4" y="-41.4" width="82.8" height="82.8" fill="none" stroke-width="2.8" style="stroke:var(--ink-2)"/>
     </symbol>
   </defs>
 </svg>

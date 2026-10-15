@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -44 88 88">
+  <title>Foundation0</title>
+  <!-- The incentre mark for a light ground; source of truth: the #zero symbol in docs/index.html. -->
+  <path d="M-40-40L40 40M40-40L-40 40" fill="none" stroke-width="1.6" stroke="#5a6373"/>
+  <g fill="none" stroke-width="7.5"><circle cy="-23.431" r="12.819" stroke="#82560f"/><circle cy="23.431" r="12.819" stroke="#82560f"/><circle cx="-23.431" r="12.819" stroke="#0a6a85"/><circle cx="23.431" r="12.819" stroke="#0a6a85"/></g>
+  <g><circle cy="-23.431" r="3.1" fill="#82560f"/><circle cy="23.431" r="3.1" fill="#82560f"/><circle cx="-23.431" r="3.1" fill="#0a6a85"/><circle cx="23.431" r="3.1" fill="#0a6a85"/></g>
+  <rect x="-41.4" y="-41.4" width="82.8" height="82.8" fill="none" stroke-width="2.8" stroke="#36435a"/>
+</svg>
