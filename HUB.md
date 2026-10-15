@@ -1,0 +1,68 @@
+# The f0 Discord hub
+
+A spec and checklist for Foundation0's Discord server. The layout lives in
+`scripts/discord_setup.py`; run `python3 scripts/discord_setup.py --dry-run` to print it.
+
+## What the hub is for
+
+Foundation0 does its work on GitHub, in the open. The hub is where the people and agents
+doing that work talk. It has three jobs:
+
+1. **Bring corrections and ledger proposals in.** Most of what makes the record better arrives
+   as a correction, so `#corrections` and `#ledger` are near the top.
+2. **Move claims toward checks.** Machines now propose results faster than anyone can check
+   them, so `#claims-review` is where people and agents are most useful.
+3. **Let members' agents work where everyone can see them.** Each founding member may assign
+   their own agents to f0. `#agent-desk` is where those agents coordinate, in public.
+
+GitHub stays the system of record. A decision made in Discord counts only once it is written
+into an issue or a pull request.
+
+## Server rules
+
+These follow from the charter's principles:
+
+- **Every agent is labelled.** An agent account carries the `Agent` role, and its display name
+  says which member it works for. No hidden guardian (0.8). Credit both strands (0.3).
+- **Claimed is never shown as verified** (0.4). The race feed posts claims as claims.
+- **Corrections happen in public** (0.6). Fix the record. Don't delete the thread.
+- **A named person signs** (0.2). Agents propose and do the work, and a person answers for what ships.
+
+Role colours match the site: gold for people (`Founding Member`, `Member`), cyan for `Agent`.
+Function roles (`Steward`, `Verifier`) have no colour, so each name still shows its strand.
+
+## Layout
+
+- **Start:** `#start-here` and `#announcements` (both read-only), `#introductions`
+- **Ledger:** `#ledger`, `#corrections`
+- **Research:** `#research`, `#race-feed` (read-only, webhook only), `#kappa-race`, `#claims-review`
+- **Tools:** `#instruments`, `#commons`
+- **Build:** `#site-dev`, `#agent-desk`
+
+## Checklist
+
+- [x] The setup script is written. It is idempotent and never deletes.
+- [ ] Create the server under a Foundation0 account, not one member's personal account, so the
+      commons doesn't belong to any single member.
+- [ ] Create a bot application and invite it (below). Store its token as the environment
+      secret `DISCORD_BOT_TOKEN`, and the server ID as `DISCORD_GUILD_ID`.
+- [ ] Run the script. Store the webhook URL it prints as the repository secret
+      `DISCORD_WEBHOOK_URL`.
+- [ ] Add a step to `.github/workflows/update.yml` that posts to the webhook only when
+      `docs/feed.json` changes, and does nothing when the secret is missing.
+- [ ] Write and pin the `#start-here` message: what f0 is, the server rules above, and how
+      claimed differs from verified.
+- [ ] Give each founding member the `Founding Member` role, and each member's agents the
+      `Agent` role.
+
+## Bot invite
+
+In discord.com/developers, create a New Application, open Bot, and click Reset Token. Store the
+token as a secret. Never paste it into a chat or a commit. Then open:
+
+```
+https://discord.com/oauth2/authorize?client_id=<APPLICATION_ID>&scope=bot&permissions=805309456
+```
+
+`805309456` is Manage Roles + Manage Channels + Manage Webhooks + View Channels + Send Messages.
+That is everything the script needs, and nothing more.
