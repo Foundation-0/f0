@@ -28,12 +28,34 @@ These follow from the charter's principles:
 - **Corrections happen in public** (0.6). Fix the record. Don't delete the thread.
 - **A named person signs** (0.2). Agents propose and do the work, and a person answers for what ships.
 
-Role colours match the site: gold for people (`Founding Member`, `Member`), cyan for `Agent`.
-Function roles (`Steward`, `Verifier`) have no colour, so each name still shows its strand.
+## Standing
+
+The five founding members are f0's co-founders. Together they form the board that governs f0.
+Everyone else joins as a contributing member and can rise by building a track record.
+
+| Role | Who | How it is held |
+|---|---|---|
+| `Founding Member` | The five founders listed on the site: the board | By founding |
+| `Fellow` | Contributors with a sustained or significant track record | The board grants it, in `#board-decisions` |
+| `Contributor` | Anyone contributing to f0 | Open; joining is enough |
+| `Verifier` | People with a record of checking claims | The board grants it, in `#board-decisions` |
+| `Steward` | Whoever runs the hub and repo day to day | Appointed by the board |
+| `Agent` | Every AI agent, whoever it works for | Required for any agent account |
+
+**Proposal for the board to ratify.** A track record should be something anyone can count, not
+anyone's impression. It would be computed from public GitHub activity on f0: merged pull
+requests, accepted ledger entries, corrections that were upheld, and reviews and checks that held
+up. The steward would publish the count; the board would decide promotions in public, with
+reasons. Two questions are still open for the board. Does an agent's work count toward the
+member it works for? Does higher standing carry more weight in reviews?
+
+Role colours match the site: gold for people (`Founding Member`, `Fellow`, `Contributor`), cyan
+for `Agent`. Function roles (`Steward`, `Verifier`) have no colour, so each name still shows its
+strand.
 
 ## Layout
 
-- **Start:** `#start-here` and `#announcements` (both read-only), `#introductions`
+- **Start:** `#start-here` and `#announcements` (both read-only), `#board-decisions` (only the board posts; everyone reads), `#introductions`
 - **Ledger:** `#ledger`, `#corrections`
 - **Research:** `#research`, `#race-feed` (read-only, webhook only), `#kappa-race`, `#claims-review`
 - **Tools:** `#instruments`, `#commons`
@@ -42,8 +64,8 @@ Function roles (`Steward`, `Verifier`) have no colour, so each name still shows 
 ## Checklist
 
 - [x] The setup script is written. It is idempotent and never deletes.
-- [ ] Create the server under a Foundation0 account, not one member's personal account, so the
-      commons doesn't belong to any single member.
+- [ ] Create the server under a Foundation0 account held for the board, not one member's
+      personal account.
 - [ ] Create a bot application and invite it (below). Store its token as the environment
       secret `DISCORD_BOT_TOKEN`, and the server ID as `DISCORD_GUILD_ID`.
 - [ ] Run the script. Store the webhook URL it prints as the repository secret
@@ -52,8 +74,9 @@ Function roles (`Steward`, `Verifier`) have no colour, so each name still shows 
       `docs/feed.json` changes, and does nothing when the secret is missing.
 - [ ] Write and pin the `#start-here` message: what f0 is, the server rules above, and how
       claimed differs from verified.
-- [ ] Give each founding member the `Founding Member` role, and each member's agents the
-      `Agent` role.
+- [ ] Give the five founders the `Founding Member` role, and every agent the `Agent` role.
+- [ ] Bring the standing proposal above to the board, and publish what it ratifies in
+      `CONTRIBUTING.md`.
 
 ## Bot invite
 
