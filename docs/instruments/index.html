@@ -33,17 +33,13 @@
 <body data-page="instruments">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
-    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
-    <g id="zgeo" fill="none">
-      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
-      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
-      <circle r="16.84" stroke-width="3.4"/>
-      <circle r="6.97" stroke-width="3"/>
-    </g>
     <symbol id="zero" viewBox="-50 -50 100 100">
-      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
-      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+      <!-- The incentre mark: a square, its diagonals, and the incircle of each triangle (r = (sqrt2 - 1) x half-side).
+           Neighbouring incircles touch at one point: gold (biological) meets cyan (digital). -->
+      <path d="M-40-40L40 40M40-40L-40 40" fill="none" stroke-width="2" style="stroke:var(--ink-3)"/>
+      <g fill="none" stroke-width="4"><circle cy="-23.431" r="16.569" style="stroke:var(--bio)"/><circle cy="23.431" r="16.569" style="stroke:var(--bio)"/><circle cx="-23.431" r="16.569" style="stroke:var(--dig)"/><circle cx="23.431" r="16.569" style="stroke:var(--dig)"/></g>
+      <g><circle cy="-23.431" r="3.4" style="fill:var(--bio)"/><circle cy="23.431" r="3.4" style="fill:var(--bio)"/><circle cx="-23.431" r="3.4" style="fill:var(--dig)"/><circle cx="23.431" r="3.4" style="fill:var(--dig)"/></g>
+      <rect x="-40" y="-40" width="80" height="80" fill="none" stroke-width="4.4" style="stroke:var(--ink)"/>
     </symbol>
   </defs>
 </svg>

@@ -8,7 +8,7 @@ Everything a page needs lives in this folder. There is no build step: plain HTML
 | `f0.js` | The runtime, `window.F0` (theme, motion, data, tooltip, canvas, loop, badges, live κ) | foundation builder only |
 | `radiant.js` | The Radiant: the ledger drawn as one radial figure (`F0.Radiant`) | foundation builder only |
 | `home.js` | Home page wiring (data rendering, card figures) | foundation builder only |
-| `favicon.svg`, `og.png` | The zero-octagon mark; the 1200×630 share image | foundation builder only |
+| `favicon.svg`, `og.png` | The incentre mark (a square, its diagonals and the four incircles, r = (√2 − 1) × half-side, from the incentre-lattice research); the 1200×630 share image | foundation builder only |
 
 Your page's own CSS and JS go in your page's folder (`<page-dir>/page.css`, `<page-dir>/page.js`). If you need something shared, ask for it rather than editing these files.
 
@@ -17,7 +17,7 @@ Your page's own CSS and JS go in your page's folder (`<page-dir>/page.css`, `<pa
 Copy from `docs/index.html`, verbatim, and fix every relative prefix for your depth (`../` one level down, `../../` two):
 
 1. the whole `<head>`: fonts link, the inline theme and motion bootstrap script (it must run before paint), the theme-color metas, `<link rel="icon" href="{rel}assets/favicon.svg">`, `og:image` = `{rel}assets/og.png`, `<link rel="stylesheet" href="{rel}assets/f0.css">`, `<script defer src="{rel}assets/f0.js">`;
-2. the hidden `<svg>` with the `#zero` symbol (the header and footer marks use it);
+2. the hidden `<svg>` with the `#zero` symbol, the incentre mark (the header and footer marks use it);
 3. the skip link, the header (mark `aria-current="page"` on your nav link in both `.nav` and `.menu-panel`), the HUD `<nav class="hud" data-hud>`;
 4. the footer.
 
@@ -34,6 +34,13 @@ Give `<body>` a `data-page` key and the `<main id="main">` your sections. Sectio
 ```
 
 Alternate `.sec` and `.sec.alt` for banding. Inner pages open with a `.page-hero` (below) instead of the home hero.
+
+
+### The wordmark and the mark
+
+- **Mark** (`#zero`, `favicon.svg`): the founding drawing of the incentre-lattice research. A square, its two diagonals, and the incircle of each of the four triangles; with half-side 1 the radius is √2 − 1, and neighbouring incircles touch. Opposite pairs are gold (`--bio`) and cyan (`--dig`), so every gold circle touches both cyan ones.
+- **Wordmark**: "Foundation0" in Geist 600 with a dotted zero (`.display .zero::after`): the font's own 0 with the incentre as a dot at the centre of its counter, which also tells 0 from O.
+- **Ordinals**: write 0<sup>th</sup> with `<sup>` in HTML text, and "0ᵗʰ" (U+1D57, U+02B0) where markup is impossible (attributes, titles, JSON shown as text).
 
 ## 2. Tokens
 

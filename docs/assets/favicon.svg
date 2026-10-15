@@ -1,18 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
   <title>Foundation0</title>
-  <!-- The zero-octagon mark (docs/index.html #zero): octagon, octagram {8/3} and the incentre circles,
-       left half gold (biological), right half cyan (digital), on a Terminus-night tile. -->
-  <defs>
-    <clipPath id="l"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
-    <clipPath id="r"><rect x="0" y="-50" width="50" height="100"/></clipPath>
-    <g id="g" fill="none">
-      <polygon stroke-width="6.5" stroke-linejoin="round" points="36.6,15.2 15.2,36.6 -15.2,36.6 -36.6,15.2 -36.6,-15.2 -15.2,-36.6 15.2,-36.6 36.6,-15.2"/>
-      <polygon stroke-width="2.6" opacity=".7" points="36.6,15.2 -36.6,15.2 15.2,-36.6 15.2,36.6 -36.6,-15.2 36.6,-15.2 -15.2,36.6 -15.2,-36.6"/>
-      <circle r="15.2" stroke-width="4.6"/>
-      <circle r="6.3" stroke-width="3.6"/>
-    </g>
-  </defs>
+  <!-- The incentre mark (docs/index.html #zero): a square, its diagonals, and the incircle of each of the four
+       triangles, r = (sqrt2 - 1) x half-side. Neighbouring incircles touch: gold (biological) meets cyan (digital). -->
   <rect x="-50" y="-50" width="100" height="100" rx="20" fill="#070b0e"/>
-  <use href="#g" clip-path="url(#l)" stroke="#e6b874"/>
-  <use href="#g" clip-path="url(#r)" stroke="#5ccfec"/>
+  <path d="M-38-38L38 38M38-38L-38 38" fill="none" stroke="#97a4a3" stroke-width="3"/>
+  <g fill="none" stroke-width="5.5">
+    <circle cy="-22.260" r="15.740" stroke="#e6b874"/><circle cy="22.260" r="15.740" stroke="#e6b874"/>
+    <circle cx="-22.260" r="15.740" stroke="#5ccfec"/><circle cx="22.260" r="15.740" stroke="#5ccfec"/>
+  </g>
+  <rect x="-38" y="-38" width="76" height="76" fill="none" stroke="#eeeadf" stroke-width="5.5"/>
 </svg>
