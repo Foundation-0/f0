@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-motion="off" data-motion-pref="off">
+<head>
+<meta charset="utf-8">
+<title>Foundation0 share card</title>
+<!-- The 1200x630 share image, docs/assets/og.png. Rendered by scripts/og/shoot.mjs, which serves docs/ and this file
+     at /__og.html, so the relative paths below are the site's own: assets/f0.css, assets/f0.js, assets/radiant.js and
+     data/ledger.json. The Radiant is drawn from the ledger; the card carries no counts (no field totals, no milestone
+     total), so it does not go stale when the ledger grows. Re-run it when the look of the Radiant changes. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/f0.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--bg); }
+  .og { position: relative; width: 1200px; height: 630px; display: grid; grid-template-columns: 590px 610px; }
+  .og::before { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 75% at 78% 50%, rgba(92,207,236,.07), transparent 70%); }
+  .txt { position: relative; padding: 64px 0 56px 72px; display: flex; flex-direction: column; }
+  .brand-row { display: flex; align-items: center; gap: 14px; font: 600 17px/1 var(--f-mono); letter-spacing: .24em; text-transform: uppercase; color: var(--ink); }
+  .brand-row svg { width: 34px; height: 34px; }
+  .word { font: 600 88px/.9 var(--f-sans); letter-spacing: -.055em; color: var(--ink); margin-top: 100px; margin-left: -3px; white-space: nowrap; }
+  .word .zero { background: linear-gradient(118deg, var(--bio) 0 49.5%, var(--dig) 50.5% 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .line { font: 400 31px/1.3 var(--f-serif); color: var(--ink); margin-top: 26px; max-width: 15em; }
+  .meta { margin-top: auto; display: flex; gap: 10px; align-items: center; font: 500 15px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+  .meta i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .stage { position: relative; width: 610px; height: 610px; margin-top: 10px; }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/><circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100"><use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/><use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/></symbol>
+  </defs>
+</svg>
+<div class="og">
+  <div class="txt">
+    <div class="brand-row"><svg><use href="#zero"/></svg>Foundation0</div>
+    <div class="word">Foundation<span class="zero">0</span></div>
+    <p class="line">People and AI, on the record: advances, sourced, with how sure each one is.</p>
+    <p class="meta"><i style="background:var(--bio)"></i>Biological <span style="color:var(--ink-3)">+</span> <i style="background:var(--dig)"></i>Digital <span style="color:var(--ink-3)">&middot;</span> a growing record</p>
+  </div>
+  <div class="stage" id="stage"><canvas></canvas></div>
+</div>
+<script src="assets/f0.js"></script>
+<script src="assets/radiant.js"></script>
+<script>
+F0.json('data/ledger.json').then(function (L) {
+  window.__count = L.milestones.length;
+  return document.fonts.ready.then(function () {
+    new F0.Radiant(document.getElementById('stage'), L, { time: {}, counts: false });
+    window.__ready = true;
+  });
+}).catch(function (e) { window.__error = String(e); });
+</script>
+</body>
+</html>

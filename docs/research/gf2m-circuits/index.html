@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>gf2m-circuits · Foundation0</title>
+<meta name="description" content="Swapnil Jain's smaller AND/XOR circuits for multiplication in the AES field (117 to 112 gates at depth 6) and for the AES S-box (106 gates), each checked on every input and proved in Lean, with the multipliers Aska contributed. Run the circuits in your browser. Not peer reviewed.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gf2m-circuits: fewer gates for the arithmetic inside AES · Foundation0">
+<meta property="og:description" content="Multiplication in the AES field from 117 gates to 112, an AES S-box in 106, all machine-verified and Lean-proved; this page runs the circuits in your browser. Not peer reviewed.">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/research/gf2m-circuits/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="circuits.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="research-gf2m-circuits">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../../research/" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../../research/" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="page-hero has-fig gf-hero" style="--acc:var(--acc-gf2m)">
+    <div class="wrap">
+      <div class="ph-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">gf2m-circuits</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Cryptography &middot; Swapnil Jain&rsquo;s repository &middot; Aska contributed</p>
+        <h1 class="h1">Fewer gates for the arithmetic inside AES</h1>
+        <p class="dek">AES, the cipher that protects most web traffic and encrypted disks, does its mixing in a strange 256-number world. Swapnil Jain, searching with AI help and checking every result by machine, cut the wiring for its multiplication from 117 gates to 112 and built its one nonlinear step from 106 gates. Aska added multipliers for four more number systems.</p>
+        <div class="meta-row">
+          <span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Machine-verified &middot; Lean-proved</span>
+          <span class="badge n">Not peer reviewed</span>
+          <span class="badge n">No optimality claimed</span>
+          <a class="chip" href="https://github.com/Swapnil-jain/gf2m-circuits/commit/9daf883e529ab4b9c80c66632683b403f0c69e89">repo at 9daf883 &middot; checked 13 Oct 2026</a>
+        </div>
+        <p class="gf-credit"><b>Swapnil Jain&rsquo;s repository and two preprints.</b> <a href="../../charter/#m-ahrazzle">Aska Digital</a> contributed one pull request, <a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">merged as #1</a> on 11 October 2026: verified multiplier circuits for four more number systems, built with the papers&rsquo; own method. GF(2<sup>9</sup>) in 136 gates against a 142-gate baseline, GF(2<sup>10</sup>) in 172 (equal to its baseline), GF(2<sup>11</sup>) in 199 against 206, and the GHASH field GF(2<sup>128</sup>) in 11,972 (equal). They are not records, sit outside the author&rsquo;s hash commitment, and have no Lean proofs.</p>
+        <p class="gf-links"><a href="https://github.com/Swapnil-jain/gf2m-circuits">Repository</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf">Multiplier preprint</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">Aska&rsquo;s PR #1</a><a href="../../ledger/#gf2m-aes-field-multiplier-112">Multiplier on the Ledger</a><a href="../../ledger/#aes-sbox-106-gates">S-box on the Ledger</a></p>
+      </div>
+
+      <figure class="ph-fig fig frame gf-table" aria-labelledby="ht-t">
+        <div class="fig-head">
+          <p class="fig-title" id="ht-t">All 65,536 products in the AES field, computed by the 112-gate circuit</p>
+          <p class="fig-how"><b>How to read:</b> row a, column b, both 0 to 255. A lit cell means the chosen output bit of a&nbsp;&times;&nbsp;b is 1. Point at a cell, or focus the figure and use the arrow keys.</p>
+        </div>
+        <div class="fig-stage ht-stage" style="--ratio:1/1">
+          <canvas id="ht-cv" tabindex="0" role="img" aria-label="A 256 by 256 grid of every product in the AES field, computed in the browser by the 112-gate circuit. Arrow keys move through it."></canvas>
+          <span class="corner tl ht-corner" aria-hidden="true">a &darr; &middot; b &rarr;</span>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="What to show">
+          <span class="ctrl-label">Show //</span>
+          <div class="seg ht-seg" id="ht-bit" role="group" aria-label="Output bit">
+            <button type="button" data-b="0" aria-pressed="true" aria-label="Output bit 0">0</button><button type="button" data-b="1" aria-pressed="false" aria-label="Output bit 1">1</button><button type="button" data-b="2" aria-pressed="false" aria-label="Output bit 2">2</button><button type="button" data-b="3" aria-pressed="false" aria-label="Output bit 3">3</button><button type="button" data-b="4" aria-pressed="false" aria-label="Output bit 4">4</button><button type="button" data-b="5" aria-pressed="false" aria-label="Output bit 5">5</button><button type="button" data-b="6" aria-pressed="false" aria-label="Output bit 6">6</button><button type="button" data-b="7" aria-pressed="false" aria-label="Output bit 7">7</button><button type="button" data-b="inv" aria-pressed="false" aria-label="Pairs whose product is 1 (inverses)">a&times;b=1</button>
+          </div>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Test the checker">
+          <span class="ctrl-label">Break it //</span>
+          <button class="tbtn break" type="button" id="ht-break" aria-pressed="false" aria-describedby="ht-check">Damage one gate</button>
+        </div>
+        <p class="ht-check" id="ht-check" aria-live="polite">Checking every product against long multiplication&hellip;</p>
+        <figcaption class="fig-foot"><span id="ht-cap" class="ht-cap" aria-live="polite">Output bit 0 of every product. The nested blocks at powers of 2 are long multiplication showing through; the fold scrambles the rest.</span><span class="fig-src">Circuit: <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/aes112_d6.slp">aes112_d6.slp</a> (Apache-2.0, &copy; 2026 Swapnil Jain), run here and compared with shift-and-fold multiplication.</span></figcaption>
+      </figure>
+
+      <ul class="statrow gf-stats" aria-label="The project in numbers">
+        <li><div class="v">117 &rarr; 112</div><div class="k">gates to multiply in the AES field at the 2010 record&rsquo;s depth (6); 107 if you allow depth 13</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf">multiplier preprint</a> Tables 1&ndash;2</span></li>
+        <li><div class="v">106</div><div class="k">gates for the AES S-box from AND, XOR and XNOR gates; the smallest found before was 110 (NIST, 2026), which is shallower: depth 22 against 24</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a> Table 1 &middot; <a href="../../ledger/#aes-sbox-106-gates">On the Ledger</a></span></li>
+        <li><div class="v">109</div><div class="k">gates for the inverse S-box, against 112 (NIST, 2026); deeper, 30 against 26</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/verify_results.txt">sbox/verify_results.txt</a></span></li>
+        <li><div class="v">30</div><div class="k">Lean 4 kernel proofs: 19 multipliers and 11 S-boxes, standard axioms only</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean">multipliers/lean</a> &middot; <a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/sbox/lean">sbox/lean</a></span></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 00 GATES -->
+  <section class="sec" id="gates" data-index="Gates" data-num="00" aria-labelledby="gates-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>Gates</p><span class="chip">First principles</span></div>
+      <h2 class="h2" id="gates-h">A computer multiplies with switches.</h2>
+      <p class="lede">Underneath every program are gates: tiny switches that take two bits and give back one. An <b>AND</b> gate says &ldquo;both&rdquo;. An <b>XOR</b> gate says &ldquo;exactly one&rdquo;. Wire enough of them together and you can compute anything. The question here is how few you need.</p>
+      <div class="gf-cols">
+        <div class="prose">
+          <p>The arithmetic in question is strange but simple. Write a number as 8 bits. To <b>add</b> two numbers, XOR them bit by bit, with no carries. To <b>multiply</b>, do grade-school long multiplication, but add the columns with XOR instead of ordinary addition. The answer spills past 8 bits, so fold the overflow back in by a fixed rule: wherever x<sup>8</sup> appears, write x<sup>4</sup> + x<sup>3</sup> + x + 1 instead.</p>
+          <aside class="callout def"><p class="c-k">Definition</p><p><dfn>GF(2<sup>8</sup>)</dfn>, a <dfn>finite field</dfn>: the 256 numbers you can write in 8 bits, with that addition and that multiplication. Every rule of ordinary arithmetic still holds, and every number except 0 has an inverse you can divide by.</p></aside>
+          <p>AES, the cipher that protects most web traffic and disk encryption, does all of its mixing in this field. Its one nonlinear step, the <dfn class="term">S-box</dfn>, takes each byte&rsquo;s inverse in the field and then scrambles the bits.</p>
+        </div>
+        <div class="prose">
+          <p>Why count gates? On a chip, each gate costs area and power. In &ldquo;bitsliced&rdquo; software, each gate is one processor instruction, applied to many blocks at once. Building the arithmetic from gates also avoids lookup tables, which can leak secrets through how long memory takes to answer.</p>
+          <p>A circuit&rsquo;s <dfn class="term">depth</dfn> is the longest chain of gates a signal passes through, one after another. It stands in for how long the answer takes.</p>
+          <p>Why is it hard? The number of possible wirings explodes, and even a computer cannot search them all: an exact search for a 16-input circuit of more than 100 gates is out of reach. So records sit still for years. The 117-gate multiplier for the AES field dated from July 2010. Nobody can currently prove that any of these circuits is the smallest possible, and the papers claim no such thing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 A 16-NUMBER WORLD -->
+  <section class="sec alt" id="sixteen" data-index="A 16-number world" data-num="01" aria-labelledby="sixteen-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>A 16-number world</p><span class="chip">Live circuit</span></div>
+      <h2 class="h2" id="sixteen-h">Long multiplication, without the carries.</h2>
+      <p class="lede">Shrink the field to 4 bits and the whole circuit fits on a screen. The 16 numbers multiply by the same recipe, with the fold rule x<sup>4</sup> = x + 1. Pick two numbers and watch 30 gates compute their product.</p>
+
+      <figure class="fig frame wide gf-f4" aria-labelledby="f4-t">
+        <div class="fig-head">
+          <p class="fig-title" id="f4-t">Multiply in GF(2<sup>4</sup>): the working, and the circuit that does it</p>
+          <p class="fig-how"><b>How to read:</b> set a and b with the bit buttons, or press a cell of the table. Left, the long multiplication and the fold. Right, the circuit, read top to bottom: squares are AND gates, circles are XOR gates; a filled gate or a strong wire carries 1, a hollow gate or a faint wire carries 0. Switch circuits to compare gate counts.</p>
+        </div>
+        <div class="f4-grid">
+          <div class="f4-left">
+            <div class="f4-in" role="group" aria-label="Inputs">
+              <div class="f4-row"><span class="f4-k">a</span><div class="f4-bits" id="f4-a" role="group" aria-label="Bits of a"></div><output class="f4-v" id="f4-av" for="f4-a">11</output></div>
+              <div class="f4-row"><span class="f4-k">b</span><div class="f4-bits" id="f4-b" role="group" aria-label="Bits of b"></div><output class="f4-v" id="f4-bv" for="f4-b">6</output></div>
+            </div>
+            <pre class="f4-work" id="f4-work" aria-live="polite"></pre>
+            <div class="f4-tab-wrap"><table class="f4-tab" id="f4-tab" aria-label="Multiplication table of GF(2^4): row a, column b; press a cell to choose that pair"></table></div>
+          </div>
+          <div class="f4-right">
+            <div class="fig-stage f4-stage" style="--ratio:6/5"><svg id="f4-svg" role="img" aria-labelledby="f4-desc"><desc id="f4-desc">The circuit for the chosen pair.</desc></svg></div>
+            <div class="f4-tally" id="f4-tally" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Circuit controls">
+          <span class="ctrl-label">Circuit //</span>
+          <div class="seg" id="f4-which" role="group" aria-label="Circuit"><button type="button" data-c="jain" aria-pressed="true">Jain 2026 &middot; 30 gates</button><button type="button" data-c="school" aria-pressed="false">Schoolbook &middot; 31 gates</button></div>
+          <button class="tbtn" type="button" id="f4-all">Check all 256 pairs</button>
+          <span class="f4-allres" id="f4-allres" aria-live="polite"></span>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Jain&rsquo;s 30-gate circuit is <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/final_f4.slp">final_f4.slp</a>, printed in the multiplier preprint&rsquo;s Appendix A and proved in Lean in about one second (<a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean">Gf4Rec</a>). The schoolbook circuit is ours, built for this page: 16 ANDs, 9 XORs to add the columns, 6 XORs to fold; it matches the preprint&rsquo;s baseline of 25 + 6.</span></figcaption>
+      </figure>
+      <div class="gf-cols gf-after">
+        <div class="prose">
+          <p>The schoolbook circuit multiplies every bit of a by every bit of b: 16 ANDs. Jain&rsquo;s circuit first forms a few sums of input bits (8 XORs), multiplies those sums in pairs (only 10 ANDs), then combines the 10 products into the 4 output bits, doing the fold at the same time (12 XORs). Spending a little on preparation buys fewer multiplications.</p>
+        </div>
+        <div class="prose">
+          <p>That is Karatsuba&rsquo;s 1962 trick, generalised: to multiply two 2-part numbers you need only 3 products instead of 4, if you pay a few extra additions first. For four bits the trick saves one gate overall. For the AES field it saves more, as the next section shows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 THE STAIRCASE -->
+  <section class="sec" id="staircase" data-index="The size-speed staircase" data-num="02" aria-labelledby="stair-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>The size&ndash;speed staircase</p><div class="badges"><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-proved</span></div></div>
+      <h2 class="h2" id="stair-h">Smaller or faster: pick one.</h2>
+      <p class="lede">There is no single best circuit. At the 2010 record&rsquo;s speed, multiplication in the AES field drops from 117 gates to 112. Allow twice the depth, and it drops to 107.</p>
+      <div class="split">
+        <div class="prose">
+          <p>Every multiplier of this kind can be drawn in three layers: <b>prepare</b> (XORs that form sums of input bits), <b>multiply</b> (ANDs that multiply pairs of those sums) and <b>clean up</b> (XORs that combine the products into the 8 output bits, folding as they go).</p>
+          <p>Jain&rsquo;s search samples many recursive mixes of schoolbook splits and Karatsuba splits, solves exactly for the best clean-up layer of each, and scores every candidate by its <em>total</em> gate count. The earlier approach of Find and Peralta minimised the number of ANDs first.</p>
+          <p>Compare the layers of the 2010 record and the new 112-gate circuit at the same depth: preparation grows from 8 XORs to 20, but the ANDs fall from 48 to 36 and the clean-up from 61 XORs to 56. Different products, cheaper overall.</p>
+          <aside class="callout caveat"><p class="c-k">Not &ldquo;the smallest ever&rdquo;</p><p>The Circuit Minimization Team also lists a 106-gate, depth-6 multiplier from 2017 that works in an undisclosed &ldquo;tower&rdquo; layout of the field. Using it with AES&rsquo;s standard layout needs conversions of unknown cost, so the preprint does not compare against it, and neither do we.</p></aside>
+        </div>
+        <figure class="fig frame sticky gf-stair" aria-labelledby="st-t">
+          <div class="fig-head">
+            <p class="fig-title" id="st-t">AES-field multipliers: gates against depth, 2010 &rarr; 2026</p>
+            <p class="fig-how"><b>How to read:</b> lower is smaller, further left is faster. Slide the depth budget; the ring marks the smallest circuit that fits, and the bars below split it into its three layers. Point at or focus any mark.</p>
+          </div>
+          <div class="fig-stage st-stage" style="--ratio:5/4"><svg id="st-svg" role="img" aria-labelledby="st-desc"><desc id="st-desc">Gates against depth.</desc></svg></div>
+          <ul class="vlegend" aria-label="Legend">
+            <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="5" fill="none" style="stroke:var(--ink)" stroke-width="2"/></svg><span><b>2010 record</b> &middot; 117 gates</span></li>
+            <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="5" style="fill:var(--mk)"/></svg><span><b>Jain 2026</b> &middot; the best at each depth</span></li>
+            <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="4" style="fill:var(--mark-mid)"/></svg><span><b>Jain 2026</b> &middot; other steps of the search</span></li>
+          </ul>
+          <div class="fig-ctrl" role="group" aria-label="Depth budget">
+            <label class="ctrl st-ctrl">Depth &le; <input class="range" type="range" id="st-range" min="5" max="20" step="1" value="6"><output id="st-out" for="st-range">6</output></label>
+          </div>
+          <div class="st-layers" id="st-layers" aria-live="polite"></div>
+          <figcaption class="fig-foot"><span class="fig-src">Points from the <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf">multiplier preprint</a>, Tables 1&ndash;3; NIST&rsquo;s list still shows 117 at depth 6 (<a href="https://csrc.nist.gov/projects/circuit-complexity/list-of-circuits">updated 6 Oct 2026</a>). Layer splits were counted from the circuit files by Foundation0; the 141 and 128 reference lines are a schoolbook circuit and a published polynomial multiplier, each with a simple fold.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary><div class="table-wrap" id="st-table"></div></details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THE S-BOX -->
+  <section class="sec alt" id="sbox" data-index="The S-box in 106 gates" data-num="03" aria-labelledby="sbox-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>AES&rsquo;s secret ingredient</p><div class="badges"><span class="badge v"><span class="ladder" data-r="5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Lean-proved</span><span class="badge n">AND / XOR / XNOR model only</span></div></div>
+      <h2 class="h2" id="sbox-h">The one step of AES that is not just XOR, in 106 gates.</h2>
+      <p class="lede">Most of AES is XORs and fixed shuffles. The S-box replaces each byte by its inverse in the 256-number world, then scrambles the bits. Software usually looks it up in a 256-entry table; built from gates, it needs no table, so there is no secret-dependent memory access for a timing attack to watch. Run the actual circuit here.</p>
+
+      <figure class="fig frame wide gf-sb" aria-labelledby="sb-t">
+        <div class="fig-head">
+          <p class="fig-title" id="sb-t">The S-box circuit, gate by gate</p>
+          <p class="fig-how"><b>How to read:</b> the input byte&rsquo;s 8 bits enter on the left (at the top on a narrow screen); every gate sits in the column of its depth (squares AND, circles XOR, ringed circles XNOR), and a filled gate is outputting 1. Faint lines are the wires: point at a gate to light the two wires that feed it and the ones it feeds. The 8 bits at the far end are the answer, checked against the standard&rsquo;s table below. Type a byte, step with the arrows, or press a table cell.</p>
+        </div>
+        <div class="fig-ctrl sb-top" role="group" aria-label="S-box controls">
+          <span class="mx-grp"><span class="ctrl-label">Circuit //</span>
+          <span class="seg" id="sb-which" role="group" aria-label="Which circuit"><button type="button" data-c="s106" aria-pressed="true" aria-label="106 gates, depth 24">106 gates</button><button type="button" data-c="s121" aria-pressed="false" aria-label="121 gates, depth 16">121 gates</button><button type="button" data-c="i109" aria-pressed="false" aria-label="Inverse S-box, 109 gates, depth 30">Inverse, 109</button></span></span>
+          <span class="mx-grp sb-ingrp"><label class="ctrl" for="sb-in">Input byte (hex)</label>
+          <button class="tbtn" type="button" id="sb-dec" aria-label="Previous byte">&#9664;</button><input class="sb-in" id="sb-in" type="text" inputmode="text" maxlength="2" value="53" spellcheck="false" autocomplete="off"><button class="tbtn" type="button" id="sb-inc" aria-label="Next byte">&#9654;</button></span>
+        </div>
+        <div class="fig-stage sb-stage" style="--ratio:16/6"><svg id="sb-svg" role="img" aria-labelledby="sb-desc"><desc id="sb-desc">The S-box circuit.</desc></svg></div>
+        <div class="sb-res" id="sb-res" aria-live="polite"></div>
+        <div class="sb-grid">
+          <div class="sb-tab-wrap"><table class="sb-tab" id="sb-tab"><caption id="sb-cap">The AES S-box (FIPS-197), computed here from field inversion and the affine map: row = first hex digit, column = second</caption></table></div>
+          <div class="sb-side">
+            <div class="fig-ctrl" role="group" aria-label="Check all inputs"><button class="tbtn" type="button" id="sb-all">Run all 256 inputs</button></div>
+            <p class="sb-allres" id="sb-allres" aria-live="polite">Not run yet. The repository&rsquo;s Lean proof of the same fact takes 8 to 9 seconds.</p>
+            <div class="sb-cmp">
+              <p class="sb-cmp-t" id="sbc-t">Smallest S-box circuits found, AND / XOR / XNOR gates only</p>
+              <svg id="sbc-svg" class="sbc-svg" role="img" aria-labelledby="sbc-t sbc-d"><desc id="sbc-d">Gate counts: Boyar–Peralta / Calik 113 at depth 27; NIST 2026 110 at depth 22; Jain 2026 106 at depth 24; NIST's stated wish is 105 or fewer.</desc></svg>
+              <p class="sb-note">Dots on a gate-count scale; the number after each is its depth. Richer gate sets (NAND, NOR, multiplexers) already reach 102 gates (Maximov and Ekdahl, 2019), so the comparison holds only in this model.</p>
+            </div>
+          </div>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Circuits <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/sbox106_d24.json">sbox106_d24</a>, <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/sbox121_d16.json">sbox121_d16</a> and <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/invsbox109_d30.json">invsbox109_d30</a> (Apache-2.0, &copy; 2026 Swapnil Jain), copied into <a href="circuits.js">circuits.js</a> and run in your browser. Comparison numbers from the <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a>, Table 1, and <a href="https://csrc.nist.gov/projects/circuit-complexity/list-of-circuits">NIST&rsquo;s list</a>.</span></figcaption>
+        <details class="twin"><summary>Show the comparison as a table</summary><div class="table-wrap"><table class="tbl">
+          <thead><tr><th scope="col">Circuit</th><th scope="col" class="n">Gates</th><th scope="col" class="n">AND + XOR + XNOR</th><th scope="col" class="n">Depth</th><th scope="col">Closest published circuit in the same model</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">S-box, Jain 2026</th><td class="n">106</td><td class="n">34 + 69 + 3</td><td class="n">24</td><td>NIST 2026: 110 at depth 22. Boyar&ndash;Peralta / Calik: 113 at depth 27</td></tr>
+            <tr><th scope="row">S-box, Jain 2026</th><td class="n">121</td><td class="n">34 + 83 + 4</td><td class="n">16</td><td>CMT: 125 at depth 16 (likely a local edit of it: 86% of gate functions shared). NIST: 125 at depth 15</td></tr>
+            <tr><th scope="row">Inverse S-box, Jain 2026</th><td class="n">109</td><td class="n">32 + 71 + 6</td><td class="n">30</td><td>NIST 2026: 112 at depth 26. CMT: 121 at depth 21</td></tr>
+          </tbody></table></div><p class="twin-note">Intermediate points (116 at depth 17, 112 at 18, 111 at 21) are in the preprint&rsquo;s Table 1. The AND count, 32 to 34, is about that of earlier work, so the preprint claims no gain for masked implementations, where ANDs dominate the cost.</p></details>
+      </figure>
+      <div class="gf-cols gf-after">
+        <div class="prose">
+          <p>The 106-gate circuit came from a sweep over 244,800 ways of writing the field, followed by random walks that keep the gate count while reshaping the circuit. Walks within AES&rsquo;s usual way of writing the field stalled at 110. The search code is not released, so these circuits can be checked by anyone but not regenerated.</p>
+        </div>
+        <div class="prose">
+          <p>The comparison is honest about its limits. The 106 is smaller than NIST&rsquo;s 110 but deeper, 24 against 22. NIST&rsquo;s own list asks for 105 gates or fewer, so the 106 is one gate short of that wish. And the comparison holds only for circuits made of AND, XOR and XNOR gates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 ASKA'S PART -->
+  <section class="sec" id="aska" data-index="Aska's part" data-num="04" aria-labelledby="aska-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Aska&rsquo;s part</p><div class="badges"><span class="badge n">Contributed &middot; merged PR #1</span><span class="badge n">Verified &middot; not records &middot; no Lean</span></div></div>
+      <h2 class="h2" id="aska-h">Four more number systems, checked, and not records.</h2>
+      <p class="lede">Our agentic team applied the papers&rsquo; method to fields of 9, 10, 11 and 128 bits that had no dedicated published circuit, and Swapnil Jain merged the result the same day. You can re-check three of them on every input, here.</p>
+      <div class="split rev">
+        <div class="prose">
+          <p><b>The method was Jain&rsquo;s, applied to new fields.</b> Take the published product circuit of Find and Peralta for m-bit polynomials, keep its products, merge the fold into the clean-up layer, and re-optimise both XOR layers with the repository&rsquo;s own tool. Then sweep the depth, and try small exact searches (&ldquo;window SAT&rdquo;) for local improvements; thousands of windows were tried and none improved.</p>
+          <p><b>What it gained.</b> GF(2<sup>9</sup>) came in 6 gates below its baseline and GF(2<sup>11</sup>) 7 below; GF(2<sup>10</sup>) and the GHASH field of AES-GCM only matched theirs, and say &ldquo;no gain claimed&rdquo;. The baseline is the published product circuit plus a textbook fold, not a published record: for these fields no dedicated circuit was found. The AND counts (54, 52, 78) are exactly Find and Peralta&rsquo;s, so every gate saved is an XOR.</p>
+          <aside class="callout caveat"><p class="c-k">Stated plainly</p>
+            <p><b>Not records.</b> Our pull request first called them &ldquo;first published (no record)&rdquo;; the maintainer reworded that to &ldquo;no dedicated published circuit found&rdquo;, which is the accurate claim.</p>
+            <p><b>Weaker checks than Jain&rsquo;s own circuits.</b> They are verified exhaustively (GHASH symbolically, since 2<sup>256</sup> input pairs cannot be listed), but they have no Lean proofs and sit outside the author&rsquo;s hash commitment.</p>
+            <p><b>Not a drop-in GHASH.</b> The GF(2<sup>128</sup>) circuit uses plain polynomial bit order; GCM&rsquo;s reflected bit order is not addressed.</p>
+            <p><b>Open, not merged:</b> a second pull request (#2, opened 13 Oct 2026) adds more fields and is not yet reviewed by the maintainer, so it is not counted here.</p></aside>
+        </div>
+        <figure class="fig frame sticky gf-aska" aria-labelledby="ak-t">
+          <div class="fig-head">
+            <p class="fig-title" id="ak-t">Multipliers for other fields: gates saved against a simple baseline</p>
+            <p class="fig-how"><b>How to read:</b> each row is one field, with its baseline and circuit gate counts; the bar is the number of gates saved, and the percentage is of the baseline. Red-ruled rows are Aska&rsquo;s contributions; the rest are Jain&rsquo;s. Point at or focus a row.</p>
+          </div>
+          <div class="fig-stage ak-stage" style="--ratio:5/4"><svg id="ak-svg" role="img" aria-labelledby="ak-desc"><desc id="ak-desc">Gates saved against a simple baseline for seven fields.</desc></svg></div>
+          <ul class="vlegend" aria-label="Legend">
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2v12" style="stroke:var(--hair)" stroke-width="2"/></svg><span><b>Aska&rsquo;s</b> contribution</span></li>
+            <li><span><b>Baseline</b> &middot; published product circuit + simple fold</span></li>
+          </ul>
+          <div class="fig-ctrl" role="group" aria-label="Check Aska's circuits"><button class="tbtn" type="button" id="ak-run">Check Aska&rsquo;s three circuits on every input</button></div>
+          <p class="ak-res" id="ak-res" aria-live="polite">5,505,024 products to check: every pair of inputs for GF(2<sup>9</sup>), GF(2<sup>10</sup>) and GF(2<sup>11</sup>).</p>
+          <figcaption class="fig-foot"><span class="fig-src">Aska&rsquo;s numbers and circuits: <a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/contrib">multipliers/contrib</a> (f9_d7, f10_d8, f11_d8 are in <a href="circuits.js">circuits.js</a>); Jain&rsquo;s: multiplier preprint, Table 1. Foundation0 also re-ran the repository&rsquo;s verifier on all of them on 13 Oct 2026.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary><div class="table-wrap"><table class="tbl">
+            <thead><tr><th scope="col">Field</th><th scope="col">By</th><th scope="col" class="n">Baseline</th><th scope="col" class="n">Circuit (AND + XOR)</th><th scope="col" class="n">Depth</th><th scope="col" class="n">Saved</th></tr></thead>
+            <tbody>
+              <tr><td>GF(2<sup>4</sup>)</td><td>Jain</td><td class="n">31</td><td class="n">30 (10 + 20)</td><td class="n">5</td><td class="n">1</td></tr>
+              <tr><td>GF(2<sup>5</sup>)</td><td>Jain</td><td class="n">49</td><td class="n">44 (20 + 24)</td><td class="n">6</td><td class="n">5</td></tr>
+              <tr class="ak"><td>GF(2<sup>9</sup>), x<sup>9</sup>+x<sup>4</sup>+1</td><td>Aska</td><td class="n">142</td><td class="n">136 (54 + 82)</td><td class="n">7</td><td class="n">6</td></tr>
+              <tr class="ak"><td>GF(2<sup>10</sup>), x<sup>10</sup>+x<sup>3</sup>+1</td><td>Aska</td><td class="n">172</td><td class="n">172 (52 + 120)</td><td class="n">8</td><td class="n">0</td></tr>
+              <tr class="ak"><td>GF(2<sup>11</sup>), x<sup>11</sup>+x<sup>2</sup>+1</td><td>Aska</td><td class="n">206</td><td class="n">199 (78 + 121)</td><td class="n">8</td><td class="n">7</td></tr>
+              <tr><td>GF(2<sup>12</sup>)</td><td>Jain</td><td class="n">229</td><td class="n">210 (78 + 132)</td><td class="n">17</td><td class="n">19</td></tr>
+              <tr><td>GF(2<sup>13</sup>)</td><td>Jain</td><td class="n">303</td><td class="n">283 (94 + 189)</td><td class="n">29</td><td class="n">20</td></tr>
+              <tr class="ak"><td>GF(2<sup>128</sup>), GHASH</td><td>Aska</td><td class="n">11,972</td><td class="n">11,972 (3,888 + 8,084)</td><td class="n">20</td><td class="n">0</td></tr>
+            </tbody></table></div><p class="twin-note">GHASH is left out of the chart because it would dwarf the scale. Aska also built a depth-6 variant of GF(2<sup>9</sup>) with 144 gates.</p></details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 HOW WE KNOW -->
+  <section class="sec alt" id="verify" data-index="How anyone can check" data-num="05" aria-labelledby="verify-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>How anyone can check</p><span class="chip">Re-run by Foundation0 &middot; 13 Oct 2026</span></div>
+      <h2 class="h2" id="verify-h">The search was AI-assisted. The trust comes from somewhere else.</h2>
+      <p class="lede">Both preprints say: &ldquo;Computational search and drafting were assisted by AI tools; all released circuits were machine-verified.&rdquo; No tool is named. What makes the circuits believable is that anyone can check them in seconds.</p>
+      <ol class="gf-checks">
+        <li><span class="n">1</span><div><h3>Every input</h3><p>Each circuit is run on every possible input, 65,536 pairs for an AES-field multiplier and 256 bytes for an S-box, against an independent reference. This page does it again in your browser.</p></div></li>
+        <li><span class="n">2</span><div><h3>Every formula</h3><p>Each output bit&rsquo;s exact algebraic formula must equal the one multiplication defines. This is how the 128-bit circuits are checked, where listing inputs is impossible.</p></div></li>
+        <li><span class="n">3</span><div><h3>Broken on purpose</h3><p>Deliberately damaged circuits and a wrong field must be rejected. That shows the checker can say no; it is not extra evidence for the circuits.</p></div></li>
+        <li><span class="n">4</span><div><h3>Machine proof</h3><p>Lean 4&rsquo;s kernel proves 30 of the circuits correct. The theorem checks a generated gate list; for the S-box it proves equality with a written-out table, and that the table is AES&rsquo;s rests on the Python verifier. Gate counts and depths are not Lean-checked.</p></div></li>
+        <li><span class="n">5</span><div><h3>Committed in advance</h3><p>SHA-256 fingerprints of the circuit files were posted in two public gists on 11 Oct 2026, before the preprints. The author calls this a weak timestamp, since a gist can be edited.</p></div></li>
+      </ol>
+      <div class="gf-cols">
+        <div class="prose">
+          <h3>What Foundation0 re-ran</h3>
+          <p>On a scratch copy of the repository: the multiplier verifier on every committed circuit and on Aska&rsquo;s (all pass, with gate counts exactly as published); the S-box verifier on all 11 circuits (output identical to the saved results); the commitment fingerprints (both match the live gists); and five of the Lean proofs, including the 106-gate S-box, with the official Lean 4.34.1 release. The generator rebuilds the Lean file for the 112-gate circuit byte for byte from the circuit file, so the proof is about that exact circuit.</p>
+        </div>
+        <div class="prose">
+          <h3>What remains open</h3>
+          <p>Both papers are single-author preprints from October 2026, posted on ResearchGate and not peer reviewed. &ldquo;Smallest known&rdquo; is only as good as the author&rsquo;s literature check, which the author calls &ldquo;not a systematic survey&rdquo;. The author knows of no non-trivial lower bound on total gates, so nobody can say how close any of these circuits is to the smallest possible.</p>
+          <p>The field is busy: NIST&rsquo;s list was updated on 6 October 2026 and records S-box circuits contributed by Milad Nasr of Anthropic on 24 September 2026.</p>
+        </div>
+      </div>
+
+      <div class="mx-src">
+        <div>
+          <h3 class="mx-h3">The repository</h3>
+          <ul class="src-list">
+            <li><a href="https://github.com/Swapnil-jain/gf2m-circuits">Swapnil-jain/gf2m-circuits</a></li>
+            <li><a href="https://www.researchgate.net/publication/415561348">Multiplier preprint (ResearchGate)</a></li>
+            <li><a href="https://www.researchgate.net/publication/415560965">S-box preprint (ResearchGate)</a></li>
+            <li><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/tools/verify.py">verify.py</a></li>
+            <li><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/tools/verify_sbox.py">verify_sbox.py</a></li>
+            <li><a href="https://gist.github.com/Swapnil-jain/3b2c5d8c6b656e5a9cef2961d65434e0">Commitment gist v1</a></li>
+            <li><a href="https://gist.github.com/Swapnil-jain/6750e3f460658bc51c9a5f376c93af72">Commitment gist v2</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mx-h3">Aska&rsquo;s contribution</h3>
+          <ul class="src-list">
+            <li><a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">Pull request #1</a></li>
+            <li><a href="https://github.com/Swapnil-jain/gf2m-circuits/commit/49808725332429fdf840ab71d877a6e3ec164973">Commit 4980872</a></li>
+            <li><a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/contrib">multipliers/contrib</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mx-h3">Prior work</h3>
+          <ul class="src-list">
+            <li><a href="https://www.cs.yale.edu/homes/peralta/CircuitStuff/CMT.html">Circuit Minimization Team</a></li>
+            <li><a href="https://csrc.nist.gov/projects/circuit-complexity/list-of-circuits">NIST circuit list</a></li>
+            <li><a href="https://github.com/usnistgov/Circuits">usnistgov/Circuits</a></li>
+            <li><a href="https://binary.cr.yp.to/m.html">Bernstein&rsquo;s multiplication table</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="chart-foot mx-lic">Circuits on this page are copied from Swapnil Jain&rsquo;s gf2m-circuits (code and circuits Apache-2.0, papers CC BY 4.0, &copy; 2026 Swapnil Jain), including the circuits ahrazzle contributed there; prior-work circuit files by others are not copied, only their published numbers. The evaluators, charts and the schoolbook GF(2<sup>4</sup>) circuit are new code written for this page; the repository itself has no project website.</p>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../mobius-x1/"><span>&larr; Previous</span>mobius-x1: beating a 1937 recipe, eventually</a>
+        <a class="next" href="../"><span>Back to &rarr;</span>All research</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../research/">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 14 Oct 2026 against Swapnil-jain/gf2m-circuits at 9daf883</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

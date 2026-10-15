@@ -1,0 +1,130 @@
+/* κ race tracker + method page (research/integer-multiplication/live). f0.css tokens only, plus the page's
+   series colour --mark-im (validated: light #2a5fb0, dark #4f90e3). Caveats use the shared .callout.caveat. */
+:root { --mark-im: #2a5fb0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --mark-im: #4f90e3; } }
+:root[data-theme="dark"] { --mark-im: #4f90e3; }
+
+.lv-hero .h1 { max-width: 22ch; font-size: clamp(30px, 2.2vw + 16px, 50px); }
+.lv-method .lv-hero .h1 { font-size: clamp(32px, 3.4vw + 14px, 60px); }
+.lv-sub { max-width: 64ch; }
+.lv-sub a, .lv-sub code { white-space: nowrap; }
+.lv-top { padding-block: clamp(32px, 4vw, 56px); border-top: 0; }
+.lv-h2 { max-width: 30ch; font-size: clamp(24px, 1.6vw + 16px, 36px); }
+
+.lv-files-line { margin-top: var(--s-3); font: 400 var(--fs-xs)/1.55 var(--f-sans); color: var(--ink-3); }
+.lv-files-line a { white-space: nowrap; }
+.lv-caveat { max-width: 92ch; margin: 0 0 var(--s-5); }
+.lv-lede { max-width: 64ch; }
+
+/* hero figure: the reviewed record and where the feed stops */
+.lv-hfig { align-self: center; }
+.lv-hstage { position: relative; margin-top: 12px; background: var(--bg-1); border: 1px solid var(--line); padding: 8px 6px 2px; }
+#hs-svg { display: block; width: 100%; height: auto; overflow: visible; }
+#hs-svg text { font: 11.5px var(--f-mono); fill: var(--ink-3); }
+#hs-svg .lbl { fill: var(--ink-2); }
+#hs-svg .lbl-strong { fill: var(--ink); font-weight: 600; }
+#hs-svg .lbl, #hs-svg .lbl-strong { paint-order: stroke; stroke: var(--bg-1); stroke-width: 4px; stroke-linejoin: round; }
+#hs-svg .grid { stroke: var(--grid); stroke-width: 1; }
+#hs-svg .axis { stroke: var(--line-ui); stroke-width: 1; }
+#hs-svg .after { fill: var(--ink-3); opacity: .07; }
+#hs-svg .stop { stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 4 3; }
+#hs-svg .step { fill: none; stroke: var(--mark-im); stroke-width: 2; stroke-linejoin: round; }
+#hs-svg .step-new { fill: none; stroke: var(--mark-im); stroke-width: 1.6; stroke-dasharray: 3 3; }
+#hs-svg .rec { fill: var(--mark-im); stroke: var(--bg-1); stroke-width: 1.5; }
+#hs-svg .claim { fill: var(--bg-1); stroke: var(--ink-2); stroke-width: 1.4; }
+#hs-svg .now { fill: var(--st-verified); stroke: var(--bg-1); stroke-width: 2; }
+.lv-nojs { display: none; }
+html:not(.js) .lv-nojs { display: block; padding: 18px 16px; font: 400 var(--fs-sm)/1.5 var(--f-sans); color: var(--ink-2); }
+html:not(.js) #hs-svg, html:not(.js) #chart-wrap, html:not(.js) .lv-ctl, html:not(.js) .lv-scroll-hint, html:not(.js) .lv-legend, html:not(.js) .lv-readout { display: none; }
+html:not(.js) .lv-nojs-chart { margin-top: 12px; border: 1px dashed var(--line-ui); }
+
+/* the live reviewed κ */
+.lv-live { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); gap: 14px 32px; align-items: end; padding: 20px clamp(16px, 2vw, 26px); }
+.lv-live::after { border-color: var(--mark-im); }
+@media (max-width: 860px) { .lv-live { grid-template-columns: minmax(0, 1fr); } }
+.lv-live-k { font: 500 var(--fs-label)/1.4 var(--f-mono); letter-spacing: var(--tr-label); text-transform: uppercase; color: var(--ink-3); margin: 0; }
+.lv-live-v { font: 500 clamp(26px, 2.6vw + 12px, 44px)/1.1 var(--f-mono); letter-spacing: -.02em; color: var(--ink); margin-top: 8px; overflow-wrap: anywhere; }
+.lv-live-d { font: 400 var(--fs-sm)/1.5 var(--f-sans); color: var(--ink-2); margin-top: 6px; }
+.lv-live-side { display: grid; gap: 8px; justify-items: start; }
+.lv-live-chip { text-decoration: none; }
+.lv-live-chip:hover { color: var(--ink); border-color: var(--line-ui); }
+.lv-live-s { font: 400 12.5px/1.5 var(--f-sans); color: var(--ink-3); max-width: 44ch; }
+/* stats strip (the dashboard's own markup: .stats > .stat > .k + .v) */
+.lv-stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); margin: var(--s-6) 0 var(--s-5); }
+.lv-stats .stat { background: var(--bg-2); }
+.lv-stats .stat .k { font: 500 11px/1.35 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
+.lv-stats .stat .v { font: 500 clamp(19px, .8vw + 14px, 24px)/1.2 var(--f-mono); letter-spacing: -.01em; color: var(--ink); }
+.lv-stats .stat .v small { font: 400 12px/1 var(--f-mono); color: var(--ink-3); letter-spacing: 0; }
+.lv-stats .stat .s .lv-snap { margin-right: 6px; padding: 0 5px; font: 500 11px/1.6 var(--f-mono); text-transform: uppercase; border: 1px dashed var(--line-ui); border-radius: var(--r-chip); letter-spacing: .06em; color: var(--ink-3); white-space: nowrap; }
+.lv-stats .stat .s { margin-top: 6px; font: 400 12px/1.4 var(--f-sans); color: var(--ink-2); }
+.lv-stats .stat.lead { box-shadow: inset 0 2px 0 var(--mark-im); }
+.lv-stats .stat.ver { box-shadow: inset 0 2px 0 var(--st-verified); }
+.lv-gap { margin: 0 0 var(--s-6); padding: 12px 16px; border-left: 2px solid var(--st-verified); background: var(--bg-2); font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); max-width: 100ch; }
+.lv-gap code, .lv-fig code, .lv-live code { font: 500 .88em/1.4 var(--f-mono); background: var(--bg-3); padding: .06em .32em; border-radius: var(--r-chip); color: var(--ink); overflow-wrap: anywhere; }
+#gap-since { color: var(--ink); font-weight: 600; }
+
+/* controls: real radios and a checkbox, styled as a segmented row */
+.lv-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 12px; padding: 10px 12px; border: 1px solid var(--line); background: var(--bg-1); }
+.lv-opt { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); cursor: pointer; font: 500 12px/1.2 var(--f-mono); letter-spacing: .04em; color: var(--ink-2); }
+.lv-opt:hover { color: var(--ink); border-color: var(--ink-3); }
+.lv-opt input { accent-color: var(--mark-im); margin: 0; width: 15px; height: 15px; }
+.lv-opt:has(input:checked) { color: var(--ink); background: var(--bg-3); border-color: var(--ink-2); }
+.lv-opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 760px) { .lv-opt { min-height: 44px; } }
+
+/* chart */
+.lv-chart-wrap { margin-top: 12px; overflow-x: auto; background: var(--bg-1); border: 1px solid var(--line); }
+#chart { display: block; height: auto; max-width: none; }
+#chart:focus { outline: none; }
+#chart:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+#chart text { font: 11.5px var(--f-mono); fill: var(--ink-3); }
+#chart .tick { stroke: var(--grid); stroke-width: 1; }
+#chart .axis { stroke: var(--line-ui); stroke-width: 1; }
+#chart .lbl { fill: var(--ink); font-weight: 600; }
+#chart .band { fill: var(--mark-im); opacity: .07; }
+#chart .frontier { fill: none; stroke: var(--mark-im); stroke-width: 2; stroke-linejoin: round; }
+#chart .pt { fill: var(--bg-1); stroke: var(--ink-2); stroke-width: 1.4; }
+#chart .pt.draft { fill: color-mix(in srgb, var(--ink-3) 55%, var(--bg-1)); stroke: var(--ink-3); }
+#chart .pt.leader { stroke: var(--mark-im); stroke-width: 2.6; }
+#chart .pt.off { opacity: .5; }
+#chart .verline { stroke: var(--st-verified); stroke-width: 1.4; stroke-dasharray: 5 4; }
+#chart .nowline { stroke: var(--st-verified); stroke-width: 2; }
+#chart .jump { stroke: var(--ink-2); stroke-width: 1.4; }
+#chart .jump-head { fill: none; stroke: var(--ink-2); stroke-width: 1.4; stroke-linejoin: round; }
+#chart .lbl { paint-order: stroke; stroke: var(--bg-1); stroke-width: 4px; stroke-linejoin: round; }
+#chart .sel { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.lv-scroll-hint { display: none; margin-top: 6px; font: 400 12.5px/1.45 var(--f-sans); color: var(--ink-3); }
+@media (max-width: 700px) { .lv-scroll-hint { display: block; } }
+.lv-readout { min-height: 1.5em; margin-top: 8px; font: 500 12.5px/1.5 var(--f-mono); color: var(--ink-2); overflow-wrap: anywhere; }
+.lv-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font: 400 var(--fs-xs)/1.45 var(--f-sans); color: var(--ink-2); }
+.lv-key { display: inline-flex; align-items: center; gap: 7px; }
+.lv-legend .sw { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.lv-legend .sw-claim { border: 1.5px solid var(--ink-2); }
+.lv-legend .sw-draft { background: color-mix(in srgb, var(--ink-3) 55%, var(--bg-1)); border: 1px solid var(--ink-3); }
+.lv-legend .ln { display: inline-block; width: 18px; height: 0; flex: none; }
+.lv-legend .ln-front { border-top: 2px solid var(--mark-im); }
+.lv-legend .ln-ver { border-top: 1.5px dashed var(--st-verified); }
+.lv-legend .ln-now { border-top: 2px solid var(--st-verified); }
+
+/* sourced table; a feed more than a day old is marked as a snapshot (dashed frame, label), never faded */
+.lv-skip { position: absolute; left: -9999px; }
+.lv-skip:focus { position: static; display: inline-block; margin-top: var(--s-4); padding: 8px 12px; background: var(--bg-2); border: 1px solid var(--line-ui); font: 500 13px var(--f-mono); color: var(--ink); }
+#after-points:focus { outline: none; }
+.lv-stale .lv-table { border: 1px dashed var(--st-preprint); }
+.lv-table td.tier { min-width: 150px; }
+.lv-table { max-height: 640px; overflow: auto; background: var(--bg-2); margin-top: var(--s-5); }
+.lv-table table { min-width: 760px; }
+.lv-table td.num, .lv-table th.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+.lv-table td code { font: 500 12px var(--f-mono); color: inherit; }
+.lv-table tr.draft td { color: var(--ink-3); }
+.lv-table tr.lead td { background: color-mix(in srgb, var(--mark-im) 9%, transparent); color: var(--ink); }
+.lv-table tr.lead td:first-child { box-shadow: inset 2px 0 0 var(--mark-im); }
+.lv-table .title { color: var(--ink-3); font-size: 12.5px; min-width: 260px; }
+.lv-table tr.lead .title { color: var(--ink-2); }
+
+/* method page */
+.lv-method .prose h2 { font: 600 var(--fs-h3)/1.25 var(--f-sans); letter-spacing: -.015em; color: var(--ink); margin: 1.8em 0 .3em; }
+.lv-method .prose h2:first-child { margin-top: 0; }
+.lv-method .prose ul { padding-left: 1.2em; }
+.lv-method .prose li strong { font-family: var(--f-mono); font-size: .9em; letter-spacing: .02em; }
+.lv-plain { margin: 0 0 var(--s-6); max-width: none; }

@@ -1,0 +1,443 @@
+{
+ "updated": "2026-10-14",
+ "projects": [
+  {
+   "slug": "incentre-lattice",
+   "kind": "research",
+   "member": "ahrazzle",
+   "owner": "Aska Digital (Ahraz Arifuddin)",
+   "page": "research/incentre-lattice/",
+   "accent": "#37ff9a",
+   "title": "Incentre lattice",
+   "dek": "From a doodle to the densest packing of balls.",
+   "status": "Preprint · not peer reviewed",
+   "links": [
+    {
+     "label": "Site",
+     "url": "https://aska-digital.github.io/incentre-lattice/"
+    },
+    {
+     "label": "Repository",
+     "url": "https://github.com/aska-digital/incentre-lattice"
+    },
+    {
+     "label": "Preprint v2 (Zenodo)",
+     "url": "https://doi.org/10.5281/zenodo.23340326"
+    }
+   ],
+   "one_line": "Aska founder Ahraz Arifuddin's childhood doodle (a square, its diagonals, one dot per triangle), followed with AI agents into crystals, rigidity in every dimension, and an exact fold of a loose ball-and-bar crystal into the densest packing of equal balls.",
+   "stats": [
+    {
+     "value": "22.3% → 74.05%",
+     "label": "Packing density along the exact fold: open scaffold to the densest possible stacking (π/√18)",
+     "source": "results/fold-continuous-fcc/certificate.json; PROOF.md"
+    },
+    {
+     "value": "16,240",
+     "label": "Exact certificate coefficients, all ≥ 0 (3,248 collision tests)",
+     "source": "results/fold-continuous-fcc/certificate.json"
+    },
+    {
+     "value": "1/(n²−n−1)",
+     "label": "Poisson ratio of the framework, proved for every dimension n ≥ 3",
+     "source": "results/rigidity-nd/certificate.json"
+    },
+    {
+     "value": "~11 min",
+     "label": "AI search loop from 0.4686 to the Kepler bound 0.7405 in 5 logged runs",
+     "source": "autoresearch-fold/results.tsv (07:56:10 to 08:06:56)"
+    }
+   ]
+  },
+  {
+   "slug": "exoplanets",
+   "kind": "research",
+   "member": "eumemic",
+   "owner": "eumemic",
+   "contribution": "Aska built the first version of the project's website and contributed nine more merged pull requests (proposed changes the project's owner reviewed and accepted), among them four pipeline fixes; one fix (PR #6) led to a re-search that added 120 counted candidates.",
+   "page": "research/exoplanets/",
+   "accent": "#f0b25a",
+   "title": "Exoplanets",
+   "dek": "Faint shadows in old starlight: 665 small-planet candidates in public NASA data, as of 14 Oct 2026.",
+   "status": "Candidates · not confirmed · not peer reviewed",
+   "links": [
+    {
+     "label": "Site",
+     "url": "https://eumemic.github.io/exoplanets/"
+    },
+    {
+     "label": "Repository",
+     "url": "https://github.com/eumemic/exoplanets"
+    }
+   ],
+   "one_line": "An independent, AI-built search of 4,039,203 stars in NASA's public TESS data that, as of 14 October 2026, counts 665 small transiting-planet candidates the official pipelines had passed over; Aska Digital built its website and fixed flaws in its pipeline.",
+   "stats": [
+    {
+     "value": "4,039,203",
+     "label": "stars searched in the full-sky search, TESS sectors 1-104",
+     "source": "eumemic/exoplanets README.md, full-sky search table, at 58c6318"
+    },
+    {
+     "value": "665",
+     "label": "planet candidates counted on 14 Oct 2026 (607 full-sky + 58 earlier); not confirmed",
+     "source": "README.md, note of 14 Oct 2026; recomputed from results_public/candidates_allsky.csv + tiers_earlier_candidates.csv at 58c6318"
+    },
+    {
+     "value": "7,459,491 → 13,986",
+     "label": "repeating dips found, then those passing all 17 LEO-Vetter tests",
+     "source": "README.md, full-sky search table, at 58c6318"
+    },
+    {
+     "value": "82%",
+     "label": "of full-sky candidates are on stars NASA's multi-sector search never covers (full-frame images only)",
+     "source": "validation/findability.md at 58c6318 (404 of 494, updated 13 Oct 2026)"
+    }
+   ]
+  },
+  {
+   "slug": "integer-multiplication",
+   "kind": "research",
+   "member": "Mister-Meeseeks",
+   "owner": "Doug Colkitt (CrocSwap)",
+   "contribution": "Aska built the live race tracker that grew into this site, and submitted two small claims that were later superseded.",
+   "page": "research/integer-multiplication/",
+   "accent": "#7aa2ff",
+   "title": "Integer multiplication below n log n",
+   "dek": "A public race of people and AI agents to multiply huge numbers in fewer than n log n steps.",
+   "status": "Conditional · maintainer-reviewed · not peer reviewed",
+   "builds_on": "OpenAI #109",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/CrocSwap/integer-mult-bounds"
+    },
+    {
+     "label": "Race tracker (feed of 11 Oct)",
+     "url": "research/integer-multiplication/live/"
+    },
+    {
+     "label": "The story",
+     "url": "research/integer-multiplication/story/"
+    }
+   ],
+   "one_line": "A public race of people and AI agents to prove that huge whole numbers can be multiplied slightly faster than n log n steps on a Turing machine. The prize is the exponent saving κ. Aska built a live tracker and submitted two small, unreviewed improvement claims.",
+   "stats": [
+    {
+     "value": "0.001672660197076918",
+     "label": "Current maintainer-reviewed conditional κ (PR #1094), 13 Oct 2026",
+     "source": "certificates/selected-result.json @ 0a31ad884"
+    },
+    {
+     "value": "2^-182 → 2^-9.22",
+     "label": "κ since the AI-produced preprint dated 23 Sep 2026, made public 6 Oct (≈1.03×10^52 times larger)",
+     "source": "upstream/build/sections/00-introduction.tex; log2 of selected κ (computed)"
+    },
+    {
+     "value": "17",
+     "label": "Successive reviewed κ records in 5 days (9–13 Oct)",
+     "source": "git log -- certificates/selected-result.json (19 commits, 17 distinct values)"
+    },
+    {
+     "value": "1,334",
+     "label": "Pull requests opened upstream by 13 Oct 2026 (highest #1374)",
+     "source": "git ls-remote origin refs/pull/*/head, 2026-10-13 ~23:40Z"
+    }
+   ]
+  },
+  {
+   "slug": "machine-mathematics",
+   "kind": "research",
+   "member": null,
+   "owner": "OpenAI corpus; refinements by founding members and others",
+   "page": "research/machine-mathematics/",
+   "accent": "#c9a7ff",
+   "title": "After the 722",
+   "dek": "OpenAI published 722 machine-written maths papers. Here is what people and their agents did next.",
+   "status": "Mostly conditional · not peer reviewed",
+   "links": [
+    {
+     "label": "openai/math",
+     "url": "https://github.com/openai/math"
+    },
+    {
+     "label": "Math, faster (essay)",
+     "url": "https://digital.askaconsult.com/blog/math-faster.html"
+    }
+   ]
+  },
+  {
+   "slug": "mobius-x1",
+   "kind": "contribution",
+   "member": null,
+   "owner": "Swapnil Jain",
+   "contribution": "Aska wrote and ran the full-network check behind Theorem 2 (merged PR #1).",
+   "page": "research/mobius-x1/",
+   "accent": "#ff8fb1",
+   "title": "mobius-x1",
+   "dek": "A claimed way to compute a basic transform on bits (the GF(2) Möbius transform) with fewer one-bit XOR steps than Yates’ 1937 recipe, for astronomically large inputs.",
+   "status": "Not peer reviewed · AI-refereed only",
+   "builds_on": "OpenAI #130",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Swapnil-jain/mobius-x1"
+    },
+    {
+     "label": "Aska PR #1",
+     "url": "https://github.com/Swapnil-jain/mobius-x1/pull/1"
+    }
+   ],
+   "one_line": "A claimed, AI-assisted proof that the subset-parity (Möbius/zeta) transform over GF(2) needs asymptotically fewer XOR gates than Yates' 1937 ½·N·log₂N recipe, built by transplanting an AI-generated OpenAI Fourier-transform construction into bit arithmetic; the saving appears only when k has billions of digits. Aska's team of AI agents contributed the full-network check of the strongest version (Theorem 2).",
+   "stats": [
+    {
+     "value": "4.37 × 10⁻¹¹",
+     "label": "How far below 1 the exponent drops (Theorem 2: N·(log N)^θ′, θ′ = 1 − 4.3713·10⁻¹¹)",
+     "source": "README.md l.18; lean/MobiusLean/Prepass.lean one_sub_theta2_bounds l.167"
+    },
+    {
+     "value": "0 / 3,456,000",
+     "label": "Bank-swap failures in Aska's E1 network check at h = 10 (43,200 invocations)",
+     "source": "certificates/run_e1_rep_h10_bad0.txt l.4"
+    },
+    {
+     "value": "92",
+     "label": "Lean theorems axiom-audited (26 are refuted controls); main theorem not in Lean",
+     "source": "lean/axioms.out"
+    },
+    {
+     "value": "12",
+     "label": "Slots in the explicit F16 word that turns the gadget into XORs",
+     "source": "proofs/WORD.md §1; lean/MobiusLean/Word.lean word_ok l.134"
+    }
+   ]
+  },
+  {
+   "slug": "gf2m-circuits",
+   "kind": "contribution",
+   "member": null,
+   "owner": "Swapnil Jain",
+   "contribution": "Aska contributed verified multipliers for more binary fields (merged PR #1; not records).",
+   "page": "research/gf2m-circuits/",
+   "accent": "#5ce1c4",
+   "title": "gf2m-circuits",
+   "dek": "Fewer logic gates (the tiny on/off circuits chips are built from) for the arithmetic inside AES, the cipher that protects most web traffic.",
+   "status": "Lean-verified · tested on every input · not peer reviewed",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Swapnil-jain/gf2m-circuits"
+    },
+    {
+     "label": "Aska PR #1",
+     "url": "https://github.com/Swapnil-jain/gf2m-circuits/pull/1"
+    }
+   ],
+   "one_line": "Smaller AND/XOR wiring diagrams for multiplication in the AES number system (117 -> 112 gates at the 2010 record's depth) and for the AES S-box (106 gates), each checked on every input and proved in Lean; Aska contributed verified multipliers for four more fields.",
+   "stats": [
+    {
+     "value": "117 → 112",
+     "label": "gates to multiply in the AES field at the 2010 record's depth (6); 107 at depth 13",
+     "source": "papers/Jain_GF2m_multipliers_2026.pdf Table 1/2; re-verified with multipliers/tools/verify.py"
+    },
+    {
+     "value": "106",
+     "label": "gates for the AES S-box from AND, XOR and XNOR gates (Jain 2026, depth 24; the smallest found before was 110 at depth 22, NIST 2026)",
+     "source": "papers/Jain_AES_Sbox_circuits_2026.pdf Table 1; sbox/verify_results.txt; re-verified"
+    },
+    {
+     "value": "109",
+     "label": "gates for the inverse AES S-box (Jain 2026, depth 30; NIST 2026: 112 at depth 26)",
+     "source": "papers/Jain_AES_Sbox_circuits_2026.pdf Table 1; re-verified"
+    },
+    {
+     "value": "30",
+     "label": "Lean 4 kernel proofs (19 multiplier + 11 S-box), axioms [propext] only",
+     "source": "multipliers/lean/*.lean, sbox/lean/*.lean and .out files"
+    }
+   ]
+  },
+  {
+   "slug": "exo",
+   "kind": "instrument",
+   "member": "ahrazzle",
+   "owner": "Aska Digital",
+   "page": "instruments/",
+   "accent": "#ff5b14",
+   "title": "Exo",
+   "dek": "One agent, one lasting memory, a signed record, and consent to the exact words.",
+   "status": "Private preview · open source when ready",
+   "links": [
+    {
+     "label": "exo.askaconsult.com",
+     "url": "https://exo.askaconsult.com/"
+    },
+    {
+     "label": "Whitepaper",
+     "url": "https://exo.askaconsult.com/whitepaper/"
+    }
+   ],
+   "one_line": "Aska Digital's software around AI models, the part that lets a model act: one agent with one lasting memory, a signed record of what it did, a meter for which model answered and what it cost, and a gate that asks your consent to the exact words before anything leaves your machine. Exo OS is its planned operating-system form.",
+   "stats": [
+    {
+     "value": "3 of 5",
+     "label": "planned build stages built; Aska uses them every day through one agent",
+     "source": "https://exo.askaconsult.com/#status"
+    },
+    {
+     "value": "1,485",
+     "label": "root-suite tests passing at revision a0fc85e (65 skipped), plus 751 in six plugin suites; maintainer-reported, 13 Oct 2026",
+     "source": "https://exo.askaconsult.com/roadmap/#verified"
+    },
+    {
+     "value": "7 days",
+     "label": "the longest an 'always allow' lasts for anything that leaves your machine (30 days for other acts); anything touching passwords or keys always asks and can never be always-allowed",
+     "source": "https://exo.askaconsult.com/whitepaper/#153-the-approval-flow"
+    },
+    {
+     "value": "8",
+     "label": "messages folded into each leaf of the summary tree that replaces a growing transcript",
+     "source": "https://exo.askaconsult.com/whitepaper/#172-the-summary-tree"
+    }
+   ]
+  },
+  {
+   "slug": "exo-os",
+   "kind": "instrument",
+   "member": "ahrazzle",
+   "owner": "Aska Digital",
+   "page": "instruments/",
+   "accent": "#ff5b14",
+   "title": "Exo OS",
+   "dek": "The planned operating-system form of Exo.",
+   "status": "Private preview · in design",
+   "links": [
+    {
+     "label": "Roadmap",
+     "url": "https://exo.askaconsult.com/roadmap/"
+    }
+   ]
+  },
+  {
+   "slug": "auto-research-agent",
+   "kind": "instrument",
+   "member": "rohanarun",
+   "owner": "rohanarun",
+   "page": "instruments/",
+   "accent": "#9ad1ff",
+   "title": "Auto-research-agent",
+   "dek": "A Mac app that sends your own coding agent to an open problem in one click.",
+   "status": "Released software",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/rohanarun/Auto-research-agent"
+    }
+   ]
+  },
+  {
+   "slug": "autofoundry",
+   "kind": "instrument",
+   "member": "shea256",
+   "owner": "Ryan Shea",
+   "page": "instruments/",
+   "accent": "#b5f27a",
+   "title": "autofoundry",
+   "dek": "Rent GPUs across four clouds and run one AI experiment everywhere.",
+   "status": "Open-source software · v0.1",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/shea256/autofoundry"
+    }
+   ]
+  },
+  {
+   "slug": "medcode",
+   "kind": "commons",
+   "member": "ahrazzle",
+   "owner": "Aska Digital",
+   "page": "commons/",
+   "accent": "#3fc1a8",
+   "title": "medcode",
+   "dek": "Accuracy needs evidence: a public study of AI medical-coding tools, with a free in-browser demo.",
+   "status": "Research snapshot · demo not clinically validated",
+   "links": [
+    {
+     "label": "medcode.askaconsult.com",
+     "url": "https://medcode.askaconsult.com/"
+    },
+    {
+     "label": "Free demo",
+     "url": "https://medcode.askaconsult.com/app/"
+    }
+   ],
+   "one_line": "Aska Digital's public study of AI tools that turn US doctors' notes into billing codes. Of 25 vendors reviewed, none had a public independent head-to-head accuracy audit (as of 2026-10-03). It comes with a free in-browser demo that searches 161,282 official US code entries and says plainly that keyword matching is not understanding.",
+   "stats": [
+    {
+     "value": "25",
+     "label": "AI medical-coding vendors scanned (snapshot 2026-10-03)",
+     "source": "https://medcode.askaconsult.com/ (page source L245)"
+    },
+    {
+     "value": "35",
+     "label": "competitive claims checked against named sources by a separate verifier",
+     "source": "https://medcode.askaconsult.com/ (page source L246, L536)"
+    },
+    {
+     "value": "0",
+     "label": "public independent head-to-head accuracy audits found among those 25",
+     "source": "https://medcode.askaconsult.com/ (page source L248, L546)"
+    },
+    {
+     "value": "18 of 67",
+     "label": "evidence tags in the vendor table marked VERIFIED (33 unverified, 16 vendor-only)",
+     "source": "counted from the vendor table at https://medcode.askaconsult.com/ (page source L301-325)"
+    }
+   ]
+  },
+  {
+   "slug": "nutrak",
+   "kind": "commons",
+   "member": "ahrazzle",
+   "owner": "Aska Digital",
+   "page": "commons/",
+   "accent": "#d9a521",
+   "title": "Nutrak",
+   "dek": "A free, offline nutrition tracker that shows its work.",
+   "status": "Live demo · not clinically validated",
+   "links": [
+    {
+     "label": "Open the app",
+     "url": "https://ahrazzle.github.io/nutrak/"
+    },
+    {
+     "label": "Repository",
+     "url": "https://github.com/ahrazzle/nutrak"
+    }
+   ],
+   "one_line": "A free, offline nutrition tracker that runs in the browser. It puts a plain-words 'why this number?' receipt under every target and only judges vitamins and minerals on a week of eating, never on a single day.",
+   "stats": [
+    {
+     "value": "2,645–3,045 kcal",
+     "label": "Energy shown as a range, never a single number (demo profile)",
+     "source": "https://github.com/ahrazzle/nutrak/blob/main/demo/fixture.json L32-33"
+    },
+    {
+     "value": "5 → 1",
+     "label": "Calcium's light changes 5 times in the demo week judged daily; the 7-day average gives one steady signal",
+     "source": "computed from demo/fixture.json entryPayloads with thresholds in src/glossary.json L214"
+    },
+    {
+     "value": "35",
+     "label": "Nutrients with a target, each with a 'why this number?' receipt",
+     "source": "demo/fixture.json profile.snapshot.nutrients (length 35)"
+    },
+    {
+     "value": "26",
+     "label": "Plain-words glossary terms behind the receipts",
+     "source": "src/glossary.json terms (length 26)"
+    }
+   ]
+  }
+ ]
+}

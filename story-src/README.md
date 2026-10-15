@@ -6,11 +6,13 @@ and what our own contributions in that space have been.
 ## Build
 
 ```sh
-python3 -I story-src/build.py    # reads story-src/data.json, writes docs/story/index.html
+python3 -I story-src/build.py    # reads story-src/data.json, writes docs/research/integer-multiplication/story/
 ```
 
-Standard library only. `index.html` is self-contained: no fonts, scripts or assets to fetch,
-so it can be served from anywhere or opened from disk.
+Standard library only. It writes `index.html`, `page.css` and `page.js` into
+`docs/research/integer-multiplication/story/`. The page uses the Foundation0 site chrome and
+tokens (`docs/assets/f0.css`, `docs/assets/f0.js`), so serve it from `docs/` (for example
+`python3 -m http.server -d docs`) rather than opening the file from disk.
 
 ## Refreshing the numbers
 
@@ -35,15 +37,15 @@ re-selection that keeps the same number does not draw a step.
 ## Design notes
 
 - Charts follow the house data-viz method: one series per chart, no dual axes, tick steps from
-  the 1-2-5 ladder closing above the data, direct label on the last value, hover tooltip on
-  every mark. Palette is the validated default (`#2a78d6` light, `#3987e5` dark), which passes
-  the lightness, chroma and contrast checks against both surfaces.
-- Dark mode is selected, not an inverted flip: its own steps under both `prefers-color-scheme`
-  and a `data-theme` stamp, so a future theme toggle wins over the OS setting either way.
+  the 1-2-5 ladder closing above the data, direct label on the last value, a tooltip on every
+  mark on hover and on keyboard focus, and a table of the same numbers under each chart. The
+  series colour is the page token `--mark-im` (`#2a5fb0` light, `#4f90e3` dark), validated with
+  the dataviz palette script; everything else uses the site tokens, in both themes.
+- The essay's words and numbers are as published on 13 Oct 2026. Corrections live in their own
+  section at the end of the page (`S_FIX` in `build.py`), never as edits to the essay.
 - The copy states the result is conditional and not a runtime claim, because the repository
   does. Keep that paragraph if the page is edited.
 
 ## Where it lives
 
-`docs/story/index.html`, served by this repo's Pages setup once this is on `main`:
-https://aska-digital.github.io/frontier-math/story/
+`docs/research/integer-multiplication/story/index.html`, served by this repo's Pages setup.

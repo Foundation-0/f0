@@ -1,0 +1,33 @@
+name: site
+# Gate every change to the Foundation0 site and the kappa-race pipeline.
+# No network: the checks read only files in the repository.
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Site gate (ledger schema, data lists, links, page metadata, no third-party scripts)
+        run: python3 scripts/check_site.py
+
+      - name: Kappa feed gate (schema, determinism, selected-result binding, separation)
+        run: python3 scripts/gate.py
+
+      - name: Golden parser cases
+        run: python3 tests/run_golden.py
+
+      - name: Finding regressions F1-F5
+        run: python3 tests/run_regressions.py
+
+      - name: Gate corruption probes
+        run: python3 tests/run_gate_corruptions.py

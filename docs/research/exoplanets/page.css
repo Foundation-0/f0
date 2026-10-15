@@ -1,0 +1,233 @@
+/* Exoplanets page (research/exoplanets). f0.css tokens only. Marks use the project accent
+   (--acc-exoplanets) as a single series; tier identity is carried by shape, not colour, so the
+   sky map needs no categorical palette (dataviz: all-pairs forms cap at three hues). */
+
+/* ---------- hero ---------- */
+.ex-hero .wrap { align-items: start; }
+.ex-hero .ph-text { min-width: 0; padding-top: 8px; }
+.ex-hero .h1 { max-width: 13ch; }
+.ex-credit { font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); margin-top: var(--s-5); max-width: 58ch; padding-left: 14px; border-left: 2px solid var(--acc-exoplanets); }
+.ex-credit b { color: var(--ink); font-weight: 600; }
+.ex-credit.ex-moved { margin-top: var(--s-3); border-left: 2px dashed var(--line-ui); }
+.ex-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: var(--s-4); font: 500 12.5px/1.4 var(--f-mono); letter-spacing: .02em; }
+.ex-links a { padding: 8px 0; }
+.ex-links a::after { content: " \2197"; font-family: var(--f-sans); }
+.ex-stats { grid-column: 1 / -1; margin-top: clamp(28px, 4vw, 48px); }
+.ex-stats .v { font-size: clamp(24px, 1.4vw + 16px, 34px); font-variant-numeric: normal; }
+
+/* ---------- sky map ---------- */
+.sky { width: 100%; max-width: 640px; justify-self: end; }
+@media (max-width: 960px) { .sky { justify-self: stretch; max-width: none; } }
+.sky-stage { background: radial-gradient(80% 90% at 50% 50%, var(--bg-2), var(--bg-1)); }
+.sky-stage canvas { cursor: crosshair; touch-action: pan-y; }
+.fig-stage canvas:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.sky-ctrl { justify-content: space-between; }
+.sky-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.sky-legend button { display: inline-flex; align-items: center; gap: 7px; min-height: 32px; padding: 0 10px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); background: transparent; color: var(--ink); cursor: pointer; font: 500 11.5px/1 var(--f-mono); letter-spacing: .08em; }
+.sky-legend button span { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.sky-legend svg, .comp svg { width: 12px; height: 12px; fill: var(--acc-exoplanets); flex: none; }
+.sky-legend button[aria-pressed="false"] { color: var(--ink-3); border-style: dashed; }
+.sky-legend button[aria-pressed="false"] svg { fill: none; stroke: var(--ink-3); stroke-width: 1.2; }
+.sky-legend button:hover { border-color: var(--ink-2); }
+@media (max-width: 760px) { .sky-legend button { min-height: 44px; } }
+.sky-read { margin-top: 10px; padding: 10px 12px; border: 1px solid var(--line); background: var(--bg-1); font: 400 13.5px/1.5 var(--f-sans); color: var(--ink-2); min-height: 4.7em; }
+.sky-read b { color: var(--ink); font-weight: 600; }
+.sky-read .mono { font-size: 12.5px; color: var(--ink); }
+.sky-read a { margin-right: 12px; white-space: nowrap; }
+.twin-note { font: 400 13px/1.55 var(--f-sans); color: var(--ink-2); margin-top: 10px; max-width: 80ch; padding: 0 2px; }
+#sky-table .tbl td a { white-space: nowrap; }
+
+/* ---------- shared bits ---------- */
+.ex-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) clamp(28px, 4vw, 64px); margin-top: var(--s-6); align-items: start; }
+.ex-cols .prose { max-width: none; }
+.ex-cols .callout:first-child { margin-top: 0; }
+@media (max-width: 960px) { .ex-cols { grid-template-columns: minmax(0, 1fr); } }
+.ex-note { font: 400 var(--fs-sm)/1.55 var(--f-sans) !important; color: var(--ink-3) !important; padding-top: 8px; border-top: 1px dashed var(--line); }
+.wide-fig { margin-top: var(--s-7); }
+.fig .fig-ctrl + .fig-ctrl { margin-top: 6px; }
+.fig .fig-ctrl .tbtn[aria-pressed="true"] { color: var(--ink); border-color: var(--ink-2); background: var(--bg-3); }
+.h3s { font: 600 var(--fs-h3)/1.25 var(--f-sans); letter-spacing: -.015em; color: var(--ink); }
+.hb-read { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 12px 0 0; }
+.hb-read > div { background: var(--bg-2); padding: 8px 10px; min-width: 0; }
+.hb-read > div.full { grid-column: 1 / -1; }
+.hb-read dt { font: 500 11px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.hb-read dd { margin: 4px 0 0; font: 500 15px/1.3 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.hb-read dd small { font: 400 12px/1.3 var(--f-mono); color: var(--ink-3); }
+.hb-read .full dd { font: 500 14.5px/1.45 var(--f-sans); }
+.hb-read dd.good { color: var(--ink); }
+.hb-read .full dd.good::before, .hb-read .full dd.weak::before, .hb-read .full dd.none::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+.hb-read .full dd.good::before { background: var(--acc-exoplanets); }
+.hb-read .full dd.weak::before { background: transparent; border: 1.5px solid var(--acc-exoplanets); }
+.hb-read .full dd.none::before { background: var(--ink-3); opacity: .6; }
+@media (max-width: 700px) { .hb-read { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* depth diagram (section 00) */
+.ex-depths { margin: var(--s-5) 0 0; padding: 14px 14px 10px; border: 1px solid var(--line); background: var(--bg-1); }
+.ex-depths svg { width: 100%; height: auto; overflow: visible; }
+.ex-depths figcaption { margin-top: 8px; font: 400 13px/1.5 var(--f-sans); color: var(--ink-3); }
+.dp-axis line { stroke: var(--line-ui); stroke-width: 1; }
+.dp-axis .dp-grid { stroke: var(--grid); }
+.dp-axis text, .dp-val { font: 500 12.5px var(--f-mono); fill: var(--ink-3); }
+.dp-lab { font: 600 14px var(--f-sans); fill: var(--ink); }
+.dp-line { fill: none; stroke: var(--acc-exoplanets); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+
+/* ---------- 01 heartbeat ---------- */
+.hb-stage { background: var(--bg-1); }
+.hb-stage canvas { touch-action: pan-y; }
+@media (max-width: 640px) { .hb-stage { aspect-ratio: 2 / 3 !important; } }
+.hb-slider { flex: 1 1 320px; }
+.hb-slider .range { flex: 1 1 180px; width: auto; }
+.hb-slider output { min-width: 10ch; }
+.hb-nudge button { min-width: 52px; }
+
+/* ---------- 02 stacking ---------- */
+.st-stage { background: var(--bg-1); }
+.st-chart { margin-top: 10px; border: 1px solid var(--line); background: var(--bg-1); }
+.st-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.st-chart text { font-family: var(--f-mono); }
+.st-dot { cursor: pointer; }
+.st-read { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.st-slider { flex: 1 1 240px; }
+.st-slider .range { flex: 1 1 140px; width: auto; }
+.st-slider output { min-width: 7ch; }
+@media (max-width: 700px) { .st-read { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- 03 flip ---------- */
+.fl-steps { margin-top: 14px; display: flex; flex-wrap: wrap; }
+.fl-steps button { flex: 1 1 auto; }
+.fl-panel { margin-top: 0; }
+.fl-stage { background: var(--bg-1); }
+.fl-two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 10px; }
+.fl-two .fig-stage { aspect-ratio: auto; height: clamp(200px, 26vw, 280px); }
+@media (max-width: 520px) { .fl-two { grid-template-columns: minmax(0, 1fr); } .fl-two .fig-stage { height: 220px; } }
+.fl-cap { margin-top: 10px; font: 400 14px/1.55 var(--f-sans); color: var(--ink-2); min-height: 3.1em; }
+.fl-key { display: inline-flex; align-items: center; gap: 8px; font: 400 13px/1.3 var(--f-sans); color: var(--ink-2); }
+.fl-key .k-pl { width: 10px; height: 10px; border-radius: 50%; background: var(--acc-exoplanets); display: inline-block; }
+.fl-read { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 700px) { .fl-read { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.fl-sub { margin-top: 16px; font: 500 13.5px/1.4 var(--f-sans); color: var(--ink); }
+.fa-bars { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.fa-bars li { display: grid; grid-template-columns: minmax(0, 9em) minmax(0, 1fr) 3.4em; align-items: center; gap: 12px; font: 400 13.5px/1.3 var(--f-sans); color: var(--ink-2); padding: 4px 0; }
+.fa-tr { height: 14px; background: color-mix(in srgb, var(--acc-exoplanets) 16%, var(--bg-2)); position: relative; border-radius: 0 4px 4px 0; overflow: hidden; }
+.fa-tr i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink-2); border-radius: 0 4px 4px 0; min-width: 3px; }
+.fa-v { font: 600 14px/1 var(--f-mono); color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.fa-tbl { margin-top: 14px; }
+.fa-key { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font: 400 12.5px/1.4 var(--f-sans); color: var(--ink-3); }
+.fa-key i { display: inline-block; width: 12px; height: 8px; margin-right: 6px; vertical-align: 0; }
+.fa-key .k-fa { background: var(--ink-2); } .fa-key .k-ok { background: color-mix(in srgb, var(--acc-exoplanets) 16%, var(--bg-2)); border: 1px solid var(--line-ui); }
+
+/* ---------- 04 survived ---------- */
+.sv-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 56px); margin-top: var(--s-6); align-items: start; }
+@media (max-width: 960px) { .sv-grid { grid-template-columns: minmax(0, 1fr); } }
+.fn-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 6px; }
+.fn-list li { display: grid; grid-template-columns: minmax(0, 13em) minmax(0, 1fr) 6.5em; align-items: center; gap: 12px; padding: 6px 4px; border-radius: 2px; cursor: default; }
+.fn-list li:hover, .fn-list li:focus-visible { background: var(--bg-3); }
+.fn-k { font: 400 14px/1.3 var(--f-sans); color: var(--ink-2); }
+.fn-v { font: 500 14px/1 var(--f-mono); color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.fn-tr { position: relative; height: 16px; background-image: repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px calc(100% / 6.8727)); }
+.fn-tr i { position: absolute; left: 0; top: 2px; bottom: 2px; width: var(--w); background: var(--acc-exoplanets); border-radius: 0 4px 4px 0; }
+.fn-axis { display: grid; grid-template-columns: minmax(0, 13em) minmax(0, 1fr) 6.5em; gap: 12px; padding: 0 4px; margin-top: 2px; }
+.fn-axis span { position: relative; height: 16px; font: 500 11px/16px var(--f-mono); color: var(--ink-3); }
+.fn-axis span i { position: absolute; top: 0; transform: translateX(-50%); font-style: normal; }
+@media (max-width: 560px) {
+  .fn-list li, .fn-axis { grid-template-columns: minmax(0, 1fr) 6.5em; }
+  .fn-list .fn-tr { grid-column: 1 / -1; grid-row: 2; }
+  .fn-axis > span:first-child, .fn-axis > span:last-child { display: none; }
+  .fn-axis > span:nth-child(2) { grid-column: 1 / -1; }
+}
+.sv-side { min-width: 0; display: grid; gap: 14px; align-content: start; }
+.comp { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.comp li { display: grid; grid-template-columns: minmax(0, 1fr) 30% 5em; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.ck { display: flex; align-items: center; gap: 8px; font: 400 14px/1.35 var(--f-sans); color: var(--ink-2); min-width: 0; }
+.ck b { font: 600 12px/1 var(--f-mono); color: var(--ink); min-width: 1.6em; }
+.cbar { height: 8px; background: var(--bg-3); border-radius: 0 4px 4px 0; overflow: hidden; }
+.cbar i { display: block; height: 100%; background: var(--acc-exoplanets); border-radius: 0 4px 4px 0; }
+.cv { font: 500 13px/1 var(--f-mono); color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.comp-note { font: 400 13.5px/1.55 var(--f-sans); color: var(--ink-3); }
+.why { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.why li { background: var(--bg-2); padding: 12px 14px; display: grid; grid-template-columns: 3.4em minmax(0, 1fr); gap: 4px 12px; }
+.wv { font: 500 22px/1.1 var(--f-mono); color: var(--ink); grid-row: span 2; }
+.wk { font: 400 14px/1.45 var(--f-sans); color: var(--ink-2); }
+.meter { display: flex; height: 6px; background: var(--bg-3); border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.meter i { display: block; background: var(--acc-exoplanets); }
+.meter b { display: block; background: color-mix(in srgb, var(--acc-exoplanets) 45%, var(--bg-3)); }
+
+/* ---------- 05 who did what ---------- */
+.ex-who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: var(--s-6); }
+.who-col { background: var(--bg-2); padding: 20px clamp(16px, 2.4vw, 28px) 22px; position: relative; min-width: 0; }
+.who-col::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; }
+.bio-col::before { background: var(--bio); } .dig-col::before { background: var(--dig); }
+.who-k { display: flex; align-items: center; gap: 8px; font: 500 11.5px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.who-k i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.bio-col .who-k i { background: var(--bio); } .dig-col .who-k i { background: var(--dig); }
+.who-col h3 { font: 600 var(--fs-h3)/1.25 var(--f-sans); letter-spacing: -.015em; margin-top: 10px; }
+.who-col ul { margin: 12px 0 0; padding-left: 1.1em; font: 400 15px/1.6 var(--f-sans); color: var(--ink-2); }
+.who-col li + li { margin-top: 6px; }
+.who-note { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--line); font: 400 13px/1.55 var(--f-sans); color: var(--ink-3); }
+@media (max-width: 860px) { .ex-who { grid-template-columns: minmax(0, 1fr); } }
+.ex-aska-h { margin-top: var(--s-7); }
+.ex-aska-lede { margin-top: 8px; font: 400 var(--fs-base)/1.6 var(--f-serif); color: var(--ink-2); max-width: 68ch; }
+.ex-aska-lede .mono { font-size: .86em; color: var(--ink); }
+.prs { list-style: none; margin: var(--s-5) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+.prs li { position: relative; background: var(--bg-2); border: 1px solid var(--line); padding: 16px 18px 18px; min-width: 0; }
+.prs li::before { content: ""; position: absolute; left: -1px; top: 16px; width: 2px; height: 36px; background: var(--hair); }
+.pr-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.pr-h a { font: 600 13px/1.3 var(--f-mono); letter-spacing: .04em; padding: 4px 0; }
+.pr-t { margin-top: 8px; font: 600 16px/1.35 var(--f-sans); color: var(--ink); }
+.prs li p + p { margin-top: 6px; font: 400 14.5px/1.55 var(--f-sans); color: var(--ink-2); }
+.prs li p b { color: var(--ink); font-weight: 600; }
+@media (max-width: 760px) { .prs { grid-template-columns: minmax(0, 1fr); } }
+.ex-open { margin-top: var(--s-5); max-width: 90ch; font: 400 14.5px/1.6 var(--f-sans); color: var(--ink-2); }
+
+/* ---------- 06 status ---------- */
+.ex-status { margin-top: var(--s-6); background: var(--bg-2); }
+.ex-status td { font-size: 14px; color: var(--ink-2); }
+.ex-status td:first-child { color: var(--ink); font-weight: 500; min-width: 13em; }
+.ex-limits { margin-top: var(--s-5); }
+.ex-limits .callout { margin: 0; max-width: none; }
+
+/* ---------- 07 sources ---------- */
+.ex-src { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); margin-top: var(--s-6); }
+.src-h { font: 500 11px/1.3 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+.ex-src .src-list { flex-direction: column; align-items: flex-start; }
+.ex-src .src-list a { white-space: normal; }
+.ex-lic { margin-top: var(--s-6); max-width: 90ch; font: 400 13px/1.55 var(--f-sans); color: var(--ink-3); }
+@media (max-width: 1100px) { .ex-src { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .ex-src { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- 00 make a transit ---------- */
+.mt-stage canvas { cursor: ew-resize; touch-action: pan-y; }
+.mt-stage canvas:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.mt-read { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mt-read dd sub, .mt-read dt sub { font-size: .75em; }
+.mt-read dt sup, .mt { --x: 0; }
+.mt-sl { flex: 1 1 200px; }
+.mt-sl .range { flex: 1 1 100px; width: auto; }
+.mt-sl output { min-width: 9ch; }
+@media (max-width: 960px) { .mt-stage { --ratio: 4 / 3 !important; aspect-ratio: 4 / 3; } }
+@media (max-width: 560px) { .mt-stage { --ratio: 1 / 1 !important; aspect-ratio: 1 / 1; } }
+
+/* ---------- 06 the next transits ---------- */
+.nt-badges { margin-top: 10px; }
+.nt-stage canvas { cursor: crosshair; }
+@media (max-width: 760px) { .nt-stage { --ratio: 1 / 1 !important; aspect-ratio: 1 / 1; } }
+.nt-list { list-style: none; margin: 12px 0 0; padding: 0; border: 1px solid var(--line); background: var(--bg-2); }
+.nt-list li { display: grid; grid-template-columns: 11ch minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 7px 12px; border-bottom: 1px solid var(--line); font: 400 13.5px/1.4 var(--f-sans); color: var(--ink-2); }
+.nt-list li:last-child { border-bottom: 0; }
+.nt-list li.on { background: color-mix(in srgb, var(--acc-exoplanets) 9%, transparent); box-shadow: inset 2px 0 0 var(--acc-exoplanets); }
+.nt-cd { font: 600 13px/1.3 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.nt-who { display: inline-flex; align-items: center; gap: 6px; min-width: 0; overflow-wrap: anywhere; }
+.nt-who svg { width: 12px; height: 12px; fill: var(--acc-exoplanets); flex: none; }
+.nt-who b { color: var(--ink); font-weight: 600; }
+.nt-when, .nt-dep { font: 500 12.5px/1.4 var(--f-mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.nt-when small { color: var(--ink-3); font-size: 12px; }
+.nt-go { justify-self: end; min-height: 32px; padding: 0 10px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); background: transparent; color: var(--ink); cursor: pointer; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.nt-go:hover { border-color: var(--ink-3); }
+.nt-go:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.nt-note { font: 400 12.5px/1.4 var(--f-sans); color: var(--ink-3); }
+@media (max-width: 860px) {
+  .nt-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .nt-who { grid-column: 1 / -1; grid-row: 2; }
+  .nt-when, .nt-dep { grid-column: 1 / -1; }
+  .nt-go { grid-column: 2; grid-row: 1; min-height: 40px; }
+}

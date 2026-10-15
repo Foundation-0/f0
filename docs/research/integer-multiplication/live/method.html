@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tracker method · Foundation0</title>
+<meta name="description" content="How Aska Digital's κ race tracker works: what a conditional κ means, the claimed and maintainer-reviewed tiers, the quarantine policy, the record key, and the pipeline behind feed.json, which has not run since 11 Oct 2026.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tracker method · Foundation0">
+<meta property="og:description" content="Tiers, quarantine, record keys and the pipeline behind the integer-multiplication κ tracker.">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/research/integer-multiplication/live/method.html">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../../assets/f0.js"></script>
+</head>
+<body data-page="research-integer-multiplication-method">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../../ledger/">Ledger</a><a href="../../../research/" aria-current="page">Research</a><a href="../../../instruments/">Instruments</a><a href="../../../commons/">Commons</a><a href="../../../writing/">Writing</a><a href="../../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../../ledger/">Ledger <span>01</span></a><a href="../../../research/" aria-current="page">Research <span>03</span></a><a href="../../../instruments/">Instruments <span>04</span></a><a href="../../../commons/">Commons <span>05</span></a><a href="../../../writing/">Writing <span>06</span></a><a href="../../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main" class="lv-method">
+  <header class="page-hero lv-hero" style="--acc:var(--acc-intmult)">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../../">Home</a></li><li><a href="../../">Research</a></li><li><a href="../">Integer multiplication</a></li><li><a href="index.html">Race tracker</a></li><li aria-current="page">Method</li></ol></nav>
+      <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Tracker &middot; how it works</p>
+      <h1 class="h1">Method</h1>
+      <p class="dek">Back to the <a href="index.html">dashboard</a>. What the tracker counts, what it will not call verified, and how its feed was made and checked.</p>
+    </div>
+  </header>
+
+  <section class="sec" id="method" data-index="Method" data-num="00" aria-label="Method">
+    <div class="read">
+      <aside class="callout def lv-plain"><p class="c-k">Plain words</p><p>This tracker copies every &kappa; that contributors claim in their pull requests, plots them, and marks the one value the race&rsquo;s maintainer has re-run and accepted. It was built to refresh every 15 minutes and to change nothing if a check fails. Its claims feed last refreshed on 11 October 2026 at 17:41 UTC, so the claims are a snapshot; the reviewed record at the top of the dashboard is read live from the race.</p></aside>
+      <div class="prose">
+        <h2>What &ldquo;conditional &kappa;&rdquo; means</h2>
+        <p>Upstream <code>CrocSwap/integer-mult-bounds</code> races an asymptotic
+        integer-multiplication bound of the shape <code>T(n) = O(n (log n)^(1−κ))</code>.
+        Every κ published there is <em>conditional</em>: it holds only if a list of earlier
+        steps the construction relies on, and does not re-prove, are correct. The race names
+        them (in its own terms: the all-size compiler, the weighted common-ancestor chart,
+        restored rows, selectors and routing, prime supply, precision and recovery, complex
+        symbolic correctness, and the analytic transfer). A larger κ is better. It is not an
+        unconditional multiplication-exponent theorem, and this dashboard never presents it
+        as one.</p>
+
+        <h2>Tiers</h2>
+        <ul>
+        <li><strong>claimed</strong> — default. Any open upstream PR whose title/body carries a
+        parseable κ value (exact fraction and/or decimal). Draft PRs stay claimed and render
+        hollow-grey; they are never promoted.</li>
+        <li><strong>human-verified</strong> — only when a PR’s exact (κ fraction, κ decimal)
+        matches upstream <code>certificates/selected-result.json</code> on <code>main</code>
+        (maintainer-reviewed checkpoint, bound by its <code>certificate_sha256</code>).
+        v1 expects exactly one such point.</li>
+        <li><strong>lean-verified</strong> — reserved; requires a Lean formalization artifact.
+        No upstream PR has one today, so v1 ships this set empty (schema support only).</li>
+        </ul>
+        <aside class="callout note"><p class="c-k">Plain words, added on Foundation0</p><p>&ldquo;human-verified&rdquo; is the feed&rsquo;s tier name, kept for compatibility with <code>feed.schema.json</code>. It means <b>maintainer-reviewed and conditional</b>: the race&rsquo;s maintainer has re-run the exact certificates and selected the value. It does not mean peer reviewed, and it does not mean a complete Lean proof. The dashboard labels it &ldquo;maintainer-reviewed&rdquo; for that reason.</p></aside>
+
+        <h2>Quarantine policy</h2>
+        <p>A record is quarantined (<code>stale: true</code>) when its stated fraction and
+        decimal disagree beyond 15 significant digits, when a κ-looking claim is unparseable,
+        or when the pull request&rsquo;s latest commit (its <em>head</em>) changed and could not be re-read. Quarantined records stay
+        in <code>data/records.json</code> and under <code>feed.json</code>’s
+        <code>quarantined[]</code> (never silently deleted) but are excluded from the chart
+        step-line until re-resolved.</p>
+
+        <h2>Record key and staleness</h2>
+        <p>One record per pull request and commit. When a contributor rewrites a pull
+        request&rsquo;s history (a <em>force-push</em>), its new commit gets a new record and the
+        old row is kept; rows are only ever added. <code>fetched_at</code> and
+        <code>pr_updated_at</code> drive the age display. The caveat at the top of the dashboard
+        is always on, because the race moved roughly every ten minutes and nothing served here
+        is a live quote.</p>
+        <p>Since the move to Foundation0, the dashboard also reads the race&rsquo;s own
+        <code>certificates/selected-result.json</code> live in your browser and shows it at the top, labelled with the time it was fetched; when this feed is more than a day old, it says so beside that value.</p>
+
+        <h2>Pipeline</h2>
+        <p><b>Status: not running since 11 October 2026, 17:41 UTC.</b> The tracker was designed
+        to refresh every 15 minutes through a scheduled GitHub Actions job
+        (<code>.github/workflows/update.yml</code>). That schedule has not run since the feed&rsquo;s
+        last generation on 11 Oct 2026, 17:41 UTC (the job is switched off in the repository&rsquo;s
+        Actions settings), so the claims on the dashboard are a snapshot.</p>
+        <p>As designed, each run calls <code>scripts/fetch.py</code>, which reads the race&rsquo;s
+        pull requests from GitHub and asks only for what changed since the last run, then
+        <code>scripts/gate.py</code>, which makes four checks: the files match the published
+        schema; rebuilding them from scratch gives the same bytes; the reviewed value is bound to
+        the exact bytes of the race&rsquo;s record file; and no claimed value is ever labelled
+        reviewed. Only if all four pass does the job commit the regenerated
+        <code>docs/feed.json</code> and <code>docs/chart-data.json</code>; a failed run changes
+        nothing and the last good state stays up. The parser that reads &kappa; out of pull-request
+        text is tested against saved examples, PRs #419, #425, #431 and #433
+        (<code>tests/golden_kappa_parse.json</code>, <code>tests/run_golden.py</code>).</p>
+
+        <h2>Schema reservations (v2, additive)</h2>
+        <p><code>feed.schema.json</code> already permits <code>project_id</code>,
+        <code>claim_id</code>, <code>machine_checked</code>, <code>ai_refereed_count</code> and
+        <code>feed_version: 2</code> for the planned multi-project feed
+        (<code>integer-mult-kappa</code>, <code>threesum-derand</code>,
+        <code>mobius-x1</code>). v1 producers emit none of them.</p>
+      </div>
+      <ul class="src-list lv-files" aria-label="Files">
+        <li><a href="../../../feed.json">feed.json</a></li>
+        <li><a href="../../../feed.schema.json">feed.schema.json</a></li>
+        <li><a href="../../../chart-data.json">chart-data.json</a></li>
+        <li><a href="https://github.com/aska-digital/f0/blob/main/scripts/fetch.py">scripts/fetch.py</a></li>
+        <li><a href="https://github.com/aska-digital/f0/blob/main/scripts/gate.py">scripts/gate.py</a></li>
+      </ul>
+      <nav class="prevnext" aria-label="More on this race">
+        <a href="index.html"><span>&larr; Back to</span>The race tracker</a>
+        <a class="next" href="../"><span>Up &rarr;</span>Integer multiplication below n log n</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../../ledger/">The Ledger</a></li><li><a href="../../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../../research/">Research</a></li><li><a href="../../../instruments/">Instruments</a></li><li><a href="../../../commons/">Commons</a></li><li><a href="../../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Tracker data: <a href="../../../feed.json">feed.json</a> &middot; <a href="../../../chart-data.json">chart-data.json</a></span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

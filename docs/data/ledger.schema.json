@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ledger.schema.json",
+  "title": "Foundation0 ledger",
+  "description": "Advances in science, mathematics and technology that digital intelligence caused or contributed to. One record per advance, sorted by date. Checked by scripts/check_site.py.",
+  "type": "object",
+  "required": [
+    "updated",
+    "milestones"
+  ],
+  "properties": {
+    "updated": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "milestones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date",
+          "date_basis",
+          "title",
+          "domain",
+          "subfield",
+          "summary",
+          "why_it_matters",
+          "ai_systems",
+          "organizations",
+          "ai_role",
+          "evidence",
+          "contested",
+          "contested_note",
+          "significance",
+          "sources",
+          "foundation0"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "maxLength": 80
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+            "description": "When the result became public. YYYY-MM-DD, YYYY-MM or YYYY."
+          },
+          "date_basis": {
+            "type": "string",
+            "enum": [
+              "publication",
+              "preprint",
+              "announcement",
+              "competition",
+              "deployment"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 90
+          },
+          "domain": {
+            "type": "string",
+            "enum": [
+              "mathematics",
+              "computing",
+              "biology",
+              "medicine",
+              "chemistry-materials",
+              "physics",
+              "astronomy-space",
+              "earth-climate",
+              "energy",
+              "engineering-robotics",
+              "science-of-science"
+            ]
+          },
+          "subfield": {
+            "type": "string",
+            "maxLength": 60
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 420
+          },
+          "before_after": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "metric",
+              "before",
+              "after"
+            ],
+            "properties": {
+              "metric": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "before": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "after": {
+                "type": "string",
+                "maxLength": 120
+              }
+            }
+          },
+          "why_it_matters": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 260
+          },
+          "ai_systems": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          "organizations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 120
+            }
+          },
+          "ai_role": {
+            "type": "string",
+            "enum": [
+              "instrument",
+              "collaborator",
+              "originator"
+            ],
+            "description": "instrument: AI is a tool inside a human-designed study. collaborator: AI proposes key ideas or constructions that people select, prove or test. originator: AI produces the result end to end and people check it."
+          },
+          "evidence": {
+            "type": "string",
+            "enum": [
+              "formally-verified",
+              "peer-reviewed",
+              "independently-replicated",
+              "deployed",
+              "preprint",
+              "claimed"
+            ]
+          },
+          "contested": {
+            "type": "boolean"
+          },
+          "contested_note": {
+            "type": "string",
+            "maxLength": 400
+          },
+          "significance": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "label",
+                "url"
+              ],
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "maxLength": 120
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "^https://"
+                }
+              }
+            }
+          },
+          "foundation0": {
+            "type": "boolean",
+            "description": "true for work by a Foundation0 founding member, or work Aska Digital or a founding member contributed to"
+          },
+          "foundation0_note": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 400,
+            "description": "Required when foundation0 is true: who did what, in one or two plain sentences (shown on Home and in the Ledger, and kept in the JSON and CSV downloads)."
+          },
+          "foundation0_members": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "maxLength": 40
+            },
+            "description": "GitHub logins (data/members.json) of the founding members whose work this is or who contributed to it."
+          },
+          "page": {
+            "type": "string",
+            "description": "Site-relative path of the Foundation0 page about this item, e.g. research/exoplanets/"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 40
+            }
+          }
+        }
+      }
+    }
+  }
+}

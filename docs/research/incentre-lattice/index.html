@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Incentre lattice · Foundation0</title>
+<meta name="description" content="A childhood doodle of a square, its diagonals and one dot per triangle, followed with AI agents to a number that appears in every dimension and an exact fold of a loose crystal of balls into the densest packing. Preprint, not peer reviewed.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Incentre lattice: from a doodle to the densest packing · Foundation0">
+<meta property="og:description" content="One dot in a square, followed with AI agents to an exact fold from a loose scaffold of balls (22.3% full) to the densest packing (74.05%). Preprint, not peer reviewed.">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/research/incentre-lattice/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="research-incentre-lattice">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../../research/" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../../research/" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="page-hero has-fig il-hero" style="--acc:var(--acc-incentre)">
+    <div class="wrap">
+      <div class="ph-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">Incentre lattice</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Geometry &middot; Aska Digital&rsquo;s own research</p>
+        <h1 class="h1">From a doodle to the densest packing of balls</h1>
+        <p class="dek">A square, its two diagonals, and one dot in each triangle. Followed with AI models, the dot leads to a number that turns up in every dimension, and to an exact way to fold a loose crystal of balls into the tightest stacking there is.</p>
+        <div class="meta-row">
+          <span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Preprint</span>
+          <span class="badge n">Not peer reviewed</span>
+          <span class="chip">v2 &middot; 13 Oct 2026</span>
+        </div>
+        <p class="il-credit"><b>Aska Digital&rsquo;s own work.</b> Founding member <a href="../../charter/#m-ahrazzle">Ahraz Arifuddin</a> had the idea, chose every question and decided every claim; AI models from Anthropic and OpenAI did most of the proofs, code and checking, and the project records which model did what.</p>
+        <p class="il-links"><a href="https://aska-digital.github.io/incentre-lattice/">Live site</a><a href="https://doi.org/10.5281/zenodo.23340326">Preprint v2 &middot; DOI 10.5281/zenodo.23340326</a><a href="https://github.com/aska-digital/incentre-lattice">Repository</a><a href="../../ledger/#aska-cab-to-fcc-exact-fold">On the Ledger</a></p>
+      </div>
+
+      <figure class="ph-fig fig frame doodle" aria-labelledby="dd-title">
+        <div class="fig-head">
+          <p class="fig-title" id="dd-title">The doodle, one step at a time</p>
+          <p class="fig-how"><b>How to read:</b> pick a step. The dots are the triangles&rsquo; incentres; each circle is the largest that fits in its triangle. Steps 6 and 7 carry the rule into a cube: drag the picture, or focus it and use the arrow keys, to turn it.</p>
+        </div>
+        <div class="fig-stage dd-stage" style="--ratio:1/1">
+          <svg id="dd-svg" viewBox="-1.25 -1.25 4.5 4.5" role="img" aria-labelledby="dd-cap"></svg>
+          <canvas id="dd-canvas" hidden tabindex="0" role="application" aria-roledescription="3D view" aria-label="A cube cut into six pyramids, with one ball in each. Drag, or use the arrow keys, to turn it." aria-describedby="dd-cap"></canvas>
+          <span class="corner tl" id="dd-corner" aria-hidden="true">Square of side 2</span>
+          <span class="corner br fig-out" aria-hidden="true">R = &radic;2 &minus; 1 &asymp; 0.4142</span>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Steps of the doodle">
+          <span class="ctrl-label">Step //</span>
+          <div class="seg dd-seg" role="group" aria-label="Step">
+            <button type="button" data-step="1" aria-pressed="false">1</button><button type="button" data-step="2" aria-pressed="false">2</button><button type="button" data-step="3" aria-pressed="false">3</button><button type="button" data-step="4" aria-pressed="true">4</button><button type="button" data-step="5" aria-pressed="false">5</button><button type="button" data-step="6" aria-pressed="false">6</button><button type="button" data-step="7" aria-pressed="false">7</button>
+          </div>
+        </div>
+        <div class="fig-ctrl dd-3d" id="dd-3d" role="group" aria-label="The stacked cubes" hidden>
+          <span class="ctrl-label">Cubes //</span>
+          <label class="ctrl dd-n" for="dd-n">Per side <input class="range" type="range" id="dd-n" min="1" max="3" step="1" value="2"> <output id="dd-n-out" for="dd-n" aria-live="off">2</output></label>
+          <div class="seg" role="group" aria-label="Show"><button type="button" id="dd-balls" aria-pressed="true">Balls</button><button type="button" id="dd-rods" aria-pressed="false">Rods</button></div>
+          <div class="seg" role="group" aria-label="Look along a symmetry axis"><button type="button" data-view="face" aria-pressed="false" aria-label="Face: look along a 4-fold axis">Face</button><button type="button" data-view="edge" aria-pressed="false" aria-label="Edge: look along a 2-fold axis">Edge</button><button type="button" data-view="corner" aria-pressed="false" aria-label="Corner: look along a 3-fold axis">Corner</button></div>
+        </div>
+        <figcaption class="fig-foot"><span id="dd-cap" class="dd-cap" aria-live="polite">Step 4 of 7. Neighbouring circles just touch, along the diagonals and across the edges: every radius is &radic;2 &minus; 1.</span><span class="fig-src">Drawn here from the construction in <a href="https://aska-digital.github.io/incentre-lattice/origin.html">origin.html</a>.</span></figcaption>
+      </figure>
+
+      <ul class="statrow il-stats" aria-label="The project in numbers">
+        <li><div class="v">22.3% &rarr; 74.05%</div><div class="k">space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, &pi;/&radic;18</div><span class="src"><a href="https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json">fold-continuous-fcc/certificate.json</a></span></li>
+        <li><div class="v">16,240</div><div class="k">exact certificate numbers, every one &ge; 0, ruling out a collision anywhere along the fold (3,248 pair tests)</div><span class="src"><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md">PROOF.md</a></span></li>
+        <li><div class="v">1/(n<sup>2</sup>&minus;n&minus;1)</div><div class="k">how much the framework thins sideways when stretched, in every dimension n &ge; 3 (written proof)</div><span class="src"><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">rigidity-nd/PROOF.md</a></span></li>
+        <li><div class="v">~11 min</div><div class="k">for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs</div><span class="src"><a href="https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv">autoresearch-fold/results.tsv</a></span></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 00 THE DOODLE -->
+  <section class="sec" id="doodle" data-index="The doodle" data-num="00" aria-labelledby="doodle-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>The doodle</p><span class="chip">First principles</span></div>
+      <h2 class="h2" id="doodle-h">One dot, exactly where it has to be.</h2>
+      <p class="lede">For years Ahraz Arifuddin, who founded Aska Digital, drew the same figure on the backs of tests and on napkins: a square, its two diagonals, and a dot in each of the four triangles.</p>
+      <div class="il-cols">
+        <div class="prose">
+          <p>Which dot? In any triangle there is exactly one point that is the same distance from all three sides. Draw a circle around it with that distance as its radius and you get the biggest circle that fits inside the triangle.</p>
+          <aside class="callout def"><p class="c-k">Definition</p><p><dfn>Incentre</dfn>: the one point inside a triangle that is equally far from all three sides. It is the centre of the largest circle that fits inside.</p></aside>
+          <p>In a square of side 2 that distance is &radic;2 &minus; 1 &asymp; 0.4142. Put a ball of that radius on each of the four dots and something tidy happens: neighbouring balls just touch, across the diagonals and across the square&rsquo;s edges into the next square. Tile the plane with the doodle and the touching balls form a pattern of octagons and squares, a tiling known for centuries as 4.8.8.</p>
+          <p>Carry the same rule into a cube, cut from its centre into six pyramids, and the six dots form an octahedron. Stack the cubes and the dots land exactly where the boron atoms sit in a real crystal, calcium hexaboride (CaB<sub>6</sub>), whose structure Linus Pauling and Sidney Weinbaum worked out in 1934.</p>
+        </div>
+        <div class="prose">
+          <p>Most of that is old, and the project says so: the tiling, the boron skeleton and the size limits chemists use to predict how atoms pack were all known, and the site credits the people who got there first.</p>
+          <p>The new questions start when you treat the balls and the rods between touching balls as a hinged toy. A rod (the papers call it a <dfn class="term">bar</dfn>) joins the centres of two touching balls and never changes length. How floppy is the toy? How far can it fold? Could it fold all the way into the tightest stacking of balls without stretching a rod, and without two balls ever passing through each other?</p>
+          <p>Those questions were worked on in October 2026 with AI models doing most of the proofs, code and checking, under Ahraz Arifuddin&rsquo;s direction. The sections below take them in order: where the number comes from, what it does in every dimension, what two sizes of ball can do, the fold, and how an AI search found the fold&rsquo;s end point.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 ONE NUMBER: THE MIRROR ROOM -->
+  <section class="sec alt" id="mirrors" data-index="Where &radic;2 &minus; 1 comes from" data-num="01" aria-labelledby="mirrors-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>One number</p><div class="badges"><span class="badge n">Known: Wythoff, 1918</span></div></div>
+      <h2 class="h2" id="mirrors-h">The number is not chosen. Mirrors force it.</h2>
+      <p class="lede">Treat every line of the tiled doodle as a mirror. A mirror puts a copy of a point on the far side of the wall, exactly as far away as the original, so the gap between a point and its copy is twice its distance to the wall.</p>
+      <div class="split">
+        <div class="prose">
+          <p>The mirrors cut each square into eight identical small triangles. Pick one of them, the shaded <b>chamber</b>, and put a dot anywhere inside it. Reflect the dot in all the mirrors, again and again, and its copies fill the plane. Join each copy to the copies one reflection away. Every such link crosses exactly one wall, so its length is twice the dot&rsquo;s distance to that wall.</p>
+          <p>The chamber has three walls: the square&rsquo;s edge (the floor), the diagonal, and the square&rsquo;s centre line. In the doodle the dot sits on the centre line, so that wall gives no link at all: the dot is its own reflection there. Two kinds of link remain, one across the floor and one across the diagonal.</p>
+          <p>For a pattern of balls that all touch, every link must have the same length, so the dot must be equally far from the floor and the diagonal. Points equally far from two walls lie on the line that splits the angle between them. That angle is 45&deg;, so the dot sits on the 22.5&deg; line, and on the centre line its height is <b>tan&nbsp;22.5&deg; = &radic;2&nbsp;&minus;&nbsp;1</b>. Nothing else works.</p>
+          <p>Move the dot off the centre line and three kinds of link appear. They are all equal only at one other point, the chamber&rsquo;s own incentre, which also sits on the 22.5&deg; line. The rule &ldquo;place a point on some walls of a mirror chamber, equally far from the rest, and reflect&rdquo; is the <b>Wythoff construction</b> (Willem Wythoff, 1918), later developed by H.&nbsp;S.&nbsp;M. Coxeter. The project credits it.</p>
+          <p>In a cube the same argument puts the dot at 2&nbsp;&minus;&nbsp;&radic;2 from the centre with ball radius &radic;2&nbsp;&minus;&nbsp;1, and the same numbers come out in every number of dimensions.</p>
+        </div>
+
+        <figure class="fig frame sticky mr" aria-labelledby="mr-title">
+          <div class="fig-head">
+            <p class="fig-title" id="mr-title">The mirror room</p>
+            <p class="fig-how"><b>How to read:</b> drag the white dot inside the shaded chamber, or focus the picture and use the arrow keys. Link colours show which wall each link crosses; the bars below compare their lengths.</p>
+          </div>
+          <div class="fig-stage mr-stage" style="--ratio:1/1">
+            <canvas id="mr-canvas" tabindex="0" role="application" aria-roledescription="interactive diagram" aria-label="The mirror room: a dot in a triangular chamber and its reflections across the floor, the diagonal and the centre line. Arrow keys move the dot; hold Shift for bigger steps." aria-describedby="mr-verdict"></canvas>
+            <span class="corner tl" aria-hidden="true">Drag the dot</span>
+            <span class="corner tr fig-out" id="mr-angle" aria-hidden="true">22.5&deg;</span>
+          </div>
+          <div class="mr-bars" id="mr-bars" aria-hidden="true">
+            <div class="mr-bar" data-w="0"><span class="sw"></span><span class="nm">Across the floor</span><span class="tr"><i></i></span><span class="val">0.8284</span></div>
+            <div class="mr-bar" data-w="1"><span class="sw"></span><span class="nm">Across the diagonal</span><span class="tr"><i></i></span><span class="val">0.8284</span></div>
+            <div class="mr-bar" data-w="2"><span class="sw"></span><span class="nm">Across the centre line</span><span class="tr"><i></i></span><span class="val">none</span></div>
+          </div>
+          <p class="mr-verdict" id="mr-verdict" aria-live="polite">All links equal: the dot is at height &radic;2 &minus; 1 = 0.4142 on the centre line.</p>
+          <div class="fig-ctrl" role="group" aria-label="Mirror room controls">
+            <span class="ctrl-label">Ctrl //</span>
+            <span class="il-btns"><button class="tbtn" type="button" id="mr-snap-dot">Doodle&rsquo;s dot</button><button class="tbtn" type="button" id="mr-snap-all">All-equal point</button></span>
+            <span class="il-btns"><button class="tbtn" type="button" id="mr-lock" aria-pressed="true">Keep on centre line</button><button class="tbtn" type="button" id="mr-balls" aria-pressed="true">Balls</button></span>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Adapted from the kaleidoscope in <a href="https://aska-digital.github.io/incentre-lattice/mirrors.html">mirrors.html</a> (MIT, Ahraz Arifuddin, Aska Digital, and contributors). Distances: floor y, diagonal (x&minus;y)/&radic;2, centre line 1&minus;x.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Special places for the dot (square of side 2, chamber with corners (0,0), (1,0), (1,1))"><table class="tbl"><caption>Special places for the dot (square of side 2, chamber with corners (0,0), (1,0), (1,1))</caption>
+              <thead><tr><th>Dot</th><th class="n">x</th><th class="n">y</th><th class="n">Floor link</th><th class="n">Diagonal link</th><th class="n">Centre-line link</th></tr></thead>
+              <tbody>
+                <tr><td>The doodle&rsquo;s dot (on the centre line)</td><td class="n">1</td><td class="n">0.414214</td><td class="n">0.828427</td><td class="n">0.828427</td><td class="n">none</td></tr>
+                <tr><td>The chamber&rsquo;s incentre</td><td class="n">0.707107</td><td class="n">0.292893</td><td class="n">0.585786</td><td class="n">0.585786</td><td class="n">0.585786</td></tr>
+                <tr><td>Your dot now</td><td class="n" id="mr-tx">1</td><td class="n" id="mr-ty">0.414214</td><td class="n" id="mr-t0">0.828427</td><td class="n" id="mr-t1">0.828427</td><td class="n" id="mr-t2">none</td></tr>
+              </tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 EVERY DIMENSION -->
+  <section class="sec" id="dimensions" data-index="Every dimension" data-num="02" aria-labelledby="dim-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Every dimension</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Written proof, n &ge; 3</span><span class="badge n">AI review only &middot; priority open</span></div></div>
+      <h2 class="h2" id="dim-h">One formula for how the scaffold squeezes, in any number of dimensions.</h2>
+      <p class="lede">The cube rule works in a cube of any dimension n: 2n pyramids, 2n dots, the same ball radius &radic;2 &minus; 1, and each ball touching 2n &minus; 1 others. The project asked how stiff that scaffold is.</p>
+      <div class="split rev">
+        <div class="prose">
+          <p>Imagine every rod is a perfect spring and you stretch the whole scaffold a little along one cube axis. Most materials get thinner sideways when stretched. The fraction is called the <dfn class="term">Poisson ratio</dfn>: a ratio of 1/5 means that stretching by 1% makes it 0.2% thinner in the other directions.</p>
+          <aside class="callout def"><p class="c-k">The result</p><p>Along a cube axis the Poisson ratio is <b>1/(n&sup2; &minus; n &minus; 1)</b>: 1/5 in three dimensions, 1/11 in four, 1/19 in five, and smaller ever after. The two basic stiffnesses are in the exact ratio (n&nbsp;&minus;&nbsp;1)&sup2;, and the scaffold has no resistance at all to shearing.</p></aside>
+          <p>The same work counts the scaffold&rsquo;s floppy motions: n(n&nbsp;&minus;&nbsp;1)/2 independent ways to wiggle per cube that no rod resists, and n(n&nbsp;&minus;&nbsp;3)/2 ways to load the rods that cancel out.</p>
+          <p><b>How sure:</b> a written proof covers every n &ge; 3, and a finite computation checks n = 2 to 8. Only AI models have reviewed the proof. When an AI-led literature search found that the same scaffold appears in work by Borcea and Streinu (2021), the project publicly withdrew its broader novelty claim and now presents the counts as consequences of existing theory. The spring formulas above remain its strongest candidate for something new, and that is still unsettled.</p>
+        </div>
+
+        <figure class="fig frame sticky dm" aria-labelledby="dm-title">
+          <div class="fig-head">
+            <p class="fig-title" id="dm-title">Every dimension at once</p>
+            <p class="fig-how"><b>How to read:</b> choose a dimension. Left: the 2n balls around one cube centre, turned in n-dimensional space and projected onto the page (balls drawn small so the rods show; drag it, or press Turn). Each ball is joined to every other ball except its opposite partner. Right: the Poisson ratio for each dimension; the one you chose is marked.</p>
+          </div>
+          <div class="dm-stage">
+            <div class="fig-stage dm-poly" style="--ratio:1/1"><svg id="dm-poly" viewBox="-1.3 -1.3 2.6 2.6" role="img" aria-labelledby="dm-poly-cap"></svg><span class="corner tl" aria-hidden="true">Projection &middot; balls shrunk</span></div>
+            <div class="dm-chart"><svg id="dm-chart" viewBox="0 0 300 260" role="img" aria-labelledby="dm-chart-cap"></svg></div>
+          </div>
+          <p class="sr-only" id="dm-poly-cap">The balls around one cube centre in the chosen dimension, projected onto the page: each ball is joined to every other ball except its opposite partner.</p>
+          <p class="sr-only" id="dm-chart-cap">Bar chart of the Poisson ratio 1/(n squared minus n minus 1) for n from 3 to 8: 0.2, 0.091, 0.053, 0.034, 0.024, 0.018.</p>
+          <dl class="dm-read" id="dm-read" aria-live="polite">
+            <div><dt>Balls per cell</dt><dd id="dm-balls">6</dd></div>
+            <div><dt>Each ball touches</dt><dd id="dm-touch">5</dd></div>
+            <div><dt>Rods per cell</dt><dd id="dm-rods">15</dd></div>
+            <div><dt>Floppy motions</dt><dd id="dm-zero">3</dd></div>
+            <div><dt>Poisson ratio</dt><dd id="dm-nu">1/5 = 0.2000</dd></div>
+            <div><dt>Stiffness ratio</dt><dd id="dm-c">4</dd></div>
+          </dl>
+          <div class="fig-ctrl" role="group" aria-label="Dimension">
+            <span class="ctrl-label">Ctrl //</span>
+            <label class="ctrl" for="dm-n">Dimension n <input class="range" type="range" id="dm-n" min="3" max="8" step="1" value="3"> <output id="dm-n-out" for="dm-n">3</output></label>
+            <button class="tbtn play" type="button" id="dm-turn" aria-pressed="false" aria-label="Turn the picture"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt">Turn</span></button>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">results/rigidity-nd/PROOF.md</a> (statement, parts b and c). Floppy motions are counted per cell at a generic wave pattern.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="The scaffold in n dimensions"><table class="tbl"><caption>The scaffold in n dimensions</caption>
+              <thead><tr><th class="n">n</th><th class="n">Balls per cell 2n</th><th class="n">Touches 2n&minus;1</th><th class="n">Rods 2n&sup2;&minus;n</th><th class="n">Floppy n(n&minus;1)/2</th><th class="n">Self-stresses n(n&minus;3)/2</th><th class="n">Poisson ratio</th></tr></thead>
+              <tbody id="dm-tbody"></tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TWO SIZES -->
+  <section class="sec alt" id="two-sizes" data-index="Two sizes beat one" data-num="03" aria-labelledby="ts-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>Two sizes</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Proven: upper bound and attainment</span><span class="badge n">AI review only</span></div></div>
+      <h2 class="h2" id="ts-h">Two sizes of ball beat one, in a sliver of size ratios.</h2>
+      <p class="lede">Equal balls can never fill more than &pi;/&radic;18 &asymp; 74.05% of space. Put big balls where calcium sits in calcium hexaboride and small balls on the doodle&rsquo;s six dots, where the boron sits, and the best this pattern can do is (&pi;/6)(30&radic;2 &minus; 41) &asymp; 74.69%, at a size ratio of exactly &radic;2 &minus; 1.</p>
+      <div class="split">
+        <div class="prose">
+          <p>Take a cube of side 1. A big ball sits at every corner, and six small balls sit inside, one on each line from the cube&rsquo;s centre to a face, as an octahedron. The size ratio <i>&gamma;</i> is the small radius divided by the big one. Two things limit how big the balls can be: neighbouring big balls along a cube edge must not overlap, and the small balls must not overlap each other, inside one octahedron or across to the next cube.</p>
+          <p>When the small balls are relatively small, the big ones touch first: the big radius is fixed at &frac12;, and the fraction filled is (&pi;/6)(1 + 6<i>&gamma;</i><sup>3</sup>). When they are relatively large, the small ones touch first, at radius (&radic;2 &minus; 1)/2. The best is where both touch at once, and that happens at <i>&gamma;</i> = &radic;2 &minus; 1: the doodle&rsquo;s number again.</p>
+          <p>It beats equal balls only between <i>&gamma;</i> = 0.41023 and 0.41591, and at its best by 0.64 percentage points. That is a geometric fact about this one pattern. Other patterns do better: the salt (NaCl) pattern reaches 79.31% at the same ratio.</p>
+          <aside class="callout caveat"><p class="c-k">How sure, and how new</p><p>The upper bound has a written proof; the proof that the bound is reached, checking every pair of balls in the endless crystal, was prepared with OpenAI&rsquo;s GPT-6 and has had no independent human review. The curve was plotted by Horst and Travesset in 2016, and the peak may be in a 2017 paper the project could not read: the closed form is not confirmed new. It is geometry, not a prediction about real CaB<sub>6</sub>.</p></aside>
+        </div>
+        <figure class="fig frame sticky ts" aria-labelledby="ts-title">
+          <div class="fig-head">
+            <p class="fig-title" id="ts-title">Two sizes beat one</p>
+            <p class="fig-how"><b>How to read:</b> move the size ratio. Left: one cube of the pattern, big balls at the corners (drawn see-through) and the six small balls inside; drag it to turn it. Right: the most space this pattern can fill at each ratio, against the 74.05% limit for equal balls; the gold sliver is where it wins.</p>
+          </div>
+          <div class="ts-grid">
+            <div class="fig-stage ts-stage" style="--ratio:1/1">
+              <canvas id="ts-canvas" tabindex="0" role="application" aria-roledescription="3D view" aria-label="One cube of the calcium hexaboride pattern: big balls at the eight corners, six small balls in an octahedron at the centre. Drag, or use the arrow keys, to turn it." aria-describedby="ts-read"></canvas>
+              <span class="corner tl" aria-hidden="true">One cube, side 1</span>
+            </div>
+            <div class="ts-chart"><svg id="ts-svg" viewBox="0 0 320 240" role="img" aria-labelledby="ts-svg-cap"></svg></div>
+          </div>
+          <p class="sr-only" id="ts-svg-cap">Line chart of the most space the pattern can fill against the size ratio from 0.30 to 0.60. It rises to a peak of 74.69% at the square root of 2 minus 1, about 0.4142, then falls; it is above the 74.05% limit for equal balls only between 0.41023 and 0.41591.</p>
+          <dl class="ts-read" id="ts-read">
+            <div><dt>Size ratio <span class="lc">&gamma;</span></dt><dd id="ts-g">0.4142</dd></div>
+            <div><dt>Space filled</dt><dd id="ts-phi">74.6865%</dd></div>
+            <div><dt>Against equal balls</dt><dd id="ts-vs">beats 74.05% by 0.64 points</dd></div>
+            <div><dt>What touches</dt><dd id="ts-touch">both: big balls along the edges, small balls with each other</dd></div>
+          </dl>
+          <div class="fig-ctrl" role="group" aria-label="Size ratio">
+            <span class="ctrl-label">Ctrl //</span>
+            <label class="ctrl ts-slider" for="ts-gamma">Size ratio <span class="lc">&gamma;</span> <input class="range" type="range" id="ts-gamma" min="0.30" max="0.60" step="0.0005" value="0.4142"> <output id="ts-g-out" for="ts-gamma" aria-live="off">0.4142</output></label>
+            <span class="il-btns"><button class="tbtn" type="button" id="ts-snap">&radic;2 &minus; 1</button><button class="tbtn" type="button" id="ts-lo">0.41023</button><button class="tbtn" type="button" id="ts-hi">0.41591</button></span>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/cab6-packing/PROOF.md">results/cab6-packing/PROOF.md</a> and <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/cab6-packing/ATTAINMENT.md">ATTAINMENT.md</a>; curve computed here from the proved formula. Badges: <span class="badge n">Attainment prepared with GPT-6 &middot; no independent human review</span> <span class="badge n">Not confirmed new</span> <span class="badge n">Geometry, not a prediction about the real crystal</span></span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="The most space the pattern can fill, by size ratio"><table class="tbl"><caption>The most space the pattern can fill, by size ratio (cube side 1)</caption>
+              <thead><tr><th class="n">&gamma;</th><th class="n">Big radius</th><th class="n">Small radius</th><th class="n">Space filled</th><th class="n">Against 74.048%</th></tr></thead>
+              <tbody id="ts-tbody"></tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 THE FOLD -->
+  <section class="sec" id="fold" data-index="The fold" data-num="04" aria-labelledby="fold-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>The fold</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Written proof + exact certificate</span><span class="badge n">Internal AI review only</span></div></div>
+      <h2 class="h2" id="fold-h">Fold the loose scaffold into the densest packing, without stretching a single rod.</h2>
+      <p class="lede">In three dimensions the balls fill only 22.33% of space. The densest any stacking of equal balls can be is &pi;/&radic;18 &asymp; 74.05%: Johannes Kepler guessed it in 1611, and Thomas Hales proved it in 2005.</p>
+      <div class="il-cols">
+        <div class="prose">
+          <p>The question: can the scaffold fold, like a hinged toy, from 22.33% all the way to 74.05%? Every rod must keep its length the whole time, and no two balls may ever pass through each other, at any of the infinitely many in-between moments, anywhere in the endlessly repeating crystal.</p>
+          <p>The answer is yes, and the motion has a short formula. Keep the six balls of one cell fixed and let the box they repeat in lean and shrink. One number, s, runs from 0 to 1; the box&rsquo;s edges are <span class="mono">L(s) = (2 + a)&thinsp;I + t&thinsp;C</span> with <span class="mono">t = 2s/(1+s&sup2;)</span> and <span class="mono">a = &radic;2(1&minus;s&sup2;)/(1+s&sup2;)</span>. Because a&sup2; + 2t&sup2; = 2 for every s, the rods that join neighbouring cells keep length &radic;2 exactly.</p>
+        </div>
+        <div class="prose">
+          <p><b>Why no collision, for infinitely many moments?</b> Snapshots cannot prove that. Instead, each pair of balls that could ever meet gives a distance that is a polynomial in s. Written in a particular form (the Bernstein form), a polynomial whose coefficients are all zero or positive can never dip below zero anywhere between 0 and 1. The project checked 3,248 such pairs: 16,240 coefficients, computed exactly with &radic;2 kept as a symbol, all &ge; 0. Copies of the cell farther away are ruled out by one short inequality.</p>
+          <p><b>Who did it:</b> as the repository records, OpenAI&rsquo;s GPT-6 (through Codex) derived the curve, its first proof and the exact certificate; GPT-6.1 Sol checked it independently with a separate replay; Claude wrote the symmetry-reduced hand proof for version 2 of the preprint. Ahraz Arifuddin directed the work and decided what to claim. No person other than the author has checked the proofs.</p>
+        </div>
+      </div>
+
+      <figure class="fig frame fd wide-fig" aria-labelledby="fd-title">
+        <div class="fig-head">
+          <p class="fig-title" id="fd-title">Fold without stretching</p>
+          <p class="fig-how"><b>How to read:</b> move the slider from the open scaffold (s = 0) to the densest packing (s = 1). Drag the picture to turn it. Green rods join neighbouring cells, grey rods join balls within a cell; all of them stay the same length. The curve on the right is the space filled.</p>
+        </div>
+        <div class="fd-grid">
+          <div class="fig-stage fd-stage" style="--ratio:16/11">
+            <canvas id="fd-canvas" tabindex="0" role="application" aria-roledescription="3D view" aria-label="Eight repeating cells of six balls, joined by rods, folding as the slider moves. Drag, or use the arrow keys, to turn the view; the slider below sets the fold." aria-describedby="fd-read"></canvas>
+            <span class="corner tl" aria-hidden="true">2 &times; 2 &times; 2 cells &middot; 48 balls</span>
+            <span class="corner tr fig-out" id="fd-corner" aria-hidden="true">s = 0.000</span>
+            <span class="corner bl" id="fd-note" aria-hidden="true">Open scaffold &middot; 5 touching neighbours per ball</span>
+          </div>
+          <div class="fd-side">
+            <svg id="fd-curve" viewBox="0 0 320 230" role="img" aria-labelledby="fd-curve-cap"></svg>
+            <p class="sr-only" id="fd-curve-cap">Line chart of the space filled against s: it rises steadily from 22.3% at s = 0 to 74.05% at s = 1, which is the Kepler bound.</p>
+            <dl class="fd-read" id="fd-read">
+              <div><dt>Space filled</dt><dd id="fd-dens">22.3266%</dd></div>
+              <div><dt>Volume per cell</dt><dd id="fd-vol">39.799</dd></div>
+              <div><dt>Every rod</dt><dd id="fd-bar">&radic;2 &middot; error 2&times;10<sup>&minus;16</sup></dd></div>
+              <div><dt>Nearest unjoined pair</dt><dd id="fd-gap">2.0000 (touch: 1.4142)</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Fold controls">
+          <span class="ctrl-label">Ctrl //</span>
+          <button class="tbtn play" type="button" id="fd-play" aria-pressed="false" aria-label="Play the fold"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt" id="fd-play-txt">Play</span></button>
+          <label class="ctrl fd-slider" for="fd-s">Fold s <input class="range" type="range" id="fd-s" min="0" max="1" step="0.001" value="0"> <output id="fd-s-out" for="fd-s" aria-live="off">0.000</output></label>
+          <button class="tbtn" type="button" id="fd-open">Open scaffold</button>
+          <button class="tbtn" type="button" id="fd-close">Densest packing</button>
+          <div class="seg" role="group" aria-label="Show">
+            <button type="button" id="fd-balls" aria-pressed="true">Balls</button><button type="button" id="fd-rods" aria-pressed="false">Rods only</button>
+          </div>
+          <button class="tbtn" type="button" id="fd-turn">Turn 30&deg;</button>
+          <button class="tbtn break" type="button" id="fd-break" aria-pressed="false" aria-describedby="fd-bar">Stretch one rod 1%</button>
+        </div>
+        <p class="sr-only" id="fd-say" aria-live="polite"></p>
+        <figcaption class="fig-foot"><span class="fig-src">Formula ported from <a href="https://aska-digital.github.io/incentre-lattice/fold-continuous.js">fold-continuous.js</a> (MIT, Ahraz Arifuddin, Aska Digital, and contributors); computed in your browser in floating point. The exact proof and certificate: <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md">PROOF.md</a>, <a href="https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json">certificate.json</a>.</span><span class="cert-chip"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>3,248 pair tests &middot; 16,240 coefficients &middot; all &ge; 0</span></span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Checkpoints along the fold (recomputed from the formula; units: rod length √2, ball radius 1/√2)"><table class="tbl"><caption>Checkpoints along the fold (recomputed from the formula; units: rod length &radic;2, ball radius 1/&radic;2)</caption>
+            <thead><tr><th class="n">s</th><th class="n">Volume per cell</th><th class="n">Space filled</th><th class="n">Touching neighbours per ball</th></tr></thead>
+            <tbody>
+              <tr><td class="n">0</td><td class="n">39.79899</td><td class="n">22.3266%</td><td class="n">5</td></tr>
+              <tr><td class="n">0.25</td><td class="n">35.18725</td><td class="n">25.2528%</td><td class="n">5</td></tr>
+              <tr><td class="n">0.5</td><td class="n">25.96034</td><td class="n">34.2282%</td><td class="n">5</td></tr>
+              <tr><td class="n">0.75</td><td class="n">17.73225</td><td class="n">50.1108%</td><td class="n">5</td></tr>
+              <tr><td class="n">1</td><td class="n">12</td><td class="n">74.0480% = &pi;/&radic;18</td><td class="n">12</td></tr>
+            </tbody></table></div>
+          <p class="twin-note">Certificate: 171 nearby cell offsets &times; 19 differences between balls, less the ball itself, gives 3,248 distance polynomials of degree 4, with 5 Bernstein coefficients each; 114 coefficients are exactly zero and the rest positive. The volume shrinks 3.3 times.</p>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 05 THE SEARCH -->
+  <section class="sec alt" id="search" data-index="The search" data-num="05" aria-labelledby="search-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>The search</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Sampled path: evidence, not proof</span></div></div>
+      <h2 class="h2" id="search-h">Propose freely, verify strictly.</h2>
+      <p class="lede">Before anyone had the exact fold, an AI agent was asked to find a folding path by trial. It could change one file, its own search script. A separate checker, which it could not touch, decided what counted.</p>
+      <div class="split">
+        <div class="prose">
+          <p>The checker&rsquo;s file is locked by its fingerprint: a SHA-256 hash, a 64-character code that changes completely if one character of the file changes. The run script refuses to start if the fingerprint is off. So the agent could try any idea, but it could not make a bad path pass by editing the judge.</p>
+          <p>Early on 12 October 2026 the loop ran five times in about eleven minutes. The first run reproduced a known fold that stops at 46.86%. The second, a free continuation after that fold, reached 71.09%. The third skipped the fold and got stuck. The fourth tried a bigger block of cells and moved too far in one step; the checker rejected it. The fifth folded only part of the way, then let the box shear freely, and reached 74.05% with every ball touching 12 others: the densest packing, in its hexagonal form.</p>
+          <p>The limit matters too. The checker tests a long list of snapshots, each at most 0.01 apart, plus the midpoints between them. That is strong evidence, not a proof that nothing goes wrong in between, and the project labels it VERIFIED rather than PROVEN. The exact fold in section 04, a different motion that ends at the cubic form of the densest packing, was found the next day.</p>
+          <p class="il-note">The paper&rsquo;s disclosure says Claude models ran the numerical searches for fold paths. The loop follows Andrej Karpathy&rsquo;s open &ldquo;autoresearch&rdquo; pattern.</p>
+        </div>
+
+        <figure class="fig frame sticky sl" aria-labelledby="sl-title">
+          <div class="fig-head">
+            <p class="fig-title" id="sl-title">The search ladder</p>
+            <p class="fig-how"><b>How to read:</b> each mark is one logged run, by clock time, at the highest density its path reached. Step through the runs with the buttons or the arrow keys; the card shows what the agent tried, in its own words.</p>
+          </div>
+          <div class="sl-chart"><svg id="sl-svg" viewBox="0 0 520 300" role="img" aria-labelledby="sl-cap"></svg></div>
+          <p class="sr-only" id="sl-cap">Five runs on 12 October 2026: 07:56:10, 46.86%, kept as the baseline; 07:56:30, 71.09%, kept; 07:59:03, 57.29%, discarded; 08:03:36, rejected by the checker; 08:06:56, 74.05%, kept as best, at the Kepler ceiling.</p>
+          <ul class="vlegend sl-legend" aria-label="Legend">
+            <li><span class="sl-key k-kept" aria-hidden="true">&#10003;</span><span><b>Kept</b> &middot; valid and better</span></li>
+            <li><span class="sl-key k-disc" aria-hidden="true">&#9675;</span><span><b>Discarded</b> &middot; valid, not better</span></li>
+            <li><span class="sl-key k-rej" aria-hidden="true">&times;</span><span><b>Rejected</b> &middot; failed the checker</span></li>
+          </ul>
+          <div class="sl-card" id="sl-card" aria-live="polite"></div>
+          <div class="fig-ctrl" role="group" aria-label="Runs">
+            <span class="ctrl-label">Run //</span>
+            <button class="tbtn" type="button" id="sl-prev" aria-label="Previous run">&larr;</button>
+            <div class="seg sl-seg" role="group" aria-label="Choose a run"><button type="button" data-run="0" aria-pressed="false">1</button><button type="button" data-run="1" aria-pressed="false">2</button><button type="button" data-run="2" aria-pressed="false">3</button><button type="button" data-run="3" aria-pressed="false">4</button><button type="button" data-run="4" aria-pressed="true">5</button></div>
+            <button class="tbtn" type="button" id="sl-next" aria-label="Next run">&rarr;</button>
+          </div>
+          <div class="sl-lock">
+            <p class="sl-lock-h"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>verify.py &middot; locked &middot; sha256 05d2385d&hellip;35cd</p>
+            <ul>
+              <li>Every rod keeps its length (to one part in a billion)</li>
+              <li>No two balls overlap</li>
+              <li>No ball moves more than 0.01 between snapshots, and the box changes by no more than 0.01</li>
+              <li>The midpoint between snapshots is checked for overlaps too</li>
+            </ul>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv">autoresearch-fold/results.tsv</a>, notes.md and <a href="https://github.com/aska-digital/incentre-lattice/blob/main/autoresearch-fold/program.md">program.md</a>. Times as logged, 12 Oct 2026 (no time zone recorded).</span></figcaption>
+          <details class="twin"><summary>Show the log</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="results.tsv, verbatim descriptions"><table class="tbl"><caption>results.tsv, verbatim descriptions</caption>
+              <thead><tr><th>Time</th><th>Run hash</th><th>Valid</th><th class="n">Max density</th><th>Outcome</th><th>What the agent tried</th></tr></thead>
+              <tbody id="sl-tbody"></tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 WHO DID WHAT -->
+  <section class="sec" id="credit" data-index="Who did what" data-num="06" aria-labelledby="credit-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Who did what</p><span class="chip">As recorded in the repository</span></div>
+      <h2 class="h2" id="credit-h">A person with a question, and models that did most of the work.</h2>
+      <p class="lede">The repository says plainly that most of the computation, proofs, checking and writing was done by AI models under direction, and it names which model did what.</p>
+      <div class="il-who">
+        <div class="who-col bio-col">
+          <p class="who-k"><i aria-hidden="true"></i>Human</p>
+          <h3>Ahraz Arifuddin &middot; Aska Digital</h3>
+          <ul>
+            <li>Drew the doodle for years and decided to follow it into three and more dimensions.</li>
+            <li>Chose the questions, directed every model, and decided what is claimed and what is published.</li>
+            <li>Sole author of both preprints; set up the research checks (locked checkers, certificates, a public hash posted to a dated gist, evidence labels on every claim).</li>
+            <li>Withdrew the broad novelty claim in public when prior work surfaced, and issued a corrected version 2.</li>
+          </ul>
+          <p class="who-note">Two early results, the exact end states of the sampled fold and a one-cell version of it, came from pull requests #1 and #2 by another contributor.</p>
+        </div>
+        <div class="who-col dig-col">
+          <p class="who-k"><i aria-hidden="true"></i>Digital</p>
+          <h3>Models named by the project</h3>
+          <dl class="who-dl">
+            <div><dt>Claude Opus 5.5 &middot; Anthropic</dt><dd>Proofs, derivations, literature and novelty review, the fold-path searches, the site. Co-author line on 33 of the 35 commits.</dd></div>
+            <div><dt>Claude Sonnet &middot; Claude Haiku</dt><dd>Checkers, tests, certificates, automated checks and documentation; running scripts and housekeeping.</dd></div>
+            <div><dt>GPT-6 via Codex &middot; OpenAI</dt><dd>The explicit fold curve, its first proof and exact certificate; the proof that the two-size CaB<sub>6</sub> packing reaches its maximum.</dd></div>
+            <div><dt>GPT-6.1 Sol &middot; GPT-6 Luna</dt><dd>An independent exact replay of the certificate and review; repository publishing and link checks.</dd></div>
+          </dl>
+          <p class="who-note">Model names as recorded in <a href="https://github.com/aska-digital/incentre-lattice/blob/main/CONTRIBUTORS.md">CONTRIBUTORS.md</a> and the preprint&rsquo;s disclosure; Foundation0 has not verified them independently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 HOW SURE -->
+  <section class="sec alt" id="status" data-index="How sure" data-num="07" aria-labelledby="status-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>How sure</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Preprint</span><span class="badge n">Not peer reviewed</span></div></div>
+      <h2 class="h2" id="status-h">Written down, replayable, and not yet checked by an outside mathematician.</h2>
+      <p class="lede">The project labels every claim. PROVEN means a written proof exists, so far reviewed only by AI models. VERIFIED means a finite computation that anyone can replay, which is not a proof. KNOWN means published by others and cited.</p>
+      <div class="table-wrap il-status" tabindex="0" role="region" aria-label="The main results and how each is backed">
+        <table class="tbl">
+          <caption>The main results and how each is backed</caption>
+          <thead><tr><th>Result</th><th>Exact value</th><th>Label</th><th>What backs it</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Result">Exact fold from the open scaffold to the densest packing (cubic form)</td><td data-label="Exact value" class="mono">22.3266% &rarr; 74.0480%, every rod exact, density rising throughout</td><td data-label="Label"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Proven</span></td><td data-label="What backs it">Written proof, exact certificate, two separate exact implementations, a hand proof; <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md">fold-continuous-fcc</a></td></tr>
+            <tr><td data-label="Result">Spring stiffness in every dimension n &ge; 3</td><td data-label="Exact value" class="mono">Poisson ratio 1/(n&sup2;&minus;n&minus;1); stiffness ratio (n&minus;1)&sup2;; no shear stiffness</td><td data-label="Label"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Proven</span></td><td data-label="What backs it">Written proof; finite check for n = 2 to 8; <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">rigidity-nd</a></td></tr>
+            <tr><td data-label="Result">Floppy-motion counts</td><td data-label="Exact value" class="mono">n(n&minus;1)/2 per cell</td><td data-label="Label"><span class="badge n">Lemma from known theory</span></td><td data-label="What backs it">Same scaffold appears in Borcea and Streinu 2021, section 7; the novelty claim was withdrawn (PR #27)</td></tr>
+            <tr><td data-label="Result">Best packing of the CaB<sub>6</sub> pattern with two ball sizes</td><td data-label="Exact value" class="mono">(&pi;/6)(30&radic;2 &minus; 41) = 74.6865% at size ratio &radic;2&minus;1</td><td data-label="Label"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Proven</span></td><td data-label="What backs it">Upper bound and attainment proofs; the attainment proof was prepared with GPT-6; not found elsewhere, not confirmed new; <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/cab6-packing/PROOF.md">cab6-packing</a></td></tr>
+            <tr><td data-label="Result">Sampled fold of 48 balls to close packing</td><td data-label="Exact value" class="mono">793 snapshots, 22.33% &rarr; 74.05% (hexagonal form)</td><td data-label="Label"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Verified</span></td><td data-label="What backs it">Sampled steps of at most 0.01, two in-house checkers; not a proof of continuity</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="il-cols il-limits">
+        <aside class="callout caveat"><p class="c-k">What has not happened yet</p><p>No independent person has checked the proofs. Nothing about the geometry is machine-checked in a proof assistant: the project&rsquo;s one Lean file checks only counting arithmetic (for n = 3 to 64), and it is not run in the automated checks. Whether these formulas and this motion are new is unresolved.</p></aside>
+        <aside class="callout note"><p class="c-k">Geometry, not materials</p><p>This is a statement about ideal balls and rods. It predicts nothing about real calcium hexaboride, whose boron cages are measured to be very stiff (Li, Refson and Dove, 2023). The project&rsquo;s own assessment calls it meaningful exploration with credible candidates for original results, not a breakthrough.</p></aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 SOURCES -->
+  <section class="sec" id="sources" data-index="Sources" data-num="08" aria-labelledby="sources-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>08</b><i>//</i>Sources</p><span class="chip">Checked 13&ndash;14 Oct 2026</span></div>
+      <h2 class="h2" id="sources-h">Read it, replay it, argue with it.</h2>
+      <p class="lede">Every result ships with code that re-runs it. Running <span class="mono">make verify</span> on a copy of the repository regenerated every certificate byte for byte when Foundation0 replayed it.</p>
+      <div class="il-src">
+        <div>
+          <p class="src-h">The project</p>
+          <ul class="src-list">
+            <li><a href="https://aska-digital.github.io/incentre-lattice/">Live site</a></li>
+            <li><a href="https://aska-digital.github.io/incentre-lattice/research.html">Interactive exact fold</a></li>
+            <li><a href="https://aska-digital.github.io/incentre-lattice/lattice.html">3D lattice explorer</a></li>
+            <li><a href="https://aska-digital.github.io/incentre-lattice/open.html">Claim ledger (68 labelled claims)</a></li>
+            <li><a href="https://github.com/aska-digital/incentre-lattice">Repository</a></li>
+            <li><a href="https://github.com/aska-digital/incentre-lattice/blob/main/CONTRIBUTORS.md">Contributors and AI roles</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="src-h">Preprints</p>
+          <ul class="src-list">
+            <li><a href="https://doi.org/10.5281/zenodo.23340326">v2, 13 Oct 2026 &middot; DOI 10.5281/zenodo.23340326</a></li>
+            <li><a href="https://aska-digital.github.io/incentre-lattice/papers/incentre-lattice.pdf">v2 PDF, 15 pages</a></li>
+            <li><a href="https://doi.org/10.5281/zenodo.23322080">v1, 12 Oct 2026</a></li>
+            <li><a href="https://doi.org/10.5281/zenodo.23322079">All versions</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="src-h">Proofs, certificates, logs</p>
+          <ul class="src-list">
+            <li><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md">Fold proof</a></li>
+            <li><a href="https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json">Fold certificate</a></li>
+            <li><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">Every-dimension proof</a></li>
+            <li><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/LITERATURE.md">Literature comparison</a></li>
+            <li><a href="https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv">Search log</a></li>
+            <li><a href="https://gist.github.com/ahrazzle/46adf76f15bf766e24b8df626f9c5706">Public hash commitment</a></li>
+            <li><a href="https://github.com/aska-digital/incentre-lattice/issues/26">Research assessment (issue #26)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="src-h">Prior work cited</p>
+          <ul class="src-list">
+            <li><a href="https://doi.org/10.1177/1081286520948116">Borcea &amp; Streinu, 2021</a></li>
+            <li><a href="https://doi.org/10.1103/PhysRevB.74.134302">Goodwin, 2006</a></li>
+            <li><a href="https://doi.org/10.1039/D3CP01306E">Li, Refson &amp; Dove, 2023</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="chart-foot il-lic">The figures on this page adapt <span class="mono">fold-continuous.js</span> and <span class="mono">mirrors.html</span> from the project, which are MIT-licensed (text and figures CC BY 4.0), &copy; Ahraz Arifuddin, Aska Digital, and contributors. Status lines here follow the repository on 13 October 2026, not older notes on the live site.</p>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../"><span>&larr; Back to</span>All research</a>
+        <a class="next" href="../exoplanets/"><span>Next &rarr;</span>Exoplanets: faint shadows in old starlight</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../research/">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 14 Oct 2026 against aska-digital/incentre-lattice at db3b51d</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

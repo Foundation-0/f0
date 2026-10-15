@@ -1,0 +1,53 @@
+name: prerender
+# Re-bake the no-JavaScript copy of every data-rendered part of the site (scripts/prerender.mjs) when the
+# data or a page script changes on main, and commit the pages if any copy changed.
+# The script serves docs/ itself and blocks every request outside it, so this job needs no network
+# beyond installing Playwright.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/data/**'
+      - 'docs/**/*.js'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prerender
+  cancel-in-progress: false
+
+jobs:
+  prerender:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright 1.56.1 and its Chromium
+        run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+
+      - name: Prerender the data-rendered parts into the HTML
+        run: node scripts/prerender.mjs
+        env:
+          PRERENDER_CHROMIUM: playwright   # use Playwright's own Chromium, not a local path
+
+      - name: Site gate (links, page metadata, ledger schema)
+        run: python3 scripts/check_site.py
+
+      - name: Commit changed pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain -- ':(glob)docs/**/*.html')" ]; then
+            git add -- ':(glob)docs/**/*.html'
+            git commit -m "prerender: refresh the no-JavaScript copies from docs/data"
+            git push || (git pull --rebase origin main && git push)
+          else
+            echo "every page already matches the data; nothing to commit"
+          fi

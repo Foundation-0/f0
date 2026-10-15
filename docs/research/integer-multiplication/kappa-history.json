@@ -1,0 +1,315 @@
+{
+ "about": "Reviewed records of the exponent saving kappa in T(n) = O(n (log n)^(1-kappa)) for multiplying n-bit integers on a multitape Turing machine. All values after the first are conditional, maintainer-reviewed results of CrocSwap/integer-mult-bounds; the first is the machine-written OpenAI preprint (family #109). Not peer reviewed; not a complete Lean theorem.",
+ "compiled": "2026-10-13",
+ "sources": [
+  "CrocSwap/integer-mult-bounds commit history (README at each commit; git log -- certificates/selected-result.json)",
+  "openai/math @ adc7f1241b42e322a6451854ab7e4b4c146bf78a preprints/Integer-multiplication-below-n-log-n-September-23-2026",
+  "Foundation0 dossier integer-mult (2026-10-13)"
+ ],
+ "repo": "https://github.com/CrocSwap/integer-mult-bounds",
+ "records": [
+  {
+   "t": "2026-09-23T00:00:00Z",
+   "kappa": "2^-182",
+   "log2": -182.0,
+   "what": "The machine-written OpenAI preprint (family #109) claims the first saving",
+   "status": "ai-preprint",
+   "link": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026",
+   "who": "An internal OpenAI model",
+   "decimal_approx": "1.63e-55"
+  },
+  {
+   "t": "2026-10-07T02:22:00Z",
+   "kappa": "29/5000000000000000000000000000000000",
+   "log2": -107.0876,
+   "what": "The repository opens: a better choice of the preprint's parameters",
+   "status": "reviewed",
+   "decimal": "0.0000000000000000000000000000000058",
+   "commit": "5cf29ecd",
+   "who": "Doug Colkitt, with OpenAI Codex",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/5cf29ecd"
+  },
+  {
+   "t": "2026-10-07T13:35:00Z",
+   "kappa": "2^-78",
+   "log2": -78.0,
+   "what": "Direct axis routing",
+   "status": "reviewed",
+   "commit": "52ce3bee",
+   "who": "Doug Colkitt, with OpenAI Codex",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/52ce3bee"
+  },
+  {
+   "t": "2026-10-07T19:27:00Z",
+   "kappa": "2^-59",
+   "log2": -59.0,
+   "what": "Paired circuits, sharper estimates",
+   "status": "reviewed",
+   "commit": "bcd4ebde",
+   "who": "Doug Colkitt, with OpenAI Codex",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/bcd4ebde"
+  },
+  {
+   "t": "2026-10-08T00:27:00Z",
+   "kappa": "83/10^12",
+   "log2": -33.4881,
+   "what": "Compact controls (the idea came from a separate research agent)",
+   "status": "reviewed",
+   "decimal": "0.000000000083",
+   "commit": "6e564879",
+   "who": "Doug Colkitt, with OpenAI Codex",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/6e564879"
+  },
+  {
+   "t": "2026-10-08T01:10:00Z",
+   "kappa": "2^-31",
+   "log2": -31.0,
+   "what": "Complex-network compression",
+   "status": "reviewed",
+   "commit": "1c09a588",
+   "who": "Doug Colkitt, integrating eumemic's Claude-assisted PR #3",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/1c09a588"
+  },
+  {
+   "t": "2026-10-08T13:10:00Z",
+   "kappa": "2^-30",
+   "log2": -30.0,
+   "what": "Ternary checkpoint",
+   "status": "reviewed",
+   "commit": "1a74950c",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/1a74950c"
+  },
+  {
+   "t": "2026-10-08T15:18:00Z",
+   "kappa": "971668963/25000000000000",
+   "log2": -14.6511,
+   "what": "First community release, above 2^-15",
+   "status": "reviewed",
+   "decimal": "0.00003886675852",
+   "commit": "0605a24a",
+   "who": "The crowd; final step PR #39 by rohanarun",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/0605a24a"
+  },
+  {
+   "t": "2026-10-08T18:24:00Z",
+   "kappa": "25508460085039/500000000000000000",
+   "log2": -14.2587,
+   "what": "PRs #50 to #62 reviewed",
+   "status": "reviewed",
+   "decimal": "0.000051016920170078",
+   "commit": "0d235fe5",
+   "who": "The crowd",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/0d235fe5"
+  },
+  {
+   "t": "2026-10-09T04:53:33Z",
+   "kappa": "4609169/10000000000",
+   "log2": -11.0832,
+   "what": "PR #144; the selected-result file begins",
+   "status": "reviewed",
+   "decimal": "0.0004609169",
+   "commit": "6aed8701e",
+   "file": "certificates/selected-result.json",
+   "who": "icekylinx (GPT-6 Astra via Codex)",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/6aed8701e"
+  },
+  {
+   "t": "2026-10-09T05:55:01Z",
+   "kappa": "94428617/200000000000",
+   "log2": -11.0485,
+   "what": "PRs #146 to #150",
+   "status": "reviewed",
+   "decimal": "0.000472143085",
+   "commit": "e2a02cac1",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/e2a02cac1"
+  },
+  {
+   "t": "2026-10-09T06:01:09Z",
+   "kappa": "472154791/1000000000000",
+   "log2": -11.0485,
+   "what": "PR #151 added",
+   "status": "reviewed",
+   "decimal": "0.000472154791",
+   "commit": "86b30e035",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/86b30e035"
+  },
+  {
+   "t": "2026-10-09T12:32:26Z",
+   "kappa": "330942774629799/500000000000000000",
+   "log2": -10.5611,
+   "what": "PR #186",
+   "status": "reviewed",
+   "decimal": "0.000661885549259598",
+   "commit": "d697aaa79",
+   "file": "certificates/selected-result.json",
+   "who": "Dugongue",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/d697aaa79"
+  },
+  {
+   "t": "2026-10-10T14:08:14Z",
+   "kappa": "90446448750933/125000000000000000",
+   "log2": -10.4326,
+   "what": "PRs #276 and #279 (\"gen4\")",
+   "status": "reviewed",
+   "decimal": "0.000723571590007464",
+   "commit": "91e29e7bb",
+   "file": "certificates/selected-result.json",
+   "who": "DreamingOfClouds and rohanarun",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/91e29e7bb"
+  },
+  {
+   "t": "2026-10-12T01:55:19Z",
+   "kappa": "1517760977820331/1000000000000000000",
+   "log2": -9.3638,
+   "what": "PR #531 on #523, with #493",
+   "status": "reviewed",
+   "decimal": "0.001517760977820331",
+   "commit": "a1e7d8486",
+   "file": "certificates/selected-result.json",
+   "who": "icekylinx, with eumemic",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/a1e7d8486"
+  },
+  {
+   "t": "2026-10-12T13:10:36Z",
+   "kappa": "1584931111785787/1000000000000000000",
+   "log2": -9.3014,
+   "what": "PR #535 with #510",
+   "status": "reviewed",
+   "decimal": "0.001584931111785787",
+   "commit": "1c1e42f0d",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/1c1e42f0d"
+  },
+  {
+   "t": "2026-10-12T14:41:59Z",
+   "kappa": "400569730495803/250000000000000000",
+   "log2": -9.2857,
+   "what": "PR #588 with #543",
+   "status": "reviewed",
+   "decimal": "0.001602278921983212",
+   "commit": "270c2458c",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/270c2458c"
+  },
+  {
+   "t": "2026-10-12T16:59:30Z",
+   "kappa": "16127213726553/10000000000000000",
+   "log2": -9.2763,
+   "what": "Through PR #599",
+   "status": "reviewed",
+   "decimal": "0.0016127213726553",
+   "commit": "1db1fbe68",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/1db1fbe68"
+  },
+  {
+   "t": "2026-10-12T21:01:12Z",
+   "kappa": "817591864627889/500000000000000000",
+   "log2": -9.2563,
+   "what": "PR #617",
+   "status": "reviewed",
+   "decimal": "0.001635183729255778",
+   "commit": "2e9ed969d",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/2e9ed969d"
+  },
+  {
+   "t": "2026-10-12T22:36:34Z",
+   "kappa": "51110230636731/31250000000000000",
+   "log2": -9.256,
+   "what": "PR #626",
+   "status": "reviewed",
+   "decimal": "0.001635527380375392",
+   "commit": "5c5567d15",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/5c5567d15"
+  },
+  {
+   "t": "2026-10-13T05:57:09Z",
+   "kappa": "1661202643272239/1000000000000000000",
+   "log2": -9.2336,
+   "what": "PR #741 (SW4)",
+   "status": "reviewed",
+   "decimal": "0.001661202643272239",
+   "commit": "2cdd93d02",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/2cdd93d02"
+  },
+  {
+   "t": "2026-10-13T06:44:14Z",
+   "kappa": "1661634653669567/1000000000000000000",
+   "log2": -9.2332,
+   "what": "PR #799 (X4)",
+   "status": "reviewed",
+   "decimal": "0.001661634653669567",
+   "commit": "d6dfd8f21",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/d6dfd8f21"
+  },
+  {
+   "t": "2026-10-13T13:30:30Z",
+   "kappa": "1661957774647029/1000000000000000000",
+   "log2": -9.2329,
+   "what": "PR #890 (U8/T21)",
+   "status": "reviewed",
+   "decimal": "0.001661957774647029",
+   "commit": "3b83e4f14",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/3b83e4f14"
+  },
+  {
+   "t": "2026-10-13T15:06:01Z",
+   "kappa": "1661960547713947/1000000000000000000",
+   "log2": -9.2329,
+   "what": "PR #942 (T37)",
+   "status": "reviewed",
+   "decimal": "0.001661960547713947",
+   "commit": "3825dc0ea",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/3825dc0ea"
+  },
+  {
+   "t": "2026-10-13T18:05:11Z",
+   "kappa": "1672188119205421/1000000000000000000",
+   "log2": -9.224,
+   "what": "PR #1042",
+   "status": "reviewed",
+   "decimal": "0.001672188119205421",
+   "commit": "87db776d7",
+   "file": "certificates/selected-result.json",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/87db776d7"
+  },
+  {
+   "t": "2026-10-13T18:45:23Z",
+   "kappa": "836330098538459/500000000000000000",
+   "log2": -9.2236,
+   "what": "PR #1094: alternating packing improvements with Jeremy Kothe's #1087",
+   "status": "reviewed",
+   "decimal": "0.001672660197076918",
+   "commit": "0a31ad884",
+   "file": "certificates/selected-result.json",
+   "who": "rohanarun",
+   "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/0a31ad884"
+  }
+ ],
+ "aska_claims": [
+  {
+   "t": "2026-10-11T17:01:22Z",
+   "pr": 464,
+   "decimal": "0.001347744550711765",
+   "kappa": "269548910142353/200000000000000000",
+   "what": "Sharper bit bad-class charge on PR #450's word (applies PR #461's refinement)",
+   "status": "Claimed · never reviewed · closed by Aska on 13 Oct"
+  },
+  {
+   "t": "2026-10-11T17:32:48Z",
+   "pr": 469,
+   "decimal": "0.001350580884553120",
+   "kappa": "8441130528457/6250000000000000",
+   "what": "Gate-frame retiming of PR #450's eleven-stage word (+0.2105%)",
+   "status": "Claimed (draft at the snapshot) · never reviewed · closed by Aska on 13 Oct"
+  }
+ ]
+}

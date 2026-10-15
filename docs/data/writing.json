@@ -1,0 +1,136 @@
+{
+ "updated": "2026-10-14",
+ "source": "https://digital.askaconsult.com/blog/",
+ "themes": {
+  "frontier": "Progress at the edge: what machines and people proved or found",
+  "symbiosis": "How biological and digital intelligence should work together",
+  "public-good": "Who pays for, owns and benefits from useful AI",
+  "instruments": "The tools and operating rules that make AI useful to one person",
+  "markets": "Dated market analysis"
+ },
+ "posts": [
+  {
+   "title": "Math, faster",
+   "url": "https://digital.askaconsult.com/blog/math-faster.html",
+   "date": "2026-10-07",
+   "author": "ASKA Research",
+   "category": "AI / Mathematics",
+   "summary": "OpenAI published 722 machine-written mathematics manuscripts in 372 result families on 2026-10-06; Aska Digital read the corpus on day one, ranked the headline claims and checked the evidence behind each. Nothing was independently confirmed, a minority had machine-checked proofs, and the real shift is that checking, not discovering, is now the bottleneck.",
+   "themes": [
+    "frontier"
+   ],
+   "relevance": "Archetypal Foundation0 entry: AI-driven frontier progress whose truth depends on human plus machine (Lean) verification; supplies the claimed / machine-checked / reviewed / withdrawn vocabulary for the whole tracker."
+  },
+  {
+   "title": "Crypto Industry Lowdown",
+   "url": "https://digital.askaconsult.com/blog/crypto-industry-lowdown.html",
+   "date": "2026-10-03",
+   "author": "ASKA Research",
+   "category": "Crypto Markets",
+   "summary": "A guide for readers returning to crypto: prices fell, but stablecoins, ETFs, custody, perpetuals and agent-payment rails became infrastructure. The security threat moved from contract code to keys and suppliers.",
+   "themes": [
+    "markets"
+   ],
+   "relevance": "Low-medium: AI agents as economic actors (x402, ERC-8004, ERC-8183) and AI-assisted auditing, with the caveat that AI finds code bugs but does not fix key custody. Not investment advice."
+  },
+  {
+   "title": "Post-Training Your Own Models",
+   "url": "https://digital.askaconsult.com/blog/post-training-your-own-models.html",
+   "date": "2026-10-03",
+   "author": "ASKA Research",
+   "category": "AI / Machine Learning",
+   "summary": "A practical guide to teaching an open-weight model a task, a workflow or your writing voice: methods, memory math, prices, tools, evaluation and three playbooks. Its first rule is to try a better prompt, then retrieval, and only then training.",
+   "themes": [
+    "instruments"
+   ],
+   "relevance": "Medium-high: puts lab-grade model customization within reach of one person and one GPU, which is Foundation0's 'instruments for independent researchers' pillar."
+  },
+  {
+   "title": "The Naming Decides Who Will Run the Machines",
+   "url": "https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html",
+   "date": "2026-09-18",
+   "author": "The ASKA Team",
+   "category": "Agentic Systems",
+   "summary": "Aska Digital's IR-Taxonomy gives non-engineers five plain names for agentic systems, so a buyer knows what kind of machine they own before a demo decides for them. Each name comes with one question the owner is entitled to have answered in writing.",
+   "themes": [
+    "symbiosis",
+    "instruments"
+   ],
+   "relevance": "High for symbiosis: a shared plain-language vocabulary keeps humans accountable for the machines they deploy."
+  },
+  {
+   "title": "Subtractive Fragility",
+   "url": "https://askaconsult.com/insights/subtractive-fragility/",
+   "date": "2026-09-10",
+   "author": "ASKA Research",
+   "category": "Featured essay",
+   "summary": "Long calm periods make systems fragile less by piling up risk than by quietly removing capacities that only pay off in a crisis. Those capacities get rebuilt only when someone can bill for the rebuild; the essay makes seven dated, falsifiable predictions (2027–2035).",
+   "themes": [
+    "symbiosis",
+    "public-good"
+   ],
+   "relevance": "High: AI capex is physically an electrification cycle; Prediction 7 (a senior-expertise shortage from untrained juniors) is a precise symbiosis risk; the design law is a funding model for a lasting public-benefit foundation; dated, falsifiable predictions echo Seldon's crises."
+  },
+  {
+   "title": "Prediction Market Outlook",
+   "url": "https://digital.askaconsult.com/blog/prediction-market-outlook.html",
+   "date": "2026-09-08",
+   "author": "ASKA Research",
+   "category": "Prediction Markets",
+   "summary": "A snapshot of what public prediction markets priced on 2026-09-08, read as scenario weights rather than forecasts. Includes a small regression on what makes a market's probability lopsided.",
+   "themes": [
+    "markets"
+   ],
+   "relevance": "Low: a model of stated limits (n = 23, selection bias), plus one AI-policy signal (US–China AI agreement 10%). Dated and client-addressed."
+  },
+  {
+   "title": "The Agents Are Replaceable. The Operating System Is Not.",
+   "url": "https://digital.askaconsult.com/blog/the-agents-are-replaceable.html",
+   "date": "2026-09-02",
+   "author": "The ASKA Team",
+   "category": "Agent Operations",
+   "summary": "A one-person consultancy runs like a ten-person firm on a team of AI agents. The agents are interchangeable; what makes the system work is the discipline around them: handoffs, blocking gates, checks on the real output, and memory written down outside any one session.",
+   "themes": [
+    "symbiosis",
+    "instruments"
+   ],
+   "relevance": "Very high: Aska Digital's working example of biological and digital intelligence cooperating under explicit rules, with an honest limit ('asserts value; it does not yet demonstrate it')."
+  },
+  {
+   "title": "The Institution Is the Bottleneck",
+   "url": "https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html",
+   "date": "2026-08-27",
+   "author": "ASKA Research",
+   "category": "Institutional Adoption",
+   "summary": "Healthcare, education and government keep failing to adopt working technologies in the same way. A technology takes on the incentives of the institution it lands in, so it sticks only where an outcome has an owner, a measure and a priced consequence.",
+   "themes": [
+    "public-good"
+   ],
+   "relevance": "High for the public-good pillar: explains why free AI tools (e.g. medcode, nutrak) need an owner, a measure and a channel, not just good software."
+  },
+  {
+   "title": "The Money Skips the Public Good",
+   "url": "https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html",
+   "date": "2026-08-19",
+   "author": "ASKA Research",
+   "category": "AI & Public Good",
+   "summary": "Canada's 'AI for All' strategy names the public, but every funding channel it built pays only for AI that can bill for its own value. Public-good AI is left with the slow, constrained charitable route, so the legal form chosen on day one decides whether the mission survives.",
+   "themes": [
+    "public-good"
+   ],
+   "relevance": "Very high: directly about how a public-benefit AI organization (a 'Foundation') and its free apps should be structured and funded."
+  },
+  {
+   "title": "No Coup, Just Comfort",
+   "url": "https://digital.askaconsult.com/blog/no-coup-just-comfort.html",
+   "date": "2026-08-13",
+   "author": "ASKA Research",
+   "category": "Decentralization",
+   "summary": "Decentralized systems are rarely defeated by enemies; they are given away one convenient default at a time. The industry cannot see it because its metrics count what adoption adds and nothing that decentralization loses.",
+   "themes": [
+    "symbiosis"
+   ],
+   "relevance": "Medium: the same drift from help to habit to dependence threatens human–AI partnership; 'measure what is being subtracted' is a design principle for Foundation0."
+  }
+ ]
+}

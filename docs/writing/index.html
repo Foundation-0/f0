@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Writing · Foundation0</title>
+<meta name="description" content="Ten dated essays from Aska Digital on what AI is actually changing and what has to be built around it: filter them by theme, search them, and trace how each one connects to the work on this site.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Writing · Foundation0">
+<meta property="og:description" content="Ten dated essays on what AI is actually changing, each with its sources, its limits and a stated way to be wrong.">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/writing/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="writing">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../ledger/">Ledger</a><a href="../research/">Research</a><a href="../instruments/">Instruments</a><a href="../commons/">Commons</a><a href="../writing/" aria-current="page">Writing</a><a href="../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../ledger/">Ledger <span>01</span></a><a href="../research/">Research <span>03</span></a><a href="../instruments/">Instruments <span>04</span></a><a href="../commons/">Commons <span>05</span></a><a href="../writing/" aria-current="page">Writing <span>06</span></a><a href="../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <header class="page-hero has-fig wr-hero">
+    <div class="wrap">
+      <div class="wr-hero-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li aria-current="page">Writing</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>06 // The writing</p>
+        <h1 class="h1">Look past the claim.</h1>
+        <p class="dek">Ten dated essays from Aska Digital on what AI is actually changing, and on what has to be built around it for the change to last.</p>
+        <p class="wr-intro">Most writing about AI argues about how clever the machines are. These essays ask a plainer question: what has to be true around a machine for its work to count? A proof counts only when someone can check it. A tool counts only when someone owns the outcome it is meant to improve. A public good lasts only when someone can pay for it without owning it.</p>
+        <div class="meta-row">
+          <span class="badge n">Analysis &middot; not peer reviewed</span>
+          <span class="chip"><span data-wr="count"><!--prerender:count-->10<!--/prerender:count--></span> essays &middot; <span data-wr="span"><!--prerender:span-->13 Aug – 7 Oct 2026<!--/prerender:span--></span></span>
+          <a class="chip chip-link" href="../data/writing.json">data/writing.json</a>
+        </div>
+        <p class="wr-jump"><a href="#essays">The essays</a><a href="#drawn">One claim, drawn</a><a href="#map">The theses map</a><a href="#dated">Claims with a date</a><a href="#reading">How to read them</a></p>
+      </div>
+
+      <article class="ph-fig feat frame" aria-labelledby="feat-t">
+        <p class="feat-k"><span class="feat-flag">Featured</span><span>Day-one review &middot; <time datetime="2026-10-07">7 Oct 2026</time></span></p>
+        <h2 class="feat-t" id="feat-t"><a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a></h2>
+        <p class="feat-dek">On 6 October 2026 OpenAI published 722 mathematics manuscripts written by one of its AI models. Aska read them on day one, ranked the headline claims and checked what stands behind each. The finding: <b>checking, not discovering, is now the slow part.</b></p>
+        <ul class="statrow feat-stats" aria-label="Math, faster in numbers">
+          <li><div class="v">722</div><div class="k">manuscripts in one commit, grouped into 372 families of results</div><span class="src"><a href="https://github.com/openai/math/blob/adc7f12/README.md">README @ adc7f12</a></span></li>
+          <li><div class="v">0</div><div class="k">independently confirmed when the essay appeared</div><span class="src"><a href="https://digital.askaconsult.com/blog/math-faster.html">the essay, 7 Oct</a></span></li>
+          <li><div class="v">235<span class="of">/372</span></div><div class="k">families with a Lean scope document on day one: a plan for machine-checking, not a finished check</div><span class="src"><a href="https://github.com/openai/math/blob/adc7f12/CONTENTS.md">CONTENTS.md @ adc7f12</a></span></li>
+          <li><div class="v">3</div><div class="k">manuscripts withdrawn the next day, after a sign error</div><span class="src"><a href="https://github.com/openai/math/blob/fd4aeeb/history.md">history.md @ fd4aeeb</a></span></li>
+        </ul>
+        <p class="feat-note"><b>Update</b>The essay is a day-one review. On 7 October OpenAI withdrew three manuscripts, revised fourteen and added formal proofs; when we checked on 14 October the essay had not been updated. Our page <a href="../research/machine-mathematics/">After the 722</a> follows what people and their AI agents did next.</p>
+        <div class="feat-cta">
+          <a class="btn primary" href="https://digital.askaconsult.com/blog/math-faster.html">Read the essay <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn" href="../research/machine-mathematics/">After the 722 <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="feat-alt" href="https://oaimathday.askaconsult.com/">Standalone edition</a>
+        </div>
+      </article>
+    </div>
+  </header>
+
+  <!-- 01 THE ESSAYS -->
+  <section class="sec" id="essays" data-index="The essays" data-num="01" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The essays</p><span class="chip">Aska Digital b.log &middot; newest first</span></div>
+      <h2 class="h2" id="essays-h">Ten essays, one thread.</h2>
+      <p class="lede">Each is dated, names its sources and says how it could be wrong. Filter by the Foundation0 theme an essay serves, or search the titles, summaries and notes.</p>
+
+      <div class="wr-ctrl" role="search" aria-label="Filter the essays">
+        <div class="wr-themes">
+          <span class="ctrl-label" id="theme-l">Theme //</span>
+          <div class="seg wr-seg" id="theme-seg" role="group" aria-labelledby="theme-l"><!--prerender:themes-->
+            <button type="button" data-theme-k="all" aria-pressed="true">All <span class="n">10</span></button>
+            <button type="button" data-theme-k="frontier" aria-pressed="false" title="Progress at the edge: what machines and people proved or found">Frontier <span class="n">1</span></button>
+            <button type="button" data-theme-k="instruments" aria-pressed="false" title="The tools and operating rules that make AI useful to one person">Instruments <span class="n">3</span></button>
+            <button type="button" data-theme-k="symbiosis" aria-pressed="false" title="How biological and digital intelligence should work together">Symbiosis <span class="n">4</span></button>
+            <button type="button" data-theme-k="public-good" aria-pressed="false" title="Who pays for, owns and benefits from useful AI">Public good <span class="n">3</span></button>
+            <button type="button" data-theme-k="markets" aria-pressed="false" title="Dated market analysis">Markets <span class="n">2</span></button>
+          <!--/prerender:themes--></div>
+        </div>
+        <div class="wr-search">
+          <label class="ctrl-label" for="wr-q">Search //</label>
+          <input class="wr-input" type="search" id="wr-q" placeholder="e.g. Lean, junior, funding" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+      <p class="wr-status"><span id="wr-count" aria-live="polite"><!--prerender:count-line-->Showing all 10 essays.<!--/prerender:count-line--></span> <span id="theme-desc" class="wr-tdesc"></span></p>
+
+      <ol class="essays" id="essay-list"><!--prerender:essays-->
+        <li class="essay is-feat" id="e-math-faster" data-themes="frontier"><div class="e-meta"><time datetime="2026-10-07">7 Oct 2026</time><span class="e-cat">AI / Mathematics</span></div><div class="e-body"><p class="e-type"><span>Day-one review</span><span class="e-feat">Featured</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a></h3><p class="e-sum">OpenAI published 722 machine-written mathematics manuscripts in 372 result families on 2026-10-06; Aska Digital read the corpus on day one, ranked the headline claims and checked the evidence behind each. Nothing was independently confirmed, a minority had machine-checked proofs, and the real shift is that checking, not discovering, is now the bottleneck.</p><p class="e-why"><b>Why it matters here</b>This is the kind of advance the Ledger exists to record: a machine wrote the proofs, and only checking by people and proof-checking software can say which are true. It also shaped how this site labels a claim, from 'claimed' up to 'formally verified', and why withdrawals stay on the record.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Frontier</li></ul><span class="e-status">Written on day one; predates OpenAI's 7 Oct withdrawals</span></div></div></li>
+        <li class="essay" id="e-crypto-industry-lowdown" data-themes="markets"><div class="e-meta"><time datetime="2026-10-03">3 Oct 2026</time><span class="e-cat">Crypto Markets</span></div><div class="e-body"><p class="e-type"><span>Field guide · dated</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/crypto-industry-lowdown.html">Crypto Industry Lowdown</a></h3><p class="e-sum">A guide for readers returning to crypto: prices fell, but stablecoins, ETFs, custody, perpetuals and agent-payment rails became infrastructure. The security threat moved from contract code to keys and suppliers.</p><p class="e-why"><b>Why it matters here</b>A side thread for us: AI agents are starting to hold wallets and pay each other, and AI now helps audit code, though the essay is clear it cannot fix how keys are kept.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Markets</li></ul><span class="e-status">Not investment advice</span></div></div></li>
+        <li class="essay" id="e-post-training-your-own-models" data-themes="instruments"><div class="e-meta"><time datetime="2026-10-03">3 Oct 2026</time><span class="e-cat">AI / Machine Learning</span></div><div class="e-body"><p class="e-type"><span>Practical guide</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/post-training-your-own-models.html">Post-Training Your Own Models</a></h3><p class="e-sum">A practical guide to teaching an open-weight model a task, a workflow or your writing voice: methods, memory math, prices, tools, evaluation and three playbooks. Its first rule is to try a better prompt, then retrieval, and only then training.</p><p class="e-why"><b>Why it matters here</b>It shows that one person with one graphics card can now teach an open AI model a new task, which is what our Instruments work is for: tools that put lab-grade methods in an independent researcher's hands.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Instruments</li></ul><span class="e-status">Prices are web-research snapshots, not live</span></div></div></li>
+        <li class="essay" id="e-the-naming-decides-who-will-run-the-machines" data-themes="symbiosis instruments"><div class="e-meta"><time datetime="2026-09-18">18 Sep 2026</time><span class="e-cat">Agentic Systems</span></div><div class="e-body"><p class="e-type"><span>Plain-words taxonomy</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html">The Naming Decides Who Will Run the Machines</a></h3><p class="e-sum">Aska Digital's IR-Taxonomy gives non-engineers five plain names for agentic systems, so a buyer knows what kind of machine they own before a demo decides for them. Each name comes with one question the owner is entitled to have answered in writing.</p><p class="e-why"><b>Why it matters here</b>If the people who deploy AI systems can name what kind of machine they own, they stay answerable for what it does. Shared plain words are part of working with machines rather than under them.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Symbiosis</li><li>Instruments</li></ul><span class="e-status">Says itself it is not a standard</span></div></div></li>
+        <li class="essay" id="e-subtractive-fragility" data-themes="symbiosis public-good"><div class="e-meta"><time datetime="2026-09-10">10 Sep 2026</time><span class="e-cat">Featured essay</span></div><div class="e-body"><p class="e-type"><span>Traced argument</span></p><h3 class="e-title"><a href="https://askaconsult.com/insights/subtractive-fragility/">Subtractive Fragility</a></h3><p class="e-sum">Long calm periods make systems fragile less by piling up risk than by quietly removing capacities that only pay off in a crisis. Those capacities get rebuilt only when someone can bill for the rebuild; the essay makes seven dated, falsifiable predictions (2027–2035).</p><p class="e-why"><b>Why it matters here</b>Its seventh prediction names a precise risk for people working with AI: if AI removes junior jobs, nobody is trained to become the next experts. Its rule for funding what must last is a model for a public-benefit foundation.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Symbiosis</li><li>Public good</li></ul><span class="e-status">7 dated predictions, none scored yet</span></div></div></li>
+        <li class="essay" id="e-prediction-market-outlook" data-themes="markets"><div class="e-meta"><time datetime="2026-09-08">8 Sep 2026</time><span class="e-cat">Prediction Markets</span></div><div class="e-body"><p class="e-type"><span>Market snapshot · dated</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/prediction-market-outlook.html">Prediction Market Outlook</a></h3><p class="e-sum">A snapshot of what public prediction markets priced on 2026-09-08, read as scenario weights rather than forecasts. Includes a small regression on what makes a market's probability lopsided.</p><p class="e-why"><b>Why it matters here</b>Mostly a dated snapshot. Worth reading for how plainly it states its own limits: 23 markets, not a random sample, and a fit that explains how lopsided prices are, not how accurate.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Markets</li></ul><span class="e-status">Prices as of 8 Sep 2026; not betting advice</span></div></div></li>
+        <li class="essay" id="e-the-agents-are-replaceable" data-themes="symbiosis instruments"><div class="e-meta"><time datetime="2026-09-02">2 Sep 2026</time><span class="e-cat">Agent Operations</span></div><div class="e-body"><p class="e-type"><span>Working example</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/the-agents-are-replaceable.html">The Agents Are Replaceable. The Operating System Is Not.</a></h3><p class="e-sum">A one-person consultancy runs like a ten-person firm on a team of AI agents. The agents are interchangeable; what makes the system work is the discipline around them: handoffs, blocking gates, checks on the real output, and memory written down outside any one session.</p><p class="e-why"><b>Why it matters here</b>Aska's own working example of a person and a team of AI agents cooperating under written rules, and honest about its limit: nothing is proven until a stranger takes the kit and runs a real team on it.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Symbiosis</li><li>Instruments</li></ul><span class="e-status">Says itself its value is asserted, not yet shown</span></div></div></li>
+        <li class="essay" id="e-endgame-the-institution-is-the-bottleneck" data-themes="public-good"><div class="e-meta"><time datetime="2026-08-27">27 Aug 2026</time><span class="e-cat">Institutional Adoption</span></div><div class="e-body"><p class="e-type"><span>Argument</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html">The Institution Is the Bottleneck</a></h3><p class="e-sum">Healthcare, education and government keep failing to adopt working technologies in the same way. A technology takes on the incentives of the institution it lands in, so it sticks only where an outcome has an owner, a measure and a priced consequence.</p><p class="e-why"><b>Why it matters here</b>It explains why free tools such as MedCode and Nutrak need someone who owns the outcome, a way to measure it and a way to reach people, not just good software.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Public good</li></ul><span class="e-status">Sources named by publisher and year</span></div></div></li>
+        <li class="essay" id="e-the-money-skips-the-public-good" data-themes="public-good"><div class="e-meta"><time datetime="2026-08-19">19 Aug 2026</time><span class="e-cat">AI &amp; Public Good</span></div><div class="e-body"><p class="e-type"><span>Argument</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html">The Money Skips the Public Good</a></h3><p class="e-sum">Canada's 'AI for All' strategy names the public, but every funding channel it built pays only for AI that can bill for its own value. Public-good AI is left with the slow, constrained charitable route, so the legal form chosen on day one decides whether the mission survives.</p><p class="e-why"><b>Why it matters here</b>It is about how a public-benefit AI organisation, a foundation, has to be set up and funded so that its mission survives the money, and so that its free tools stay free.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Public good</li></ul><span class="e-status">Canadian funding as of Aug 2026</span></div></div></li>
+        <li class="essay" id="e-no-coup-just-comfort" data-themes="symbiosis"><div class="e-meta"><time datetime="2026-08-13">13 Aug 2026</time><span class="e-cat">Decentralization</span></div><div class="e-body"><p class="e-type"><span>Argument</span></p><h3 class="e-title"><a href="https://digital.askaconsult.com/blog/no-coup-just-comfort.html">No Coup, Just Comfort</a></h3><p class="e-sum">Decentralized systems are rarely defeated by enemies; they are given away one convenient default at a time. The industry cannot see it because its metrics count what adoption adds and nothing that decentralization loses.</p><p class="e-why"><b>Why it matters here</b>The same drift threatens people working with AI: help becomes habit, and habit becomes dependence. Its rule, measure what is being taken away and not only what is added, is one we work by.</p><div class="e-foot"><ul class="e-tags" aria-label="Themes"><li>Symbiosis</li></ul><span class="e-status">About decentralised networks</span></div></div></li>
+      <!--/prerender:essays--></ol>
+      <div class="wr-empty" id="wr-empty" hidden>
+        <p>No essay matches. Try fewer letters, or another theme.</p>
+        <button class="tbtn" type="button" id="wr-clear">Clear the filters</button>
+      </div>
+      <p class="chart-foot">Source: <a href="../data/writing.json">data/writing.json</a> (titles, dates, summaries, themes, from <a href="https://digital.askaconsult.com/blog/">digital.askaconsult.com/blog</a>); the type, status and &ldquo;why it matters here&rdquo; lines are ours, in <a href="annotations.json">writing/annotations.json</a>.</p>
+    </div>
+  </section>
+
+  <!-- 02 ONE CLAIM, DRAWN -->
+  <section class="sec alt" id="drawn" data-index="One claim, drawn" data-num="02" aria-labelledby="drawn-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>One claim, drawn</p><span class="chip">From <em>Math, faster</em> &middot; family 087</span></div>
+      <h2 class="h2" id="drawn-h">A shape times its shadow.</h2>
+      <p class="lede"><em>Math, faster</em> rated one result the best-evidenced in OpenAI&rsquo;s corpus: a proof of Mahler&rsquo;s conjecture in every dimension. In two dimensions you can watch the whole idea.</p>
+      <div class="prose narrow">
+        <p>Take a shape <i>K</i> centred on a point. Its <dfn class="term">polar</dfn>, written <i>K</i>&deg;, is a kind of shadow: the points <i>y</i> with <i>x</i>&middot;<i>y</i> &le; 1 for every point <i>x</i> of the shape (<i>x</i>&middot;<i>y</i>, the dot product, multiplies matching coordinates and adds them). A big shape casts a small polar; a square casts a diamond, and a circle casts a circle. In 1939 Kurt Mahler asked how small the area of a shape times the area of its polar can be. The round shape gives the largest product. Mahler guessed that boxy shapes give the smallest, and proved that in the plane; in higher dimensions it has stayed largely open.</p>
+      </div>
+
+      <figure class="fig frame mh wide-fig" aria-labelledby="mh-t">
+        <div class="fig-head">
+          <p class="fig-title" id="mh-t">Shape and shadow</p>
+          <p class="fig-how"><b>How to read:</b> gold is the shape <i>K</i>, the set of points with |<i>x</i>|<sup><i>p</i></sup> + |<i>y</i>|<sup><i>p</i></sup> &le; 1; cyan is its polar. Slide <i>p</i> from a diamond (1) through a circle (2) to a square (&infin;) and watch the product of the two areas: it never drops below 8. Then try a shape that is not symmetric.</p>
+        </div>
+        <p class="mh-badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Claimed &middot; Lean scope document + 10 check programs &middot; not refereed</span></p>
+        <div class="mh-body">
+          <div class="fig-stage auto mh-stage" id="mh-stage"></div>
+          <div class="mh-side">
+            <div class="mh-read" id="mh-read" aria-live="polite"></div>
+            <div class="mh-scale" id="mh-scale"></div>
+          </div>
+        </div>
+        <div class="fig-ctrl mh-ctrl" role="group" aria-label="Shape controls">
+          <label class="ctrl mh-range"><i>p</i> <input class="range" type="range" id="mh-p" min="0" max="100" step="0.5" value="0"> <output id="mh-out" for="mh-p">1</output></label>
+          <div class="seg mh-stops" id="mh-stops" role="group" aria-label="Jump to p"><button type="button" data-p="1" aria-pressed="true">1</button><button type="button" data-p="1.5" aria-pressed="false">1.5</button><button type="button" data-p="2" aria-pressed="false">2</button><button type="button" data-p="3" aria-pressed="false">3</button><button type="button" data-p="4" aria-pressed="false">4</button><button type="button" data-p="8" aria-pressed="false">8</button><button type="button" data-p="Infinity" aria-pressed="false">&infin;</button></div>
+          <button class="tbtn" type="button" id="mh-tri" aria-pressed="false">Not symmetric: a triangle</button>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Areas computed in your browser: a <i>p</i>-shape has area 4&Gamma;(1+1/<i>p</i>)&sup2;/&Gamma;(1+2/<i>p</i>), and its polar is the <i>q</i>-shape with 1/<i>p</i> + 1/<i>q</i> = 1. The bounds, 4<sup><i>n</i></sup>/<i>n</i>! for symmetric shapes (8 in the plane) and (<i>n</i>+1)<sup><i>n</i>+1</sup>/(<i>n</i>!)&sup2; in general (6.75 in the plane), are the statements in OpenAI&rsquo;s <a href="https://github.com/openai/math/blob/adc7f12/lean/docs/087.md">Lean scope document for family 087</a>. <em>Math, faster</em> called the evidence the strongest in the corpus, and the result &ldquo;provisional, not cleared&rdquo;.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table">
+<table class="tbl" id="mh-table"><caption>Area of the shape, of its polar, and their product</caption><thead><tr><th scope="col">Shape</th><th scope="col" class="n">Area of <i>K</i></th><th scope="col" class="n">Area of <i>K</i>&deg;</th><th scope="col" class="n">Product</th></tr></thead><tbody></tbody></table></div>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 03 THE THESES MAP -->
+  <section class="sec" id="map" data-index="The theses map" data-num="03" aria-labelledby="map-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The theses map</p><span class="chip">Our reading, not the essays&rsquo; own labels</span></div>
+      <h2 class="h2" id="map-h">One argument, from ten angles.</h2>
+      <p class="lede">Read together, the essays make one claim: progress now outruns the structures that check it, fund it and remember it. The map links each essay to the themes it serves, and each theme to the pages on this site where it becomes work.</p>
+
+      <figure class="fig frame tmap-fig" id="tmap-fig" aria-labelledby="tmap-t">
+        <div class="fig-head">
+          <p class="fig-title" id="tmap-t">Essays &rarr; themes &rarr; pages on this site</p>
+          <p class="fig-how" id="tmap-how"><b>How to read:</b> <span class="tm-wide">each line says &ldquo;this essay serves this theme&rdquo; (left) or &ldquo;this theme becomes work on this page&rdquo; (right). Point at or select any node to trace its links. With the keyboard, Tab into the map, move with the arrow keys, press Enter to pin a node and Escape to clear.</span><span class="tm-narrow">on a narrow screen the map is a list. Each theme shows the essays that serve it, then the pages on this site where it becomes work.</span></p>
+        </div>
+        <div class="tmap-wrap">
+          <div class="tmap" id="tmap">
+            <svg class="tmap-edges" id="tmap-edges" aria-hidden="true" focusable="false"></svg>
+            <div class="tmap-col" data-col="0"><p class="tmap-h">Essays <span>10</span></p><div class="tmap-nodes" id="tmap-c0"></div></div>
+            <div class="tmap-col" data-col="1"><p class="tmap-h">Themes <span>5</span></p><div class="tmap-nodes" id="tmap-c1"></div></div>
+            <div class="tmap-col" data-col="2"><p class="tmap-h">On this site <span>6</span></p><div class="tmap-nodes" id="tmap-c2"></div></div>
+            <noscript><p class="tmap-noscript">The map is drawn with JavaScript, which is off. The list under &ldquo;Show as a list&rdquo; holds every link.</p></noscript>
+          </div>
+          <aside class="tmap-panel" id="tmap-panel" aria-live="polite" aria-label="Selected node"></aside>
+        </div>
+        <div class="fig-foot">
+          <span class="fig-src">Source: themes from <a href="../data/writing.json">data/writing.json</a>; the links to pages, and the reasons, are ours, in <a href="annotations.json">writing/annotations.json</a>.</span>
+          <span class="tmap-legend" aria-hidden="true"><i class="lg-a"></i>essay &rarr; theme <i class="lg-b"></i>theme &rarr; page</span>
+        </div>
+        <details class="twin">
+          <summary>Show as a list</summary>
+          <div class="table-wrap"><!--prerender:map-table--><table class="tbl"><caption>Every link in the map</caption><thead><tr><th scope="col">Essay</th><th scope="col">Themes it serves</th><th scope="col">Pages on this site, and why</th></tr></thead><tbody><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/math-faster.html">Math, faster</a></th><td>Frontier</td><td><a href="../research/machine-mathematics/">After the 722</a> (via Frontier)<br><a href="../ledger/">The Ledger</a> (via Frontier)<br><a href="../research/">Research</a> (via Frontier)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/post-training-your-own-models.html">Post-Training Your Own Models</a></th><td>Instruments</td><td><a href="../instruments/">Instruments</a> (via Instruments)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/the-agents-are-replaceable.html">The Agents Are Replaceable. The Operating System Is Not.</a></th><td>Symbiosis, Instruments</td><td><a href="../charter/">Charter</a> (via Symbiosis)<br><a href="../instruments/">Instruments</a> (via Instruments)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html">The Naming Decides Who Will Run the Machines</a></th><td>Symbiosis, Instruments</td><td><a href="../charter/">Charter</a> (via Symbiosis)<br><a href="../instruments/">Instruments</a> (via Instruments)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/no-coup-just-comfort.html">No Coup, Just Comfort</a></th><td>Symbiosis</td><td><a href="../charter/">Charter</a> (via Symbiosis)</td></tr><tr><th scope="row"><a href="https://askaconsult.com/insights/subtractive-fragility/">Subtractive Fragility</a></th><td>Symbiosis, Public good</td><td><a href="../charter/">Charter</a> (via Symbiosis)<br><a href="../charter/">Charter</a> (via Public good)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html">The Money Skips the Public Good</a></th><td>Public good</td><td><a href="../commons/">Commons</a> (via Public good)<br><a href="../charter/">Charter</a> (via Public good)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html">The Institution Is the Bottleneck</a></th><td>Public good</td><td><a href="../commons/">Commons</a> (via Public good)</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/crypto-industry-lowdown.html">Crypto Industry Lowdown</a></th><td>Markets</td><td>None: a dated snapshot</td></tr><tr><th scope="row"><a href="https://digital.askaconsult.com/blog/prediction-market-outlook.html">Prediction Market Outlook</a></th><td>Markets</td><td>None: a dated snapshot</td></tr></tbody></table><!--/prerender:map-table--></div>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 04 CLAIMS WITH A DATE -->
+  <section class="sec alt" id="dated" data-index="Claims with a date" data-num="04" aria-labelledby="dated-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Claims with a date</p><span class="chip">Status as of 14 Oct 2026</span></div>
+      <h2 class="h2" id="dated-h">Seven predictions, each with a date and a way to fail.</h2>
+      <p class="lede">In Asimov&rsquo;s <em>Foundation</em>, Hari Seldon&rsquo;s recorded image appears in a Time Vault at moments he fixed in advance, each time to speak to the crisis he had predicted for that moment. <em>Subtractive Fragility</em> does the same in plain sight: seven claims, each with a scoring date and a stated condition under which it fails. If they fail, the essay says, its thesis is wrong.</p>
+
+      <figure class="fig frame pv-fig" id="pv-fig" aria-labelledby="pv-t">
+        <div class="fig-head">
+          <p class="fig-title" id="pv-t">Seven predictions, waiting for their dates</p>
+          <p class="fig-how"><b>How to read:</b> each row runs from the day the essay was published, 10 September 2026, to the date its prediction is scored (the ring). The solid part is time already passed; the vertical line is today. Select a row to read the claim, how it fails and where it started.</p>
+        </div>
+        <div class="pv-grid">
+          <div class="pv-chart" id="pv-chart">
+            <div class="pv-axis" id="pv-axis" aria-hidden="true"></div>
+            <ol class="pv-rows" id="pv-rows"><!--prerender:predictions-->
+              <li><button type="button" class="pv-row" data-i="0" aria-pressed="true" tabindex="0"><span class="pv-l"><span class="pv-n">1</span><span class="pv-c">US lead times for large power transformers are still above 80 weeks, despite announced factory expansions.</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:13.095890410959328%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:20%"></span><span class="pv-date" style="left:20%">Dec 2027</span></span><span class="sr-only">Scored Dec 2027, in 1 year 3 months. Status: pending.</span></button></li>
+              <li><button type="button" class="pv-row" data-i="1" aria-pressed="false" tabindex="-1"><span class="pv-l"><span class="pv-n">2</span><span class="pv-c">US output of heavy-duty gas turbines has grown by less than 40% compared with 2025.</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:23.095890410959328%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:30%"></span><span class="pv-date" style="left:30%">Dec 2028</span></span><span class="sr-only">Scored Dec 2028, in 2 years 3 months. Status: pending.</span></button></li>
+              <li><button type="button" class="pv-row" data-i="2" aria-pressed="false" tabindex="-1"><span class="pv-l"><span class="pv-n">3</span><span class="pv-c">US electricity demand grows between 1.5% and 3.5% a year, every year through 2030.</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:43.09589041095933%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:50%"></span><span class="pv-date" style="left:50%">Through 2030</span></span><span class="sr-only">Scored Through 2030, in 4 years 3 months. Status: pending.</span></button></li>
+              <li><button type="button" class="pv-row" data-i="3" aria-pressed="false" tabindex="-1"><span class="pv-l"><span class="pv-n">4</span><span class="pv-c">The price of electricity becomes a first-rank issue in a US federal election, with datacenter siting or who pays for the grid as explicit policy planks.</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:42.26255707762675%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:49.166666666667425%"></span><span class="pv-date" style="left:49.166666666667425%">Nov 2030</span></span><span class="sr-only">Scored Nov 2030, in 4 years 2 months. Status: pending.</span></button></li>
+              <li><button type="button" class="pv-row thesis" data-i="4" aria-pressed="false" tabindex="-1"><span class="pv-l"><span class="pv-n">5</span><span class="pv-c">Even if AI spending falls by more than half from its 2026 peak, US grid capacity ends up higher than in 2026 and gets used, not stranded.</span><span class="pv-th">Thesis</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:63.09589041095933%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:70%"></span><span class="pv-date" style="left:70%">Dec 2032</span></span><span class="sr-only">Scored Dec 2032, in 6 years 3 months. Status: pending.</span></button></li>
+              <li><button type="button" class="pv-row" data-i="5" aria-pressed="false" tabindex="-1"><span class="pv-l"><span class="pv-n">6</span><span class="pv-c">No US scheme that pays to keep new antibiotics available, comparable to the PASTEUR Act, has passed and paid out at scale.</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:63.09589041095933%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:70%"></span><span class="pv-date" style="left:70%">Dec 2032</span></span><span class="sr-only">Scored Dec 2032, in 6 years 3 months. Status: pending.</span></button></li>
+              <li><button type="button" class="pv-row thesis" data-i="6" aria-pressed="false" tabindex="-1"><span class="pv-l"><span class="pv-n">7</span><span class="pv-c">At least one high-skill profession shows a measurable shortage of senior experts that hiring cannot fix, because the people who would now be senior were never trained as juniors.</span><span class="pv-th">Thesis</span></span><span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:6.904109589040671%;width:93.09589041095933%"></span><span class="pv-done" style="left:6.904109589040671%;width:0.9589041095887305%"></span><span class="pv-now" style="left:7.863013698629402%"></span><span class="pv-ring" style="left:100%"></span><span class="pv-date end" style="left:100%">Dec 2035</span></span><span class="sr-only">Scored Dec 2035, in 9 years 3 months. Status: pending.</span></button></li>
+            <!--/prerender:predictions--></ol>
+          </div>
+          <aside class="pv-panel" id="pv-panel" aria-live="polite" aria-label="Selected prediction"></aside>
+        </div>
+        <div class="pv-undated">
+          <p class="pv-uk">No date set &middot; from <a href="https://digital.askaconsult.com/blog/math-faster.html"><em>Math, faster</em></a></p>
+          <p class="pv-ul">&ldquo;What would confirm the thesis&rdquo;: the essay names three events and gives them no date. We list them as open.</p>
+          <ul class="pv-open">
+            <li><span class="pv-st">Open</span>A second lab reproduces the pipeline.</li>
+            <li><span class="pv-st">Open</span>Lean coverage grows on a visible schedule.</li>
+            <li><span class="pv-st">Open</span>One falsifiable core gets killed or confirmed in public.</li>
+          </ul>
+        </div>
+        <div class="fig-foot">
+          <span class="fig-src">Source: the tracker in <a href="https://askaconsult.com/insights/subtractive-fragility/"><em>Subtractive Fragility</em></a> (10 Sep 2026), checked 14 Oct 2026; claims restated in plain words in <a href="annotations.json">writing/annotations.json</a>. Statuses are the essay&rsquo;s own.</span>
+          <span class="fig-src" id="pv-next"><!--prerender:predictions-next-->Next to be scored: no. 1, Dec 2027, in 1 year 3 months. The two that carry the thesis, 5 and 7, are scored in 2032 and 2035.<!--/prerender:predictions-next--></span>
+        </div>
+        <details class="twin">
+          <summary>Show the numbers</summary>
+          <div class="table-wrap"><!--prerender:predictions-table--><table class="tbl"><caption>The seven predictions, as of 14 Oct 2026</caption><thead><tr><th scope="col" class="n">No.</th><th scope="col">Scored</th><th scope="col">Claim</th><th scope="col">Fails if</th><th scope="col">Started from</th><th scope="col">Confidence</th><th scope="col">Status</th></tr></thead><tbody><tr><td class="n">1</td><td>Dec 2027</td><td>US lead times for large power transformers are still above 80 weeks, despite announced factory expansions.</td><td>Lead times drop below 80 weeks.</td><td>128 weeks on average in 2026 (IndustrialSage)</td><td>Moderate</td><td>Pending</td></tr><tr><td class="n">2</td><td>Dec 2028</td><td>US output of heavy-duty gas turbines has grown by less than 40% compared with 2025.</td><td>Output rises more than 40%.</td><td>GE Vernova backlog of 116 GW in 2025 (company filings)</td><td>High</td><td>Pending</td></tr><tr><td class="n">3</td><td>Through 2030</td><td>US electricity demand grows between 1.5% and 3.5% a year, every year through 2030.</td><td>Growth exceeds 4% in any year, or falls below 1% for two years running.</td><td>2.1% a year, five-year average to 2025 (EIA)</td><td>High</td><td>Pending</td></tr><tr><td class="n">4</td><td>Nov 2030</td><td>The price of electricity becomes a first-rank issue in a US federal election, with datacenter siting or who pays for the grid as explicit policy planks.</td><td>It stays a matter for state regulators.</td><td>57 to 70% oppose a local datacenter (Gallup, Brookings, 2026)</td><td>High</td><td>Pending</td></tr><tr><td class="n">5</td><td>Dec 2032</td><td>Even if AI spending falls by more than half from its 2026 peak, US grid capacity ends up higher than in 2026 and gets used, not stranded. <b>(thesis)</b></td><td>An AI spending collapse is followed by measurable stranded capacity.</td><td>2,600 GW waiting in interconnection queues (FERC, 2026)</td><td>Moderate</td><td>Pending</td></tr><tr><td class="n">6</td><td>Dec 2032</td><td>No US scheme that pays to keep new antibiotics available, comparable to the PASTEUR Act, has passed and paid out at scale.</td><td>One passes and pays out.</td><td>PASTEUR Act reintroduced Feb 2026, still unpassed (Congress.gov)</td><td>High</td><td>Pending</td></tr><tr><td class="n">7</td><td>Dec 2035</td><td>At least one high-skill profession shows a measurable shortage of senior experts that hiring cannot fix, because the people who would now be senior were never trained as juniors. <b>(thesis)</b></td><td>Senior pipelines refill normally, or senior roles are restructured rather than lost.</td><td>Junior employment down about 8% since early 2023 at firms adopting generative AI (Harvard working paper)</td><td>Moderate</td><td>Pending</td></tr></tbody></table><!--/prerender:predictions-table--></div>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 05 HOW TO READ THEM -->
+  <section class="sec" id="reading" data-index="How to read them" data-num="05" aria-labelledby="reading-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>How to read them</p></div>
+      <h2 class="h2" id="reading-h">Arguments, not peer-reviewed research.</h2>
+      <div class="wr-notes">
+        <div class="callout note"><p class="c-k">The house method</p><p>Each essay opens with its method, gives a section that states the strongest case against itself, closes with a compressed version of the argument, and lists its sources.</p></div>
+        <div class="callout note"><p class="c-k">Who wrote them</p><p>The bylines are ASKA Research or The ASKA Team, at ASKA Business Solutions Inc. No post names an individual author, and none says, post by post, what AI did in the research or the writing.</p></div>
+        <div class="callout caveat"><p class="c-k">Dated pieces</p><p>Market pieces carry their dates and say they are not investment or betting advice. Prices and counts in them are as reported on those dates, and many are labelled by the essays themselves as index-level figures that were not checked live.</p></div>
+        <div class="callout caveat"><p class="c-k">Corrections</p><p><em>Math, faster</em> predates OpenAI&rsquo;s 7 October withdrawals; we link the update above. The statuses in <em>Subtractive Fragility</em> are set by its authors; we show them as they stood on 14 October 2026. Found an error on this page? <a href="https://github.com/aska-digital/f0/issues">Report it</a>.</p></div>
+      </div>
+      <nav class="prevnext" aria-label="More pages">
+        <a href="../commons/"><span>&larr; Previous</span>Commons: free tools for the public good</a>
+        <a class="next" href="../charter/"><span>Next &rarr;</span>The charter: why &ldquo;zero&rdquo;</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../ledger/">The Ledger</a></li><li><a href="../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../research/">Research</a></li><li><a href="../instruments/">Instruments</a></li><li><a href="../commons/">Commons</a></li><li><a href="../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span data-wr="stamp"><!--prerender:stamp-->Writing updated 2026-10-14 · 10 essays<!--/prerender:stamp--></span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

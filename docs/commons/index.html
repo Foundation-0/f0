@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Commons: free tools for the public good · Foundation0</title>
+<meta name="description" content="Free public-benefit apps from Aska Digital: MedCode, a study of AI medical-coding claims with an in-browser demo, and Nutrak, an offline nutrition tracker that shows its work. Both explained with working illustrations, and both labelled honestly as not clinically validated.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Commons: free tools for the public good · Foundation0">
+<meta property="og:description" content="MedCode and Nutrak: free tools that show their working, explained from first principles. Neither is clinically validated, and both say so.">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/commons/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="commons">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="zl"><rect x="-50" y="-50" width="50" height="100"/></clipPath>
+    <clipPath id="zr"><rect x="0" y="-50" width="50" height="100"/></clipPath>
+    <g id="zgeo" fill="none">
+      <polygon stroke-width="5" points="40.65,16.84 16.84,40.65 -16.84,40.65 -40.65,16.84 -40.65,-16.84 -16.84,-40.65 16.84,-40.65 40.65,-16.84"/>
+      <polygon stroke-width="2.2" opacity=".6" points="40.65,16.84 -40.65,16.84 16.84,-40.65 16.84,40.65 -40.65,-16.84 40.65,-16.84 -16.84,40.65 -16.84,-40.65"/>
+      <circle r="16.84" stroke-width="3.4"/>
+      <circle r="6.97" stroke-width="3"/>
+    </g>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <use href="#zgeo" clip-path="url(#zl)" style="stroke:var(--bio)"/>
+      <use href="#zgeo" clip-path="url(#zr)" style="stroke:var(--dig)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../ledger/">Ledger</a><a href="../research/">Research</a><a href="../instruments/">Instruments</a><a href="../commons/" aria-current="page">Commons</a><a href="../writing/">Writing</a><a href="../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../ledger/">Ledger <span>01</span></a><a href="../research/">Research <span>03</span></a><a href="../instruments/">Instruments <span>04</span></a><a href="../commons/" aria-current="page">Commons <span>05</span></a><a href="../writing/">Writing <span>06</span></a><a href="../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <header class="page-hero has-fig cm-hero" style="--acc:var(--bio)">
+    <div class="wrap">
+      <div class="ph-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li aria-current="page">Commons</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Commons &middot; free tools for the public good</p>
+        <h1 class="h1">Free tools that show their working</h1>
+        <p class="dek">The commons is where Foundation0 builds free, public-benefit apps, meant in time for people and small businesses who cannot pay for software, in fields such as medicine, nutrition and personal finance. Two exist today. This page explains what each one does, from first principles, and exactly how far each has come.</p>
+        <div class="meta-row">
+          <span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>MedCode &middot; research snapshot</span>
+          <span class="badge d"><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Nutrak &middot; live demo</span>
+          <span class="badge n">Neither clinically validated</span>
+          <span class="chip">Free &middot; no accounts</span>
+        </div>
+      </div>
+
+      <figure class="ph-fig fig frame pm" aria-labelledby="pm-t">
+        <div class="fig-head">
+          <p class="fig-title" id="pm-t">Two tools, eight checks</p>
+          <p class="fig-how"><b>How to read:</b> the first five rows are the commons promises listed below; the last three are what neither tool has earned yet. A filled mark means the tool does it today, a half mark means partly, and an open ring with a cross means not yet. Press the button to see only the gaps.</p>
+        </div>
+        <div class="pm-wrap">
+          <table class="pm-tbl" id="pm-tbl">
+            <caption class="sr-only">What MedCode and Nutrak do today, check by check</caption>
+            <thead><tr><th scope="col">Check</th><th scope="col" style="--acc:var(--acc-medcode)">MedCode demo</th><th scope="col" style="--acc:var(--acc-nutrak)">Nutrak</th></tr></thead>
+            <tbody>
+              <tr data-gap="0"><th scope="row">Free, with no account</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">no login</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">no account</span></td></tr>
+              <tr data-gap="0"><th scope="row">Your data stays on your device</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">case text is read in your browser; only the code tables download</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">your food log stays in your browser</span></td></tr>
+              <tr data-gap="1"><th scope="row">Works on a weak connection, or none</th><td data-s="part"><span class="pm-v">Partly</span><span class="pm-n">about 1.2 MB of code tables to download first</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">about 26 KB compressed; installable; offline after the first visit</span></td></tr>
+              <tr data-gap="0"><th scope="row">Shows its working</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">each candidate says which words it matched</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">a &ldquo;why this number?&rdquo; under every target</span></td></tr>
+              <tr data-gap="0"><th scope="row">Says what it cannot do</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">&ldquo;Keyword evidence, not clinical confidence&rdquo;</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">unbuilt features say so; demo data is labelled</span></td></tr>
+              <tr data-gap="1"><th scope="row">Clinically validated</th><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">not for real patient data</span></td><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">not medical advice</span></td></tr>
+              <tr data-gap="1"><th scope="row">Checked by someone other than its maker</th><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">no outside audit or peer review</span></td><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">no outside audit or peer review</span></td></tr>
+              <tr data-gap="1"><th scope="row">Built for the people the commons serves</th><td data-s="no"><span class="pm-v">No</span><span class="pm-n">built for US billing codes and the US market</span></td><td data-s="part"><span class="pm-v">Partly</span><span class="pm-n">free, tiny and offline; but English only, kcal only, no food database</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Table view">
+          <span class="ctrl-label">View //</span>
+          <button class="tbtn" type="button" id="pm-gaps" aria-pressed="false">Show only the gaps</button>
+          <span class="pm-count" id="pm-count" aria-live="polite">8 checks &middot; 9 of 16 met in full</span>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Source: the two apps&rsquo; public pages (<a href="https://medcode.askaconsult.com/app/">medcode.askaconsult.com/app</a>, <a href="https://ahrazzle.github.io/nutrak/">ahrazzle.github.io/nutrak</a>) and the <a href="https://github.com/ahrazzle/nutrak">Nutrak repository</a>, checked 14 Oct 2026. Sizes measured by us.</span></figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <!-- 00 WHY -->
+  <section class="sec" id="why" data-index="Why a commons" data-num="00" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>Why a commons</p><span class="chip">Aska Digital essays &middot; not peer reviewed</span></div>
+      <h2 class="h2" id="why-h">The money skips the public good.</h2>
+      <p class="lede">Software costs almost nothing to copy, so a useful tool could reach everyone. In practice it reaches whoever someone can bill.</p>
+      <div class="why-grid">
+        <div class="prose">
+          <p>In <a href="https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html"><em>The Money Skips the Public Good</em></a> (19 August 2026), Aska Digital read Canada&rsquo;s &ldquo;AI for All&rdquo; strategy line by line. Its equity, its loans and its adoption subsidies all pay for AI that can bill for itself: &ldquo;Every pipeline the strategy built requires the thing it funds to be able to price its own value.&rdquo; What falls through is &ldquo;the AI that helps a community without a payer, the literacy that has no invoice, the inclusion nobody can bill for.&rdquo; The essay&rsquo;s remedy is about structure, not slogans: &ldquo;make the good legally un-ownable, and then it can be funded without being bought.&rdquo;</p>
+          <p>A week later, <a href="https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html"><em>The Institution Is the Bottleneck</em></a> (27 August 2026) asked why health care, schools and governments keep failing to adopt tools that work. Its answer: &ldquo;a technology inherits the incentive structure of the institution it lands in, and it will not outrun it.&rdquo; It ends with a test worth putting to any free tool, including ours: &ldquo;who is accountable for the outcome, in what unit, and what happens to them if it does not improve?&rdquo;</p>
+          <p>The commons is where Foundation0 tries to act on both essays. We are at the start. The two apps below are real, free and honest about their limits, but neither has yet been built with, or tested by, the people the commons is for. We say so in every section.</p>
+        </div>
+        <div>
+          <p class="label">What we hold a commons tool to</p>
+          <ol class="principles cm-rules">
+            <li><h3><span>01</span>Free, with no account</h3><p>Nothing to pay and nothing to sign up for; the tool is the whole product.</p></li>
+            <li><h3><span>02</span>Your data stays with you</h3><p>The work happens on your device. Nothing personal is sent to a server.</p></li>
+            <li><h3><span>03</span>Small enough for a weak connection</h3><p>A slow or expensive connection should not decide who can use it.</p></li>
+            <li><h3><span>04</span>Shows its working</h3><p>Every number has a receipt: where it came from and what kind of number it is.</p></li>
+            <li><h3><span>05</span>Says what it cannot do</h3><p>Unbuilt features say so. A guess is labelled a guess.</p></li>
+            <li><h3><span>06</span>Has an owner and a measure</h3><p>Someone named, accountable for a stated result, in a stated unit.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <figure class="fig frame wc" aria-labelledby="wc-t">
+        <div class="fig-head">
+          <p class="fig-title" id="wc-t">Promise 03, measured: the wait on a weak connection</p>
+          <p class="fig-how"><b>How to read:</b> each bar is the time to download what a first visit needs before the tool can be used, at the connection speed you pick. Bars share one scale, and each is labelled with its time.</p>
+        </div>
+        <div class="fig-ctrl wc-ctrl" role="group" aria-label="Connection speed">
+          <span class="ctrl-label">Link //</span>
+          <div class="seg" id="wc-speed" role="group" aria-label="Connection speed"><button type="button" data-k="50" aria-pressed="true">Slow &middot; 50 kB/s</button><button type="button" data-k="400" aria-pressed="false">Modest &middot; 400 kB/s</button><button type="button" data-k="2500" aria-pressed="false">Good &middot; 2.5 MB/s</button></div>
+        </div>
+        <ul class="wc-bars" id="wc-bars" aria-live="polite"></ul>
+        <figcaption class="fig-foot"><span class="fig-src">Sizes over the wire, measured by us on 14&ndash;15 Oct 2026: Nutrak&rsquo;s app (26 KB compressed) plus its demo data (4 KB compressed); MedCode&rsquo;s three code tables (1.22 MB with Brotli compression), before its own page and code. The median mobile web page was 2,629 KB in the <a href="https://httparchive.org/reports/page-weight">HTTP Archive</a> crawl of 1 Sep 2026. Speeds are round, assumed figures; real links vary, and a lost connection costs more than a slow one.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 01 MEDCODE -->
+  <section class="sec alt" id="medcode" data-index="MedCode" data-num="01" aria-labelledby="mc-h" style="--acc:var(--acc-medcode)">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>MedCode &middot; Aska Digital</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Research snapshot &middot; 3 Oct 2026</span><span class="badge n">Demo not clinically validated</span><span class="badge n">Not peer reviewed</span></div></div>
+      <h2 class="h2" id="mc-h">MedCode: accuracy needs evidence.</h2>
+      <p class="lede">AI tools now offer to turn US doctors&rsquo; notes into billing codes, and many advertise high accuracy. Aska Digital&rsquo;s MedCode study asked a plain question: who checked?</p>
+      <div class="split mc-split">
+        <div class="prose">
+          <p>In the United States every doctor&rsquo;s visit is turned into short codes before anyone is paid. The codes decide what a clinic receives, so a wrong one costs money either way: a missed code underpays the clinic, and a code the notes do not support invites an audit. Dozens of companies now sell AI that reads the notes and picks the codes.</p>
+          <p>MedCode is two things. Its research page maps 25 vendors in four camps and tags every figure in its vendor table by how well it is supported. As of 3 October 2026 it found &ldquo;no publicly available independent head-to-head accuracy audit among the 25 vendors reviewed&rdquo;, and adds that this is &ldquo;a research finding about the sources reviewed, not a product accuracy certification.&rdquo;</p>
+          <aside class="callout def"><p class="c-k">Plain words</p><p>A <dfn>head-to-head audit</dfn> is an outside group running several tools on the same notes and scoring them against codes that experts chose without seeing the tools&rsquo; answers (a <dfn>blinded evaluation</dfn>). Without one, &ldquo;95% accurate&rdquo; is a sentence, not a measurement.</p></aside>
+          <p>Its free demo searches 161,282 official US code entries inside your browser: the CMS diagnosis and hospital-procedure lists for fiscal 2026 and the October 2026 list of supplies and services. It matches keywords, says plainly that a keyword match is not a probability of correct coding, and asks you to use made-up, de-identified examples only.</p>
+          <aside class="callout caveat"><p class="c-k">Who it is for, honestly</p><p>MedCode was built for the US billing system and the US market, not yet for the commons&rsquo; wider audience. It belongs here because it is free, and because its lesson travels: when software moves money or care, trust has to come from published measurement.</p></aside>
+          <h3>What is real today</h3>
+          <dl class="kv nk-kv mc-kv">
+            <dt>Live</dt><dd>The research page (snapshot 3 Oct 2026) and a free demo that runs in your browser, with no account.</dd>
+            <dt>Data</dt><dd>161,282 official US code entries, from CMS files the demo labels historical (fiscal 2026) and the October 2026 supplies list.</dd>
+            <dt>Code</dt><dd>Private for now; open source when ready to ship.</dd>
+            <dt>Not yet</dt><dd>Clinical validation, an independent accuracy test, peer review. Not for real patient data.</dd>
+          </dl>
+        </div>
+        <figure class="shots mc-shots" aria-labelledby="mc-shots-t">
+          <p class="label" id="mc-shots-t">The real thing</p>
+          <a class="shot frame" href="https://medcode.askaconsult.com/"><img src="img/medcode-research.jpg" width="1280" height="700" loading="lazy" decoding="async" alt="The MedCode research page: the headline 'Accuracy needs evidence', a summary saying the review of 25 vendors found no publicly available independent head-to-head accuracy audit as of 3 October 2026, and a button to try the coding demo."><span class="shot-cap">Research page &middot; medcode.askaconsult.com</span></a>
+          <a class="shot frame" href="https://medcode.askaconsult.com/app/"><img src="img/medcode-demo.jpg" width="1280" height="700" loading="lazy" decoding="async" alt="The MedCode demo's opening screen: 'Explore the case. Review the codes.', a note that the fiscal 2026 code files are a dated snapshot, and buttons to explore a case or look up codes."><span class="shot-cap">Demo &middot; medcode.askaconsult.com/app</span></a>
+          <figcaption class="fig-foot"><span>Screenshots captured by Foundation0 from the public site on 14 Oct 2026 (light theme).</span></figcaption>
+        </figure>
+      </div>
+      <ul class="statrow" aria-label="MedCode in numbers">
+        <li><div class="v">25</div><div class="k">AI medical-coding vendors reviewed, in four camps (snapshot 3 Oct 2026)</div><span class="src"><a href="https://medcode.askaconsult.com/">medcode.askaconsult.com</a></span></li>
+        <li><div class="v">0</div><div class="k">public, independent, head-to-head accuracy audits found among those 25</div><span class="src"><a href="https://medcode.askaconsult.com/">medcode.askaconsult.com</a></span></li>
+        <li><div class="v">18 of 67</div><div class="k">evidence tags in the vendor table marked verified (33 unverified, 16 vendor claim only)</div><span class="src">counted by us from the <a href="https://medcode.askaconsult.com/">vendor table</a></span></li>
+        <li><div class="v">161,282</div><div class="k">official US code entries the demo searches in your browser (74,719 + 79,115 + 7,448)</div><span class="src">counted by us from the demo&rsquo;s public data files</span></li>
+      </ul>
+      <p class="links-row"><a href="https://medcode.askaconsult.com/">The research page</a><a href="https://medcode.askaconsult.com/app/">Try the demo</a><a href="https://www.gao.gov/products/gao-26-109116">GAO-26-109116 (July 2026)</a><a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes">CMS code files</a></p>
+    </div>
+  </section>
+
+  <!-- 02 CODE ANATOMY -->
+  <section class="sec" id="anatomy" data-index="A compressed sentence" data-num="02" aria-labelledby="ca-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Explainer &middot; code anatomy</p><span class="chip">Real codes &middot; CMS FY2027</span></div>
+      <h2 class="h2" id="ca-h">A diagnosis is a compressed sentence.</h2>
+      <p class="lede">Before you can judge an AI coder, see what it has to get right. A billing code is not a label. It is a sentence about body, side and time, packed into three to seven characters.</p>
+      <div class="prose narrow">
+        <p>The US diagnosis list, ICD-10-CM, is published by the Centers for Medicare &amp; Medicaid Services (CMS). For fiscal 2027, which began on 1 October 2026, it has 74,879 billable codes. The first character names a chapter, the next two a category, the next up to three add detail such as cause, site or side, and a seventh character can say which visit this is. Almost right is simply wrong: a left ankle coded as the right, or a follow-up coded as a first visit, is a different sentence.</p>
+      </div>
+
+      <figure class="fig frame ca wide-fig" aria-labelledby="ca-t">
+        <div class="fig-head">
+          <p class="fig-title" id="ca-t">Read a code, character by character</p>
+          <p class="fig-how"><b>How to read:</b> pick a code. Each character&rsquo;s meaning is listed under it; point at or Tab to a character to light its line. For the ankle sprain, change the side and the visit and watch one injury turn into nine codes.</p>
+        </div>
+        <div class="fig-ctrl ca-pick" role="group" aria-label="Choose a code">
+          <span class="ctrl-label">Code //</span>
+          <div class="seg ca-seg" id="ca-codes"><button type="button" data-c="ankle" aria-pressed="true">Ankle sprain</button><button type="button" data-c="e119" aria-pressed="false">Diabetes</button><button type="button" data-c="i10" aria-pressed="false">Blood pressure</button><button type="button" data-c="duck" aria-pressed="false">Struck by duck</button><button type="button" data-c="jet" aria-pressed="false">Jet engine</button><button type="button" data-c="lamp" aria-pressed="false">Lamppost</button></div>
+        </div>
+        <div class="ca-body">
+          <div class="ca-main">
+            <div class="ca-code" id="ca-code" role="group" aria-label="The code, character by character"></div>
+            <p class="ca-desc" id="ca-desc" aria-live="polite"></p>
+            <ol class="ca-list" id="ca-list"></ol>
+          </div>
+          <div class="ca-side" id="ca-side">
+            <div class="fig-ctrl ca-build" role="group" aria-label="Build the ankle code">
+              <div class="ctrl"><span>Side</span><div class="seg" id="ca-sideseg"><button type="button" data-v="1" aria-pressed="true">Right</button><button type="button" data-v="2" aria-pressed="false">Left</button><button type="button" data-v="9" aria-pressed="false">Unspecified</button></div></div>
+              <div class="ctrl"><span>Visit</span><div class="seg" id="ca-visitseg"><button type="button" data-v="A" aria-pressed="true">First</button><button type="button" data-v="D" aria-pressed="false">Follow-up</button><button type="button" data-v="S" aria-pressed="false">Sequela</button></div></div>
+            </div>
+            <table class="ca-grid" id="ca-grid"><caption>One sprain of one ligament: nine billable codes</caption><thead><tr><th scope="col"><span class="sr-only">Side</span></th><th scope="col">First visit</th><th scope="col">Follow-up</th><th scope="col">Sequela</th></tr></thead><tbody></tbody></table>
+            <p class="ca-note" id="ca-note">Side and visit are often written in other words: &ldquo;L ankle&rdquo;, &ldquo;back for a check&rdquo;. A keyword search for &ldquo;ankle sprain&rdquo; finds all nine and cannot tell which one the note means. <a href="#kw-t">Watch a keyword matcher try</a>.</p>
+          </div>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes">CMS, 2027 ICD-10-CM code descriptions in tabular order</a> (in effect 1 Oct 2026 to 30 Sep 2027). Every code shown is real and billable. The MedCode demo still uses the fiscal 2026 files, which it labels historical.</span></figcaption>
+      </figure>
+
+      <figure class="fig frame ca2 wide-fig" aria-labelledby="ca2-t">
+        <div class="fig-head">
+          <p class="fig-title" id="ca2-t">Where the 74,879 diagnosis codes live</p>
+          <p class="fig-how"><b>How to read:</b> one column per first letter, height is the number of codes. The two injury letters are highlighted. Point at a column for its chapter and count.</p>
+        </div>
+        <div class="fig-stage auto ca2-stage" id="ca2-stage"></div>
+        <ul class="statrow ca2-stats">
+          <li><div class="v">55%</div><div class="k">of all codes start with S or T, the injury letters (41,187): every injury is multiplied by body part, side and visit</div></li>
+          <li><div class="v">51,587</div><div class="k">codes are the full seven characters long</div></li>
+          <li><div class="v">23,738</div><div class="k">descriptions contain the word &ldquo;unspecified&rdquo;, an honest code for &ldquo;the notes do not say&rdquo;</div></li>
+        </ul>
+        <figcaption class="fig-foot"><span class="fig-src">Source: counted by us from <a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes">CMS&rsquo;s 2027 ICD-10-CM code descriptions</a> (74,879 billable codes).</span></figcaption>
+        <details class="twin"><summary>Show the counts</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table">
+<table class="tbl" id="ca2-table"><caption>Billable ICD-10-CM codes by first letter, fiscal 2027</caption><thead><tr><th scope="col">Letter</th><th scope="col">Chapter, in plain words</th><th scope="col" class="n">Codes</th><th scope="col" class="n">Share</th></tr></thead><tbody></tbody></table></div>
+        </details>
+      </figure>
+
+      <div class="prose narrow kw-intro">
+        <h3>Why matching words is not enough</h3>
+        <p>MedCode&rsquo;s demo matches keywords in a note, and says so on screen: &ldquo;Keyword evidence, not clinical confidence.&rdquo; The figure below is the simplest keyword matcher we could write, run on 270 real ankle and foot codes. It counts shared words and nothing else. Try the three notes, or write your own.</p>
+      </div>
+      <figure class="fig frame kw wide-fig" aria-labelledby="kw-t">
+        <div class="fig-head">
+          <p class="fig-title" id="kw-t">A keyword matcher reads a note</p>
+          <p class="fig-how"><b>How to read:</b> type a short note or pick one. The list shows the five codes that share the most words with it, with the shared words marked; codes with the same score share a rank (&ldquo;=1&rdquo;). The line below says where the right code landed.</p>
+        </div>
+        <p class="kw-badges"><span class="badge n">Foundation0 illustration &middot; not MedCode&rsquo;s engine</span><span class="badge n">Made-up notes only</span></p>
+        <div class="fig-ctrl kw-ctrl" role="group" aria-label="The note">
+          <label class="ctrl kw-field"><span>Note</span><input class="kw-input" type="text" id="kw-q" value="sprain of left ankle, follow-up" autocomplete="off" spellcheck="false" maxlength="120"></label>
+          <div class="seg kw-presets" id="kw-presets" role="group" aria-label="Try a note"><button type="button" data-p="0" aria-pressed="true">Left ankle, follow-up</button><button type="button" data-p="1" aria-pressed="false">No fracture</button><button type="button" data-p="2" aria-pressed="false">Rolled my ankle</button></div>
+        </div>
+        <ol class="kw-list" id="kw-list" aria-label="Top five matches"></ol>
+        <p class="kw-read" id="kw-read" aria-live="polite"></p>
+        <figcaption class="fig-foot"><span class="fig-src">Codes: <a href="ankle-codes.json">commons/ankle-codes.json</a>, 270 billable codes copied from <a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes">CMS&rsquo;s 2027 ICD-10-CM descriptions</a> (ankle sprains and dislocations, ankle and foot strains and bruises, some ankle and heel fractures, ankle pain, stiffness and instability). The matcher is ours, written for this page; it is not MedCode&rsquo;s. Never type real patient details into any tool like this.</span></figcaption>
+        <details class="twin"><summary>How the matcher scores</summary>
+          <ol class="kw-rules">
+            <li>Split the note and every description into lower-case words; drop small words such as &ldquo;of&rdquo;, &ldquo;the&rdquo; and &ldquo;my&rdquo;.</li>
+            <li>A code&rsquo;s score is the number of the note&rsquo;s words that appear in its description. No synonyms, no word endings, no grammar.</li>
+            <li>Rank by score; equal scores share a rank. Within a shared rank the list follows code order, which says nothing about the note.</li>
+          </ol>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 03 EVIDENCE -->
+  <section class="sec alt" id="evidence" data-index="Who checked the claim?" data-num="03" aria-labelledby="ev-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>Explainer &middot; the evidence ledger</p><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Snapshot &middot; 3 Oct 2026</span></div>
+      <h2 class="h2" id="ev-h">Who checked the claim?</h2>
+      <p class="lede">In a market that sells accuracy, the useful question is not &ldquo;how accurate?&rdquo; but &ldquo;says who?&rdquo;</p>
+      <div class="prose narrow">
+        <p>MedCode&rsquo;s vendor table tags each figure it reports (customers, prices, accuracy, funding) by its support: <b>verified</b> against a named source, <b>unverified</b> because it could not be corroborated, or <b>vendor claim</b>, resting only on the company&rsquo;s own word. We counted the tags on the public page. Here they are, company by company, with the names removed: the point is the pattern, and the snapshot is a few weeks old. The names are on <a href="https://medcode.askaconsult.com/">MedCode&rsquo;s page</a>.</p>
+      </div>
+
+      <figure class="fig frame ev wide-fig" aria-labelledby="ev-t">
+        <div class="fig-head">
+          <p class="fig-title" id="ev-t">67 tagged figures from 25 vendors</p>
+          <p class="fig-how"><b>How to read:</b> one row per vendor, one mark per tagged figure: a filled circle is verified, a dashed ring unverified, a diamond the vendor&rsquo;s own claim. Filter by the kind of product, or dim everything that was not verified. With the keyboard, Tab to the first vendor and move with the arrow keys.</p>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Filters">
+          <span class="ctrl-label">Filter //</span>
+          <div class="seg ev-seg" id="ev-modes"><button type="button" data-m="all" aria-pressed="true">All 25</button><button type="button" data-m="auto" aria-pressed="false">Autonomous</button><button type="button" data-m="assist" aria-pressed="false">Assistive</button><button type="button" data-m="services" aria-pressed="false">Services</button><button type="button" data-m="scribe" aria-pressed="false">Scribe</button><button type="button" data-m="platform" aria-pressed="false">Platform</button></div>
+          <button class="tbtn" type="button" id="ev-only" aria-pressed="false">Only verified</button>
+        </div>
+        <div class="ev-body">
+          <div class="ev-summary">
+            <div class="ev-zero"><span class="v">0</span><span class="k">public, independent, head-to-head accuracy audits found among the 25 (as of 3 Oct 2026)</span></div>
+            <div class="ev-bar" id="ev-bar" role="img"></div>
+            <ul class="vlegend ev-legend" id="ev-legend"></ul>
+            <blockquote class="ev-quote"><p>&ldquo;There are few independent studies evaluating the accuracy of these tools.&rdquo;</p><footer>US Government Accountability Office, <a href="https://www.gao.gov/products/gao-26-109116"><cite>AI for Medical Notes and Coding</cite></a>, GAO-26-109116, 16 July 2026</footer></blockquote>
+          </div>
+          <div class="ev-rows" id="ev-rows"></div>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Source: counted by Foundation0 from the vendor table on <a href="https://medcode.askaconsult.com/">medcode.askaconsult.com</a> (snapshot 3 Oct 2026; the page notes it was not fully rechecked on 12 Oct). Product kinds follow the table&rsquo;s &ldquo;Mode&rdquo; column; vendors that do both are under Platform.</span></figcaption>
+        <details class="twin"><summary>Show the counts</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table">
+<table class="tbl" id="ev-table"><caption>Evidence tags per vendor (names removed)</caption><thead><tr><th scope="col">Vendor</th><th scope="col">Kind</th><th scope="col" class="n">Verified</th><th scope="col" class="n">Unverified</th><th scope="col" class="n">Vendor claim</th></tr></thead><tbody></tbody></table></div>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 04 NUTRAK -->
+  <section class="sec" id="nutrak" data-index="Nutrak" data-num="04" aria-labelledby="nk-h" style="--acc:var(--acc-nutrak)">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Nutrak &middot; Aska Digital</p><div class="badges"><span class="badge d"><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Live demo</span><span class="badge n">Not clinically validated</span><span class="badge n">Target engine not public</span></div></div>
+      <h2 class="h2" id="nk-h">Nutrak: a tracker that shows its work.</h2>
+      <p class="lede">Most trackers give one confident number and turn red the moment a day falls short. Nutrak puts a plain-words receipt under every target, and judges vitamins and minerals on a week of eating, never on a single day.</p>
+      <div class="split nk-split">
+        <div class="prose">
+          <p>&ldquo;How much calcium do I need?&rdquo; sounds like it has one answer. It does not: needs differ from person to person, and what you ate is uncertain too. Nutrak&rsquo;s code calls its answer a &ldquo;trust contract&rdquo;, with five rules:</p>
+          <ol class="nk-rules">
+            <li><b>Every number carries a receipt.</b> A &ldquo;why this number?&rdquo; button explains, in words, which official table a target came from and what kind of number it is, with 26 linked glossary terms.</li>
+            <li><b>Energy is a range, never a point:</b> 2,645&ndash;3,045 kcal a day for the demo person.</li>
+            <li><b>Judge the week.</b> Vitamins and minerals are judged on a 7-day (or 30-day) average. <a href="#week">See why below</a>.</li>
+            <li><b>Missing is not low.</b> A nutrient you have not logged shows &ldquo;no data&rdquo;, never 0% or &ldquo;under&rdquo;.</li>
+            <li><b>A guess is a proposal.</b> A photo estimate appears as an amber &ldquo;estimate &mdash; edit to confirm&rdquo; and never enters your log until you approve it.</li>
+          </ol>
+          <h3>What is real today</h3>
+          <dl class="kv nk-kv">
+            <dt>Live</dt><dd>Free, installable, works offline after the first visit; your log stays in your browser. Front end MIT-licensed.</dd>
+            <dt>Targets</dt><dd>A captured snapshot for one example person (a 35-year-old man), computed on 30 Aug 2026 by an engine that is not public yet. The numbers you type do not change them, and the app says so.</dd>
+            <dt>Previews</dt><dd>Photo, barcode and free-text logging. The photo flow uses a fixed example and recognizes nothing.</dd>
+            <dt>Checks</dt><dd>81 trust-contract checks and 42 install-and-offline checks in the repository, all passing when re-run for this page. The public history records a reviewer&rsquo;s blocking finding: the test command had been skipping the second set.</dd>
+            <dt>Not yet</dt><dd>Clinical validation, a user study, peer review. It is not medical advice.</dd>
+            <dt>For the commons</dt><dd>Free, offline and small, which suits a weak connection. But English only, energy only in kcal, and no food database, so you must know what your food contains.</dd>
+          </dl>
+        </div>
+        <figure class="shots nk-shots" aria-labelledby="nk-shots-t">
+          <p class="label" id="nk-shots-t">The real thing</p>
+          <div class="nk-pair">
+            <a class="shot frame" href="https://ahrazzle.github.io/nutrak/#/adequacy"><img src="img/nutrak-adequacy.jpg" width="540" height="1169" loading="lazy" decoding="async" alt="Nutrak's Adequacy screen on a phone: 7-day rolling targets, with nutrients marked no-data, approaching (calcium, 78% of the 1000 mg RDA, EAR 800) and good."><span class="shot-cap">Adequacy, 7-day</span></a>
+            <a class="shot frame" href="https://ahrazzle.github.io/nutrak/#/adequacy"><img src="img/nutrak-why.jpg" width="540" height="1169" loading="lazy" decoding="async" alt="Nutrak's 'Why this number?' sheet for calcium: it compares the 7-day average against the RDA of 1000 mg, explains that the pill only changes after a sustained band, and defines EAR and NAR, with linked terms."><span class="shot-cap">&ldquo;Why this number?&rdquo; for calcium</span></a>
+          </div>
+          <figcaption class="fig-foot"><span>Screenshots captured by Foundation0 from the live app on 14 Oct 2026 (phone size).</span></figcaption>
+        </figure>
+      </div>
+      <ul class="statrow" aria-label="Nutrak in numbers">
+        <li><div class="v">2,645&ndash;3,045</div><div class="k">kcal a day: energy shown as a range, never a single number (demo person)</div><span class="src"><a href="https://ahrazzle.github.io/nutrak/demo/fixture.json">demo/fixture.json</a></span></li>
+        <li><div class="v">5 &rarr; 1</div><div class="k">calcium&rsquo;s light changes 5 times in the demo week if judged daily; the 7-day average gives one steady signal</div><span class="src">computed by us from <a href="https://ahrazzle.github.io/nutrak/demo/fixture.json">the demo data</a></span></li>
+        <li><div class="v">35</div><div class="k">nutrients with a target, each with a &ldquo;why this number?&rdquo; receipt</div><span class="src"><a href="https://ahrazzle.github.io/nutrak/demo/fixture.json">demo/fixture.json</a></span></li>
+        <li><div class="v">26 KB</div><div class="k">the app&rsquo;s page, code, styles and glossary, compressed (86 KB raw); the demo data adds 45 KB</div><span class="src">measured by us, 14 Oct 2026</span></li>
+      </ul>
+      <p class="links-row"><a href="https://ahrazzle.github.io/nutrak/">Open the app</a><a href="https://github.com/ahrazzle/nutrak">Repository &middot; ahrazzle/nutrak (MIT)</a><a href="https://ahrazzle.github.io/nutrak/src/glossary.json">The glossary</a></p>
+    </div>
+  </section>
+
+  <!-- 05 WEEK -->
+  <section class="sec alt" id="week" data-index="A week is a signal" data-num="05" aria-labelledby="wk-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Explainer &middot; noise and signal</p><span class="chip">Real demo data &middot; 24&ndash;30 Aug 2026</span></div>
+      <h2 class="h2" id="wk-h">One day is noise. A week is a signal.</h2>
+      <p class="lede">Your body stores calcium, so one low day says almost nothing about you. A tracker that judges every day raises five alarms in an ordinary week; one that judges the week gives one calm, honest signal.</p>
+      <div class="prose narrow">
+        <p>These are the demo person&rsquo;s logged calcium values for one week, from Nutrak&rsquo;s public demo data. The light uses Nutrak&rsquo;s own thresholds against the 1,000 mg target: below 75% is &ldquo;under&rdquo;, below 100% is &ldquo;approaching&rdquo;, and 100% or more is &ldquo;good&rdquo;.</p>
+      </div>
+
+      <figure class="fig frame wk wide-fig" aria-labelledby="wk-t">
+        <div class="fig-head">
+          <p class="fig-title" id="wk-t">Calcium, judged by the day or by the week</p>
+          <p class="fig-how"><b>How to read:</b> each column is one day&rsquo;s calcium in milligrams; the shaded bands are Nutrak&rsquo;s under, approaching and good. Judged by the day, the light below each column flips as the week goes on. Switch to the week to see one verdict. Then try one huge day.</p>
+        </div>
+        <div class="wk-top">
+          <div class="wk-pill" id="wk-pill" aria-live="polite"></div>
+          <div class="wk-flips" id="wk-flips"></div>
+        </div>
+        <div class="fig-stage auto wk-stage" id="wk-stage"></div>
+        <div class="fig-ctrl" role="group" aria-label="Calcium controls">
+          <span class="ctrl-label">Ctrl //</span>
+          <div class="seg" role="group" aria-label="Judge" id="wk-mode"><button type="button" data-m="day" aria-pressed="true">Judge each day</button><button type="button" data-m="week" aria-pressed="false">Judge the week</button></div>
+          <button class="tbtn play" type="button" id="wk-play" aria-pressed="false" aria-label="Play the week, day by day"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Play</span><span class="i-pause">Pause</span></span></button>
+          <label class="ctrl wk-range">Day <input class="range" type="range" id="wk-day" min="1" max="7" step="1" value="7"> <output id="wk-out" for="wk-day">Sun 30 Aug</output></label>
+          <button class="tbtn" type="button" id="wk-huge" aria-pressed="false">One huge day (5,000 mg)</button>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://ahrazzle.github.io/nutrak/demo/fixture.json">Nutrak demo data</a> (calcium per day: 549, 944, 728, 1,070, 685, 710 and 754 mg; the app reports the mean as 777.1 mg, 78% of the 1,000 mg RDA, &ldquo;approaching&rdquo;) and the thresholds in <a href="https://ahrazzle.github.io/nutrak/src/glossary.json">its glossary</a>. The huge day is our test, not the app&rsquo;s.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table">
+<table class="tbl" id="wk-table"><caption>Calcium in the demo week</caption><thead><tr><th scope="col">Day</th><th scope="col" class="n">Calcium, mg</th><th scope="col" class="n">% of 1,000 mg</th><th scope="col">Judged that day</th></tr></thead><tbody></tbody></table></div>
+        </details>
+      </figure>
+      <aside class="callout note wk-note"><p class="c-k">An honest footnote</p><p>An average is calmer, not immune. Nutrak&rsquo;s glossary says one 5,000 mg calcium meal &ldquo;can&rsquo;t flip a pill&rdquo;; with a plain 7-day mean it can, from 777 mg (approaching) to 1,384 mg (good). A longer window, such as the app&rsquo;s 30-day option, dilutes one extreme day further.</p></aside>
+    </div>
+  </section>
+
+  <!-- 06 RDA -->
+  <section class="sec" id="rda" data-index="Enough for whom?" data-num="06" aria-labelledby="rd-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Explainer &middot; what a target means</p><span class="badge n">Model &middot; textbook rule</span></div>
+      <h2 class="h2" id="rd-h">Enough for whom?</h2>
+      <p class="lede">&ldquo;You need 1,000 mg of calcium a day&rdquo; sounds like a fact about you. It is a fact about a crowd.</p>
+      <div class="prose narrow">
+        <p>Nobody can measure one person&rsquo;s requirement directly, so scientists measure a group and describe the spread. The <dfn class="term">Estimated Average Requirement</dfn> (EAR) is the intake that meets the needs of half the people of an age and sex: 800 mg of calcium for adults aged 19 to 50. The <dfn class="term">Recommended Dietary Allowance</dfn> (RDA) sits about two <dfn class="term">standard deviations</dfn> higher (a standard deviation is the typical distance of a person from the average), so it covers nearly everyone, about 97.5%: 1,000 mg. The RDA is a safety margin for a population, not your personal need. That is why Nutrak also divides your average by the EAR (its &ldquo;adequacy ratio&rdquo;), not only by the RDA.</p>
+      </div>
+
+      <figure class="fig frame rc wide-fig" aria-labelledby="rc-t">
+        <div class="fig-head">
+          <p class="fig-title" id="rc-t">How many people does an intake cover?</p>
+          <p class="fig-how"><b>How to read:</b> the curve shows how calcium needs spread across adults aged 19 to 50: most people need about 800 mg, few need much less or much more. Slide the intake: the shaded part is the people whose need it meets. The dots below are the same share out of 40 people.</p>
+        </div>
+        <div class="rc-top">
+          <div class="rc-big"><span class="v" id="rc-pct">41%</span><span class="k" id="rc-say">of adults aged 19 to 50 would have their calcium need met by 777 mg a day</span></div>
+          <div class="rc-dots" id="rc-dots" role="img" aria-label=""></div>
+        </div>
+        <div class="fig-stage auto rc-stage" id="rc-stage"></div>
+        <div class="fig-ctrl" role="group" aria-label="Intake">
+          <span class="ctrl-label">Ctrl //</span>
+          <label class="ctrl rc-range">Intake <input class="range" type="range" id="rc-x" min="450" max="1250" step="1" value="777"> <output id="rc-out" for="rc-x">777 mg</output></label>
+          <div class="seg" role="group" aria-label="Jump to" id="rc-jump"><button type="button" data-x="800" aria-pressed="false">EAR</button><button type="button" data-x="1000" aria-pressed="false">RDA</button><button type="button" data-x="777" aria-pressed="true">Demo week</button></div>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src"><b>A model, labelled as one.</b> EAR 800 mg and RDA 1,000 mg for calcium are the NASEM values in <a href="https://ahrazzle.github.io/nutrak/demo/fixture.json">Nutrak&rsquo;s demo data</a>; &ldquo;RDA = EAR + 2 standard deviations&rdquo; is the rule in <a href="https://ahrazzle.github.io/nutrak/src/glossary.json">its glossary</a>. From those we assume needs follow a bell curve with a standard deviation of (1,000 &minus; 800) &divide; 2 = 100 mg. Real requirements need not be perfectly bell-shaped.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table">
+<table class="tbl" id="rc-table"><caption>Share of adults covered at a few intakes (model)</caption><thead><tr><th scope="col" class="n">Intake, mg a day</th><th scope="col" class="n">Share covered</th><th scope="col">Note</th></tr></thead><tbody></tbody></table></div>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 07 THE BAR -->
+  <section class="sec alt" id="bar" data-index="The bar ahead" data-num="07" aria-labelledby="bar-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>The bar ahead</p><span class="chip">What would change our labels</span></div>
+      <h2 class="h2" id="bar-h">The bar we have not reached yet.</h2>
+      <p class="lede">A commons tool earns trust the way any instrument does: by being measured by someone other than its maker.</p>
+      <ul class="next-list">
+        <li style="--acc:var(--acc-medcode)"><p class="label">MedCode</p><h3>A blinded, independent test</h3><p>The very evaluation the study found missing in the market: expert-coded notes, scored by someone outside Aska. And current code files: fiscal 2027 began on 1 October 2026.</p></li>
+        <li style="--acc:var(--acc-nutrak)"><p class="label">Nutrak</p><h3>A public engine and real users</h3><p>The target engine published, a food database, other languages and units, and a study with the people it is meant for.</p></li>
+        <li style="--acc:var(--bio)"><p class="label">Both</p><h3>An owner and a measure</h3><p>In the essay&rsquo;s sense: a named person accountable for a stated outcome, in a stated unit, with a consequence if it does not improve.</p></li>
+        <li style="--acc:var(--dig)"><p class="label">Personal finance</p><h3>Nothing built yet</h3><p>It is on the list of fields the commons should serve. When a tool exists, it will appear here with the same labels.</p></li>
+      </ul>
+      <nav class="prevnext" aria-label="More pages">
+        <a class="prev" href="../instruments/"><span>&larr; Previous</span>Instruments</a>
+        <a class="next" href="../writing/"><span>Next &rarr;</span>Writing</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../ledger/">The Ledger</a></li><li><a href="../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../research/">Research</a></li><li><a href="../instruments/">Instruments</a></li><li><a href="../commons/">Commons</a></li><li><a href="../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 14 Oct 2026</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

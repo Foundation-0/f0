@@ -2,7 +2,7 @@
 """Regression tests for Shaka QA findings F1-F5 (local, no network writes).
 
 Each finding gets a focused test:
-  F1  docs/ schema link resolves inside the Pages docroot (docs/ only), and the
+  F1  the dashboard's links resolve inside the Pages docroot (docs/ only), and the
       docroot copy is byte-identical to the authoritative root schema.
   F2  per-(pr, head_sha) identity/uniqueness invariant: duplicate composite keys
       in the ledger (records.json) must NOT propagate to feed/chart (emit raises),
@@ -29,6 +29,8 @@ import sys
 import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# The live kappa-race dashboard (moved from docs/index.html when the site became Foundation0).
+DASHBOARD = 'research/integer-multiplication/live/index.html'
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
 from fetch import (parse_kappa, build_record, merge_records, emit_views,
                    DOC_FRAME_RE)  # noqa: E402
@@ -93,19 +95,30 @@ def test_f1_docroot():
     port = httpd.server_address[1]
     t = threading.Thread(target=httpd.serve_forever, daemon=True)
     t.start()
+    import posixpath
+    import re
+    def serves(rel):
+        try:
+            return urllib.request.urlopen(f'http://127.0.0.1:{port}/{rel}').status
+        except urllib.error.HTTPError as e:
+            return e.code
     try:
-        for rel in ('index.html', 'feed.json', 'chart-data.json', 'method.html',
-                    'feed.schema.json'):
-            code = None
-            try:
-                r = urllib.request.urlopen(f'http://127.0.0.1:{port}/{rel}')
-                code = r.status
-            except urllib.error.HTTPError as e:
-                code = e.code
+        for rel in ('index.html', 'feed.json', 'chart-data.json', 'feed.schema.json',
+                    DASHBOARD, posixpath.join(posixpath.dirname(DASHBOARD), 'method.html')):
+            code = serves(rel)
             check(f"F1 docroot serves {rel}", code == 200, f"got {code}")
-        # the old ../ link must not escape the docroot target
-        html = open(os.path.join(docroot, 'index.html')).read()
-        check("F1 no ../feed.schema.json escape", '../feed.schema.json' not in html)
+        # every relative link and fetch in the dashboard must stay inside the docroot
+        # and resolve (the old bug: ../feed.schema.json escaped it from docs/index.html)
+        html = open(os.path.join(docroot, DASHBOARD)).read()
+        refs = re.findall(r'(?:href|src)="([^"#:${}]+)"', html)
+        refs += re.findall(r"fetch\('([^']+)'\)", html)
+        check("F1 dashboard links feed.schema.json", any(r.endswith('feed.schema.json') for r in refs))
+        base = posixpath.dirname(DASHBOARD)
+        for ref in refs:
+            target = posixpath.normpath(posixpath.join(base, ref))
+            check(f"F1 {ref} stays inside docroot", not target.startswith('..'), target)
+            code = serves(target)
+            check(f"F1 {ref} resolves", code == 200, f"{target} got {code}")
     finally:
         httpd.shutdown()
     # byte-identical schema copy

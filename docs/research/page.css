@@ -1,0 +1,105 @@
+/* Research index (research/): page styles. Tokens only; shared components live in assets/f0.css. */
+
+/* ---------- hero ---------- */
+.ri-hero .wrap { align-items: start; }
+.ri-hero .h1 { max-width: 12ch; }
+.ri-hero .dek { max-width: 54ch; }
+.ri-jump { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: var(--s-5); font: 500 12px/1.4 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; }
+.ri-jump a { padding: 8px 0; }
+.ri-noscript { padding: 18px; font: 400 var(--fs-sm)/1.55 var(--f-sans); color: var(--ink-2); }
+.ri-loop-fig { margin-top: var(--s-2); }
+.ri-loop-ctrl { align-items: flex-start; }
+.ri-loop-pick { display: flex; flex-wrap: wrap; gap: 6px; flex: 1 1 260px; min-width: 0; }
+.ri-loop-pick button { --acc: var(--ink-3); display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 0 10px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); background: transparent; color: var(--ink-2); cursor: pointer; font: 500 12px/1.2 var(--f-sans); text-align: left; }
+.ri-loop-pick button i { width: 8px; height: 8px; border-radius: 50%; background: var(--acc); flex: none; }
+.ri-loop-pick button:hover { color: var(--ink); border-color: var(--ink-3); }
+.ri-loop-pick button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.ri-loop-pick button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 760px) { .ri-loop-pick button { min-height: 44px; } }
+
+.ri-loop { --acc: var(--ink-3); margin-top: 12px; border: 1px solid var(--line); background: var(--bg-1); position: relative; }
+.ri-loop::before { content: ""; position: absolute; left: -1px; top: -1px; bottom: -1px; width: 2px; background: var(--acc); transition: background var(--t-ui) linear; }
+.ri-st-list { list-style: none; margin: 0; padding: 0; }
+.ri-st { position: relative; display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); grid-template-areas: "k k" "v d" "v s"; gap: 2px 16px; padding: 12px 16px 12px 22px; border-bottom: 1px solid var(--line); }
+.ri-st:last-child { border-bottom: 0; }
+.ri-st + .ri-st::before { content: ""; position: absolute; left: 26px; top: -7px; width: 7px; height: 7px; border-right: 1px solid var(--line-ui); border-bottom: 1px solid var(--line-ui); transform: rotate(45deg); background: var(--bg-1); }
+.ri-st .k { grid-area: k; display: flex; align-items: center; gap: 8px; font: 500 11px/1.4 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.ri-st .mk { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.ri-st.st-dig .mk { background: var(--dig); }
+.ri-st.st-bio .mk { background: var(--bio); }
+.ri-st.st-chk .mk { border-radius: 0; background: transparent; border: 1.5px solid var(--ink-2); transform: rotate(45deg) scale(.8); }
+.ri-st .v { grid-area: v; font: 500 clamp(21px, .8vw + 14px, 26px)/1.15 var(--f-mono); letter-spacing: -.02em; color: var(--ink); overflow-wrap: anywhere; align-self: start; margin-top: 2px; }
+.ri-st .d { grid-area: d; font: 400 var(--fs-sm)/1.45 var(--f-sans); color: var(--ink-2); }
+.ri-st .s { grid-area: s; font: 500 11px/1.4 var(--f-mono); letter-spacing: .02em; color: var(--ink-3); overflow-wrap: anywhere; }
+@media (max-width: 520px) { .ri-st { grid-template-columns: minmax(0, 1fr); grid-template-areas: "k" "v" "d" "s"; } }
+html[data-motion="on"] .ri-loop.swap .ri-st .v, html[data-motion="on"] .ri-loop.swap .ri-st .d { animation: ri-in var(--t-reveal) var(--ease-out) both; }
+html[data-motion="on"] .ri-loop.swap .ri-st:nth-child(2) .v, html[data-motion="on"] .ri-loop.swap .ri-st:nth-child(2) .d { animation-delay: 90ms; }
+html[data-motion="on"] .ri-loop.swap .ri-st:nth-child(3) .v, html[data-motion="on"] .ri-loop.swap .ri-st:nth-child(3) .d { animation-delay: 180ms; }
+@keyframes ri-in { from { opacity: .001; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.ri-loop-who { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 16px 12px 22px; border-top: 1px solid var(--line); font: 500 12.5px/1.4 var(--f-mono); color: var(--ink-2); }
+.ri-loop-who [data-who] { color: var(--ink); }
+.ri-loop-who a { margin-left: auto; padding: 6px 0; }
+.ri-src { color: var(--ink-3); font-size: 12px; }
+.ri-caps { font: 500 .78em/1 var(--f-mono); letter-spacing: .1em; color: var(--ink); }
+
+/* ---------- 00 how we work ---------- */
+.ri-how { margin-top: var(--s-6); }
+.ri-how .prose p b { color: var(--ink); }
+.ri-ladder-fig { margin: 0; }
+.ri-ladder { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.ri-ladder li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: start; padding: 12px 14px; background: var(--bg-2); }
+.ri-ladder li .ladder { height: 12px; margin-top: 3px; color: var(--ink-2); }
+.ri-ladder .nm { font: 500 12px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.ri-ladder .ds { font: 400 13px/1.45 var(--f-sans); color: var(--ink-2); margin-top: 2px; }
+.ri-rung { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.ri-chip { --acc: var(--ink-3); position: relative; display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px 0 12px; border: 1px solid var(--line-ui); background: var(--bg-1); color: var(--ink); text-decoration: none; font: 500 12.5px/1.2 var(--f-sans); }
+.ri-chip::before { content: ""; position: absolute; left: -1px; top: -1px; bottom: -1px; width: 3px; background: var(--acc); }
+.ri-chip:hover { border-color: var(--ink-3); text-decoration: underline; text-decoration-color: var(--acc); }
+.ri-none { font: 400 12.5px/1.4 var(--f-sans); color: var(--ink-3); font-style: italic; }
+@media (max-width: 760px) { .ri-chip { min-height: 40px; } }
+
+/* ---------- 01 / 02 cards ---------- */
+.ri-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: var(--s-6); }
+@media (max-width: 860px) { .ri-cards { grid-template-columns: minmax(0, 1fr); } }
+.ri-card { scroll-margin-top: 84px; }
+.ri-card .glyph { height: 132px; container-type: inline-size; }
+@container (max-width: 399px) { .ri-card .glyph .gr { top: 22px; right: auto; left: 8px; text-align: left; } }
+@media (max-width: 520px) { .ri-card .glyph { height: 150px; } }
+.ri-card .credit { font-size: 14.5px; }
+.ri-stats { position: relative; z-index: 2; list-style: none; margin: 14px 18px 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.ri-stats li { background: var(--bg-2); padding: 10px 12px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.ri-stats .v { font: 500 18px/1.2 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; }
+.ri-stats .k { font: 400 12.5px/1.45 var(--f-sans); color: var(--ink-2); }
+.ri-stats .s { margin-top: auto; padding-top: 2px; font: 500 11px/1.35 var(--f-mono); color: var(--ink-3); overflow-wrap: anywhere; }
+.ri-stats .s a { color: var(--ink-3); display: inline-flex; align-items: center; gap: 6px; }
+.ri-stats .s a:hover { color: var(--link); }
+.ri-stats .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--dig); flex: none; }
+.ri-stats .dot.stale { background: var(--ink-3); }
+html[data-motion="on"] .ri-stats .dot.live { animation: pulse 2.8s var(--ease-io) infinite; }
+@media (max-width: 420px) { .ri-stats { grid-template-columns: minmax(0, 1fr); } }
+.ri-card .links { margin-top: 2px; }
+
+/* ---------- 03 every repository ---------- */
+.ri-repo-ctrl { margin-top: var(--s-6); }
+.ri-repo-count { font: 500 12.5px/1.3 var(--f-mono); color: var(--ink); }
+/* cards in rows, read left to right; each worklist shows four entries, the rest behind "+N more" */
+.ri-mcards { margin-top: var(--s-5); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: clamp(16px, 2vw, 24px); align-items: start; }
+html.js .worklist li.ri-clip { display: none; }
+.ri-more { display: inline-flex; align-items: center; min-height: 36px; margin-top: 10px; padding: 0 12px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); background: transparent; color: var(--ink); cursor: pointer; font: 500 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; }
+.ri-more:hover { border-color: var(--ink-3); }
+.ri-more:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+html:not(.js) .ri-more { display: none; }
+@media (max-width: 760px) { .ri-more { min-height: 44px; } }
+.ri-repo-ctrl .seg button { white-space: nowrap; }
+.ri-repo-ctrl .seg .s { display: none; }
+@media (max-width: 480px) { .ri-repo-ctrl .seg .l { display: none; } .ri-repo-ctrl .seg .s { display: inline; } }
+.ri-mp { margin-top: 12px; font: 500 11px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.ri-mp a { display: block; margin-top: 4px; padding: 2px 0; font: 500 14px/1.35 var(--f-sans); letter-spacing: 0; text-transform: none; }
+.ri-bo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.ri-bo span { font: 500 11px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.ri-bo a { font: 400 13px/1.45 var(--f-sans); padding: 2px 0; }
+
+.mcard.ri-empty .worklist::after { content: "Nothing in this view."; display: block; padding: 10px 0; font: 400 13px/1.4 var(--f-sans); color: var(--ink-3); font-style: italic; }
+
+/* without JavaScript the pre-rendered content stays; controls that need the script are hidden */
+html:not(.js) .ri-loop-ctrl, html:not(.js) .ri-repo-ctrl, html:not(.js) .ri-loop-fig .fig-how, html:not(.js) .ri-card .glyph, html:not(.js) .ri-card .gcap { display: none; }
