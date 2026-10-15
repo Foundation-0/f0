@@ -24,8 +24,15 @@
     return esc(str).replace(/\^\(([^)]*)\)/g, '<sup>$1</sup>').replace(/\^([−-]?[0-9.]+)/g, function (m, e) { return '<sup>' + e.replace('-', '−') + '</sup>'; })
       .replace(/\^([A-Za-zθκδ′]+)/g, '<sup>$1</sup>').replace(/[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, function (m) { return '<sup>' + m.replace(/./g, function (c) { return U[c]; }) + '</sup>'; });
   }
-  var SUPC = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
-  function supTxt(n) { return String(n).replace(/[0-9]/g, function (c) { return SUPC[c]; }); }
+  /* canvas text with a real superscript: the exponent drawn smaller and raised, never Unicode superscript digits */
+  function fillSup(x, base, exp, px, py, size) {
+    var al = x.textAlign; x.textAlign = 'left';
+    var w0 = x.measureText(base).width;
+    x.fillText(base, px, py);
+    var f = x.font; x.font = mono(Math.max(9, Math.round(size * 0.78)));
+    x.save(); x.textBaseline = 'alphabetic'; x.fillText(exp, px + w0 + 0.5, py - size * 0.12); x.restore();
+    x.font = f; x.textAlign = al;
+  }
 
   /* ---------- presentation per project (all numbers either from projects.json or sourced here) ---------- */
   var P = {
@@ -37,30 +44,49 @@
       cap: 'A square, its diagonals, one dot per triangle at its incentre (the centre of the circle that fits inside it). Neighbouring dots end up √2 − 1 apart.',
       loop: [
         ['5 runs', 'an AI search loop went from density 0.4686 to the Kepler bound 0.7405 in about 11 minutes', 'autoresearch-fold/results.tsv'],
-        ['16,240', 'exact certificate coefficients, all ≥ 0, rule out every collision along the fold (3,248 tests)', 'results/fold-continuous-fcc/certificate.json'],
+        ['16,240', 'exact numbers, every one ≥ 0, that rule out a collision anywhere along the fold (3,248 pair tests)', 'results/fold-continuous-fcc/certificate.json'],
         ['v2', 'preprint published and signed by Ahraz Arifuddin on Zenodo, 13 Oct 2026; no person other than the author has checked the proofs yet', 'doi.org/10.5281/zenodo.23340326']
+      ],
+      /* the index's own wording for each card's numbers (plain words, as on the project page); each keeps its source */
+      stats: [
+        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json' },
+        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md' },
+        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md' },
+        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv' }
       ] },
     'exoplanets': {
       acc: '--acc-exoplanets', field: 'Astronomy', who: 'eumemic, with Aska',
-      credit: '<b>Founding member eumemic’s project</b>, built with Claude Code. Aska built the first version of its website and sent ten merged pull requests; one fix, restoring light curves the data reader had dropped (PR #6), led to a re-search that added 120 counted candidates.',
+      credit: '<b>Founding member eumemic’s project</b>, built with Claude Code. Aska sent ten merged pull requests, one of which built the first version of its website; one fix, restoring light curves the data reader had dropped (PR #6), led to a re-search that added 120 counted candidates.',
       glyph: 'stack', gk: 'SCHEMATIC · STACKING PASSES', gr: '',
       aria: 'Schematic: as more passes of a planet are stacked, simulated noise shrinks and a 398 parts-per-million dip in the star’s light stands out.',
       cap: 'Why stacking works: noise shrinks like 1/√N as passes are added, until a dip too small to see once stands out. The dip is TIC 4206066’s published 398 ppm, 1.7 h signal; the noise is simulated.',
       loop: [
         ['7,459,491', 'repeating dips found by the first full-sky search in NASA’s public TESS data', 'eumemic/exoplanets README.md, full-sky search table'],
-        ['13,986', 'of them passed all 17 LEO-Vetter tests', 'README.md, full-sky search table'],
+        ['13,986', 'of them matched no known planet or TESS Object of Interest and passed all 17 automated tests of LEO-Vetter, a published vetting tool', 'README.md, full-sky search table'],
         ['665', 'counted as planet candidates on 14 Oct 2026, each with predicted transit times anyone can test; none confirmed yet', 'README.md, note of 14 Oct 2026 (58c6318)']
+      ],
+      stats: [
+        { value: '4,039,203', label: 'stars searched in the full-sky search, using every TESS sector from 1 to 104 (2018 to 2026)', source: 'README.md, full-sky search table, at 58c6318', href: 'https://github.com/eumemic/exoplanets/blob/58c6318/README.md#full-sky-search-8-october-2026' },
+        { value: '665', label: 'planet candidates counted on 14 Oct 2026 (607 from the full-sky search, 58 from earlier ones); none confirmed', source: 'results_public/candidates_allsky.csv + tiers_earlier_candidates.csv at 58c6318', href: 'exoplanets/candidates.json' },
+        { value: '7,459,491 → 13,986', label: 'repeating dips found; of them, those that matched no known planet or TESS Object of Interest and passed all 17 automated tests of LEO-Vetter, a published vetting tool', source: 'README.md, full-sky funnel, at 58c6318', href: 'https://github.com/eumemic/exoplanets/blob/58c6318/results_public/funnel_allsky.csv' },
+        { value: '82%', label: 'of the full-sky candidates checked are on stars seen only in wide-field images, which NASA’s multi-sector search does not cover', source: 'validation/findability.md (404 of 494, 13 Oct 2026)', href: 'https://github.com/eumemic/exoplanets/blob/58c6318/validation/findability.md' }
       ] },
     'integer-multiplication': {
       acc: '--acc-intmult', field: 'Algorithms', who: 'Doug Colkitt + crowd',
       credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member rohanarun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
-      glyph: 'kappa', gk: 'LOG₂ κ · 23 SEP → 13 OCT', gr: 'log₂κ −9.22',
-      aria: 'Staircase of the exponent saving kappa on a halvings scale: from 2 to the minus 182 in the machine-written paper of 23 September to about 2 to the minus 9.22 on 13 October 2026.',
-      cap: 'Every reviewed record on a halvings scale, from the machine-written paper’s 2⁻¹⁸² to 2⁻⁹·²². All of them rest on that unreviewed paper.',
+      glyph: 'kappa', gk: 'LOG₂ κ · DATED 23 SEP → 13 OCT', gr: 'log₂κ −9.22',
+      aria: 'Staircase of the exponent saving kappa on a halvings scale: from 2 to the minus 182 in the machine-written paper dated 23 September to about 2 to the minus 9.22 on 13 October 2026.',
+      cap: 'Every reviewed record on a halvings scale, from the machine-written paper’s 2^-182 to 2^-9.22. All of them rest on that unreviewed paper.',
       loop: [
         ['1,334', 'pull requests opened by people and their agents in the first week', 'git ls-remote refs/pull/*/head, 13 Oct 2026'],
         ['47', 'assembly inequalities the current record passes in exact arithmetic, with independent owner and pricing audits', 'CrocSwap/integer-mult-bounds README, PR #1094 review'],
-        ['17', 'reviewed records selected by maintainer Doug Colkitt, 9 to 13 Oct; all conditional on the unreviewed manuscript', 'certificates/selected-result.json history']
+        ['17', 'reviewed records selected by maintainer Doug Colkitt, 9 to 13 Oct; all conditional on the unreviewed manuscript', 'certificates/selected-result.json history (20 commits, 17 distinct values)']
+      ],
+      stats: [
+        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member rohanarun', source: 'certificates/selected-result.json @ 0a31ad884' },
+        { value: '2^-182 → 2^-9.22', label: 'κ since the machine-written preprint dated 23 Sep 2026 (about 1.03×10^52 times larger)', source: 'upstream/build/sections/00-introduction.tex; log2 of selected κ (computed)' },
+        { value: '17', label: 'successive reviewed κ records in 5 days (9–13 Oct)', source: 'git log -- certificates/selected-result.json (20 commits, 17 distinct values)', href: 'https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json' },
+        { value: '1,334', label: 'pull requests opened upstream by 13 Oct 2026 (highest #1374)', source: 'git ls-remote origin refs/pull/*/head, 13 Oct 2026, about 23:40 UTC' }
       ] },
     'machine-mathematics': {
       acc: '--acc-mm', field: 'Mathematics', who: 'Members + crowd',
@@ -83,6 +109,12 @@
         ['3', 'versions of the claimed theorem, researched and drafted with Claude', 'mobius-x1 README.md, NOTICE'],
         ['0 / 3,456,000', 'failures in Aska’s full-network check of Theorem 2; Lean checks the arithmetic core', 'certificates/run_e1_rep_h10_bad0.txt'],
         ['0', 'human referees so far; it was refereed only by AI agents, and says so', 'mobius-x1 README.md']
+      ],
+      stats: [
+        { value: '4.37 × 10^-11', label: 'how far below 1 the claimed exponent drops: N·(log N)^θ′ with θ′ = 1 − 4.3713·10^-11 (Theorem 2)', source: 'README.md; Lean bound in lean/MobiusLean/Prepass.lean', href: 'https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md' },
+        { value: '0 / 3,456,000', label: 'failed checks in Aska’s full run of the network at label size h = 10 (all 43,200 runs of the step)', source: 'certificates/run_e1_rep_h10_bad0.txt', href: 'https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h10_bad0.txt' },
+        { value: '92', label: 'supporting theorems checked by Lean; the main theorem is not one of them', source: 'lean/axioms.out', href: 'https://github.com/Swapnil-jain/mobius-x1/blob/main/lean/axioms.out' },
+        { value: '0', label: 'human referees so far; AI referees read it (2 for Theorem 1, 1 each for Theorems 1′ and 2)', source: 'docs/RESULT.md', href: 'https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/RESULT.md' }
       ] },
     'gf2m-circuits': {
       acc: '--acc-gf2m', field: 'Cryptography', who: 'Swapnil Jain + Aska',
@@ -92,8 +124,16 @@
       cap: 'Each new multiplier is checked on all 65,536 input pairs and proved in Lean. Hollow mark: the 2010 record.',
       loop: [
         ['112', 'gates for an AES-field multiplier at depth 6, found by a search that scores every candidate wiring by total gates (2010 record: 117)', 'papers/Jain_GF2m_multipliers_2026.pdf, Table 1'],
-        ['65,536', 'input pairs every AES-field multiplier is tested on, all of them; 30 Lean proofs in all', 'multipliers/tools/verify.py; multipliers/lean, sbox/lean'],
+        ['65,536', 'input pairs every AES-field multiplier is tested on, all of them; 30 Lean proofs that circuits compute the right answer (their gate counts are not Lean-checked)', 'multipliers/tools/verify.py; multipliers/lean, sbox/lean'],
         ['2', 'papers posted in the repository by Swapnil Jain, who signs them; not peer reviewed', 'papers/ in the repository']
+      ],
+      /* the ladder ranks a project by its headline claim: the papers' gate counts are preprint claims, though every circuit's correctness is Lean-proved */
+      rung: 2, rungNote: 'Preprint: circuit correctness is Lean-proved; gate counts and comparisons are not.',
+      stats: [
+        { value: '117 → 112', label: 'gates to multiply in the AES field at the 2010 record’s depth (6); 107 if depth 13 is allowed (Jain 2026)', source: 'papers/Jain_GF2m_multipliers_2026.pdf Tables 1–2; re-verified with multipliers/tools/verify.py', href: 'https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf' },
+        { value: '106', label: 'gates for the AES S-box from AND, XOR and XNOR gates (Jain 2026, depth 24; the smallest found before was 110 at depth 22, NIST 2026)', source: 'papers/Jain_AES_Sbox_circuits_2026.pdf Table 1; sbox/verify_results.txt', href: 'https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf' },
+        { value: '109', label: 'gates for the inverse AES S-box (Jain 2026, depth 30; NIST 2026: 112 at depth 26)', source: 'papers/Jain_AES_Sbox_circuits_2026.pdf Table 1; sbox/verify_results.txt', href: 'https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/verify_results.txt' },
+        { value: '30', label: 'Lean 4 proofs that a circuit computes the right answer (19 multipliers, 11 S-boxes); gate counts and depths are not Lean-checked', source: 'multipliers/lean, sbox/lean and their .out files', href: 'https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean' }
       ] }
   };
   var ORDER_RESEARCH = ['incentre-lattice', 'exoplanets', 'integer-multiplication', 'machine-mathematics'];
@@ -172,7 +212,7 @@ var G = {
         var cy = T + rowH * (i + 0.5), bw = Math.max(2, (X(r[2]) - L0) * prog), th = Math.min(6, rowH * 0.5);
         x.fillStyle = tk('--ink-2'); x.textAlign = 'right'; x.fillText(r[0], L0 - 8, cy);
         x.fillStyle = acc; x.beginPath(); x.moveTo(L0, cy - th / 2); x.lineTo(L0 + bw - th / 2, cy - th / 2); x.arc(L0 + bw - th / 2, cy, th / 2, -Math.PI / 2, Math.PI / 2); x.lineTo(L0, cy + th / 2); x.closePath(); x.fill();
-        if (prog >= 1) { x.fillStyle = tk('--ink-3'); x.textAlign = 'left'; x.fillText(r[2] >= 3 ? '×10' + supTxt(Math.round(r[2])) : '×' + Math.pow(10, r[2]).toFixed(1), L0 + bw + 6, cy); }
+        if (prog >= 1) { x.fillStyle = tk('--ink-3'); x.textAlign = 'left'; if (r[2] >= 3) fillSup(x, '×10', String(Math.round(r[2])), L0 + bw + 6, cy, 11); else x.fillText('×' + Math.pow(10, r[2]).toFixed(1), L0 + bw + 6, cy); }
       });
       x.textBaseline = 'alphabetic';
       out(prog >= 1 ? '6 results' : '');
@@ -242,8 +282,9 @@ var G = {
 
   /* ---------- the hero figure: propose, check, decide ---------- */
   function loopFig(PJ) {
-    var stage = $('#loop-stage'), pick = $('#loop-pick'), play = $('#loop-play'), table = $('#loop-table');
+    var stage = $('#loop-stage'), pick = $('#loop-pick'), play = $('#loop-play'), table = $('#loop-table'), say = $('#loop-say');
     if (!stage || !pick) return;
+    stage.removeAttribute('aria-live');
     var by = {}; (PJ.projects || []).forEach(function (p) { by[p.slug] = p; });
     var list = LOOP_ORDER.filter(function (s) { return by[s] && P[s]; }), cur = 0;
     var SHORT = { 'integer-multiplication': 'Integer multiplication' };
@@ -265,7 +306,12 @@ var G = {
       $('[data-who]', stage).textContent = p.title + ' · ' + c.who;
       $('[data-st]', stage).innerHTML = F0.statusBadges(p.status, { ladder: 1 });
       var go = $('[data-go]', stage); go.href = rel(p.page); go.textContent = 'Open ' + p.title;
-      if (!fromPlay) stopPlay();
+      if (!fromPlay) { stopPlay(); announce(); }
+    }
+    function announce(pre) {
+      if (!say) return;
+      var c = P[list[cur]];
+      say.textContent = (pre || '') + by[list[cur]].title + ': ' + c.loop.map(function (r, k) { return STATIONS[k][0].toLowerCase() + ', ' + r[0] + ' ' + r[1]; }).join('; ') + '.';
     }
     pick.addEventListener('click', function (e) { var b = e.target.closest('button[data-i]'); if (b) show(+b.getAttribute('data-i')); });
     pick.addEventListener('keydown', function (e) {
@@ -278,17 +324,17 @@ var G = {
     });
     var t0 = 0, steps = 0, loop = F0.loop(function (now) {
       if (!t0) t0 = now;
-      if (now - t0 > 4200) { t0 = now; steps++; if (steps >= list.length) { stopPlay(); return; } show(cur + 1, true); }
+      if (now - t0 > 4200) { t0 = now; steps++; if (steps >= list.length) { stopPlay(); announce('Stopped on '); return; } show(cur + 1, true); }
     });
     function stopPlay() { loop.stop(); play.setAttribute('aria-pressed', 'false'); play.setAttribute('aria-label', 'Play through the six projects'); }
     play.addEventListener('click', function () {
-      if (loop.running) { stopPlay(); return; }
+      if (loop.running) { stopPlay(); announce('Paused on '); return; }
       if (!F0.motion()) { show(cur + 1); return; } // motion off: one step per press
       steps = 0; t0 = 0; show(cur + 1, true); loop.start();
       play.setAttribute('aria-pressed', 'true'); play.setAttribute('aria-label', 'Pause');
     });
-    F0.onMotion(function (on) { if (!on) stopPlay(); });
-    F0.onIdle(function (idle) { if (idle) stopPlay(); });
+    F0.onMotion(function (on) { if (!on && loop.running) { stopPlay(); announce('Paused on '); } });
+    F0.onIdle(function (idle) { if (idle && loop.running) { stopPlay(); announce('Paused on '); } });
     show(0, true);
     if (table) {
       table.innerHTML = '<table class="tbl"><caption>Each project at the three steps</caption><thead><tr><th scope="col">Project</th>' + STATIONS.map(function (s) { return '<th scope="col">' + esc(s[0]) + '</th>'; }).join('') + '</tr></thead><tbody>' +
@@ -297,21 +343,25 @@ var G = {
   }
 
   /* ---------- evidence ladder: each project on the rung its status gives it ---------- */
-  function rungOf(status) {
+  /* a project sits on the rung of its headline claim: the weakest rung any part of its status line names
+     (a Lean check of one part never lifts the whole), or the rung set above where the status line alone would overstate it */
+  function rungOf(p) {
+    if (P[p.slug] && P[p.slug].rung) return P[p.slug].rung;
     var r = 0;
-    String(status || '').split(/\s+·\s+/).forEach(function (seg) { var c = F0.classifyStatus(seg); if (c.rung > r) r = c.rung; });
+    String(p.status || '').split(/\s+·\s+/).forEach(function (seg) { var c = F0.classifyStatus(seg); if (c.rung && (!r || c.rung < r)) r = c.rung; });
     return r || 1;
   }
   function ladder(PJ) {
     $$('.ri-rung').forEach(function (h) { h.innerHTML = ''; });
     var list = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; });
     list.forEach(function (p) {
-      var host = $('.ri-rung[data-rung="' + rungOf(p.status) + '"]'); if (!host) return;
+      var host = $('.ri-rung[data-rung="' + rungOf(p) + '"]'); if (!host) return;
+      var note = P[p.slug] && P[p.slug].rungNote;
       var a = document.createElement('a');
       a.className = 'ri-chip'; a.href = '#card-' + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
       a.textContent = p.title;
-      a.setAttribute('aria-label', p.title + ': ' + p.status);
-      var tip = '<div class="tip-k">' + esc(p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + F0.statusBadges(p.status, { ladder: 1 }) + '</div></div>';
+      a.setAttribute('aria-label', p.title + ': ' + p.status + (note ? '. ' + note : ''));
+      var tip = '<div class="tip-k">' + esc(p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + F0.statusBadges(p.status, { ladder: 1 }) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
       a.addEventListener('pointerenter', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointermove', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointerleave', function () { F0.tip.hide(); });
@@ -334,10 +384,10 @@ var G = {
   }
   function cardHTML(p, M, FD) {
     var c = P[p.slug]; if (!c) return '';
-    var stats = p.slug === 'machine-mathematics' ? mmStats(FD) : (p.stats || []);
+    var stats = p.slug === 'machine-mathematics' ? mmStats(FD) : (c.stats || p.stats || []);
     var links = '<a href="' + esc(rel(p.page)) + '">On Foundation0</a>' + (p.links || []).map(function (l) { return '<a href="' + esc(rel(l.url)) + '">' + esc(l.label) + '</a>'; }).join('');
     var st = stats.slice(0, 4).map(function (s, i) {
-      var live = p.slug === 'integer-multiplication' && i === 0;
+      var live = s.live || (!c.stats && p.slug === 'integer-multiplication' && i === 0);
       return '<li' + (live ? ' data-kappa' : '') + '><span class="v"' + (live ? ' data-k-v' : '') + '>' + supHTML(s.value) + '</span><span class="k"' + (live ? ' data-k-k' : '') + '>' + supHTML(s.label) + '</span>' +
         '<span class="s">' + (live ? '<a data-k-src href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span data-k-when>snapshot · selected-result.json @ 0a31ad884</span></a>' : s.href ? '<a href="' + esc(s.href) + '">' + esc(s.source) + '</a>' : 'src: ' + esc(s.source)) + '</span></li>';
     }).join('');
@@ -347,7 +397,7 @@ var G = {
       '<div class="badges">' + F0.statusBadges(p.status, { ladder: 1 }) + '</div>' +
       '<p class="credit">' + c.credit + '</p>' +
       '<div class="glyph"><canvas data-glyph="' + c.glyph + '" role="img" aria-label="' + esc(c.aria) + '"></canvas><span class="gk">' + esc(c.gk) + '</span><span class="gr" data-readout>' + esc(c.gr) + '</span></div>' +
-      '<p class="gcap">' + esc(c.cap) + '</p>' +
+      '<p class="gcap">' + supHTML(c.cap) + '</p>' +
       '<ul class="ri-stats" aria-label="' + esc(p.title) + ' in numbers">' + st + '</ul>' +
       '<p class="links">' + links + '</p></article>';
   }
@@ -396,14 +446,36 @@ var G = {
       return '<article class="mcard" id="m-' + esc(m.login) + '"><p class="idx">M·' + ('0' + (i + 1)).slice(-2) + '</p><h3>' + esc(m.name) + '</h3><a class="gh" href="' + esc(m.github) + '">@' + esc(m.login) + '</a>' +
         '<p class="sum">' + supHTML(m.summary || '') + '</p>' +
         '<p class="ri-mp"><span>Main project</span><a href="' + esc(mp.page ? rel(mp.page) : mp.url) + '">' + esc(mp.name || '') + '</a></p>' +
-        '<ul class="worklist">' + work + '</ul></article>';
+        '<ul class="worklist" id="wl-' + esc(m.login) + '">' + work + '</ul>' +
+        '<button type="button" class="ri-more" aria-expanded="false" aria-controls="wl-' + esc(m.login) + '" hidden></button></article>';
     }).join('');
+    var CAP = 4;
+    /* each card shows its first CAP entries in the current view; a button reveals the rest */
+    function clip(card) {
+      var vis = $$('.worklist li', card).filter(function (li) { return !li.hidden; }), b = $('.ri-more', card), open = b && b.getAttribute('aria-expanded') === 'true';
+      vis.forEach(function (li, k) { li.classList.toggle('ri-clip', !open && k >= CAP); });
+      $$('.worklist li[hidden]', card).forEach(function (li) { li.classList.remove('ri-clip'); });
+      if (!b) return;
+      var extra = vis.length - CAP;
+      b.hidden = extra <= 0;
+      if (extra <= 0) { b.textContent = ''; b.removeAttribute('aria-label'); return; }
+      b.textContent = open ? 'Show fewer' : '+' + extra + ' more';
+      b.setAttribute('aria-label', open ? 'Show fewer of ' + $('h3', card).textContent + '’s entries' : 'Show ' + extra + ' more of ' + $('h3', card).textContent + '’s entries');
+    }
     function filt(mode) {
       var n = 0, all = 0;
       $$('.worklist li', host).forEach(function (li) { var on = mode === 'all' || (mode === '722') === (li.getAttribute('data-722') === '1'); li.hidden = !on; all++; if (on) n++; });
-      $$('.mcard', host).forEach(function (c) { var any = $$('.worklist li', c).some(function (li) { return !li.hidden; }); c.classList.toggle('ri-empty', !any); });
+      $$('.mcard', host).forEach(function (c) { var any = $$('.worklist li', c).some(function (li) { return !li.hidden; }); c.classList.toggle('ri-empty', !any); clip(c); });
       if (count) count.textContent = n + ' of ' + all + ' entries';
     }
+    host.addEventListener('click', function (e) {
+      var b = e.target.closest('.ri-more'); if (!b) return;
+      var card = b.closest('.mcard'), opening = b.getAttribute('aria-expanded') !== 'true';
+      var first = $$('.worklist li.ri-clip', card)[0];
+      b.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      clip(card);
+      if (opening && first) { var a = $('a', first); if (a) a.focus(); }
+    });
     $$('[data-rf]').forEach(function (b) {
       b.addEventListener('click', function () { $$('[data-rf]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); filt(b.getAttribute('data-rf')); });
     });

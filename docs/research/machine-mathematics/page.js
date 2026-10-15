@@ -1,9 +1,10 @@
 /* After the 722 (research/machine-mathematics): page script.
-   Four figures, all drawn from data at view time:
+   Five figures, all drawn from data at view time:
      1. hero timeline: manuscripts by folder date, then the refinement steps after release
-     2. the map: OpenAI's 372 result families as a treemap grouped by our editorial field classification
+     2. the map: OpenAI's 372 result families as a treemap, OpenAI's 17 subjects folded into 8 broad fields
      3. the slack chart: six refinements, before -> after on a log scale, with a time slider
      4. "pull out the foundation": what each refinement keeps if its manuscript had a gap
+     5. one small figure in each of the seven family entries
    Every figure starts on its final, informative frame; nothing moves until the visitor presses play.
    Colours come from CSS tokens (var(--...)) so both themes work without a redraw. */
 (function () {
@@ -55,7 +56,7 @@
   /* redraw a host at its own width; skip while hidden or unchanged */
   function sized(host, draw) {
     var lw = 0;
-    function go(force) { var w = width(host); if (!w || (w === lw && !force)) return; lw = w; draw(w); }
+    function go(force) { var w = width(host); if (!w || w < 60 || (w === lw && !force)) return; lw = w; draw(w); } // under 60 px the host is not laid out yet
     go();
     if ('ResizeObserver' in window) new ResizeObserver(function () { go(); }).observe(host);
     else window.addEventListener('resize', function () { go(); });
@@ -347,7 +348,9 @@
     return out;
   }
 
-  function map(FD) {
+  function map(FD, SUB) {
+    var SUBJ = (SUB && SUB.family) || {};
+    function subj(f) { return SUBJ[f.id] || ''; }
     var stage = $('#map-stage'), info = $('#map-info'), fieldsUl = $('#map-fields'), q = $('#map-q'), count = $('#map-count'), table = $('#map-table');
     if (!stage || !FD || !FD.families) return null;
     var fams = FD.families, sum = FD.summary || {}, FN = sum.fields || {};
@@ -397,7 +400,7 @@
       if (count) count.textContent = (n === fams.length ? fams.length + ' families' : n + ' of ' + fams.length + ' families') + ' · ' + m + ' manuscripts';
     }
     function draw() {
-      var W = width(stage); if (!W) return;
+      var W = width(stage); if (!W || W < 60) return;
       var H = Math.round(W >= 900 ? W * 0.54 : W >= 600 ? W * 0.82 : W * 1.5);
       stage.innerHTML = '';
       svg = S('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'mm-svg', role: 'presentation' }, stage);
@@ -413,6 +416,7 @@
       var labels = S('g', { 'pointer-events': 'none' }), plates = [];
       gl.forEach(function (gr) {
         var g = gr.it, gx = gr.x + 2, gy = gr.y + 2, gw = gr.w - 4, gh = gr.h - 4;
+        if (gw <= 0 || gh <= 0) return;
         S('rect', { x: gx - 1, y: gy - 1, width: gw + 2, height: gh + 2, style: 'fill:none;stroke:var(--line-ui);stroke-opacity:.55', 'stroke-width': 1 }, svg);
         var cl = squarify(g.items, gx, gy, gw, gh);
         cl.forEach(function (c) {
@@ -458,7 +462,7 @@
     }
     function tip(f) {
       var n1 = f.n_manuscripts_day1, n7 = f.n_manuscripts_oct7, b = BUILT[f.id];
-      return '<div class="tip-k">Family ' + esc(f.id) + ' · ' + esc(FN[f.field] || f.field) + '</div><div class="tip-t">' + tHTML(f) + '</div>' +
+      return '<div class="tip-k">Family ' + esc(f.id) + ' · ' + esc(subj(f) || FN[f.field] || f.field) + '</div><div class="tip-t">' + tHTML(f) + '</div>' +
         '<div class="tip-rows"><div class="tip-row"><span class="tip-v">' + nOf(f) + '</span><span>manuscript' + (nOf(f) > 1 ? 's' : '') + (n1 !== n7 ? ' (' + n1 + ' on 6 Oct, ' + n7 + ' on 7 Oct)' : '') + '</span></div>' +
         '<div class="tip-row"><span>' + (leanOf(f) ? 'Links a Lean scope document' : 'No Lean scope document') + '</span></div>' +
         '<div class="tip-row"><span>Dated ' + esc(F0.fmtDate(f.earliest_date)) + (f.latest_date !== f.earliest_date ? ' to ' + esc(F0.fmtDate(f.latest_date)) : '') + '</span></div></div>' +
@@ -469,7 +473,7 @@
       var c = cells.filter(function (x) { return x.f === f; })[0];
       if (c && focusRect) { focusRect.setAttribute('x', c.x - 2); focusRect.setAttribute('y', c.y - 2); focusRect.setAttribute('width', c.w + 4); focusRect.setAttribute('height', c.h + 4); focusRect.setAttribute('visibility', 'visible'); }
       var b = BUILT[f.id], n1 = f.n_manuscripts_day1, n7 = f.n_manuscripts_oct7;
-      info.innerHTML = '<p class="mm-info-k">Family ' + esc(f.id) + ' · ' + esc(FN[f.field] || f.field) + ' (our classification)</p>' +
+      info.innerHTML = '<p class="mm-info-k">Family ' + esc(f.id) + (subj(f) ? ' · OpenAI subject: ' + esc(subj(f)) : '') + ' · on the map under ' + esc(FN[f.field] || f.field) + '</p>' +
         '<p class="mm-info-t">' + tHTML(f) + '</p>' +
         '<p class="mm-info-r"><span>' + n1 + ' manuscript' + (n1 > 1 ? 's' : '') + ' on 6 Oct' + (n7 !== n1 ? ', ' + n7 + ' on 7 Oct' : '') + '</span><span>' + (leanOf(f) ? 'Lean scope document' : 'No Lean scope document') + (f.lean_doc_day1 !== f.lean_doc_oct7 ? ' (added 7 Oct)' : '') + '</span><span>Dated ' + esc(F0.fmtDate(f.earliest_date)) + (f.latest_date !== f.earliest_date ? ' to ' + esc(F0.fmtDate(f.latest_date)) : '') + '</span>' +
         (b ? '<a href="#f-' + esc(f.id) + '">Read the entry</a>' : '') + '</p>' +
@@ -507,11 +511,11 @@
     if (table) {
       var rows = fams.slice().sort(function (a, b) { return a.id < b.id ? -1 : 1; }).map(function (f) {
         var b = BUILT[f.id];
-        return '<tr' + (b ? ' class="hl"' : '') + '><td class="n">' + esc(f.id) + '</td><td class="ti">' + titleHTML(f.title) + (f.title_oct7 && f.title_oct7 !== f.title ? '<br><span style="color:var(--ink-3)">7 Oct: ' + titleHTML(f.title_oct7) + '</span>' : '') + '</td><td>' + esc(FN[f.field] || f.field) + '</td>' +
+        return '<tr' + (b ? ' class="hl"' : '') + '><td class="n">' + esc(f.id) + '</td><td class="ti">' + titleHTML(f.title) + (f.title_oct7 && f.title_oct7 !== f.title ? '<br><span style="color:var(--ink-3)">7 Oct: ' + titleHTML(f.title_oct7) + '</span>' : '') + '</td><td>' + esc(subj(f)) + '</td><td>' + esc(FN[f.field] || f.field) + '</td>' +
           '<td class="n">' + f.n_manuscripts_day1 + (f.n_manuscripts_oct7 !== f.n_manuscripts_day1 ? ' → ' + f.n_manuscripts_oct7 : '') + '</td><td>' + (f.lean_doc_day1 ? 'yes' : f.lean_doc_oct7 ? 'from 7 Oct' : 'no') + '</td>' +
           '<td>' + esc(f.earliest_date === f.latest_date ? f.earliest_date : f.earliest_date + ' to ' + f.latest_date) + '</td><td>' + (b ? esc(b.who) : '') + '</td></tr>';
       }).join('');
-      table.innerHTML = '<table class="tbl"><caption>OpenAI’s 372 result families. Field is Foundation0’s editorial classification from the title. Manuscripts: 6 Oct (→ 7 Oct where it changed).</caption><thead><tr><th scope="col" class="n">Family</th><th scope="col">Title</th><th scope="col">Field</th><th scope="col" class="n">Manuscripts</th><th scope="col">Lean scope document</th><th scope="col">Folder dates</th><th scope="col">Founding members built on it</th></tr></thead><tbody>' + rows + '</tbody></table>';
+      table.innerHTML = '<table class="tbl"><caption>OpenAI’s 372 result families. Subject is OpenAI’s own (overview.tex @ adc7f12); field is the broader group the map uses. Manuscripts: 6 Oct (→ 7 Oct where it changed).</caption><thead><tr><th scope="col" class="n">Family</th><th scope="col">Title</th><th scope="col">OpenAI subject</th><th scope="col">Map field</th><th scope="col" class="n">Manuscripts</th><th scope="col">Lean scope document</th><th scope="col">Folder dates</th><th scope="col">Founding members built on it</th></tr></thead><tbody>' + rows + '</tbody></table>';
     }
     return {
       show: function (id) {
@@ -526,6 +530,8 @@
   }
 
   /* ================= 3. the slack ================= */
+  /* Built once per width and view; while the slider moves or play runs, only attributes and changed text are updated
+     (no SVG rebuilds per frame), and the text readouts are quiet to screen readers until play stops. */
   function slack() {
     var host = $('#sk-host'), detail = $('#sk-detail'), range = $('#sk-range'), outp = $('#sk-out'), play = $('#sk-play'), prev = $('#sk-prev'), next = $('#sk-next'), tbl = $('#sk-table');
     if (!host || !range) return;
@@ -542,13 +548,16 @@
       var e = Math.floor(d), m = Math.pow(10, d - e);
       return '×' + m.toFixed(1) + '×10^' + e;
     }
+    function short(s) { return String(s).split(' ')[0]; }
+    function sa(el, k, v) { v = String(v); if (el.getAttribute(k) !== v) el.setAttribute(k, v); } // set only what changed
     var VALUE = { lo: -90, hi: 4, ticks: [-80, -60, -40, -20, 0], lab: function (t) { return pow10(t); } };
     var FACTOR = { lo: 0, hi: 80, ticks: [0, 20, 40, 60, 80], lab: function (t) { return t === 0 ? '×1' : '×10^' + t; } };
     function scale() { return view === 'value' ? VALUE : FACTOR; }
+    var playing = false;
     // build rows
     host.innerHTML = '';
     var axis = H('div', 'mm-sk-axis', host, '<span class="ax-l" id="sk-axl">Result · before → after</span>');
-    var axHost = H('div', 'mm-sk-axhost', axis);
+    var axHost = H('div', 'mm-sk-axhost', axis), axKey = '';
     var ol = H('ol', 'mm-sk-rows', host);
     ol.setAttribute('aria-label', 'Six refinements; choose one to see its steps');
     var rowEls = ROWS.map(function (r) {
@@ -563,7 +572,7 @@
       tr.addEventListener('click', function () { select(r, true); });
       tr.addEventListener('pointermove', function (e) { F0.tip.show(rowTip(r), e.clientX, e.clientY); });
       tr.addEventListener('pointerleave', function () { F0.tip.hide(); });
-      return { r: r, li: li, b: b, tr: tr };
+      return { r: r, li: li, b: b, tr: tr, key: '', bi: -2 };
     });
     function rowTip(r) {
       var b = best(r, now), lv = b ? b.lv : r.before.lv;
@@ -572,49 +581,82 @@
         '<div class="tip-note">' + supHTML(r.what) + '</div>';
     }
     function drawAxis() {
-      var w = width(axHost); if (!w) return;
+      var w = width(axHost); if (!w || axKey === w + view) return;
+      axKey = w + view;
       axHost.innerHTML = '';
       var sc = scale(), svg = S('svg', { viewBox: '0 0 ' + w + ' 40', width: w, height: 40, class: 'mm-svg', 'aria-hidden': 'true' }, axHost);
       var pad = 14, X = function (v) { return pad + (w - 2 * pad) * (v - sc.lo) / (sc.hi - sc.lo); };
       sc.ticks.forEach(function (t, i) { ST(svg, { x: X(t), y: 29, 'text-anchor': i === 0 && X(t) < 30 ? 'start' : i === sc.ticks.length - 1 && X(t) > w - 30 ? 'end' : 'middle' }, sc.lab(t)); S('line', { x1: X(t), x2: X(t), y1: 33, y2: 40, class: 'axis' }, svg); });
       S('text', { x: w - pad, y: 10, 'text-anchor': 'end', class: 't-ink', text: view === 'value' ? 'VALUE, LOG SCALE' : 'TIMES BETTER, LOG SCALE' }, svg);
     }
+    /* each row: a hollow circle (before), a filled one (after) and the line between. When the two ends sit under
+       8 px apart the dumbbell would read as one blob, so the row draws a ring around the dot and prints the values. */
     function drawRow(re) {
-      var r = re.r;
-      re.tr.innerHTML = '';
-      var w = width(re.tr); if (!w) return;
-      var h = Math.max(44, Math.round(re.tr.getBoundingClientRect().height) || 54);
-      var sc = scale(), svg = S('svg', { viewBox: '0 0 ' + w + ' ' + h, width: w, height: h, class: 'mm-svg' }, re.tr);
-      var pad = 14, X = function (v) { return pad + (w - 2 * pad) * (Math.max(sc.lo, Math.min(sc.hi, v)) - sc.lo) / (sc.hi - sc.lo); }, cy = h / 2;
-      sc.ticks.forEach(function (t) { S('line', { x1: X(t), x2: X(t), y1: 0, y2: h, class: 'grid' }, svg); });
+      var r = re.r, w = width(re.tr); if (!w) return;
+      var h = Math.max(44, Math.round(re.tr.getBoundingClientRect().height) || 54), key = w + 'x' + h + view;
+      var sc = scale(), pad = 14, X = function (v) { return pad + (w - 2 * pad) * (Math.max(sc.lo, Math.min(sc.hi, v)) - sc.lo) / (sc.hi - sc.lo); }, cy = h / 2;
+      if (re.key !== key) {
+        re.key = key; re.tr.innerHTML = '';
+        var svg = S('svg', { viewBox: '0 0 ' + w + ' ' + h, width: w, height: h, class: 'mm-svg' }, re.tr);
+        sc.ticks.forEach(function (t) { S('line', { x1: X(t), x2: X(t), y1: 0, y2: h, class: 'grid' }, svg); });
+        re.line = S('line', { y1: cy, y2: cy, style: 'stroke:var(--acc-mm)', 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
+        re.c0 = S('circle', { cy: cy, r: 5.5, style: 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
+        re.ring = S('circle', { cy: cy, r: 8.5, style: 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
+        re.c1b = S('circle', { cy: cy, r: 7.5, style: 'fill:var(--bg-1)' }, svg);
+        re.c1 = S('circle', { cy: cy, r: 5.5, style: 'fill:var(--acc-mm)' }, svg);
+        re.lab = S('text', { y: cy + 4, class: 't-ink mm-halo' }, svg);
+        S('rect', { x: 0, y: 0, width: w, height: h, class: 'hit' }, svg);
+        re.labS = null;
+      }
       var b = best(r, now), lvA = b ? b.lv : r.before.lv;
       var x0 = view === 'value' ? X(r.before.lv) : X(0), x1 = view === 'value' ? X(lvA) : X(factor(r, lvA));
-      if (Math.abs(x1 - x0) > 0.5) S('line', { x1: x0, x2: x1, y1: cy, y2: cy, style: 'stroke:var(--acc-mm)', 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
-      S('circle', { cx: x0, cy: cy, r: 5.5, style: 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
-      if (b) { S('circle', { cx: x1, cy: cy, r: 7.5, style: 'fill:var(--bg-1)' }, svg); S('circle', { cx: x1, cy: cy, r: 5.5, style: 'fill:var(--acc-mm)' }, svg); }
-      S('rect', { x: 0, y: 0, width: w, height: h, class: 'hit' }, svg);
+      var close = !!b && Math.abs(x1 - x0) < 8;
+      sa(re.line, 'x1', x0); sa(re.line, 'x2', x1);
+      sa(re.line, 'visibility', !close && Math.abs(x1 - x0) > 0.5 ? 'visible' : 'hidden');
+      sa(re.c0, 'cx', x0); sa(re.c0, 'visibility', close ? 'hidden' : 'visible');
+      sa(re.ring, 'cx', x1); sa(re.ring, 'visibility', close ? 'visible' : 'hidden');
+      [re.c1b, re.c1].forEach(function (c) { sa(c, 'cx', x1); sa(c, 'visibility', b ? 'visible' : 'hidden'); });
+      sa(re.c1, 'r', close ? 4.2 : 5.5); sa(re.c1b, 'r', close ? 0 : 7.5);
+      var txt = close ? short(r.before.s) + ' → ' + short(b.s) : '';
+      if (txt !== re.labS) {
+        re.labS = txt;
+        while (re.lab.firstChild) re.lab.removeChild(re.lab.firstChild);
+        if (txt) { var tmp = ST(re.lab.parentNode, {}, txt); while (tmp.firstChild) re.lab.appendChild(tmp.firstChild); tmp.parentNode.removeChild(tmp); }
+      }
+      if (txt) { var left = x1 > w / 2; sa(re.lab, 'x', left ? Math.min(x0, x1) - 14 : Math.max(x0, x1) + 14); sa(re.lab, 'text-anchor', left ? 'end' : 'start'); }
     }
     function fillRow(re) {
-      var r = re.r, b = best(r, now), lv = b ? b.lv : r.before.lv;
+      var r = re.r, b = best(r, now), bi = b ? b.i : -1;
+      if (re.bi === bi) return;
+      re.bi = bi;
+      var lv = b ? b.lv : r.before.lv;
       re.b.innerHTML = '<span class="nm">' + esc(r.name) + '<i>#' + r.fam + '</i></span>' +
         '<span class="ba">' + esc(r.sym) + ': ' + supHTML(r.before.s) + (b ? ' → <b>' + supHTML(b.s) + '</b>' : ' <i class="ns">no public step yet</i>') + '</span>' +
         '<span class="fx">' + supHTML(fmtFactor(factor(r, lv))) + ' ' + (r.up ? 'larger' : 'smaller') + ' · ' + (r.up ? 'bigger is better' : 'smaller is better') + '</span>';
       re.b.setAttribute('aria-label', r.name + ', family ' + r.fam + ': ' + r.sym + ' from ' + plain(r.before.s) + ' to ' + plain(b ? b.s : r.before.s) + ', ' + plain(fmtFactor(factor(r, lv)).replace('×', '').replace('×', ' times ')) + ' times ' + (r.up ? 'larger' : 'smaller') + '. Show its steps.');
     }
-    function render() {
+    var lastOut = 0;
+    function writeOut(force) {
+      var t = performance.now();
+      if (!force && playing && t - lastOut < 250) return; // a few times a second at most while playing
+      lastOut = t;
+      var txt = (now >= END ? '14 Oct 2026' : utc(now)) + ' · ' + nDone(now) + ' of ' + NSTEPS + ' steps';
+      if (outp.textContent !== txt) outp.textContent = txt;
+      sa(range, 'aria-valuetext', txt);
+    }
+    function render(force) {
       drawAxis();
-      rowEls.forEach(function (re) { fillRow(re); drawRow(re); re.li.classList.toggle('sel', re.r === sel); re.b.setAttribute('aria-pressed', re.r === sel ? 'true' : 'false'); });
-      outp.textContent = (now >= END ? '14 Oct 2026' : utc(now)) + ' · ' + nDone(now) + ' of ' + NSTEPS + ' steps';
-      range.setAttribute('aria-valuetext', outp.textContent);
+      rowEls.forEach(function (re) { fillRow(re); drawRow(re); if (re.li.classList.contains('sel') !== (re.r === sel)) re.li.classList.toggle('sel', re.r === sel); sa(re.b, 'aria-pressed', re.r === sel ? 'true' : 'false'); });
+      writeOut(force);
       renderDetail();
     }
     /* detail: the selected row's own staircase over time, on a log axis fitted to that row */
-    var dsvgHost = null, dout = null;
+    var dsvgHost = null, dout = null, D = null, hdrFor = null;
     function renderDetail() {
       if (!detail) return;
       var r = sel, b = best(r, now);
       if (!dsvgHost) {
-        detail.innerHTML = '<div class="mm-sk-dh"><p class="mm-sk-dt" id="sk-dt"></p><div class="badges" id="sk-db"></div></div><p class="mm-sk-dn" id="sk-dn"></p><div id="sk-dsvg" class="mm-sk-dhost" tabindex="0" role="group" aria-roledescription="chart" aria-labelledby="sk-dt" aria-describedby="sk-dout"></div><p class="mm-readout" id="sk-dout" aria-live="polite"></p>' +
+        detail.innerHTML = '<div class="mm-sk-dh"><p class="mm-sk-dt" id="sk-dt"></p><div class="badges" id="sk-db"></div></div><p class="mm-sk-dn" id="sk-dn"></p><div id="sk-dsvg" class="mm-sk-dhost" tabindex="0" role="application" aria-roledescription="interactive chart" aria-labelledby="sk-dt" aria-describedby="sk-dout sk-dhelp"></div><p class="sr-only" id="sk-dhelp">Left and right arrow keys step through this result’s steps; Home and End jump to the first and last. Every step is also in the table below.</p><p class="mm-readout" id="sk-dout" aria-live="polite"></p>' +
           '<ul class="vlegend mm-sk-dleg" aria-label="How each step was checked"><li>' + markSVG('lean') + '<span><b>Lean</b> · rebuilt and checked by an outside leaderboard</span></li><li>' + markSVG('rev') + '<span><b>Reviewed</b> · certificates replayed by the maintainer</span></li><li>' + markSVG('own') + '<span><b>Own checks</b> · the author’s exact checks</span></li><li>' + markSVG('claim') + '<span><b>Claim</b> · not yet checked by anyone else</span></li></ul>';
         dsvgHost = $('#sk-dsvg', detail); dout = $('#sk-dout', detail);
         dsvgHost.addEventListener('keydown', function (e) {
@@ -624,15 +666,18 @@
           else if (e.key === 'Home') k = 0; else if (e.key === 'End') k = n - 1;
           else if (e.key === 'Escape') { F0.tip.hide(); return; }
           if (k == null) return;
-          e.preventDefault(); dstep = k; drawDetail(); var m = $('[data-s="' + k + '"]', dsvgHost); if (m) tipShowAt(stepTip(sel.steps[k]), m);
+          e.preventDefault(); dstep = k; drawDetail(true); var m = $('[data-s="' + k + '"]', dsvgHost); if (m) tipShowAt(stepTip(sel.steps[k]), m);
         });
         dsvgHost.addEventListener('blur', function () { F0.tip.hide(); });
-        sized(dsvgHost, function () { drawDetail(); });
+        sized(dsvgHost, function () { drawDetail(true); });
       }
-      $('#sk-dt', detail).innerHTML = esc(r.name) + ' · family ' + r.fam + ' · ' + esc(r.sym) + ': ' + supHTML(r.before.s) + ' → ' + supHTML(b ? b.s : r.before.s);
-      $('#sk-db', detail).innerHTML = '<span class="mm-sk-dbk">Record on 14 Oct</span>' + F0.statusBadges(r.status, { ladder: 1 });
-      $('#sk-dn', detail).innerHTML = supHTML(r.what) + ' Before: ' + supHTML(r.before.s) + ', ' + supHTML(r.before.note) + '. Source: <a href="' + esc(r.src) + '">' + esc(r.srcL) + '</a>.';
-      drawDetail();
+      if (hdrFor !== r) {
+        hdrFor = r;
+        $('#sk-dt', detail).innerHTML = esc(r.name) + ' · family ' + r.fam + ' · ' + esc(r.sym) + ': ' + supHTML(r.before.s) + ' → <span id="sk-dt-v">' + supHTML(b ? b.s : r.before.s) + '</span>';
+        $('#sk-db', detail).innerHTML = '<span class="mm-sk-dbk">Record on 14 Oct</span>' + F0.statusBadges(r.status, { ladder: 1 });
+        $('#sk-dn', detail).innerHTML = supHTML(r.what) + ' Before: ' + supHTML(r.before.s) + ', ' + supHTML(r.before.note) + '. Source: <a href="' + esc(r.src) + '">' + esc(r.srcL) + '</a>.';
+      }
+      drawDetail(false);
     }
     function markSVG(ck) {
       var c = 'var(--acc-mm)';
@@ -662,79 +707,110 @@
       if (Math.abs(v - e) < 1e-9) return e >= 0 && e <= 4 ? String(Math.pow(10, e)) : pow10(e);
       var x = Math.pow(10, v); return x >= 1 ? String(Math.round(x)) : x.toPrecision(1);
     }
-    function drawDetail() {
+    /* builds the staircase when the row, size or chosen step changes; otherwise only moves what time changes */
+    function drawDetail(rebuild) {
       if (!dsvgHost) return;
       var r = sel, W = width(dsvgHost); if (!W) return;
-      dsvgHost.innerHTML = '';
-      var small = W < 520, L = small ? 46 : 58, Rm = 14, T = 16, Hh = small ? 168 : 196, B = T + Hh, Ht = B + 30;
-      var svg = S('svg', { viewBox: '0 0 ' + W + ' ' + Ht, width: W, height: Ht, class: 'mm-svg mm-sk-dsvg', 'aria-hidden': 'true' }, dsvgHost);
-      var lvs = [r.before.lv].concat(r.steps.map(function (s) { return s.lv; }));
-      var lo = Math.min.apply(null, lvs), hi = Math.max.apply(null, lvs), padv = Math.max(0.06, (hi - lo) * 0.08); lo -= padv; hi += padv;
-      var t0 = RELEASE - 6 * 3600e3, t1 = END, X = function (t) { return L + (W - L - Rm) * (t - t0) / (t1 - t0); }, Y = function (v) { return B - Hh * (v - lo) / (hi - lo); };
-      niceLogTicks(lo, hi).forEach(function (v) { S('line', { x1: L, x2: W - Rm, y1: Y(v), y2: Y(v), class: 'grid' }, svg); ST(svg, { x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, tickLabel(v)); });
-      for (var d = Date.parse('2026-10-07T00:00Z'); d <= END; d += 864e5) {
-        S('line', { x1: X(d), x2: X(d), y1: B, y2: B + 5, class: 'axis' }, svg);
-        if (!small || (new Date(d).getUTCDate() % 2 === 1)) S('text', { x: X(d), y: B + 18, 'text-anchor': d + 864e5 > END ? 'end' : 'middle', text: dayLabel(d).toUpperCase() }, svg);
+      var key = r.id + '|' + W + '|' + dstep;
+      if (rebuild || !D || D.key !== key) {
+        dsvgHost.innerHTML = '';
+        var small = W < 520, L = small ? 46 : 58, Rm = 14, T = 16, Hh = small ? 168 : 196, B = T + Hh, Ht = B + 30;
+        var svg = S('svg', { viewBox: '0 0 ' + W + ' ' + Ht, width: W, height: Ht, class: 'mm-svg mm-sk-dsvg', 'aria-hidden': 'true' }, dsvgHost);
+        var lvs = [r.before.lv].concat(r.steps.map(function (s) { return s.lv; }));
+        var lo = Math.min.apply(null, lvs), hi = Math.max.apply(null, lvs), padv = Math.max(0.06, (hi - lo) * 0.08); lo -= padv; hi += padv;
+        var t0 = RELEASE - 6 * 3600e3, t1 = END, X = function (t) { return L + (W - L - Rm) * (t - t0) / (t1 - t0); }, Y = function (v) { return B - Hh * (v - lo) / (hi - lo); };
+        niceLogTicks(lo, hi).forEach(function (v) { S('line', { x1: L, x2: W - Rm, y1: Y(v), y2: Y(v), class: 'grid' }, svg); ST(svg, { x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, tickLabel(v)); });
+        for (var d = Date.parse('2026-10-07T00:00Z'); d <= END; d += 864e5) {
+          S('line', { x1: X(d), x2: X(d), y1: B, y2: B + 5, class: 'axis' }, svg);
+          if (!small || (new Date(d).getUTCDate() % 2 === 1)) S('text', { x: X(d), y: B + 18, 'text-anchor': d + 864e5 > END ? 'end' : 'middle', text: dayLabel(d).toUpperCase() }, svg);
+        }
+        S('line', { x1: L, x2: W - Rm, y1: B, y2: B, class: 'axis' }, svg);
+        D = { key: key, r: r, X: X, Y: Y, W: W, labS: null, bi: -2 };
+        var nowL = S('line', { y1: T, y2: B, style: 'stroke:var(--ink-3)', 'stroke-width': 1 }, svg);
+        S('path', { d: pathFor(r, END), style: 'fill:none;stroke:var(--acc-mm);stroke-opacity:.28', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+        var solid = S('path', { style: 'fill:none;stroke:var(--acc-mm)', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+        S('circle', { cx: X(RELEASE), cy: Y(r.before.lv), r: 5, style: 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
+        ST(svg, { x: X(r.steps[0].t) + 9, y: Y(r.before.lv) + 4, class: 't-ink mm-halo' }, 'OpenAI’s manuscript: ' + r.before.s);
+        /* on a narrow chart, steps closer than a marker's width share one marker (the staircase still shows every step;
+           the arrow keys and the table reach each one) */
+        var gs = [], lastX = -1e9, lastY = -1e9, minGap = small ? 10 : 7;
+        r.steps.forEach(function (s, k) {
+          var cx = X(s.t), cy = Y(s.lv), isLast = k === r.steps.length - 1;
+          if (minGap && k !== dstep && !isLast && Math.hypot(cx - lastX, cy - lastY) < minGap) return;
+          lastX = cx; lastY = cy;
+          var g = S('g', { class: 'stp', 'data-s': k }, svg), c = 'var(--acc-mm)';
+          S('circle', { cx: cx, cy: cy, r: 12, style: 'fill:transparent' }, g);
+          S('circle', { cx: cx, cy: cy, r: 7.5, style: 'fill:var(--bg-1)' }, g);
+          if (s.ck === 'lean') { S('circle', { cx: cx, cy: cy, r: 6.4, style: 'fill:none;stroke:' + c, 'stroke-width': 1.4 }, g); S('circle', { cx: cx, cy: cy, r: 4, style: 'fill:' + c }, g); }
+          else if (s.ck === 'rev') S('circle', { cx: cx, cy: cy, r: 4.6, style: 'fill:' + c }, g);
+          else if (s.ck === 'own') { S('circle', { cx: cx, cy: cy, r: 4.4, style: 'fill:var(--bg-2);stroke:' + c, 'stroke-width': 1.6 }, g); S('path', { d: 'M' + cx + ',' + (cy - 4.4) + 'A4.4,4.4 0 0 0 ' + cx + ',' + (cy + 4.4) + 'Z', style: 'fill:' + c }, g); }
+          else S('circle', { cx: cx, cy: cy, r: 4.4, style: 'fill:var(--bg-2);stroke:' + c, 'stroke-width': 1.6 }, g);
+          if (k === dstep) S('circle', { cx: cx, cy: cy, r: 9.5, class: 'ring', style: 'fill:none;stroke:var(--focus)', 'stroke-width': 2 }, g);
+          g.addEventListener('pointerenter', function (e) { dstep = k; setDout(); F0.tip.show(stepTip(s), e.clientX, e.clientY); });
+          g.addEventListener('pointermove', function (e) { F0.tip.show(stepTip(s), e.clientX, e.clientY); });
+          g.addEventListener('pointerleave', function () { F0.tip.hide(); });
+          gs.push({ g: g, s: s });
+        });
+        var lab = S('text', { class: 't-strong mm-halo' }, svg);
+        D.nowL = nowL; D.solid = solid; D.gs = gs; D.lab = lab;
       }
-      S('line', { x1: L, x2: W - Rm, y1: B, y2: B, class: 'axis' }, svg);
-      // the slider's moment
-      if (now < END) { S('line', { x1: X(now), x2: X(now), y1: T, y2: B, style: 'stroke:var(--ink-3)', 'stroke-width': 1 }, svg); }
-      // staircase up to now (solid), the rest faint
-      function path(upto) {
-        var p = 'M' + X(RELEASE) + ',' + Y(r.before.lv), last = r.before.lv;
-        r.steps.forEach(function (s) { if (s.t > upto) return; p += 'H' + X(s.t) + 'V' + Y(s.lv); last = s.lv; });
-        return p + 'H' + X(Math.min(upto, END));
-      }
-      S('path', { d: path(END), style: 'fill:none;stroke:var(--acc-mm);stroke-opacity:.28', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
-      S('path', { d: path(now), style: 'fill:none;stroke:var(--acc-mm)', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
-      // before marker
-      S('circle', { cx: X(RELEASE), cy: Y(r.before.lv), r: 5, style: 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
-      ST(svg, { x: X(r.steps[0].t) + 9, y: Y(r.before.lv) + 4, class: 't-ink' }, 'OpenAI’s manuscript: ' + r.before.s);
-      // step markers
-      r.steps.forEach(function (s, k) {
-        var g = S('g', { class: 'stp', 'data-s': k, opacity: s.t <= now ? 1 : 0.35 }, svg), cx = X(s.t), cy = Y(s.lv);
-        S('circle', { cx: cx, cy: cy, r: 12, style: 'fill:transparent' }, g);
-        S('circle', { cx: cx, cy: cy, r: 7.5, style: 'fill:var(--bg-1)' }, g);
-        var c = 'var(--acc-mm)';
-        if (s.ck === 'lean') { S('circle', { cx: cx, cy: cy, r: 6.4, style: 'fill:none;stroke:' + c, 'stroke-width': 1.4 }, g); S('circle', { cx: cx, cy: cy, r: 4, style: 'fill:' + c }, g); }
-        else if (s.ck === 'rev') S('circle', { cx: cx, cy: cy, r: 4.6, style: 'fill:' + c }, g);
-        else if (s.ck === 'own') { S('circle', { cx: cx, cy: cy, r: 4.4, style: 'fill:var(--bg-2);stroke:' + c, 'stroke-width': 1.6 }, g); S('path', { d: 'M' + cx + ',' + (cy - 4.4) + 'A4.4,4.4 0 0 0 ' + cx + ',' + (cy + 4.4) + 'Z', style: 'fill:' + c }, g); }
-        else S('circle', { cx: cx, cy: cy, r: 4.4, style: 'fill:var(--bg-2);stroke:' + c, 'stroke-width': 1.6 }, g);
-        if (k === dstep) S('circle', { cx: cx, cy: cy, r: 9.5, class: 'ring', style: 'fill:none;stroke:var(--focus)', 'stroke-width': 2 }, g);
-        g.addEventListener('pointerenter', function (e) { dstep = k; setDout(); F0.tip.show(stepTip(s), e.clientX, e.clientY); });
-        g.addEventListener('pointermove', function (e) { F0.tip.show(stepTip(s), e.clientX, e.clientY); });
-        g.addEventListener('pointerleave', function () { F0.tip.hide(); });
-      });
-      // label the latest value
-      var b = best(r, now);
-      if (b) {
-        var lx = X(b.t), ly = Y(b.lv), right = lx > W * 0.62;
-        ST(svg, { x: right ? lx - 12 : lx + 12, y: ly + (r.up ? 20 : -11), 'text-anchor': right ? 'end' : 'start', class: 't-strong' }, b.s.length > 26 ? b.s.split(' ')[0] : b.s);
-      }
+      tick();
       setDout();
     }
+    function pathFor(r, upto) {
+      var X = D.X, Y = D.Y, p = 'M' + X(RELEASE) + ',' + Y(r.before.lv);
+      r.steps.forEach(function (s) { if (s.t > upto) return; p += 'H' + X(s.t) + 'V' + Y(s.lv); });
+      return p + 'H' + X(Math.min(upto, END));
+    }
+    /* per frame: the slider's line, the solid staircase, which markers are past, the latest value's label */
+    function tick() {
+      if (!D) return;
+      var r = D.r, X = D.X, Y = D.Y;
+      sa(D.nowL, 'x1', X(now)); sa(D.nowL, 'x2', X(now)); sa(D.nowL, 'visibility', now < END ? 'visible' : 'hidden');
+      sa(D.solid, 'd', pathFor(r, now));
+      D.gs.forEach(function (o) { var op = o.s.t <= now ? '1' : '0.35'; if (o.g.getAttribute('opacity') !== op) o.g.setAttribute('opacity', op); });
+      var b = best(r, now), bi = b ? b.i : -1;
+      if (bi !== D.bi) {
+        D.bi = bi;
+        while (D.lab.firstChild) D.lab.removeChild(D.lab.firstChild);
+        if (b) {
+          var lx = X(b.t), ly = Y(b.lv), right = lx > D.W * 0.62;
+          var tmp = ST(D.lab.parentNode, {}, b.s.length > 26 ? b.s.split(' ')[0] : b.s);
+          while (tmp.firstChild) D.lab.appendChild(tmp.firstChild); tmp.parentNode.removeChild(tmp);
+          D.lab.setAttribute('x', right ? lx - 12 : lx + 12); D.lab.setAttribute('y', ly + (r.up ? 20 : -11)); D.lab.setAttribute('text-anchor', right ? 'end' : 'start');
+        }
+        var v = $('#sk-dt-v', detail); if (v) v.innerHTML = supHTML(b ? b.s : r.before.s);
+      }
+    }
+    var doutS = null;
     function setDout() {
       if (!dout) return;
-      var r = sel;
-      if (dstep >= 0 && r.steps[dstep]) { var s = r.steps[dstep]; dout.innerHTML = '<b>Step ' + (dstep + 1) + ' of ' + r.steps.length + ', ' + esc(utc(s.t)) + ':</b> ' + esc(r.sym) + ' = ' + supHTML(s.s) + '. ' + esc(s.who) + '. ' + (s.note ? supHTML(s.note) + '. ' : '') + esc(CHECK[s.ck]) + '.' + (s.src ? ' <a href="' + esc(s.src) + '">Source</a>.' : ''); }
-      else dout.innerHTML = 'Focus the chart and use the arrow keys, or point at a step, to see who took it and how it was checked.';
+      var r = sel, h;
+      if (dstep >= 0 && r.steps[dstep]) { var s = r.steps[dstep]; h = '<b>Step ' + (dstep + 1) + ' of ' + r.steps.length + ', ' + esc(utc(s.t)) + ':</b> ' + esc(r.sym) + ' = ' + supHTML(s.s) + '. ' + esc(s.who) + '. ' + (s.note ? supHTML(s.note) + '. ' : '') + esc(CHECK[s.ck]) + '.' + (s.src ? ' <a href="' + esc(s.src) + '">Source</a>.' : ''); }
+      else h = 'Focus the chart and use the arrow keys, or point at a step, to see who took it and how it was checked.';
+      if (h !== doutS) { doutS = h; dout.innerHTML = h; }
     }
     function select(r, focus) {
-      sel = r; dstep = -1; render();
+      sel = r; dstep = -1; render(true);
       if (focus && window.matchMedia('(max-width: 760px)').matches) detail.scrollIntoView({ block: 'nearest', behavior: F0.motion() ? 'smooth' : 'auto' });
     }
-    function setNow(t, fromRange) { now = Math.max(RELEASE, Math.min(END, t)); if (!fromRange) range.value = vAt(now); render(); }
-    range.addEventListener('input', function () { stop(); setNow(tAt(+range.value), true); });
-    prev.addEventListener('click', function () { stop(); var p = times.filter(function (x) { return x < now - 1000; }); setNow(p.length ? p[p.length - 1] : RELEASE); });
-    next.addEventListener('click', function () { stop(); var n = times.filter(function (x) { return x > now + 1000; }); setNow(n.length ? n[0] : END); });
+    function setNow(t, fromRange) { now = Math.max(RELEASE, Math.min(END, t)); if (!fromRange) range.value = vAt(now); render(false); }
+    range.addEventListener('input', function () { stop(); setNow(tAt(+range.value), true); writeOut(true); });
+    prev.addEventListener('click', function () { stop(); var p = times.filter(function (x) { return x < now - 1000; }); setNow(p.length ? p[p.length - 1] : RELEASE); writeOut(true); });
+    next.addEventListener('click', function () { stop(); var n = times.filter(function (x) { return x > now + 1000; }); setNow(n.length ? n[0] : END); writeOut(true); });
     $$('.mm-sk-ctrl [data-view]').forEach(function (b) {
       b.addEventListener('click', function () {
         view = b.getAttribute('data-view');
         $$('.mm-sk-ctrl [data-view]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
         $$('.mm-only-factor').forEach(function (x) { x.style.display = view === 'factor' ? 'inline' : 'none'; });
-        render();
+        render(true);
       });
     });
+    /* while playing, the readouts change many times a second: keep them quiet, then speak once when play stops */
+    function quiet(on) {
+      outp.setAttribute('aria-live', on ? 'off' : 'polite');
+      if (dout) dout.setAttribute('aria-live', on ? 'off' : 'polite');
+    }
     // play: walk the week in about 14 seconds, then stop on the last frame
     var t0 = 0, from = RELEASE, loop = F0.loop(function (ts) {
       if (!t0) t0 = ts;
@@ -742,24 +818,29 @@
       if (t >= END) { setNow(END); stop(); return; }
       setNow(t);
     });
-    function stop() { loop.stop(); play.setAttribute('aria-pressed', 'false'); play.setAttribute('aria-label', 'Play the week from 6 October'); }
+    function stop() {
+      if (!playing) return;
+      playing = false; loop.stop(); play.setAttribute('aria-pressed', 'false'); play.setAttribute('aria-label', 'Play the week from 6 October');
+      quiet(false);
+      setTimeout(function () { outp.textContent = ''; writeOut(true); }, 60); // one announcement of where play stopped
+    }
     play.addEventListener('click', function () {
-      if (loop.running) { stop(); return; }
+      if (playing) { stop(); return; }
       if (!F0.motion()) { // motion off: step instead of animating
         var n = times.filter(function (x) { return x > now + 1000; });
-        setNow(now >= END ? times[0] : n.length ? n[0] : END);
+        setNow(now >= END ? times[0] : n.length ? n[0] : END); writeOut(true);
         return;
       }
       if (now >= END) now = RELEASE;
-      from = now; t0 = 0; loop.start();
+      from = now; t0 = 0; playing = true; quiet(true); loop.start();
       play.setAttribute('aria-pressed', 'true'); play.setAttribute('aria-label', 'Pause');
     });
     F0.onMotion(function (on) { if (!on) stop(); });
-    var redrawAll = function () { render(); };
+    F0.whenVisible(host, null, stop);
     var lw = 0;
-    function onResize() { var w = width(host); if (w && w !== lw) { lw = w; redrawAll(); } }
+    function onResize() { var w = width(host); if (w && w !== lw) { lw = w; render(true); } }
     if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(host); else window.addEventListener('resize', onResize);
-    render();
+    render(true);
     // table twin: every step
     if (tbl) {
       var rows = ROWS.map(function (r) {
@@ -785,8 +866,182 @@
       list.classList.toggle('pulled', on);
       var c = { falls: 0, stands: 0, part: 0, check: 0 };
       $$('li[data-fate]', list).forEach(function (li) { c[li.getAttribute('data-fate')]++; });
-      out.innerHTML = on ? '<b>' + c.stands + ' of 6 would still stand</b> (the Lean-checked Fourier record, if its formal statement is the right one). ' + c.falls + ' would lose their footing, ' + c.part + ' would keep only its finite search, and ' + c.check + ' would need checking again.' : 'All six stand, as long as the manuscripts beneath them hold.';
+      out.innerHTML = on ? '<b>' + c.stands + ' of 6 would still stand</b> (the Lean-checked Fourier record, if its formal statement is the right one). ' + c.falls + ' would lose their footing, ' + c.part + ' would keep only its finite search, and ' + c.check + ' would need checking again.' : 'All six stand today. Five of them stand only as long as the OpenAI manuscripts beneath them hold; the Lean-checked Fourier record does not depend on its manuscript.';
     });
+  }
+
+  /* ================= 5. the seven entries' small figures =================
+     One small figure per family, drawn from numbers already on this page (ROWS, the entries' own text).
+     Each has a title, an SVG with an aria-label, and its caption is the text twin. Only the van der Waerden
+     figure is interactive: its cells are real buttons. */
+  function minis() {
+    var rowBy = {}; ROWS.forEach(function (r) { rowBy[r.fam] = r; });
+    var L10_2 = Math.log10(2);
+    function svgIn(stage, W, Hh, label) {
+      stage.innerHTML = '';
+      return S('svg', { viewBox: '0 0 ' + W + ' ' + Hh, width: W, height: Hh, class: 'mm-svg mm-mini-svg', role: 'img', 'aria-label': label }, stage);
+    }
+    function mark(svg, x, y, filled, r) {
+      S('circle', { cx: x, cy: y, r: (r || 5) + 2, style: 'fill:var(--bg-1)' }, svg);
+      S('circle', { cx: x, cy: y, r: r || 5, style: filled ? 'fill:var(--acc-mm)' : 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
+    }
+    /* a horizontal log scale (log10 units) from the manuscript's value to the best public value, with each step as a tick */
+    function logBar(svg, W, y, o) {
+      var pad = 14, X = function (v) { return pad + (W - 2 * pad) * (v - o.lo) / (o.hi - o.lo); };
+      S('line', { x1: pad, x2: W - pad, y1: y, y2: y, class: 'axis' }, svg);
+      o.ticks.forEach(function (t, i) {
+        S('line', { x1: X(t), x2: X(t), y1: y, y2: y + 5, class: 'axis' }, svg);
+        ST(svg, { x: X(t), y: y + 18, 'text-anchor': i === 0 && X(t) < 30 ? 'start' : i === o.ticks.length - 1 && X(t) > W - 30 ? 'end' : 'middle' }, o.tickLab ? o.tickLab(t) : pow10(t));
+      });
+      S('line', { x1: X(o.before), x2: X(o.after), y1: y, y2: y, style: 'stroke:var(--acc-mm)', 'stroke-width': 2 }, svg);
+      (o.steps || []).forEach(function (v) { S('line', { x1: X(v), x2: X(v), y1: y - 6, y2: y + 1, style: 'stroke:var(--acc-mm)', 'stroke-width': 1.2 }, svg); });
+      mark(svg, X(o.before), y, false); mark(svg, X(o.after), y, true);
+      var bx = X(o.before), ax = X(o.after);
+      ST(svg, { x: bx, y: y - 12, 'text-anchor': bx < 40 ? 'start' : 'middle', class: 't-ink mm-halo' }, o.beforeLab);
+      ST(svg, { x: ax, y: y - 12, 'text-anchor': ax > W - 60 ? 'end' : 'middle', class: 't-strong mm-halo' }, o.afterLab);
+      if (o.factor) ST(svg, { x: (bx + ax) / 2, y: y + 34, 'text-anchor': 'middle', class: 't-ink' }, o.factor);
+    }
+    var DRAW = {
+      /* 109: the κ staircase on a halvings scale, ending at the reviewed κ as F0.kappa() reports it */
+      '109': function (stage, W, extra) {
+        var r = rowBy['109'], pts = [[RELEASE, -182]].concat(r.steps.map(function (s) { return [s.t, s.lv / L10_2]; }));
+        if (extra && extra.lg > pts[pts.length - 1][1] + 1e-9) pts.push([Math.min(END, extra.t), extra.lg]);
+        var Hh = 150, L = 48, Rm = 14, T = 16, B = Hh - 26, svg = svgIn(stage, W, Hh, 'Staircase of log base 2 of kappa from minus 182 in the manuscript to about minus 9.22 on 13 October 2026, in 25 public steps.');
+        var X = function (t) { return L + (W - L - Rm) * (t - RELEASE) / (END - RELEASE); }, Y = function (v) { return B - (B - T) * (v + 200) / 200; };
+        [-160, -80, 0].forEach(function (v) { S('line', { x1: L, x2: W - Rm, y1: Y(v), y2: Y(v), class: 'grid' }, svg); ST(svg, { x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, v === 0 ? '1' : '2^' + v); });
+        S('line', { x1: L, x2: W - Rm, y1: B, y2: B, class: 'axis' }, svg);
+        [['2026-10-07T00:00Z', '7 OCT'], ['2026-10-10T00:00Z', '10 OCT'], ['2026-10-13T00:00Z', '13 OCT']].forEach(function (d) { S('text', { x: X(Date.parse(d[0])), y: Hh - 8, 'text-anchor': 'middle', text: d[1] }, svg); });
+        var d = 'M' + X(pts[0][0]) + ',' + Y(pts[0][1]);
+        pts.slice(1).forEach(function (p) { d += 'H' + X(p[0]) + 'V' + Y(p[1]); });
+        d += 'H' + X(END);
+        S('path', { d: d, style: 'fill:none;stroke:var(--acc-mm)', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+        mark(svg, X(pts[0][0]), Y(-182), false, 4.5);
+        var last = pts[pts.length - 1];
+        mark(svg, X(last[0]), Y(last[1]), true, 4.5);
+        ST(svg, { x: X(pts[1][0]) + 8, y: Y(-182) - 5, class: 't-ink mm-halo' }, '2^-182 · manuscript');
+        ST(svg, { x: X(last[0]) - 8, y: Y(last[1]) + 18, 'text-anchor': 'end', class: 't-strong mm-halo' }, '2^' + last[1].toFixed(2));
+      },
+      /* 130: δ on a log scale */
+      '130': function (stage, W) {
+        var r = rowBy['130'], svg = svgIn(stage, W, 96, 'Log scale from 10 to the minus 13 to 10 to the minus 2: delta rose from 10 to the minus 13 in the manuscript, through 9 public steps, to 0.0012331685, about 1.2 times 10 to the 10 times larger.');
+        logBar(svg, W, 44, { lo: -14, hi: -2, ticks: [-13, -10, -7, -4], before: -13, after: r.steps[r.steps.length - 1].lv, steps: r.steps.map(function (s) { return s.lv; }), beforeLab: '10^-13', afterLab: '0.00123', factor: '×1.2×10^10' });
+      },
+      /* 111: the guaranteed fraction on a log scale */
+      '111': function (stage, W) {
+        var r = rowBy['111'], svg = svgIn(stage, W, 96, 'Log scale from 10 to the minus 90 to 1: the guaranteed fraction rose from 2 to the minus 293 to (35/32) times 2 to the minus 31, about 5.1 times 10 to the minus 10, in six versions.');
+        logBar(svg, W, 44, { lo: -95, hi: 0, ticks: [-80, -60, -40, -20, 0], before: r.before.lv, after: r.steps[r.steps.length - 1].lv, steps: r.steps.map(function (s) { return s.lv; }), beforeLab: '2^-293', afterLab: '5.1×10^-10', factor: '×8.1×10^78', tickLab: function (t) { return pow10(t); } });
+      },
+      /* 161: the counting constant, as bars */
+      '161': function (stage, W) {
+        var r = rowBy['161'], vals = [['manuscript', 1641]].concat(r.steps.map(function (s) { return [dayLabel(s.t), Math.round(Math.pow(10, s.lv))]; }));
+        var Hh = 140, L = 14, Rm = 14, T = 20, B = Hh - 24, svg = svgIn(stage, W, Hh, 'Bar chart of the counting constant: 1641 in the manuscript, then 1032 and 978 on 9 October and 189 on 10 October.');
+        var bw = Math.min(64, (W - L - Rm) / vals.length * 0.62), gap = (W - L - Rm) / vals.length, Y = function (v) { return B - (B - T) * v / 1700; };
+        S('line', { x1: L, x2: W - Rm, y1: B, y2: B, class: 'axis' }, svg);
+        vals.forEach(function (v, i) {
+          var x = L + gap * (i + 0.5) - bw / 2, y = Y(v[1]);
+          S('rect', { x: x, y: y, width: bw, height: B - y, style: i ? 'fill:var(--acc-mm)' : 'fill:var(--bg-1);stroke:var(--ink-2)', 'stroke-width': 1.4 }, svg);
+          S('text', { x: x + bw / 2, y: y - 5, 'text-anchor': 'middle', class: i === vals.length - 1 ? 't-strong' : 't-ink', text: String(v[1]) }, svg);
+          S('text', { x: x + bw / 2, y: Hh - 8, 'text-anchor': 'middle', text: v[0].toUpperCase() }, svg);
+        });
+      },
+      /* 167: the two grids, one dot per selected pair */
+      '167': function (stage, W) {
+        var gaps = 18, avail = W - 28 - gaps, p = Math.min(14, avail / 28.5), y0 = 22, Hh = Math.round(y0 + 5 * p + 8), narrow = W < 460;
+        var svg = svgIn(stage, W, Hh, 'Two grids of dots: 20 by 5, 100 selected pairs, in the manuscript; 8 by 4, 32 pairs, after the refinement.');
+        function grid(x0, cols, rows, filled, lab) {
+          for (var i = 0; i < cols; i++) for (var j = 0; j < rows; j++) S('circle', { cx: x0 + i * p + p / 2, cy: y0 + j * p + p / 2, r: Math.max(1.6, p * 0.28), style: filled ? 'fill:var(--acc-mm)' : 'fill:none;stroke:var(--ink-2)', 'stroke-width': 1 }, svg);
+          S('text', { x: x0, y: y0 - 8, class: filled ? 't-strong' : 't-ink', text: lab }, svg);
+        }
+        grid(14, 20, 5, false, narrow ? '20×5 = 100 · BEFORE' : '20×5 = 100 · MANUSCRIPT');
+        grid(14 + 20 * p + gaps, 8, 4, true, narrow ? '8×4 = 32' : '8×4 = 32 · AFTER');
+      },
+      /* 107: the exponent ω on a number line from 2 to 3 */
+      '107': function (stage, W) {
+        var Hh = 128, pad = 18, y = 58, svg = svgIn(stage, W, Hh, 'Number line of the matrix multiplication exponent from 2 to 3: 3 for the school method, 2.807 Strassen 1969, 2.371177 the best published bound in August 2026, 9/4 equals 2.25 claimed by OpenAI, and 2, the floor.');
+        var X = function (v) { return W - pad - (W - 2 * pad) * (v - 2); }; // 3 on the left, 2 on the right: smaller is better
+        S('line', { x1: X(3), x2: X(2), y1: y, y2: y, class: 'axis' }, svg);
+        var narrow = W < 460, P = [[3, '3', 'school', 'up'], [2.80735, '2.807', 'Strassen 1969', 'down'], [2.371177, '2.371', narrow ? 'Aug 2026' : 'record, Aug 2026', 'up'], [2.25, '9/4', 'OpenAI claim', 'down'], [2, '2', 'floor', 'up']];
+        P.forEach(function (q) {
+          var x = X(q[0]), up = q[3] === 'up', claim = q[1] === '9/4';
+          S('line', { x1: x, x2: x, y1: y - 5, y2: y + 5, class: 'axis' }, svg);
+          if (claim) mark(svg, x, y, true, 4.5); else S('circle', { cx: x, cy: y, r: 3.2, style: 'fill:var(--ink-2)' }, svg);
+          var anchor = x < 40 ? 'start' : x > W - 40 ? 'end' : 'middle';
+          S('text', { x: x, y: up ? y - 22 : y + 24, 'text-anchor': anchor, class: claim ? 't-strong' : 't-ink', text: q[1] }, svg);
+          S('text', { x: x, y: up ? y - 10 : y + 36, 'text-anchor': anchor, text: q[2].toUpperCase() }, svg);
+        });
+        // the barrier: a limit on one step of the 9/4 method, not a new bound
+        var xb = X(2.25);
+        S('line', { x1: xb, x2: xb, y1: y + 42, y2: y + 52, style: 'stroke:var(--hair)', 'stroke-width': 1.4 }, svg);
+        S('text', narrow ? { x: pad, y: Hh - 6, 'text-anchor': 'start', class: 't-ink', text: 'rohanarun: a limit, not a new bound' } : { x: Math.min(xb + 8, W - pad), y: Hh - 6, 'text-anchor': 'end', class: 't-ink', text: 'rohanarun: a limit on one step, not a new bound' }, svg);
+      }
+    };
+    $$('.mm-mini[data-mini]').forEach(function (fig) {
+      var fam = fig.getAttribute('data-mini'), stage = $('.mm-mini-stage', fig);
+      if (fam === '160') { vdw(fig, stage); return; }
+      var fn = DRAW[fam]; if (!fn || !stage) return;
+      var extra = null, redraw = sized(stage, function (w) { fn(stage, w, extra); });
+      if (fam === '109' && F0.kappa) F0.kappa().then(function (k) {
+        if (!k || !/^0\.\d+$/.test(String(k.decimal))) return;
+        var lg = Math.log2(parseFloat(k.decimal)), live = k.source === 'live';
+        extra = { lg: lg, t: Date.parse(k.at) || END };
+        var sp = $('[data-mini-live]', fig);
+        if (sp) sp.textContent = 'Last point: ' + k.decimal + (live ? ', fetched just now from the race’s repository' : k.source === 'snapshot' ? ', the snapshot of 13 Oct (the live file could not be reached)' : ', from this site’s own feed') + '.';
+        redraw();
+      }).catch(function () {});
+    });
+    /* 160: colour 1..N with two colours and look for a one-colour evenly spaced triple */
+    function vdw(fig, stage) {
+      var start = [0, 0, 1, 1, 0, 0, 1, 1], col = start.slice(), N = 8;
+      stage.innerHTML = '<div class="mm-vdw-ctrl" role="group" aria-label="How many numbers"><div class="seg" role="group" aria-label="Numbers"><button type="button" data-n="8" aria-pressed="true">1–8</button><button type="button" data-n="9" aria-pressed="false">1–9</button></div><button type="button" class="tbtn" data-act="mix">Mix the colours</button><button type="button" class="tbtn" data-act="reset">Start again</button></div>' +
+        '<div class="mm-vdw" role="group" aria-label="The numbers; press one to switch its colour"></div><svg class="mm-svg mm-vdw-arc" aria-hidden="true"></svg><p class="mm-vdw-out" aria-live="polite"></p><div class="mm-vdw-c"></div>';
+      var row = $('.mm-vdw', stage), arc = $('.mm-vdw-arc', stage), out = $('.mm-vdw-out', stage), cbar = $('.mm-vdw-c', stage);
+      function triple() {
+        for (var d = 1; d <= 4; d++) for (var a = 1; a + 2 * d <= N; a++) if (col[a - 1] === col[a + d - 1] && col[a - 1] === col[a + 2 * d - 1]) return [a, a + d, a + 2 * d];
+        return null;
+      }
+      function paint(say) {
+        row.innerHTML = '';
+        for (var i = 1; i <= N; i++) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'c' + col[i - 1]; b.textContent = i; b.setAttribute('data-i', i);
+          b.setAttribute('aria-label', i + ', ' + (col[i - 1] ? 'second' : 'first') + ' colour');
+          row.appendChild(b);
+        }
+        var t = triple();
+        $$('button', row).forEach(function (b) { if (t && t.indexOf(+b.getAttribute('data-i')) >= 0) b.classList.add('hit'); });
+        // arc joining the triple
+        arc.innerHTML = '';
+        var w = row.getBoundingClientRect().width;
+        arc.setAttribute('viewBox', '0 0 ' + Math.max(1, w) + ' 22'); arc.setAttribute('width', Math.max(1, w)); arc.setAttribute('height', 22);
+        if (t) {
+          var bs = $$('button', row), r0 = row.getBoundingClientRect();
+          var xs = t.map(function (k) { var bb = bs[k - 1].getBoundingClientRect(); return bb.left - r0.left + bb.width / 2; });
+          S('path', { d: 'M' + xs[0] + ',2 Q' + (xs[0] + xs[1]) / 2 + ',20 ' + xs[1] + ',2 Q' + (xs[1] + xs[2]) / 2 + ',20 ' + xs[2] + ',2', style: 'fill:none;stroke:var(--ink)', 'stroke-width': 1.6 }, arc);
+        }
+        var txt = t ? 'Found: ' + t.join(', ') + ' are one colour and evenly spaced (step ' + (t[1] - t[0]) + ').' + (N === 9 ? ' With 9 numbers this always happens: W(3;2) = 9.' : '')
+          : 'No one-colour evenly spaced triple among 1–' + N + '.' + (N === 8 ? ' Now choose 1–9 and try both colours for 9.' : '');
+        if (say !== false) out.textContent = txt; else out.textContent = txt;
+      }
+      row.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-i]'); if (!b) return;
+        var i = +b.getAttribute('data-i'); col[i - 1] = 1 - col[i - 1]; paint();
+        var nb = $('button[data-i="' + i + '"]', row); if (nb) nb.focus();
+      });
+      $$('[data-n]', stage).forEach(function (b) { b.addEventListener('click', function () {
+        N = +b.getAttribute('data-n'); while (col.length < N) col.push(0); col.length = N;
+        $$('[data-n]', stage).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); paint();
+      }); });
+      $('[data-act="mix"]', stage).addEventListener('click', function () { for (var i = 0; i < N; i++) col[i] = Math.random() < 0.5 ? 0 : 1; paint(); });
+      $('[data-act="reset"]', stage).addEventListener('click', function () { col = start.slice(); if (N === 9) col.push(0); paint(); });
+      sized(cbar, function (w) {
+        cbar.innerHTML = '';
+        var svg = S('svg', { viewBox: '0 0 ' + w + ' 70', width: w, height: 70, class: 'mm-svg mm-mini-svg', role: 'img', 'aria-label': 'Log scale of the constant c: from 1 over 100000 in the manuscript, through 7 public steps, to 1 over 9, about 11,111 times larger.' }, cbar);
+        var r = rowBy['160'];
+        logBar(svg, w, 26, { lo: -5.4, hi: 0, ticks: [-5, -4, -3, -2, -1, 0], before: -5, after: r.steps[r.steps.length - 1].lv, steps: r.steps.map(function (s) { return s.lv; }), beforeLab: 'c = 1/100000', afterLab: '1/9', tickLab: function (t) { return t === 0 ? '1' : pow10(t); } });
+      });
+      paint(false);
+      window.addEventListener('resize', function () { paint(false); });
+    }
   }
 
   /* ================= the live reviewed κ (family 109 entry) ================= */
@@ -814,8 +1069,9 @@
     slack();
     foundation();
     kappa();
-    F0.json(R + 'data/openai-math-families.json').then(function (FD) {
-      var m = map(FD);
+    minis();
+    Promise.all([F0.json(R + 'data/openai-math-families.json'), F0.json('openai-subjects.json').catch(function () { return null; })]).then(function (d) {
+      var m = map(d[0], d[1]);
       $$('.mm-show[data-show]').forEach(function (b) {
         b.addEventListener('click', function () { if (m) m.show(('00' + b.getAttribute('data-show')).slice(-3)); });
       });

@@ -85,19 +85,19 @@
 
       <figure class="ph-fig fig frame pm" aria-labelledby="pm-t">
         <div class="fig-head">
-          <p class="fig-title" id="pm-t">Two tools, eight promises</p>
-          <p class="fig-how"><b>How to read:</b> each row is something a commons tool should do. A filled mark means the tool does it today, a half mark means partly, and an open ring with a cross means not yet. Press the button to see only the gaps.</p>
+          <p class="fig-title" id="pm-t">Two tools, eight checks</p>
+          <p class="fig-how"><b>How to read:</b> the first five rows are the commons promises listed below; the last three are what neither tool has earned yet. A filled mark means the tool does it today, a half mark means partly, and an open ring with a cross means not yet. Press the button to see only the gaps.</p>
         </div>
         <div class="pm-wrap">
           <table class="pm-tbl" id="pm-tbl">
-            <caption class="sr-only">What MedCode and Nutrak do today, promise by promise</caption>
-            <thead><tr><th scope="col">Promise</th><th scope="col" style="--acc:var(--acc-medcode)">MedCode demo</th><th scope="col" style="--acc:var(--acc-nutrak)">Nutrak</th></tr></thead>
+            <caption class="sr-only">What MedCode and Nutrak do today, check by check</caption>
+            <thead><tr><th scope="col">Check</th><th scope="col" style="--acc:var(--acc-medcode)">MedCode demo</th><th scope="col" style="--acc:var(--acc-nutrak)">Nutrak</th></tr></thead>
             <tbody>
               <tr data-gap="0"><th scope="row">Free, with no account</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">no login</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">no account</span></td></tr>
               <tr data-gap="0"><th scope="row">Your data stays on your device</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">case text is read in your browser; only the code tables download</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">your food log stays in your browser</span></td></tr>
               <tr data-gap="1"><th scope="row">Works on a weak connection, or none</th><td data-s="part"><span class="pm-v">Partly</span><span class="pm-n">about 1.2 MB of code tables to download first</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">about 26 KB compressed; installable; offline after the first visit</span></td></tr>
               <tr data-gap="0"><th scope="row">Shows its working</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">each candidate says which words it matched</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">a &ldquo;why this number?&rdquo; under every target</span></td></tr>
-              <tr data-gap="0"><th scope="row">Says what it cannot do</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">&ldquo;keyword matching, not understanding&rdquo;</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">unbuilt features say so; demo data is labelled</span></td></tr>
+              <tr data-gap="0"><th scope="row">Says what it cannot do</th><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">&ldquo;Keyword evidence, not clinical confidence&rdquo;</span></td><td data-s="yes"><span class="pm-v">Yes</span><span class="pm-n">unbuilt features say so; demo data is labelled</span></td></tr>
               <tr data-gap="1"><th scope="row">Clinically validated</th><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">not for real patient data</span></td><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">not medical advice</span></td></tr>
               <tr data-gap="1"><th scope="row">Checked by someone other than its maker</th><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">no outside audit or peer review</span></td><td data-s="no"><span class="pm-v">Not yet</span><span class="pm-n">no outside audit or peer review</span></td></tr>
               <tr data-gap="1"><th scope="row">Built for the people the commons serves</th><td data-s="no"><span class="pm-v">No</span><span class="pm-n">built for US billing codes and the US market</span></td><td data-s="part"><span class="pm-v">Partly</span><span class="pm-n">free, tiny and offline; but English only, kcal only, no food database</span></td></tr>
@@ -107,7 +107,7 @@
         <div class="fig-ctrl" role="group" aria-label="Table view">
           <span class="ctrl-label">View //</span>
           <button class="tbtn" type="button" id="pm-gaps" aria-pressed="false">Show only the gaps</button>
-          <span class="pm-count" id="pm-count" aria-live="polite">8 promises &middot; 9 of 16 kept in full</span>
+          <span class="pm-count" id="pm-count" aria-live="polite">8 checks &middot; 9 of 16 met in full</span>
         </div>
         <figcaption class="fig-foot"><span class="fig-src">Source: the two apps&rsquo; public pages (<a href="https://medcode.askaconsult.com/app/">medcode.askaconsult.com/app</a>, <a href="https://ahrazzle.github.io/nutrak/">ahrazzle.github.io/nutrak</a>) and the <a href="https://github.com/ahrazzle/nutrak">Nutrak repository</a>, checked 14 Oct 2026. Sizes measured by us.</span></figcaption>
       </figure>
@@ -138,6 +138,19 @@
           </ol>
         </div>
       </div>
+
+      <figure class="fig frame wc" aria-labelledby="wc-t">
+        <div class="fig-head">
+          <p class="fig-title" id="wc-t">Promise 03, measured: the wait on a weak connection</p>
+          <p class="fig-how"><b>How to read:</b> each bar is the time to download what a first visit needs before the tool can be used, at the connection speed you pick. Bars share one scale, and each is labelled with its time.</p>
+        </div>
+        <div class="fig-ctrl wc-ctrl" role="group" aria-label="Connection speed">
+          <span class="ctrl-label">Link //</span>
+          <div class="seg" id="wc-speed" role="group" aria-label="Connection speed"><button type="button" data-k="50" aria-pressed="true">Slow &middot; 50 kB/s</button><button type="button" data-k="400" aria-pressed="false">Modest &middot; 400 kB/s</button><button type="button" data-k="2500" aria-pressed="false">Good &middot; 2.5 MB/s</button></div>
+        </div>
+        <ul class="wc-bars" id="wc-bars" aria-live="polite"></ul>
+        <figcaption class="fig-foot"><span class="fig-src">Sizes over the wire, measured by us on 14&ndash;15 Oct 2026: Nutrak&rsquo;s app (26 KB compressed) plus its demo data (4 KB compressed); MedCode&rsquo;s three code tables (1.22 MB with Brotli compression), before its own page and code. The median mobile web page was 2,629 KB in the <a href="https://httparchive.org/reports/page-weight">HTTP Archive</a> crawl of 1 Sep 2026. Speeds are round, assumed figures; real links vary, and a lost connection costs more than a slow one.</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -152,13 +165,20 @@
           <p>In the United States every doctor&rsquo;s visit is turned into short codes before anyone is paid. The codes decide what a clinic receives, so a wrong one costs money either way: a missed code underpays the clinic, and a code the notes do not support invites an audit. Dozens of companies now sell AI that reads the notes and picks the codes.</p>
           <p>MedCode is two things. Its research page maps 25 vendors in four camps and tags every figure in its vendor table by how well it is supported. As of 3 October 2026 it found &ldquo;no publicly available independent head-to-head accuracy audit among the 25 vendors reviewed&rdquo;, and adds that this is &ldquo;a research finding about the sources reviewed, not a product accuracy certification.&rdquo;</p>
           <aside class="callout def"><p class="c-k">Plain words</p><p>A <dfn>head-to-head audit</dfn> is an outside group running several tools on the same notes and scoring them against codes that experts chose without seeing the tools&rsquo; answers (a <dfn>blinded evaluation</dfn>). Without one, &ldquo;95% accurate&rdquo; is a sentence, not a measurement.</p></aside>
-          <p>Its free demo searches 161,282 official US code entries inside your browser: the CMS diagnosis and hospital-procedure lists for fiscal 2026 and the October 2026 list of supplies and services. It matches keywords, says plainly that keyword matching is not understanding, and asks you to use made-up, de-identified examples only.</p>
+          <p>Its free demo searches 161,282 official US code entries inside your browser: the CMS diagnosis and hospital-procedure lists for fiscal 2026 and the October 2026 list of supplies and services. It matches keywords, says plainly that a keyword match is not a probability of correct coding, and asks you to use made-up, de-identified examples only.</p>
           <aside class="callout caveat"><p class="c-k">Who it is for, honestly</p><p>MedCode was built for the US billing system and the US market, not yet for the commons&rsquo; wider audience. It belongs here because it is free, and because its lesson travels: when software moves money or care, trust has to come from published measurement.</p></aside>
+          <h3>What is real today</h3>
+          <dl class="kv nk-kv mc-kv">
+            <dt>Live</dt><dd>The research page (snapshot 3 Oct 2026) and a free demo that runs in your browser, with no account.</dd>
+            <dt>Data</dt><dd>161,282 official US code entries, from CMS files the demo labels historical (fiscal 2026) and the October 2026 supplies list.</dd>
+            <dt>Code</dt><dd>Private for now; open source when ready to ship.</dd>
+            <dt>Not yet</dt><dd>Clinical validation, an independent accuracy test, peer review. Not for real patient data.</dd>
+          </dl>
         </div>
         <figure class="shots mc-shots" aria-labelledby="mc-shots-t">
           <p class="label" id="mc-shots-t">The real thing</p>
-          <a class="shot frame" href="https://medcode.askaconsult.com/"><img src="img/medcode-research.jpg" width="1280" height="700" alt="The MedCode research page: the headline 'Accuracy needs evidence', a summary saying the review of 25 vendors found no publicly available independent head-to-head accuracy audit as of 3 October 2026, and a button to try the coding demo."><span class="shot-cap">Research page &middot; medcode.askaconsult.com</span></a>
-          <a class="shot frame" href="https://medcode.askaconsult.com/app/"><img src="img/medcode-demo.jpg" width="1280" height="700" alt="The MedCode demo's opening screen: 'Explore the case. Review the codes.', a note that the fiscal 2026 code files are a dated snapshot, and buttons to explore a case or look up codes."><span class="shot-cap">Demo &middot; medcode.askaconsult.com/app</span></a>
+          <a class="shot frame" href="https://medcode.askaconsult.com/"><img src="img/medcode-research.jpg" width="1280" height="700" loading="lazy" decoding="async" alt="The MedCode research page: the headline 'Accuracy needs evidence', a summary saying the review of 25 vendors found no publicly available independent head-to-head accuracy audit as of 3 October 2026, and a button to try the coding demo."><span class="shot-cap">Research page &middot; medcode.askaconsult.com</span></a>
+          <a class="shot frame" href="https://medcode.askaconsult.com/app/"><img src="img/medcode-demo.jpg" width="1280" height="700" loading="lazy" decoding="async" alt="The MedCode demo's opening screen: 'Explore the case. Review the codes.', a note that the fiscal 2026 code files are a dated snapshot, and buttons to explore a case or look up codes."><span class="shot-cap">Demo &middot; medcode.askaconsult.com/app</span></a>
           <figcaption class="fig-foot"><span>Screenshots captured by Foundation0 from the public site on 14 Oct 2026 (light theme).</span></figcaption>
         </figure>
       </div>
@@ -203,6 +223,7 @@
               <div class="ctrl"><span>Visit</span><div class="seg" id="ca-visitseg"><button type="button" data-v="A" aria-pressed="true">First</button><button type="button" data-v="D" aria-pressed="false">Follow-up</button><button type="button" data-v="S" aria-pressed="false">Sequela</button></div></div>
             </div>
             <table class="ca-grid" id="ca-grid"><caption>One sprain of one ligament: nine billable codes</caption><thead><tr><th scope="col"><span class="sr-only">Side</span></th><th scope="col">First visit</th><th scope="col">Follow-up</th><th scope="col">Sequela</th></tr></thead><tbody></tbody></table>
+            <p class="ca-note" id="ca-note">Side and visit are often written in other words: &ldquo;L ankle&rdquo;, &ldquo;back for a check&rdquo;. A keyword search for &ldquo;ankle sprain&rdquo; finds all nine and cannot tell which one the note means. <a href="#kw-t">Watch a keyword matcher try</a>.</p>
           </div>
         </div>
         <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes">CMS, 2027 ICD-10-CM code descriptions in tabular order</a> (in effect 1 Oct 2026 to 30 Sep 2027). Every code shown is real and billable. The MedCode demo still uses the fiscal 2026 files, which it labels historical.</span></figcaption>
@@ -225,6 +246,32 @@
 <table class="tbl" id="ca2-table"><caption>Billable ICD-10-CM codes by first letter, fiscal 2027</caption><thead><tr><th scope="col">Letter</th><th scope="col">Chapter, in plain words</th><th scope="col" class="n">Codes</th><th scope="col" class="n">Share</th></tr></thead><tbody></tbody></table></div>
         </details>
       </figure>
+
+      <div class="prose narrow kw-intro">
+        <h3>Why matching words is not enough</h3>
+        <p>MedCode&rsquo;s demo matches keywords in a note, and says so on screen: &ldquo;Keyword evidence, not clinical confidence.&rdquo; The figure below is the simplest keyword matcher we could write, run on 270 real ankle and foot codes. It counts shared words and nothing else. Try the three notes, or write your own.</p>
+      </div>
+      <figure class="fig frame kw wide-fig" aria-labelledby="kw-t">
+        <div class="fig-head">
+          <p class="fig-title" id="kw-t">A keyword matcher reads a note</p>
+          <p class="fig-how"><b>How to read:</b> type a short note or pick one. The list shows the five codes that share the most words with it, with the shared words marked; codes with the same score share a rank (&ldquo;=1&rdquo;). The line below says where the right code landed.</p>
+        </div>
+        <p class="kw-badges"><span class="badge n">Foundation0 illustration &middot; not MedCode&rsquo;s engine</span><span class="badge n">Made-up notes only</span></p>
+        <div class="fig-ctrl kw-ctrl" role="group" aria-label="The note">
+          <label class="ctrl kw-field"><span>Note</span><input class="kw-input" type="text" id="kw-q" value="sprain of left ankle, follow-up" autocomplete="off" spellcheck="false" maxlength="120"></label>
+          <div class="seg kw-presets" id="kw-presets" role="group" aria-label="Try a note"><button type="button" data-p="0" aria-pressed="true">Left ankle, follow-up</button><button type="button" data-p="1" aria-pressed="false">No fracture</button><button type="button" data-p="2" aria-pressed="false">Rolled my ankle</button></div>
+        </div>
+        <ol class="kw-list" id="kw-list" aria-label="Top five matches"></ol>
+        <p class="kw-read" id="kw-read" aria-live="polite"></p>
+        <figcaption class="fig-foot"><span class="fig-src">Codes: <a href="ankle-codes.json">commons/ankle-codes.json</a>, 270 billable codes copied from <a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes">CMS&rsquo;s 2027 ICD-10-CM descriptions</a> (ankle sprains and dislocations, ankle and foot strains and bruises, some ankle and heel fractures, ankle pain, stiffness and instability). The matcher is ours, written for this page; it is not MedCode&rsquo;s. Never type real patient details into any tool like this.</span></figcaption>
+        <details class="twin"><summary>How the matcher scores</summary>
+          <ol class="kw-rules">
+            <li>Split the note and every description into lower-case words; drop small words such as &ldquo;of&rdquo;, &ldquo;the&rdquo; and &ldquo;my&rdquo;.</li>
+            <li>A code&rsquo;s score is the number of the note&rsquo;s words that appear in its description. No synonyms, no word endings, no grammar.</li>
+            <li>Rank by score; equal scores share a rank. Within a shared rank the list follows code order, which says nothing about the note.</li>
+          </ol>
+        </details>
+      </figure>
     </div>
   </section>
 
@@ -241,7 +288,7 @@
       <figure class="fig frame ev wide-fig" aria-labelledby="ev-t">
         <div class="fig-head">
           <p class="fig-title" id="ev-t">67 tagged figures from 25 vendors</p>
-          <p class="fig-how"><b>How to read:</b> one row per vendor, one mark per tagged figure: a filled circle is verified, a dashed ring unverified, a diamond the vendor&rsquo;s own claim. Filter by the kind of product, or dim everything that was not verified.</p>
+          <p class="fig-how"><b>How to read:</b> one row per vendor, one mark per tagged figure: a filled circle is verified, a dashed ring unverified, a diamond the vendor&rsquo;s own claim. Filter by the kind of product, or dim everything that was not verified. With the keyboard, Tab to the first vendor and move with the arrow keys.</p>
         </div>
         <div class="fig-ctrl" role="group" aria-label="Filters">
           <span class="ctrl-label">Filter //</span>
@@ -295,8 +342,8 @@
         <figure class="shots nk-shots" aria-labelledby="nk-shots-t">
           <p class="label" id="nk-shots-t">The real thing</p>
           <div class="nk-pair">
-            <a class="shot frame" href="https://ahrazzle.github.io/nutrak/#/adequacy"><img src="img/nutrak-adequacy.jpg" width="540" height="1169" alt="Nutrak's Adequacy screen on a phone: 7-day rolling targets, with nutrients marked no-data, approaching (calcium, 78% of the 1000 mg RDA, EAR 800) and good."><span class="shot-cap">Adequacy, 7-day</span></a>
-            <a class="shot frame" href="https://ahrazzle.github.io/nutrak/#/adequacy"><img src="img/nutrak-why.jpg" width="540" height="1169" alt="Nutrak's 'Why this number?' sheet for calcium: it compares the 7-day average against the RDA of 1000 mg, explains that the pill only changes after a sustained band, and defines EAR and NAR, with linked terms."><span class="shot-cap">&ldquo;Why this number?&rdquo; for calcium</span></a>
+            <a class="shot frame" href="https://ahrazzle.github.io/nutrak/#/adequacy"><img src="img/nutrak-adequacy.jpg" width="540" height="1169" loading="lazy" decoding="async" alt="Nutrak's Adequacy screen on a phone: 7-day rolling targets, with nutrients marked no-data, approaching (calcium, 78% of the 1000 mg RDA, EAR 800) and good."><span class="shot-cap">Adequacy, 7-day</span></a>
+            <a class="shot frame" href="https://ahrazzle.github.io/nutrak/#/adequacy"><img src="img/nutrak-why.jpg" width="540" height="1169" loading="lazy" decoding="async" alt="Nutrak's 'Why this number?' sheet for calcium: it compares the 7-day average against the RDA of 1000 mg, explains that the pill only changes after a sustained band, and defines EAR and NAR, with linked terms."><span class="shot-cap">&ldquo;Why this number?&rdquo; for calcium</span></a>
           </div>
           <figcaption class="fig-foot"><span>Screenshots captured by Foundation0 from the live app on 14 Oct 2026 (phone size).</span></figcaption>
         </figure>

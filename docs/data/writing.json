@@ -15,7 +15,7 @@
    "date": "2026-10-07",
    "author": "ASKA Research",
    "category": "AI / Mathematics",
-   "summary": "OpenAI published 722 machine-written mathematics manuscripts in 372 result families on 2026-10-06; ASKA read the corpus on day one, ranked the headline claims and checked the evidence behind each. Nothing was independently confirmed, a minority had machine-checked proofs, and the real shift is that checking, not discovering, is now the bottleneck.",
+   "summary": "OpenAI published 722 machine-written mathematics manuscripts in 372 result families on 2026-10-06; Aska Digital read the corpus on day one, ranked the headline claims and checked the evidence behind each. Nothing was independently confirmed, a minority had machine-checked proofs, and the real shift is that checking, not discovering, is now the bottleneck.",
    "themes": [
     "frontier"
    ],
@@ -51,7 +51,7 @@
    "date": "2026-09-18",
    "author": "The ASKA Team",
    "category": "Agentic Systems",
-   "summary": "ASKA's IR-Taxonomy gives non-engineers five plain names for agentic systems, so a buyer knows what kind of machine they own before a demo decides for them. Each name comes with one question the owner is entitled to have answered in writing.",
+   "summary": "Aska Digital's IR-Taxonomy gives non-engineers five plain names for agentic systems, so a buyer knows what kind of machine they own before a demo decides for them. Each name comes with one question the owner is entitled to have answered in writing.",
    "themes": [
     "symbiosis",
     "instruments"
@@ -94,7 +94,7 @@
     "symbiosis",
     "instruments"
    ],
-   "relevance": "Very high: ASKA's working example of biological and digital intelligence cooperating under explicit rules, with an honest limit ('asserts value; it does not yet demonstrate it')."
+   "relevance": "Very high: Aska Digital's working example of biological and digital intelligence cooperating under explicit rules, with an honest limit ('asserts value; it does not yet demonstrate it')."
   },
   {
    "title": "The Institution Is the Bottleneck",

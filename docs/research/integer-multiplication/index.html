@@ -82,8 +82,8 @@
           <span class="badge n">Not a complete Lean proof</span>
           <a class="chip" href="../machine-mathematics/#f-109">Builds on OpenAI #109</a>
         </div>
-        <p class="im-credit"><b>Founding member <a href="../../charter/#m-Mister-Meeseeks">Doug Colkitt</a>&rsquo;s project.</b> They created and maintain <a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>, where the race runs. Founding member <a href="../../charter/#m-rohanarun">rohanarun</a> holds the current reviewed record and sent the most pull requests; founding member <a href="../../charter/#m-eumemic">eumemic</a> sent 80. Aska Digital built the live tracker that grew into this site, and submitted two small claims that were later superseded.</p>
-        <p class="im-links"><a href="https://github.com/CrocSwap/integer-mult-bounds">Repository</a><a href="live/">Live race tracker</a><a href="story/">The story</a><a href="../../ledger/#integer-mult-bounds-community">On the Ledger</a><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">The machine-written preprint</a></p>
+        <p class="im-credit"><b>Founding member <a href="../../charter/#m-Mister-Meeseeks">Doug Colkitt</a>&rsquo;s project.</b> They created and maintain <a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>, where the race runs. Founding member <a href="../../charter/#m-rohanarun">rohanarun</a> <span id="credit-rec">held the reviewed record on 15 Oct 2026 (PR #1094)</span> and sent the most pull requests; founding member <a href="../../charter/#m-eumemic">eumemic</a> sent 80. Aska Digital built the live tracker that grew into this site, and submitted two small claims that were later superseded.</p>
+        <p class="im-links"><a href="https://github.com/CrocSwap/integer-mult-bounds">Repository</a><a href="live/">Race tracker (claims feed of 11 Oct)</a><a href="story/">The story</a><a href="../../ledger/#integer-mult-bounds-community">On the Ledger</a><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">The machine-written preprint</a></p>
       </div>
 
       <figure class="ph-fig fig frame im-live" aria-labelledby="lk-title">
@@ -109,7 +109,7 @@
       </figure>
 
       <ul class="statrow im-stats" aria-label="The race in numbers">
-        <li><div class="v">2<sup>&minus;182</sup> &rarr; 2<sup>&minus;9.22</sup></div><div class="k">&kappa; from the machine-written preprint of 23 Sep 2026 to the record of 13 Oct, about 1.03 &times; 10<sup>52</sup> times larger</div><span class="src">preprint &sect;0 Theorem 1; log<sub>2</sub> of the record, computed</span></li>
+        <li><div class="v">2<sup>&minus;182</sup> &rarr; 2<sup>&minus;9.22</sup></div><div class="k">&kappa; from the machine-written preprint (dated 23 Sep, made public 6 Oct 2026) to the record of 13 Oct, about 1.03 &times; 10<sup>52</sup> times larger</div><span class="src">preprint &sect;0 Theorem 1; log<sub>2</sub> of the record, computed</span></li>
         <li><div class="v">17</div><div class="k">reviewed records in five days, 9 to 13 Oct</div><span class="src">git log of <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a></span></li>
         <li><div class="v">1,334</div><div class="k">pull requests opened upstream by 13 Oct 2026 (highest #1374)</div><span class="src">git ls-remote refs/pull/*, 13 Oct ~23:40 UTC</span></li>
         <li><div class="v">0.50%</div><div class="k">fewer steps than <i>n</i>&#8239;log&#8239;<i>n</i> for million-bit numbers, ignoring constants: real, and far too small to notice</div><span class="src"><a href="#worth">computed in section 02</a></span></li>
@@ -153,23 +153,67 @@
     </div>
   </section>
 
-  <!-- 01 THE WALL -->
-  <section class="sec alt" id="wall" data-index="The n log n wall" data-num="01" aria-labelledby="wall-h">
+  <!-- 01 THE FLOOR -->
+  <section class="sec alt" id="wall" data-index="The n log n floor" data-num="01" aria-labelledby="wall-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The wall</p><span class="chip">1962 &rarr; 2026</span></div>
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The floor</p><span class="chip">1962 &rarr; 2026</span></div>
       <h2 class="h2" id="wall-h">From <i>n</i>&sup2; down to <i>n</i>&#8239;log&#8239;<i>n</i>, and a guess about the floor.</h2>
       <p class="lede">Karatsuba opened a sixty-year chase. Its last big step treats numbers as waves.</p>
-      <div class="im-cols">
+      <div class="split">
         <div class="prose">
-          <p>The digits of a number are like a sound sampled over time. Multiplying two numbers is, apart from carrying, a calculation called a <dfn class="term">convolution</dfn>: slide one row of digits past the other and add up the overlapping products. The <dfn class="term">fast Fourier transform</dfn> (FFT), the method that splits a sound into its notes, turns a convolution into note-by-note multiplication, which is cheap. Converting into notes and back costs about <i>n</i>&#8239;log&#8239;<i>n</i> steps.</p>
+          <p>The digits of a number are like a sound sampled over time. Multiplying two numbers is, apart from carrying, a calculation called a <dfn class="term">convolution</dfn>: slide one row of digits past the other and add up the overlapping products. The figure does exactly that, one position at a time. The <dfn class="term">fast Fourier transform</dfn> (FFT), the method that splits a sound into its notes, turns a convolution into note-by-note multiplication, which is cheap: in effect, it does all the sliding at once. Converting into notes and back costs about <i>n</i>&#8239;log&#8239;<i>n</i> steps.</p>
           <aside class="callout def"><p class="c-k">Definition</p><p><dfn>log&#8239;<i>n</i></dfn> (the base-2 logarithm) is roughly how many times you can halve <i>n</i> before reaching 1: about 20 for a million, about 30 for a billion. It grows so slowly that <i>n</i>&#8239;log&#8239;<i>n</i> is only a few dozen times the cost of reading the numbers once.</p></aside>
           <p>Arnold Sch&ouml;nhage and Volker Strassen used the FFT in 1971 to reach <i>n</i>&#8239;log&#8239;<i>n</i>&#8239;log&#8239;log&#8239;<i>n</i>, and guessed that <i>n</i>&#8239;log&#8239;<i>n</i> is the floor: that no method can do better. In 2019 David Harvey and Joris van der Hoeven finally reached <i>n</i>&#8239;log&#8239;<i>n</i>; the proof appeared in the <i>Annals of Mathematics</i> in 2021. Most people took that as the end of the road.</p>
+          <p>These bounds are proved on a <dfn class="term">multitape Turing machine</dfn>: a deliberately simple model of a computer that reads and writes a few long tapes one cell at a time, so even moving data around costs steps. It is the standard yardstick because it cannot hide work inside clever hardware.</p>
+        </div>
+        <figure class="fig frame sticky im-slide" id="fig-slide" aria-labelledby="sl-title">
+          <div class="fig-head">
+            <p class="fig-title" id="sl-title">Multiply by sliding</p>
+            <p class="fig-how"><b>How to read:</b> the top row is &pi;&rsquo;s first digits, the bottom row <i>e</i>&rsquo;s, written backwards. Slide the bottom row along (drag it, or use the controls): each lit pair is one digit product, and the products at each position add up into one column. &ldquo;Carry&rdquo; turns the column sums into the real product.</p>
+          </div>
+          <div class="fig-ctrl im-sl-tabs" role="group" aria-label="Figure view">
+            <span class="ctrl-label">View //</span>
+            <div class="seg" role="group" aria-label="View"><button type="button" data-sl-tab="slide" aria-pressed="true">Slide</button><button type="button" data-sl-tab="count" aria-pressed="false">Count the work</button></div>
+          </div>
+          <div id="sl-p-slide">
+            <div class="fig-stage auto im-slide-stage"><svg id="sl-svg" viewBox="0 0 440 300" role="img" aria-labelledby="sl-desc"></svg></div>
+            <div class="fig-ctrl" role="group" aria-label="Slide controls">
+              <span class="ctrl-label">Slide //</span>
+              <button class="tbtn" type="button" id="sl-back" aria-label="Back: slide one position left">&larr; Back</button>
+              <label class="ctrl im-wide-ctrl" for="sl-s">Position <input class="range" type="range" id="sl-s" min="0" max="6" step="1" value="3" aria-valuetext="position 4 of 7"> <output id="sl-s-out" for="sl-s">4 of 7</output></label>
+              <button class="tbtn" type="button" id="sl-next" aria-label="Next: slide one position right">Next &rarr;</button>
+            </div>
+            <div class="fig-ctrl" role="group" aria-label="More controls">
+              <span class="ctrl-label">Ctrl //</span>
+              <button class="tbtn play" type="button" id="sl-play" aria-pressed="false" aria-label="Play: slide through every position"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Play</span><span class="i-pause">Pause</span></span></button>
+              <button class="tbtn" type="button" id="sl-carry">Carry</button>
+              <div class="seg" role="group" aria-label="Digits"><button type="button" data-sl-n="3" aria-pressed="false">3 digits</button><button type="button" data-sl-n="4" aria-pressed="true">4</button><button type="button" data-sl-n="6" aria-pressed="false">6</button></div>
+            </div>
+            <p class="im-sl-read" id="sl-read" aria-live="polite">Position 4 of 7: 3&times;8 + 1&times;1 + 4&times;7 + 1&times;2 = 55, written in column 4.</p>
+          </div>
+          <div id="sl-p-count" hidden>
+            <div class="fig-stage auto im-slide-stage"><svg id="sl-cost" viewBox="0 0 440 200" role="img" aria-labelledby="sl-cost-desc"></svg></div>
+            <div class="fig-ctrl" role="group" aria-label="Size">
+              <span class="ctrl-label">Size //</span>
+              <label class="ctrl im-wide-ctrl" for="sl-n">Digits <i class="im-ni">n</i> <input class="range" type="range" id="sl-n" min="1" max="9" step="1" value="6" aria-valuetext="1,000,000 digits"> <output id="sl-n-out" for="sl-n">1,000,000</output></label>
+            </div>
+            <dl class="im-readout im-sl-out" aria-live="polite">
+              <div><dt>Every digit meets every digit, <i>n</i>&sup2;</dt><dd id="sl-c-school">10<sup>12</sup> products</dd></div>
+              <div><dt>FFT route, ~3 passes of <i>n</i>&#8239;log&#8322;&#8239;<i>n</i></dt><dd id="sl-c-fft">~6.0 &times; 10<sup>7</sup> steps</dd></div>
+              <div><dt>At a billion steps a second</dt><dd id="sl-c-time">17 minutes vs 0.06 seconds</dd></div>
+            </dl>
+          </div>
+          <figcaption class="fig-foot"><span id="sl-desc">3141 &times; 2718 by sliding: the column sums are 6, 23, 18, 55, 19, 33 and 8; carrying turns them into 8,537,238.</span> <span id="sl-cost-desc" class="sr-only">For 1,000,000-digit numbers, every digit meeting every digit takes 10 to the 12 products; the FFT route takes about 6 times 10 to the 7 steps, constants ignored.</span><span class="fig-src">Digits of &pi; and <i>e</i>; every product, sum and carry computed exactly in your browser. Step counts ignore constants, which for real FFT multiplication are larger.</span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary><div class="table-wrap"><table class="tbl"><caption>3141 &times; 2718, one position at a time</caption><thead><tr><th class="n">Position</th><th>Overlapping pairs</th><th class="n">Column sum</th></tr></thead><tbody><tr><td class="n">1</td><td>3&times;2</td><td class="n">6</td></tr><tr><td class="n">2</td><td>3&times;7 + 1&times;2</td><td class="n">23</td></tr><tr><td class="n">3</td><td>3&times;1 + 1&times;7 + 4&times;2</td><td class="n">18</td></tr><tr><td class="n">4</td><td>3&times;8 + 1&times;1 + 4&times;7 + 1&times;2</td><td class="n">55</td></tr><tr><td class="n">5</td><td>1&times;8 + 4&times;1 + 1&times;7</td><td class="n">19</td></tr><tr><td class="n">6</td><td>4&times;8 + 1&times;1</td><td class="n">33</td></tr><tr><td class="n">7</td><td>1&times;8</td><td class="n">8</td></tr><tr><td></td><td>Carry, from the right</td><td class="n">8,537,238</td></tr></tbody></table><table class="tbl"><caption>Steps to multiply two n-digit numbers, constants ignored</caption><thead><tr><th class="n">Digits n</th><th class="n">School, n&sup2;</th><th class="n">FFT route, 3n&#8239;log&#8322;&#8239;n</th><th class="n">How many times less</th></tr></thead><tbody><tr><td class="n">10</td><td class="n">100</td><td class="n">100</td><td class="n">1</td></tr><tr><td class="n">1,000</td><td class="n">10<sup>6</sup></td><td class="n">3.0 &times; 10<sup>4</sup></td><td class="n">33</td></tr><tr><td class="n">1,000,000</td><td class="n">10<sup>12</sup></td><td class="n">6.0 &times; 10<sup>7</sup></td><td class="n">16,700</td></tr><tr><td class="n">1,000,000,000</td><td class="n">10<sup>18</sup></td><td class="n">9.0 &times; 10<sup>10</sup></td><td class="n">11 million</td></tr></tbody></table></div></details>
+        </figure>
+      </div>
+      <div class="im-cols">
+        <div class="prose">
+          <p>On 6 October 2026 OpenAI published a manuscript, dated 23 September, titled &ldquo;Integer multiplication below <i>n</i>&#8239;log&#8239;<i>n</i>&rdquo;. Its only listed author is &ldquo;OpenAI&rdquo;, and the repository that holds it says its manuscripts were &ldquo;produced by an internal OpenAI model&rdquo;. It is result family #109 of <a href="../machine-mathematics/">722 machine-written manuscripts</a>. It claims multiplication in</p>
+          <p class="im-formula" role="math" aria-label="n times log n to the power 1 minus kappa, with kappa equal to 2 to the minus 182"><span><i>T</i>(<i>n</i>) = <i>n</i> &middot; (log&#8239;<i>n</i>)<sup>1&#8722;&kappa;</sup></span><span class="im-formula-k">with &kappa; = 2<sup>&minus;182</sup></span></p>
+          <p>If &kappa; were 0, this would be <i>n</i>&#8239;log&#8239;<i>n</i>. Any &kappa; above 0, however small, means <i>n</i>&#8239;log&#8239;<i>n</i> is not the floor on this machine. And 2<sup>&minus;182</sup> is small: written as a decimal it starts with 54 zeros.</p>
         </div>
         <div class="prose">
-          <p>These bounds are proved on a <dfn class="term">multitape Turing machine</dfn>: a deliberately simple model of a computer that reads and writes a few long tapes one cell at a time, so even moving data around costs steps. It is the standard yardstick because it cannot hide work inside clever hardware.</p>
-          <p>On 23 September 2026 OpenAI published a preprint titled &ldquo;Integer multiplication below <i>n</i>&#8239;log&#8239;<i>n</i>&rdquo;. Its only listed author is &ldquo;OpenAI&rdquo;, and the repository that holds it says its manuscripts were &ldquo;produced by an internal OpenAI model&rdquo;. It is result family #109 of <a href="../machine-mathematics/">722 machine-written manuscripts</a>. It claims multiplication in</p>
-          <p class="im-formula" role="math" aria-label="n times log n to the power 1 minus kappa, with kappa equal to 2 to the minus 182"><span><i>T</i>(<i>n</i>) = <i>n</i> &middot; (log&#8239;<i>n</i>)<sup>1&#8722;&kappa;</sup></span><span class="im-formula-k">with &kappa; = 2<sup>&minus;182</sup></span></p>
-          <p>If &kappa; were 0, this would be <i>n</i>&#8239;log&#8239;<i>n</i>. Any &kappa; above 0, however small, means <i>n</i>&#8239;log&#8239;<i>n</i> is not a wall on this machine. And 2<sup>&minus;182</sup> is small: written as a decimal it starts with 54 zeros.</p>
           <aside class="callout caveat"><p class="c-k">Read with care</p><p>The preprint is not peer reviewed, and it is not among the results OpenAI has formalized in Lean, a proof checker. Its own repository warns that &ldquo;some of the unformalized results could have issues.&rdquo; Everything below is conditional on it being right.</p></aside>
         </div>
       </div>
@@ -235,7 +279,7 @@
   <section class="sec alt" id="race" data-index="The &kappa; staircase" data-num="03" aria-labelledby="race-h">
     <div class="wrap">
       <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The race</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Conditional &middot; maintainer-reviewed</span></div></div>
-      <h2 class="h2" id="race-h">From 2<sup>&minus;182</sup> to 2<sup>&minus;9</sup> in three weeks.</h2>
+      <h2 class="h2" id="race-h">From 2<sup>&minus;182</sup> to 2<sup>&minus;9</sup> in one week.</h2>
       <p class="lede">On 7 October Doug Colkitt opened a public repository to widen the sliver, and invited anyone to &ldquo;donate inference&rdquo;: point an AI agent at a task and send back a result a computer can check exactly.</p>
       <div class="im-cols">
         <div class="prose">
@@ -248,13 +292,14 @@
       <figure class="fig frame im-stair" id="fig-stair" aria-labelledby="s-title">
         <div class="fig-head">
           <p class="fig-title" id="s-title">The &kappa; staircase</p>
-          <p class="fig-how"><b>How to read:</b> each step is a new record, and the line holds a value until it is beaten. &ldquo;Halvings&rdquo; puts each gridline 30 halvings apart; &ldquo;Plain&rdquo; plots &kappa; itself. Point at, tap or arrow-key through the steps.</p>
+          <p class="fig-how"><b>How to read:</b> each step is a new record, and the line holds a value until it is beaten. &ldquo;Halvings&rdquo; puts each gridline 30 halvings apart; &ldquo;Plain&rdquo; plots &kappa; itself. Point at, tap or arrow-key through the steps; &ldquo;Replay&rdquo; redraws them in the order they happened.</p>
         </div>
         <div class="fig-ctrl" role="group" aria-label="Staircase controls">
           <span class="ctrl-label">Scale //</span>
           <div class="seg" role="group" aria-label="Scale"><button type="button" data-s-scale="log" aria-pressed="true">Halvings</button><button type="button" data-s-scale="lin" aria-pressed="false">Plain</button></div>
           <button class="tbtn im-toggle" type="button" id="s-aska" aria-pressed="true"><span class="im-key im-key-aska" aria-hidden="true"></span>Aska&rsquo;s 2 claims</button>
           <button class="tbtn im-toggle" type="button" id="s-claims" aria-pressed="false"><span class="im-key im-key-claim" aria-hidden="true"></span>Open claims, 11 Oct</button>
+          <button class="tbtn play" type="button" id="s-replay" aria-pressed="false" aria-label="Replay the race: redraw every record in the order it happened"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Replay the race</span><span class="i-pause">Stop the replay</span></span></button>
         </div>
         <div class="fig-stage auto im-stair-stage">
           <svg id="s-svg" viewBox="0 0 960 440" role="group" aria-roledescription="interactive chart" aria-labelledby="s-title" aria-describedby="s-desc s-keys" tabindex="0"></svg>
@@ -268,9 +313,9 @@
         </ul>
         <p class="sr-only" id="s-keys">Focus the chart, then use the left and right arrow keys to move between records, Home and End for the first and last. The selected record is described below the chart.</p>
         <div class="im-detail" id="s-detail" aria-live="polite"></div>
-        <figcaption class="fig-foot"><span id="s-desc">From 2 to the minus 182 in the machine-written preprint of 23 September 2026, through the maintainer&rsquo;s steps on 7 and 8 October, to 0.001672660197076918 (about 2 to the minus 9.22) on 13 October. The full list is in the table below the figure.</span><span class="fig-src">Source: <a href="kappa-history.json">kappa-history.json</a> (compiled from the race&rsquo;s commit history and <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">selected-result.json</a>); open claims from <a href="../../chart-data.json">chart-data.json</a>.</span></figcaption>
+        <figcaption class="fig-foot"><span id="s-desc">From 2 to the minus 182 in the machine-written preprint (dated 23 September 2026, made public on 6 October), through the maintainer&rsquo;s steps on 7 and 8 October, to 0.001672660197076918 (about 2 to the minus 9.22) on 13 October. The full list is in the table below the figure.</span><span class="fig-src">Source: <a href="kappa-history.json">kappa-history.json</a> (compiled from the race&rsquo;s commit history and <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">selected-result.json</a>); open claims from <a href="../../chart-data.json">chart-data.json</a>.</span></figcaption>
         <details class="twin"><summary>Show every record</summary><div class="table-wrap"><table class="tbl" id="s-table"><caption>Reviewed records of &kappa;, UTC</caption><thead><tr><th>When</th><th class="n">&kappa;</th><th class="n">log&#8322;&#8239;&kappa;</th><th>What</th><th>Source</th></tr></thead><tbody><!--prerender:stair-table-->
-          <tr><td>23 Sep 2026</td><td class="n">2<sup>−182</sup></td><td class="n">−182.00</td><td>The machine-written OpenAI preprint (family #109) claims the first saving <span class="im-who-t">An internal OpenAI model</span></td><td><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">preprint</a></td></tr>
+          <tr><td>dated 23 Sep 2026</td><td class="n">2<sup>−182</sup></td><td class="n">−182.00</td><td>The machine-written OpenAI preprint (family #109) claims the first saving <span class="im-who-t">An internal OpenAI model</span></td><td><a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">preprint</a></td></tr>
           <tr><td>7 Oct 2026, 02:22</td><td class="n">5.8 × 10<sup>−33</sup></td><td class="n">−107.09</td><td>The repository opens: a better choice of the preprint's parameters <span class="im-who-t">Doug Colkitt, with OpenAI Codex</span></td><td><a href="https://github.com/CrocSwap/integer-mult-bounds/commit/5cf29ecd">5cf29ecd</a></td></tr>
           <tr><td>7 Oct 2026, 13:35</td><td class="n">2<sup>−78</sup></td><td class="n">−78.00</td><td>Direct axis routing <span class="im-who-t">Doug Colkitt, with OpenAI Codex</span></td><td><a href="https://github.com/CrocSwap/integer-mult-bounds/commit/52ce3bee">52ce3bee</a></td></tr>
           <tr><td>7 Oct 2026, 19:27</td><td class="n">2<sup>−59</sup></td><td class="n">−59.00</td><td>Paired circuits, sharper estimates <span class="im-who-t">Doug Colkitt, with OpenAI Codex</span></td><td><a href="https://github.com/CrocSwap/integer-mult-bounds/commit/bcd4ebde">bcd4ebde</a></td></tr>
@@ -371,7 +416,7 @@
           </div>
           <div class="prose">
             <p>At our tracker&rsquo;s last snapshot that day, #469 was the highest open claim (it was still a draft) and #464 the highest non-draft claim. Neither was ever reviewed. Both, like their parent block, rest on an interface that another pull request (#451) disputes, as our closing note said. By 13 October the reviewed record had moved far past them, on a different line of work, so we closed both.</p>
-            <p>The tracker we built to follow the race is still here as the <a href="live/">live race tracker</a>, and it is how this site began.</p>
+            <p>The tracker we built to follow the race is still here as the <a href="live/">race tracker</a>, and it is how this site began. Its claims feed stopped updating on 11 October at 17:41 UTC; it still reads the reviewed &kappa; live.</p>
             <dl class="kv">
               <dt>#464 claimed</dt><dd>&kappa; = 0.001347744550711765</dd>
               <dt>#469 claimed</dt><dd>&kappa; = 0.001350580884553120</dd>
@@ -412,7 +457,7 @@
     <div class="wrap">
       <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Who did what</p><span class="chip">No portraits, by design</span></div>
       <h2 class="h2" id="who-h">One maintainer, a crowd, and their machines.</h2>
-      <p class="lede">Four founding members of Foundation0 are in this race, counting Aska Digital. So is an internal OpenAI model, and the AI agents of more than 170 other people who sent pull requests in the first week.</p>
+      <p class="lede">Four founding members are in this race: Doug Colkitt, rohanarun, eumemic, and Ahraz Arifuddin through Aska Digital. So are an internal OpenAI model and about 170 other people, many working with AI agents, who had sent pull requests by 13 October (count at 08:10 UTC).</p>
       <div class="im-who">
         <article class="mcard">
           <p class="idx">M&middot;03 &middot; Creator and maintainer</p>
@@ -421,9 +466,9 @@
           <p class="im-who-src">Source: README, NOTICE and CITATION.cff; <code>git log</code> to 14 Oct 2026</p>
         </article>
         <article class="mcard">
-          <p class="idx">M&middot;04 &middot; Current record holder</p>
+          <p class="idx">M&middot;04 &middot; Reviewed record, PR #1094</p>
           <h3>rohanarun</h3><a class="gh" href="https://github.com/rohanarun">@rohanarun</a>
-          <p class="sum">Holds the reviewed record: <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094">PR #1094</a>, &kappa; = 0.001672660197076918, selected 13 October at 18:45 UTC, building on alternating packing improvements with Jeremy Kothe. The most active contributor: 142 pull requests, and the most in the maintainer&rsquo;s ledger (119 of 722). Their PRs disclose OpenAI Codex and Anthropic Claude assistance.</p>
+          <p class="sum">Their <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/1094">PR #1094</a>, &kappa; = 0.001672660197076918, became the reviewed record on 13 October at 18:45 UTC, building on alternating packing improvements with Jeremy Kothe<span id="rohan-rec">; it was still the record on 15 October</span>. The most active contributor: 142 pull requests, and the most in the maintainer&rsquo;s ledger (119 of 722). Their PRs disclose OpenAI Codex and Anthropic Claude assistance.</p>
           <p class="im-who-src">Source: selected-result.json; PR search and <code>docs/research/pr-ledger.md</code>, 14 Oct 2026</p>
         </article>
         <article class="mcard">
@@ -434,7 +479,7 @@
         </article>
         <article class="mcard im-aska">
           <p class="idx">M&middot;01 &middot; Tracker and two claims</p>
-          <h3>Aska Digital</h3><a class="gh" href="https://github.com/ahrazzle">@ahrazzle</a>
+          <h3>Ahraz Arifuddin &middot; Aska Digital</h3><a class="gh" href="https://github.com/ahrazzle">@ahrazzle</a>
           <p class="sum">Built a live tracker of every open claim on 11 October, with Claude; it became <a href="live/">this site&rsquo;s first page</a>. Submitted PR #464 and PR #469 the same day (section 04.1): never reviewed, later superseded, closed on 13 October.</p>
           <p class="im-who-src">Source: <a href="https://github.com/aska-digital/frontier-math">aska-digital/frontier-math</a>; PR #464, #469</p>
         </article>
@@ -453,13 +498,13 @@
       <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>Follow the race</p><span class="chip">Sources</span></div>
       <h2 class="h2" id="follow-h">Read it, re-run it, argue with it.</h2>
       <ul class="doors">
-        <li><a class="door" href="live/" style="--acc:var(--acc-intmult)"><span class="n">TRACKER</span><span class="t">The live race tracker</span><span class="d">Every open claim our feed saw, plotted against the reviewed value, with the feed&rsquo;s age shown in red.</span></a></li>
+        <li><a class="door" href="live/" style="--acc:var(--acc-intmult)"><span class="n">TRACKER &middot; FEED OF 11 OCT</span><span class="t">The race tracker</span><span class="d">Every open claim our feed saw up to 11 October, 17:41 UTC, plotted against the reviewed record, which it reads live.</span></a></li>
         <li><a class="door" href="story/" style="--acc:var(--acc-intmult)"><span class="n">ESSAY &middot; 13 OCT</span><span class="t">When the crowd gets a frontier model</span><span class="d">Why a checkable problem turns a crowd with good tools into something like a laboratory.</span></a></li>
         <li><a class="door" href="../machine-mathematics/#f-109" style="--acc:var(--acc-mm)"><span class="n">CONTEXT</span><span class="t">After the 722</span><span class="d">The 722 machine-written papers this one came from, and what people did with them next.</span></a></li>
         <li><a class="door" href="https://github.com/CrocSwap/integer-mult-bounds" style="--acc:var(--ink-3)"><span class="n">UPSTREAM</span><span class="t">CrocSwap/integer-mult-bounds</span><span class="d">The race itself: records, certificates, the review ledger and the guide for agents.</span></a></li>
       </ul>
       <ol class="notes" aria-label="Sources">
-        <li id="fn-1">OpenAI, &ldquo;Integer multiplication below n log n&rdquo;, 23 Sep 2026, <a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">openai/math @ adc7f12</a>; provenance in the <a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md">repository README</a>.</li>
+        <li id="fn-1">OpenAI, &ldquo;Integer multiplication below n log n&rdquo;, dated 23 Sep 2026, made public 6 Oct 2026, <a href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026">openai/math @ adc7f12</a>; provenance in the <a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md">repository README</a>.</li>
         <li id="fn-2">The race&rsquo;s current record: <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">certificates/selected-result.json</a>; its review, <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-batch1099-review.md">community-batch1099-review.md</a>; its exact certificate, <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/community-frontier1094-audit/ASSEMBLY.json">ASSEMBLY.json</a>.</li>
         <li id="fn-3">Record history: <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/result-history.md">result-history.md</a> and the commits linked in <a href="kappa-history.json">kappa-history.json</a>.</li>
         <li id="fn-4">The bill and &kappa; = <i>a</i>/(1+<i>a</i>): <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/autoresearch.md">autoresearch.md</a> &sect;2; <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/bottleneck-brief.md">bottleneck-brief.md</a>; credit for the sharp charge in <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/r480-sharp-charge535/NOTICE.md">r480-sharp-charge535/NOTICE.md</a>.</li>

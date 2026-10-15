@@ -94,7 +94,7 @@
 .im-ladder li:nth-last-child(2) { box-shadow: inset 0 2px 0 var(--ink-3); }
 .im-ladder-new { background: color-mix(in srgb, var(--acc-intmult) 8%, var(--bg-2)) !important; box-shadow: inset 0 2px 0 var(--acc-intmult); }
 .im-ladder-new .tag { color: var(--st-preprint); }
-@media (max-width: 1100px) { .im-ladder { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1100px) { .im-ladder { grid-template-columns: repeat(4, minmax(0, 1fr)); } .im-ladder-new { grid-column: span 2; } }
 @media (max-width: 640px) { .im-ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); } .im-ladder-new { grid-column: 1 / -1; } }
 
 /* ---------- 02 worth ---------- */
@@ -139,6 +139,7 @@
 @media (max-width: 600px) { #s-out { display: none; } .im-gauge-ticks span:nth-child(even) { visibility: hidden; } }
 #s-svg .lbl { fill: var(--ink-2); }
 #s-svg .lbl-strong { fill: var(--ink); font-weight: 600; }
+#s-svg .lbl, #s-svg .lbl-strong { paint-order: stroke; stroke: var(--bg-1); stroke-width: 4px; stroke-linejoin: round; } /* a halo, so a label stays legible where it meets a line or a dot */
 #s-svg .brk { stroke: var(--line-ui); stroke-width: 1; fill: var(--bg-1); }
 #s-svg .gapband { fill: var(--bg-2); }
 #s-svg .step { fill: none; stroke: var(--mark-im); stroke-width: 2; stroke-linejoin: round; }
@@ -152,7 +153,8 @@
 #s-svg .sel { fill: none; stroke: var(--ink); stroke-width: 1.5; }
 #s-svg .xhair { stroke: var(--ink-3); stroke-width: 1; }
 #s-svg .lead { stroke: var(--ink-3); stroke-width: 1; }
-html[data-motion="on"] #s-svg .ring-live { animation: im-ring 2.8s var(--ease-io) infinite; transform-box: fill-box; transform-origin: center; }
+#s-svg .cursor { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 2 3; }
+html[data-motion="on"] #s-svg .ring-live { animation: im-ring 2.8s var(--ease-io) 3; transform-box: fill-box; transform-origin: center; }
 @keyframes im-ring { 0%, 100% { opacity: .65; transform: scale(1); } 50% { opacity: .1; transform: scale(1.8); } }
 .im-detail { margin-top: 12px; padding: 12px 14px; background: var(--bg-1); border: 1px solid var(--line); border-left: 2px solid var(--mark-im); min-height: 92px; display: grid; gap: 6px; }
 .im-detail.aska { border-left-color: var(--mark-bio); }
@@ -254,3 +256,36 @@ html[data-motion="on"] #s-svg .ring-live { animation: im-ring 2.8s var(--ease-io
   .im-ladder-tbl td { border: 0; padding: 3px 0; min-width: 0; }
   .im-ladder-tbl td:first-child { font-size: 15px; }
 }
+
+/* ---------- 01 Multiply by sliding ---------- */
+.im-slide { width: 100%; }
+.im-slide-stage { background: var(--bg-1); padding: 12px 8px 8px; }
+.im-slide-stage svg { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+.im-sl-tabs { margin-top: 12px; }
+#sl-svg .sl-lab, #sl-cost .sl-lab { font: 500 12px var(--f-mono); fill: var(--ink-3); }
+#sl-svg .sl-cell { fill: var(--bg-2); stroke: var(--line-ui); stroke-width: 1; }
+#sl-svg .sl-a.on { stroke: var(--mark-bio); stroke-width: 2; }
+#sl-svg .sl-b { fill: var(--bg-3); }
+#sl-svg .sl-b.on { stroke: var(--mark-dig); stroke-width: 2; }
+#sl-svg .sl-grab { fill: transparent; stroke: none; cursor: grab; }
+#sl-svg .sl-b { cursor: grab; }
+#sl-svg .sl-dig { font-family: var(--f-mono); font-weight: 500; fill: var(--ink); text-anchor: middle; pointer-events: none; }
+#sl-svg .sl-dig.cur { font-weight: 700; }
+#sl-svg .sl-link { stroke: var(--line-ui); stroke-width: 1; }
+#sl-svg .sl-prod { font-family: var(--f-mono); font-weight: 600; fill: var(--ink); text-anchor: middle; }
+#sl-svg .sl-drop { fill: none; stroke: var(--mark-im); stroke-width: 1.4; }
+#sl-svg .sl-s.todo { fill: none; stroke-dasharray: 3 3; }
+#sl-svg .sl-s.cur { stroke: var(--mark-im); stroke-width: 2.2; }
+#sl-svg .sl-s.done { fill: var(--bg-2); }
+#sl-svg .sl-r { fill: none; stroke-dasharray: 3 3; }
+#sl-svg .sl-r.on { fill: var(--bg-2); stroke: var(--mark-im); stroke-dasharray: none; stroke-width: 1.4; }
+#sl-svg .sl-carry { font-family: var(--f-mono); fill: var(--ink-2); text-anchor: middle; }
+.im-sl-read { margin-top: 10px; min-height: 3em; font: 500 13px/1.5 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; }
+#sl-cost .grid { stroke: var(--grid); stroke-width: 1; }
+#sl-cost .sl-ax { font: 11.5px var(--f-mono); fill: var(--ink-3); }
+#sl-cost .sl-val { font: 600 12.5px var(--f-mono); fill: var(--ink); }
+#sl-cost .sl-bar { fill: var(--ink-3); }
+#sl-cost .sl-bar.hi { fill: var(--mark-im); }
+#sl-cost .sl-bar.lo { fill: var(--line-ui); }
+.im-sl-out { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 640px) { .im-sl-out { grid-template-columns: minmax(0, 1fr); } }

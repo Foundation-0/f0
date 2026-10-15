@@ -21,7 +21,7 @@ Copy from `docs/index.html`, verbatim, and fix every relative prefix for your de
 3. the skip link, the header (mark `aria-current="page"` on your nav link in both `.nav` and `.menu-panel`), the HUD `<nav class="hud" data-hud>`;
 4. the footer.
 
-Give `<body>` a `data-page` key and the `<main id="main">` your sections. Sections follow one pattern, and the HUD index on wide screens builds itself from them:
+Give `<body>` a `data-page` key and the `<main id="main">` your sections. Sections follow one pattern, and the section index builds itself from them: a slim rail of bars at the left edge from 960px (it opens into the full list on hover or keyboard focus; the current section's number shows from 1440px), and below 960px a one-line bar under the header (`03 // Research · 5 of 8`, with a reading-progress line and a list of the sections) on pages with three or more sections:
 
 ```html
 <section class="sec" id="method" data-index="Method" data-num="02" aria-labelledby="method-h">
@@ -41,14 +41,16 @@ Use tokens only; never hard-code a colour. Light ("Encyclopedia paper") is the d
 
 - **Ground and ink:** `--bg` page, `--bg-1` alt band and figure stages, `--bg-2` panels and cards, `--bg-3` wells; `--line` decorative hairline, `--line-ui` anything clickable (≥ 3:1), `--grid` chart gridlines; `--ink`, `--ink-2` body, `--ink-3` muted (keep small text off `--bg-3` in light).
 - **Symbiosis:** `--bio` gold = the human strand, `--dig` cyan = the digital strand (`-hi` variants for hover). Chart marks use `--mark-bio`, `--mark-mid`, `--mark-dig`. Never add a third "joint" colour; show joint work with a split glyph.
-- **Red hairline:** `--hair` marks founding members' own work (Asimov's Radiant drew later additions in red).
+- **Red hairline:** `--hair` marks founding members' own work (the Prime Radiant drew later additions in red). In `data/ledger.json` such items have `foundation0: true`, their credit line in `foundation0_note` and the members' GitHub logins in `foundation0_members`: render the credit from the data, never from a list in page code.
 - **Evidence status:** `--st-verified`, `--st-reviewed`, `--st-preprint`, `--st-claimed`, `--st-contested`, `--st-retracted`, `--st-deployed`. Never colour alone: always with a text label and the ladder glyph.
 - **Project accents** (2px card bar, figure line): `--acc-incentre`, `--acc-exoplanets`, `--acc-intmult`, `--acc-mm` (After the 722), `--acc-mobius`, `--acc-gf2m`, `--acc-rohan`, `--acc-shea`, `--acc-exo`, `--acc-medcode`, `--acc-nutrak`. Set `style="--acc:var(--acc-…)"` on the component.
-- **Type:** `--f-sans` Geist (headings, UI), `--f-serif` Newsreader (explanations), `--f-mono` Geist Mono (labels, data; uppercase with `--tr-label`). Sizes: `--fs-label` 11.5 (never below 11px), `--fs-xs` 13, `--fs-sm` 15, `--fs-ui` 16, `--fs-base` 18, `--fs-lede`, `--fs-h3`, `--fs-h2`, `--fs-h1`, `--fs-display`, `--fs-stat`.
+- **Type:** `--f-sans` Geist (headings, UI), `--f-serif` Newsreader (explanations), `--f-mono` Geist Mono (labels, data; uppercase with `--tr-label`). Each stack lists a size-matched local fallback second (`Geist Fallback` etc., defined at the top of `f0.css`), so text does not jump when the web fonts arrive. Load Newsreader without the optical-size axis: `family=Newsreader:ital,wght@0,400;0,500;1,400` (58 KB instead of 132 KB). Sizes: `--fs-label` 11.5 (never below 11px), `--fs-xs` 13, `--fs-sm` 15, `--fs-ui` 16, `--fs-base` 18, `--fs-lede`, `--fs-h3`, `--fs-h2`, `--fs-h1`, `--fs-display`, `--fs-stat`.
 - **Space:** `--s-1`…`--s-10` (4, 8, 12, 16, 24, 32, 48, 64, 96, 128), `--sec-pad`, `--max` 1320, `--gutter`, `--read` 760 (text column), `--wide` 1040 (figure breakout), `--measure` 68ch.
 - **Hidden:** `[hidden]` always wins (`display: none !important`), so toggling `el.hidden` works on any component without page CSS.
 - **Tool buttons:** below 760px the header's `.tbtn` collapse to icons; buttons inside `.fig` / `.fig-ctrl` keep their visible text.
-- **Motion:** `--t-micro` 120ms, `--t-ui` 220ms, `--t-reveal`, `--t-draw`; `--ease-out`, `--ease-io`. `html[data-motion="off"]` kills every CSS animation and transition.
+- **Motion:** `--t-micro` 120ms, `--t-ui` 220ms, `--t-reveal`, `--t-draw`; `--ease-out`, `--ease-io`. `html[data-motion="off"]` kills every CSS animation and transition. No CSS animation loops forever (the live dot pulses three times).
+- **No JavaScript:** `html:not(.js)` hides the header toggles, every `.fig-ctrl` and every canvas in a `.fig-stage` (which then says the figure needs JavaScript). Put a pre-rendered table in each figure's twin so its numbers read without JS.
+- **Grids of hairline cells** (`.statrow`, `.members`): each cell draws its own right and bottom border, so a short last row shows the page, never a solid block. Choose column counts that divide your item count where you can.
 
 ## 3. Components
 
@@ -63,7 +65,8 @@ Added for inner pages (section 19 of `f0.css`; each has a commented snippet ther
 | `.prose h3, ul, ol, blockquote, code` | Long-form text inside `.prose` |
 | `.split` (+ `.rev`, `> .sticky`) | Prose beside a figure that sticks while you read |
 | `.fig` (+ `.frame`), `.fig-head`, `.fig-title`, `.fig-how`, `.fig-stage` (`--ratio`), `.fig-out`, `.fig-ctrl`, `.ctrl-label`, `.ctrl`, `.fig-foot`, `.fig-src`, `details.twin` | The explainer frame: title, how to read, stage, controls row, source line, and the "show the numbers" twin |
-| `input.range`, `.seg` (buttons with `aria-pressed`), `.tbtn.play` (`.i-play`/`.i-pause` inside) | Controls |
+| `input.range`, `.seg` (buttons with `aria-pressed`; focus shows a two-tone ring that reads on the selected, ink-filled segment too), `.tbtn.play` (`.i-play`/`.i-pause` inside) | Controls. A play button either keeps one label ("Play") and sets `aria-pressed`, or swaps its label ("Play"/"Pause") and sets `data-state="playing"`, never both: a toggle's name must not change. While a `.tbtn.play` reports playing, `f0.js` sets `aria-live="off"` on the live regions and `<output>`s of its figure (`figure` or `.fig`) and announces one summary when it stops, so never put `aria-live` on an element whose SVG is redrawn. Accessible names start with the visible words ("Back: previous step", not "Previous step" on a button that shows "← Back"). |
+| `.tbtn.break` | "Break it": run the page's own checker on a deliberately damaged input (damage one gate, change one count, edit one old entry) and show it saying no. Red hairline outline; `aria-pressed` while the damage is on. |
 | `.callout` (`.def`, `.note`, `.caveat`, `.c-k`), `dfn.term` | Plain-words definitions, asides, honesty caveats |
 | `.fnref`, `ol.notes` (`li id="fn-1"`, `.back`), `.src-list` | Footnotes and sources |
 | `.badge.d` (deployed), `.badge.rt` (retracted), `.badge .xm` (× for contested) | Extra evidence states |
@@ -71,7 +74,8 @@ Added for inner pages (section 19 of `f0.css`; each has a commented snippet ther
 | `.mcards`/`.mcard`, `.worklist` | Full member card (no pictures, ever) with their work and status badges |
 | `.doors`/`.door` | Navigation tiles for index pages |
 | `.kv`, `.toc`, `.prevnext` | Key/value facts, contents list, previous/next footer |
-| `.live-val`, `.chip .dot.stale` | A value fetched at view time, labelled with what it is and when |
+| `.live-val`, `.chip .dot.stale` | A value fetched at view time, labelled with what it is and when (`F0.kappaWhen`) |
+| `.glyph` > `.ghead` (`.gk` title left, `.gr` live meta right) | Card figure header; the two wrap instead of colliding. Figures read `st.top` (the header's bottom) to keep clear of it. `.card .gloss` is a one-line plain-words definition under a card's dek |
 
 ## 4. Runtime: `window.F0` (load `f0.js` with `defer`; it is stable, changes are additive)
 
@@ -81,15 +85,20 @@ Added for inner pages (section 19 of `f0.css`; each has a commented snippet ther
 - `F0.motion()` → is motion allowed (the header toggle, else `prefers-reduced-motion`); `F0.onMotion(fn)`; `F0.reduced`.
 - `F0.loop(fn)` → `{start, stop, running}`: one shared 30 fps animation loop, paused in hidden tabs and when motion is off. `F0.whenVisible(el, onEnter, onLeave)` pauses off-screen. `F0.onIdle(fn)` / `F0.idle()` for ambient loops (pause after 60 s without input).
 - `F0.canvas(el)` → `{ctx, w, h, dpr, resize(fn)}`: DPR-aware (capped at 2), resize-observed.
-- `F0.tip.show(html, x, y)`, `F0.tip.hide()`: the one tooltip, clamped to the viewport. Classes for its content: `.tip-k`, `.tip-t`, `.tip-rows`, `.tip-row`, `.tip-v`, `.tip-note`, `.tip-foot`.
+- `F0.tip.show(html, x, y)`, `F0.tip.hide()`: the one tooltip, clamped to the viewport. It can be hovered (WCAG 1.4.13): `hide()` waits about 200 ms and keeps the tip while the pointer is on it; `hide(true)` closes at once (use it on blur); Escape and scrolling close it. Classes for its content: `.tip-k`, `.tip-t`, `.tip-rows`, `.tip-row`, `.tip-v`, `.tip-note`, `.tip-foot`.
+- `F0.enter(el, fn, {duration, threshold})`: a one-shot entrance (README §5). Paint the final frame first; when `el` first scrolls into view with motion on, `fn(t)` runs for t from 0 to 1 (default `--t-reveal`, at most 1200 ms) and ends on `fn(1)`. Returns `{finish(), running, done}`; call `finish()` on any interaction.
+- `F0.rolePeriods(milestones, {nowYear})` and `F0.roleInsight(periods)`: AI's role over time in the Ledger's periods (first year to 2015, 2016–19, 2020–21, 2022–23, then single years), with one headline and sentence. Home and the Ledger must both use these so they show the same numbers.
+- `F0.titleHTML(t)` / `F0.titleText(t)`: OpenAI family titles (they carry `<i>`, `<sub>`, `<sup>` and some TeX) as safe HTML or plain text.
+- `F0.prerendering`: true while `scripts/prerender.mjs` bakes the no-JS copy; never bake a statement about this visit's network into it.
+- `F0.canvas(el).ready` is false until the canvas is laid out: skip drawing (and never compute a negative width or radius); `resize()` fires once it has a size.
 - `F0.fmtDate('2026-10-13')` → `13 Oct 2026` (also `YYYY-MM`, `YYYY`); `F0.decYear(s)` → decimal year.
 - `F0.statusBadges(status, {ladder})` → badge HTML from a status string such as `projects.json`'s `"Conditional · maintainer-reviewed · not peer reviewed"`. `F0.ladderHTML(rung)` draws the 5-rung evidence ladder (claimed 1, preprint 2, peer reviewed or deployed 3, replicated 4, formally verified 5). `radiant.js` adds `F0.EVID`, `F0.RUNG`, `F0.PLAIN` (field names), `F0.ROLE_TXT`, `F0.dialSVG`.
-- `F0.kappa(opts)` → Promise `{decimal, kappa, pr, prs, status, source, at, url, feedAt}`: the maintainer-reviewed κ from `CrocSwap/integer-mult-bounds` `certificates/selected-result.json` (`source: 'live'`, `at` = fetch time, `status` = the file's own status field); if that cannot be reached, the newer of the local `feed.json` (`source: 'feed'`, `at` = its `generated_at`) and `F0.KAPPA_SNAPSHOT` (`source: 'snapshot'`, the record as last read by hand, 13 Oct 2026 18:45 UTC; pass `opts.snapshot` to use your page's own). The upstream file is fetched once per page. Always print which and when.
+- `F0.kappa(opts)` → Promise `{decimal, kappa, pr, prs, status, source, at, url, feedAt}`: the maintainer-reviewed κ from `CrocSwap/integer-mult-bounds` `certificates/selected-result.json` (`source: 'live'`, `at` = fetch time, `status` = the file's own status field); if that cannot be reached, the newer of the local `feed.json` (`source: 'feed'`, `at` = its `generated_at`) and `F0.KAPPA_SNAPSHOT` (`source: 'snapshot'`, the record as last read by hand, 13 Oct 2026 18:45 UTC; pass `opts.snapshot` to use your page's own). The upstream file is fetched once per page. Always print which and when, with `F0.kappaWhen(k)` (it says "live file unreachable" only to a visitor whose fetch failed). The snapshot is the last reviewed record in `research/integer-multiplication/kappa-history.json`, the file the pages cite (`F0.kappaHistory()` resolves its records); read κ series from that file, not from hard-coded arrays.
 - `F0.Radiant(stage, ledger, opts)`: the ledger figure. `opts.time = {range, play, output}` gives it a time slider and a play button and starts it paused on the full record; without it you get the legacy ambient sweep. `opts.list` (an `<ol>` for keyboard access), `opts.readout`, `opts.base` (link prefix), `opts.members`.
 
 ## 5. Every figure
 
-Title, a one-line "how to read", a source line linking the data file, a text or table twin, keyboard operation (real buttons and inputs; arrow keys where natural; visible focus), colours from tokens in both themes, and no horizontal scroll at 360px. Anything that moves starts paused on an informative frame, runs only on a visible ▶ or on hover/focus, respects `F0.motion()`, and pauses off-screen. Follow the dataviz rules: one y-axis, thin marks, fixed colour order, a legend for two or more series, text in ink tokens (never in series colour), a tooltip on every mark.
+Title, a one-line "how to read", a source line linking the data file, a text or table twin, keyboard operation (real buttons and inputs; arrow keys where natural; visible focus), colours from tokens in both themes, no horizontal scroll at 320px, and no text below 11px at its rendered size (for SVG, font-size × the viewBox scale). Anything that moves respects `F0.motion()` and pauses off-screen and when idle. A figure is drawn first on its informative frame; it may then move in three ways only: (1) on a visible ▶, or on hover/focus of its card (touch screens: while the card is at least 60% in view, one card at a time); (2) a one-shot entrance of at most 1.2 s when it first comes into view, ending on the informative frame (`F0.enter`; for example the Radiant's marks rise to their rings, a curve draws left to right); (3) ambient motion driven by the pointer (marks near the cursor brighten). Nothing loops on its own. Follow the dataviz rules: one y-axis, thin marks, fixed colour order, a legend for two or more series, text in ink tokens (never in series colour), a tooltip on every mark.
 
 ## 6. Words
 

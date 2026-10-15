@@ -12,7 +12,14 @@
      to the rim once (stepped ring by ring when motion is off). Used on the home page.
    - no opts.time (legacy): a slow ambient sweep from the centre to the rim, paused off-screen, in a hidden tab,
      after 60 s idle, with the motion toggle off, and under prefers-reduced-motion (a still frame).
-   opts.members = [{name, login}] (data/members.json) names founding members in the hairline notes. */
+   Two more kinds of motion, both only while F0.motion() is on (README §5):
+   - entrance: when the figure first comes into view, the marks rise from the centre to their rings, oldest first,
+     in 1.2 s (F0.enter), and stop on the full record. Any pointer, key or control use finishes it at once.
+   - pointer: marks within 40 px of the cursor brighten and show their year; pointing at a founding member's mark
+     draws red hairlines to the other marks of the same members (ledger field foundation0_members).
+   opts.members = [{name, login}] (data/members.json) names founding members in the hairline notes.
+   opts.counts = false leaves the counts off the sector labels (the share image, which must not go stale).
+   Credit lines for founding members' items come from the ledger's own foundation0_note field. */
 (function () {
   'use strict';
   var DELTA = 1 + Math.SQRT2, TAU = 0.5, TWO_PI = Math.PI * 2;
@@ -38,16 +45,8 @@
   };
   var RUNG = { 'claimed': 1, 'preprint': 2, 'peer-reviewed': 3, 'deployed': 3, 'independently-replicated': 4, 'formally-verified': 5 };
   var EVID = { 'formally-verified': 'Formally verified', 'independently-replicated': 'Independently replicated', 'peer-reviewed': 'Peer reviewed', 'deployed': 'Deployed', 'preprint': 'Preprint', 'claimed': 'Claimed' };
-  /* Founding members' work in the ledger. Credit lines follow docs/data/members.json and projects.json. */
-  var MEMBERS = {
-    'integer-mult-bounds-community': 'Founding member Doug Colkitt runs this race; eumemic, rohanarun and Ryan Shea contribute. Aska built the tracker that grew into this site.',
-    'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska built the first version of its website and sent ten merged pull requests, four of them pipeline fixes.',
-    'gf2m-aes-field-multiplier-112': 'Swapnil Jain’s result. Aska contributed verified multipliers for four more fields to the same repository.',
-    'mobius-x1-gf2-mobius-below-nlogn': 'Swapnil Jain’s claim. Aska wrote and ran the full-network check behind Theorem 2.',
-    'aska-cab-to-fcc-exact-fold': 'Aska Digital’s own work: founding member Ahraz Arifuddin with a team of AI agents.',
-    'exact-dft-lean-record-shea-kothe': 'Founding member Ryan Shea’s record, shared with Jeremy Kothe, whose circuit it uses.',
-    'vdw-coefficient-community-refinement': 'Founding member rohanarun’s refinements; the last steps came from contributors DaysSky and artuskg.'
-  };
+  /* Founding members' work in the ledger: items with foundation0 true. Their credit line is the item's own
+     foundation0_note (docs/data/ledger.json); memberNote() below is only a fallback for an item without one. */
   var MEMBER_NAMES = [{ name: 'Ahraz Arifuddin', login: 'ahrazzle' }, { name: 'eumemic', login: 'eumemic' }, { name: 'Doug Colkitt', login: 'Mister-Meeseeks' },
     { name: 'rohanarun', login: 'rohanarun' }, { name: 'Ryan Shea', login: 'shea256' }];
   /* a credit line for a ledger item flagged foundation0 that has no hand-written note above */
@@ -92,12 +91,16 @@
       var k = Math.log(1 + age / TAU) / Math.log(DELTA);
       maxK = Math.max(maxK, k);
       return { m: m, i: i, k: k, f: ROLE_F[m.ai_role] || 0.5, rung: RUNG[m.evidence] || 1, d: domains.indexOf(m.domain),
-        member: MEMBERS[m.id] || (m.foundation0 ? memberNote(m, opts.members || MEMBER_NAMES) : ''), x: 0, y: 0, r: 0, rho: 0 };
+        member: m.foundation0 ? (m.foundation0_note || memberNote(m, opts.members || MEMBER_NAMES)) : '',
+        logins: m.foundation0 && Array.isArray(m.foundation0_members) ? m.foundation0_members : [],
+        x: 0, y: 0, r: 0, rho: 0, dx: 0, dy: 0, da: 1 };
     });
     var K = Math.max(4, Math.ceil(maxK));
     var G = {}, staticCv = document.createElement('canvas'), sctx = staticCv.getContext('2d');
     var hover = -1, kbd = false, filter = null, sweep = 0, t0 = 0, loop, lastTap = -1;
     var T = opts.time || null, tw = 1, playing = false, lastNow = 0, stepTimer = 0, DUR = 12000;
+    var rise = 1, entr = null, ptr = null, ptrRaf = 0; // entrance progress (1 = settled); pointer for the ambient highlight
+    var showCounts = opts.counts !== false; // sector labels carry their counts (the share image leaves them out)
     var tok = {}, sprites = {};
 
     function readTokens() {
@@ -117,14 +120,16 @@
     /* ---- geometry ---- */
     function layout() {
       var S = Math.min(C.w, C.h), small = S < 560;
+      G.ok = C.ready !== false && S >= 160; // not laid out yet (or far too small): draw nothing until resize() fires
+      if (!G.ok) return;
       G.S = S; G.cx = C.w / 2; G.cy = C.h / 2; G.small = small;
       G.band = small ? 20 : 28; G.ext = small ? 9 : 14;
-      G.R = S / 2 - G.band - G.ext - (small ? 4 : 8);
+      G.R = Math.max(40, S / 2 - G.band - G.ext - (small ? 4 : 8));
       G.r0 = G.R * 0.12;
       G.gap = small ? 0.42 : 0.27;
       G.w = (TWO_PI - G.gap) / domains.length;
       G.s0 = G.R * (small ? 0.0175 : 0.0124);
-      G.font = small ? 10.5 : 11;
+      G.font = 11; // never below the 11px label floor
       var groups = domains.map(function () { return []; });
       nodes.forEach(function (n) {
         n.rho = 1 - n.k / K;
@@ -142,16 +147,19 @@
           n.th = n.lo + (n.hi - n.lo) * u;
           place(n, n.rt);
         });
-        for (var it = 0; it < 260; it++) {
-          var moved = false;
-          for (var a = 0; a < g.length; a++) for (var b = a + 1; b < g.length; b++) {
-            var p = g[a], q = g[b], dx = q.x - p.x, dy = q.y - p.y, dd = Math.hypot(dx, dy) || 0.01, min = p.r + q.r + 3.2;
-            if (dd < min) {
-              var push = (min - dd) / 2 + 0.05, ux = dx / dd, uy = dy / dd;
+        for (var it = 0; it < 260; it++) { // push overlapping marks apart (squared distances first: this runs ~10^6 times)
+          var moved = false, hit = [];
+          for (var a = 0; a < g.length; a++) {
+            var p = g[a];
+            for (var b = a + 1; b < g.length; b++) {
+              var q = g[b], dx = q.x - p.x, dy = q.y - p.y, min = p.r + q.r + 3.2, d2 = dx * dx + dy * dy;
+              if (d2 >= min * min) continue;
+              var dd = Math.sqrt(d2) || 0.01, push = (min - dd) / 2 + 0.05, ux = dx / dd, uy = dy / dd;
               p.x -= ux * push; p.y -= uy * push; q.x += ux * push; q.y += uy * push; moved = true;
+              if (!p._h) { p._h = 1; hit.push(p); } if (!q._h) { q._h = 1; hit.push(q); }
             }
           }
-          g.forEach(function (n) { unplace(n); });
+          hit.forEach(function (n) { n._h = 0; unplace(n); });
           if (!moved) break;
         }
       });
@@ -170,6 +178,7 @@
 
     /* ---- static layer: rings, sectors, labels, the zero mark ---- */
     function drawStatic() {
+      if (!G.ok) return;
       staticCv.width = canvas.width; staticCv.height = canvas.height;
       var x = sctx; x.setTransform(C.dpr, 0, 0, C.dpr, 0, 0); x.clearRect(0, 0, C.w, C.h);
       var cx = G.cx, cy = G.cy;
@@ -194,7 +203,7 @@
       var lr = G.R + G.ext + G.band / 2 + 1;
       domains.forEach(function (dm, d) {
         var mid = G.gap / 2 + (d + 0.5) * G.w, room = G.w * lr * 0.92, opts = [];
-        LABELS[dm].forEach(function (l) { opts.push(l + '  ' + counts[dm]); opts.push(l); });
+        LABELS[dm].forEach(function (l) { if (showCounts) opts.push(l + '  ' + counts[dm]); opts.push(l); });
         var pick = null;
         for (var i = 0; i < opts.length; i++) if (arcWidth(x, opts[i]) <= room) { pick = opts[i]; break; }
         if (pick) arcText(x, pick, cx, cy, lr, mid);
@@ -249,9 +258,19 @@
       if (filter === 'members') return !!n.member;
       return n.m.ai_role === filter;
     }
+    /* where a mark is drawn: its place, or on its way out from the centre during the entrance (oldest first) */
+    function disp(n) {
+      if (rise >= 1) { n.dx = n.x; n.dy = n.y; n.da = 1; return; }
+      var p = Math.max(0, Math.min(1, (rise - n.rho * 0.45) / 0.55)), e = 1 - Math.pow(1 - p, 3), r0 = G.r0 * 0.6, rr = r0 + (n.cr - r0) * e;
+      n.dx = G.cx + rr * Math.sin(n.th); n.dy = G.cy - rr * Math.cos(n.th); n.da = Math.min(1, p * 2.5);
+    }
+    function shares(a, b) { for (var i = 0; i < a.length; i++) if (b.indexOf(a[i]) >= 0) return true; return false; }
     function draw(now) {
       var x = ctx, animating = !T && !!(loop && loop.running && !F0.idle());
-      x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, canvas.width, canvas.height); x.drawImage(staticCv, 0, 0);
+      x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, canvas.width, canvas.height);
+      if (!G.ok) return;
+      nodes.forEach(disp);
+      x.drawImage(staticCv, 0, 0);
       x.setTransform(C.dpr, 0, 0, C.dpr, 0, 0);
       var w = T && tw < 0.9995 ? tw : -1;
       if (w >= 0) {
@@ -275,15 +294,16 @@
         nodes.forEach(function (n) {
           var I = w >= 0 ? Math.exp(-Math.pow((n.rho - w) / 0.05, 2)) : 0, on = match(n);
           var s = n.r * (3.2 + 2.2 * I);
-          x.globalAlpha = on ? 0.22 + 0.6 * I : 0.04;
-          x.drawImage(n.f > 0.5 ? sprites.dig : sprites.bio, n.x - s, n.y - s, 2 * s, 2 * s);
+          x.globalAlpha = (on ? 0.22 + 0.6 * I : 0.04) * n.da;
+          x.drawImage(n.f > 0.5 ? sprites.dig : sprites.bio, n.dx - s, n.dy - s, 2 * s, 2 * s);
         });
         x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1;
       }
-      // red hairlines: founding members' work, run out past the rim
-      nodes.forEach(function (n) {
+      // red hairlines: founding members' work, run out past the rim (they appear as the entrance settles)
+      var hairA = rise >= 1 ? 1 : Math.max(0, (rise - 0.7) / 0.3);
+      if (hairA > 0) nodes.forEach(function (n) {
         if (!n.member) return;
-        var on = match(n); x.globalAlpha = on ? 1 : 0.25;
+        var on = match(n); x.globalAlpha = (on ? 1 : 0.25) * hairA;
         var a = n.th, r1 = n.cr + n.r + 4, r2 = G.R + G.ext;
         x.strokeStyle = tok['--hair']; x.lineWidth = 1;
         x.beginPath(); x.moveTo(G.cx + r1 * Math.sin(a), G.cy - r1 * Math.cos(a)); x.lineTo(G.cx + r2 * Math.sin(a), G.cy - r2 * Math.cos(a)); x.stroke();
@@ -292,6 +312,7 @@
         x.globalAlpha = 1;
       });
       nodes.forEach(function (n) { drawNode(x, n, match(n), w); });
+      if (rise >= 1 && F0.motion()) ambient(x);
       if (hover >= 0) {
         var h = nodes[hover];
         x.strokeStyle = tok['--focus']; x.lineWidth = 2;
@@ -313,6 +334,36 @@
         if (readout.textContent !== txt) readout.textContent = txt;
       }
     }
+    /* pointer layer (motion on): marks near the cursor brighten and show their year; a founding member's mark under
+       the pointer is joined by red hairlines to the other marks of the same members */
+    function ambient(x) {
+      if (hover >= 0 && nodes[hover].logins.length) {
+        var h = nodes[hover];
+        x.strokeStyle = tok['--hair']; x.lineWidth = 1; x.globalAlpha = 0.85;
+        nodes.forEach(function (q) {
+          if (q === h || !q.logins.length || !shares(h.logins, q.logins) || !match(q)) return;
+          var mx = (h.x + q.x) / 2, my = (h.y + q.y) / 2, cx = G.cx + (mx - G.cx) * 0.35, cy = G.cy + (my - G.cy) * 0.35;
+          x.beginPath(); x.moveTo(h.x, h.y); x.quadraticCurveTo(cx, cy, q.x, q.y); x.stroke();
+        });
+        x.globalAlpha = 1;
+      }
+      if (!ptr) return;
+      var near = [];
+      nodes.forEach(function (n) { if (!match(n)) return; var d = Math.hypot(n.x - ptr.x, n.y - ptr.y); if (d < 40) near.push([d, n]); });
+      near.sort(function (a, b) { return a[0] - b[0]; });
+      x.font = '500 11px ' + F0.css('--f-mono'); x.textAlign = 'left'; x.textBaseline = 'middle';
+      near.slice(0, 6).forEach(function (e) {
+        var n = e[1], k = 1 - e[0] / 40;
+        x.globalAlpha = 0.35 + 0.55 * k; x.strokeStyle = n.f > 0.5 ? tok['--dig'] : tok['--bio']; x.lineWidth = 1.4;
+        x.beginPath(); x.arc(n.x, n.y, n.r + 4, 0, TWO_PI); x.stroke();
+        if (n.i === hover) return;
+        var t = n.m.date.slice(0, 4), tw2 = x.measureText(t).width, lx = n.x + n.r + 6, ly = n.y;
+        if (lx + tw2 + 4 > C.w) lx = n.x - n.r - 6 - tw2;
+        x.globalAlpha = 0.9; x.fillStyle = tok['--bg-1']; x.fillRect(lx - 2, ly - 7, tw2 + 4, 14);
+        x.globalAlpha = 0.5 + 0.5 * k; x.fillStyle = tok['--ink-2']; x.fillText(t, lx, ly + 0.5);
+      });
+      x.globalAlpha = 1;
+    }
     function octagon(x, cx, cy, r, fill) {
       x.beginPath();
       for (var i = 0; i < 8; i++) { var a = (22.5 + 45 * i) * Math.PI / 180, px = cx + r * Math.cos(a), py = cy + r * Math.sin(a); i ? x.lineTo(px, py) : x.moveTo(px, py); }
@@ -320,18 +371,19 @@
       if (fill) { x.fillStyle = tok['--hair']; x.fill(); } else { x.strokeStyle = tok['--hair']; x.lineWidth = 1.2; x.stroke(); }
     }
     function drawNode(x, n, on, w) {
-      x.globalAlpha = on ? 1 : 0.16;
+      var A = n.da, px = n.dx, py = n.dy;
+      x.globalAlpha = (on ? 1 : 0.16) * A;
       var I = (w >= 0) ? Math.exp(-Math.pow((n.rho - w) / 0.05, 2)) : 0, r = n.r * (1 + 0.18 * I);
-      x.fillStyle = tok['--bg-1']; x.beginPath(); x.arc(n.x, n.y, r + 1.6, 0, TWO_PI); x.fill();
-      x.fillStyle = tok['--mark-bio']; x.beginPath(); x.arc(n.x, n.y, r, 0, TWO_PI); x.fill();
-      x.fillStyle = tok['--mark-dig']; x.beginPath(); x.moveTo(n.x, n.y); x.arc(n.x, n.y, r, -Math.PI / 2, -Math.PI / 2 + n.f * TWO_PI); x.closePath(); x.fill();
+      x.fillStyle = tok['--bg-1']; x.beginPath(); x.arc(px, py, r + 1.6, 0, TWO_PI); x.fill();
+      x.fillStyle = tok['--mark-bio']; x.beginPath(); x.arc(px, py, r, 0, TWO_PI); x.fill();
+      x.fillStyle = tok['--mark-dig']; x.beginPath(); x.moveTo(px, py); x.arc(px, py, r, -Math.PI / 2, -Math.PI / 2 + n.f * TWO_PI); x.closePath(); x.fill();
       if (r >= 2) { // evidence ring: closes as evidence firms up
-        x.strokeStyle = tok['--ink-2']; x.lineWidth = G.small ? 0.9 : 1.1; x.globalAlpha = (on ? 0.9 : 0.15);
-        x.beginPath(); x.arc(n.x, n.y, r + 2.4, -Math.PI / 2, -Math.PI / 2 + TWO_PI * n.rung / 5); x.stroke();
+        x.strokeStyle = tok['--ink-2']; x.lineWidth = G.small ? 0.9 : 1.1; x.globalAlpha = (on ? 0.9 : 0.15) * A;
+        x.beginPath(); x.arc(px, py, r + 2.4, -Math.PI / 2, -Math.PI / 2 + TWO_PI * n.rung / 5); x.stroke();
       }
       if (n.m.contested) { // contested: a small cross at two o'clock
-        var cxx = n.x + (r + 3.6) * 0.8, cyy = n.y - (r + 3.6) * 0.6, s = G.small ? 2 : 2.6;
-        x.strokeStyle = tok['--ink']; x.lineWidth = 1.2; x.globalAlpha = on ? 1 : 0.2;
+        var cxx = px + (r + 3.6) * 0.8, cyy = py - (r + 3.6) * 0.6, s = G.small ? 2 : 2.6;
+        x.strokeStyle = tok['--ink']; x.lineWidth = 1.2; x.globalAlpha = (on ? 1 : 0.2) * A;
         x.beginPath(); x.moveTo(cxx - s, cyy - s); x.lineTo(cxx + s, cyy + s); x.moveTo(cxx + s, cyy - s); x.lineTo(cxx - s, cyy + s); x.stroke();
       }
       x.globalAlpha = 1;
@@ -357,6 +409,7 @@
       F0.tip.show(tipHTML(nodes[i]), cx, cy);
     }
     function nearest(px, py) {
+      if (!G.ok) return -1;
       var best = -1, bd = Infinity;
       nodes.forEach(function (n, i) {
         if (!match(n)) return;
@@ -373,11 +426,17 @@
     }
     function running() { return T ? playing && loop && loop.running : loop && loop.running && !F0.idle(); }
 
+    function settle() { if (entr && !entr.done) entr.finish(); }
+    function redrawSoon() { if (!ptrRaf) ptrRaf = requestAnimationFrame(function () { ptrRaf = 0; if (!running()) draw(performance.now()); }); }
     canvas.addEventListener('pointermove', function (e) {
-      var b = canvas.getBoundingClientRect();
-      setHover(nearest(e.clientX - b.left, e.clientY - b.top), false, e.clientX, e.clientY);
+      settle();
+      var b = canvas.getBoundingClientRect(), px = e.clientX - b.left, py = e.clientY - b.top;
+      ptr = F0.motion() && e.pointerType !== 'touch' ? { x: px, y: py } : null;
+      setHover(nearest(px, py), false, e.clientX, e.clientY);
+      if (ptr) redrawSoon();
     });
-    canvas.addEventListener('pointerleave', function () { if (!kbd) setHover(-1); });
+    canvas.addEventListener('pointerleave', function () { var had = !!ptr; ptr = null; if (!kbd) setHover(-1); if (had) redrawSoon(); });
+    canvas.addEventListener('pointerdown', settle);
     canvas.addEventListener('click', function (e) {
       var b = canvas.getBoundingClientRect(), i = nearest(e.clientX - b.left, e.clientY - b.top);
       if (i < 0) { setHover(-1); return; }
@@ -398,7 +457,10 @@
       var full = tw >= 0.9995, txt = (full ? 'Now, ' + F0.fmtDate(ledger.updated) : 'Up to ' + timeLabel(tw)) + ' · ' + countAt(tw) + ' of ' + nodes.length;
       if (T.range) { T.range.value = String(Math.round(tw * 1000)); T.range.setAttribute('aria-valuetext', txt + ' milestones'); }
       if (T.output && T.output.textContent !== txt) T.output.textContent = txt;
-      if (T.play) { T.play.setAttribute('aria-pressed', playing ? 'true' : 'false'); T.play.setAttribute('aria-label', playing ? 'Pause' : (full ? 'Play the record from the oldest milestone' : 'Continue playing the record')); }
+      if (T.play) { // a button whose label swaps (Play / Pause) and carries no aria-pressed; CSS swaps the icon on data-state
+        T.play.removeAttribute('aria-pressed'); T.play.setAttribute('data-state', playing ? 'playing' : 'paused');
+        T.play.setAttribute('aria-label', playing ? 'Pause' : (full ? 'Play the record from the oldest milestone' : 'Play on from this date'));
+      }
     }
     function stopPlay() {
       playing = false; if (loop) loop.stop(); clearInterval(stepTimer); stepTimer = 0; syncTime(); draw(performance.now());
@@ -415,8 +477,8 @@
     }
     this.setTime = function (w) { if (playing) stopPlay(); tw = Math.max(0, Math.min(1, w)); syncTime(); draw(performance.now()); };
     if (T) {
-      if (T.range) T.range.addEventListener('input', function () { if (playing) stopPlay(); tw = (+T.range.value) / 1000; if (hover >= 0 && !match(nodes[hover])) setHover(-1); syncTime(); draw(performance.now()); });
-      if (T.play) T.play.addEventListener('click', function () { if (playing) stopPlay(); else startPlay(); });
+      if (T.range) T.range.addEventListener('input', function () { settle(); if (playing) stopPlay(); tw = (+T.range.value) / 1000; if (hover >= 0 && !match(nodes[hover])) setHover(-1); syncTime(); draw(performance.now()); });
+      if (T.play) T.play.addEventListener('click', function () { settle(); if (playing) stopPlay(); else startPlay(); });
     }
 
     /* ---- keyboard: a real list of links behind the canvas, with roving focus ---- */
@@ -435,6 +497,7 @@
       links[links.length - 1].tabIndex = 0;
       listEl.addEventListener('focusin', function (e) {
         var i = +e.target.dataset.i; if (isNaN(i)) return;
+        settle();
         links.forEach(function (a, j) { a.tabIndex = j === i ? 0 : -1; });
         var cb = canvas.getBoundingClientRect(), my = cb.top + nodes[i].y, vh = window.innerHeight;
         if (my < 90 || my > vh - 60) window.scrollBy({ top: my - vh / 2, behavior: 'auto' }); // keep the focused mark in view
@@ -465,7 +528,7 @@
     }
 
     /* ---- filters from the legend ---- */
-    this.setFilter = function (f) { filter = f; if (hover >= 0 && !match(nodes[hover])) setHover(-1); if (!running()) draw(performance.now()); };
+    this.setFilter = function (f) { settle(); filter = f; if (hover >= 0 && !match(nodes[hover])) setHover(-1); if (!running()) draw(performance.now()); };
 
     /* ---- lifecycle ---- */
     readTokens(); layout(); draw(performance.now());
@@ -489,7 +552,9 @@
       F0.onMotion(sync); F0.onIdle(sync);
     }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawStatic(); draw(performance.now()); });
-    if (opts.centre) opts.centre.textContent = 'Centre: ' + Math.round(nowY - ageAtK(K)) + ' \u00b7 Rim: ' + F0.fmtDate(ledger.updated);
+    entr = F0.enter ? F0.enter(stage, function (t) { rise = t; if (!running()) draw(performance.now()); }, { duration: 1200, threshold: 0.2 }) : null;
+    /* two short lines: where the rim is, and how far back the inner edge reaches (the oldest mark is in the readout) */
+    if (opts.centre) opts.centre.innerHTML = '<span class="ln">Rim: ' + F0.esc(F0.fmtDate(ledger.updated)) + '</span><span class="ln">Inner edge: ' + Math.round(nowY - ageAtK(K)) + '</span>';
     this.nodes = nodes; this.domains = domains;
   };
 })();

@@ -74,7 +74,7 @@
      "url": "https://github.com/CrocSwap/integer-mult-bounds",
      "page": "research/integer-multiplication/",
      "status": "Conditional · maintainer-reviewed",
-     "note": "80 pull requests to the community circuit; the current record builds on their #555.",
+     "note": "80 of the first 722 pull requests inventoried in the race's PR ledger (13 Oct 2026); on 13 Oct the record's bit block built on their #555.",
      "builds_on": "OpenAI #109"
     },
     {
@@ -101,7 +101,7 @@
     "url": "https://github.com/CrocSwap/integer-mult-bounds",
     "page": "research/integer-multiplication/"
    },
-   "summary": "Started and maintains the open race to multiply huge numbers faster than n log n. People and their AI agents took a machine-written paper's saving of 2^−182 and grew it to about 2^−9.2 in a week, every step checked in exact arithmetic, all still resting on the unreviewed original paper.",
+   "summary": "Started and maintains the open race to multiply huge numbers in fewer than n log n steps, the best speed proven so far. People and their AI agents took a machine-written paper's saving of 2^−182 and grew it to about 2^−9.2 in a week, every step checked in exact arithmetic, all still resting on the unreviewed original paper.",
    "work": [
     {
      "name": "integer-mult-bounds",
@@ -114,7 +114,7 @@
     {
      "name": "erdos-875-carry-lemmas",
      "url": "https://github.com/Mister-Meeseeks/erdos-875-carry-lemmas",
-     "status": "Partly Lean-checked · no human review",
+     "status": "Partly Lean-verified · no human review",
      "note": "One model proves, a rival model attacks: a sharp carry lemma behind the best construction for Erdős Problem 875. Not a resolution of the problem."
     },
     {
@@ -147,8 +147,8 @@
      "name": "Integer-multiplication race",
      "url": "https://github.com/CrocSwap/integer-mult-bounds",
      "page": "research/integer-multiplication/",
-     "status": "Current reviewed record · conditional · maintainer-reviewed",
-     "note": "142 pull requests; PR #1094 holds the reviewed record κ = 0.001672660197076918.",
+     "status": "Reviewed record on 13–14 Oct 2026 · conditional · maintainer-reviewed",
+     "note": "142 pull requests as of 14 Oct 2026; PR #1094 was the reviewed record on 13–14 Oct 2026 (κ = 0.001672660197076918).",
      "builds_on": "OpenAI #109"
     },
     {
@@ -197,7 +197,7 @@
     "url": "https://github.com/shea256/autofoundry",
     "page": "instruments/#autofoundry"
    },
-   "summary": "Builds tools for AI-run experiments, such as autofoundry, which rents GPUs from four cloud providers and runs the same experiment across them. Working with Codex and Claude on OpenAI's machine-written problems, co-holds the Lean-verified record for exact Fourier transforms below n log n, with Jeremy Kothe, whose circuit it uses.",
+   "summary": "Builds tools for AI-run experiments, such as autofoundry, which rents GPUs from four cloud providers and runs the same experiment across them. Working with Codex and Claude on OpenAI's machine-written problems, they ranked first, as of 14 Oct 2026, on a public board for exact Fourier transforms below n log n, with a Lean-verified result shared with Jeremy Kothe, whose circuit it uses.",
    "work": [
     {
      "name": "autofoundry",
@@ -210,7 +210,7 @@
      "name": "fourier-transform-below-nlogn",
      "url": "https://github.com/shea256/fourier-transform-below-nlogn",
      "status": "Lean-verified · human review pending",
-     "note": "Exact Fourier transforms of any length in O(n (log n)^(1−δ)) steps with δ = 0.0012331685; rank 1 on the Big O Speedrun board, shared with Jeremy Kothe.",
+     "note": "Exact Fourier transforms of any length in O(n (log n)^(1−δ)) steps with δ = 0.0012331685; rank 1 on the Big O Speedrun board as of 14 Oct 2026, shared with Jeremy Kothe.",
      "builds_on": "OpenAI #130"
     },
     {

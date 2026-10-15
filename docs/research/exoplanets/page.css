@@ -194,3 +194,40 @@
 .ex-lic { margin-top: var(--s-6); max-width: 90ch; font: 400 13px/1.55 var(--f-sans); color: var(--ink-3); }
 @media (max-width: 1100px) { .ex-src { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .ex-src { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- 00 make a transit ---------- */
+.mt-stage canvas { cursor: ew-resize; touch-action: pan-y; }
+.mt-stage canvas:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.mt-read { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mt-read dd sub, .mt-read dt sub { font-size: .75em; }
+.mt-read dt sup, .mt { --x: 0; }
+.mt-sl { flex: 1 1 200px; }
+.mt-sl .range { flex: 1 1 100px; width: auto; }
+.mt-sl output { min-width: 9ch; }
+@media (max-width: 960px) { .mt-stage { --ratio: 4 / 3 !important; aspect-ratio: 4 / 3; } }
+@media (max-width: 560px) { .mt-stage { --ratio: 1 / 1 !important; aspect-ratio: 1 / 1; } }
+
+/* ---------- 06 the next transits ---------- */
+.nt-badges { margin-top: 10px; }
+.nt-stage canvas { cursor: crosshair; }
+@media (max-width: 760px) { .nt-stage { --ratio: 1 / 1 !important; aspect-ratio: 1 / 1; } }
+.nt-list { list-style: none; margin: 12px 0 0; padding: 0; border: 1px solid var(--line); background: var(--bg-2); }
+.nt-list li { display: grid; grid-template-columns: 11ch minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 7px 12px; border-bottom: 1px solid var(--line); font: 400 13.5px/1.4 var(--f-sans); color: var(--ink-2); }
+.nt-list li:last-child { border-bottom: 0; }
+.nt-list li.on { background: color-mix(in srgb, var(--acc-exoplanets) 9%, transparent); box-shadow: inset 2px 0 0 var(--acc-exoplanets); }
+.nt-cd { font: 600 13px/1.3 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.nt-who { display: inline-flex; align-items: center; gap: 6px; min-width: 0; overflow-wrap: anywhere; }
+.nt-who svg { width: 12px; height: 12px; fill: var(--acc-exoplanets); flex: none; }
+.nt-who b { color: var(--ink); font-weight: 600; }
+.nt-when, .nt-dep { font: 500 12.5px/1.4 var(--f-mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.nt-when small { color: var(--ink-3); font-size: 12px; }
+.nt-go { justify-self: end; min-height: 32px; padding: 0 10px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); background: transparent; color: var(--ink); cursor: pointer; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.nt-go:hover { border-color: var(--ink-3); }
+.nt-go:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.nt-note { font: 400 12.5px/1.4 var(--f-sans); color: var(--ink-3); }
+@media (max-width: 860px) {
+  .nt-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .nt-who { grid-column: 1 / -1; grid-row: 2; }
+  .nt-when, .nt-dep { grid-column: 1 / -1; }
+  .nt-go { grid-column: 2; grid-row: 1; min-height: 40px; }
+}

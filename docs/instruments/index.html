@@ -26,6 +26,7 @@
 (function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
 </script>
 <script defer src="../assets/f0.js"></script>
+<script defer src="egg.js"></script>
 <script defer src="page.js"></script>
 </head>
 <body data-page="instruments">
@@ -139,7 +140,7 @@
           <aside class="callout def"><p class="c-k">Two definitions</p><p><dfn>Harness</dfn>: the software around a model that gives it memory, tools, records and limits. Exo&rsquo;s own site puts it in nine words: &ldquo;the code around a model that lets it act.&rdquo;</p><p><dfn>Agent</dfn>: a model running in a loop inside a harness. It reads, chooses an action, the harness carries the action out, and the result goes back in as text.</p></aside>
           <h3>Why this matters to someone working alone</h3>
           <p>A university lab gives a scientist more than equipment. It gives them a notebook others can audit, colleagues who remember last month&rsquo;s dead ends, a safety officer, technicians, and a grant office that tracks what was spent. An independent researcher has none of these.</p>
-          <p>Yet people working alone or in small groups have lately been making sudden leaps with AI. On this site, founding member <a href="../charter/#m-eumemic">eumemic</a> used an AI coding agent to search NASA data on more than four million stars and by 14 October 2026 counted <a href="../research/exoplanets/">665 small-planet candidates</a> (not yet confirmed) that the official searches had passed over. In a public race started by founding member <a href="../charter/#m-Mister-Meeseeks">Doug Colkitt</a>, people and their agents took a <a href="../research/integer-multiplication/">saving in fast multiplication</a> from 2<sup>&minus;182</sup> to about 2<sup>&minus;9.2</sup> in a week, every step checked in exact arithmetic, though all of it still rests on a machine-written paper nobody has yet reviewed. Each of those results came from a person, a model and a harness. When the harness is good, one person can work like a lab. When it is poor, the work is hard to repeat, hard to credit and easy to get wrong.</p>
+          <p>Yet people working alone or in small groups have lately been producing large, checkable results with AI. On this site, founding member <a href="../charter/#m-eumemic">eumemic</a> used an AI coding agent to search NASA data on more than four million stars and by 14 October 2026 counted <a href="../research/exoplanets/">665 small-planet candidates</a> (not yet confirmed) that the official searches had passed over. In a public race started by founding member <a href="../charter/#m-Mister-Meeseeks">Doug Colkitt</a>, people and their agents took a <a href="../research/integer-multiplication/">saving in fast multiplication</a> from 2<sup>&minus;182</sup> to about 2<sup>&minus;9.2</sup> in a week, every step checked in exact arithmetic, though all of it still rests on a machine-written paper nobody has yet reviewed. Each of those results came from a person, a model and a harness. When the harness is good, one person can work like a lab. When it is poor, the work is hard to repeat, hard to credit and easy to get wrong.</p>
         </div>
         <div class="lab-wrap">
           <table class="tbl lab-tbl">
@@ -154,10 +155,10 @@
             </tbody>
           </table>
           <ul class="doors in-doors">
-            <li><a class="door" href="#exo" style="--acc:var(--acc-exo)"><span class="n">01 &middot; Aska Digital</span><span class="t">Exo</span><span class="d">One agent, one memory, a signed record, and consent to the exact words. Private preview.</span></a></li>
-            <li><a class="door" href="#exo-os" style="--acc:var(--acc-exo)"><span class="n">04 &middot; Aska Digital</span><span class="t">Exo OS</span><span class="d">The same core as an operating system. Research and design.</span></a></li>
-            <li><a class="door" href="#auto-research" style="--acc:var(--acc-rohan)"><span class="n">05 &middot; rohanarun</span><span class="t">Auto-research-agent</span><span class="d">A Mac app that sends your own coding agent to an open problem. Released.</span></a></li>
-            <li><a class="door" href="#autofoundry" style="--acc:var(--acc-shea)"><span class="n">06 &middot; Ryan Shea</span><span class="t">autofoundry</span><span class="d">Rent GPUs on four clouds and run one experiment everywhere. Open source.</span></a></li>
+            <li><a class="door" href="#exo" style="--acc:var(--acc-exo)"><span class="n">Aska Digital</span><span class="t">Exo</span><span class="d">One agent, one memory, a signed record, and consent to the exact words. Private preview.</span></a></li>
+            <li><a class="door" href="#exo-os" style="--acc:var(--acc-exo)"><span class="n">Aska Digital</span><span class="t">Exo OS</span><span class="d">The same core as an operating system. Research and design.</span></a></li>
+            <li><a class="door" href="#auto-research" style="--acc:var(--acc-rohan)"><span class="n">rohanarun</span><span class="t">Auto-research-agent</span><span class="d">A Mac app that sends your own coding agent to an open problem. Released.</span></a></li>
+            <li><a class="door" href="#autofoundry" style="--acc:var(--acc-shea)"><span class="n">Ryan Shea</span><span class="t">autofoundry</span><span class="d">Rent GPUs on four clouds and run one experiment everywhere. Open source.</span></a></li>
           </ul>
         </div>
       </div>
@@ -172,21 +173,19 @@
       <p class="lede">Exo is the harness Aska Digital is building, first for its own daily work. Its central idea comes from accounting: keep a record that can only grow, and work out everything else from it.</p>
 
       <article class="vault frame exo-vault" style="--acc:var(--acc-exo)">
-        <svg class="vault-door" viewBox="0 0 200 200" role="img" aria-label="A sealed vault door: Exo is a private preview, and its source opens when it is ready to ship.">
-          <g fill="none" style="stroke:var(--line-ui)">
-            <circle cx="100" cy="100" r="92" stroke-width="1"/>
-            <polygon points="185,135 135,185 65,185 15,135 15,65 65,15 135,15 185,65" stroke-width="1.2"/>
-            <circle cx="100" cy="100" r="58" stroke-width="1"/>
-            <circle cx="100" cy="100" r="24" stroke-width="1"/>
-            <path d="M100 8V42M100 158V192M8 100H42M158 100H192" stroke-width="1"/>
-          </g>
-          <g style="fill:var(--ink-3)">
-            <circle cx="100" cy="30" r="3"/><circle cx="149.5" cy="50.5" r="3"/><circle cx="170" cy="100" r="3"/><circle cx="149.5" cy="149.5" r="3"/>
-            <circle cx="100" cy="170" r="3"/><circle cx="50.5" cy="149.5" r="3"/><circle cx="30" cy="100" r="3"/><circle cx="50.5" cy="50.5" r="3"/>
-          </g>
-          <path d="M100 76V124M76 100H124" style="stroke:var(--ink-2)" stroke-width="2"/>
-          <rect x="94" y="94" width="12" height="12" style="fill:var(--acc-exo)"/>
-        </svg>
+        <figure class="egg-fig" aria-labelledby="egg-t">
+          <p class="egg-k" id="egg-t">The Exo mark, drawn live</p>
+          <div class="egg-stage" id="egg-stage">
+            <canvas id="egg-cv" role="img" aria-label="The Exo lattice egg at stage 2: nineteen cells of six dots each, joined into a honeycomb shaped like an orb, with a path of lit cells running out from the core."></canvas>
+          </div>
+          <p class="egg-read" id="egg-read" aria-live="polite"><b>Stage 2 &middot; lattice.</b> Nineteen cells, 114 dots: the honeycomb as an orb.</p>
+          <div class="fig-ctrl egg-ctrl" role="group" aria-label="Egg controls">
+            <label class="ctrl egg-range">Stage <input class="range" type="range" id="egg-s" min="0" max="3" step="0.05" value="2"> <output id="egg-out" for="egg-s">2</output></label>
+            <button class="tbtn play" type="button" id="egg-play" aria-pressed="false" aria-label="Play: let the egg move"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Play</span><span class="i-pause">Pause</span></span></button>
+            <button class="tbtn" type="button" id="egg-pulse">Send a pulse</button>
+          </div>
+          <figcaption class="egg-cap">Every edge is 2(&radic;2&nbsp;&minus;&nbsp;1), twice the ball radius in Aska&rsquo;s <a href="../research/incentre-lattice/#mirrors">incentre lattice</a>, another project on this site. Drag the stage from 0 (an egg) through 1 (a cell) and 2 (a lattice) to 3 (four dimensions). <span class="egg-credit">Lattice egg renderer from <a href="https://exo.askaconsult.com/brand/">Project Exo</a>, &copy; 2026 Aska Digital, MIT.</span></figcaption>
+        </figure>
         <div>
           <p class="vault-kick">Sealed until release, like Seldon&rsquo;s Time Vault</p>
           <h3>What it does, in four ideas</h3>
@@ -278,6 +277,7 @@
           <p class="fig-how"><b>How to read:</b> the bottom strip is the whole conversation, oldest on the left. Boxes above it are summaries: filled boxes are sent with the next request, outlined ones are older summaries already merged into a parent. The chart below compares the size of each request with a plain transcript. Drag the slider, or press play.</p>
         </div>
         <div class="fig-stage auto mt-tree" id="mt-tree"><span class="corner tr fig-out" id="mt-corner" aria-hidden="true"></span></div>
+        <p class="mt-sent" id="mt-sent"></p>
         <div class="mt-read" id="mt-read" aria-live="polite"></div>
         <div class="fig-stage auto mt-chart" id="mt-chart"></div>
         <div class="fig-ctrl" role="group" aria-label="Conversation length">
@@ -300,10 +300,52 @@
     </div>
   </section>
 
-  <!-- 04 EXO OS -->
-  <section class="sec" id="exo-os" data-index="Exo OS" data-num="04" aria-labelledby="exoos-h">
+  <!-- 04 THE CLIMB -->
+  <section class="sec" id="climb" data-index="Learning that beats the noise" data-num="04" aria-labelledby="climb-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Exo OS &middot; Aska Digital</p><div class="badges"><span class="badge sealed">Private preview</span><span class="badge n">Phase 0 &middot; research and design</span></div></div>
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Explainer &middot; the climb</p><div class="badges"><span class="badge n">Illustration &middot; not the Exo software</span></div></div>
+      <h2 class="h2" id="climb-h">Learning that has to beat the noise.</h2>
+      <p class="lede">Exo&rsquo;s site promises a model fitted to you. Its whitepaper says how a lesson earns its place: a change is kept only if it scores better on an exam built from your own past decisions, by more than the exam&rsquo;s own wobble, and does not score worse on questions the process never saw.</p>
+      <div class="prose narrow">
+        <p>The exam is personal: questions about you with known answers, pairs of a reply you rejected and the one you chose, and real past moments cut off just before you gave your verdict. It is split by time. The oldest part is <dfn class="term">train</dfn>, which the reviewer may read. The middle is <dfn class="term">dev</dfn>, where each candidate change is scored. The newest part, plus a fixed 20% sample, is <dfn class="term">held out</dfn>: the loop never reads it, and uses it only for the final keep-or-drop. The whitepaper&rsquo;s picture is a hillside in fog: you cannot see the top, but you can tell whether one small step takes you higher.</p>
+        <p>Why hold anything back? In the whitepaper&rsquo;s words, &ldquo;any process that tries many small changes and keeps the ones that score better will, given enough tries, find changes that fit the quirks of the test rather than the person.&rdquo; Turn the held-out check off below and watch that happen.</p>
+      </div>
+
+      <figure class="fig frame cl wide-fig" aria-labelledby="cl-t">
+        <div class="fig-head">
+          <p class="fig-title" id="cl-t">The climb, one change at a time</p>
+          <p class="fig-how"><b>How to read:</b> each dot is one proposed change. The top panel is the dev exam: the orange staircase is the current setup&rsquo;s score and the shaded band is its run-to-run noise. A filled dot was kept; a hollow dot was dropped, either because its gain stayed inside the noise or because it fell on the held-out exam below. Press &ldquo;Propose a change&rdquo;.</p>
+        </div>
+        <div class="fig-stage auto cl-stage" id="cl-stage"><span class="corner tr fig-out" id="cl-corner" aria-hidden="true"></span></div>
+        <ul class="vlegend cl-legend" aria-label="Legend">
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 11H6V6H15" fill="none" style="stroke:var(--acc-exo)" stroke-width="2"/></svg><span>the current setup&rsquo;s score</span></li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="4" width="14" height="8" style="fill:var(--acc-exo)" opacity=".16"/></svg><span>run-to-run noise</span></li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.5" style="fill:var(--acc-exo)"/></svg><span>kept</span></li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4" fill="none" style="stroke:var(--ink-3)" stroke-width="1.6"/></svg><span>dropped: no gain beyond the noise</span></li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3L13 8L8 13L3 8Z" fill="none" style="stroke:var(--hair)" stroke-width="1.6"/></svg><span>dropped: fell on held out</span></li>
+        </ul>
+        <p class="cl-read" id="cl-read" aria-live="polite"></p>
+        <div class="fig-ctrl" role="group" aria-label="Climb controls">
+          <span class="ctrl-label">Ctrl //</span>
+          <button class="tbtn" type="button" id="cl-next">Propose a change</button>
+          <button class="tbtn break" type="button" id="cl-skip" aria-pressed="false">Skip the held-out check</button>
+          <button class="tbtn" type="button" id="cl-reset">Start over</button>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Rules from <a href="https://exo.askaconsult.com/whitepaper/#225-hill-climbing-and-why-held-out-matters">Exo whitepaper &sect;22.5</a>: score the current setup more than once to measure its noise; drop a candidate unless it beats the current setup on dev by more than that noise; keep it only if held out does not drop. <b>Made-up lessons and simulated scores</b> (seeded, the same for every visitor); no Exo eval score is published.</span></figcaption>
+        <details class="twin"><summary>Show every change</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table">
+<table class="tbl" id="cl-table"><caption>Every proposed change in this illustration (simulated scores, % of exam questions)</caption><thead><tr><th scope="col" class="n">No.</th><th scope="col">Change</th><th scope="col" class="n">Dev</th><th scope="col" class="n">Needed on dev</th><th scope="col" class="n">Held out</th><th scope="col">Decision</th></tr></thead><tbody></tbody></table></div>
+        </details>
+      </figure>
+
+      <aside class="callout caveat cl-caveat"><p class="c-k">What the figure leaves out</p><p>Not every lesson goes through this gate. A rule you state yourself is kept at once, and the whitepaper says that if you ruled a lesson, it is kept even when the exam disagrees: &ldquo;the person outranks the eval&rdquo;. An unguarded taste with strong evidence from two separate sessions is promoted without the climb; skill changes must pass it. Today&rsquo;s climb builds two kinds of candidate, adding one held-back lesson or dropping one auto-promoted lesson, and the trigger that would run it every night by itself is not built. The whitepaper reports no eval scores, and warns that a small personal exam is noisy, so the band &ldquo;may reject most changes until the set grows.&rdquo; Sources: <a href="https://exo.askaconsult.com/whitepaper/#6-learning-your-taste-and-proving-it">&sect;6</a>, <a href="https://exo.askaconsult.com/whitepaper/#223-weight-and-promotion">&sect;22.3</a>, <a href="https://exo.askaconsult.com/whitepaper/#225-hill-climbing-and-why-held-out-matters">&sect;22.5</a>, <a href="https://exo.askaconsult.com/whitepaper/#32-open-questions">&sect;32</a>.</p></aside>
+    </div>
+  </section>
+
+  <!-- 05 EXO OS -->
+  <section class="sec alt" id="exo-os" data-index="Exo OS" data-num="05" aria-labelledby="exoos-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Exo OS &middot; Aska Digital</p><div class="badges"><span class="badge sealed">Private preview</span><span class="badge n">Phase 0 &middot; research and design</span><span class="badge sealed">Open source when ready to ship</span></div></div>
       <h2 class="h2" id="exoos-h">Exo OS: the same core, as an operating system.</h2>
       <div class="split">
         <div class="prose">
@@ -315,31 +357,40 @@
         <figure class="fig frame os-fig" aria-labelledby="os-t">
           <div class="fig-head">
             <p class="fig-title" id="os-t">Where each layer stands</p>
-            <p class="fig-how"><b>How to read:</b> the layers from top to bottom: what you use at the top, the machine at the bottom. A solid outline is built and in use; a dashed outline is designed or in research, with nothing running yet.</p>
+            <p class="fig-how"><b>How to read:</b> what you use at the top, the machine at the bottom. A solid outline is built and in use; a dashed outline is designed, with nothing running yet. Pick a tool call and send it down the stack to see how far it gets today.</p>
           </div>
-          <ol class="os-stack" aria-label="The layers, from the top">
-            <li class="built"><span class="os-n">Clients</span><span class="os-d">terminal and web app</span><span class="os-s">Built</span></li>
-            <li class="built"><span class="os-n">Exo core</span><span class="os-d">one protocol &middot; can require an execution broker</span><span class="os-s">Built</span></li>
-            <li class="design"><span class="os-n">Exo OS</span><span class="os-d">base system &middot; shell &middot; sandbox</span><span class="os-s">Phase 0 design</span></li>
-            <li class="design"><span class="os-n">Hardware</span><span class="os-d">a small companion device</span><span class="os-s">Planned</span></li>
-          </ol>
-          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://exo.askaconsult.com/roadmap/#verified">Exo roadmap, 13 Oct 2026</a>; <a href="https://exo.askaconsult.com/whitepaper/#27-portability-toward-a-companion-device">whitepaper &sect;27</a>.</span></figcaption>
+          <div class="os-wrap">
+            <ol class="os-stack" id="os-stack" aria-label="The layers, from the top">
+              <li class="built" data-l="0"><span class="os-n">Clients</span><span class="os-d">terminal and web app</span><span class="os-s">Built</span></li>
+              <li class="built" data-l="1"><span class="os-n">Exo core</span><span class="os-d">one protocol &middot; the gate</span><span class="os-s">Built</span></li>
+              <li class="built code" data-l="2"><span class="os-n">Execution broker</span><span class="os-d">every tool call can be made to pass through it</span><span class="os-s">In code</span></li>
+              <li class="design" data-l="3"><span class="os-n">Exo OS sandbox</span><span class="os-d">base system &middot; shell &middot; isolation</span><span class="os-s">Phase 0 design</span></li>
+              <li class="design" data-l="4"><span class="os-n">Hardware</span><span class="os-d">a small companion device</span><span class="os-s">Planned</span></li>
+            </ol>
+            <span class="os-pk" id="os-pk" aria-hidden="true"></span>
+          </div>
+          <div class="fig-ctrl os-ctrl" role="group" aria-label="Send a tool call">
+            <div class="seg" id="os-call" role="group" aria-label="Tool call"><button type="button" data-c="read" aria-pressed="true">Read a notes file</button><button type="button" data-c="push" aria-pressed="false">Push to a public repo</button></div>
+            <button class="tbtn" type="button" id="os-go">Send it &darr;</button>
+          </div>
+          <p class="os-read" id="os-read" aria-live="polite">Pick a tool call, then send it.</p>
+          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://exo.askaconsult.com/roadmap/#verified">Exo roadmap, evidence panel, 13 Oct 2026</a>; <a href="https://exo.askaconsult.com/whitepaper/#27-portability-toward-a-companion-device">whitepaper &sect;27</a>. The walk-through is our illustration, not the Exo software.</span></figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- 05 AUTO-RESEARCH-AGENT -->
-  <section class="sec alt" id="auto-research" data-index="Auto-research-agent" data-num="05" aria-labelledby="ar-h" style="--acc:var(--acc-rohan)">
+  <!-- 06 AUTO-RESEARCH-AGENT -->
+  <section class="sec" id="auto-research" data-index="Auto-research-agent" data-num="06" aria-labelledby="ar-h" style="--acc:var(--acc-rohan)">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Auto-research-agent &middot; rohanarun</p><div class="badges"><span class="badge d"><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Released software</span><span class="badge n">MIT licence</span><span class="badge n">Founding member&rsquo;s project</span></div></div>
+      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Auto-research-agent &middot; rohanarun</p><div class="badges"><span class="badge d"><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Released software</span><span class="badge n">MIT licence</span><span class="badge n">Founding member&rsquo;s project</span></div></div>
       <h2 class="h2" id="ar-h">Auto-research-agent: send your own agent to an open problem.</h2>
       <p class="lede">Founding member <a href="../charter/#m-rohanarun">rohanarun</a>&rsquo;s Mac app makes it, in its README&rsquo;s words, &ldquo;dead simple to point your Codex or Claude at open problems, put unused tokens to work, and help push the frontier.&rdquo;</p>
       <div class="split">
         <div class="prose">
           <p>A sidebar lists open research projects from a catalog, &ldquo;Auto Research by Super&rdquo;: GitHub repositories that publish an <code>auto-research.md</code> guide written for agents. Press play and the app clones the project, hands the guide word for word to the coding agent you already have (OpenAI Codex or Claude Code), and shows the conversation live. It also shows each project&rsquo;s latest claim and a small chart of its progress.</p>
           <p>Optionally it runs several agents at once. On a timer it stops them, asks the model to merge what they found into one shared summary, and starts fresh agents from that summary. The defaults are 2 agents and a 10-minute interval.</p>
-          <p>Every agent also gets the same research policy, which reads like a lab&rsquo;s code of conduct: &ldquo;Separate formal proof, exact finite checks, empirical measurements, conditional results and maintainer acceptance. Never manufacture a record, passing check, publication, or external outcome. Do not weaken verification to make a candidate pass.&rdquo;</p>
+          <p>Every agent also gets the same research policy, which reads like a lab&rsquo;s code of conduct. It asks agents to keep formal proofs, exact finite checks, measurements, conditional results and a maintainer&rsquo;s acceptance apart, and never to weaken a check to make a candidate pass. Its plainest line: &ldquo;Never manufacture a record, passing check, publication, or external outcome.&rdquo;</p>
           <p><b>Status, plainly.</b> Released software, not a research result. The README says the downloadable version 1.2.3 is &ldquo;Developer ID signed and Apple notarized&rdquo;. It was published on 13 October 2026 (12 commits that day), MIT-licensed, written in Swift with no third-party Swift dependencies. No research result made with the app is documented yet.</p>
           <div class="member-note">
             <p class="label">The member behind it</p>
@@ -358,7 +409,7 @@
           <div class="ar-read" id="ar-read" aria-live="polite"></div>
           <div class="fig-ctrl" role="group" aria-label="Loop controls">
             <span class="ctrl-label">Ctrl //</span>
-            <button class="tbtn" type="button" id="ar-prev" aria-label="Previous step">&larr; Back</button>
+            <button class="tbtn" type="button" id="ar-prev" aria-label="Back: previous step">&larr; Back</button>
             <button class="tbtn" type="button" id="ar-next" aria-label="Next step">Next &rarr;</button>
             <button class="tbtn play" type="button" id="ar-play" aria-pressed="false" aria-label="Play the loop"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt"><span class="i-play">Play</span><span class="i-pause">Pause</span></span></button>
             <div class="seg" role="group" aria-label="Agents in parallel" id="ar-k"><button type="button" data-k="1" aria-pressed="false">1</button><button type="button" data-k="2" aria-pressed="true">2</button><button type="button" data-k="3" aria-pressed="false">3</button><button type="button" data-k="4" aria-pressed="false">4</button></div>
@@ -370,10 +421,10 @@
     </div>
   </section>
 
-  <!-- 06 AUTOFOUNDRY -->
-  <section class="sec" id="autofoundry" data-index="autofoundry" data-num="06" aria-labelledby="af-h" style="--acc:var(--acc-shea)">
+  <!-- 07 AUTOFOUNDRY -->
+  <section class="sec alt" id="autofoundry" data-index="autofoundry" data-num="07" aria-labelledby="af-h" style="--acc:var(--acc-shea)">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>autofoundry &middot; Ryan Shea</p><div class="badges"><span class="badge d"><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Open-source software &middot; v0.1.0</span><span class="badge n">MIT licence</span><span class="badge n">Founding member&rsquo;s project</span></div></div>
+      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>autofoundry &middot; Ryan Shea</p><div class="badges"><span class="badge d"><span class="ladder" data-r="3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Open-source software &middot; v0.1.0</span><span class="badge n">MIT licence</span><span class="badge n">Founding member&rsquo;s project</span></div></div>
       <h2 class="h2" id="af-h">autofoundry: one experiment, many rented machines.</h2>
       <p class="lede">Training a small AI model is now cheap enough that an agent can run hundreds of short experiments. The hard part is renting the hardware. Founding member <a href="../charter/#m-shea256">Ryan Shea</a>&rsquo;s command-line tool does that across four clouds.</p>
       <div class="prose narrow">
@@ -399,7 +450,7 @@
         <div class="fig-ctrl" role="group" aria-label="Experiment controls">
           <span class="ctrl-label">Ctrl //</span>
           <div class="seg" role="group" aria-label="Machines per cloud" id="af-k"><button type="button" data-k="1" aria-pressed="true">1 per cloud</button><button type="button" data-k="2" aria-pressed="false">2</button><button type="button" data-k="4" aria-pressed="false">4</button></div>
-          <button class="tbtn play af-run" type="button" id="af-run" aria-pressed="false" aria-label="Rent machines and run A and B"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt">Rent and run</span></button>
+          <button class="tbtn play af-run" type="button" id="af-run" aria-pressed="false" aria-label="Rent and run: rent machines and run A and B"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt">Rent and run</span></button>
         </div>
         <figcaption class="fig-foot"><span class="fig-src"><b>Simulated numbers.</b> The steps follow the <a href="https://github.com/shea256/autofoundry">autofoundry README</a>; the scores are drawn at random in your browser (A centred on 1.000, B on 0.995, the same run-to-run spread for both), so the lesson is about noise, not about any real model or provider.</span><span>Each run reports a validation loss: how wrong the model&rsquo;s guesses are on text it did not train on.</span></figcaption>
         <details class="twin"><summary>Show the runs</summary>
@@ -420,20 +471,20 @@
     </div>
   </section>
 
-  <!-- 07 STATUS -->
-  <section class="sec alt" id="status" data-index="Status at a glance" data-num="07" aria-labelledby="status-h">
+  <!-- 08 STATUS -->
+  <section class="sec" id="status" data-index="Status at a glance" data-num="08" aria-labelledby="status-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>Status at a glance</p><span class="chip">As of 14 Oct 2026</span></div>
+      <div class="sec-head"><p class="sec-label"><b>08</b><i>//</i>Status at a glance</p><span class="chip">As of 14 Oct 2026</span></div>
       <h2 class="h2" id="status-h">What exists, who made it, and what has been checked.</h2>
       <p class="lede">An instrument is only as trustworthy as what you can check about it. Here is each one, in the same terms.</p>
       <div class="table-wrap status-tbl"><table class="tbl">
         <caption>The four instruments</caption>
         <thead><tr><th scope="col">Instrument</th><th scope="col">Made by</th><th scope="col">What it is</th><th scope="col">Status</th><th scope="col">Code</th><th scope="col">What has been checked</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><a href="#exo">Exo</a></th><td data-label="Made by">Aska Digital</td><td data-label="What it is">A harness: memory, record, gate, cost meter</td><td data-label="Status"><span class="badge sealed">Private preview</span><br>3 of 5 build waves built</td><td data-label="Code">Private; open source when ready to ship</td><td data-label="What has been checked">Aska&rsquo;s own test runs (1,485 + 751 passing, 13 Oct 2026). No benchmarks, no outside review.</td></tr>
-          <tr><th scope="row"><a href="#exo-os">Exo OS</a></th><td data-label="Made by">Aska Digital</td><td data-label="What it is">The same core as an operating system</td><td data-label="Status"><span class="badge n">Phase 0 design</span><br>Nothing runs yet</td><td data-label="Code">Private</td><td data-label="What has been checked">Nothing to check yet.</td></tr>
-          <tr><th scope="row"><a href="#auto-research">Auto-research-agent</a></th><td data-label="Made by">rohanarun</td><td data-label="What it is">A Mac app that runs coding agents on open problems</td><td data-label="Status"><span class="badge d">Released</span><br>v1.2.3</td><td data-label="Code">Public, MIT</td><td data-label="What has been checked">Signed and notarized by Apple, per its README. No results made with it documented yet.</td></tr>
-          <tr><th scope="row"><a href="#autofoundry">autofoundry</a></th><td data-label="Made by">Ryan Shea</td><td data-label="What it is">A command-line tool that rents GPUs on four clouds and runs one experiment everywhere</td><td data-label="Status"><span class="badge d">Open source</span><br>v0.1.0</td><td data-label="Code">Public, MIT</td><td data-label="What has been checked">92 test functions in the repository, not run by us. Not on PyPI.</td></tr>
+          <tr><th scope="row"><a href="#exo">Exo</a></th><td data-label="Made by">Aska Digital</td><td data-label="What it is">A harness: memory, record, gate, cost meter</td><td data-label="Status"><span class="st-cell"><span class="badge sealed">Private preview</span><br>3 of 5 build waves built</span></td><td data-label="Code">Private; open source when ready to ship</td><td data-label="What has been checked">Aska&rsquo;s own test runs (1,485 + 751 passing, 13 Oct 2026). No benchmarks, no outside review.</td></tr>
+          <tr><th scope="row"><a href="#exo-os">Exo OS</a></th><td data-label="Made by">Aska Digital</td><td data-label="What it is">The same core as an operating system</td><td data-label="Status"><span class="st-cell"><span class="badge n">Phase 0 design</span><br>One piece is in code: an execution broker every tool call can be made to pass through. The sandbox behind it is still being built.</span></td><td data-label="Code">Private; open source when ready to ship</td><td data-label="What has been checked">Nothing outside can check yet (private).</td></tr>
+          <tr><th scope="row"><a href="#auto-research">Auto-research-agent</a></th><td data-label="Made by">rohanarun</td><td data-label="What it is">A Mac app that runs coding agents on open problems</td><td data-label="Status"><span class="st-cell"><span class="badge d">Released</span><br>v1.2.3</span></td><td data-label="Code">Public, MIT</td><td data-label="What has been checked">Signed and notarized by Apple, per its README. No results made with it documented yet.</td></tr>
+          <tr><th scope="row"><a href="#autofoundry">autofoundry</a></th><td data-label="Made by">Ryan Shea</td><td data-label="What it is">A command-line tool that rents GPUs on four clouds and runs one experiment everywhere</td><td data-label="Status"><span class="st-cell"><span class="badge d">Open source</span><br>v0.1.0</span></td><td data-label="Code">Public, MIT</td><td data-label="What has been checked">92 test functions in the repository, not run by us. Not on PyPI.</td></tr>
         </tbody>
       </table></div>
       <nav class="prevnext" aria-label="More pages">

@@ -98,7 +98,7 @@
         var g = el('g', { class: 'fx-lane fx-' + P.key }, svg);
         el('line', { x1: x0, x2: x1, y1: yT, y2: yT, class: 'fx-rule' }, g);
         var lt = el('text', { x: x0, y: yT + 14, class: 'fx-lt' }, g);
-        lt.textContent = (P.layer + ' · ' + P.label).toUpperCase();
+        lt.textContent = (small ? P.layer : P.layer + ' · ' + P.label).toUpperCase();
         function X(u) { return x0 + u * pw; }
         function Y(v) { return cy + v * h; }
         /* hidden guidance ticks */
@@ -391,14 +391,145 @@
     run();
   }
 
+  /* ===================== 0. psychohistory in a box =====================
+     N dots in a unit box fly straight and leave each wall in a random direction (cosine law) at a random speed
+     (Rayleigh), so wall hits arrive almost at random. The reading for each moment (one time unit) is the number
+     of hits divided by its average; its spread falls like 1/sqrt(N). Seeded: the same crowd for every visitor.
+     Starts on a still frame with a full strip of readings; moves only on Play; stops off-screen, when idle,
+     in a hidden tab (F0.loop) and with motion off (Play then steps). */
+  function prng(seed) { var a = seed >>> 0; return function () { a = (a + 0x6d2b79f5) >>> 0; var t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+  var PSY_SIG = 0.98, PSY_SUB = 15, PSY_KEEP = 60, PSY_TRAIL = 48;
+  function Crowd(N, seed) {
+    var r = prng(seed), P = new Float32Array(N * 4);
+    for (var i = 0; i < N; i++) { var th = r() * Math.PI * 2, s = PSY_SIG * Math.sqrt(-2 * Math.log(1 - r())); P[i * 4] = r(); P[i * 4 + 1] = r(); P[i * 4 + 2] = s * Math.cos(th); P[i * 4 + 3] = s * Math.sin(th); }
+    this.N = N; this.P = P; this.r = r; this.trail = []; this.hist = []; this.acc = 0; this.sub = 0; this.subs = PSY_SUB; this.keep = PSY_KEEP;
+  }
+  Crowd.prototype.emit = function (i, nx, ny) {
+    var r = this.r, phi = Math.asin(2 * r() - 1), s = PSY_SIG * Math.sqrt(-2 * Math.log(1 - r())), c = Math.cos(phi), sn = Math.sin(phi);
+    this.P[i * 4 + 2] = s * (nx * c - ny * sn); this.P[i * 4 + 3] = s * (nx * sn + ny * c);
+  };
+  Crowd.prototype.step = function (dt) {
+    var P = this.P, N = this.N, hits = 0;
+    for (var i = 0; i < N; i++) {
+      var o = i * 4, x = P[o] + P[o + 2] * dt, y = P[o + 1] + P[o + 3] * dt;
+      if (x < 0) { x = -x; hits++; this.emit(i, 1, 0); } else if (x > 1) { x = 2 - x; hits++; this.emit(i, -1, 0); }
+      if (y < 0) { y = -y; hits++; this.emit(i, 0, 1); } else if (y > 1) { y = 2 - y; hits++; this.emit(i, 0, -1); }
+      P[o] = x < 0 ? 0 : x > 1 ? 1 : x; P[o + 1] = y < 0 ? 0 : y > 1 ? 1 : y;
+    }
+    this.trail.push(P[0], P[1]); if (this.trail.length > PSY_TRAIL * 2) this.trail.splice(0, 2);
+    this.acc += hits; this.sub++;
+    if (this.sub >= this.subs) { this.hist.push(this.acc); if (this.hist.length > this.keep) this.hist.shift(); this.acc = 0; this.sub = 0; return true; }
+    return false;
+  };
+  /* run whole moments; coarse = 5 steps a moment instead of 15 (same counts, three times faster) */
+  Crowd.prototype.run = function (moments, coarse) { this.subs = coarse ? 5 : PSY_SUB; for (var k = 0; k < moments * this.subs; k++) this.step(1 / this.subs); this.subs = PSY_SUB; };
+  function spreadOf(h) { var n = h.length, m = 0, v = 0, i; for (i = 0; i < n; i++) m += h[i]; m /= n; for (i = 0; i < n; i++) v += (h[i] - m) * (h[i] - m); return m > 0 && n > 1 ? Math.sqrt(v / (n - 1)) / m : 0; }
+  function fmtN(n) { return n.toLocaleString('en-US'); }
+
+  function psychohistory() {
+    var fig = $('#psy'); if (!fig) return;
+    var cvEl = $('#psy-cv'), gHost = $('#psy-gauge'), range = $('#psy-n'), out = $('#psy-out'), read = $('#psy-read'), playBtn = $('#psy-play');
+    var cv = F0.canvas(cvEl), crowd = null, N = 100, job = null, playing = false, pending = 0;
+    function nFrom(v) { var n = Math.round(Math.pow(10, v)); return n >= 1000 ? Math.round(n / 100) * 100 : n >= 100 ? Math.round(n / 10) * 10 : n; }
+    function build(n) {
+      N = n; crowd = new Crowd(N, 1942);
+      /* settle, then fill the strip so the still frame already shows the spread; the last moments run fine, for the trail */
+      crowd.run(5, true); crowd.hist = []; crowd.run(PSY_KEEP - 4, N > 500); crowd.run(4);
+    }
+    function drawBox() {
+      if (!cv.ready) return;
+      var ctx = cv.ctx, W = cv.w, H = cv.h, s = Math.min(W, H) - 2, x0 = (W - s) / 2, y0 = (H - s) / 2, P = crowd.P;
+      ctx.clearRect(0, 0, W, H);
+      ctx.strokeStyle = F0.css('--line-ui'); ctx.lineWidth = 1; ctx.strokeRect(x0 + 0.5, y0 + 0.5, s - 1, s - 1);
+      var d = N > 2000 ? 1.4 : N > 300 ? 2 : N > 30 ? 3 : 5;
+      ctx.fillStyle = F0.css('--mark-bio');
+      for (var i = 1; i < N; i++) ctx.fillRect(x0 + 2 + P[i * 4] * (s - 4) - d / 2, y0 + 2 + P[i * 4 + 1] * (s - 4) - d / 2, d, d);
+      var t = crowd.trail;
+      if (t.length > 2) {
+        ctx.strokeStyle = F0.css('--ink-3'); ctx.lineWidth = 1.2; ctx.beginPath();
+        for (var k = 0; k < t.length; k += 2) { var px = x0 + 2 + t[k] * (s - 4), py = y0 + 2 + t[k + 1] * (s - 4); if (k) ctx.lineTo(px, py); else ctx.moveTo(px, py); }
+        ctx.stroke();
+      }
+      ctx.fillStyle = F0.css('--ink'); ctx.strokeStyle = F0.css('--bg-1'); ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(x0 + 2 + P[0] * (s - 4), y0 + 2 + P[1] * (s - 4), 5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    }
+    var gSvg = null;
+    function drawGauge() {
+      var W = Math.max(200, Math.round(gHost.getBoundingClientRect().width)), H = Math.max(160, Math.round(gHost.getBoundingClientRect().height)) || 200;
+      var h = crowd.hist, m = h.reduce(function (a, b) { return a + b; }, 0) / (h.length || 1), sp = spreadOf(h);
+      var padL = 36, padR = 8, padT = 22, padB = 22, ymax = 2.4;
+      var X = function (i) { return padL + i / (PSY_KEEP - 1) * (W - padL - padR); }, Y = function (v) { return padT + (1 - Math.min(ymax, v) / ymax) * (H - padT - padB); };
+      if (gSvg) gSvg.remove();
+      gSvg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, 'aria-hidden': 'true' }, gHost);
+      [0, 1, 2].forEach(function (v) {
+        el('line', { x1: padL, x2: W - padR, y1: Y(v), y2: Y(v), class: v === 1 ? 'psy-avg' : 'psy-grid' }, gSvg);
+        var tx = el('text', { x: padL - 6, y: Y(v) + 4, 'text-anchor': 'end', class: 'psy-t' }, gSvg); tx.textContent = v + '×';
+      });
+      el('rect', { x: padL, y: Y(1 + sp), width: W - padL - padR, height: Math.max(1, Y(1 - sp) - Y(1 + sp)), class: 'psy-band' }, gSvg);
+      var d = '';
+      h.forEach(function (v, i) { d += (i ? 'L' : 'M') + X(i + PSY_KEEP - h.length).toFixed(1) + ' ' + Y(m ? v / m : 0).toFixed(1); });
+      if (d) el('path', { d: d, class: 'psy-line' }, gSvg);
+      var lab = el('text', { x: padL, y: 12, class: 'psy-t psy-k' }, gSvg); lab.textContent = 'PRESSURE ÷ ITS AVERAGE';
+      var lab2 = el('text', { x: W - padR, y: H - 6, 'text-anchor': 'end', class: 'psy-t' }, gSvg); lab2.textContent = 'last ' + PSY_KEEP + ' moments →';
+      var pct = function (x) { return x >= 0.995 ? Math.round(x * 100) + '%' : x >= 0.1 ? Math.round(x * 100) + '%' : (x * 100).toFixed(1) + '%'; };
+      gHost.setAttribute('aria-label', 'A strip of the crowd’s pressure reading over the last ' + PSY_KEEP + ' moments, for ' + fmtN(N) + (N === 1 ? ' person' : ' people') + ': it wobbles by about ' + pct(sp) + ' around its average.');
+      read.innerHTML = '<b>' + fmtN(N) + (N === 1 ? ' person' : ' people') + '.</b> Where the dark dot goes next: anyone&rsquo;s guess. The crowd&rsquo;s reading wobbles by about <b>&plusmn;' + pct(sp) + '</b> around its average (1/&radic;N = ' + pct(1 / Math.sqrt(N)) + ').' +
+        (N < 10000 ? ' A hundred times the people gives about a tenth of the wobble.' : ' From one person to ten thousand, the wobble fell from about 100% to about 1%.');
+    }
+    function render() { drawBox(); drawGauge(); }
+    function setN(n, fromRange) {
+      n = Math.max(1, Math.min(10000, n)); build(n);
+      if (!fromRange) range.value = Math.log10(n).toFixed(2);
+      out.textContent = fmtN(n);
+      range.setAttribute('aria-valuetext', fmtN(n) + (n === 1 ? ' person' : ' people'));
+      $$('#psy-stops button').forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-n') === n ? 'true' : 'false'); });
+      render();
+    }
+    range.addEventListener('input', function () { var v = +range.value; cancelAnimationFrame(pending); pending = requestAnimationFrame(function () { setN(nFrom(v), true); }); });
+    $$('#psy-stops button').forEach(function (b) { b.addEventListener('click', function () { setN(+b.getAttribute('data-n'), false); }); });
+    function stop() { playing = false; if (job) job.stop(); playBtn.setAttribute('aria-pressed', 'false'); }
+    playBtn.addEventListener('click', function () {
+      if (playing) { stop(); return; }
+      if (!F0.motion()) { crowd.run(6); render(); return; } /* stepped: six moments at a time */
+      playing = true; playBtn.setAttribute('aria-pressed', 'true');
+      if (!job) job = F0.loop(function () { var full = crowd.step(1 / PSY_SUB); drawBox(); if (full) drawGauge(); });
+      job.start();
+    });
+    F0.whenVisible(fig, null, function () { if (playing) stop(); });
+    F0.onMotion(function (on) { if (!on && playing) stop(); });
+    if (F0.onIdle) F0.onIdle(function (idle) { if (idle && playing) stop(); });
+    cv.resize(drawBox);
+    if ('ResizeObserver' in window) { var lw = 0; new ResizeObserver(function () { var w = Math.round(gHost.getBoundingClientRect().width); if (w && w !== lw) { lw = w; drawGauge(); } }).observe(gHost); }
+    F0.onTheme(render);
+    /* the twin table, computed when opened */
+    var twin = $('#psy-twin'), done = false;
+    if (twin) twin.addEventListener('toggle', function () {
+      if (!twin.open || done) return; done = true;
+      var tb = $('#psy-table tbody'), rows = '';
+      [1, 10, 100, 1000, 10000].forEach(function (n) { var c = new Crowd(n, 1942); c.keep = 120; c.run(5, true); c.hist = []; c.run(120, true); var s = spreadOf(c.hist); rows += '<tr><td class="n">' + fmtN(n) + '</td><td class="n">' + (s * 100).toFixed(s < 0.1 ? 1 : 0) + '%</td><td class="n">' + (100 / Math.sqrt(n)).toFixed(n >= 1000 ? 1 : 0) + '%</td></tr>'; });
+      tb.innerHTML = rows;
+    });
+    setN(100, false);
+  }
+
   /* ===================== boot ===================== */
+  psychohistory();
   principles();
   draft();
   F0.json(F0.root + 'data/members.json').then(members).catch(function (e) { console.error(e); });
-  Promise.all([F0.json('futures.json'), F0.json(F0.root + 'data/ledger.json').catch(function () { return null; })])
-    .then(function (r) {
-      var n = r[1] && r[1].milestones ? r[1].milestones.length : null;
-      futures(r[0], n == null ? 'many' : String(n));
-    })
-    .catch(function (e) { console.error(e); });
+  /* The Ledger's size is baked into the page (scripts/prerender.mjs writes it into [data-ch="ledger-n"]), so a
+     visit never downloads the whole ledger (about 550 KB) to print one number. Only when that copy is missing,
+     as while the prerender runs, is data/ledger.json fetched, and the number written back. */
+  var nEl = $('[data-ch="ledger-n"]'), baked = nEl && !F0.prerendering ? nEl.textContent.trim() : '';
+  if (/^\d+$/.test(baked)) {
+    F0.json('futures.json').then(function (D) { futures(D, baked); }).catch(function (e) { console.error(e); });
+  } else {
+    Promise.all([F0.json('futures.json'), F0.json(F0.root + 'data/ledger.json').catch(function () { return null; })])
+      .then(function (r) {
+        var n = r[1] && r[1].milestones ? r[1].milestones.length : null;
+        if (nEl && n != null) nEl.textContent = String(n);
+        futures(r[0], n == null ? 'many' : String(n));
+      })
+      .catch(function (e) { console.error(e); });
+  }
 })();

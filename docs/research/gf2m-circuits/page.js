@@ -109,7 +109,7 @@
       },
       done: function (bad, total, ms) {
         ready = true;
-        for (var a = 1; a < 256; a++) for (var b = 1; b < 256; b++) if (prod[a * 256 + b] === 1) { inv[a] = b; break; }
+        setInv();
         check.innerHTML = '<b>' + fmt(total - bad) + ' / ' + fmt(total) + '</b> products from the 112-gate circuit match long multiplication, checked in your browser just now (' + ms.toFixed(0) + ' ms).';
         if (bad) check.style.borderLeftColor = 'var(--st-contested)';
         paintOff(); draw();
@@ -170,6 +170,40 @@
       cap.textContent = mode === 'inv' ? 'The 255 pairs whose product is 1: every number except 0 has exactly one partner, its inverse, and the pattern is symmetric. The S-box starts from exactly this.'
         : 'Output bit ' + mode + ' of every product. The nested blocks at powers of 2 are long multiplication showing through; the fold scrambles the rest.';
       if (ready) { paintOff(); draw(); }
+    });
+    function setInv() { inv.fill(0); for (var a = 1; a < 256; a++) for (var b = 1; b < 256; b++) if (prod[a * 256 + b] === 1) { inv[a] = b; break; } }
+    /* Break it: change one XOR gate to an AND and run the same 65,536-product check, so the checker is seen saying no */
+    var brk = $('#ht-break'), good = null, okMsg = '', busy = false;
+    if (brk) brk.addEventListener('click', function () {
+      if (!ready || busy) return;
+      if (!good) { good = prod.slice(); okMsg = check.innerHTML; }
+      if (brk.getAttribute('aria-pressed') === 'true') {
+        prod.set(good); setInv(); brk.setAttribute('aria-pressed', 'false');
+        check.innerHTML = okMsg; check.style.borderLeftColor = ''; paintOff(); draw(); return;
+      }
+      var xs = [], g;
+      for (g = 0; g < C.n; g++) if (C.op[g] === 0) xs.push(g);
+      var gi = xs[Math.floor(Math.random() * xs.length)], Cd = {}, k;
+      for (k in C) Cd[k] = C[k];
+      Cd.op = C.op.slice(); Cd.op[gi] = 1;
+      var dmg = new Uint8Array(65536), wrong = 0, first = null;
+      busy = true; brk.setAttribute('aria-pressed', 'true');
+      check.textContent = 'Gate ' + (gi + 1) + ' of ' + C.n + ' changed from XOR to AND. Checking every product again\u2026';
+      checkMult(Cd, {
+        chunk: 64,
+        onRow: function (a, mem) {
+          for (var j = 0; j < 8; j++) { var O = mem[Cd.o[j]]; for (var b = 0; b < 256; b++) if ((O[b >> 5] >>> (b & 31)) & 1) dmg[a * 256 + b] |= 1 << j; }
+          for (var b2 = 0; b2 < 256; b2++) if (dmg[a * 256 + b2] !== good[a * 256 + b2]) { wrong++; if (!first) first = { a: a, b: b2 }; }
+        },
+        done: function (bad, total, ms) {
+          busy = false; prod.set(dmg); setInv();
+          check.innerHTML = wrong
+            ? '<b>Rejected.</b> Gate ' + (gi + 1) + ' changed from XOR to AND: ' + fmt(wrong) + ' of ' + fmt(total) + ' products are now wrong, the first at a = ' + hex2(first.a) + ', b = ' + hex2(first.b) + ' (checked in ' + ms.toFixed(0) + ' ms). Press the button again to repair it.'
+            : 'Gate ' + (gi + 1) + ' changed from XOR to AND, and no product changed: that gate does not reach the outputs. Press again to repair it.';
+          check.style.borderLeftColor = wrong ? 'var(--st-contested)' : '';
+          paintOff(); draw();
+        }
+      });
     });
     Cv.resize(draw); F0.onTheme(function () { if (ready) { paintOff(); draw(); } });
   })();

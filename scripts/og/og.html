@@ -5,8 +5,9 @@
 <title>Foundation0 share card</title>
 <!-- The 1200x630 share image, docs/assets/og.png. Rendered by scripts/og/shoot.mjs, which serves docs/ and this file
      at /__og.html, so the relative paths below are the site's own: assets/f0.css, assets/f0.js, assets/radiant.js and
-     data/ledger.json. The Radiant and the milestone count are drawn from the ledger; nothing here is hand-entered. -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+     data/ledger.json. The Radiant is drawn from the ledger; the card carries no counts (no field totals, no milestone
+     total), so it does not go stale when the ledger grows. Re-run it when the look of the Radiant changes. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap">
 <link rel="stylesheet" href="assets/f0.css">
 <style>
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--bg); }
@@ -41,8 +42,8 @@
   <div class="txt">
     <div class="brand-row"><svg><use href="#zero"/></svg>Foundation0</div>
     <div class="word">Foundation<span class="zero">0</span></div>
-    <p class="line">People and AI, on the record: every advance, sourced and checked.</p>
-    <p class="meta"><i style="background:var(--bio)"></i>Biological <span style="color:var(--ink-3)">+</span> <i style="background:var(--dig)"></i>Digital <span style="color:var(--ink-3)">&middot;</span> <span id="n"></span>&nbsp;milestones</p>
+    <p class="line">People and AI, on the record: advances, sourced, with how sure each one is.</p>
+    <p class="meta"><i style="background:var(--bio)"></i>Biological <span style="color:var(--ink-3)">+</span> <i style="background:var(--dig)"></i>Digital <span style="color:var(--ink-3)">&middot;</span> a growing record</p>
   </div>
   <div class="stage" id="stage"><canvas></canvas></div>
 </div>
@@ -50,10 +51,9 @@
 <script src="assets/radiant.js"></script>
 <script>
 F0.json('data/ledger.json').then(function (L) {
-  document.getElementById('n').textContent = L.milestones.length;
   window.__count = L.milestones.length;
   return document.fonts.ready.then(function () {
-    new F0.Radiant(document.getElementById('stage'), L, { time: {} });
+    new F0.Radiant(document.getElementById('stage'), L, { time: {}, counts: false });
     window.__ready = true;
   });
 }).catch(function (e) { window.__error = String(e); });

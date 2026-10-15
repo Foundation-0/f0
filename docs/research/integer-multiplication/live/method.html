@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tracker method · Foundation0</title>
-<meta name="description" content="How Aska Digital's live κ race tracker works: what a conditional κ means, the claimed and maintainer-reviewed tiers, the quarantine policy, the record key and the 15-minute pipeline behind feed.json.">
+<meta name="description" content="How Aska Digital's κ race tracker works: what a conditional κ means, the claimed and maintainer-reviewed tiers, the quarantine policy, the record key, and the pipeline behind feed.json, which has not run since 11 Oct 2026.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tracker method · Foundation0">
-<meta property="og:description" content="Tiers, quarantine, record keys and the pipeline behind the live integer-multiplication κ tracker.">
+<meta property="og:description" content="Tiers, quarantine, record keys and the pipeline behind the integer-multiplication κ tracker.">
 <meta property="og:image" content="../../../assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -69,23 +69,25 @@
 <main id="main" class="lv-method">
   <header class="page-hero lv-hero" style="--acc:var(--acc-intmult)">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../../">Home</a></li><li><a href="../../">Research</a></li><li><a href="../">Integer multiplication</a></li><li><a href="index.html">Live race tracker</a></li><li aria-current="page">Method</li></ol></nav>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../../">Home</a></li><li><a href="../../">Research</a></li><li><a href="../">Integer multiplication</a></li><li><a href="index.html">Race tracker</a></li><li aria-current="page">Method</li></ol></nav>
       <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Tracker &middot; how it works</p>
       <h1 class="h1">Method</h1>
-      <p class="dek">Back to <a href="index.html">dashboard</a>. What the tracker counts, what it will not call verified, and how its feed is made and checked.</p>
+      <p class="dek">Back to the <a href="index.html">dashboard</a>. What the tracker counts, what it will not call verified, and how its feed was made and checked.</p>
     </div>
   </header>
 
   <section class="sec" id="method" data-index="Method" data-num="00" aria-label="Method">
     <div class="read">
+      <aside class="callout def lv-plain"><p class="c-k">Plain words</p><p>This tracker copies every &kappa; that contributors claim in their pull requests, plots them, and marks the one value the race&rsquo;s maintainer has re-run and accepted. It was built to refresh every 15 minutes and to change nothing if a check fails. Its claims feed last refreshed on 11 October 2026 at 17:41 UTC, so the claims are a snapshot; the reviewed record at the top of the dashboard is read live from the race.</p></aside>
       <div class="prose">
         <h2>What &ldquo;conditional &kappa;&rdquo; means</h2>
         <p>Upstream <code>CrocSwap/integer-mult-bounds</code> races an asymptotic
         integer-multiplication bound of the shape <code>T(n) = O(n (log n)^(1−κ))</code>.
-        Every κ published there is <em>conditional</em>: it holds only given the retained
-        interfaces the construction inherits (all-size compiler, weighted/common-ancestor
-        chart, restored rows, selectors/routing, prime supply, precision/recovery, complex
-        symbolic correctness, analytic transfer). A larger κ is better. It is not an
+        Every κ published there is <em>conditional</em>: it holds only if a list of earlier
+        steps the construction relies on, and does not re-prove, are correct. The race names
+        them (in its own terms: the all-size compiler, the weighted common-ancestor chart,
+        restored rows, selectors and routing, prime supply, precision and recovery, complex
+        symbolic correctness, and the analytic transfer). A larger κ is better. It is not an
         unconditional multiplication-exponent theorem, and this dashboard never presents it
         as one.</p>
 
@@ -106,27 +108,36 @@
         <h2>Quarantine policy</h2>
         <p>A record is quarantined (<code>stale: true</code>) when its stated fraction and
         decimal disagree beyond 15 significant digits, when a κ-looking claim is unparseable,
-        or when its head SHA changed without a successful re-fetch. Quarantined records stay
+        or when the pull request&rsquo;s latest commit (its <em>head</em>) changed and could not be re-read. Quarantined records stay
         in <code>data/records.json</code> and under <code>feed.json</code>’s
         <code>quarantined[]</code> (never silently deleted) but are excluded from the chart
         step-line until re-resolved.</p>
 
         <h2>Record key and staleness</h2>
-        <p>One record per (PR × head SHA): any force-push creates a new record; old rows are
-        retained append-only. <code>fetched_at</code> and <code>pr_updated_at</code> drive the
-        age display; the red banner is always-on because the race moves roughly every ten
-        minutes and nothing served here is a live quote.</p>
+        <p>One record per pull request and commit. When a contributor rewrites a pull
+        request&rsquo;s history (a <em>force-push</em>), its new commit gets a new record and the
+        old row is kept; rows are only ever added. <code>fetched_at</code> and
+        <code>pr_updated_at</code> drive the age display. The caveat at the top of the dashboard
+        is always on, because the race moved roughly every ten minutes and nothing served here
+        is a live quote.</p>
         <p>Since the move to Foundation0, the dashboard also reads the race&rsquo;s own
         <code>certificates/selected-result.json</code> live in your browser and shows it at the top, labelled with the time it was fetched; when this feed is more than a day old, it says so beside that value.</p>
 
         <h2>Pipeline</h2>
-        <p>A 15-minute GitHub Actions cron (<code>.github/workflows/update.yml</code>) runs
-        <code>scripts/fetch.py</code> (upstream REST, conditional ETag requests) then
-        <code>scripts/gate.py</code>: schema validation, byte-determinism re-emit,
-        selected-result binding, and claimed/verified separation. Only if all four pass does
-        the workflow commit the regenerated <code>docs/feed.json</code> and
-        <code>docs/chart-data.json</code>; a failed run changes nothing and the last good
-        state stays live. Parser behaviour is golden-file-gated on PRs #419/#425/#431/#433
+        <p><b>Status: not running since 11 October 2026, 17:41 UTC.</b> The tracker was designed
+        to refresh every 15 minutes through a scheduled GitHub Actions job
+        (<code>.github/workflows/update.yml</code>). That schedule has not run since the feed&rsquo;s
+        last generation on 11 Oct 2026, 17:41 UTC (the job is switched off in the repository&rsquo;s
+        Actions settings), so the claims on the dashboard are a snapshot.</p>
+        <p>As designed, each run calls <code>scripts/fetch.py</code>, which reads the race&rsquo;s
+        pull requests from GitHub and asks only for what changed since the last run, then
+        <code>scripts/gate.py</code>, which makes four checks: the files match the published
+        schema; rebuilding them from scratch gives the same bytes; the reviewed value is bound to
+        the exact bytes of the race&rsquo;s record file; and no claimed value is ever labelled
+        reviewed. Only if all four pass does the job commit the regenerated
+        <code>docs/feed.json</code> and <code>docs/chart-data.json</code>; a failed run changes
+        nothing and the last good state stays up. The parser that reads &kappa; out of pull-request
+        text is tested against saved examples, PRs #419, #425, #431 and #433
         (<code>tests/golden_kappa_parse.json</code>, <code>tests/run_golden.py</code>).</p>
 
         <h2>Schema reservations (v2, additive)</h2>
@@ -144,7 +155,7 @@
         <li><a href="https://github.com/aska-digital/frontier-math/blob/main/scripts/gate.py">scripts/gate.py</a></li>
       </ul>
       <nav class="prevnext" aria-label="More on this race">
-        <a href="index.html"><span>&larr; Back to</span>The live race tracker</a>
+        <a href="index.html"><span>&larr; Back to</span>The race tracker</a>
         <a class="next" href="../"><span>Up &rarr;</span>Integer multiplication below n log n</a>
       </nav>
     </div>

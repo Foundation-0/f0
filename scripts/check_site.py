@@ -7,11 +7,18 @@
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
   4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
-               resolves to a file inside docs/ (the share image, docs/assets/og.png)
+               resolves to a file inside docs/ (relative, or absolute under SITE); a relative og:image
+               or a missing og:url is a warning (share cards need absolute URLs)
   5  scripts:  no third-party script origins (the site must run with no CDN)
+  6  record:   every ledger/#<id> link in pages, scripts and data names a ledger.json id; every key of the
+               Ledger page's CREDIT map is a ledger id; founding members' items carry foundation0_note and
+               known foundation0_members; Home and the Ledger state the same role-over-time numbers
 
 Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
-  --external also HEAD-checks every external URL in the data files and pages.
+  --external also checks every external URL in the pages, page scripts and data files (*.json): any 2xx
+  passes; doi.org links resolve through api.crossref.org, then api.datacite.org; links into this
+  repository (github.com/aska-digital/frontier-math/blob|tree/main/...) are checked against the local
+  checkout; preconnect and dns-prefetch hints are skipped.
 """
 import datetime
 import html.parser
@@ -21,15 +28,23 @@ import posixpath
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
+SITE = 'https://aska-digital.github.io/frontier-math/'   # the published site (GitHub Pages)
+THIS_REPO = 'https://github.com/aska-digital/frontier-math/'
 errs = []
+warns = []
 
 
 def err(check, msg):
     errs.append(f'{check}: {msg}')
+
+
+def warn(check, msg):
+    warns.append(f'{check}: {msg}')
 
 
 # ---------------- 1 ledger -------------------------------------------------------
@@ -106,6 +121,17 @@ def words(s):
     return len(s.split())
 
 
+_logins = None
+
+
+def member_logins():
+    global _logins
+    if _logins is None:
+        d = load('data/members.json') or {}
+        _logins = {m.get('login') for m in d.get('members', [])}
+    return _logins
+
+
 def check_ledger():
     schema = load('data/ledger.schema.json')
     ledger = load('data/ledger.json')
@@ -145,6 +171,12 @@ def check_ledger():
         page = m.get('page')
         if page and not resolve_internal('data/ledger.json', '../' + page.lstrip('/')):
             err('ledger', f'{where}: page {page} does not exist')
+        if m.get('foundation0'):
+            if not m.get('foundation0_note'):
+                err('ledger', f'{where}: foundation0 item without foundation0_note (who did what)')
+            unknown = [x for x in m.get('foundation0_members', []) if x not in member_logins()]
+            if not m.get('foundation0_members') or unknown:
+                err('ledger', f'{where}: foundation0_members must list data/members.json logins (unknown: {unknown})')
     dates = [m.get('date', '') for m in items if isinstance(m, dict)]
     if dates != sorted(dates):
         err('ledger', 'milestones must be sorted by date ascending')
@@ -176,6 +208,8 @@ class Page(html.parser.HTMLParser):
         self.refs, self.ids, self.scripts = [], set(), []
         self.title = self.desc = self.viewport = self.lang = False
         self.og_images = []
+        self.og_url = False
+        self.hints = set()
         self._in_title = False
 
     def handle_starttag(self, tag, attrs):
@@ -194,6 +228,10 @@ class Page(html.parser.HTMLParser):
             self.viewport = True
         if tag == 'meta' and a.get('property') == 'og:image' and a.get('content'):
             self.og_images.append(a['content'])
+        if tag == 'meta' and a.get('property') == 'og:url' and a.get('content'):
+            self.og_url = True
+        if tag == 'link' and a.get('href') and set((a.get('rel') or '').split()) & {'preconnect', 'dns-prefetch'}:
+            self.hints.add(a['href'])
         for attr in ('href', 'src', 'data-src', 'poster'):
             if a.get(attr):
                 self.refs.append((tag, a[attr]))
@@ -254,11 +292,18 @@ def check_pages(external_urls):
         if not p.og_images:
             err('pages', f'{rel}: missing og:image')
         for og in p.og_images:
-            if EXTERNAL.match(og):
-                external_urls.add(og)
+            if og.startswith(SITE):
+                if resolve_internal('index.html', og[len(SITE):]) is None:
+                    err('pages', f'{rel}: og:image {og} does not map to a file in docs/')
+            elif EXTERNAL.match(og):
+                err('pages', f'{rel}: og:image {og} is not on this site ({SITE})')
             elif resolve_internal(rel, og) is None:
                 err('pages', f'{rel}: og:image {og} does not resolve to a file in docs/')
-        refs = [r for _, r in p.refs]
+            else:
+                warn('pages', f'{rel}: og:image {og} is relative; share cards need {SITE}...')
+        if not p.og_url and 'noindex' not in src:
+            warn('pages', f'{rel}: no og:url')
+        refs = [r for _, r in p.refs if r not in p.hints]
         refs += re.findall(r"""fetch\(\s*['"]([^'"$`]+)['"]""", src)
         for ref in refs:
             if ref.startswith(('mailto:', 'tel:', 'data:', 'javascript:')):
@@ -283,17 +328,115 @@ def check_pages(external_urls):
                 err('scripts', f'{rel}: third-party script {s} (vendor it under docs/assets/)')
 
 
+# ---------------- 6 record consistency -------------------------------------------
+def text_files():
+    for dirpath, _, files in os.walk(DOCS):
+        for fn in sorted(files):
+            if fn.endswith(('.html', '.js', '.json')):
+                full = os.path.join(dirpath, fn)
+                yield posixpath.relpath(full, DOCS).replace(os.sep, '/'), full
+
+
+def check_record():
+    led = load('data/ledger.json') or {}
+    ids = {m.get('id') for m in led.get('milestones', [])}
+    for rel, full in text_files():
+        if rel == 'data/ledger.json':
+            continue
+        with open(full, encoding='utf-8') as f:
+            src = f.read()
+        for mid in sorted(set(re.findall(r'ledger/#([a-z0-9][a-z0-9-]*[a-z0-9])', src))):
+            if mid not in ids:
+                err('record', f'{rel}: link ledger/#{mid} names no ledger.json id')
+    page_js = os.path.join(DOCS, 'ledger', 'page.js')
+    if os.path.isfile(page_js):
+        with open(page_js, encoding='utf-8') as f:
+            m = re.search(r'var CREDIT = \{(.*?)\};', f.read(), re.S)
+        for key in re.findall(r"'([a-z0-9-]+)'\s*:", m.group(1) if m else ''):
+            if key not in ids:
+                err('record', f'ledger/page.js: CREDIT key {key} is not a ledger.json id (stale credit line)')
+
+    def insight(rel, name):
+        try:
+            with open(os.path.join(DOCS, rel), encoding='utf-8') as f:
+                m = re.search(rf'<!--prerender:{name}-->(.*?)<!--/prerender:{name}-->', f.read(), re.S)
+        except OSError:
+            return None
+        return m and m.group(1)
+    home, ledg = insight('index.html', 'role-insight-p'), insight('ledger/index.html', 'insight-role-p')
+    if home and ledg:
+        nums = lambda t: (re.findall(r'\d{4}(?:–\d{2,4})?', t), re.findall(r'\d+%', t))
+        if nums(home) != nums(ledg):
+            err('record', f'Home and the Ledger state different role-over-time numbers: {nums(home)} vs {nums(ledg)} (both must use F0.rolePeriods)')
+
+
+# ---------------- --external ---------------------------------------------------------
+def fetch_code(u, timeout=20):
+    req = urllib.request.Request(u, method='GET', headers={'User-Agent': 'foundation0-linkcheck', 'Accept': 'application/json, text/html;q=0.9, */*;q=0.5'})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status
+    except urllib.error.HTTPError as e:
+        return e.code
+    except Exception as e:  # noqa: BLE001 - report any network failure
+        return repr(e)[:60]
+
+
+def ok(code):
+    return isinstance(code, int) and (200 <= code < 300 or code in (301, 302, 303, 307, 308))
+
+
+def check_url(u):
+    if u.startswith(SITE):                            # this site: the file must exist in docs/ (it may not be published yet)
+        return 200 if resolve_internal('index.html', u[len(SITE):]) else 'not in docs/'
+    if u.startswith(THIS_REPO):                       # this repository: check the local checkout
+        m = re.match(re.escape(THIS_REPO) + r'(?:blob|tree)/[^/]+/(.+?)(?:[?#].*)?$', u)
+        if m:
+            return 200 if os.path.exists(os.path.join(ROOT, m.group(1))) else 'not in this checkout'
+    m = re.match(r'https?://(?:dx\.)?doi\.org/(10\.[^?#]+)', u)
+    if m:                                             # DOIs: the registries answer reliably, doi.org itself often does not
+        doi = urllib.parse.quote(m.group(1), safe='/()')
+        codes = [fetch_code(api + doi) for api in ('https://api.crossref.org/works/', 'https://api.datacite.org/dois/')]
+        if any(ok(c) for c in codes):
+            return 200
+        if all(c == 404 for c in codes):
+            return 'DOI unknown to Crossref and DataCite'
+        warn('external', f'{u} -> registries answered {codes} (could not check)')
+        return 200
+    code = fetch_code(u)
+    if code in (403, 429) or not isinstance(code, int):  # bot walls, rate limits, timeouts, proxy errors: unknown, not dead
+        warn('external', f'{u} -> {code} (could not check)')
+        return 200
+    m = re.match(r'https://github\.com/([^/]+)/([^/]+)/blob/([^/]+)/(.+)$', u)
+    if not ok(code) and m:                            # a file on a branch: try its raw copy
+        code = fetch_code('https://raw.githubusercontent.com/%s/%s/%s/%s' % m.groups())
+    return code
+
+
+def collect_urls(urls):
+    for rel, full in text_files():
+        if rel in ('feed.json', 'chart-data.json'):    # pipeline outputs: checked by the κ pipeline
+            continue
+        with open(full, encoding='utf-8') as f:
+            src = f.read()
+        for u in re.findall(r'https?://[^\s"\'<>`\\]+', src):
+            u = u.rstrip('.,;:')
+            while u.endswith(')') and u.count(')') > u.count('('):   # "(see https://x)" but keep DOIs like 10.1016/S0140-6736(20)30183-5
+                u = u[:-1].rstrip('.,;:')
+            host = urllib.parse.urlsplit(u).netloc
+            if '${' in u or '{' in u or '.' not in host or u.endswith(('/', '=')) and 'api.' in u:
+                continue
+            if re.search(r'/(blob|tree|commit|commits|pull|issues)/?$', u):   # a prefix that page code completes
+                continue
+            if re.match(r'https://fonts\.(googleapis|gstatic)\.com/?$', u) or re.match(r'https?://(www\.w3\.org/\d{4}/|json-schema\.org/)', u):
+                continue                              # font hosts and XML/JSON namespace names are not links
+            urls.add(u)
+
+
 def check_external(urls):
     for u in sorted(urls):
-        req = urllib.request.Request(u, method='GET', headers={'User-Agent': 'foundation0-linkcheck'})
-        try:
-            with urllib.request.urlopen(req, timeout=20) as r:
-                code = r.status
-        except urllib.error.HTTPError as e:
-            code = e.code
-        except Exception as e:  # noqa: BLE001 - report any network failure
-            code = repr(e)[:60]
-        if code != 200 and code not in (301, 302, 403, 429):
+        code = check_url(u)
+        if not ok(code):
             err('external', f'{u} -> {code}')
 
 
@@ -302,11 +445,17 @@ def main():
     check_lists()
     urls = set()
     check_pages(urls)
+    check_record()
     if '--external' in sys.argv:
         led = load('data/ledger.json') or {}
         for m in led.get('milestones', []):
             urls.update(s['url'] for s in m.get('sources', []))
+        collect_urls(urls)
         check_external(urls)
+    if warns:
+        for w in warns:
+            print('WARN', w)
+        print()
     if errs:
         for e in errs:
             print('FAIL', e)

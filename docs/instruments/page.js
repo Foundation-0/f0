@@ -221,6 +221,85 @@
   }
 
   /* ======================================================================
+     01: THE LIVING LATTICE EGG (egg.js, copied from Project Exo, MIT)
+     Starts on a still frame. It moves only while Play is on, or for a few seconds after "Send a pulse";
+     it stops off-screen, after a minute idle, in a hidden tab (F0.loop) and when motion is off.
+     ====================================================================== */
+  var EGG_STAGES = [
+    ['egg', 'One cell, six dots (an octahedron), inside a closed shell.'],
+    ['cell', 'The six face cells join the first: 7 cells, 42 dots. The shell cracks and falls away.'],
+    ['lattice', 'Nineteen cells, 114 dots: the honeycomb as an orb.'],
+    ['four dimensions', 'A fourth dimension unfolds out of the third: 33 cells of 8 dots, 264 dots. Links into the new dimension are drawn in cyan.']
+  ];
+  function rgbOf(col) {
+    var m = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(col).trim());
+    if (m) { var hx = m[1].length === 3 ? m[1].replace(/(.)/g, '$1$1') : m[1]; return [parseInt(hx.slice(0, 2), 16), parseInt(hx.slice(2, 4), 16), parseInt(hx.slice(4, 6), 16)]; }
+    var n = String(col).match(/[\d.]+/g); return n && n.length >= 3 ? [+n[0], +n[1], +n[2]] : [128, 128, 128];
+  }
+  function mixRGB(a, b, t) { return a.map(function (v, i) { return Math.round(v + (b[i] - v) * t); }); }
+  function initEgg() {
+    var cv = $('#egg-cv'); if (!cv || !window.ExoEgg) return;
+    var css = F0.css || function () { return ''; };
+    function colors() {
+      var dark = (F0.theme ? F0.theme() : 'light') === 'dark', acc = rgbOf(css('--acc-exo') || '#b23a06');
+      return { acc: acc.join(','), acc2: mixRGB(acc, [255, 255, 255], dark ? 0.3 : 0.12).join(','), fg: rgbOf(css('--ink') || '#16213e').join(','),
+        cold: rgbOf(css('--dig') || '#0a6a85').join(','), blend: dark ? 'lighter' : 'source-over', glowA: dark ? 1 : 0.45 };
+    }
+    var range = $('#egg-s'), out = $('#egg-out'), read = $('#egg-read'), playBtn = $('#egg-play'), pulseBtn = $('#egg-pulse'), fig = cv.closest('.egg-fig');
+    var egg = ExoEgg.mount(cv, { stage: +range.value, activity: 0.45, seed: 7, auto: false, reducedMotion: !motion(), colors: colors() });
+    var job = null, last = 0, playing = false, until = 0, visible = true, seed = 3;
+    function stageText(v) {
+      var k = Math.round(v), S = EGG_STAGES[k];
+      return { k: k, short: 'Stage ' + (Math.abs(v - k) < 0.03 ? k : v.toFixed(2)) + ' · ' + S[0], long: S[1] };
+    }
+    function readout() {
+      var v = +range.value, t = stageText(v);
+      out.textContent = (Math.abs(v - t.k) < 0.03 ? String(t.k) : v.toFixed(2));
+      read.innerHTML = '<b>' + esc(t.short) + '.</b> ' + esc(t.long);
+      range.setAttribute('aria-valuetext', t.short + ': ' + t.long);
+      cv.setAttribute('aria-label', 'The Exo lattice egg, ' + t.short + '. ' + t.long + (playing ? ' Packets of light travel along the edges.' : ' A still frame, with a path of lit cells running out from the core.'));
+    }
+    function frame(now) {
+      var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.033; last = now;
+      egg.draw(dt);
+      if (!playing && now > until) stopLoop();
+    }
+    function startLoop() {
+      if (!motion() || !F0.loop) return false;
+      if (!job) job = F0.loop(frame);
+      egg.reduce = false; last = 0; job.start(); return true;
+    }
+    function stopLoop() { if (job) job.stop(); }
+    function setPlaying(on) {
+      playing = on && motion();
+      playBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+      if (playing) { until = 0; startLoop(); } else if (performance.now() > until) stopLoop();
+      readout();
+    }
+    playBtn.addEventListener('click', function () {
+      if (!motion()) { seed += 1; egg.still(seed); live.textContent = 'Motion is off, so the egg stays still. Turn motion on in the header to let it move.'; return; }
+      setPlaying(!playing);
+    });
+    pulseBtn.addEventListener('click', function () {
+      if (!motion()) { seed += 1; egg.still(seed); live.textContent = 'Motion is off: a still frame shows another path a pulse might take from the core.'; return; }
+      egg.pulse(8); until = performance.now() + 6000; startLoop();
+      live.textContent = 'Eight packets leave the core along the edges.';
+    });
+    range.addEventListener('input', function () {
+      var v = +range.value;
+      if (job && job.running) egg.setStage(v); else { egg.setStage(v, { immediate: true }); egg.still(seed); }
+      readout();
+    });
+    var live = h('p', { cls: 'sr-only', 'aria-live': 'polite' }, fig);
+    if (F0.whenVisible) F0.whenVisible(fig, function () { visible = true; }, function () { visible = false; if (playing) setPlaying(false); until = 0; stopLoop(); });
+    if (F0.onIdle) F0.onIdle(function (idle) { if (idle && playing) setPlaying(false); });
+    if (F0.onMotion) F0.onMotion(function (on) { if (!on) { playing = false; until = 0; stopLoop(); playBtn.setAttribute('aria-pressed', 'false'); egg.reduce = true; egg.setStage(+range.value, { immediate: true }); egg.still(seed); readout(); } else { egg.reduce = false; } });
+    if ('ResizeObserver' in window) { var lw = 0, lh = 0; new ResizeObserver(function () { var r = cv.getBoundingClientRect(); if (r.width < 2 || (r.width === lw && r.height === lh)) return; lw = r.width; lh = r.height; egg.resize(); if (!(job && job.running)) egg.draw(0); }).observe(cv); }
+    onTheme(function () { egg.setColors(colors()); });
+    readout();
+  }
+
+  /* ======================================================================
      02: CONSENT TO THE EXACT WORDS
      ====================================================================== */
   var ACTIONS = [
@@ -276,16 +355,16 @@
     function grid() {
       var svg = $('#cg-svg'); while (svg.lastChild && svg.lastChild.nodeName !== 'title') svg.removeChild(svg.lastChild);
       var X0 = 70, Y0 = 36, CW = 122, CH = 104;
-      el('text', { x: X0 + CW / 2, y: 24, 'text-anchor': 'middle', text: 'ONLY YOU SEE IT', 'font-size': 11, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
-      el('text', { x: X0 + CW * 1.5, y: 24, 'text-anchor': 'middle', text: 'OTHERS SEE IT', 'font-size': 11, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
-      el('text', { x: X0 - 8, y: Y0 + CH / 2 - 2, 'text-anchor': 'end', text: 'CAN BE', 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
-      el('text', { x: X0 - 8, y: Y0 + CH / 2 + 12, 'text-anchor': 'end', text: 'UNDONE', 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
-      el('text', { x: X0 - 8, y: Y0 + CH * 1.5 - 2, 'text-anchor': 'end', text: 'CANNOT', 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
-      el('text', { x: X0 - 8, y: Y0 + CH * 1.5 + 12, 'text-anchor': 'end', text: 'BE UNDONE', 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
+      el('text', { x: X0 + CW / 2, y: 24, 'text-anchor': 'middle', text: 'ONLY YOU SEE IT', 'font-size': 12, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
+      el('text', { x: X0 + CW * 1.5, y: 24, 'text-anchor': 'middle', text: 'OTHERS SEE IT', 'font-size': 12, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
+      el('text', { x: X0 - 8, y: Y0 + CH / 2 - 2, 'text-anchor': 'end', text: 'CAN BE', 'font-size': 12, style: 'fill:var(--ink-3)' }, svg);
+      el('text', { x: X0 - 8, y: Y0 + CH / 2 + 12, 'text-anchor': 'end', text: 'UNDONE', 'font-size': 12, style: 'fill:var(--ink-3)' }, svg);
+      el('text', { x: X0 - 8, y: Y0 + CH * 1.5 - 2, 'text-anchor': 'end', text: 'CANNOT', 'font-size': 12, style: 'fill:var(--ink-3)' }, svg);
+      el('text', { x: X0 - 8, y: Y0 + CH * 1.5 + 12, 'text-anchor': 'end', text: 'BE UNDONE', 'font-size': 12, style: 'fill:var(--ink-3)' }, svg);
       [[0, 0], [1, 0], [0, 1], [1, 1]].forEach(function (c) {
         var run = c[0] === 0 && c[1] === 0;
         el('rect', { x: X0 + c[0] * CW + 1, y: Y0 + c[1] * CH + 1, width: CW - 2, height: CH - 2, style: 'fill:' + (run ? 'var(--bg-2)' : 'color-mix(in srgb, var(--acc-exo) 7%, var(--bg-2))') + ';stroke:var(--line)' }, svg);
-        el('text', { x: X0 + c[0] * CW + 9, y: Y0 + c[1] * CH + 18, text: run ? 'RUNS AT ONCE' : 'ASKS YOU', 'font-size': 11, 'font-weight': 600, style: 'fill:' + (run ? 'var(--ink-2)' : 'var(--ink)'), 'letter-spacing': '.06em' }, svg);
+        el('text', { x: X0 + c[0] * CW + 9, y: Y0 + c[1] * CH + 18, text: run ? 'RUNS AT ONCE' : 'ASKS YOU', 'font-size': 12, 'font-weight': 600, style: 'fill:' + (run ? 'var(--ink-2)' : 'var(--ink)'), 'letter-spacing': '.06em' }, svg);
       });
       var slots = {};
       ACTIONS.forEach(function (a) {
@@ -458,13 +537,18 @@
     var tb = $('#mt-table tbody');
     [12, 20, 52, 100, 200, 500, 1000].forEach(function (k) { var m = memAt(k); h('tr', null, tb, '<td class="n">' + fmt(k) + '</td><td class="n">' + m.sums + '</td><td class="n">' + m.verb + '</td><td class="n">' + fmt(m.exo) + '</td><td class="n">' + fmt(m.plain) + '</td>'); });
     var treeHost = $('#mt-tree'), chartHost = $('#mt-chart'), treeSvg = null, chartSvg = null, chartGeo = null;
-    function drawTree(W) {
+    function drawTree(W0) {
       var m = memAt(N), t = m.tree;
       if (treeSvg) treeSvg.remove();
       var maxLv = t.all.reduce(function (a, n) { return Math.max(a, n.lv); }, -1);
       var rows = maxLv + 1, rowH = 26, top = 6, padL = 40, padR = 14, stripY = top + rows * rowH + (rows ? 8 : 0), H = stripY + 18 + 30;
+      /* every leaf of 8 messages keeps at least 6px; past that the tree scrolls sideways inside the figure */
+      var W = Math.max(W0, Math.ceil(padL + padR + N * 6 / LEAF));
+      treeHost.classList.toggle('wide', W > W0);
       var svg = treeSvg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img', 'aria-label': ariaMem(m) });
-      treeHost.insertBefore(svg, treeHost.firstChild);
+      var scroller = $('.mt-scroll', treeHost);
+      if (!scroller) { scroller = h('div', { cls: 'mt-scroll' }); treeHost.insertBefore(scroller, treeHost.firstChild); }
+      scroller.appendChild(svg);
       var X = function (msg) { return padL + (msg - 1) / N * (W - padL - padR); };
       for (var lv = maxLv; lv >= 0; lv--) {
         var y = top + (maxLv - lv) * rowH;
@@ -475,7 +559,7 @@
         var inView = !n.gone;
         el('rect', { x: x0 + 1, y: y + 2, width: w, height: rowH - 6, rx: 1, style: inView ? 'fill:color-mix(in srgb, var(--dig) 22%, var(--bg-1));stroke:var(--dig)' : 'fill:none;stroke:var(--line-ui)', 'stroke-width': inView ? 1.3 : 1, opacity: inView ? 1 : 0.7 }, svg);
         var lab = n.a + '–' + n.b;
-        if (inView && w > lab.length * 6.8 + 8) el('text', { x: x0 + 1 + w / 2, y: y + 16, 'text-anchor': 'middle', text: lab, 'font-size': 11, style: 'fill:var(--ink)' }, svg);
+        if (inView && w > lab.length * 6.7 + 6) el('text', { x: x0 + 1 + w / 2, y: y + 16, 'text-anchor': 'middle', text: lab, 'font-size': 11, style: 'fill:var(--ink)' }, svg);
       });
       // the conversation strip
       var sumEnd = m.L * LEAF;
@@ -492,6 +576,11 @@
       var sumLab = W < 560 ? 'summarized, searchable' : 'summarized: kept in the log, searchable';
       if (sumEnd > 0 && tx - tlab.length * 6.8 - padL > sumLab.length * 6.8 + 16) el('text', { x: padL, y: stripY + 44, text: sumLab, 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
       svg.setAttribute('height', stripY + 50); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + (stripY + 50));
+      if (W > W0) { scroller.scrollLeft = scroller.scrollWidth; scroller.setAttribute('tabindex', '0'); scroller.setAttribute('role', 'region'); scroller.setAttribute('aria-label', 'Summary tree, scrolls sideways'); } /* keep the newest messages in view */
+      else { scroller.removeAttribute('tabindex'); scroller.removeAttribute('role'); scroller.removeAttribute('aria-label'); }
+      var sent = t.view.map(function (n) { return n.a + '–' + n.b; });
+      $('#mt-sent').innerHTML = '<b>Sent with the next request:</b> ' + (sent.length ? (sent.length === 1 ? 'the summary of messages ' : 'summaries of messages ') + esc(sent.join(', ')) + '; then ' : '') +
+        (m.verb === 1 ? 'message 1' : 'messages ' + (m.L * LEAF + 1) + '–' + N) + ' word for word.';
     }
     function ariaMem(m) {
       return 'At ' + m.N + ' messages the next request carries ' + m.sums + ' summaries and ' + m.verb + ' messages word for word, about ' + fmt(m.exo) + ' tokens; a plain transcript would send all ' + m.N + ' messages, about ' + fmt(m.plain) + ' tokens.';
@@ -579,12 +668,58 @@
   }
 
   /* ======================================================================
+     05: EXO OS, a tool call walked down the stack (an illustration of the public roadmap and whitepaper)
+     ====================================================================== */
+  var OS_CALLS = {
+    read: { what: 'read <code>notes/ideas.md</code>', steps: [
+      'Your agent asks to read <code>notes/ideas.md</code>.',
+      'The gate sorts it: private and undoable, so it runs at once and is written to the record.',
+      'The core hands the call to the execution broker, the program that carries out approved actions. Exo OS can now require every tool call to pass through it.',
+      '<b>Here the walk stops.</b> The operating-system sandbox behind the broker is still being built, and no machine runs Exo OS yet: designed, not built.'] },
+    push: { what: 'push a commit to a public repository', steps: [
+      'Your agent asks to push a commit to your public repository.',
+      'The gate sorts it: public and cannot be undone, so it waits for your yes, bound to the exact words. <a href="#consent">Try the gate above</a>.',
+      'Once you approve, the core hands the call to the execution broker, which carries it out. Exo OS can now require every tool call to pass through it.',
+      '<b>Here the walk stops.</b> The operating-system sandbox behind the broker is still being built, and no machine runs Exo OS yet: designed, not built.'] }
+  };
+  function initOS() {
+    var stack = $('#os-stack'), pk = $('#os-pk'), go = $('#os-go'), read = $('#os-read'); if (!stack || !pk) return;
+    var call = 'read', at = -1, timer = 0, lis = $$('li', stack);
+    function place(i) {
+      var li = lis[i]; if (!li) { pk.style.opacity = 0; return; }
+      pk.style.opacity = 1; pk.style.top = (li.offsetTop + li.offsetHeight / 2) + 'px';
+    }
+    function show(i) {
+      at = i;
+      lis.forEach(function (li, k) { li.classList.toggle('on', k === i); li.classList.toggle('passed', i >= 0 && k < i); });
+      place(i);
+      var C = OS_CALLS[call];
+      read.innerHTML = i < 0 ? 'Pick a tool call, then send it.' : '<span class="os-k">' + esc(lis[i].querySelector('.os-n').textContent) + ' &middot; step ' + (i + 1) + ' of 4</span> ' + C.steps[i];
+      go.innerHTML = i < 0 ? 'Send it &darr;' : i >= 3 ? 'Send again &darr;' : (motion() ? 'Sending&hellip;' : 'Next layer &darr;');
+      go.disabled = motion() && i >= 0 && i < 3 && !!timer;
+    }
+    function reset() { clearTimeout(timer); timer = 0; show(-1); }
+    function run() {
+      if (!motion()) { show(at >= 3 ? 0 : at + 1); return; } /* stepped: one layer per press */
+      clearTimeout(timer); timer = 0;
+      var k = 0;
+      (function hop() { show(k); if (k < 3) { k++; timer = setTimeout(hop, 1100); go.disabled = true; } else { timer = 0; go.disabled = false; show(3); } })();
+    }
+    go.addEventListener('click', run);
+    $$('#os-call button').forEach(function (b) { b.addEventListener('click', function () { call = b.getAttribute('data-c'); $$('#os-call button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); reset(); }); });
+    arrows($('#os-call'), 'button', function (b) { b.click(); });
+    if (F0.onMotion) F0.onMotion(function () { if (timer) { clearTimeout(timer); timer = 0; show(3); } });
+    if ('ResizeObserver' in window) new ResizeObserver(function () { place(at); }).observe(stack);
+    show(-1);
+  }
+
+  /* ======================================================================
      05: THE AUTO-RESEARCH LOOP
      ====================================================================== */
   var AR_STEPS = [
     { id: 'pick', k: 'Step 1 · pick', h: 'Pick an open problem', t: 'A sidebar lists open research projects from the “Auto Research by Super” catalog: GitHub repositories that publish an <code>auto-research.md</code> guide for agents. Press play and the app clones the project.' },
     { id: 'propose', k: 'Step 2 · propose', h: 'Agents work in parallel', t: 'The app hands the guide, word for word, to the coding agent you already have (OpenAI Codex or Claude Code) and shows the conversation live. With parallel agents on, several work at once on the same problem.' },
-    { id: 'check', k: 'Step 3 · check', h: 'Keep claims at their true strength', t: 'Every agent carries the same policy: “Separate formal proof, exact finite checks, empirical measurements, conditional results and maintainer acceptance. Never manufacture a record, passing check, publication, or external outcome.” Acceptance itself happens upstream, with each project’s maintainers.' },
+    { id: 'check', k: 'Step 3 · check', h: 'Keep claims at their true strength', t: 'Every agent carries the same policy. It keeps formal proofs, exact finite checks, measurements, conditional results and a maintainer’s acceptance apart, and says: “Never manufacture a record, passing check, publication, or external outcome.” Acceptance itself happens upstream, with each project’s maintainers.' },
     { id: 'pool', k: 'Step 4 · pool', h: 'The timer stops them and the findings merge', t: 'On a timer (every 10 minutes by default) the app stops the agents and asks the model to merge what they found into one shared summary.' },
     { id: 'restart', k: 'Step 5 · restart', h: 'Fresh agents start from the summary', t: 'New agents start again from that shared summary, and the loop goes round. Each round begins with what every agent learned in the last one.' }
   ];
@@ -743,17 +878,26 @@
       });
       $('#af-corner').textContent = (4 * k) + ' machines · ' + (phase.exp ? 'running ' + phase.exp : 'shut down');
     }
+    /* the x domain follows this draw: every run plus about 15% padding, on a round tick step */
+    function domain() {
+      var vs = runs.A.concat(runs.B).map(function (r) { return r.v; });
+      var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs), span = Math.max(0.006, hi - lo), pad = span * 0.15;
+      lo -= pad; hi += pad;
+      var step = [0.001, 0.002, 0.0025, 0.005, 0.01, 0.02].filter(function (st) { return (hi - lo) / st <= 7; })[0] || 0.02;
+      var ticks = []; for (var t = Math.ceil(lo / step) * step; t <= hi + 1e-9; t += step) ticks.push(+t.toFixed(4));
+      return { lo: lo, hi: hi, ticks: ticks, dp: step < 0.01 ? 3 : 2 };
+    }
     function drawStrip(W) {
       if (stripSvg) stripSvg.remove();
-      var small = W < 560, padL = small ? 70 : 104, padR = small ? 16 : 150, H = 156, x0 = 0.975, x1 = 1.025;
+      var small = W < 560, padL = small ? 70 : 104, padR = small ? 16 : 28, H = 168, D = domain(), x0 = D.lo, x1 = D.hi;
       var X = function (v) { return padL + (Math.max(x0, Math.min(x1, v)) - x0) / (x1 - x0) * (W - padL - padR); };
       var svg = stripSvg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img', 'aria-label': ariaStrip() }, strip);
-      [0.98, 0.99, 1.00, 1.01, 1.02].forEach(function (t) {
+      D.ticks.forEach(function (t, i) {
         el('line', { x1: X(t), x2: X(t), y1: 14, y2: H - 24, style: 'stroke:var(--grid)', 'stroke-width': 1 }, svg);
-        el('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', text: t.toFixed(2), 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
+        if (!small || i % 2 === 0) el('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', text: t.toFixed(D.dp), 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
       });
       el('text', { x: padL, y: 10, text: '← LOWER IS BETTER', 'font-size': 11, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
-      [['A', 50, 'var(--ink-3)', small ? 'A' : 'A · baseline'], ['B', 102, 'var(--mark-dig)', small ? 'B' : 'B · change']].forEach(function (row) {
+      [['A', 58, 'var(--ink-3)', small ? 'A' : 'A · baseline'], ['B', 116, 'var(--mark-dig)', small ? 'B' : 'B · change']].forEach(function (row) {
         var e = row[0], y = row[1], col = row[2], rs = runs[e];
         el('text', { x: 4, y: y + 4, text: row[3], 'font-size': 11, 'font-weight': 600, style: 'fill:var(--ink)' }, svg);
         if (!rs.length || (phase.exp === e) || (phase.exp === 'A' && e === 'B')) { el('text', { x: padL, y: y + 4, text: phase.exp ? 'running…' : '', 'font-size': 11, style: 'fill:var(--ink-3)' }, svg); return; }
@@ -769,7 +913,10 @@
           g.addEventListener('pointermove', function (ev) { tipShow('<div class="tip-k">' + e + ' &middot; ' + esc(r.cloud) + ' &middot; machine ' + r.m + '</div><div class="tip-rows"><div class="tip-row"><span class="tip-v">' + r.v.toFixed(4) + '</span> validation loss</div></div><div class="tip-foot">simulated</div>', ev.clientX, ev.clientY); });
           g.addEventListener('pointerleave', tipHide);
         });
-        if (!small) el('text', { x: W - padR + 12, y: y + 4, text: 'mean ' + s.mean.toFixed(4), 'font-size': 11, style: 'fill:var(--ink-2)' }, svg);
+        /* the mean's label sits on the tick, just above the row, kept inside the plot */
+        var lab = 'mean ' + s.mean.toFixed(4), lw = lab.length * 6.7, mx = X(s.mean);
+        var right = mx + 6 + lw <= W - padR, tx = right ? mx + 6 : mx - 6;
+        el('text', { x: tx, y: y - 19, 'text-anchor': right ? 'start' : 'end', text: lab, 'font-size': 11, style: 'fill:var(--ink-2);paint-order:stroke;stroke:var(--bg-1);stroke-width:3px' }, svg);
       });
     }
     function ariaStrip() {
@@ -783,7 +930,8 @@
       var a = stats(runs.A), b = stats(runs.B), diff = a.mean - b.mean, se = Math.sqrt(a.sd * a.sd / a.n + b.sd * b.sd / b.n), z = se > 0 ? diff / se : 0;
       var line = function (n, s) { return '<span class="mono">' + n + ' &nbsp;best ' + s.best.toFixed(4) + ' &middot; mean ' + s.mean.toFixed(4) + ' &middot; worst ' + s.worst.toFixed(4) + '</span>'; };
       var need = 1.96 + 2.4 / Math.max(1, a.n + b.n - 2); // a rough small-sample (Student t) bar for 95% confidence
-      var word = z >= need ? '<b>B&rsquo;s lead is ' + z.toFixed(1) + ' times its uncertainty, above the ' + need.toFixed(1) + ' this many runs need: probably real.</b>' : z > 0 ? '<b>B&rsquo;s lead is only ' + z.toFixed(1) + ' times its uncertainty; with ' + a.n + ' runs each it needs about ' + need.toFixed(1) + '. It could still be noise.</b> Rent more machines.' : '<b>In this draw B is not ahead at all</b>, though its true setting is better. That is what noise does with few runs.';
+      var bar = 'With ' + a.n + ' runs each, a lead must be about ' + need.toFixed(1) + ' times its uncertainty to pass the usual 95% test for a real difference.';
+      var word = z >= need ? '<b>B&rsquo;s lead is ' + z.toFixed(1) + ' times its uncertainty.</b> ' + bar + ' <b>It passes: probably real.</b>' : z > 0 ? '<b>B&rsquo;s lead is only ' + z.toFixed(1) + ' times its uncertainty.</b> ' + bar + ' <b>It could still be noise.</b> Rent more machines.' : '<b>In this draw B is not ahead at all</b>, though its true setting is better. That is what noise does with few runs.';
       v.innerHTML = 'What autofoundry reports, for ' + a.n + ' runs each:<br>' + line('A', a) + '<br>' + line('B', b) + '<br>' +
         'B&rsquo;s mean is lower by ' + Math.abs(diff).toFixed(4) + (diff < 0 ? ' (it is higher, so worse)' : '') + '. The means themselves wobble by about &plusmn;' + se.toFixed(4) + ' from draw to draw (the <i>standard error</i>). ' + word;
     }
@@ -817,6 +965,143 @@
   }
 
   /* ======================================================================
+     04: THE CLIMB (an illustration of whitepaper section 22.5, not the Exo software)
+     Each made-up change has a true effect on the person (g) and, for some, an extra boost that only fits
+     the dev questions (o). Dev = current dev + g + o + noise; held out = current held out + g + noise.
+     Seeded, so every visitor sees the same draw.
+     ====================================================================== */
+  var CL_CHANGES = [
+    ['Add', 'Lead with the result, then the detail', 2.8, 0],
+    ['Add', 'Commit messages are short and imperative', 0.5, 0],
+    ['Drop', 'Always answer in bullet points', 2.3, 0],
+    ['Add', 'Reuse the wording of this week’s three drafts', -1.7, 5.2],
+    ['Add', 'No em dashes', 0.4, 0],
+    ['Add', 'Name the source behind every number', 2.5, 0],
+    ['Drop', 'Ask before renaming a file', -0.9, 0],
+    ['Add', 'Answer exam-style questions the way the exam expects', -2.3, 4.8],
+    ['Add', 'Put the approval link in every request', 2.2, 0],
+    ['Drop', 'Prefer long explanations', 0.8, 0],
+    ['Add', 'Mirror the phrasing of past accepted replies', -1.3, 4.2],
+    ['Add', 'Label a guess as a guess', 2.1, 0],
+    ['Add', 'Use last month’s examples again', -2.0, 3.8],
+    ['Drop', 'Write summaries in the third person', 0.3, 0]
+  ];
+  var CL_DEV0 = 64.0, CL_HO0 = 63.0, CL_START = 5;
+  function climbRun(n, skipFrom) {
+    var r = rng(2207), noise = [];
+    for (var i = 0; i < 3; i++) noise.push(CL_DEV0 + 0.8 * gauss(r));
+    var m = +(Math.max.apply(null, noise) - Math.min.apply(null, noise)).toFixed(1);
+    m = Math.max(1.4, m);
+    var dev = CL_DEV0, ho = CL_HO0, out = [];
+    for (var k = 0; k < n; k++) {
+      var c = CL_CHANGES[k], e1 = 0.45 * gauss(r), e2 = 0.4 * gauss(r);
+      var d = +(dev + c[2] + c[3] + e1).toFixed(1), hh = +(ho + c[2] + e2).toFixed(1), skip = skipFrom[k];
+      var row = { i: k + 1, kind: c[0], text: c[1], dev: d, need: +(dev + m).toFixed(1), incDev: dev, incHo: ho, ho: hh, skip: !!skip };
+      if (d <= dev + m) row.dec = 'noise';
+      else if (!skip && hh < ho) row.dec = 'heldout';
+      else { row.dec = skip && hh < ho ? 'unchecked' : 'kept'; dev = d; ho = hh; }
+      row.after = { dev: dev, ho: ho };
+      out.push(row);
+    }
+    return { m: m, rescores: noise, rows: out, dev: dev, ho: ho };
+  }
+  function initClimb() {
+    var host = $('#cl-stage'); if (!host) return;
+    var n = CL_START, skip = false, skipFrom = [], svg = null;
+    var nextBtn = $('#cl-next'), skipBtn = $('#cl-skip'), resetBtn = $('#cl-reset');
+    var DEC = { kept: 'Kept', noise: 'Dropped: no gain beyond the noise', heldout: 'Dropped: fell on held out', unchecked: 'Kept without the held-out check' };
+    function state() { return climbRun(n, skipFrom); }
+    function draw(W) {
+      var S = state(), rows = S.rows;
+      if (svg) svg.remove();
+      var small = W < 560, padL = small ? 40 : 52, padR = small ? 12 : 20, top = 22, h1 = small ? 170 : 200, gap = 40, h2 = small ? 96 : 110, H = top + h1 + gap + h2 + 30;
+      var N = CL_CHANGES.length;
+      var X = function (i) { return padL + (i + 0.5) / (N + 1) * (W - padL - padR); };
+      var devs = [CL_DEV0 + S.m, CL_DEV0 - S.m], hos = [CL_HO0];
+      rows.forEach(function (r) { devs.push(r.dev, r.after.dev + S.m); hos.push(r.after.ho); if (r.dec !== 'noise') hos.push(r.ho); });
+      function rangeOf(v, pad) { var lo = Math.floor(Math.min.apply(null, v) - pad), hi = Math.ceil(Math.max.apply(null, v) + pad); return [lo, Math.max(hi, lo + 6)]; }
+      var R1 = rangeOf(devs, 1), R2 = rangeOf(hos, 1.5);
+      var Y1 = function (v) { return top + (1 - (v - R1[0]) / (R1[1] - R1[0])) * h1; };
+      var y2top = top + h1 + gap, Y2 = function (v) { return y2top + (1 - (v - R2[0]) / (R2[1] - R2[0])) * h2; };
+      svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img', 'aria-label': aria(S) }, host);
+      function grid(R, Y, x0) {
+        var step = (R[1] - R[0]) > 14 ? 4 : 2;
+        for (var v = Math.ceil(R[0] / step) * step; v <= R[1]; v += step) {
+          el('line', { x1: padL, x2: W - padR, y1: Y(v), y2: Y(v), style: 'stroke:var(--grid)', 'stroke-width': 1 }, svg);
+          el('text', { x: padL - 6, y: Y(v) + 4, 'text-anchor': 'end', text: v + '%', 'font-size': 11, style: 'fill:var(--ink-3)' }, svg);
+        }
+      }
+      grid(R1, Y1); grid(R2, Y2);
+      el('text', { x: padL, y: 12, text: small ? 'DEV EXAM · SCORED EACH TIME' : 'DEV EXAM · EVERY CHANGE IS SCORED HERE', 'font-size': 11, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
+      el('text', { x: padL, y: y2top - 12, text: small ? 'HELD OUT · NEVER READ' : 'HELD OUT · NEVER READ BY THE LOOP, USED ONLY TO KEEP OR DROP', 'font-size': 11, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em' }, svg);
+      // staircases (and the noise band around the dev one)
+      var pts1 = [[X(-0.5), CL_DEV0]], pts2 = [[X(-0.5), CL_HO0]];
+      rows.forEach(function (r, k) { pts1.push([X(k + 0.5), r.after.dev]); pts2.push([X(k + 0.5), r.after.ho]); });
+      /* carry the current level half a step past the newest change, so it reads as a level */
+      pts1.push([X(rows.length), S.dev]); pts2.push([X(rows.length), S.ho]);
+      function stairs(pts, Y) { var d = 'M' + pts[0][0].toFixed(1) + ' ' + Y(pts[0][1]).toFixed(1); for (var i = 1; i < pts.length; i++) d += 'H' + pts[i][0].toFixed(1) + 'V' + Y(pts[i][1]).toFixed(1); return d; }
+      /* the noise band: the staircase plus and minus the measured noise */
+      var band = 'M' + pts1[0][0].toFixed(1) + ' ' + Y1(pts1[0][1] + S.m).toFixed(1);
+      for (var i = 1; i < pts1.length; i++) band += 'H' + pts1[i][0].toFixed(1) + 'V' + Y1(pts1[i][1] + S.m).toFixed(1);
+      for (var j = pts1.length - 1; j >= 1; j--) band += 'V' + Y1(pts1[j - 1][1] - S.m).toFixed(1) + 'H' + pts1[j - 1][0].toFixed(1);
+      el('path', { d: band + 'Z', style: 'fill:var(--acc-exo)', opacity: 0.13 }, svg);
+      el('path', { d: stairs(pts1, Y1), fill: 'none', style: 'stroke:var(--acc-exo)', 'stroke-width': 2 }, svg);
+      el('path', { d: stairs(pts2, Y2), fill: 'none', style: 'stroke:var(--ink-2)', 'stroke-width': 1.6 }, svg);
+      // the true held-out cost of an unchecked change
+      rows.forEach(function (r, k) {
+        var x = X(k), g = el('g', { class: 'cl-dot' }, svg), tipY = Y1(r.dev);
+        el('rect', { x: x - 10, y: top, width: 20, height: H - top - 26, fill: 'transparent' }, g);
+        if (r.dec !== 'noise') el('line', { x1: x, x2: x, y1: Y1(r.dev) + 7, y2: Y2(r.ho) - 7, style: 'stroke:var(--line)', 'stroke-width': 1, 'stroke-dasharray': '2 3' }, g);
+        function mark(cx, cy, dec, size) {
+          if (dec === 'kept') el('circle', { cx: cx, cy: cy, r: size, style: 'fill:var(--acc-exo)' }, g);
+          else if (dec === 'noise') el('circle', { cx: cx, cy: cy, r: size - 0.5, fill: 'var(--bg-1)', style: 'fill:var(--bg-1);stroke:var(--ink-3)', 'stroke-width': 1.6 }, g);
+          else if (dec === 'heldout') el('path', { d: 'M' + cx + ' ' + (cy - size - 1) + 'L' + (cx + size + 1) + ' ' + cy + 'L' + cx + ' ' + (cy + size + 1) + 'L' + (cx - size - 1) + ' ' + cy + 'Z', style: 'fill:var(--bg-1);stroke:var(--hair)', 'stroke-width': 1.6 }, g);
+          else { el('circle', { cx: cx, cy: cy, r: size + 2.5, fill: 'none', style: 'stroke:var(--hair)', 'stroke-width': 1.6 }, g); el('circle', { cx: cx, cy: cy, r: size, style: 'fill:var(--acc-exo)' }, g); }
+        }
+        mark(x, Y1(r.dev), r.dec, 5);
+        if (r.dec !== 'noise') mark(x, Y2(r.ho), r.dec === 'unchecked' ? 'heldout' : r.dec, 4);
+        el('text', { x: x, y: H - 8, 'text-anchor': 'middle', text: String(r.i), 'font-size': 11, style: 'fill:' + (k === rows.length - 1 ? 'var(--ink)' : 'var(--ink-3)'), 'font-weight': k === rows.length - 1 ? 600 : 400 }, svg);
+        g.addEventListener('pointermove', function (e) {
+          tipShow('<div class="tip-k">Change ' + r.i + ' &middot; ' + esc(r.kind) + ' a lesson</div><div class="tip-t">' + esc(r.text) + '</div><div class="tip-rows">' +
+            '<div class="tip-row"><span class="tip-v">' + r.dev.toFixed(1) + '%</span> on dev (needed above ' + r.need.toFixed(1) + '%)</div>' +
+            (r.dec === 'noise' ? '' : '<div class="tip-row"><span class="tip-v">' + r.ho.toFixed(1) + '%</span> on held out (was ' + r.incHo.toFixed(1) + '%)' + (r.skip ? ', not checked' : '') + '</div>') +
+            '</div><div class="tip-foot">' + esc(DEC[r.dec]) + ' &middot; simulated</div>', e.clientX, e.clientY);
+        });
+        g.addEventListener('pointerleave', tipHide);
+      });
+      for (var q = rows.length; q < N; q++) el('text', { x: X(q), y: H - 8, 'text-anchor': 'middle', text: String(q + 1), 'font-size': 11, style: 'fill:var(--line-ui)' }, svg);
+      el('text', { x: W - padR, y: H - 8 - 14, 'text-anchor': 'end', text: 'CHANGE NO.', 'font-size': 11, style: 'fill:var(--ink-3)', 'letter-spacing': '.06em', opacity: small ? 0 : 1 }, svg);
+    }
+    function aria(S) {
+      var kept = S.rows.filter(function (r) { return r.dec === 'kept' || r.dec === 'unchecked'; }).length;
+      return 'Two panels of scores over ' + S.rows.length + ' proposed changes. ' + kept + ' kept. The current setup now scores ' + S.dev.toFixed(1) + '% on dev, from ' + CL_DEV0.toFixed(1) + '%, and ' + S.ho.toFixed(1) + '% on held out, from ' + CL_HO0.toFixed(1) + '%. The noise band is plus or minus ' + S.m.toFixed(1) + ' points.';
+    }
+    function readout() {
+      var S = state(), r = S.rows[S.rows.length - 1], txt;
+      var kept = S.rows.filter(function (x) { return x.dec === 'kept' || x.dec === 'unchecked'; }).length;
+      if (r.dec === 'kept') txt = '<b>Change ' + r.i + ' kept.</b> &ldquo;' + esc(r.kind) + ': ' + esc(r.text) + '&rdquo; scored ' + r.dev.toFixed(1) + '% on dev, above the ' + r.need.toFixed(1) + '% the noise demands, and held out did not drop (' + r.incHo.toFixed(1) + '% to ' + r.ho.toFixed(1) + '%).';
+      else if (r.dec === 'noise') txt = '<b>Change ' + r.i + ' dropped: no gain beyond the noise.</b> &ldquo;' + esc(r.kind) + ': ' + esc(r.text) + '&rdquo; scored ' + r.dev.toFixed(1) + '% on dev; it needed more than ' + r.need.toFixed(1) + '%.' + (r.dev < r.incDev ? ' It did worse than the current setup.' : ' A gain that small could be the exam&rsquo;s own wobble.');
+      else if (r.dec === 'heldout') txt = '<b>Change ' + r.i + ' dropped: it fell on held out.</b> &ldquo;' + esc(r.kind) + ': ' + esc(r.text) + '&rdquo; jumped to ' + r.dev.toFixed(1) + '% on dev, but held out fell from ' + r.incHo.toFixed(1) + '% to ' + r.ho.toFixed(1) + '%. It fit the dev questions, not you.';
+      else txt = '<b>Change ' + r.i + ' kept without the held-out check.</b> &ldquo;' + esc(r.kind) + ': ' + esc(r.text) + '&rdquo; jumped to ' + r.dev.toFixed(1) + '% on dev, so it was kept. The held-out exam, had anyone looked, fell from ' + r.incHo.toFixed(1) + '% to ' + r.ho.toFixed(1) + '%. The setup now flatters its own test.';
+      var gap = S.dev - S.ho - (CL_DEV0 - CL_HO0);
+      txt += ' <span class="cl-sum">So far: ' + kept + ' of ' + S.rows.length + ' kept; dev ' + CL_DEV0.toFixed(1) + '% &rarr; ' + S.dev.toFixed(1) + '%, held out ' + CL_HO0.toFixed(1) + '% &rarr; ' + S.ho.toFixed(1) + '%' + (gap > 2 ? ', and the two have drifted ' + gap.toFixed(1) + ' points apart.' : '.') + ' Noise band &plusmn;' + S.m.toFixed(1) + ' (the current setup scored three times: ' + S.rescores.map(function (v) { return v.toFixed(1); }).join(', ') + ').</span>';
+      $('#cl-read').innerHTML = txt;
+      $('#cl-corner').textContent = 'Change ' + n + ' of ' + CL_CHANGES.length + ' · ' + kept + ' kept';
+      nextBtn.disabled = n >= CL_CHANGES.length;
+      nextBtn.textContent = n >= CL_CHANGES.length ? 'No more changes' : 'Propose a change';
+      var tb = $('#cl-table tbody'); tb.innerHTML = '';
+      S.rows.forEach(function (x) { h('tr', null, tb, '<td class="n">' + x.i + '</td><td>' + esc(x.kind) + ': ' + esc(x.text) + '</td><td class="n">' + x.dev.toFixed(1) + '</td><td class="n">&gt; ' + x.need.toFixed(1) + '</td><td class="n">' + (x.dec === 'noise' ? '&ndash;' : x.ho.toFixed(1) + (x.skip ? ' (not checked)' : '')) + '</td><td>' + esc(DEC[x.dec]) + '</td>'); });
+    }
+    var re = sized(host, draw);
+    function update() { re(); readout(); }
+    nextBtn.addEventListener('click', function () { if (n >= CL_CHANGES.length) return; skipFrom[n] = skip; n++; update(); });
+    skipBtn.addEventListener('click', function () { skip = !skip; skipBtn.setAttribute('aria-pressed', skip ? 'true' : 'false'); });
+    resetBtn.addEventListener('click', function () { n = CL_START; skipFrom = []; for (var i = 0; i < CL_START; i++) skipFrom[i] = skip; update(); nextBtn.focus(); });
+    readout();
+    onTheme(re);
+  }
+
+  /* ======================================================================
      05b: rohanarun's record, checked live
      ====================================================================== */
   function initKappa() {
@@ -835,6 +1120,6 @@
     }).catch(function () {});
   }
 
-  function init() { initHero(); initConsent(); initMemory(); initLoop(); initFoundry(); initKappa(); }
+  function init() { initHero(); initEgg(); initConsent(); initMemory(); initClimb(); initOS(); initLoop(); initFoundry(); initKappa(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

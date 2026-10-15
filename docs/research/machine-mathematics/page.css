@@ -27,6 +27,8 @@
 .mm-svg .daybg.on { fill: color-mix(in srgb, var(--ink) 6%, transparent); }
 .mm-svg .pub { stroke: var(--hair); stroke-width: 1.4; }
 .mm-svg .pub-t { fill: var(--ink-2); }
+.mm-svg .mm-halo { paint-order: stroke; stroke: var(--bg-1); stroke-width: 4px; stroke-linejoin: round; }
+.mm-sk-row.sel .mm-svg .mm-halo { stroke: color-mix(in srgb, var(--acc-mm) 7%, var(--bg-1)); }
 
 /* ---------- section 00 ---------- */
 .mm-stats { margin-top: var(--s-6); }
@@ -93,6 +95,24 @@
 .mm-entry h3 { font: 600 var(--fs-h3)/1.25 var(--f-sans); letter-spacing: -.015em; margin-top: 10px; }
 .mm-e-meta { font: 500 12px/1.5 var(--f-mono); color: var(--ink-3); margin-top: 6px; }
 .mm-e-plain { font: 400 16.5px/1.6 var(--f-serif); color: var(--ink-2); margin-top: 12px; }
+/* small figure in each entry: title, drawing, caption (the caption is its text twin) */
+.mm-mini { margin: 14px 0 0; padding: 10px 12px 10px; background: var(--bg-1); border: 1px solid var(--line); min-height: 160px; display: flex; flex-direction: column; }
+.mm-mini-t { font: 500 11px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.mm-mini-stage { margin-top: 6px; min-width: 0; }
+.mm-mini-stage svg { display: block; width: 100%; height: auto; overflow: visible; }
+.mm-mini-cap { margin-top: 6px; font: 400 12.5px/1.5 var(--f-sans); color: var(--ink-3); }
+html:not(.js) .mm-mini-stage { display: none; }
+.mm-vdw-ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.mm-vdw-ctrl .tbtn { min-height: 32px; }
+.mm-vdw { display: flex; gap: 4px; margin-top: 10px; max-width: 360px; }
+.mm-vdw button { flex: 1 1 0; min-width: 0; height: 34px; border-radius: 3px; border: 1.5px solid var(--ink-2); background: var(--bg-2); color: var(--ink); cursor: pointer; font: 600 12.5px/1 var(--f-mono); font-variant-numeric: tabular-nums; }
+.mm-vdw button.c1 { background: var(--acc-mm); border-color: var(--acc-mm); color: var(--bg); }
+.mm-vdw button.hit { box-shadow: 0 0 0 2px var(--bg-1), 0 0 0 4px var(--ink); }
+.mm-vdw button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.mm-vdw-arc { display: block; height: 22px; }
+.mm-vdw-out { font: 400 13px/1.45 var(--f-sans); color: var(--ink-2); min-height: 2.9em; }
+.mm-vdw-c { margin-top: 4px; }
+@media (max-width: 760px) { .mm-vdw button { height: 40px; } .mm-vdw-ctrl .tbtn { min-height: 44px; } }
 .mm-ba { display: grid; gap: 4px; margin-top: 14px; padding: 12px 14px; background: var(--bg-1); border: 1px solid var(--line); border-left: 2px solid var(--acc-mm); }
 .mm-ba-k { font: 500 11px/1.3 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
 .mm-ba-v { font: 500 16px/1.4 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; }

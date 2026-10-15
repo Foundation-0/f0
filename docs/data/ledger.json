@@ -12156,7 +12156,7 @@
    "title": "Humans and AI agents sharpen the AI-claimed integer multiplication exponent",
    "domain": "mathematics",
    "subfield": "algorithms / computational complexity",
-   "summary": "OpenAI's manuscript (dated 23 September, released 6 October 2026) claimed n-bit integer multiplication in O(n(log n)^(1−κ)) time on a multitape Turing machine with κ = 2^−182. In an open repository maintained by Douglas Colkitt, contributors and their AI agents raised κ to about 0.00167 (≈2^−9.2), still conditional on that unreviewed framework.",
+   "summary": "OpenAI's manuscript (dated 23 September, released 6 October 2026) claimed n-bit integer multiplication in O(n(log n)^(1−κ)) time on a multitape Turing machine with κ = 2^−182. In an open repository maintained by founding member Doug Colkitt, contributors and their AI agents raised κ to about 0.00167 (≈2^−9.2), still conditional on that unreviewed framework.",
    "before_after": {
     "metric": "Exponent saving κ in O(n(log n)^(1−κ))",
     "before": "2^−182 (OpenAI manuscript)",
@@ -12169,7 +12169,9 @@
    ],
    "organizations": [
     "OpenAI",
-    "integer-mult-bounds community (CrocSwap)"
+    "integer-mult-bounds community (CrocSwap), run by founding member Doug Colkitt",
+    "rohanarun (founding member; reviewed record, PR #1094)",
+    "Aska Digital (built the race tracker)"
    ],
    "ai_role": "collaborator",
    "evidence": "preprint",
@@ -12187,6 +12189,14 @@
     }
    ],
    "foundation0": true,
+   "foundation0_note": "Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member rohanarun's PR #1094 was the reviewed κ record on 13–14 Oct 2026; eumemic and Ryan Shea also contribute. Aska Digital built the live tracker that grew into this site.",
+   "foundation0_members": [
+    "Mister-Meeseeks",
+    "rohanarun",
+    "eumemic",
+    "shea256",
+    "ahrazzle"
+   ],
    "page": "research/integer-multiplication/"
   },
   {
@@ -12331,7 +12341,7 @@
     "gradient-boosted false-alarm classifier"
    ],
    "organizations": [
-    "Eumemic (independent)",
+    "eumemic (independent)",
     "Aska Digital (website and pipeline fixes)"
    ],
    "ai_role": "collaborator",
@@ -12354,6 +12364,11 @@
     }
    ],
    "foundation0": true,
+   "foundation0_note": "Founding member eumemic's search. Aska Digital built the first version of the project's website and sent ten pull requests, four of them pipeline fixes; the authors merged all ten.",
+   "foundation0_members": [
+    "eumemic",
+    "ahrazzle"
+   ],
    "page": "research/exoplanets/"
   },
   {
@@ -12471,7 +12486,7 @@
      "url": "https://github.com/Swapnil-jain/gf2m-circuits"
     }
    ],
-   "foundation0": true,
+   "foundation0": false,
    "page": "research/gf2m-circuits/"
   },
   {
@@ -12517,6 +12532,10 @@
     }
    ],
    "foundation0": true,
+   "foundation0_note": "Swapnil Jain's repository and claim. Aska Digital wrote and ran the full-network check behind Theorem 2 (PR #1, merged).",
+   "foundation0_members": [
+    "ahrazzle"
+   ],
    "page": "research/mobius-x1/"
   },
   {
@@ -12526,7 +12545,7 @@
    "title": "Lean-checked proof lifts the exact Fourier transform speed-up to δ = 0.00123",
    "domain": "mathematics",
    "subfield": "algorithms / algebraic complexity",
-   "summary": "OpenAI's 25 September preprint computed the exact discrete Fourier transform in O(n(log n)^(1−δ)) steps with δ = 10⁻¹³. Within a week, people working with AI assistants raised δ repeatedly. Ryan Shea fitted Jeremy Kothe's community circuit into the formal framework, reaching δ = 0.0012331685, which the public leaderboard rebuilt and kernel-checked in Lean.",
+   "summary": "OpenAI's preprint (dated 25 September, released 6 October) computed the exact discrete Fourier transform in O(n(log n)^(1−δ)) steps with δ = 10⁻¹³. Within a week, people working with AI assistants raised δ repeatedly. Ryan Shea fitted Jeremy Kothe's community circuit into the formal framework, reaching δ = 0.0012331685, which the public leaderboard rebuilt and kernel-checked in Lean.",
    "before_after": {
     "metric": "Exponent saving δ in O(n(log n)^(1−δ)) for the exact DFT (Lean-verified)",
     "before": "0.0010221076 (Nil Mamano, 11 Oct); 10⁻¹³ in OpenAI's preprint",
@@ -12569,6 +12588,10 @@
     }
    ],
    "foundation0": true,
+   "foundation0_note": "Founding member Ryan Shea's record, shared with Jeremy Kothe, whose community circuit it uses.",
+   "foundation0_members": [
+    "shea256"
+   ],
    "page": "research/machine-mathematics/"
   },
   {
@@ -12658,6 +12681,10 @@
     }
    ],
    "foundation0": true,
+   "foundation0_note": "Founding member Ahraz Arifuddin's own work at Aska Digital, done with a team of AI agents.",
+   "foundation0_members": [
+    "ahrazzle"
+   ],
    "page": "research/incentre-lattice/"
   },
   {
@@ -12710,6 +12737,10 @@
     }
    ],
    "foundation0": true,
+   "foundation0_note": "Started by founding member rohanarun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.",
+   "foundation0_members": [
+    "rohanarun"
+   ],
    "page": "research/machine-mathematics/"
   }
  ]

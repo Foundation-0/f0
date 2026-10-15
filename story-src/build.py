@@ -30,6 +30,13 @@ def nice_ticks(vmax, want=4):
         v += step
 
 
+def kdec(x):
+    """A kappa as the decimal it was recorded as: the shortest string that reads back as the same float
+    (0.0004609169, not 0.000460916899999999998)."""
+    t = repr(float(x))
+    return t if 'e' not in t else format(x, '.20f').rstrip('0')
+
+
 def utc_label(s):
     d = datetime.datetime.strptime(s, '%Y-%m-%dT%H:%M:%SZ')
     return f'{d.day} {d.strftime("%b")} {d.year}, {d.strftime("%H:%M")} UTC'
@@ -76,9 +83,9 @@ def line_chart(points, w=760, h=320, pad=(28, 18, 34, 64)):
     out.append(f'<path d="{" ".join(d)}" class="series"/>')
     for p in points:
         x, y = px(ts(p['t'])), py(p['k'])
-        lab = f'{utc_label(p["t"])}: kappa {p["k"]:.18g}'
+        lab = f'{utc_label(p["t"])}: kappa {kdec(p["k"])}'
         out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.5" class="dot" tabindex="0" role="img" aria-label="{lab}" '
-                   f'data-t="{p["t"][:16].replace("T"," ")}Z" data-k="&#954; = {p["k"]:.18g}"/>')
+                   f'data-t="{p["t"][:16].replace("T"," ")}Z" data-k="&#954; = {kdec(p["k"])}"/>')
     # last value, direct-labelled
     lx, ly = px(ts(points[-1]['t'])), py(points[-1]['k'])
     out.append(f'<text x="{lx-8:.1f}" y="{ly-14:.1f}" class="lastlabel" aria-hidden="true">{points[-1]["k"]:.6f}</text>')
@@ -118,7 +125,7 @@ def bar_chart(rows, key, label, w=360, h=190, pad=(14, 10, 30, 34)):
 
 
 def kappa_table(points):
-    rows = ''.join(f'<tr><td>{utc_label(p["t"])}</td><td class="n">{p["k"]:.18g}</td></tr>' for p in points)
+    rows = ''.join(f'<tr><td>{utc_label(p["t"])}</td><td class="n">{kdec(p["k"])}</td></tr>' for p in points)
     return ('<table class="tbl"><caption>The reviewed constant, each time the certificate changed</caption>'
             f'<thead><tr><th>Selected (UTC)</th><th class="n">&kappa;</th></tr></thead><tbody>{rows}</tbody></table>')
 
@@ -134,6 +141,104 @@ r = D['repo']
 grow = k[-1]['k'] / k[0]['k']
 AS_OF = utc_label(D['as_of'][:16] + ':00Z') if len(D['as_of']) == 17 else D['as_of']
 
+# The site's own record file: its last reviewed record is the no-JavaScript end of the hero sparkline (the page
+# replaces it with the live value). The essay's own numbers stay those of data.json.
+HIST = json.load(open(os.path.join(HERE, '..', 'docs', 'research', 'integer-multiplication', 'kappa-history.json')))
+SNAPREC = [x for x in HIST['records'] if x.get('status') == 'reviewed' and x.get('decimal')][-1]
+
+
+def spark(points, snap, as_of):
+    """The hero sparkline: the essay's reviewed steps (9 to 13 Oct), then a dashed step to the record now in a
+    separate "now" column. No text inside the SVG, so it scales to any width; labels sit in the HTML."""
+    T0, T1 = ts('2026-10-09T00:00:00Z'), ts('2026-10-14T00:00:00Z')
+    X = lambda t: 6 + (t - T0) / (T1 - T0) * 334
+    Y = lambda v: 112 - min(v, 0.0019) / 0.002 * 100
+    out = [f'<svg id="sp-svg" class="st-sp" viewBox="0 0 400 120" role="img" data-first="{kdec(points[0]["k"])}" '
+           f'aria-label="The reviewed constant rose step by step from {kdec(points[0]["k"])} on 9 October to '
+           f'{kdec(points[-1]["k"])} by the essay&#8217;s snapshot, and reached {snap["decimal"]} by {utc_label(snap["t"])}.">']
+    for v in (0.0005, 0.001, 0.0015):
+        out.append(f'<line x1="0" y1="{Y(v):.1f}" x2="400" y2="{Y(v):.1f}" class="grid"/>')
+    out.append('<line x1="0" y1="112" x2="400" y2="112" class="axis"/>')
+    for d in range(9, 15):
+        x = X(ts(f'2026-10-{d:02d}T00:00:00Z'))
+        out.append(f'<line x1="{x:.1f}" y1="112" x2="{x:.1f}" y2="116" class="axis"/>')
+    out.append('<path d="M343 118L347 106M348 118L352 106" class="axis"/>')
+    d = []
+    for i, p in enumerate(points):
+        x, y = X(ts(p['t'])), Y(p['k'])
+        d.append(f'M{x:.1f} {y:.1f}' if i == 0 else f'H{x:.1f}V{y:.1f}')
+    xa, ya = X(ts(as_of)), Y(points[-1]['k'])
+    d.append(f'H{xa:.1f}')
+    out.append(f'<path d="{"".join(d)}" class="series"/>')
+    yn = Y(float(snap['decimal']))
+    out.append(f'<path id="sp-ext" class="ext" data-x0="{xa:.1f}" data-y0="{ya:.1f}" d="M{xa:.1f} {ya:.1f}H352V{yn:.1f}H378"/>')
+    for p in points:
+        out.append(f'<circle cx="{X(ts(p["t"])):.1f}" cy="{Y(p["k"]):.1f}" r="2.6" class="dot" '
+                   f'data-t="{p["t"][:16].replace("T", " ")}Z" data-k="&#954; = {kdec(p["k"])}"/>')
+    out.append(f'<circle id="sp-dot" cx="378" cy="{yn:.1f}" r="5" class="now" data-t="snapshot &#183; {utc_label(snap["t"])}" '
+               f'data-k="&#954; = {snap["decimal"]}"/>')
+    out.append('</svg>')
+    return '\n'.join(out)
+
+
+# "Break it": the block of Aska's PR #469 as claimed, and the one inequality at the heart of a kappa claim,
+# bill(a) = sum_r n_r (r/m)^(1-a) / W + charge * E * m^(a-1) / W <= 1 with a = kappa/(1-kappa)
+# (the race's autoresearch.md section 2; the same counts as the budget figure on the project page).
+CK_M, CK_W = 78, 1200
+CK_COUNTS = {1: 26411, 2: 11209, 3: 3201, 4: 3465, 5: 1089, 6: 660, 7: 55, 8: 99, 14: 1, 56: 184}
+CK_KAPPA = '0.001350580884553120'
+
+
+def bill_minus_one(counts, kstr):
+    """bill - 1 at the claimed kappa, to 80 significant digits (the page re-does this with whole numbers)."""
+    from decimal import Decimal, getcontext
+    getcontext().prec = 80
+    k = Decimal(kstr)
+    a = k / (1 - k)
+    m, W = Decimal(CK_M), Decimal(CK_W)
+    bill = sum(Decimal(n) * (Decimal(rr) / m) ** (1 - a) for rr, n in counts.items()) / W
+    bill += Decimal(194688) / Decimal(10) ** 16 * sum(counts.values()) * m ** (a - 1) / W
+    return bill - 1
+
+
+def sci_html(x):
+    """1 - 1.073 x 10^-18, as HTML, for a small signed Decimal x = bill - 1."""
+    sgn = '&minus;' if x < 0 else '+'
+    t = f'{abs(x):.3e}'
+    mant, ex = t.split('e')
+    return f'1 {sgn} {mant} &times; 10<sup>{int(ex):d}</sup>'.replace('<sup>-', '<sup>&minus;')
+
+
+CK_D = bill_minus_one(CK_COUNTS, CK_KAPPA)
+CK_INPUTS = ''.join(
+    f'<label class="st-ck-n"><span>size {rr}</span><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="8" spellcheck="false" autocomplete="off" '
+    f'value="{n}" data-r="{rr}" aria-label="Jobs of size {rr}"></label>' for rr, n in CK_COUNTS.items())
+CHECK = f"""<figure class="fig frame st-check" id="check" aria-labelledby="ck-title">
+  <div class="fig-head">
+    <p class="fig-title" id="ck-title">Check a claim yourself, then break it</p>
+    <p class="fig-how"><b>How to read:</b> below is the block from Aska&rsquo;s PR #469 as it was claimed: how many child jobs of each size it hands down, and the &kappa; it says that gives. The checker recomputes the block&rsquo;s bill at that &kappa; and accepts only if the bill stays under 1. Press &ldquo;Break it&rdquo; to raise the claim by one unit in its last digit, or change any count.</p>
+  </div>
+  <div class="st-ck">
+    <div class="st-ck-claim">
+      <label class="st-ck-k" for="ck-k">Claimed &kappa;</label>
+      <input id="ck-k" class="st-ck-in" type="text" inputmode="decimal" value="{CK_KAPPA}" spellcheck="false" autocomplete="off">
+      <p class="st-ck-k st-ck-sub">Child jobs by size <i>r</i> (block width <i>m</i> = 78, <i>W</i> = 1,200 roles)</p>
+      <div class="st-ck-grid">{CK_INPUTS}</div>
+    </div>
+    <div class="st-ck-out" id="ck-out" aria-live="polite">
+      <p class="st-ck-verdict ok" id="ck-verdict">Accepted: the bill stays under 1.</p>
+      <p class="st-ck-bill">Bill at the claimed &kappa;: <span id="ck-bill">{sci_html(CK_D)}</span></p>
+      <p class="st-ck-time" id="ck-time">Checked when this page was built, to 80 digits.</p>
+    </div>
+  </div>
+  <div class="fig-ctrl" role="group" aria-label="Checker controls">
+    <span class="ctrl-label">Ctrl //</span>
+    <button class="tbtn break" type="button" id="ck-break" aria-pressed="false">Break it</button>
+    <button class="tbtn" type="button" id="ck-reset">Restore the claim</button>
+  </div>
+  <figcaption class="fig-foot"><span>Your browser recomputes bill(<i>a</i>) = &Sigma;<sub><i>r</i></sub> <i>n</i><sub><i>r</i></sub>&#8239;(<i>r</i>/<i>m</i>)<sup>1&minus;<i>a</i></sup>&#8239;/&#8239;<i>W</i> plus a tiny insurance charge, with <i>a</i> = &kappa;/(1&minus;&kappa;), in whole-number arithmetic to 60 decimal places, and gives a verdict only when the bill is further from 1 than any rounding could reach. This re-does the one inequality at the heart of a claim; it is not the race&rsquo;s own checker, and it does not check that the counts come from a real construction.</span><span class="fig-src">Source: PR #469 head <a href="https://github.com/CrocSwap/integer-mult-bounds/pull/469">a820816f</a>, <code>PROOF.md</code>; the bill as in the race&rsquo;s <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/autoresearch.md">autoresearch.md</a>; the same block as the <a href="../#budget">budget figure</a> on the project page.</span></figcaption>
+</figure>"""
+
 # Page CSS (written to story/page.css). Tokens only; one page token for the series colour, validated
 # with the dataviz palette script beside the site's chart surfaces (light #2a5fb0, dark #4f90e3).
 CSS = """/* The story page (research/integer-multiplication/story). Generated by story-src/build.py: edit there.
@@ -143,15 +248,61 @@ CSS = """/* The story page (research/integer-multiplication/story). Generated by
 :root[data-theme="dark"] { --mark-im: #4f90e3; }
 
 .st-hero .wrap { align-items: center; }
+.st-hero .dek a { white-space: nowrap; }
 .st-hero .ph-text { min-width: 0; }
 .st-hero .h1 { max-width: 16ch; }
 .st-hero .dek { max-width: 54ch; }
 .st-hero .dek strong { color: var(--ink); font-weight: 600; }
-.st-num { padding: clamp(20px, 3vw, 36px); width: 100%; max-width: 460px; justify-self: end; }
-@media (max-width: 960px) { .st-num { justify-self: stretch; max-width: none; } }
-.st-num .n { font: 600 clamp(64px, 7vw + 20px, 128px)/.95 var(--f-sans); letter-spacing: -.05em; color: var(--ink); }
-.st-num .c { font: 400 var(--fs-sm)/1.5 var(--f-sans); color: var(--ink-2); margin-top: 12px; max-width: 30ch; }
-.st-num .k { font: 500 var(--fs-label)/1.4 var(--f-mono); letter-spacing: var(--tr-label); text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+.st-spark { align-self: center; }
+.st-sp-stage { position: relative; margin-top: 12px; background: var(--bg-1); border: 1px solid var(--line); padding: 12px 12px 26px; }
+.st-sp { display: block; width: 100%; height: auto; overflow: visible; }
+.st-sp .grid { stroke: var(--grid); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.st-sp .axis { stroke: var(--line-ui); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
+.st-sp .series { fill: none; stroke: var(--mark-im); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.st-sp .ext { fill: none; stroke: var(--mark-im); stroke-width: 1.6; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.st-sp .dot { fill: var(--mark-im); stroke: var(--bg-1); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.st-sp .now { fill: var(--st-verified); stroke: var(--bg-1); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.st-sp-axis { position: absolute; left: 12px; right: 12px; bottom: 6px; height: 16px; }
+.st-sp-axis span { position: absolute; transform: translateX(-50%); font: 400 11.5px/16px var(--f-mono); color: var(--ink-3); white-space: nowrap; }
+.st-sp-axis span:first-child { transform: none; }
+.st-sp-axis span:last-child { transform: translateX(-70%); }
+.st-sp-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 12px 0 0; }
+.st-sp-facts > div { background: var(--bg-2); padding: 9px 10px; min-width: 0; }
+.st-sp-facts dt { font: 500 11px/1.35 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.st-sp-facts dd { margin: 4px 0 0; font: 500 15px/1.3 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; }
+.st-sp-facts dd small { font: 400 12px var(--f-mono); color: var(--ink-2); margin-left: 4px; }
+@media (max-width: 420px) { .st-sp-facts { grid-template-columns: minmax(0, 1fr); } }
+.st-spark .fig-foot { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.st-open { margin: var(--s-6) 0 0; }
+.st-open-k { font: 500 11px/1.3 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+.st-open p + p { font: 400 var(--fs-lede)/1.5 var(--f-serif); color: var(--ink); max-width: 60ch; }
+.st-open strong { font-weight: 600; }
+
+/* "Break it": the exact checker */
+.st-check { margin-top: var(--s-6); }
+.st-ck { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px 22px; margin-top: 14px; padding: 14px; background: var(--bg-1); border: 1px solid var(--line); }
+@media (max-width: 720px) { .st-ck { grid-template-columns: minmax(0, 1fr); } }
+.st-ck-k { display: block; font: 500 11px/1.35 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.st-ck-sub { margin-top: 14px; text-transform: none; letter-spacing: .02em; font-size: 12px; }
+.st-ck-in { display: block; width: 100%; margin-top: 6px; padding: 8px 10px; min-height: 44px; font: 500 clamp(15px, 1vw + 11px, 19px)/1.3 var(--f-mono); color: var(--ink); background: var(--bg-2); border: 1px solid var(--line-ui); border-radius: var(--r-btn); }
+.st-ck-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+@media (max-width: 520px) { .st-ck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.st-ck-n { display: grid; gap: 3px; font: 400 12px/1.3 var(--f-mono); color: var(--ink-2); min-width: 0; }
+.st-ck-n input { width: 100%; min-width: 0; min-height: 40px; padding: 6px 8px; font: 500 14px var(--f-mono); color: var(--ink); background: var(--bg-2); border: 1px solid var(--line-ui); border-radius: var(--r-btn); }
+.st-ck-in:focus-visible, .st-ck-n input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.st-ck-n input.changed, .st-ck-in.changed { border-color: var(--hair); box-shadow: inset 0 0 0 1px var(--hair); }
+.st-ck-out { display: grid; align-content: start; gap: 8px; padding: 12px 14px; background: var(--bg-2); border: 1px solid var(--line); border-left: 3px solid var(--st-verified); }
+.st-ck-out.no { border-left-color: var(--st-contested); }
+.st-ck-out.unsure { border-left-color: var(--st-preprint); }
+.st-ck-verdict { font: 600 var(--fs-ui)/1.35 var(--f-sans); color: var(--ink); }
+.st-ck-verdict::before { content: "✓ "; color: var(--st-verified); }
+.st-ck-out.no .st-ck-verdict::before { content: "✕ "; color: var(--st-contested); }
+.st-ck-out.unsure .st-ck-verdict::before { content: "? "; color: var(--ink-3); }
+.st-ck-bill { font: 400 var(--fs-sm)/1.5 var(--f-sans); color: var(--ink-2); }
+.st-ck-bill span { font: 500 15px var(--f-mono); color: var(--ink); white-space: nowrap; }
+.st-ck-time { font: 400 12.5px/1.45 var(--f-mono); color: var(--ink-3); }
+.st-check .fig-ctrl { margin-top: 12px; }
+html:not(.js) .st-ck input { pointer-events: none; }
 
 .st-sec { padding-block: clamp(40px, 6vw, 80px); }
 .st-sec .sec-head { margin-bottom: var(--s-4); }
@@ -199,19 +350,107 @@ CSS = """/* The story page (research/integer-multiplication/story). Generated by
 """
 
 # Page JS (written to story/page.js): the shared tooltip on hover and keyboard focus.
-JS = """/* The story page. Generated by story-src/build.py: edit there. Shows the shared tooltip (F0.tip)
-   for every chart mark on hover, tap and keyboard focus; the tables under each chart hold the same values. */
+JS = r"""/* The story page. Generated by story-src/build.py: edit there.
+   1. The shared tooltip (F0.tip) for every chart mark on hover, tap and keyboard focus; the tables under each
+      chart hold the same values.
+   2. The hero sparkline's last step: the reviewed kappa now, through F0.kappa() (live, else this site's snapshot),
+      always labelled with which and when.
+   3. "Break it": the bill of a kappa claim recomputed in whole-number (BigInt) arithmetic, so one unit in the
+      18th decimal place decides it. */
 (function () {
   'use strict';
-  function boot() {
-    var F0 = window.F0; if (!F0) return;
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function utc(iso) { var d = new Date(iso); if (isNaN(d)) return String(iso || '');
+    return d.getUTCDate() + ' ' + MON[d.getUTCMonth()] + ' ' + d.getUTCFullYear() + ', ' + String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0') + ' UTC'; }
+
+  function tips(F0) {
     document.querySelectorAll('[data-t]').forEach(function (el) {
       function show(x, y) { F0.tip.show('<p class="tip-k">' + F0.esc(el.getAttribute('data-t')) + '</p><p class="tip-t">' + F0.esc(el.getAttribute('data-k')) + '</p>', x, y); }
       el.addEventListener('pointermove', function (e) { show(e.clientX, e.clientY); });
       el.addEventListener('pointerleave', function () { F0.tip.hide(); });
       el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(b.right, b.top); });
-      el.addEventListener('blur', function () { F0.tip.hide(); });
+      el.addEventListener('blur', function () { F0.tip.hide(true); });
     });
+  }
+
+  function spark(F0) {
+    var svg = document.getElementById('sp-svg'); if (!svg || !F0.kappa) return;
+    F0.kappa().then(function (k) {
+      var v = parseFloat(k.decimal); if (!(v > 0)) return;
+      var ext = document.getElementById('sp-ext'), dot = document.getElementById('sp-dot');
+      var y = (112 - Math.min(v, 0.0019) / 0.002 * 100).toFixed(1);
+      ext.setAttribute('d', 'M' + ext.getAttribute('data-x0') + ' ' + ext.getAttribute('data-y0') + 'H352V' + y + 'H378');
+      dot.setAttribute('cy', y);
+      var when = F0.kappaWhen ? F0.kappaWhen(k, utc) : utc(k.at);
+      dot.setAttribute('data-t', when); dot.setAttribute('data-k', 'κ = ' + k.decimal + (k.pr ? ' · PR #' + (+k.pr) : ''));
+      var first = parseFloat(svg.getAttribute('data-first'));
+      document.getElementById('sp-now').innerHTML = F0.esc(v.toFixed(6)) + ' <small>' + (v / first).toFixed(2) + '&times;</small>';
+      document.getElementById('sp-now-k').textContent = k.source === 'live' ? 'Now, read live' : 'Last reviewed record';
+      document.getElementById('sp-when').textContent = when;
+      var d = document.querySelector('#sp-chip .dot'); if (d) d.className = 'dot ' + (k.source === 'live' ? 'live' : 'stale');
+      svg.setAttribute('aria-label', svg.getAttribute('aria-label').replace(/, and reached .*$/, ', and ' + (k.source === 'live' ? 'is now ' : 'reached ') + k.decimal + ' (' + when + ').'));
+    }).catch(function () {});
+  }
+
+  /* ---- the checker: bill(a) = sum n_r (r/m)^(1-a) / W + charge * E * m^(a-1) / W, a = k/(1-k) ---- */
+  function checker() {
+    var root = document.getElementById('check'); if (!root || typeof BigInt !== 'function') return;
+    var B = BigInt, ZERO = B(0), ONE = B(1), TWO = B(2);
+    function pow10(n) { var r = ONE; for (var i = 0; i < n; i++) r *= B(10); return r; }
+    var S = pow10(60), G = pow10(72), GS = pow10(12), MARGIN = pow10(10); /* verdicts need |bill - 1| > 10^-50 */
+    function atanhInv(q, scale) { var sum = ZERO, k = ZERO, qq = B(q), pw = qq; for (;;) { var t = scale / ((TWO * k + ONE) * pw); if (t === ZERO) break; sum += t; k += ONE; pw *= qq * qq; } return sum; }
+    var ln2 = TWO * atanhInv(3, G), ln3 = ln2 + TWO * atanhInv(5, G), ln5 = TWO * ln2 + TWO * atanhInv(9, G);
+    var LN = { 2: ln2, 3: ln3, 5: ln5, 7: ln5 + TWO * atanhInv(6, G), 13: TWO * ln2 + ln3 + TWO * atanhInv(25, G) };
+    function lnInt(n) { var s = ZERO; [2, 3, 5, 7, 13].forEach(function (p) { while (n % p === 0) { s += LN[p]; n /= p; } }); return s; }
+    function expS(x) { var sum = S, t = S, k = ONE; for (;;) { t = t * x / (k * S); if (t === ZERO) break; sum += t; k += ONE; } return sum; }
+    var M_ = 78, W_ = 1200, MW = B(M_ * W_), LNM = lnInt(M_);
+    function bill(counts, kstr) { /* bill - 1, in units of 10^-60 */
+      var parts = kstr.split('.'), kn = B(parts[0] + parts[1]), kd = pow10(parts[1].length), an = kn, ad = kd - kn, total = ZERO, E = ZERO;
+      counts.forEach(function (c) { var n = B(c.n); E += n; total += n * B(c.r) * expS((LNM - lnInt(c.r)) / GS * an / ad) / MW; });
+      total += B(194688) * E * expS(LNM / GS * an / ad) / (pow10(16) * MW);
+      return total - S;
+    }
+    function sci(d) {
+      var neg = d < ZERO, s = (neg ? -d : d).toString(), e = s.length - 1 - 60;
+      if (e > -3) return '&asymp; ' + (1 + (neg ? -1 : 1) * Number(s.slice(0, 15)) * Math.pow(10, e - Math.min(14, s.length - 1))).toPrecision(5);
+      var mant = s.charAt(0) + (s.length > 1 ? '.' + (s.slice(1, 4) + '000').slice(0, 3) : '');
+      return '1 ' + (neg ? '&minus;' : '+') + ' ' + mant + ' &times; 10<sup>' + (e < 0 ? '&minus;' + (-e) : e) + '</sup>';
+    }
+    var kin = document.getElementById('ck-k'), out = document.getElementById('ck-out'), verdict = document.getElementById('ck-verdict');
+    var billEl = document.getElementById('ck-bill'), timeEl = document.getElementById('ck-time'), brk = document.getElementById('ck-break'), reset = document.getElementById('ck-reset');
+    var ins = [].slice.call(root.querySelectorAll('.st-ck-n input'));
+    var K0 = kin.value, N0 = ins.map(function (i) { return i.value; });
+    function bump(k) { var p = k.split('.'), d = p[1].length, n = (B(p[0] + p[1]) + ONE).toString(); while (n.length < d + 1) n = '0' + n; return n.slice(0, n.length - d) + '.' + n.slice(n.length - d); }
+    function run() {
+      var kstr = kin.value.trim(), bad = '';
+      kin.classList.toggle('changed', kstr !== K0);
+      ins.forEach(function (i, j) { i.classList.toggle('changed', i.value !== N0[j]); });
+      if (!/^0\.\d{1,40}$/.test(kstr) || /^0\.0+$/.test(kstr)) bad = 'κ must be a decimal between 0 and 1, such as 0.001350580884553120.';
+      var counts = ins.map(function (i) { var v = i.value.trim(); if (!/^\d{1,8}$/.test(v)) bad = bad || 'Each count must be a whole number.'; return { r: +i.getAttribute('data-r'), n: v || '0' }; });
+      if (bad) { out.className = 'st-ck-out no'; verdict.textContent = 'Rejected: not a valid claim.'; billEl.textContent = '—'; timeEl.textContent = bad; return; }
+      var t0 = performance.now(), d = bill(counts, kstr), dt = performance.now() - t0;
+      if (d <= -MARGIN) { out.className = 'st-ck-out'; verdict.textContent = 'Accepted: the bill stays under 1.'; }
+      else if (d >= MARGIN) { out.className = 'st-ck-out no'; verdict.textContent = 'Rejected: the bill goes over 1.'; }
+      else { out.className = 'st-ck-out unsure'; verdict.textContent = 'Too close to 1 to call at 60 decimal places.'; }
+      billEl.innerHTML = sci(d);
+      timeEl.textContent = 'Checked in ' + (dt < 0.1 ? 'under 0.1' : dt.toFixed(1)) + ' ms, in your browser.';
+    }
+    kin.addEventListener('input', function () { brk.setAttribute('aria-pressed', 'false'); run(); });
+    ins.forEach(function (i) { i.addEventListener('input', run); });
+    brk.addEventListener('click', function () {
+      var on = brk.getAttribute('aria-pressed') !== 'true';
+      brk.setAttribute('aria-pressed', on ? 'true' : 'false');
+      kin.value = on ? bump(K0) : K0; run();
+    });
+    reset.addEventListener('click', function () { kin.value = K0; ins.forEach(function (i, j) { i.value = N0[j]; }); brk.setAttribute('aria-pressed', 'false'); run(); });
+    run();
+  }
+
+  function boot() {
+    var F0 = window.F0;
+    try { checker(); } catch (e) { console.error(e); }
+    if (!F0) return;
+    tips(F0); spark(F0);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
@@ -234,7 +473,8 @@ S_NUMBER = f"""<section class="sec st-sec" id="number" data-index="The constant"
 <div class="read st-read">
 <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>The constant</p><span class="chip">Snapshot &middot; {AS_OF}</span></div>
 <h2 class="st-h2 sr-only" id="number-h">The reviewed constant</h2>
-<aside class="callout caveat"><p class="c-k">Read with care</p><p>This essay was written on 13 October 2026, and its figures are as of {AS_OF}. The race has moved since: the <a href="../">project page</a> shows the current reviewed &kappa;, read live from the race&rsquo;s own record file. Three lines below have <a href="#corrections">corrections</a>, kept separate so the essay&rsquo;s words stay as published.</p></aside>
+<aside class="callout caveat"><p class="c-k">Read with care</p><p>This essay was written on 13 October 2026, and its figures are as of {AS_OF}. The race has moved since: the <a href="../">project page</a> shows the current reviewed &kappa;, read live from the race&rsquo;s own record file. Six lines have <a href="#corrections">corrections</a>, kept separate so the essay&rsquo;s words stay as published.</p></aside>
+<div class="st-open"><p class="st-open-k">The essay, as published</p><p>{LEDE}</p></div>
 <figure class="fig frame">
   <div class="fig-head">
     <p class="fig-title">The reviewed constant &kappa;, as recorded in the repository's own certificate</p>
@@ -265,6 +505,7 @@ else nothing.</p>
 requests is just noise nobody can afford to read. With it, the work composes: pull requests
 name the exact constructions they build on, and those belong to other people.</p>
 </div>
+{CHECK}
 <figure class="fig frame">
   <div class="fig-head">
     <p class="fig-title">Daily activity</p>
@@ -337,8 +578,14 @@ maintained by Douglas Colkitt. The circuit pack is
 Numbers change by the hour; rebuild to refresh.
 </p>""", alt=True)
 
-S_FIX = sec('06', 'corrections', 'Corrections', 'Corrections, 14 October 2026', """<p class="lede">Foundation0 checked this essay against the sources before republishing it. Three lines say more than the evidence does; the essay above is unchanged, and here is what the record supports.</p>
+S_FIX = sec('06', 'corrections', 'Corrections', 'Corrections, 14 and 15 October 2026', """<p class="lede">Foundation0 checked this essay against the sources before republishing it. Six lines need a note: one leaves out who opened the repository, two have slips, and three say more than the evidence does. The essay above is unchanged; here is what the record supports.</p>
 <ol class="st-fix">
+  <li><p class="q">On 7 October someone opened a public repository</p>
+      <p class="a"><b>Named.</b> The repository was opened by founding member Doug Colkitt (<a href="https://github.com/Mister-Meeseeks">@Mister-Meeseeks</a>), who maintains it and selects every reviewed record.</p></li>
+  <li><p class="q">Five days later it has 857 pull requests</p>
+      <p class="a"><b>Six days.</b> The repository opened on 7 October and the counts are from 13 October, 08:10 UTC: six days, as the essay&rsquo;s own &ldquo;6 days old&rdquo; tile says.</p></li>
+  <li><p class="q">We have been working in two of these.</p>
+      <p class="a"><b>Two of what.</b> Two kinds of crowd-checkable problem: circuit constructions, and the exponent race.</p></li>
   <li><p class="q">We held the top open claim for several hours on 11 October.</p>
       <p class="a"><b>Not supported by our own data.</b> Our tracker saw PR #469 (&kappa; = 0.001350580884553120) only between its appearance at 17:32 UTC and the tracker&rsquo;s last snapshot at 17:41 UTC. In that window it was the top open claim, and it was still a draft; higher claims from other contributors (#480 and #505, for example) carry commits from later that day. It was never reviewed, and Aska closed it on 13 October. Read: briefly the top open claim on our tracker. The full account is on the <a href="../#ours">project page</a>.</p></li>
   <li><p class="q">All five were re-checked by the author against the pack's own verifier, and merged.</p>
@@ -424,18 +671,28 @@ HERO = f"""<header class="page-hero has-fig st-hero" style="--acc:var(--acc-intm
       <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../../">Home</a></li><li><a href="../../">Research</a></li><li><a href="../">Integer multiplication</a></li><li aria-current="page">The story</li></ol></nav>
       <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Essay &middot; Aska Digital &middot; 13 Oct 2026</p>
       <h1 class="h1">When the crowd gets a frontier model</h1>
-      <p class="dek">{LEDE}</p>
+      <p class="dek">On 7 October founding member <a href="../../../charter/#m-Mister-Meeseeks">Doug Colkitt</a> opened a public repository around one question: how much faster than <em>n</em>&#8239;log&#8239;<em>n</em> can two large numbers <strong>provably</strong> be multiplied? Within days a crowd of people and their AI agents was moving the answer. Aska Digital&rsquo;s essay of 13 October 2026, kept as published, asks why that worked.</p>
       <div class="meta-row">
         <span class="chip">Snapshot &middot; {AS_OF}</span>
         <span class="badge n">Essay &middot; not peer reviewed</span>
         <a class="chip" href="../">Current record on the project page &rarr;</a>
       </div>
     </div>
-    <div class="ph-fig st-num frame">
-      <p class="k">Reviewed constant, 9 to 13 Oct</p>
-      <div class="n">{grow:.1f}&times;</div>
-      <div class="c">improvement in the reviewed constant, 9 to 13 October 2026</div>
-    </div>
+    <figure class="ph-fig fig frame st-spark" aria-labelledby="sp-title">
+      <div class="fig-head">
+        <p class="fig-title" id="sp-title">The reviewed constant &kappa;, 9 October to now</p>
+        <p class="fig-how"><b>How to read:</b> each step is a value the race&rsquo;s maintainer selected. The solid line is the essay&rsquo;s data, to {AS_OF}; the dashed step ends at the record now. Point at a dot for its value.</p>
+      </div>
+      <div class="st-sp-stage">{spark(k, SNAPREC, D['as_of'][:16] + ':00Z')}
+        <div class="st-sp-axis" aria-hidden="true"><span style="left:1.5%">9 Oct</span><span style="left:34.9%">11 Oct</span><span style="left:68.3%">13 Oct</span><span style="left:94.5%">now</span></div>
+      </div>
+      <dl class="st-sp-facts">
+        <div><dt>9 Oct, first record</dt><dd>{kdec(k[0]['k'])}</dd></div>
+        <div><dt>Essay, 13 Oct</dt><dd>{k[-1]['k']:.6f} <small>{grow:.1f}&times;</small></dd></div>
+        <div><dt id="sp-now-k">Last reviewed record</dt><dd id="sp-now">{float(SNAPREC['decimal']):.6f} <small>{float(SNAPREC['decimal']) / k[0]['k']:.2f}&times;</small></dd></div>
+      </dl>
+      <figcaption class="fig-foot"><a class="chip" id="sp-chip" href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span id="sp-when">snapshot &middot; {utc_label(SNAPREC['t'])}</span></a><span class="fig-src">Source: <a href="https://github.com/aska-digital/frontier-math/blob/main/story-src/data.json">story-src/data.json</a>; the end point from <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">selected-result.json</a>, read live, else <a href="../kappa-history.json">kappa-history.json</a>.</span></figcaption>
+    </figure>
   </div>
 </header>
 """
@@ -466,7 +723,7 @@ FOOT = """<footer class="site-foot">
 
 NAV = """<div class="wrap"><nav class="prevnext" aria-label="More on this race">
   <a href="../"><span>&larr; Back to</span>Integer multiplication below n log n</a>
-  <a class="next" href="../live/"><span>Next &rarr;</span>The live race tracker</a>
+  <a class="next" href="../live/"><span>Next &rarr;</span>The race tracker (claims feed of 11 Oct)</a>
 </nav></div>
 """
 

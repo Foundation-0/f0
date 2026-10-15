@@ -54,7 +54,7 @@
    "kind": "research",
    "member": "eumemic",
    "owner": "eumemic",
-   "contribution": "Aska built the first version of the project's website and contributed nine more merged pull requests, among them four pipeline fixes; one fix (PR #6) led to a re-search that added 120 counted candidates.",
+   "contribution": "Aska built the first version of the project's website and contributed nine more merged pull requests (proposed changes the project's owner reviewed and accepted), among them four pipeline fixes; one fix (PR #6) led to a re-search that added 120 counted candidates.",
    "page": "research/exoplanets/",
    "accent": "#f0b25a",
    "title": "Exoplanets",
@@ -103,7 +103,7 @@
    "page": "research/integer-multiplication/",
    "accent": "#7aa2ff",
    "title": "Integer multiplication below n log n",
-   "dek": "A public race of people and AI agents to shave the logarithm.",
+   "dek": "A public race of people and AI agents to multiply huge numbers in fewer than n log n steps.",
    "status": "Conditional · maintainer-reviewed · not peer reviewed",
    "builds_on": "OpenAI #109",
    "links": [
@@ -112,7 +112,7 @@
      "url": "https://github.com/CrocSwap/integer-mult-bounds"
     },
     {
-     "label": "Live race",
+     "label": "Race tracker (feed of 11 Oct)",
      "url": "research/integer-multiplication/live/"
     },
     {
@@ -129,7 +129,7 @@
     },
     {
      "value": "2^-182 → 2^-9.22",
-     "label": "κ since the AI-produced preprint of 23 Sep 2026 (≈1.03×10^52 times larger)",
+     "label": "κ since the AI-produced preprint dated 23 Sep 2026, made public 6 Oct (≈1.03×10^52 times larger)",
      "source": "upstream/build/sections/00-introduction.tex; log2 of selected κ (computed)"
     },
     {
@@ -174,7 +174,7 @@
    "page": "research/mobius-x1/",
    "accent": "#ff8fb1",
    "title": "mobius-x1",
-   "dek": "Beating a 1937 recipe, eventually: the GF(2) Möbius transform below N log N.",
+   "dek": "A claimed way to compute a basic transform on bits (the GF(2) Möbius transform) with fewer one-bit XOR steps than Yates’ 1937 recipe, for astronomically large inputs.",
    "status": "Not peer reviewed · AI-refereed only",
    "builds_on": "OpenAI #130",
    "links": [
@@ -187,7 +187,7 @@
      "url": "https://github.com/Swapnil-jain/mobius-x1/pull/1"
     }
    ],
-   "one_line": "A claimed, AI-assisted proof that the subset-parity (Möbius/zeta) transform over GF(2) needs asymptotically fewer XOR gates than Yates' 1937 ½·N·log₂N recipe, built by transplanting an AI-generated OpenAI Fourier-transform construction into bit arithmetic; the saving appears only when k has billions of digits. Aska's agentic team contributed the full-network check of the strongest version (Theorem 2).",
+   "one_line": "A claimed, AI-assisted proof that the subset-parity (Möbius/zeta) transform over GF(2) needs asymptotically fewer XOR gates than Yates' 1937 ½·N·log₂N recipe, built by transplanting an AI-generated OpenAI Fourier-transform construction into bit arithmetic; the saving appears only when k has billions of digits. Aska's team of AI agents contributed the full-network check of the strongest version (Theorem 2).",
    "stats": [
     {
      "value": "4.37 × 10⁻¹¹",
@@ -220,8 +220,8 @@
    "page": "research/gf2m-circuits/",
    "accent": "#5ce1c4",
    "title": "gf2m-circuits",
-   "dek": "Fewer gates for the arithmetic inside AES.",
-   "status": "Not peer reviewed · machine-verified + Lean-proved",
+   "dek": "Fewer logic gates (the tiny on/off circuits chips are built from) for the arithmetic inside AES, the cipher that protects most web traffic.",
+   "status": "Lean-verified · tested on every input · not peer reviewed",
    "links": [
     {
      "label": "Repository",
@@ -241,12 +241,12 @@
     },
     {
      "value": "106",
-     "label": "gates for the AES S-box in the {AND, XOR, XNOR} model (previous smallest found: 110 at depth 22, NIST 2026; ours depth 24)",
+     "label": "gates for the AES S-box from AND, XOR and XNOR gates (Jain 2026, depth 24; the smallest found before was 110 at depth 22, NIST 2026)",
      "source": "papers/Jain_AES_Sbox_circuits_2026.pdf Table 1; sbox/verify_results.txt; re-verified"
     },
     {
      "value": "109",
-     "label": "gates for the inverse AES S-box (vs 112, NIST 2026; ours deeper: 30 vs 26)",
+     "label": "gates for the inverse AES S-box (Jain 2026, depth 30; NIST 2026: 112 at depth 26)",
      "source": "papers/Jain_AES_Sbox_circuits_2026.pdf Table 1; re-verified"
     },
     {
@@ -276,11 +276,11 @@
      "url": "https://exo.askaconsult.com/whitepaper/"
     }
    ],
-   "one_line": "Aska Digital's harness around AI models: one agent with one lasting memory, a signed record of what it did, a meter for which model answered and what it cost, and a gate that needs consent to the exact words before anything leaves your machine. Exo OS is its planned operating-system form.",
+   "one_line": "Aska Digital's software around AI models, the part that lets a model act: one agent with one lasting memory, a signed record of what it did, a meter for which model answered and what it cost, and a gate that asks your consent to the exact words before anything leaves your machine. Exo OS is its planned operating-system form.",
    "stats": [
     {
      "value": "3 of 5",
-     "label": "build waves built and in daily use on one agent",
+     "label": "planned build stages built; Aska uses them every day through one agent",
      "source": "https://exo.askaconsult.com/#status"
     },
     {
@@ -290,7 +290,7 @@
     },
     {
      "value": "7 days",
-     "label": "lifetime of an 'always allow' for anything that leaves your machine (30 days for other acts; credentials can never be granted)",
+     "label": "the longest an 'always allow' lasts for anything that leaves your machine (30 days for other acts); anything touching passwords or keys always asks and can never be always-allowed",
      "source": "https://exo.askaconsult.com/whitepaper/#153-the-approval-flow"
     },
     {

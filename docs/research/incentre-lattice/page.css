@@ -22,7 +22,14 @@
 .dd-stage { background: var(--bg-1); }
 .dd-stage svg { overflow: visible; }
 .dd-cap { color: var(--ink-2); max-width: 52ch; }
-.dd-seg button { min-width: 40px; }
+.dd-seg button { min-width: 36px; }
+.dd-stage canvas { cursor: grab; touch-action: pan-y; }
+.dd-stage canvas:active { cursor: grabbing; }
+.dd-3d { gap: 8px 14px; }
+.dd-n { flex: 1 1 180px; flex-wrap: nowrap; }
+@media (max-width: 520px) { .dd-n { flex-basis: 100%; } }
+.dd-n .range { flex: 1 1 90px; width: auto; }
+.dm-poly svg { cursor: grab; touch-action: pan-y; }
 .il-stats { grid-column: 1 / -1; margin-top: clamp(28px, 4vw, 48px); }
 .il-stats .v { font-size: clamp(22px, 1.4vw + 14px, 32px); font-variant-numeric: normal; }
 @media (max-width: 960px) { .doodle { justify-self: stretch; max-width: none; } }
@@ -57,6 +64,8 @@
 
 /* ---------- 01 mirror room ---------- */
 .mr-stage canvas { cursor: crosshair; touch-action: pan-y; }
+.il-btns { display: inline-flex; flex-wrap: nowrap; gap: 8px; }
+@media (max-width: 420px) { .il-btns { flex-wrap: wrap; } }
 .mr-bars { display: grid; gap: 6px; margin-top: 12px; }
 .mr-bar { display: grid; grid-template-columns: 12px minmax(0, 11em) minmax(0, 1fr) 4.6em; align-items: center; gap: 10px; font: 400 13px/1.3 var(--f-sans); color: var(--ink-2); }
 .mr-bar .sw { width: 12px; height: 3px; border-radius: 2px; }
@@ -86,7 +95,24 @@
 .dm-read dd, .fd-read dd { margin: 4px 0 0; font: 500 15px/1.25 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 @media (max-width: 520px) { .dm-read { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* ---------- 03 fold ---------- */
+/* ---------- 03 two sizes ---------- */
+.ts-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin-top: 14px; align-items: stretch; }
+.ts-stage { margin-top: 0; }
+.ts-stage canvas { cursor: grab; touch-action: pan-y; }
+.ts-chart { border: 1px solid var(--line); background: var(--bg-1); display: flex; align-items: center; padding: 4px; }
+.ts-chart svg { width: 100%; height: auto; overflow: visible; }
+.ts-chart text { font-family: var(--f-mono); }
+.ts-read { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 12px 0 0; }
+.ts-read > div { background: var(--bg-2); padding: 8px 10px; min-width: 0; }
+.ts-read dt { font: 500 11px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.ts-read dd { margin: 4px 0 0; font: 500 14px/1.3 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; }
+.ts-slider { flex: 1 1 240px; }
+.lc { text-transform: none; letter-spacing: 0; }
+.ts-slider .range { flex: 1 1 120px; width: auto; }
+.ts .fig-src .badge { white-space: normal; margin-top: 4px; }
+@media (max-width: 560px) { .ts-grid { grid-template-columns: minmax(0, 1fr); } .ts-read { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- 04 fold ---------- */
 .wide-fig { margin-top: var(--s-7); }
 .fd-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 16px; margin-top: 14px; align-items: start; }
 .fd-stage { margin-top: 0; background: radial-gradient(70% 70% at 50% 45%, var(--bg-2), var(--bg-1)); }
@@ -97,6 +123,7 @@
 .fd-side svg text { font-family: var(--f-mono); }
 .fd-read { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .fd-read dd { font-size: 14px; }
+.fd-read sup, .dm-read sup { font-size: .72em; line-height: 0; }
 .fd-slider { flex: 1 1 280px; }
 .fd-slider .range { flex: 1 1 160px; width: auto; }
 .cert-chip .badge { white-space: normal; }
@@ -108,6 +135,7 @@
 .sl-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
 .sl-chart text { font-family: var(--f-mono); }
 .sl-run { cursor: pointer; }
+.il-halo { paint-order: stroke; stroke: var(--bg-1); stroke-width: 4px; stroke-linejoin: round; }
 .sl-run:focus { outline: none; }
 .sl-run:focus-visible .sl-hit { stroke: var(--focus); stroke-width: 2; }
 .sl-legend { margin-top: 10px; }
@@ -171,3 +199,5 @@
   .il-status td:first-child::before { display: none; }
   .il-status td:first-child { font-size: 15px; }
 }
+.il-stats .v sup { font-size: .55em; line-height: 0; }
+.fd-read .fd-no { font: 600 13px/1.3 var(--f-sans); color: var(--ink); box-shadow: inset 0 -2px 0 var(--hair); }

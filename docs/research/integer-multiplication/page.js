@@ -88,16 +88,24 @@
         .then(function (d) { if (d && d.user && d.user.login) { PR_AUTHOR[pr] = d.user.login; setPr(d.user.login); } }).catch(function () {});
     }
     drawRuler(lg);
+    /* the credit lines date the record; a live read can confirm it or say it has moved on */
+    var cr = $('#credit-rec'), rr = $('#rohan-rec');
+    if (live && cr && rr) {
+      if (+pr === 1094) { cr.textContent = 'holds the reviewed record (PR #1094, read live ' + utc(use.at, true) + ')'; rr.textContent = '; it is still the record (read live ' + utc(use.at, true) + ')'; }
+      else if (pr) { cr.textContent = 'held the reviewed record from 13 Oct 2026 (PR #1094); the live record is now PR #' + (+pr); rr.textContent = '; the live record has since moved to PR #' + (+pr); }
+    }
     LIVE = { decimal: String(use.decimal), kappa: use.kappa, v: v, log2: lg, pr: pr, at: use.at, source: use.source || 'snapshot' };
     liveFns.splice(0).forEach(function (f) { try { f(LIVE); } catch (err) { console.error(err); } });
   }
 
   var rulerLg = null;
-  function drawRuler(lgNow) {
+  function drawRuler(lgNow, prog) {
     var svg = $('#lk-ruler'); if (!svg) return; clear(svg);
     if (lgNow != null) rulerLg = lgNow; lgNow = rulerLg;
+    /* prog < 1 only during the one-shot entrance: the saving slides from the paper's 2^-182 to the record */
+    var pr = prog == null ? 1 : 1 - Math.pow(1 - prog, 3), lgShow = -182 + (lgNow + 182) * pr;
     /* sized to its box, so its text is drawn at true size; a narrow box gets fewer, shorter labels */
-    var W = Math.max(260, Math.min(640, Math.round(svg.getBoundingClientRect().width) || 520)), narrow = W < 420, H = 92;
+    var W = Math.max(260, Math.min(640, Math.round(svg.getBoundingClientRect().width) || 520)), narrow = W < 460, H = 92;
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     var x0 = 14, x1 = W - 14, lo = -190, hi = 0, y = 54;
     function X(l) { return x0 + (l - lo) / (hi - lo) * (x1 - x0); }
@@ -110,16 +118,20 @@
       svg.appendChild(tx);
     }
     var recs = [-182, -107.09, -78, -59, -33.49, -31, -30, -14.65, -14.26, -11.08, -10.56, -10.43, -9.36, -9.29, -9.26, -9.23];
-    svg.appendChild(el('line', { x1: X(-182), y1: y, x2: X(lgNow), y2: y, class: 'span' }));
-    recs.forEach(function (l) { svg.appendChild(el('line', { x1: X(l), y1: y - 6, x2: X(l), y2: y + 6, class: 'rec' })); });
+    svg.appendChild(el('line', { x1: X(-182), y1: y, x2: X(lgShow), y2: y, class: 'span' }));
+    recs.forEach(function (l) { if (l <= lgShow + 1e-9) svg.appendChild(el('line', { x1: X(l), y1: y - 6, x2: X(l), y2: y + 6, class: 'rec' })); });
     svg.appendChild(el('circle', { cx: X(-182), cy: y, r: 5, class: 'paper' }));
-    svg.appendChild(el('circle', { cx: X(lgNow), cy: y, r: 6.5, class: 'now' }));
-    svg.appendChild(el('text', { x: X(-182) - 4, y: y - 16, class: 'lbl' }, narrow ? 'paper' : 'the paper \u00b7 23 Sep'));
-    svg.appendChild(el('text', { x: X(-107.09), y: y - 16, class: 'lbl', 'text-anchor': 'middle' }, narrow ? '7 Oct' : 'day one \u00b7 7 Oct'));
-    var c = el('text', { x: X(lgNow) + 6, y: y - 16, class: 'lbl-now', 'text-anchor': 'end' }); supSvg(c, 'now \u00b7 2', minus(lgNow.toFixed(2))); svg.appendChild(c);
+    svg.appendChild(el('circle', { cx: X(lgShow), cy: y, r: 6.5, class: 'now' }));
+    svg.appendChild(el('text', { x: X(-182) - 4, y: y - 16, class: 'lbl' }, narrow ? 'paper' : 'the paper \u00b7 dated 23 Sep'));
+    svg.appendChild(el('text', { x: X(-107.09) - (narrow ? 0 : 4), y: y - 16, class: 'lbl', 'text-anchor': narrow ? 'middle' : 'start' }, narrow ? '7 Oct' : 'day one \u00b7 7 Oct'));
+    if (pr >= 1) { var c = el('text', { x: X(lgNow) + 6, y: y - 16, class: 'lbl-now', 'text-anchor': 'end' }); supSvg(c, 'now \u00b7 2', minus(lgNow.toFixed(2))); svg.appendChild(c); }
     svg.appendChild(el('text', { x: x0, y: y + 36 }, narrow ? 'halvings below 1 (log\u2082 \u03ba)' : 'halvings below 1 (log\u2082 \u03ba); every tick is 30 halvings'));
     svg.setAttribute('aria-label', 'A ruler of halvings from 2 to the minus 190 on the left to 1 on the right. The paper\u2019s saving sits at 2 to the minus 182; the race\u2019s first day reached 2 to the minus 107; the reviewed record now sits at about 2 to the minus ' + Math.abs(lgNow).toFixed(2) + ', near the right end.');
   }
+  (function () {
+    var svg = $('#lk-ruler');
+    if (svg && F0.enter) F0.enter(svg, function (t) { if (rulerLg != null) drawRuler(null, t); }, { duration: 1200, threshold: 0.5 });
+  })();
   (function () {
     var svg = $('#lk-ruler'), w0 = 0;
     if (svg && 'ResizeObserver' in window) new ResizeObserver(function () { var w = Math.round(svg.getBoundingClientRect().width); if (w !== w0 && rulerLg != null) { w0 = w; drawRuler(); } }).observe(svg);
@@ -220,6 +232,218 @@
       });
     });
     draw(); product();
+  }
+
+  /* ======================================================================
+     01 Multiply by sliding: the convolution behind every fast method, then the cost of doing it the slow way
+     against the FFT route, which does all the sliding at once.
+     ====================================================================== */
+  function initSlide() {
+    var svg = $('#sl-svg'); if (!svg) return;
+    var rng = $('#sl-s'), rout = $('#sl-s-out'), read = $('#sl-read'), desc = $('#sl-desc'), play = $('#sl-play'), carryB = $('#sl-carry');
+    var st = { n: 4, s: 3, carried: false, carryK: 0, playing: false, t0: 0, cs: 40, x0: 0 };
+    function digs() { return { a: PI.slice(0, st.n).split('').map(Number), b: EE.slice(0, st.n).split('').map(Number) }; }
+    function sums() { var d = digs(), c = []; for (var k = 0; k <= 2 * st.n - 2; k++) { var t = 0; for (var i = 0; i < st.n; i++) { var j = k - i; if (j >= 0 && j < st.n) t += d.a[i] * d.b[j]; } c.push(t); } return c; }
+    function pairs(k) { var d = digs(), o = []; for (var i = 0; i < st.n; i++) { var j = k - i; if (j >= 0 && j < st.n) o.push({ i: i, j: j, p: d.a[i] * d.b[j], a: d.a[i], b: d.b[j] }); } return o; }
+    function carries() { /* right to left: value, digit, carry out */
+      var c = sums(), out = [], cy = 0;
+      for (var k = c.length - 1; k >= 0; k--) { var v = c[k] + cy; out.unshift({ k: k, v: v, d: v % 10, cin: cy, cout: Math.floor(v / 10) }); cy = Math.floor(v / 10); }
+      return { cols: out, lead: cy };
+    }
+    function product() { return (BigInt(PI.slice(0, st.n)) * BigInt(EE.slice(0, st.n))).toString(); }
+    function pairTxt(k) { return pairs(k).map(function (q) { return q.a + '×' + q.b; }).join(' + '); }
+    function draw() {
+      clear(svg);
+      var W = Math.max(280, Math.min(640, Math.round(svg.parentNode.getBoundingClientRect().width - 16) || 440));
+      var narrow = W < 420, labW = narrow ? 0 : 74;
+      /* six digits need 16 cells: on a phone that is too small to read, so the choice stops at four */
+      var six = $('[data-sl-n="6"]'); if (six) six.hidden = narrow;
+      if (narrow && st.n > 4) { st.n = 4; st.s = Math.min(st.s, 6); $$('[data-sl-n]').forEach(function (o) { o.setAttribute('aria-pressed', o.getAttribute('data-sl-n') === '4' ? 'true' : 'false'); }); }
+      var n = st.n, C = 3 * n - 2;
+      var cs = Math.max(18, Math.min(44, Math.floor((W - labW - 6) / C))); st.cs = cs;
+      var x0 = labW + Math.max(0, Math.floor((W - labW - C * cs) / 2)); st.x0 = x0;
+      var fs = Math.max(12, Math.min(20, Math.round(cs * .5))), pfs = Math.max(11, Math.min(14, Math.round(cs * .34)));
+      var top = narrow ? 18 : 8, yA = top, yB = yA + cs + 46, yS = yB + cs + (narrow ? 34 : 30), yR = yS + cs + (narrow ? 34 : 30), H = yR + cs + 8;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      function X(c) { return x0 + (c + n - 1) * cs; }
+      function lab(y, t, sub) {
+        if (narrow) svg.appendChild(el('text', { x: X(-(n - 1)) + 2, y: y - 5, class: 'sl-lab' }, t));
+        else { svg.appendChild(el('text', { x: 4, y: y + cs / 2 + (sub ? -2 : 4), class: 'sl-lab' }, t)); if (sub) svg.appendChild(el('text', { x: 4, y: y + cs / 2 + 12, class: 'sl-lab' }, sub)); }
+      }
+      var d = digs(), c = sums(), s = st.s, ov = pairs(s);
+      var lit = {}; ov.forEach(function (q) { lit[q.i] = q; });
+      /* rows */
+      lab(yA, 'π', narrow ? '' : 'digits'); lab(yB, narrow ? 'e, backwards' : 'e,', narrow ? '' : 'backwards');
+      lab(yS, narrow ? 'column sums' : 'column', narrow ? '' : 'sums');
+      for (var i = 0; i < n; i++) {
+        var on = !!lit[i];
+        svg.appendChild(el('rect', { x: X(i) + 1, y: yA, width: cs - 2, height: cs, rx: 2, class: 'sl-cell sl-a' + (on ? ' on' : ''), 'data-tip': 'π digit ' + (i + 1) + ': ' + d.a[i] }));
+        svg.appendChild(el('text', { x: X(i) + cs / 2, y: yA + cs / 2 + fs * .36, 'font-size': fs, class: 'sl-dig' }, String(d.a[i])));
+      }
+      for (var j = 0; j < n; j++) {
+        var cx = s - j, onb = cx >= 0 && cx < n;
+        svg.appendChild(el('rect', { x: X(cx) + 1, y: yB, width: cs - 2, height: cs, rx: 2, class: 'sl-cell sl-b' + (onb ? ' on' : ''), 'data-tip': 'e digit ' + (j + 1) + ': ' + d.b[j] }));
+        svg.appendChild(el('text', { x: X(cx) + cs / 2, y: yB + cs / 2 + fs * .36, 'font-size': fs, class: 'sl-dig' }, String(d.b[j])));
+      }
+      /* the drag handle hint under the sliding row */
+      svg.appendChild(el('rect', { x: X(s - n + 1), y: yB - 4, width: n * cs, height: cs + 8, class: 'sl-grab' }));
+      /* products of the overlapping pairs, each falling into this position's column */
+      var sx = X(s) + cs / 2;
+      ov.forEach(function (q) {
+        var x = X(q.i) + cs / 2, my = yA + cs + 23;
+        svg.appendChild(el('line', { x1: x, y1: yA + cs, x2: x, y2: my - pfs * .8, class: 'sl-link' }));
+        svg.appendChild(el('line', { x1: x, y1: my + 5, x2: x, y2: yB, class: 'sl-link' }));
+        svg.appendChild(el('text', { x: x, y: my + pfs * .36, 'font-size': pfs, class: 'sl-prod', 'data-tip': q.a + ' × ' + q.b + ' = ' + q.p }, String(q.p)));
+      });
+      svg.appendChild(el('path', { d: 'M' + sx + ' ' + (yB + cs + 2) + 'V' + (yS - 4), class: 'sl-drop' }));
+      svg.appendChild(el('path', { d: 'M' + (sx - 4) + ' ' + (yS - 9) + 'L' + sx + ' ' + (yS - 3) + 'L' + (sx + 4) + ' ' + (yS - 9), class: 'sl-drop' }));
+      /* column sums: done, this one, and the ones still to come */
+      for (var k = 0; k <= 2 * n - 2; k++) {
+        var done = k < s || st.carried, cur = k === s && !st.carried;
+        svg.appendChild(el('rect', { x: X(k) + 1, y: yS, width: cs - 2, height: cs, rx: 2, class: 'sl-cell sl-s' + (cur ? ' cur' : done ? ' done' : ' todo'), 'data-tip': done || cur ? 'Column ' + (k + 1) + ': ' + pairTxt(k) + ' = ' + c[k] : 'Column ' + (k + 1) + ': not reached yet' }));
+        if (done || cur) svg.appendChild(el('text', { x: X(k) + cs / 2, y: yS + cs / 2 + Math.min(fs, cs * .42) * .36, 'font-size': Math.max(11, c[k] >= 100 ? Math.min(fs, Math.round(cs * .36)) : Math.min(fs, Math.round(cs * .44))), class: 'sl-dig' + (cur ? ' cur' : '') }, String(c[k])));
+      }
+      /* after "Carry": the product's digits, right to left (before it, the row waits, dashed) */
+      if (!st.carried) {
+        lab(yR, narrow ? 'product: press Carry' : 'product:', narrow ? '' : 'press Carry');
+        for (var k2 = 0; k2 <= 2 * n - 2; k2++) svg.appendChild(el('rect', { x: X(k2) + 1, y: yR, width: cs - 2, height: cs, rx: 2, class: 'sl-cell sl-r' }));
+      }
+      if (st.carried) {
+        lab(yR, 'product', '');
+        var cr = carries(), shown = st.carryK;
+        cr.cols.forEach(function (q) {
+          var vis = q.k >= (2 * n - 1) - shown;
+          svg.appendChild(el('rect', { x: X(q.k) + 1, y: yR, width: cs - 2, height: cs, rx: 2, class: 'sl-cell sl-r' + (vis ? ' on' : ''), 'data-tip': vis ? 'Column ' + (q.k + 1) + ': ' + c[q.k] + (q.cin ? ' + carried ' + q.cin : '') + ' = ' + q.v + ', write ' + q.d + (q.cout ? ', carry ' + q.cout : '') : '' }));
+          if (vis) svg.appendChild(el('text', { x: X(q.k) + cs / 2, y: yR + cs / 2 + fs * .36, 'font-size': fs, class: 'sl-dig' }, String(q.d)));
+          if (vis && q.cout) svg.appendChild(el('text', { x: X(q.k) - 1, y: yR - 5, 'font-size': 11, class: 'sl-carry' }, '+' + q.cout));
+        });
+        if (shown >= 2 * n - 1 && cr.lead) String(cr.lead).split('').reverse().forEach(function (ch, m) {
+          svg.appendChild(el('rect', { x: X(-1 - m) + 1, y: yR, width: cs - 2, height: cs, rx: 2, class: 'sl-cell sl-r on' }));
+          svg.appendChild(el('text', { x: X(-1 - m) + cs / 2, y: yR + cs / 2 + fs * .36, 'font-size': fs, class: 'sl-dig' }, ch));
+        });
+      }
+      /* readouts */
+      rng.max = 2 * n - 2; rng.value = s;
+      rout.textContent = (s + 1) + ' of ' + (2 * n - 1);
+      rng.setAttribute('aria-valuetext', 'position ' + (s + 1) + ' of ' + (2 * n - 1));
+      var A = PI.slice(0, n), B = EE.slice(0, n), P = product();
+      if (st.carried) {
+        var cr2 = carries();
+        read.textContent = st.carryK >= 2 * n - 1
+          ? 'Carried from the right: ' + cr2.cols.slice().reverse().map(function (q) { return (q.cin ? c[q.k] + '+' + q.cin : String(c[q.k])) + ' → ' + q.d; }).join(', ') + (cr2.lead ? ', and ' + cr2.lead + ' left over' : '') + '. ' + grp(A) + ' × ' + grp(B) + ' = ' + grp(P) + '.'
+          : 'Carrying from the right…';
+      } else read.textContent = 'Position ' + (s + 1) + ' of ' + (2 * n - 1) + ': ' + pairTxt(s).replace(/×/g, '×') + ' = ' + c[s] + ', written in column ' + (s + 1) + '.';
+      desc.textContent = A + ' × ' + B + ' by sliding: the column sums are ' + c.join(', ') + '; carrying turns them into ' + grp(P) + '.';
+      svg.setAttribute('aria-label', (st.carried ? 'After carrying: ' : 'Sliding, ') + read.textContent);
+      carryB.textContent = st.carried ? 'Undo carry' : 'Carry';
+    }
+    function setS(v) { st.s = Math.max(0, Math.min(2 * st.n - 2, v)); st.carried = false; draw(); }
+    var loop = F0.loop(function (now) {
+      if (st.carried && st.carryK < 2 * st.n - 1) { var kk = Math.floor((now - st.t0) / 260) + 1; if (kk !== st.carryK) { st.carryK = Math.min(2 * st.n - 1, kk); draw(); } if (st.carryK >= 2 * st.n - 1 && !st.playing) loop.stop(); return; }
+      if (!st.playing) { loop.stop(); return; }
+      var k = Math.floor((now - st.t0) / 750);
+      if (k > 2 * st.n - 2) { stopPlay(); st.s = 2 * st.n - 2; startCarry(); return; }
+      if (k !== st.s) { st.s = k; draw(); }
+    });
+    var visible = true;
+    F0.whenVisible(svg, function () { visible = true; if (st.playing || (st.carried && st.carryK < 2 * st.n - 1)) loop.start(); }, function () { visible = false; loop.stop(); });
+    function startCarry() {
+      st.carried = true;
+      if (F0.motion()) { st.carryK = 0; st.t0 = performance.now(); if (visible) loop.start(); } else st.carryK = 2 * st.n - 1;
+      draw();
+    }
+    function finishAll() { if (st.carried) st.carryK = 2 * st.n - 1; }
+    function stopPlay() { st.playing = false; play.setAttribute('aria-pressed', 'false'); }
+    play.addEventListener('click', function () {
+      if (st.playing) { stopPlay(); loop.stop(); draw(); return; }
+      if (!F0.motion()) { /* motion off: one position per press */ if (st.carried || st.s >= 2 * st.n - 2) { if (!st.carried) startCarry(); else setS(0); } else setS(st.s + 1); return; }
+      st.carried = false; st.playing = true; st.s = 0; st.t0 = performance.now(); play.setAttribute('aria-pressed', 'true'); draw(); if (visible) loop.start();
+    });
+    F0.onMotion(function (on) { if (!on) { if (st.playing) { stopPlay(); } finishAll(); loop.stop(); draw(); } });
+    $('#sl-back').addEventListener('click', function () { stopPlay(); setS(st.s - 1); });
+    $('#sl-next').addEventListener('click', function () { stopPlay(); setS(st.s + 1); });
+    rng.addEventListener('input', function () { stopPlay(); setS(+rng.value); });
+    carryB.addEventListener('click', function () { stopPlay(); if (st.carried) { st.carried = false; loop.stop(); draw(); } else startCarry(); });
+    $$('[data-sl-n]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        stopPlay(); st.n = +b.getAttribute('data-sl-n'); st.s = st.n - 1; st.carried = false;
+        $$('[data-sl-n]').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+        draw();
+      });
+    });
+    /* drag the lower row: one cell of movement is one position */
+    var drag = null;
+    svg.addEventListener('pointerdown', function (ev) {
+      if (!ev.target.classList || !(ev.target.classList.contains('sl-grab') || ev.target.classList.contains('sl-b'))) return;
+      drag = { x: ev.clientX, s: st.s, k: svg.getBoundingClientRect().width / (+svg.getAttribute('viewBox').split(' ')[2]) };
+      stopPlay(); try { svg.setPointerCapture(ev.pointerId); } catch (e) {} ev.preventDefault();
+    });
+    svg.addEventListener('pointermove', function (ev) {
+      if (drag) { var v = drag.s + Math.round((ev.clientX - drag.x) / (st.cs * drag.k)); if (v !== st.s) setS(v); return; }
+      var t = ev.target.closest ? ev.target.closest('[data-tip]') : null, tip = t && t.getAttribute('data-tip');
+      if (tip) F0.tip.show('<p class="tip-t">' + esc(tip) + '</p>', ev.clientX, ev.clientY); else F0.tip.hide();
+    });
+    function endDrag() { drag = null; }
+    svg.addEventListener('pointerup', endDrag); svg.addEventListener('pointercancel', endDrag);
+    svg.addEventListener('pointerleave', function () { F0.tip.hide(); });
+    var w0 = 0;
+    if ('ResizeObserver' in window) new ResizeObserver(function () { var w = Math.round(svg.parentNode.getBoundingClientRect().width); if (w !== w0) { w0 = w; draw(); if (!$('#sl-p-count').hidden) drawCost(); } }).observe(svg.parentNode.parentNode.parentNode);
+
+    /* ---- Count the work ---- */
+    var cost = $('#sl-cost'), nr = $('#sl-n');
+    function human(sec) {
+      if (sec < 1e-3) return 'under a millisecond';
+      if (sec < 1) return (sec * 1000).toPrecision(2).replace(/\.0+$/, '') + ' ms';
+      if (sec < 120) return (+sec.toPrecision(2)) + ' seconds';
+      if (sec < 7200) return Math.round(sec / 60) + ' minutes';
+      if (sec < 172800) return Math.round(sec / 3600) + ' hours';
+      if (sec < 63072000) return Math.round(sec / 86400) + ' days';
+      return grp(Math.round(sec / 31557600)) + ' years';
+    }
+    function sciP(x) { if (x < 1e4) return grp(Math.round(x)); var e = Math.floor(Math.log10(x)), m = x / Math.pow(10, e); return (m < 1.05 ? '' : m.toFixed(1) + ' × ') + '10^' + e; }
+    function sciH(x) { if (x < 1e4) return grp(Math.round(x)); var e = Math.floor(Math.log10(x)), m = x / Math.pow(10, e); return (m < 1.05 ? '' : m.toFixed(1) + ' &times; ') + '10<sup>' + e + '</sup>'; }
+    function drawCost() {
+      clear(cost);
+      var L = +nr.value, n = Math.pow(10, L), school = n * n, fft = 3 * n * Math.log2(n);
+      var W = Math.max(280, Math.min(640, Math.round(cost.parentNode.getBoundingClientRect().width - 16) || 440)), narrow = W < 420;
+      var rows = [{ k: 'Every digit meets every digit', f: 'n²', v: school, c: 'sl-bar' }, { k: 'FFT route', f: '≈ 3 n log₂ n', v: fft, c: 'sl-bar hi' }, { k: 'Read the digits once', f: 'n', v: n, c: 'sl-bar lo' }];
+      var x0 = 4, x1 = W - 8, rowH = 50, top = 8, H = top + rows.length * rowH + 34, maxE = 19;
+      cost.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      function X(v) { return x0 + Math.max(0, Math.log10(Math.max(1, v))) / maxE * (x1 - x0); }
+      for (var e = 0; e <= maxE; e += (narrow ? 6 : 3)) {
+        cost.appendChild(el('line', { x1: X(Math.pow(10, e)), y1: top, x2: X(Math.pow(10, e)), y2: top + rows.length * rowH, class: 'grid' }));
+        var t = el('text', { x: X(Math.pow(10, e)), y: top + rows.length * rowH + 16, 'text-anchor': e === 0 ? 'start' : 'middle', class: 'sl-ax' }); if (e === 0) t.textContent = '1'; else supSvg(t, '10', String(e)); cost.appendChild(t);
+      }
+      cost.appendChild(el('text', { x: x1, y: top + rows.length * rowH + 31, 'text-anchor': 'end', class: 'sl-ax' }, 'steps, each gridline ' + (narrow ? 'a million' : 'a thousand') + ' times more'));
+      rows.forEach(function (r, i) {
+        var y = top + i * rowH;
+        cost.appendChild(el('text', { x: x0, y: y + 13, class: 'sl-lab' }, r.k + ', ' + r.f));
+        cost.appendChild(el('rect', { x: x0, y: y + 19, width: Math.max(2, X(r.v) - x0), height: 16, rx: 2, class: r.c, 'data-tip': r.k + ' (' + r.f + '): about ' + sciP(r.v) + ' steps' }));
+        var vt = el('text', { x: Math.min(X(r.v) + 6, x1 - 70), y: y + 32, class: 'sl-val' });
+        if (r.v < 1e4) vt.textContent = grp(Math.round(r.v));
+        else { var ee = Math.floor(Math.log10(r.v)), mm = r.v / Math.pow(10, ee); supSvg(vt, (mm < 1.05 ? '' : mm.toFixed(1) + ' × ') + '10', String(ee)); }
+        cost.appendChild(vt);
+      });
+      var nTxt = grp(n);
+      $('#sl-n-out').textContent = nTxt; nr.setAttribute('aria-valuetext', nTxt + ' digits');
+      $('#sl-c-school').innerHTML = sciH(school) + ' products';
+      $('#sl-c-fft').innerHTML = '~' + sciH(fft) + ' steps';
+      $('#sl-c-time').textContent = human(school / 1e9) + ' vs ' + human(fft / 1e9);
+      $('#sl-cost-desc').textContent = 'For ' + nTxt + '-digit numbers, every digit meeting every digit takes about ' + sciTxt(school) + ' products; the FFT route takes about ' + sciTxt(fft) + ' steps, constants ignored. At a billion steps a second that is ' + human(school / 1e9) + ' against ' + human(fft / 1e9) + '.';
+      cost.setAttribute('aria-label', $('#sl-cost-desc').textContent);
+    }
+    nr.addEventListener('input', drawCost);
+    cost.addEventListener('pointermove', function (ev) { var t = ev.target.getAttribute && ev.target.getAttribute('data-tip'); if (t) F0.tip.show('<p class="tip-t">' + esc(t) + '</p>', ev.clientX, ev.clientY); else F0.tip.hide(); });
+    cost.addEventListener('pointerleave', function () { F0.tip.hide(); });
+    $$('[data-sl-tab]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var tab = b.getAttribute('data-sl-tab');
+        $$('[data-sl-tab]').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+        $('#sl-p-slide').hidden = tab !== 'slide'; $('#sl-p-count').hidden = tab !== 'count';
+        if (tab === 'count') { stopPlay(); loop.stop(); drawCost(); } else draw();
+      });
+    });
+    draw();
   }
 
   /* ======================================================================
@@ -362,7 +586,7 @@
     }
     var rows = d.records.map(function (r, i) {
       var src = i === 0 ? '<a href="' + esc(r.link) + '">preprint</a>' : r.commit_url ? '<a href="' + esc(r.commit_url) + '">' + esc(r.commit) + '</a>' : '';
-      return '<tr><td>' + esc(i === 0 ? utc(r.t, true) : when(r.t)) + '</td><td class="n">' + kap(r) + '</td><td class="n">' + minus(r.log2.toFixed(2)) + '</td>' +
+      return '<tr><td>' + esc(i === 0 ? 'dated ' + utc(r.t, true) : when(r.t)) + '</td><td class="n">' + kap(r) + '</td><td class="n">' + minus(r.log2.toFixed(2)) + '</td>' +
         '<td>' + esc(r.what) + (r.who ? ' <span class="im-who-t">' + esc(r.who) + '</span>' : '') + '</td><td>' + src + '</td></tr>';
     });
     (d.aska_claims || []).forEach(function (a) {
@@ -374,14 +598,14 @@
   function initStair() {
     var svg = $('#s-svg'); if (!svg) return;
     var detail = $('#s-detail'), out = $('#s-out');
-    var st = { scale: 'log', aska: true, claims: false, sel: -1, data: null, claimsData: null, live: null };
+    var st = { scale: 'log', aska: true, claims: false, sel: -1, data: null, claimsData: null, live: null, until: null, rp: -1 };
     var Wv = 960, Hv = 440, M = { l: 78, r: 26, t: 34, b: 52 }, NARROW = false;
     /* drawn at the stage's true pixel width, so text stays readable from 320px phones to wide screens */
     function size() {
       var w = Math.round(svg.parentNode.getBoundingClientRect().width - 16) || 960;
       Wv = Math.max(290, Math.min(1400, w)); NARROW = Wv < 600;
       Hv = NARROW ? 400 : Math.max(420, Math.min(520, Math.round(Wv * 0.42)));
-      M = NARROW ? { l: 56, r: 14, t: 34, b: 50 } : { l: 78, r: 26, t: 34, b: 52 };
+      M = NARROW ? { l: 56, r: 14, t: 52, b: 50 } : { l: 78, r: 26, t: 34, b: 52 };
       svg.setAttribute('viewBox', '0 0 ' + Wv + ' ' + Hv);
     }
     var T0 = Date.parse('2026-09-23T00:00:00Z'), TG = Date.parse('2026-10-07T00:00:00Z'), TE = Date.parse('2026-10-14T00:00:00Z');
@@ -419,8 +643,9 @@
       var g = geom(), dom = yDom();
       /* gap band + break marks */
       svg.appendChild(el('rect', { x: g.px0, y: M.t, width: g.gapW, height: Hv - M.t - M.b, class: 'gapband' }));
-      svg.appendChild(el('text', { x: g.px0 + g.gapW / 2, y: M.t + 18, 'text-anchor': 'middle', 'font-size': 11 }, NARROW ? '2 wk' : '2 weeks,'));
-      if (!NARROW) svg.appendChild(el('text', { x: g.px0 + g.gapW / 2, y: M.t + 32, 'text-anchor': 'middle', 'font-size': 11 }, 'compressed'));
+      var roomy = g.gapW >= 90;
+      svg.appendChild(el('text', { x: g.px0 + g.gapW / 2, y: M.t + 18, 'text-anchor': 'middle', 'font-size': 11 }, roomy ? '2 weeks,' : '2 wk'));
+      if (roomy) svg.appendChild(el('text', { x: g.px0 + g.gapW / 2, y: M.t + 32, 'text-anchor': 'middle', 'font-size': 11 }, 'compressed'));
       /* y grid */
       if (st.scale === 'log') {
         for (var e = -180; e <= 0; e += 30) {
@@ -428,14 +653,14 @@
           svg.appendChild(el('line', { x1: M.l, y1: yy, x2: Wv - M.r, y2: yy, class: 'grid' }));
           var t = el('text', { x: M.l - 10, y: yy + 4, 'text-anchor': 'end' }); if (e === 0) t.textContent = '1'; else supSvg(t, '2', minus(e), { small: 10 }); svg.appendChild(t);
         }
-        svg.appendChild(el('text', { x: M.l, y: M.t - 14, class: 'lbl' }, 'κ on a halvings scale'));
+        svg.appendChild(el('text', { x: NARROW ? 0 : M.l, y: NARROW ? 14 : M.t - 14, class: 'lbl' }, 'κ on a halvings scale'));
       } else {
         for (var v = 0; v <= dom.hi + 1e-12; v += 0.0005) {
           var y2 = Y({ v: v }, dom);
           svg.appendChild(el('line', { x1: M.l, y1: y2, x2: Wv - M.r, y2: y2, class: 'grid' }));
           svg.appendChild(el('text', { x: M.l - 10, y: y2 + 4, 'text-anchor': 'end' }, v === 0 ? '0' : v.toFixed(4)));
         }
-        svg.appendChild(el('text', { x: M.l, y: M.t - 14, class: 'lbl' }, 'κ, plain'));
+        svg.appendChild(el('text', { x: NARROW ? 0 : M.l, y: NARROW ? 14 : M.t - 14, class: 'lbl' }, 'κ, plain'));
       }
       /* x axis */
       var yb = Hv - M.b;
@@ -464,12 +689,13 @@
         });
         svg.appendChild(el('path', { d: cd, class: 'claim' }));
       }
-      /* staircase: records (and live) only */
-      var recs = items.filter(function (i) { return i.kind !== 'aska'; });
+      /* staircase: records (and live) only; during a replay, only what had happened by the cursor time */
+      var U = st.until, seen = function (it) { return U == null || it.t <= U; };
+      var recs = items.filter(function (i) { return i.kind !== 'aska' && seen(i); });
       var ghost = '', path = '';
       for (var k = 0; k < recs.length; k++) {
         var a = recs[k], x = X(a.t, g), y = Y(a, dom);
-        var nx = k + 1 < recs.length ? X(recs[k + 1].t, g) : (a.kind === 'live' ? x : g.px1);
+        var nx = k + 1 < recs.length ? X(recs[k + 1].t, g) : (a.kind === 'live' ? x : U != null ? Math.max(x, X(U, g)) : g.px1);
         var ny = k + 1 < recs.length ? Y(recs[k + 1], dom) : y;
         var seg = 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + 'H' + nx.toFixed(1) + (k + 1 < recs.length ? 'V' + ny.toFixed(1) : '');
         if (a.kind === 'paper' || (k + 1 < recs.length && recs[k + 1].kind === 'live')) ghost += seg; else path += seg;
@@ -477,6 +703,7 @@
       svg.appendChild(el('path', { d: ghost, class: 'step-ghost' }));
       svg.appendChild(el('path', { d: path, class: 'step' }));
       items.forEach(function (it) {
+        if (!seen(it)) return;
         var x = X(it.t, g), y = Y(it, dom);
         if (it.kind === 'paper') svg.appendChild(el('circle', { cx: x, cy: y, r: 5.5, class: 'rec-paper' }));
         else if (it.kind === 'rec') svg.appendChild(el('circle', { cx: x, cy: y, r: 4.5, class: 'rec' }));
@@ -485,30 +712,43 @@
       });
       /* selective direct labels: the paper, the newest record, Aska's claims */
       var paper = items[0], lastRec = recs[recs.length - 1];
-      var px_ = X(paper.t, g) + 8, py_ = Y(paper, dom);
-      if (NARROW) {
-        var nl = el('text', { x: X(TG, g) + 10, y: py_ - 16, class: 'lbl' });
-        if (st.scale === 'log') supSvg(nl, 'preprint 2', '−182', { small: 10 }); else nl.textContent = 'preprint ≈ 0';
-        svg.appendChild(nl);
-      } else {
-      svg.appendChild(el('text', { x: px_, y: py_ - 44, class: 'lbl' }, 'the'));
-      svg.appendChild(el('text', { x: px_, y: py_ - 30, class: 'lbl' }, 'preprint'));
-      var pl = el('text', { x: px_, y: py_ - 14, class: 'lbl' });
+      var px_ = X(TG, g) + 10, py_ = Y(paper, dom);
+      svg.appendChild(el('text', { x: px_, y: py_ - 38, class: 'lbl' }, NARROW ? 'preprint, dated 23 Sep' : 'the preprint, dated 23 Sep'));
+      var pl = el('text', { x: px_, y: py_ - 12, class: 'lbl' });
       if (st.scale === 'log') supSvg(pl, '2', '−182', { small: 10 }); else pl.textContent = '≈ 0';
       svg.appendChild(pl);
-      }
       var lx = X(lastRec.t, g), ly = Y(lastRec, dom);
-      var ll = el('text', { x: lx - (NARROW ? 14 : 8), y: NARROW ? ly - 14 : ly + 28, 'text-anchor': 'end', class: 'lbl-strong' });
-      ll.textContent = (lastRec.kind === 'live' ? 'live ' : '') + lastRec.v.toFixed(6) + ' ≈ 2';
-      ll.appendChild(el('tspan', { dy: -5, 'font-size': 10 }, minus(lastRec.lg.toFixed(2))));
-      svg.appendChild(ll);
+      if (lastRec.kind !== 'paper') {
+        var ll = el('text', { x: lx - (NARROW ? 14 : 8), y: NARROW ? ly - 16 : ly + 28, 'text-anchor': 'end', class: 'lbl-strong' });
+        ll.textContent = (lastRec.kind === 'live' ? 'live ' : '') + (lastRec.v >= 1e-6 ? lastRec.v.toFixed(6) + ' ≈ ' : '') + '2';
+        ll.appendChild(el('tspan', { dy: -5, 'font-size': 10 }, minus(lastRec.lg.toFixed(2))));
+        svg.appendChild(ll);
+      }
       if (st.aska) {
         var ak = items.filter(function (i) { return i.kind === 'aska'; });
-        if (ak.length) {
-          var ax = X(ak[1].t, g), ay = Y(ak[1], dom), below = ay - 46 < M.t + 10, ty = below ? ay + 62 : ay - 46;
-          svg.appendChild(el('line', { x1: ax, y1: below ? ay + 8 : ay - 8, x2: ax - 30, y2: below ? ty - 14 : ty + 6, class: 'lead' }));
-          svg.appendChild(el('text', { x: ax - 34, y: ty, 'text-anchor': 'end', class: 'lbl' }, NARROW ? 'Aska\u2019s 2 claims' : 'Aska #464, #469: claims, never reviewed'));
+        if (ak.length && seen(ak[1])) {
+          /* below the line, clear of the end label (above it at narrow widths, far right of it otherwise) */
+          var ax = X(ak[1].t, g), ay = Y(ak[1], dom);
+          if (NARROW) {
+            var nx_ = Math.min(Wv - M.r, ax + 44);
+            svg.appendChild(el('line', { x1: ax, y1: ay + 8, x2: ax, y2: ay + 30, class: 'lead' }));
+            svg.appendChild(el('text', { x: nx_, y: ay + 46, 'text-anchor': 'end', class: 'lbl' }, 'Aska\u2019s 2 claims'));
+          } else {
+            svg.appendChild(el('line', { x1: ax - 3, y1: ay + 7, x2: ax - 12, y2: ay + 30, class: 'lead' }));
+            svg.appendChild(el('text', { x: ax - 16, y: ay + 44, 'text-anchor': 'end', class: 'lbl' }, 'Aska #464, #469'));
+            svg.appendChild(el('text', { x: ax - 16, y: ay + 59, 'text-anchor': 'end', class: 'lbl' }, 'claims, never reviewed'));
+          }
         }
+      }
+      /* the replay cursor, and its counter in the corner */
+      if (U != null) {
+        var ux = X(U, g);
+        svg.appendChild(el('line', { x1: ux, y1: M.t, x2: ux, y2: yb, class: 'cursor' }));
+        var ud = new Date(U);
+        svg.appendChild(el('text', { x: ux + 90 > Wv - M.r ? ux - 6 : ux + 6, y: (M.t + yb) / 2, 'text-anchor': ux + 90 > Wv - M.r ? 'end' : 'start', class: 'lbl' }, ud.getUTCDate() + ' ' + MON[ud.getUTCMonth()] + (U >= TG ? ', ' + String(ud.getUTCHours()).padStart(2, '0') + ':' + String(ud.getUTCMinutes()).padStart(2, '0') : '')));
+        var pm = /#(\d+)/.exec(lastRec.r.what || ''), who = lastRec.r.who ? lastRec.r.who.split(/[;,(]/)[0].trim() : '';
+        out.textContent = (lastRec.kind === 'paper' ? 'the preprint' : (pm ? '#' + pm[1] : utc(new Date(lastRec.t).toISOString(), true))) + (who && lastRec.kind !== 'paper' ? ' · ' + who : '') + ' · 2^' + minus(lastRec.lg.toFixed(2));
+        return;
       }
       /* selection */
       if (st.sel >= 0 && items[st.sel]) {
@@ -549,7 +789,7 @@
       if (it.kind === 'live') return '<a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">selected-result.json</a>';
       return r.commit_url ? '<a href="' + esc(r.commit_url) + '">commit ' + esc(r.commit) + '</a>' : '';
     }
-    function whenTxt(it) { return it.kind === 'paper' ? '23 Sep 2026' : it.kind === 'live' ? 'fetched ' + utc(it.r.at) : utc(new Date(it.t).toISOString()); }
+    function whenTxt(it) { return it.kind === 'paper' ? 'dated 23 Sep 2026 · public 6 Oct' : it.kind === 'live' ? 'fetched ' + utc(it.r.at) : utc(new Date(it.t).toISOString()); }
     function showDetail(it) {
       detail.className = 'im-detail' + (it.kind === 'aska' ? ' aska' : '');
       detail.innerHTML = '<p class="d-k">' + esc(whenTxt(it)) + ' &middot; log&#8322;&#8201;&kappa; = ' + minus(it.lg.toFixed(3)) + '</p><p class="d-v">' + kappaHTML(it) + '</p><p class="d-t">' + whatHTML(it) + '</p><div class="d-row"><span class="badges">' + statusBadge(it) + '</span>' + linkHTML(it) + '</div>';
@@ -612,6 +852,45 @@
       }
       draw();
     });
+    /* Replay the race: a cursor sweeps from the preprint to the last record in about 8 s, drawing each step as it
+       happened. Motion off: each press jumps to the next of the five largest steps, then back to the full record. */
+    var rpBtn = $('#s-replay'), RP_MS = 8000, rpT0 = 0, rpVisible = true;
+    function xInv(x) {
+      var g = geom();
+      if (x <= g.px0 + g.gapW) return T0 + Math.max(0, x - g.px0) / g.gapW * (TG - T0);
+      return TG + Math.min(1, (x - g.px0 - g.gapW) / (g.px1 - g.px0 - g.gapW)) * (TE - TG);
+    }
+    function rpEnd() {
+      st.until = null; st.rp = -1; rpLoop.stop(); rpBtn.setAttribute('aria-pressed', 'false');
+      st.sel = items.length - 1; draw(); showDetail(items[st.sel]);
+    }
+    var rpLoop = F0.loop(function (now) {
+      if (st.until == null) { rpLoop.stop(); return; }
+      var p = Math.min(1, (now - rpT0) / RP_MS), g = geom();
+      if (p >= 1) { rpEnd(); return; }
+      st.until = xInv(g.px0 + p * (g.px1 - g.px0)); draw();
+    });
+    F0.whenVisible(svg, function () { rpVisible = true; if (st.until != null && st.rp < 0) rpLoop.start(); }, function () { rpVisible = false; rpLoop.stop(); });
+    function bigSteps() {
+      var rs = st.data.records, jumps = [];
+      for (var i = 1; i < rs.length; i++) jumps.push({ t: Date.parse(rs[i].t), d: rs[i].log2 - rs[i - 1].log2 });
+      return jumps.sort(function (a, b) { return b.d - a.d; }).slice(0, 5).sort(function (a, b) { return a.t - b.t; });
+    }
+    if (rpBtn) rpBtn.addEventListener('click', function () {
+      if (!st.data) return;
+      if (F0.motion()) {
+        if (st.until != null) { rpEnd(); return; }
+        st.until = T0; st.rp = -1; rpT0 = performance.now(); rpBtn.setAttribute('aria-pressed', 'true'); draw(); if (rpVisible) rpLoop.start();
+        return;
+      }
+      var steps = bigSteps(); st.rp += 1;
+      if (st.rp >= steps.length) { rpEnd(); return; }
+      st.until = steps[st.rp].t; rpBtn.setAttribute('aria-pressed', 'true'); draw();
+      var idx = -1; items.forEach(function (it, i) { if (it.t === steps[st.rp].t && it.kind !== 'aska') idx = i; });
+      if (idx >= 0) showDetail(items[idx]);
+    });
+    F0.onMotion(function (on) { if (!on && st.until != null && st.rp < 0) rpEnd(); });
+    svg.addEventListener('keydown', function () { if (st.until != null) { st.until = null; st.rp = -1; rpLoop.stop(); rpBtn.setAttribute('aria-pressed', 'false'); } }, true);
     var rw = 0, ro = 'ResizeObserver' in window ? new ResizeObserver(function () { var w = Math.round(svg.parentNode.getBoundingClientRect().width); if (st.data && w !== rw) { rw = w; draw(); } }) : null;
     if (ro) ro.observe(svg.parentNode);
     F0.json('kappa-history.json').then(function (d) {
@@ -718,14 +997,15 @@
       $$('[data-b-preset]').forEach(function (o) { o.setAttribute('aria-pressed', o.getAttribute('data-b-preset') === id ? 'true' : 'false'); });
       render();
     }
-    function cancel() { if (st.timer) { clearTimeout(st.timer); st.timer = 0; find.textContent = 'Find the break-even'; } }
+    function cancel() { if (st.timer) { clearTimeout(st.timer); st.timer = 0; st.finish = null; find.textContent = 'Find the break-even'; } }
     $$('[data-b-preset]').forEach(function (b) { b.addEventListener('click', function () { setPreset(b.getAttribute('data-b-preset')); }); });
     rng.addEventListener('input', function () { cancel(); st.exact = false; st.a = +rng.value * 1e-6; render(); });
     find.addEventListener('click', function () {
       if (st.timer) { cancel(); return; }
       var p = PRESETS[st.p], root = breakEven(p);
-      function finish() { st.timer = 0; find.textContent = 'Find the break-even'; st.a = root; st.exact = true; rng.value = Math.round(root * 1e6); render(); }
+      function finish() { st.timer = 0; st.finish = null; find.textContent = 'Find the break-even'; st.a = root; st.exact = true; rng.value = Math.round(root * 1e6); render(); }
       if (!F0.motion()) { finish(); return; }
+      st.finish = finish;
       var lo = 0, hi = 0.003, i = 0; st.exact = false; find.textContent = 'Stop';
       (function step() {
         var mid = (lo + hi) / 2; st.a = mid; rng.value = Math.round(mid * 1e6); render();
@@ -734,6 +1014,8 @@
         st.timer = setTimeout(step, 150);
       })();
     });
+    /* motion turned off mid-search: jump straight to the answer */
+    F0.onMotion(function (on) { if (!on && st.timer) { clearTimeout(st.timer); if (st.finish) st.finish(); } });
     /* twin table */
     var a450 = breakEven(PRESETS.pr450);
     var rows = RANKS.map(function (r) {
@@ -747,7 +1029,7 @@
   }
 
   function boot() {
-    [initLive, initGrid, initWorth, initStair, initBudget].forEach(function (f) { try { f(); } catch (e) { console.error(e); } });
+    [initLive, initGrid, initSlide, initWorth, initStair, initBudget].forEach(function (f) { try { f(); } catch (e) { console.error(e); } });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();

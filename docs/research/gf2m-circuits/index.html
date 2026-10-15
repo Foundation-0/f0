@@ -84,7 +84,7 @@
           <a class="chip" href="https://github.com/Swapnil-jain/gf2m-circuits/commit/9daf883e529ab4b9c80c66632683b403f0c69e89">repo at 9daf883 &middot; checked 13 Oct 2026</a>
         </div>
         <p class="gf-credit"><b>Swapnil Jain&rsquo;s repository and two preprints.</b> <a href="../../charter/#m-ahrazzle">Aska Digital</a> contributed one pull request, <a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">merged as #1</a> on 11 October 2026: verified multiplier circuits for four more number systems, built with the papers&rsquo; own method. GF(2<sup>9</sup>) in 136 gates against a 142-gate baseline, GF(2<sup>10</sup>) in 172 (equal to its baseline), GF(2<sup>11</sup>) in 199 against 206, and the GHASH field GF(2<sup>128</sup>) in 11,972 (equal). They are not records, sit outside the author&rsquo;s hash commitment, and have no Lean proofs.</p>
-        <p class="gf-links"><a href="https://github.com/Swapnil-jain/gf2m-circuits">Repository</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf">Multiplier preprint</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">Aska&rsquo;s PR #1</a><a href="../../ledger/#gf2m-aes-field-multiplier-112">On the Ledger</a></p>
+        <p class="gf-links"><a href="https://github.com/Swapnil-jain/gf2m-circuits">Repository</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf">Multiplier preprint</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a><a href="https://github.com/Swapnil-jain/gf2m-circuits/pull/1">Aska&rsquo;s PR #1</a><a href="../../ledger/#gf2m-aes-field-multiplier-112">Multiplier on the Ledger</a><a href="../../ledger/#aes-sbox-106-gates">S-box on the Ledger</a></p>
       </div>
 
       <figure class="ph-fig fig frame gf-table" aria-labelledby="ht-t">
@@ -102,13 +102,17 @@
             <button type="button" data-b="0" aria-pressed="true" aria-label="Output bit 0">0</button><button type="button" data-b="1" aria-pressed="false" aria-label="Output bit 1">1</button><button type="button" data-b="2" aria-pressed="false" aria-label="Output bit 2">2</button><button type="button" data-b="3" aria-pressed="false" aria-label="Output bit 3">3</button><button type="button" data-b="4" aria-pressed="false" aria-label="Output bit 4">4</button><button type="button" data-b="5" aria-pressed="false" aria-label="Output bit 5">5</button><button type="button" data-b="6" aria-pressed="false" aria-label="Output bit 6">6</button><button type="button" data-b="7" aria-pressed="false" aria-label="Output bit 7">7</button><button type="button" data-b="inv" aria-pressed="false" aria-label="Pairs whose product is 1 (inverses)">a&times;b=1</button>
           </div>
         </div>
+        <div class="fig-ctrl" role="group" aria-label="Test the checker">
+          <span class="ctrl-label">Break it //</span>
+          <button class="tbtn break" type="button" id="ht-break" aria-pressed="false" aria-describedby="ht-check">Damage one gate</button>
+        </div>
         <p class="ht-check" id="ht-check" aria-live="polite">Checking every product against long multiplication&hellip;</p>
         <figcaption class="fig-foot"><span id="ht-cap" class="ht-cap" aria-live="polite">Output bit 0 of every product. The nested blocks at powers of 2 are long multiplication showing through; the fold scrambles the rest.</span><span class="fig-src">Circuit: <a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/aes112_d6.slp">aes112_d6.slp</a> (Apache-2.0, &copy; 2026 Swapnil Jain), run here and compared with shift-and-fold multiplication.</span></figcaption>
       </figure>
 
       <ul class="statrow gf-stats" aria-label="The project in numbers">
         <li><div class="v">117 &rarr; 112</div><div class="k">gates to multiply in the AES field at the 2010 record&rsquo;s depth (6); 107 if you allow depth 13</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf">multiplier preprint</a> Tables 1&ndash;2</span></li>
-        <li><div class="v">106</div><div class="k">gates for the AES S-box from AND, XOR and XNOR gates; the smallest found before was 110 (NIST, 2026), which is shallower: depth 22 against 24</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a> Table 1</span></li>
+        <li><div class="v">106</div><div class="k">gates for the AES S-box from AND, XOR and XNOR gates; the smallest found before was 110 (NIST, 2026), which is shallower: depth 22 against 24</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf">S-box preprint</a> Table 1 &middot; <a href="../../ledger/#aes-sbox-106-gates">On the Ledger</a></span></li>
         <li><div class="v">109</div><div class="k">gates for the inverse S-box, against 112 (NIST, 2026); deeper, 30 against 26</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/verify_results.txt">sbox/verify_results.txt</a></span></li>
         <li><div class="v">30</div><div class="k">Lean 4 kernel proofs: 19 multipliers and 11 S-boxes, standard axioms only</div><span class="src"><a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean">multipliers/lean</a> &middot; <a href="https://github.com/Swapnil-jain/gf2m-circuits/tree/main/sbox/lean">sbox/lean</a></span></li>
       </ul>
@@ -370,7 +374,7 @@
           </ul>
         </div>
       </div>
-      <p class="chart-foot mx-lic">Circuits on this page are copied from Swapnil Jain&rsquo;s gf2m-circuits (code and circuits Apache-2.0, papers CC BY 4.0, &copy; 2026 Swapnil Jain), including the circuits ahrazzle contributed there; prior-work circuit files by others are not copied, only their published numbers. The evaluators, charts and the schoolbook GF(2<sup>4</sup>) circuit are new code written for this page. There is no project website; this page is the first interactive presentation of the work.</p>
+      <p class="chart-foot mx-lic">Circuits on this page are copied from Swapnil Jain&rsquo;s gf2m-circuits (code and circuits Apache-2.0, papers CC BY 4.0, &copy; 2026 Swapnil Jain), including the circuits ahrazzle contributed there; prior-work circuit files by others are not copied, only their published numbers. The evaluators, charts and the schoolbook GF(2<sup>4</sup>) circuit are new code written for this page; the repository itself has no project website.</p>
       <nav class="prevnext" aria-label="More research">
         <a href="../mobius-x1/"><span>&larr; Previous</span>mobius-x1: beating a 1937 recipe, eventually</a>
         <a class="next" href="../"><span>Back to &rarr;</span>All research</a>

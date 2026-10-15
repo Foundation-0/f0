@@ -51,6 +51,89 @@
   function binom(n, r) { if (r < 0 || r > n) return 0; var a = 1; for (var i = 0; i < r; i++) a = a * (n - i) / (i + 1); return Math.round(a); }
 
   /* =========================================================================
+     01 Where the true answer could sit: gates per input, Yates' k/2 against the ~3 lower bound
+     ========================================================================= */
+  (function gapLine() {
+    var svg = $('#gap-svg'); if (!svg) return;
+    var k = $('#gap-k');
+    function big(x) { return x < 1e15 ? fmt(Math.round(x)) : sci(x, 2); }
+    function draw(w, H) {
+      svg.textContent = '';
+      var kk = +k.value, y = kk / 2, lo = 3, max = Math.max(6, Math.ceil(y / 4) * 4 + 2);
+      var ml = 14, mr = 18, ax = H - 50, X = function (v) { return ml + v / max * (w - ml - mr); };
+      var root = el('g', { 'class': 'mx-chart' }, svg);
+      el('rect', { 'class': 'gapband', x: X(lo), y: ax - 34, width: Math.max(0, X(y) - X(lo)), height: 34 }, root);
+      el('line', { 'class': 'axis', x1: ml, x2: w - mr, y1: ax, y2: ax }, root);
+      var step = max <= 12 ? 1 : max <= 24 ? 2 : 4;
+      for (var t = 0; t <= max; t += step) {
+        el('line', { 'class': 'axis', x1: X(t), x2: X(t), y1: ax, y2: ax + 5 }, root);
+        el('text', { 'class': 'mx-svg-t', x: X(t), y: ax + 19, 'text-anchor': 'middle' }, root, String(t));
+      }
+      el('text', { 'class': 'mx-svg-t', x: w - mr, y: ax + 38, 'text-anchor': 'end' }, root, 'gates per input');
+      var narrow = w < 460;
+      var mk = function (v, cls, l1, l2, anchor, dx) {
+        el('line', { 'class': cls, x1: X(v), x2: X(v), y1: ax - 44, y2: ax }, root);
+        el('circle', { 'class': cls + '-dot', cx: X(v), cy: ax, r: 5 }, root);
+        el('text', { 'class': 'mx-svg-t strong', x: X(v) + dx, y: ax - 58, 'text-anchor': anchor }, root, l1);
+        el('text', { 'class': 'mx-svg-t', x: X(v) + dx, y: ax - 45 + 0, 'text-anchor': anchor, dy: -0 }, root, l2);
+      };
+      var lbT = narrow ? 'lower bound' : 'proven lower bound', lbX = Math.max(X(lo) - 6, ml + lbT.length * 6.8) - X(lo);
+      mk(lo, 'lb', lbT, 'about 3', 'end', lbX);
+      mk(y, 'yt', 'Yates', '½ k = ' + (y % 1 ? y.toFixed(1) : y), 'start', 6);
+      if (X(y) - X(lo) > (narrow ? 112 : 240)) el('text', { 'class': 'mx-svg-t ink', x: (X(lo) + X(y)) / 2, y: ax - 14, 'text-anchor': 'middle' }, root, narrow ? 'nobody knows' : 'nobody knows where the truth sits');
+      var N = Math.pow(2, kk);
+      $('#gap-k-out').textContent = kk;
+      k.setAttribute('aria-valuetext', 'k = ' + kk + ', N = 2 to the ' + kk + ' inputs');
+      $('#gap-n').innerHTML = kk <= 40 ? fmt(N) : '2<sup>' + kk + '</sup> &asymp; ' + sci(N, 2, true);
+      $('#gap-y').innerHTML = (kk <= 40 ? fmt(N * kk / 2) : sci(N * kk / 2, 2, true)) + ' gates';
+      $('#gap-l').innerHTML = 'about ' + (kk <= 40 ? fmt(3 * N) : sci(3 * N, 2, true)) + ' gates';
+      $('#gap-desc').textContent = 'For N = 2 to the ' + kk + ', Yates needs ' + (y % 1 ? y.toFixed(1) : y) + ' gates per input and the best proven lower bound is about 3 per input; nobody knows where between them the true minimum sits. The gap is a factor of about ' + (y / 3).toFixed(1) + '.';
+      svg.setAttribute('aria-label', $('#gap-desc').textContent);
+    }
+    var redraw = fitSvg(svg, function (w, h) { draw(w, h); });
+    k.addEventListener('input', function () { redraw(); });
+    svg.addEventListener('pointermove', function (ev) {
+      var t = ev.target.getAttribute('class') || '', kk = +k.value;
+      if (/^yt/.test(t)) F0.tip.show('<div class="tip-k">Yates (1937)</div><div class="tip-t">½ · N · log₂N = ' + (kk / 2) + ' gates per input</div>', ev.clientX, ev.clientY);
+      else if (/^lb/.test(t)) F0.tip.show('<div class="tip-k">Best proven lower bound</div><div class="tip-t">about 3 gates per input</div><div class="tip-note">(3 − o(1))·N, for large N</div>', ev.clientX, ev.clientY);
+      else if (/gapband/.test(t)) F0.tip.show('<div class="tip-k">The open gap</div><div class="tip-t">between about 3 and ' + (kk / 2) + ' gates per input</div>', ev.clientX, ev.clientY);
+      else F0.tip.hide();
+    });
+    svg.addEventListener('pointerleave', function () { F0.tip.hide(); });
+  })();
+
+  /* =========================================================================
+     03 F4: four numbers, two bits each. × ω goes round 1 → ω → ω² → 1; addition is XOR of the codes.
+     ========================================================================= */
+  (function f4tile() {
+    var root = $('#fig-f4'); if (!root) return;
+    var NM = ['0', '1', 'ω', 'ω²'], CD = ['00', '01', '10', '11'], NH = ['0', '1', '&omega;', '&omega;<sup>2</sup>'];
+    var cur = 1, times = $('#f4x-times'), bits = $('#f4x-bits'), eq = $('#f4x-eq');
+    var NEXT = { 1: 2, 2: 3, 3: 1 };
+    function mark() {
+      $$('#f4x-mul td', root).forEach(function (c) { c.classList.toggle('hl', +c.getAttribute('data-a') === cur && +c.getAttribute('data-b') === 2); });
+      $$('#f4x-mul tbody th, #f4x-add tbody th', root).forEach(function (c) { c.classList.toggle('hl', +c.getAttribute('data-i') === cur); });
+      $('#f4x-v').innerHTML = NH[cur]; $('#f4x-c').textContent = CD[cur];
+    }
+    times.addEventListener('click', function () {
+      var nx = NEXT[cur];
+      eq.innerHTML = NH[cur] + ' &times; &omega; = ' + (cur === 3 ? '&omega;<sup>3</sup> = 1: back to the start.' : NH[nx] + (cur === 1 ? '. Two more presses to come back.' : '. One more press to come back.'));
+      root.classList.toggle('mx-f4-loop', cur === 3);
+      cur = nx; mark();
+    });
+    $('#f4x-reset').addEventListener('click', function () { cur = 1; root.classList.remove('mx-f4-loop'); eq.innerHTML = 'Start at 1. Three presses of &times;&nbsp;&omega; bring it back: &omega;<sup>3</sup> = 1.'; mark(); });
+    bits.addEventListener('click', function () { var on = bits.getAttribute('aria-pressed') !== 'true'; bits.setAttribute('aria-pressed', String(on)); root.classList.toggle('mx-f4-bits', on); });
+    $$('td', root).forEach(function (c) {
+      var a = +c.getAttribute('data-a'), b = +c.getAttribute('data-b'), r = +c.getAttribute('data-r'), add = !!c.closest('#f4x-add');
+      var html = '<div class="tip-k">' + (add ? 'Addition' : 'Multiplication') + '</div><div class="tip-t">' + NM[a] + (add ? ' + ' : ' × ') + NM[b] + ' = ' + NM[r] + '</div>' +
+        '<div class="tip-note">' + (add ? 'In bits: ' + CD[a] + ' XOR ' + CD[b] + ' = ' + CD[r] + '.' : (a && b ? 'Powers of ω add, and ω³ = 1.' : 'Anything times 0 is 0.')) + '</div>';
+      c.addEventListener('pointermove', function (ev) { F0.tip.show(html, ev.clientX, ev.clientY); });
+      c.addEventListener('pointerleave', function () { F0.tip.hide(); });
+    });
+    mark();
+  })();
+
+  /* =========================================================================
      HERO: Pascal's triangle, odd entries lit
      ========================================================================= */
   (function pascal() {
@@ -401,7 +484,9 @@
         var rr = G.r, pr = rr * 0.6;
         el('circle', { 'class': 'xo', cx: x, cy: yt, r: rr }, g);
         el('path', { 'class': 'xp', d: 'M' + (x - pr) + ' ' + yt + 'h' + 2 * pr + 'M' + x + ' ' + (yt - pr) + 'v' + 2 * pr, fill: 'none' }, g);
-        el('text', { 'class': 'fb-coef', x: x + (G.col < 56 ? 9 : 15), y: (ys + yt) / 2 + 4 }, g, R[2] + (active || G.col < 56 ? '' : '=0'));
+        /* the label sits outside the faded gate group, so it keeps full contrast (ink-3 when off, ink when on) */
+        var ct = R[2] + (active || G.col < 56 ? '' : '=0');
+        el('text', { 'class': 'fb-coef' + (active ? ' on' : ''), x: x + (G.col < 56 ? 9 : ct.length > 1 ? 16 : 12), y: (ys + yt) / 2 + 4 }, svg, ct);
       });
       $('#fb-svg-d').textContent = 'Gadget after ' + step + ' of 8 rows. Centre route ' + (on.centre ? 'on' : 'off') + ', side route ' + (on.side ? 'on' : 'off') + '.';
     }

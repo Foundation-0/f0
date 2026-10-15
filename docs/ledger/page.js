@@ -51,9 +51,6 @@
     'aska-cab-to-fcc-exact-fold': 'Founding member Ahraz Arifuddin’s own work at Aska Digital, done with a team of AI agents.',
     'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska Digital built the first version of the project’s website and sent ten pull requests, four of them pipeline fixes; the authors merged all ten.',
     'integer-mult-bounds-community': 'Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member rohanarun holds the current reviewed κ record (PR #1094); eumemic and Ryan Shea also contribute. Aska built the live tracker that grew into this site.',
-    'erdos-875-sharp-carry-lemma': 'Founding member Doug Colkitt’s repository and AI pipeline.',
-    'matroid-prophet-one-sample-constant-shea': 'Founding member Ryan Shea’s note, written with OpenAI Codex.',
-    'sidorenko-template-minimum-residual-189': 'Founding member rohanarun’s repository, drafted with Codex and Claude.',
     'vdw-coefficient-community-refinement': 'Started by founding member rohanarun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.',
     'exact-dft-lean-record-shea-kothe': 'Founding member Ryan Shea’s record, built on Jeremy Kothe’s community circuit.',
     'gf2m-aes-field-multiplier-112': 'Swapnil Jain’s repository and result. Aska Digital contributed verified multipliers for four more fields, GF(2^9), GF(2^10), GF(2^11) and GF(2^128) (PR #1, merged; not records).',
@@ -152,7 +149,7 @@
     y0.innerHTML = opts; y1.innerHTML = opts;
     function years() {
       var a = +y0.value, b = +y1.value; if (a > b) { var t = a; a = b; b = t; }
-      F.y0 = a; F.y1 = b; syncControls(); update();
+      F.y0 = a; F.y1 = b; W.view = null; syncControls(); update();
     }
     y0.addEventListener('change', years); y1.addEventListener('change', years);
     $('#f-c').addEventListener('change', function (e) { F.c = e.target.checked; update(); });
@@ -161,24 +158,29 @@
     q.addEventListener('input', function () { clearTimeout(qt); qt = setTimeout(function () { setQuery(q.value); update(); }, 120); });
     q.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); clearTimeout(qt); setQuery(q.value); update(); } });
     $('#fbar').addEventListener('submit', function (e) { e.preventDefault(); });
-    $('#f-reset').addEventListener('click', resetFilters);
-    $$('[data-reset]').forEach(function (b) { b.addEventListener('click', resetFilters); });
+    $('#f-reset').addEventListener('click', function () { if (this.getAttribute('aria-disabled') !== 'true') resetFilters(); });
+    /* "Clear the filters" sits in a note that hides once the table has rows again: keep focus on the table */
+    $$('[data-reset]').forEach(function (b) { b.addEventListener('click', function () { resetFilters(); var tw = $('.ltbl-wrap'); if (tw) tw.focus({ preventScroll: true }); }); });
+    /* phones: the facets fold behind one Filters button */
+    var fm = $('#f-more'), fb = $('#fbar');
+    fm.addEventListener('click', function () { var o = !fb.classList.contains('open'); fb.classList.toggle('open', o); fm.setAttribute('aria-expanded', o ? 'true' : 'false'); });
     $$('#zoom [data-zoom]').forEach(function (b) {
       b.addEventListener('click', function () {
         var z = b.getAttribute('data-zoom');
+        W.view = null;
         if (z === 'fit') { var fr = fitRange(); F.y0 = fr[0]; F.y1 = fr[1]; }
         else { F.y0 = z === 'all' ? S.yMin : Math.max(S.yMin, +z); F.y1 = S.yMax; }
         syncControls(); update();
       });
     });
-    /* popovers: one open at a time; Escape or an outside click closes */
-    var pops = $$('.fpop');
+    /* popovers (filter panels and the "?" notes): one open at a time; Escape or an outside click closes */
+    var pops = $$('.fpop, .qpop');
     pops.forEach(function (p) {
       p.addEventListener('toggle', function () {
         if (!p.open) return;
         pops.forEach(function (o) { if (o !== p) o.open = false; });
         /* keep the panel inside the viewport */
-        var pn = p.querySelector('.fpanel'); pn.style.transform = '';
+        var pn = p.querySelector('.fpanel, .qpanel'); pn.style.transform = '';
         var r = pn.getBoundingClientRect(), vw = D.documentElement.clientWidth, dx = 0;
         if (r.right > vw - 12) dx = vw - 12 - r.right;
         if (r.left + dx < 12) dx = 12 - r.left;
@@ -202,7 +204,7 @@
     return isFinite(lo) ? [lo, hi] : [S.yMin, S.yMax];
   }
   function setQuery(v) { F.q = String(v || '').trim(); F.qt = norm(F.q).split(/\s+/).filter(Boolean); }
-  function resetFilters() { F = defaults(); syncControls(); update(); }
+  function resetFilters() { F = defaults(); W.view = null; syncControls(); update(); }
   function syncControls() {
     Object.keys(FACETS).forEach(function (f) {
       $$('[data-opts="' + f + '"] input').forEach(function (i) { i.checked = F[f].indexOf(i.value) >= 0; });
@@ -216,16 +218,19 @@
     $('.fyears').classList.toggle('on', F.y0 !== S.yMin || F.y1 !== S.yMax);
     $('#f-c').checked = F.c; $('#f-m').checked = F.m;
     var q = $('#f-q'); if (q.value.trim() !== F.q) q.value = F.q;
-    var anyPreset = false;
+    var anyPreset = false, wr = wRange();
     $$('#zoom [data-zoom]').forEach(function (b) {
       var z = b.getAttribute('data-zoom'); if (z === 'fit') return;
-      var y0 = z === 'all' ? S.yMin : Math.max(S.yMin, +z), on = F.y0 === y0 && F.y1 === S.yMax;
+      var y0 = z === 'all' ? S.yMin : Math.max(S.yMin, +z), on = wr[0] === y0 && wr[1] === S.yMax;
       anyPreset = anyPreset || on;
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     var fr = fitRange(), fb = $('#zoom [data-zoom="fit"]');
-    if (fb) fb.setAttribute('aria-pressed', !anyPreset && F.y0 === fr[0] && F.y1 === fr[1] ? 'true' : 'false');
-    $('#f-reset').disabled = !filtersActive();
+    if (fb) fb.setAttribute('aria-pressed', !W.view && !anyPreset && F.y0 === fr[0] && F.y1 === fr[1] ? 'true' : 'false');
+    $('#f-reset').setAttribute('aria-disabled', filtersActive() ? 'false' : 'true');
+    var nf = F.fields.length + F.roles.length + F.ev.length + (F.c ? 1 : 0) + (F.m ? 1 : 0) + (F.y0 !== S.yMin || F.y1 !== S.yMax ? 1 : 0), fn = $('.fmore-n');
+    fn.textContent = nf; fn.hidden = !nf;
+    $('.wall-cap-mob').hidden = !W.view;
   }
   function facetCounts() {
     Object.keys(FACETS).forEach(function (f) {
@@ -245,11 +250,11 @@
     pending = requestAnimationFrame(function () {
       pending = 0;
       S.shown = S.all.filter(function (m) { var ok = pass(m); m.on = ok; return ok; });
+      viewKeepsSel();
       var n = S.shown.length, N = S.all.length;
       $('#f-count').innerHTML = '<b>' + n + '</b> of ' + N;
-      $$('[data-live="shown"]').forEach(function (el) { el.textContent = n + ' of ' + N; });
       syncControls(); facetCounts();
-      wLayout(); wBuildList(); wDraw();
+      wLayout(); wBuildList(); wDraw(); wCount();
       if (S.sel >= 0) showEntry(S.sel, S.selSrc, true);
       tRender(); chartsRender();
       writeHash();
@@ -295,6 +300,7 @@
     nf.fields = list('field', S.rows); nf.roles = list('role', ROLES); nf.ev = list('evidence', EVS);
     nf.c = q.get('contested') === '1'; nf.m = q.get('members') === '1';
     var yr = /^(\d{4})-(\d{4})$/.exec(q.get('years') || '');
+    if (yr) W.view = null;
     if (yr) { var a = Math.max(S.yMin, Math.min(+yr[1], +yr[2])), b = Math.min(S.yMax, Math.max(+yr[1], +yr[2])); if (a <= b) { nf.y0 = a; nf.y1 = b; } }
     F = nf; setQuery(q.get('q') || '');
     var e = q.get('entry');
@@ -309,6 +315,7 @@
   function select(i, src, user) {
     if (i < 0) return;
     setSel(i, src, user);
+    if (viewKeepsSel()) { wLayout(); wBuildList(); wCount(); syncControls(); }
     if (user) arStop();
     showEntry(i, src);
     wSyncRoving(); wDraw(); tMarkSel();
@@ -323,7 +330,19 @@
   }
 
   /* ================= the wall ================= */
-  var W = { cv: null, C: null, ctx: null, L: null, T: {}, hover: -1, kbd: false, glideX: null, vis: [], pos: {}, links: {}, ptr: 'mouse' };
+  var W = { cv: null, C: null, ctx: null, L: null, T: {}, hover: -1, kbd: false, glideX: null, vis: [], pos: {}, links: {}, ptr: 'mouse', view: null };
+  /* The wall's time window. It is the year filter, except on a phone's first view, where the wall alone opens on
+     2023 onward (W.view) so the lanes are legible; any zoom, year choice or reset hands it back to the filter. */
+  function wRange() { return W.view ? [W.view.y0, W.view.y1] : [F.y0, F.y1]; }
+  /* an entry chosen outside the phone view widens the wall to the filter's years; true when it did */
+  function viewKeepsSel() {
+    if (!W.view || S.sel < 0 || !S.selUser || S.all[S.sel].y >= W.view.y0) return false;
+    W.view = null; return true;
+  }
+  function wCount() {
+    var N = S.all.length, n = S.shown.filter(function (m) { return m.vx != null; }).length;
+    $$('[data-live="shown"]').forEach(function (el) { el.textContent = n + ' of ' + N; });
+  }
   function readTok() {
     var g = function (n) { return F0.css(n); };
     W.T = { bg1: g('--bg-1'), bg2: g('--bg-2'), bg3: g('--bg-3'), grid: g('--grid'), line: g('--line'), lineUi: g('--line-ui'),
@@ -402,13 +421,13 @@
   function wLayout() {
     if (!W.C) return;
     var C = W.C, w = C.w, h = C.h, mob = w < 640, L = { w: w, h: h, mob: mob };
-    L.top = mob ? 30 : 38; L.axis = 30;
+    L.top = mob ? 30 : 58; L.axis = 30; /* wide screens: a two-line band above the rows, era and now labels, then the caption */
     L.gutter = mob ? 0 : (w < 900 ? 148 : 178);
     L.x0 = L.gutter + (mob ? 12 : 14); L.x1 = w - (mob ? 16 : 26); L.pw = L.x1 - L.x0;
     L.R = Math.max(1, S.rows.length);
     L.rowH = (h - L.top - L.axis) / L.R;
     L.maxLen = mob ? Math.max(10, L.rowH - 24) : Math.min(L.rowH * 0.74, L.rowH - 14);
-    var t0 = F.y0, t1 = F.y1 >= S.nowYear ? S.tNow + 1 / 18 : F.y1 + 1;
+    var yr = wRange(), t0 = yr[0], t1 = yr[1] >= S.nowYear ? S.tNow + 1 / 18 : yr[1] + 1;
     if (t1 <= t0) t1 = t0 + 1;
     L.t0 = t0; L.t1 = t1;
     L.comp = t0 < CUT - 1 && t1 > CUT + 1;
@@ -418,7 +437,7 @@
     S.byRow.forEach(function (list, r) {
       var yb = L.top + (r + 1) * L.rowH - (mob ? 5 : 7), last = -1e9;
       list.forEach(function (m) {
-        if (m.y < F.y0 || m.y > F.y1) { m.vx = null; return; }
+        if (m.y < yr[0] || m.y > yr[1]) { m.vx = null; return; }
         var x = xOf(m.t); if (x - last < 1.6) x = last + 1.6; last = x;
         m.vx = x; m.yb = yb; m.len = L.maxLen * sigLen[m.significance || 1]; m.r = sigR[m.significance || 1];
       });
@@ -582,14 +601,15 @@
       if (pill && t.mid + tw / 2 > pill[0] && t.mid - tw / 2 < pill[1]) return;
       x.fillText(t.label, t.mid, ay); lastR = t.mid + tw / 2;
     });
-    /* top line: compressed era and now */
+    /* top line: compressed era and now (on wide screens the active entry's caption sits on the line below) */
     x.textAlign = 'left';
-    if (L.comp && !L.mob) x.fillText(L.t0 + '–' + (CUT - 1) + ', COMPRESSED', L.x0 - 2, L.top - 16);
+    var lay = L.mob ? L.top - 16 : 17;
+    if (L.comp && !L.mob) x.fillText(L.t0 + '–' + (CUT - 1) + ', COMPRESSED', L.x0 - 2, lay);
     if (S.tNow <= L.t1 && S.tNow >= L.t0) {
       var nx = Math.round(xOf(S.tNow)) + 0.5;
-      x.strokeStyle = T.ink3; x.globalAlpha = 0.8; x.beginPath(); x.moveTo(nx, L.top - 10); x.lineTo(nx, gridBot); x.stroke(); x.globalAlpha = 1;
+      x.strokeStyle = T.ink3; x.globalAlpha = 0.8; x.beginPath(); x.moveTo(nx, lay + 6); x.lineTo(nx, gridBot); x.stroke(); x.globalAlpha = 1;
       x.textAlign = 'right'; x.fillStyle = T.ink2;
-      x.fillText(L.mob ? 'NOW' : 'NOW · ' + F0.fmtDate(S.updated).toUpperCase(), nx + 4, L.top - 16);
+      x.fillText(L.mob ? 'NOW' : 'NOW · ' + F0.fmtDate(S.updated).toUpperCase(), nx + 4, lay);
     }
     /* the reading line of the auto-reader */
     if (W.glideX != null) {
@@ -633,20 +653,23 @@
     var dx = Math.min(L.w - 4 - dw, Math.max(4, X - dw / 2));
     x.fillStyle = T.ink; x.fillRect(dx, h - L.axis + 5, dw, 19);
     x.fillStyle = T.bg2; x.textAlign = 'left'; x.textBaseline = 'alphabetic'; x.fillText(ds, dx + 6, h - L.axis + 18.5);
-    /* the title, printed on the wall beside its mark (wide screens; on phones the entry sits right below) */
+    /* the title, printed in the band above the rows and joined to its mark by a leader, so no mark is
+       covered (wide screens only; on phones the entry sits right below the wall) */
     if (L.mob) return;
-    var fs = 16;
+    var fs = 15, ty = L.top - 15, ly = ty - 5, gapX = 9, lo = 12, hi = L.w - 10;
     x.font = 'italic 400 ' + fs + 'px ' + T.serif;
-    var maxW = Math.min(L.mob ? L.w - 36 : 460, L.pw * 0.66), s = fitText(x, m.title, maxW), tw = x.measureText(s).width;
-    var tx = X + 14, right = true;
-    if (tx + tw > L.w - 8) { tx = X - 14 - tw; right = false; }
-    if (tx < 6) tx = 6;
-    var ty = Math.max(L.top + fs - 4, top - rr - 4);
-    if (ty - fs < L.top - 6) ty = L.top - 6 + fs;
-    x.fillStyle = T.bg2; x.globalAlpha = 0.94; x.fillRect(tx - 6, ty - fs + 1, tw + 12, fs + 7); x.globalAlpha = 1;
-    x.strokeStyle = T.ink; x.globalAlpha = 0.45; x.lineWidth = 1;
-    x.beginPath(); x.moveTo(right ? X + rr * 0.7 : X - rr * 0.7, top - rr * 0.7); x.lineTo(right ? tx - 6 : tx + tw + 6, ty - fs / 2 + 3); x.stroke(); x.globalAlpha = 1;
-    x.fillStyle = T.ink; x.fillText(s, tx, ty + 2);
+    var full = x.measureText(m.title).width, roomR = hi - (X + gapX), roomL = (X - gapX) - lo;
+    var right = full <= roomR || (full > roomL && roomR >= roomL);
+    var s = fitText(x, m.title, Math.min(620, right ? roomR : roomL)), tw = x.measureText(s).width;
+    var tx = right ? X + gapX : X - gapX - tw;
+    /* the leader: from the caption down to the top of the mark's focus ring */
+    x.strokeStyle = T.ink; x.globalAlpha = 0.55; x.lineWidth = 1;
+    var lx = Math.round(X) + 0.5;
+    x.beginPath(); x.moveTo(right ? tx - 3 : tx + tw + 3, ly + 0.5); x.lineTo(lx, ly + 0.5); x.lineTo(lx, top - rr); x.stroke(); x.globalAlpha = 1;
+    /* a thin halo in the stage colour lets the now line pass behind the words */
+    x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+    x.lineJoin = 'round'; x.lineWidth = 5; x.strokeStyle = T.bg2; x.strokeText(s, tx, ty);
+    x.fillStyle = T.ink; x.fillText(s, tx, ty);
   }
 
   /* ================= the Encyclopedia entry ================= */
@@ -681,7 +704,7 @@
     h += '<dl class="e-dl"><dt>AI systems</dt><dd>' + li(m.ai_systems) + '</dd><dt>People and organisations</dt><dd>' + li(m.organizations) + '</dd></dl>';
     if (m.contested) h += '<div class="e-note x"><p class="e-h"><span aria-hidden="true">×</span> Contested</p><p>' + esc(m.contested_note) + '</p></div>';
     else if (m.contested_note) h += '<div class="e-note"><p class="e-h">Caveats</p><p>' + esc(m.contested_note) + '</p></div>';
-    if (m.foundation0) h += '<div class="e-note mem"><p class="e-h"><i class="hl" aria-hidden="true"></i>Who did what</p><p>' + esc(CREDIT[m.id] || CREDIT_DEFAULT) + '</p></div>';
+    if (m.foundation0) h += '<div class="e-note mem"><p class="e-h"><i class="hl" aria-hidden="true"></i>Who did what</p><p>' + esc(m.foundation0_note || CREDIT[m.id] || CREDIT_DEFAULT) + '</p></div>';
     h += '<p class="e-h">Sources</p><ol class="e-srcs">' + (m.sources || []).map(function (s) {
       return '<li><a href="' + esc(s.url) + '" rel="noopener">' + esc(s.label) + '</a><span class="dom">' + esc(host(s.url)) + '</span></li>';
     }).join('') + '</ol>';
@@ -693,9 +716,18 @@
     if (!m.on) h += '<p class="e-out">This entry is outside your current filters.</p>';
     el.innerHTML = h;
     if (!same) el.scrollTop = 0;
+    entryMore();
+  }
+  /* the entry scrolls inside a fixed-height panel beside the wall: fade its foot and show a hint while more is below */
+  function entryMore() {
+    var el = $('#entry'), more = el.scrollHeight - el.scrollTop - el.clientHeight > 8;
+    if (more !== el.classList.contains('has-more')) el.classList.toggle('has-more', more);
   }
   function entryInit() {
     var el = $('#entry');
+    el.addEventListener('scroll', entryMore, { passive: true });
+    window.addEventListener('resize', entryMore);
+    $('#e-more').addEventListener('click', function () { el.scrollBy({ top: Math.round(el.clientHeight * 0.7), behavior: F0.motion() ? 'smooth' : 'auto' }); });
     el.addEventListener('click', function (e) {
       var c = e.target.closest('[data-copy]'), st = e.target.closest('[data-step]');
       if (c) {
@@ -788,7 +820,7 @@
         (m.foundation0 ? '<i class="hl" aria-hidden="true" title="Members’ work"></i><span class="sr-only">(members’ work)</span>' : '');
       return '<tr data-i="' + m.i + '"' + (m.i === S.sel ? ' class="sel"' : '') + '>' +
         '<td class="c-date"><time datetime="' + esc(m.date) + '">' + esc(F0.fmtDate(m.date)) + '</time></td>' +
-        '<td class="c-title"><a href="#' + encodeURIComponent(m.id) + '" data-pick="' + esc(m.id) + '">' + esc(m.title) + '</a>' + (flags ? '<span class="t-flags">' + flags + '</span>' : '') +
+        '<td class="c-title"><a href="./#' + encodeURIComponent(m.id) + '" data-pick="' + esc(m.id) + '">' + esc(m.title) + '</a>' + (flags ? '<span class="t-flags">' + flags + '</span>' : '') +
         '<span class="t-sub">' + esc(m.subfield || '') + '</span>' +
         '<span class="m-meta"><span>' + esc(FIELD_SHORT[m.domain] || m.domain) + '</span>' + role + ev + '</span></td>' +
         '<td class="c-field">' + esc(FIELD_SHORT[m.domain] || m.domain) + '</td>' +
@@ -844,13 +876,9 @@
     for (var k in attrs) { if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
     if (parent) parent.appendChild(e); return e;
   }
+  /* the shared periods (F0.rolePeriods), so Home and the Ledger group the years the same way */
   function periods(list) {
-    var P = [{ label: S.yMin + '–' + String(CUT - 1).slice(2), a: -Infinity, b: CUT - 1 }, { label: '2016–19', a: 2016, b: 2019 },
-      { label: '2020–21', a: 2020, b: 2021 }, { label: '2022–23', a: 2022, b: 2023 }];
-    for (var y = 2024; y <= S.yMax; y++) P.push({ label: String(y), a: y, b: y, now: y === S.nowYear });
-    P.forEach(function (p) { p.items = list.filter(function (m) { return m.y >= p.a && m.y <= p.b; }); p.n = p.items.length; });
-    P[0].label = S.yMin + '–' + (CUT - 1);
-    return P;
+    return F0.rolePeriods(list, { yMin: S.yMin, yMax: S.yMax, nowYear: S.nowYear });
   }
   var ROLE_FILL = { instrument: 'var(--mark-bio)', collaborator: 'var(--mark-mid)', originator: 'var(--mark-dig)' };
   var EVK = [5, 4, 3, 2, 1], EV_FILL = { 5: 'var(--ev-5)', 4: 'var(--ev-4)', 3: 'var(--ev-3)', 2: 'var(--ev-2)', 1: 'var(--ev-1)' };
@@ -935,15 +963,10 @@
       rowAria: function (p) { return p.n ? rowsLab(p) + ': instrument ' + pct(p.c.instrument, p.n) + '%, collaborator ' + pct(p.c.collaborator, p.n) + '%, originator ' + pct(p.c.originator, p.n) + '%, of ' + p.n + ' milestones' : rowsLab(p) + ': no milestones in this view'; },
       tip: function (p, k) { return '<div class="tip-k">' + esc(rowsLab(p)) + ' · ' + p.n + (p.n === 1 ? ' milestone' : ' milestones') + '</div><div class="tip-rows">' + (p.n ? tipRows(p, ROLES.slice().reverse(), ROLE_FILL, ROLE_NAME, k) : '<div class="tip-row">No milestones in this view</div>') + '</div>'; }
     });
-    var ok = P.filter(function (p) { return p.n >= 10; });
-    if (ok.length >= 2) {
-      var a = ok[0], b = ok[ok.length - 1], i0 = pct(a.c.instrument, a.n), o0 = pct(a.c.originator, a.n), i1 = pct(b.c.instrument, b.n), o1 = pct(b.c.originator, b.n);
-      var bl = b.now ? b.label + ' so far' : b.label;
-      var t = (o1 > o0 && i1 < i0) ? 'AI is moving from instrument to originator.' : (o1 > o0 ? 'AI produces more of the results itself.' : (i1 < i0 ? 'AI is less often only a tool.' : 'What AI did, period by period.'));
-      setInsight('role', t, 'In ' + a.label + ', AI was only the instrument in ' + i0 + '% of the milestones recorded' + viewNote() + ', and produced the result itself in ' + o0 + '%. In ' + bl + ', those shares are ' + i1 + '% and ' + o1 + '%.');
-    } else setInsight('role', 'What AI did, period by period.', 'Too few milestones' + viewNote() + ' to compare periods; the numbers are in the table below the chart.');
-    var foot = $('#ch-role-foot');
-    foot.innerHTML = 'Source: <a href="../data/ledger.json">data/ledger.json</a>, ' + S.shown.length + ' of ' + S.all.length + ' milestones' + (filtersActive() ? ' (filtered)' : '') + '. * fewer than 10 milestones: drawn faint.';
+    var ins = F0.roleInsight(P, { note: viewNote() });   /* one headline and sentence, shared with Home */
+    setInsight('role', ins.h, ins.p);
+    var foot = $('#ch-role-foot'), faint = P.some(function (p) { return p.n > 0 && p.n < 10; });
+    foot.innerHTML = 'Source: <a href="../data/ledger.json">data/ledger.json</a>, ' + S.shown.length + ' of ' + S.all.length + ' milestones' + (filtersActive() ? ' (filtered)' : '') + '.' + (faint ? ' * fewer than 10 milestones: drawn faint.' : '');
     $('#ch-role-table').innerHTML = tableHTML('Milestones by AI role and period' + viewNote(), ['Period', 'Milestones', 'Instrument', 'Collaborator', 'Originator'],
       P.map(function (p) { return [rowsLab(p), String(p.n)].concat(ROLES.map(function (k) { return p.c[k] + ' (' + pct(p.c[k], p.n) + '%)'; })); }));
   }
@@ -963,13 +986,15 @@
     });
     var ok = groups.filter(function (g) { return g.n >= 10; });
     if (evBy === 'period' && ok.length >= 2) {
-      var last = ok[ok.length - 1], prior = ok.slice(0, -1), pn = 0, p3 = 0;
-      prior.forEach(function (g) { pn += g.n; p3 += g.c[3] + g.c[4]; });
-      var v5 = pct(last.c[5], last.n), lo = pct(low(last), last.n), mid = pct(p3, pn), ll = last.now ? last.label + ' so far' : last.label;
+      var last = ok[ok.length - 1], prior = ok.slice(0, -1), pn = 0, p3 = 0, p5 = 0, plo = 0;
+      prior.forEach(function (g) { pn += g.n; p3 += g.c[3] + g.c[4]; p5 += g.c[5]; plo += low(g); });
+      var v5 = pct(last.c[5], last.n), lo = pct(low(last), last.n), mid = pct(p3, pn), mid1 = pct(last.c[3] + last.c[4], last.n);
+      var v5p = pct(p5, pn), lop = pct(plo, pn), ll = last.now ? last.label + ' so far' : last.label;
       var from = isFinite(prior[0].a) ? prior[0].a : S.yMin, to = prior[prior.length - 1].b;
       var span = from === to ? String(from) : from + '–' + to;
-      var t = v5 >= 20 && lo >= 20 ? 'The newest results are either machine-checked or not yet checked.' : 'How sure the record is, period by period.';
-      setInsight('ev', t, 'In ' + ll + ', ' + v5 + '% of milestones' + viewNote() + ' were formally verified and ' + lo + '% were still only preprints or claims. Across ' + span + ', ' + mid + '% had been peer reviewed, deployed or replicated.');
+      /* both ends grew at the expense of the middle: say so; otherwise a plain title */
+      var t = v5 > v5p && lo > lop ? 'In ' + ll + ', more results are machine-checked, and more are not yet checked at all.' : 'How sure the record is, period by period.';
+      setInsight('ev', t, 'In ' + ll + ', ' + v5 + '% of milestones' + viewNote() + ' were formally verified (' + v5p + '% across ' + span + ') and ' + lo + '% were still only preprints or claims (' + lop + '% before). The share peer reviewed, deployed or replicated went from ' + mid + '% to ' + mid1 + '%.');
     } else if (evBy === 'field' && ok.length >= 2) {
       var tot5 = 0; groups.forEach(function (g) { tot5 += g.c[5]; });
       var top5 = groups.slice().sort(function (a, b) { return b.c[5] - a.c[5]; })[0];
@@ -978,8 +1003,9 @@
       else setInsight('ev', 'How sure the record is, field by field.', 'Fields sorted by the share of milestones that are peer reviewed, deployed, replicated or formally verified' + viewNote() + '.');
     } else setInsight('ev', 'How sure the record is.', 'Too few milestones' + viewNote() + ' to compare; the numbers are in the table below the chart.');
     var cont = S.shown.filter(function (m) { return m.contested; }).length;
+    var faintEv = groups.some(function (g) { return g.n > 0 && g.n < 10; });
     $('#ch-ev-foot').innerHTML = 'Source: <a href="../data/ledger.json">data/ledger.json</a>, ' + S.shown.length + ' of ' + S.all.length + ' milestones' + (filtersActive() ? ' (filtered)' : '') +
-      '. Unreviewed = preprint or claimed. ' + cont + ' contested ' + (cont === 1 ? 'milestone is' : 'milestones are') + ' counted at their rung.' + (evBy === 'period' ? ' * fewer than 10: drawn faint.' : '');
+      '. Unreviewed = preprint or claimed. ' + cont + ' contested ' + (cont === 1 ? 'milestone is' : 'milestones are') + ' counted at their rung.' + (faintEv ? ' * fewer than 10: drawn faint.' : '');
     $('#ch-ev-table').innerHTML = tableHTML('Milestones by evidence rung, ' + (evBy === 'field' ? 'per field' : 'per period') + viewNote(), [evBy === 'field' ? 'Field' : 'Period', 'Milestones'].concat(EVK.map(function (k) { return k + ' ' + EV_RN[k]; })).concat(['Contested']),
       groups.map(function (g) { return [g.full, String(g.n)].concat(EVK.map(function (k) { return g.c[k] + ' (' + pct(g.c[k], g.n) + '%)'; })).concat([String(g.x)]); }));
   }
@@ -1002,8 +1028,32 @@
     }
   }
 
+  /* ================= how to read it: a closable panel, open on a first visit ================= */
+  var HOWTO_KEY = 'f0-ledger-howto';
+  function inHowto(id) { var d = $('#reading'), t = id && D.getElementById(id); return d && t && d.contains(t) ? t : null; }
+  function howtoInit() {
+    var d = $('#reading'); if (!d) return;
+    var st = null; try { st = localStorage.getItem(HOWTO_KEY); } catch (e) { /* storage blocked: stay open */ }
+    var h = ''; try { h = decodeURIComponent(location.hash.slice(1)); } catch (e) { h = ''; }
+    if (st === 'closed' && !inHowto(h)) d.open = false;
+    d.addEventListener('toggle', function () { try { localStorage.setItem(HOWTO_KEY, d.open ? 'open' : 'closed'); } catch (e) { /* ignore */ } });
+    /* links to a card ("?" notes, filter panels, the jump row) open the panel first */
+    D.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#read"]'); if (!a) return;
+      var t = inHowto(a.getAttribute('href').slice(1)); if (!t) return;
+      e.preventDefault();
+      var pop = a.closest('details.fpop, details.qpop'); if (pop) pop.open = false;
+      d.open = true;
+      t.scrollIntoView({ behavior: F0.motion() ? 'smooth' : 'auto', block: 'start' });
+      if (t === d) { d.querySelector('summary').focus({ preventScroll: true }); return; }
+      t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true });
+      t.classList.add('flash'); setTimeout(function () { t.classList.remove('flash'); }, 1800);
+    });
+  }
+
   /* ================= boot ================= */
   function start() {
+    howtoInit();
     F0.json(DATA).then(function (L) {
       prep(L); F = defaults(); stats();
       buildFacets(); wInit(); entryInit(); tInit(); csvInit(); chartsInit(); arInit();
@@ -1012,6 +1062,9 @@
         var best = S.all.reduce(function (a, m) { return (m.significance > a.significance || (m.significance === a.significance && m.t > a.t)) ? m : a; }, S.all[0]);
         setSel(best.i, 'default', false);
       }
+      /* phones open the wall on 2023 onward, unless a link chose the years or an older entry */
+      var y23 = Math.max(S.yMin, 2023);
+      if (W.C && W.C.w > 0 && W.C.w < 640 && F.y0 === S.yMin && F.y1 === S.yMax && S.all[S.sel].y >= y23) W.view = { y0: y23, y1: S.yMax };
       syncControls();
       S.shown = S.all.filter(function (m) { var ok = pass(m); m.on = ok; return ok; });
       update();
@@ -1024,6 +1077,7 @@
       });
       window.addEventListener('hashchange', function () {
         var raw = location.hash.slice(1), dec; try { dec = decodeURIComponent(raw); } catch (er) { dec = raw; }
+        if (inHowto(dec)) $('#reading').open = true;
         if (!raw || (D.getElementById(dec) && !S.byId[dec])) return; // a section anchor
         if ('#' + raw === lastHash) return;
         var r = readHash(location.hash);

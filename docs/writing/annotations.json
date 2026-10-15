@@ -21,7 +21,7 @@
    "short": "Math, faster",
    "type": "Day-one review",
    "status": "Written on day one; predates OpenAI's 7 Oct withdrawals",
-   "why": "This is the kind of advance the Ledger exists to record: a machine wrote the proofs, and only checking by people and proof-checking software can say which are true. It also gave this site its words for how sure a claim is: claimed, machine-checked, reviewed, withdrawn.",
+   "why": "This is the kind of advance the Ledger exists to record: a machine wrote the proofs, and only checking by people and proof-checking software can say which are true. It also shaped how this site labels a claim, from 'claimed' up to 'formally verified', and why withdrawals stay on the record.",
    "paths": [["frontier", "mm"], ["frontier", "ledger"], ["frontier", "research"]]
   },
   "https://digital.askaconsult.com/blog/crypto-industry-lowdown.html": {

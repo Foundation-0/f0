@@ -82,8 +82,17 @@ html[data-motion="on"] .ri-stats .dot.live { animation: pulse 2.8s var(--ease-io
 /* ---------- 03 every repository ---------- */
 .ri-repo-ctrl { margin-top: var(--s-6); }
 .ri-repo-count { font: 500 12.5px/1.3 var(--f-mono); color: var(--ink); }
-.ri-mcards { margin-top: var(--s-5); display: block; columns: 3 330px; column-gap: clamp(16px, 2vw, 24px); }
-.ri-mcards .mcard { break-inside: avoid; margin-bottom: clamp(16px, 2vw, 24px); }
+/* cards in rows, read left to right; each worklist shows four entries, the rest behind "+N more" */
+.ri-mcards { margin-top: var(--s-5); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: clamp(16px, 2vw, 24px); align-items: start; }
+html.js .worklist li.ri-clip { display: none; }
+.ri-more { display: inline-flex; align-items: center; min-height: 36px; margin-top: 10px; padding: 0 12px; border: 1px solid var(--line-ui); border-radius: var(--r-btn); background: transparent; color: var(--ink); cursor: pointer; font: 500 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; }
+.ri-more:hover { border-color: var(--ink-3); }
+.ri-more:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+html:not(.js) .ri-more { display: none; }
+@media (max-width: 760px) { .ri-more { min-height: 44px; } }
+.ri-repo-ctrl .seg button { white-space: nowrap; }
+.ri-repo-ctrl .seg .s { display: none; }
+@media (max-width: 480px) { .ri-repo-ctrl .seg .l { display: none; } .ri-repo-ctrl .seg .s { display: inline; } }
 .ri-mp { margin-top: 12px; font: 500 11px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
 .ri-mp a { display: block; margin-top: 4px; padding: 2px 0; font: 500 14px/1.35 var(--f-sans); letter-spacing: 0; text-transform: none; }
 .ri-bo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }

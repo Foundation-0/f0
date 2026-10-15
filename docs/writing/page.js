@@ -17,6 +17,92 @@
   function shortDate(s) { var p = s.split('-'); return (+p[2]) + ' ' + MON[+p[1] - 1]; }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : (many || one + 's')); }
 
+  /* ---------- 0. shape and shadow (Mahler, family 087): computed here, no data file ---------- */
+  function gammaFn(z) { /* Lanczos, g = 7 */
+    if (z < 0.5) return Math.PI / (Math.sin(Math.PI * z) * gammaFn(1 - z));
+    z -= 1;
+    var c = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+    var x = c[0]; for (var i = 1; i < 9; i++) x += c[i] / (z + i);
+    var t = z + 7.5; return Math.sqrt(2 * Math.PI) * Math.pow(t, z + 0.5) * Math.exp(-t) * x;
+  }
+  function pArea(p) { return p === Infinity ? 4 : 4 * Math.pow(gammaFn(1 + 1 / p), 2) / gammaFn(1 + 2 / p); }
+  function dual(p) { return p === 1 ? Infinity : p === Infinity ? 1 : p / (p - 1); }
+  function pName(p) { return p === Infinity ? '∞' : (Math.round(p * 100) / 100).toString(); }
+  function shapeAndShadow() {
+    var host = $('#mh-stage'), read = $('#mh-read'), scale = $('#mh-scale'), range = $('#mh-p'), out = $('#mh-out'), triBtn = $('#mh-tri');
+    if (!host) return;
+    var NS = 'http://www.w3.org/2000/svg', p = 1, tri = false, svg = null, lw = 0;
+    function mk(tag, a, parent) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; }
+    function tOf(p) { return p === Infinity ? 100 : Math.min(99.5, 100 * Math.log2(p) / 6.5); }
+    function pOf(t) { return t >= 100 ? Infinity : Math.pow(2, 6.5 * t / 100); }
+    function boundary(p) {
+      var pts = [];
+      if (p === Infinity) return [[1, 1], [-1, 1], [-1, -1], [1, -1]];
+      for (var i = 0; i < 240; i++) { var th = i / 240 * Math.PI * 2, c = Math.cos(th), s = Math.sin(th); pts.push([Math.sign(c) * Math.pow(Math.abs(c), 2 / p), Math.sign(s) * Math.pow(Math.abs(s), 2 / p)]); }
+      return pts;
+    }
+    function triangle(r, up) { var pts = []; for (var k = 0; k < 3; k++) { var a = (up ? 90 : -90) + k * 120; pts.push([r * Math.cos(a * Math.PI / 180), r * Math.sin(a * Math.PI / 180)]); } return pts; }
+    function state() {
+      if (tri) { var A = 3 * Math.sqrt(3) / 2; return { K: triangle(Math.SQRT2, true), P: triangle(Math.SQRT2, false), a: A, b: A, label: 'an equilateral triangle, centred at its balance point' }; }
+      var q = dual(p);
+      return { K: boundary(p), P: boundary(q), a: pArea(p), b: pArea(q), label: 'p = ' + pName(p) + ', its polar is the q-shape with q = ' + pName(q) };
+    }
+    function draw() {
+      var W = Math.round(host.getBoundingClientRect().width); if (!W) return; lw = W;
+      var S = state(), size = Math.min(W, 420), R = 1.55, c = size / 2, k = (size / 2 - 10) / R;
+      if (svg) svg.remove();
+      svg = mk('svg', { viewBox: '0 0 ' + size + ' ' + size, width: size, height: size, role: 'img', 'aria-label': 'The shape ' + S.label + ' (gold) and its polar (cyan). Areas ' + S.a.toFixed(3) + ' and ' + S.b.toFixed(3) + '; product ' + (S.a * S.b).toFixed(3) + '.' }, host);
+      [-1, 0, 1].forEach(function (v) {
+        mk('line', { x1: c + v * k, x2: c + v * k, y1: 6, y2: size - 6, style: 'stroke:var(--grid)', 'stroke-width': v ? 1 : 1.2 }, svg);
+        mk('line', { y1: c + v * k, y2: c + v * k, x1: 6, x2: size - 6, style: 'stroke:var(--grid)', 'stroke-width': v ? 1 : 1.2 }, svg);
+      });
+      function poly(pts, col, op) {
+        var d = pts.map(function (q, i) { return (i ? 'L' : 'M') + (c + q[0] * k).toFixed(1) + ' ' + (c - q[1] * k).toFixed(1); }).join('') + 'Z';
+        mk('path', { d: d, style: 'fill:' + col + ';fill-opacity:' + op + ';stroke:' + col, 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+      }
+      poly(S.P, 'var(--mark-dig)', 0.12); poly(S.K, 'var(--mark-bio)', 0.2);
+      var t1 = mk('text', { x: c + 1 * k + 4, y: c - 6, 'font-size': 11, style: 'fill:var(--ink-3);font-family:var(--f-mono)' }, svg); t1.textContent = '1';
+      var t2 = mk('text', { x: c + 4, y: c - 1 * k - 4, 'font-size': 11, style: 'fill:var(--ink-3);font-family:var(--f-mono)' }, svg); t2.textContent = '1';
+    }
+    function drawScale() {
+      var W = Math.max(220, Math.round(scale.getBoundingClientRect().width)), H = 74, x0 = 10, x1 = W - 10, lo = 6.5, hi = 10.1;
+      var X = function (v) { return x0 + (v - lo) / (hi - lo) * (x1 - x0); };
+      var S = state(), prod = S.a * S.b;
+      scale.innerHTML = '';
+      var s = mk('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, 'aria-hidden': 'true' }, scale);
+      mk('line', { x1: x0, x2: x1, y1: 30, y2: 30, style: 'stroke:var(--line-ui)', 'stroke-width': 1 }, s);
+      [[27 / 4, '6.75', 'any shape'], [8, '8', 'symmetric'], [Math.PI * Math.PI, 'π²', 'circle']].forEach(function (m, i) {
+        mk('line', { x1: X(m[0]), x2: X(m[0]), y1: 22, y2: 38, style: 'stroke:var(--ink-3)', 'stroke-width': 1 }, s);
+        var a = mk('text', { x: X(m[0]), y: 52, 'text-anchor': i === 2 ? 'end' : i === 0 ? 'start' : 'middle', 'font-size': 11, style: 'fill:var(--ink-2);font-family:var(--f-mono)' }, s); a.textContent = m[1];
+        var b = mk('text', { x: X(m[0]), y: 66, 'text-anchor': i === 2 ? 'end' : i === 0 ? 'start' : 'middle', 'font-size': 11, style: 'fill:var(--ink-3);font-family:var(--f-mono)' }, s); b.textContent = m[2];
+      });
+      mk('circle', { cx: X(prod), cy: 30, r: 6, style: 'fill:var(--ink);stroke:var(--bg-1)', 'stroke-width': 2 }, s);
+      var lab = mk('text', { x: Math.max(x0 + 40, Math.min(x1 - 40, X(prod))), y: 14, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, style: 'fill:var(--ink);font-family:var(--f-mono)' }, s); lab.textContent = prod.toFixed(3);
+    }
+    function readout() {
+      var S = state(), prod = S.a * S.b, note;
+      if (tri) note = 'Exactly 27/4: the floor for any shape, reached by the triangle. It sits below 8 because a triangle is not symmetric.';
+      else if (Math.abs(prod - 8) < 0.0005) note = 'Exactly 8: as small as a symmetric shape can go (' + (p === 1 ? 'a diamond and a square' : 'a square and a diamond') + ').';
+      else if (Math.abs(p - 2) < 0.001) note = 'π² = 9.870: the circle, its own polar, gives the largest product of all.';
+      else note = (prod - 8).toFixed(3) + ' above the floor of 8. Rounder shapes give more.';
+      read.innerHTML = '<dl class="mh-dl"><div><dt><i class="k bio"></i>Area <span class="mh-v">K</span></dt><dd>' + S.a.toFixed(3) + '</dd></div><div><dt><i class="k dig"></i>Area <span class="mh-v">K°</span></dt><dd>' + S.b.toFixed(3) + '</dd></div><div class="prod"><dt>Product</dt><dd>' + prod.toFixed(3) + '</dd></div></dl><p class="mh-note">' + esc(note) + '</p>';
+      out.textContent = tri ? '–' : pName(p);
+      range.setAttribute('aria-valuetext', tri ? 'not used: triangle shown' : 'p = ' + pName(p) + ', product ' + prod.toFixed(3));
+      $$('#mh-stops button').forEach(function (b) { var v = b.getAttribute('data-p') === 'Infinity' ? Infinity : +b.getAttribute('data-p'); b.setAttribute('aria-pressed', !tri && Math.abs(tOf(v) - tOf(p)) < 0.01 ? 'true' : 'false'); });
+      triBtn.setAttribute('aria-pressed', tri ? 'true' : 'false');
+    }
+    function update() { draw(); drawScale(); readout(); }
+    range.addEventListener('input', function () { tri = false; p = pOf(+range.value); if (Math.abs(p - Math.round(p)) < 0.03) p = Math.round(p); update(); });
+    $$('#mh-stops button').forEach(function (b) { b.addEventListener('click', function () { tri = false; var v = b.getAttribute('data-p'); p = v === 'Infinity' ? Infinity : +v; range.value = tOf(p); update(); }); });
+    triBtn.addEventListener('click', function () { tri = !tri; update(); });
+    if ('ResizeObserver' in window) new ResizeObserver(function () { var w = Math.round(host.getBoundingClientRect().width); if (w && w !== lw) { draw(); drawScale(); } }).observe(host);
+    var tb = $('#mh-table tbody');
+    if (tb) tb.innerHTML = [1, 1.5, 2, 3, 4, 8, Infinity].map(function (v) { var a = pArea(v), b = pArea(dual(v)); return '<tr><th scope="row">p = ' + pName(v) + (v === 1 ? ' (diamond)' : v === 2 ? ' (circle)' : v === Infinity ? ' (square)' : '') + '</th><td class="n">' + a.toFixed(4) + '</td><td class="n">' + b.toFixed(4) + '</td><td class="n">' + (a * b).toFixed(4) + '</td></tr>'; }).join('') +
+      '<tr><th scope="row">Equilateral triangle, at its centre</th><td class="n">' + (3 * Math.sqrt(3) / 2).toFixed(4) + '</td><td class="n">' + (3 * Math.sqrt(3) / 2).toFixed(4) + '</td><td class="n">6.7500</td></tr>';
+    update();
+  }
+  shapeAndShadow();
+
   Promise.all([F0.json(F0.root + 'data/writing.json'), F0.json('annotations.json')])
     .then(function (r) { init(r[0], r[1]); })
     .catch(function (e) { console.error(e); });
@@ -303,6 +389,20 @@
     layout();
     show(pinned);
 
+    /* narrow screens: the map becomes a list, theme -> essays -> pages (CSS swaps it in below 600px) */
+    var narrow = document.createElement('div');
+    narrow.className = 'tmap-list'; narrow.id = 'tmap-list';
+    narrow.innerHTML = '<ol class="tl-themes">' + themes.map(function (k) {
+      var es = posts.filter(function (p) { return p.themes.indexOf(k) >= 0; });
+      var R = reach('t:' + k), ps = pages.filter(function (g) { return R.on['p:' + g.key]; });
+      return '<li class="tl-theme"><p class="tl-h"><span class="tl-t">' + esc(tLabel(k)) + '</span><span class="tl-n">' + plural(es.length, 'essay') + '</span></p>' +
+        '<p class="tl-d">' + esc(W.themes[k] || '') + '.</p>' +
+        '<ul class="tl-es">' + es.map(function (p) { return '<li><a href="' + esc(p.url) + '">' + esc(p._a.short || p.title) + '</a><span>' + esc(shortDate(p.date)) + '</span></li>'; }).join('') + '</ul>' +
+        '<p class="tl-k">Becomes work on</p>' + (ps.length ? '<ul class="tl-ps">' + ps.map(function (g) { return '<li>' + link(g.path, g.label) + '</li>'; }).join('') + '</ul>' : '<p class="tl-none">No page on this site: dated analysis, kept for the record.</p>') +
+        '</li>';
+    }).join('') + '</ol>';
+    host.parentNode.parentNode.insertBefore(narrow, host.parentNode.nextSibling);
+
     /* list twin */
     var twin = $('#map .twin .table-wrap');
     if (twin) {
@@ -328,7 +428,8 @@
     /* axis: one tick per year */
     var ticks = '';
     for (var y = Y0; y <= Y1; y += 1) ticks += '<span class="pv-tick' + (y % 2 ? ' odd' : '') + '" style="left:' + pct(y) + '%"><i>' + y + '</i></span>';
-    axis.innerHTML = '<span class="pv-al"></span><span class="pv-at">' + ticks + '<span class="pv-now-l" style="left:' + pct(today) + '%">Today &middot; ' + esc(F0.fmtDate(todayS)) + '</span></span>';
+    /* today's label: two short lines beside the line, so it never runs across the year columns */
+    axis.innerHTML = '<span class="pv-al"></span><span class="pv-at">' + ticks + '<span class="pv-now-l" style="left:' + pct(today) + '%"><b>Today</b>' + esc(F0.fmtDate(todayS)) + '</span></span>';
 
     function left(it) {
       var m = Math.round((dec(it.target) - today) * 12);
@@ -340,7 +441,7 @@
       var a = pct(start), b = pct(dec(it.target)), t = pct(today);
       return '<li><button type="button" class="pv-row' + (it.thesis ? ' thesis' : '') + '" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' +
         '<span class="pv-l"><span class="pv-n">' + it.n + '</span><span class="pv-c">' + esc(it.claim) + '</span>' + (it.thesis ? '<span class="pv-th">Thesis</span>' : '') + '</span>' +
-        '<span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:' + a + '%;width:' + (b - a) + '%"></span><span class="pv-done" style="left:' + a + '%;width:' + Math.max(0, Math.min(b, t) - a) + '%"></span><span class="pv-now" style="left:' + t + '%"></span><span class="pv-ring" style="left:' + b + '%"></span><span class="pv-date" style="left:' + b + '%">' + esc(it.label) + '</span></span>' +
+        '<span class="pv-track" aria-hidden="true"><span class="pv-seg" style="left:' + a + '%;width:' + (b - a) + '%"></span><span class="pv-done" style="left:' + a + '%;width:' + Math.max(0, Math.min(b, t) - a) + '%"></span><span class="pv-now" style="left:' + t + '%"></span><span class="pv-ring" style="left:' + b + '%"></span><span class="pv-date' + (b > 88 ? ' end' : '') + '" style="left:' + b + '%">' + esc(it.label) + '</span></span>' +
         '<span class="sr-only">Scored ' + esc(it.label) + ', ' + left(it) + '. Status: pending.</span>' +
         '</button></li>';
     }).join('');

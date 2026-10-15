@@ -1,9 +1,11 @@
-/* Exoplanets page: five figures, vanilla JS, no dependencies.
+/* Exoplanets page: seven figures, vanilla JS, no dependencies.
+   0 make a transit (canvas; a limb-darkened star, the light curve from the exact covered light)
    1 sky map of the counted candidates (canvas; Hammer projection, or period against radius)
    2 find the heartbeat (canvas; real TESS light curve of TIC 4206066, live box search)
    3 why stacking works (canvas + SVG; signal-to-noise against transits stacked)
    4 turn the sky upside down (canvas; L 98-59 flipped, a false alarm, measured rates)
    5 funnel tooltips
+   6 the next transits (canvas + list; from transits.json, computed in the browser so they never go stale)
    Data: candidates.json and lightcurves.json in this folder, derived from github.com/eumemic/exoplanets
    (results and data CC BY 4.0, eumemic): candidates.json is rebuilt by scripts/exoplanets_data.py and names
    its commit and date (58c6318, 14 Oct 2026); lightcurves.json is from da72261 (its source is unchanged since).
@@ -57,6 +59,158 @@
   var TIER_TXT = ['more than one signal on the star', 'one signal, clean field', 'a neighbour within 15″, cleared statistically', 'weaker signal picked by a classifier'];
   function tipAt(el, html) { var r = el.getBoundingClientRect(); F0.tip.show(html, r.left + r.width / 2, r.top + r.height / 2); }
 
+  /* =========================================================================
+     0. Make a transit: a limb-darkened star, a planet disc, and the light curve from the exact covered light
+     ========================================================================= */
+  (function makeTransit() {
+    var cv = $('mt-canvas'); if (!cv) return;
+    var C = F0.canvas(cv), U1 = .5, U2 = .2, RE = 0.0091577; // Earth's radius in Sun radii
+    var F0T = Math.PI * (1 - U1 / 3 - U2 / 6); // the whole star's light
+    function I(r) { var mu = Math.sqrt(Math.max(0, 1 - r * r)); return 1 - U1 * (1 - mu) - U2 * (1 - mu) * (1 - mu); }
+    /* the light hidden by a disc of radius k whose centre is d from the star's centre (star radius 1):
+       the sum over rings of the star of (ring brightness) x (length of the ring inside the disc) */
+    function blocked(k, d) {
+      var r0 = Math.max(0, d - k), r1 = Math.min(1, d + k); if (r1 <= r0) return 0;
+      var n = 160, h = (r1 - r0) / n, sum = 0;
+      for (var i = 0; i <= n; i++) {
+        var r = r0 + i * h, L;
+        if (r <= 0) L = 0;
+        else if (r <= k - d) L = 2 * Math.PI * r; // the whole ring is covered
+        else { var c = (r * r + d * d - k * k) / (2 * r * Math.max(d, 1e-12)); L = c >= 1 ? 0 : c <= -1 ? 2 * Math.PI * r : 2 * r * Math.acos(c); }
+        sum += (i === 0 || i === n ? 1 : i % 2 ? 4 : 2) * I(Math.min(r, 1)) * L;
+      }
+      return sum * h / 3 / F0T;
+    }
+    var SUN = { name: 'sun', Rs: 1, P: 365.25, aR: 215.03, label: 'A Sun-like star · orbit like Earth’s' };
+    var TIC = { name: 'tic', P: 3.18277, label: 'TIC 4206066 · 3.18-day orbit' };
+    var st = { rp: 3.88, b: .3, x: 0, star: SUN, curve: null };
+    function k() { return st.star === TIC ? st.kTic : st.rp * RE / st.star.Rs; }
+    function speed() { return 2 * Math.PI * st.star.aR / st.star.P / 24; } // star radii per hour
+    function chord() { var kk = k(); return Math.sqrt(Math.max(0, (1 + kk) * (1 + kk) - st.b * st.b)); }
+    function T14() { return 2 * chord() / speed(); } // hours, first to last contact
+    function half() { var kk = k(); return Math.max(chord(), Math.sqrt((1 + kk) * (1 + kk) - Math.min(st.b * st.b, .81))) * 1.45; } // half-width of the shown path, star radii
+    function build() { // the curve along the whole shown path
+      var kk = k(), H = half(), N = 240, c = [];
+      for (var i = 0; i <= N; i++) { var x = -H + 2 * H * i / N; c.push([x, blocked(kk, Math.hypot(x, st.b))]); }
+      st.curve = c; st.deep = c.reduce(function (m, p) { return Math.max(m, p[1]); }, 0);
+    }
+    function shapeTxt() {
+      var kk = k();
+      if (st.b >= 1 + kk) return ['none', 'No transit: the planet passes above the star and blocks nothing.'];
+      if (st.b > 1 - kk) return ['weak', 'V-shaped and shallow: a grazing transit, where the planet never fully enters the disc. Two stars eclipsing each other edge-on often look like this, which is one way they fool a search.'];
+      return ['good', 'U-shaped: steep sides as the planet enters and leaves, then a rounded floor, deepest in the middle because the star is brightest there.'];
+    }
+    function ppm(v) { return Math.round(v * 1e6).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    function draw() {
+      if (!st.curve || !C.w) return;
+      var ctx = C.ctx, c = colors(), W0 = C.w, H0 = C.h, kk = k(), Hw = half();
+      ctx.clearRect(0, 0, W0, H0);
+      var narrow = W0 < 520, top = 34, splitY = Math.round(H0 * (narrow ? .5 : .54)), Rpx = Math.min((splitY - top - 10) / 2, W0 * .2), cx = W0 / 2, cy = top + (splitY - top) / 2;
+      // the star: brightness from the limb-darkening rule, as a radial gradient
+      var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, Rpx), ac = hexRGB(c.acc), sc = c.dark ? c.acc : '#' + ac.map(function (v) { return ('0' + Math.round(v + (255 - v) * .45).toString(16)).slice(-2); }).join(''); // a lighter star on paper
+      for (var i = 0; i <= 10; i++) { var r = i / 10; g.addColorStop(r, rgba(sc, Math.max(0, I(Math.min(r, .999))))); }
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, Rpx, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = rgba(c.ink3, .5); ctx.lineWidth = 1; ctx.stroke();
+      // the path and the planet
+      var px = cx + st.x * Hw * Rpx, py = cy - st.b * Rpx;
+      ctx.setLineDash([3, 4]); ctx.strokeStyle = rgba(c.ink3, .7); ctx.beginPath(); ctx.moveTo(cx - Hw * Rpx, py); ctx.lineTo(cx + Hw * Rpx, py); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = c.ink; ctx.beginPath(); ctx.arc(px, py, Math.max(1.5, kk * Rpx), 0, Math.PI * 2); ctx.fill();
+      if (kk * Rpx < 4) { ctx.strokeStyle = c.ink; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI * 2); ctx.stroke(); } // a ring, so a planet smaller than a few pixels can still be found
+      // the light curve
+      var L = narrow ? 46 : 58, R0 = W0 - 14, T = splitY + 22, B = H0 - 26;
+      var depthMax = Math.max(st.deep, 100e-6) * 1.18;
+      var X = function (x) { return L + (x + Hw) / (2 * Hw) * (R0 - L); }, Y = function (v) { return T + v / depthMax * (B - T); };
+      ctx.font = mono(11); ctx.fillStyle = c.ink2; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText(narrow ? 'BRIGHTNESS · PPM' : 'THE STAR’S BRIGHTNESS · PPM BELOW NORMAL', L, splitY + 12);
+      var step = niceStep(depthMax * 1e6);
+      ctx.strokeStyle = c.grid; ctx.fillStyle = c.ink3; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      for (var v = 0; v <= depthMax * 1e6; v += step) { ctx.beginPath(); ctx.moveTo(L, Y(v / 1e6)); ctx.lineTo(R0, Y(v / 1e6)); ctx.stroke(); ctx.fillText(v === 0 ? '0' : '−' + ppm(v / 1e6), L - 6, Y(v / 1e6)); }
+      // hours along the bottom
+      var vh = speed(), hrs = Hw / vh, hs = niceStep(hrs * 2 / 4);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      for (var t = -Math.floor(hrs / hs) * hs; t <= hrs + 1e-9; t += hs) ctx.fillText((t > 0 ? '+' : t < 0 ? '−' : '') + fmt(Math.abs(t), hs < 1 ? 1 : 0) + (Math.abs(t - Math.floor(hrs / hs) * hs) < 1e-9 ? ' h' : ''), X(t * vh), H0 - 8);
+      // whole curve faint, the part up to the planet solid
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = rgba(c.acc, .3); ctx.lineWidth = 2; ctx.beginPath();
+      st.curve.forEach(function (p, j) { var xx = X(p[0]), yy = Y(p[1]); if (j) ctx.lineTo(xx, yy); else ctx.moveTo(xx, yy); }); ctx.stroke();
+      ctx.strokeStyle = c.acc; ctx.lineWidth = 2.2; ctx.beginPath();
+      var xNow = st.x * Hw, last = null;
+      st.curve.forEach(function (p, j) { if (p[0] > xNow) return; var xx = X(p[0]), yy = Y(p[1]); if (j) ctx.lineTo(xx, yy); else ctx.moveTo(xx, yy); last = p; });
+      var dNow = blocked(kk, Math.hypot(xNow, st.b));
+      ctx.lineTo(X(xNow), Y(dNow)); ctx.stroke();
+      ctx.fillStyle = c.bg1; ctx.beginPath(); ctx.arc(X(xNow), Y(dNow), 5.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = c.acc; ctx.beginPath(); ctx.arc(X(xNow), Y(dNow), 4, 0, Math.PI * 2); ctx.fill();
+      // the simple rule, for comparison
+      if (kk < 1) { ctx.setLineDash([4, 4]); ctx.strokeStyle = c.ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(L, Y(kk * kk)); ctx.lineTo(R0, Y(kk * kk)); ctx.stroke(); ctx.setLineDash([]);
+        ctx.font = mono(11); ctx.textAlign = 'right'; ctx.textBaseline = 'alphabetic'; ctx.lineWidth = 4; ctx.strokeStyle = c.bg1; var lt = narrow ? 'simple rule' : 'the simple rule, planet area ÷ star area'; ctx.strokeText(lt, R0 - 2, Y(kk * kk) - 5); ctx.fillStyle = c.ink2; ctx.fillText(lt, R0 - 2, Y(kk * kk) - 5); }
+    }
+    function niceStep(span) { var p = Math.pow(10, Math.floor(Math.log10(span))), m = span / p; return (m < 1.5 ? .5 : m < 3.5 ? 1 : m < 7.5 ? 2 : 5) * p; }
+    function read() {
+      var kk = k(), sh = shapeTxt();
+      $('mt-r-p').innerHTML = st.star === TIC ? 'R<sub>p</sub> &divide; R<sub>&lowast;</sub> = ' + fmt(kk, 4) : fmt(st.rp, 2) + ' &times; Earth <small>R<sub>p</sub> &divide; R<sub>&lowast;</sub> = ' + fmt(kk, 4) + '</small>';
+      $('mt-r-d').textContent = ppm(kk * kk) + ' ppm';
+      $('mt-r-dd').textContent = st.b >= 1 + kk ? '0 ppm' : ppm(st.deep) + ' ppm';
+      $('mt-r-t').textContent = st.b >= 1 + kk ? 'none' : fmt(T14(), 1) + ' h';
+      var sd = $('mt-r-s'); sd.textContent = sh[1]; sd.className = sh[0];
+      $('mt-rp-out').textContent = st.star === TIC ? '—' : fmt(st.rp, 2) + ' × Earth';
+      $('mt-b-out').textContent = 'b = ' + fmt(st.b, 2);
+      $('mt-corner').textContent = st.star.label;
+      document.querySelectorAll('[data-rp]').forEach(function (b) { pressed(b, st.star === SUN && Math.abs(+b.dataset.rp - st.rp) < .005); });
+    }
+    function setX(x) { st.x = Math.max(-1, Math.min(1, x)); $('mt-x').value = String(st.x); var h = st.x * half() / speed(); $('mt-x-out').textContent = Math.abs(h) < .05 ? 'mid-transit' : (h < 0 ? '−' : '+') + fmt(Math.abs(h), 1) + ' h'; $('mt-x').setAttribute('aria-valuetext', $('mt-x-out').textContent + ' from mid-transit'); draw(); }
+    function all(say) { build(); read(); setX(st.x); if (say) $('mt-say').textContent = $('mt-r-s').textContent + ' Deepest point ' + $('mt-r-dd').textContent + ', lasting ' + $('mt-r-t').textContent + '.'; }
+    $('mt-rp').addEventListener('input', function () { stop(); if (st.star === TIC) st.star = SUN; st.rp = +this.value; all(); });
+    $('mt-b').addEventListener('input', function () { stop(); st.b = +this.value; all(); });
+    $('mt-x').addEventListener('input', function () { stop(); setX(+this.value); });
+    document.querySelectorAll('[data-rp]').forEach(function (b) { b.addEventListener('click', function () { stop(); st.star = SUN; st.rp = +b.dataset.rp; $('mt-rp').value = st.rp; all(true); }); });
+    $('mt-graze').addEventListener('click', function () { stop(); st.b = Math.min(1.1, Math.round((1 - k() * .2) * 200) / 200); $('mt-b').value = st.b; all(true); });
+    $('mt-tic').addEventListener('click', function () {
+      stop();
+      // the published signal: 398 ppm deep, 1.7 h long, a 3.18-day orbit; through the middle of the star
+      st.star = TIC; st.b = 0; st.kTic = Math.sqrt(398e-6);
+      TIC.Rs = 1; TIC.aR = (1 + st.kTic) / Math.sin(Math.PI * 1.7 / 24 / TIC.P);
+      $('mt-b').value = 0; all(true);
+    });
+    // drag the planet, or move it with the arrow keys
+    var drag = false;
+    function xFromEvent(ev) { var r = cv.getBoundingClientRect(), W0 = C.w, Rpx = Math.min((Math.round(C.h * (W0 < 520 ? .5 : .54)) - 44) / 2, W0 * .2); return (ev.clientX - r.left - W0 / 2) / (half() * Rpx); }
+    cv.addEventListener('pointerdown', function (ev) { drag = true; stop(); try { cv.setPointerCapture(ev.pointerId); } catch (e) {} setX(xFromEvent(ev)); });
+    cv.addEventListener('pointermove', function (ev) { if (drag) setX(xFromEvent(ev)); });
+    ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (t) { cv.addEventListener(t, function () { drag = false; }); });
+    cv.addEventListener('keydown', function (ev) {
+      var d = ev.shiftKey ? .1 : .02;
+      if (ev.key === 'ArrowLeft') { ev.preventDefault(); stop(); setX(st.x - d); } else if (ev.key === 'ArrowRight') { ev.preventDefault(); stop(); setX(st.x + d); }
+    });
+    // play: the planet crosses in about 5 seconds; with motion off, each press moves it a quarter of the way
+    var playBtn = $('mt-play'), playTxt = $('mt-play-txt'), playing = false, lastT = 0;
+    var loop = F0.loop(function (now) {
+      if (!lastT) lastT = now;
+      var dt = Math.min(.1, (now - lastT) / 1000); lastT = now;
+      setX(st.x + dt * .4);
+      if (st.x >= 1) stop();
+    });
+    function stop() { if (!playing) return; playing = false; loop.stop(); pressed(playBtn, false); sync(); $('mt-say').textContent = 'Stopped at ' + $('mt-x-out').textContent + '.'; }
+    function sync() { playTxt.textContent = playing ? 'Pause' : F0.motion() ? 'Play' : 'Step'; playBtn.setAttribute('aria-label', playing ? 'Pause' : F0.motion() ? 'Play the transit' : 'Move the planet a quarter of the way'); }
+    playBtn.addEventListener('click', function () {
+      if (!F0.motion()) { setX(st.x >= 1 ? -1 : Math.min(1, Math.round((st.x + .5) * 4) / 4)); return; }
+      if (playing) { stop(); return; }
+      if (st.x >= .99) setX(-1);
+      playing = true; lastT = 0; pressed(playBtn, true); sync(); loop.start();
+    });
+    F0.onMotion(function () { if (!F0.motion()) stop(); sync(); }); sync();
+    F0.whenVisible(cv, null, stop);
+    C.resize(draw); F0.onTheme(draw);
+    // the numbers twin: three planets across a Sun-sized star
+    var tb = $('mt-tbody');
+    [['Earth', 1], ['Neptune', 3.88], ['Jupiter', 11.2]].forEach(function (pl) {
+      var kk = pl[1] * RE, deep = blocked(kk, 0), dur = 2 * (1 + kk) / (2 * Math.PI * SUN.aR / SUN.P / 24), tr = document.createElement('tr');
+      [pl[0], fmt(pl[1], 2), ppm(kk * kk), ppm(deep), fmt(dur, 1)].forEach(function (x, j) { var td = document.createElement('td'); td.textContent = x; if (j) td.className = 'n'; tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+    all();
+  })();
+
+  var SKY = {}; // the sky map's hook for other figures: SKY.show(tic, period)
   /* =========================================================================
      1. Sky map of the counted candidates
      ========================================================================= */
@@ -143,14 +297,6 @@
         // galactic plane centre line and ecliptic
         ctx.strokeStyle = rgba(c.dig, .55); ctx.lineWidth = 1; polyline(ctx, geo.gal, true); ctx.stroke();
         ctx.setLineDash([5, 4]); ctx.strokeStyle = c.ink3; polyline(ctx, geo.ecl, true); ctx.stroke(); ctx.setLineDash([]);
-        // labels
-        ctx.font = mono(11); ctx.fillStyle = c.ink3; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        [[0, '0h'], [90, '6h'], [270, '18h']].forEach(function (a) { var p = P2(hammer(a[0], 0)); ctx.fillText(a[1], p[0], p[1] + 10); });
-        ctx.textAlign = 'right';
-        [[60, '+60°'], [30, '+30°'], [-30, '−30°'], [-60, '−60°']].forEach(function (a) { var p = P2(hammer(179.9, a[0])); ctx.fillText(a[1], p[0] - 4, p[1]); });
-        ctx.textAlign = 'left'; ctx.fillStyle = c.ink2; ctx.font = sans(11, 500);
-        var eq0 = eclToEq(Math.PI * 1.62), ep = P2(hammer(eq0[0], eq0[1])); ctx.fillText('ecliptic', ep[0] + 4, ep[1] + 13);
-        var gp = galToEq(80, 0), gq = P2(hammer(gp[0], gp[1])); ctx.fillText('Milky Way', gq[0] + 8, gq[1]);
       } else {
         // axes for period against radius
         ctx.font = mono(11); ctx.textBaseline = 'middle';
@@ -178,6 +324,7 @@
         shape(ctx, D.tier[i], p[0], p[1], r + 1.4); ctx.fillStyle = ring; ctx.fill();
         shape(ctx, D.tier[i], p[0], p[1], r); ctx.fillStyle = rgba(c.acc, .92); ctx.fill();
       }
+      if (view === 'sky') skyLabels(ctx, c);
       [sel, hov].forEach(function (i, j) {
         if (i < 0 || !show[D.tier[i]]) return;
         var p = pos(i), r = rad(i);
@@ -186,6 +333,42 @@
       });
       $('sky-count').textContent = n + ' shown';
       $('sky-corner').textContent = view === 'sky' ? (W < 460 ? 'Whole sky' : 'Whole sky · Hammer projection') : (W < 460 ? 'Period vs radius' : 'Period against radius · log scales');
+    }
+    /* the map's own labels go on top of the marks, each with a halo, and the line labels sit where their line
+       passes through the emptiest sky (fewest candidate marks under the label) */
+    var labKey = '', labPos = null;
+    function halo(ctx, c, txt, x, y) { ctx.lineJoin = 'round'; ctx.lineWidth = 4; ctx.strokeStyle = c.bg1; ctx.strokeText(txt, x, y); ctx.fillText(txt, x, y); }
+    function skyLabels(ctx, c) {
+      var key = C.w + 'x' + C.h + show.join('');
+      if (key !== labKey) {
+        labKey = key;
+        var marks = []; for (var i = 0; i < D.n; i++) if (show[D.tier[i]]) marks.push(P2(D.u[i]));
+        var busy = function (x, y, w) { var n = 0; marks.forEach(function (m) { if (m[0] > x - 8 && m[0] < x + w + 8 && m[1] > y - 12 && m[1] < y + 12) n++; }); return n; };
+        var inside = function (x, y, w) { var u = (x - M.cx) / M.s, v = (M.cy - y) / M.s, u2 = (x + w - M.cx) / M.s; return u * u / 8 + v * v / 2 < .8 && u2 * u2 / 8 + v * v / 2 < .8; };
+        // boxes [x, y, w] the line labels must keep clear of: the hour labels on the equator, then each other
+        var avoid = [[0, '0h'], [90, '6h'], [270, '18h']].map(function (a) { var p = P2(hammer(a[0], 0)); return [p[0] - 12, p[1] + 10, 24]; });
+        var pick = function (pts, w) {
+          var best = null, bs = 1e9;
+          pts.forEach(function (p) {
+            var x = p[0] + 6, y = p[1] - 9; if (!inside(x, y, w)) return;
+            if (avoid.some(function (a) { return Math.abs(a[1] - y) < 18 && x < a[0] + a[2] + 10 && x + w > a[0] - 10; })) return;
+            var sc = busy(x, y, w); if (sc < bs) { bs = sc; best = [x, y, w]; }
+          });
+          if (best) avoid.push(best);
+          return best;
+        };
+        var gal = [], ecl = [];
+        for (var l = 0; l < 360; l += 4) { var q = galToEq(l, 0); gal.push(P2(hammer(q[0], q[1]))); var e = eclToEq(l * Math.PI / 180); ecl.push(P2(hammer(e[0], e[1]))); }
+        var mw = pick(gal, 64), ec = pick(ecl, 50);
+        labPos = { mw: mw, ec: ec };
+      }
+      ctx.font = mono(11); ctx.fillStyle = c.ink3; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      [[0, '0h'], [90, '6h'], [270, '18h']].forEach(function (a) { var p = P2(hammer(a[0], 0)); halo(ctx, c, a[1], p[0], p[1] + 10); });
+      ctx.textAlign = 'right';
+      [[60, '+60°'], [30, '+30°'], [-30, '−30°'], [-60, '−60°']].forEach(function (a) { var p = P2(hammer(179.9, a[0])); halo(ctx, c, a[1], p[0] - 4, p[1]); });
+      ctx.textAlign = 'left'; ctx.fillStyle = c.ink2; ctx.font = sans(11, 500);
+      if (labPos.mw) halo(ctx, c, 'Milky Way', labPos.mw[0], labPos.mw[1]);
+      if (labPos.ec) halo(ctx, c, 'ecliptic', labPos.ec[0], labPos.ec[1]);
     }
     function details(i, long) {
       var t = D.tier[i];
@@ -257,6 +440,17 @@
       });
     });
     C.resize(draw); F0.onTheme(draw);
+    SKY.show = function (tic, P) {
+      if (!D) return;
+      var best = -1, bd = 1e9;
+      for (var i = 0; i < D.n; i++) if (D.tic[i] === tic) { var dd = Math.abs(Math.log(D.P[i] / P)); if (dd < bd) { bd = dd; best = i; } }
+      if (best < 0) return;
+      if (view !== 'sky') setView('sky');
+      if (!show[D.tier[best]]) { show[D.tier[best]] = true; document.querySelectorAll('.sky-legend button').forEach(function (b) { pressed(b, show[+b.dataset.tier]); }); rebuildOrder(); }
+      select(best);
+      cv.scrollIntoView({ block: 'center', behavior: F0.motion() ? 'smooth' : 'auto' });
+      cv.focus({ preventScroll: true });
+    };
     F0.json('candidates.json').then(function (d) {
       D = d; D.u = []; D.draw = [];
       // counts in the figure's title, tier buttons and table summary, from the data
@@ -482,7 +676,7 @@
       ctx.beginPath(); ctx.arc(mx, yC(r.snr), 4.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
     }
     /* ---- state updates ---- */
-    var slider = $('hb-p'), out = $('hb-p-out'), pend = 0;
+    var slider = $('hb-p'), out = $('hb-p-out'), pend = 0, lastRead = 0;
     function compute() {
       var P = st.P;
       st.res = search(P);
@@ -501,6 +695,10 @@
       if (!S) return;
       compute();
       var P = st.P, r = st.res, v = verdict(r.snr);
+      draw();
+      var tnow = performance.now();
+      if (scanning && tnow - lastRead < 250) return; // while the computer searches, the numbers change a few times a second at most
+      lastRead = tnow;
       slider.value = String(pToV(P));
       out.textContent = fmt(P, 6) + ' d';
       slider.setAttribute('aria-valuetext', fmt(P, 6) + ' days');
@@ -509,14 +707,14 @@
       $('hb-r-dep').innerHTML = grp(r.dep) + ' ppm <small>' + r.n + ' measurements in the box</small>';
       $('hb-r-snr').textContent = fmt(r.snr, 1);
       var vd = $('hb-r-v'); vd.textContent = v[1]; vd.className = v[0];
-      draw();
+      if (sayNext && sayEl) { sayNext = false; sayEl.textContent = 'Trial period ' + fmt(P, 6) + ' days: signal-to-noise ' + fmt(r.snr, 1) + '. ' + v[1]; }
     }
     function schedule() { if (pend) return; pend = requestAnimationFrame(function () { pend = 0; update(); }); }
     function setP(P) { st.P = Math.max(1, Math.min(13, P)); schedule(); }
     slider.addEventListener('input', function () { stopScan(); setP(vToP(+slider.value)); });
-    document.querySelectorAll('.hb-nudge button').forEach(function (b) { b.addEventListener('click', function () { stopScan(); setP(st.P + (+b.dataset.nudge) / DAY); }); });
+    document.querySelectorAll('.hb-nudge button').forEach(function (b) { b.addEventListener('click', function () { stopScan(); sayLater(); setP(st.P + (+b.dataset.nudge) / DAY); }); });
     var PRE = { best: P1, s8: P1 + 8 / DAY, m1: P1 + 60 / DAY, three: 3.1, p2: P2 };
-    document.querySelectorAll('[data-preset]').forEach(function (b) { b.addEventListener('click', function () { stopScan(); setP(PRE[b.dataset.preset]); }); });
+    document.querySelectorAll('[data-preset]').forEach(function (b) { b.addEventListener('click', function () { stopScan(); sayLater(); setP(PRE[b.dataset.preset]); }); });
     var vO = $('hb-v-orbit'), vZ = $('hb-v-zoom'), sA = $('hb-s-all'), sF = $('hb-s-fine');
     vO.addEventListener('click', function () { st.orbit = true; pressed(vO, true); pressed(vZ, false); schedule(); });
     vZ.addEventListener('click', function () { st.orbit = false; pressed(vO, false); pressed(vZ, true); schedule(); });
@@ -527,14 +725,16 @@
     var loop = F0.loop(function (now) {
       if (!lastNow) lastNow = now;
       scanT += Math.min(.1, (now - lastNow) / 1000) / 3.2; lastNow = now;
-      if (scanT >= 1) { stopScan(); setP(peaks[0].P); return; }
+      if (scanT >= 1) { stopScan(); sayLater(); setP(peaks[0].P); return; }
       st.P = vToP(scanT * SMAX); update();
     });
     function stopScan() { if (!scanning) return; scanning = false; loop.stop(); pressed(scanBtn, false); scanTxt.textContent = 'Let the computer search'; }
+    var sayEl = $('hb-say'), sayNext = false;
+    function sayLater() { sayNext = true; } // the next update speaks once (a preset, a nudge, the end of a search)
     scanBtn.addEventListener('click', function () {
       if (scanning) { stopScan(); return; }
       if (!S) return;
-      if (!F0.motion()) { setP(peaks[0].P); return; }
+      if (!F0.motion()) { sayLater(); setP(peaks[0].P); return; }
       scanning = true; scanT = 0; lastNow = 0; pressed(scanBtn, true); scanTxt.textContent = 'Stop the search'; loop.start();
     });
     F0.onMotion(function () { if (!F0.motion()) stopScan(); });
@@ -647,7 +847,7 @@
       ctx.fillText(Wd < 460 ? '398 ppm' : 'fitted depth 398 ppm', xs(W * 12) + 6, ys(-398) + 4);
     }
     // SVG chart of signal-to-noise against N
-    var SW = 480, SH = 222, M = { l: 40, r: 14, t: 46, b: 30 };
+    var SW = 480, SH = 236, M = { l: 40, r: 14, t: 46, b: 44 };
     var xs = function (n) { return M.l + (n - 1) / (NT - 1) * (SW - M.l - M.r); }, ys = function (v) { return M.t + (1 - v / 16) * (SH - M.t - M.b); };
     var dots = [], guide, hl;
     function buildChart() {
@@ -713,7 +913,7 @@
       if (!last) last = now; acc += now - last; last = now;
       if (acc >= 380) { acc = 0; if (N >= NT) { stop(); return; } set(N + 1); if (N >= NT) stop(); }
     });
-    function stop() { if (!playing) return; playing = false; loop.stop(); pressed(playBtn, false); syncTxt(); }
+    function stop() { if (!playing) return; playing = false; loop.stop(); pressed(playBtn, false); syncTxt(); var r = rows[N - 1], sy = $('st-say'); if (sy && r) sy.textContent = N + ' of ' + NT + ' transits stacked: signal-to-noise ' + fmt(r.snr, 1) + '.'; }
     function syncTxt() { playTxt.textContent = playing ? 'Pause' : (F0.motion() ? 'Play' : 'Add one'); playBtn.setAttribute('aria-label', playing ? 'Pause' : (F0.motion() ? 'Add transits one by one' : 'Add one transit')); }
     playBtn.addEventListener('click', function () {
       if (!S) return;
@@ -890,6 +1090,164 @@
       });
       drawAll();
     });
+  })();
+
+  /* =========================================================================
+     6. The next transits: every predicted transit of a counted candidate in the next 48 hours, computed here
+        from transits.json (period, a reference transit, and the published uncertainty), so it never goes stale
+     ========================================================================= */
+  (function nextTransits() {
+    var cv = $('nt-canvas'), list = $('nt-list'); if (!cv || !list) return;
+    var C = F0.canvas(cv), T = null, tz = 'utc', items = [], hov = -1, sel = -1, t0 = 0, timer = 0, visible = false;
+    var MS = 864e5, AU_S = 499.00478, TTUTC = 69.184;
+    function earthDot(jd, ra, dec) { // Earth's heliocentric position (AU) . the direction to the star; the Almanac's low-precision Sun
+      var n = jd - 2451545, R2D = Math.PI / 180;
+      var L = ((280.460 + 0.9856474 * n) % 360) * R2D, g = ((357.528 + 0.9856003 * n) % 360) * R2D;
+      var lam = L + 1.915 * R2D * Math.sin(g) + 0.020 * R2D * Math.sin(2 * g), Rr = 1.00014 - 0.01671 * Math.cos(g) - 0.00014 * Math.cos(2 * g), eps = (23.439 - 0.0000004 * n) * R2D;
+      var sx = Rr * Math.cos(lam), sy = Rr * Math.cos(eps) * Math.sin(lam), sz = Rr * Math.sin(eps) * Math.sin(lam), a = ra * R2D, d = dec * R2D;
+      return -(sx * Math.cos(d) * Math.cos(a) + sy * Math.cos(d) * Math.sin(a) + sz * Math.sin(d));
+    }
+    function bjdToMs(bjd, ra, dec) { // BJD_TDB -> UTC (ms since 1970) at Earth's centre
+      var jd = bjd - TTUTC / 86400;
+      for (var i = 0; i < 2; i++) jd = bjd - TTUTC / 86400 - AU_S * earthDot(jd, ra, dec) / 86400;
+      return (jd - 2440587.5) * MS;
+    }
+    function msToBjd(ms) { return ms / MS + 2440587.5 + TTUTC / 86400; } // without the light-time term (under 8.4 min)
+    function sigma(i, k) { var s = T.s2[i]; return Math.sqrt(Math.max(0, s[0] + s[1] * k + s[2] * k * k)); }
+    function compute(now) {
+      var from = now - 3 * 3600e3, to = now + 48 * 3600e3, b0 = msToBjd(from) - .01, b1 = msToBjd(to) + .01, out = [];
+      for (var i = 0; i < T.n; i++) {
+        var P = T.P[i], k = Math.ceil((b0 - T.tc0[i]) / P);
+        for (var bjd = T.tc0[i] + k * P; bjd <= b1; k++, bjd += P) {
+          var ms = bjdToMs(bjd, T.ra[i], T.dec[i]);
+          if (ms < from || ms > to) continue;
+          out.push({ i: i, k: k, ms: ms, sig: sigma(i, k), half: T.dur[i] * 1800e3 });
+        }
+      }
+      out.sort(function (a, b) { return a.ms - b.ms; });
+      return out;
+    }
+    function two(n) { return ('0' + n).slice(-2); }
+    function clock(ms) {
+      var d = new Date(ms);
+      if (tz === 'utc') return d.getUTCDate() + ' ' + MONS[d.getUTCMonth()] + ', ' + two(d.getUTCHours()) + ':' + two(d.getUTCMinutes()) + ' UTC';
+      return d.getDate() + ' ' + MONS[d.getMonth()] + ', ' + two(d.getHours()) + ':' + two(d.getMinutes());
+    }
+    var MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    function until(ms, now, secs) {
+      var d = Math.round((ms - now) / 1000);
+      if (Math.abs(d) * 1000 < 1) return 'now';
+      var a = Math.abs(d), h = Math.floor(a / 3600), m = Math.floor((a % 3600) / 60), s = a % 60;
+      var txt = (h ? h + 'h ' + two(m) + 'm' : m + 'm') + (secs ? ' ' + two(s) + 's' : '');
+      return d > 0 ? 'in ' + txt : txt + ' ago';
+    }
+    function layout() { var W0 = C.w, H0 = C.h, narrow = W0 < 560; return { L: narrow ? 10 : 14, R: W0 - (narrow ? 10 : 14), T: 44, B: H0 - 24, narrow: narrow }; } // T: below the corner captions
+    var DMIN = Math.log10(100), DMAX = Math.log10(20000);
+    function pos(it, Lo, now) {
+      var x = Lo.L + (it.ms - (now - 3 * 3600e3)) / (51 * 3600e3) * (Lo.R - Lo.L);
+      var dep = Math.max(DMIN, Math.min(DMAX, Math.log10(Math.max(1, T.depth[it.i]))));
+      return [x, Lo.B - 6 - (dep - DMIN) / (DMAX - DMIN) * (Lo.B - Lo.T - 12)];
+    }
+    function draw() {
+      if (!T || !C.w) return;
+      var ctx = C.ctx, c = colors(), Lo = layout(), now = t0;
+      ctx.clearRect(0, 0, C.w, C.h);
+      ctx.strokeStyle = c.lineui; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(Lo.L, Lo.B); ctx.lineTo(Lo.R, Lo.B); ctx.stroke();
+      ctx.font = mono(11); ctx.fillStyle = c.ink3; ctx.textBaseline = 'alphabetic';
+      // hour ticks, every 6 h (every 12 h when narrow)
+      var step = Lo.narrow ? 12 : 6;
+      for (var h = 0; h <= 48; h += step) {
+        var x = Lo.L + (h + 3) / 51 * (Lo.R - Lo.L);
+        ctx.strokeStyle = c.grid; ctx.beginPath(); ctx.moveTo(x, Lo.T); ctx.lineTo(x, Lo.B); ctx.stroke();
+        ctx.textAlign = h === 48 ? 'right' : 'center'; ctx.fillText(h === 0 ? '' : '+' + h + ' h', x, C.h - 7);
+      }
+      // depth guides
+      ctx.textAlign = 'left';
+      [[300, '300 ppm'], [3000, '3,000 ppm']].forEach(function (g) { var y = Lo.B - 6 - (Math.log10(g[0]) - DMIN) / (DMAX - DMIN) * (Lo.B - Lo.T - 12); ctx.strokeStyle = c.grid; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(Lo.L, y); ctx.lineTo(Lo.R, y); ctx.stroke(); ctx.setLineDash([]); });
+      // transits in progress: a band for the time each is under way
+      items.forEach(function (it, j) {
+        var p = pos(it, Lo, now), live = Math.abs(it.ms - now) <= it.half;
+        ctx.strokeStyle = rgba(c.acc, live ? .9 : .45); ctx.lineWidth = live ? 1.6 : 1;
+        ctx.beginPath(); ctx.moveTo(p[0], Lo.B); ctx.lineTo(p[0], p[1]); ctx.stroke();
+      });
+      items.forEach(function (it, j) {
+        var p = pos(it, Lo, now), r = Lo.narrow ? 3 : 3.6;
+        shape(ctx, T.tier[it.i], p[0], p[1], r + 1.3); ctx.fillStyle = c.bg1; ctx.fill();
+        shape(ctx, T.tier[it.i], p[0], p[1], r); ctx.fillStyle = rgba(c.acc, .95); ctx.fill();
+      });
+      [sel, hov].forEach(function (j, q) {
+        if (j < 0 || !items[j]) return;
+        var p = pos(items[j], Lo, now); ctx.strokeStyle = q ? c.ink : c.focus; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(p[0], p[1], 9, 0, Math.PI * 2); ctx.stroke();
+      });
+      ctx.font = mono(11); ctx.textAlign = 'right'; ctx.lineJoin = 'round';
+      [[300, '300 ppm'], [3000, '3,000 ppm']].forEach(function (g) { var y = Lo.B - 6 - (Math.log10(g[0]) - DMIN) / (DMAX - DMIN) * (Lo.B - Lo.T - 12) - 4; ctx.lineWidth = 4; ctx.strokeStyle = c.bg1; ctx.strokeText(g[1], Lo.R, y); ctx.fillStyle = c.ink2; ctx.fillText(g[1], Lo.R, y); });
+      // now
+      var xn = Lo.L + 3 / 51 * (Lo.R - Lo.L);
+      ctx.strokeStyle = c.ink; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(xn, Lo.T - 8); ctx.lineTo(xn, Lo.B); ctx.stroke();
+      ctx.fillStyle = c.ink; ctx.textAlign = 'left'; ctx.font = mono(11, 600); ctx.fillText('NOW', xn + 5, Lo.T - 2);
+      ctx.font = mono(11); ctx.fillStyle = c.ink3; ctx.textAlign = 'left';
+    }
+    function rowHTML(it, now, secs) {
+      var i = it.i, t = T.tier[i];
+      return '<span class="nt-cd" data-ms="' + it.ms + '">' + until(it.ms, now, secs) + '</span>' +
+        '<span class="nt-who"><svg aria-hidden="true"><use href="#sh-' + ['a', 'b', 'n', 'l'][t] + '"/></svg><b>TIC ' + T.tic[i] + '</b> · tier ' + T.tiers[t] + ' · every ' + fmt(T.P[i], 3) + ' d</span>' +
+        '<span class="nt-when">' + clock(it.ms) + ' <small>± ' + Math.max(1, Math.round(it.sig)) + ' min</small></span>' +
+        '<span class="nt-dep">' + grp(T.depth[i]) + ' ppm · ' + fmt(T.dur[i], 1) + ' h</span>' +
+        '<button type="button" class="nt-go" data-j="' + items.indexOf(it) + '" aria-label="Show TIC ' + T.tic[i] + ' on the sky map">On the sky map</button>';
+    }
+    function renderList(secs) {
+      var now = Date.now(), next = items.filter(function (it) { return it.ms >= t0; }).slice(0, 10);
+      list.innerHTML = next.map(function (it) { return '<li data-j="' + items.indexOf(it) + '">' + rowHTML(it, now, secs) + '</li>'; }).join('');
+      var inNow = items.filter(function (it) { return Math.abs(it.ms - now) <= it.half; }).length;
+      $('nt-now').textContent = inNow + ' in transit now';
+      $('nt-note').textContent = 'Computed ' + clock(t0) + (now > Date.parse(T.published_until) ? '. Past the published predictions (to ' + T.published_until.slice(0, 10) + '): these use the same periods, extended.' : '');
+    }
+    function tick() { // countdowns, once a second
+      var now = Date.now();
+      list.querySelectorAll('.nt-cd').forEach(function (e) { e.textContent = until(+e.getAttribute('data-ms'), now, true); });
+      if (now - t0 > 60e3) refresh(); // the strip moves on once a minute
+    }
+    function startTimer() { if (!timer && visible && F0.motion()) timer = setInterval(tick, 1000); }
+    function stopTimer() { if (timer) { clearInterval(timer); timer = 0; } }
+    function refresh() {
+      t0 = Date.now(); items = compute(t0); hov = -1; if (sel >= items.length) sel = -1;
+      draw(); renderList(F0.motion());
+    }
+    function nearest(ev) {
+      var r = cv.getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top, Lo = layout(), best = -1, bd = 14 * 14;
+      items.forEach(function (it, j) { var p = pos(it, Lo, t0), d = (p[0] - x) * (p[0] - x) + (p[1] - y) * (p[1] - y); if (d < bd) { bd = d; best = j; } });
+      return best;
+    }
+    function tip(it) {
+      var i = it.i;
+      return '<div class="tip-k">TIC ' + T.tic[i] + ' · tier ' + T.tiers[T.tier[i]] + '</div><div class="tip-t">' + clock(it.ms) + ' ± ' + Math.max(1, Math.round(it.sig)) + ' min</div><div class="tip-note">' + until(it.ms, Date.now(), false) + ' · depth ' + grp(T.depth[i]) + ' ppm for ' + fmt(T.dur[i], 1) + ' h · predicted, not observed</div>';
+    }
+    cv.addEventListener('pointermove', function (ev) { if (!T) return; var j = nearest(ev); if (j !== hov) { hov = j; draw(); } if (j >= 0) F0.tip.show(tip(items[j]), ev.clientX, ev.clientY); else F0.tip.hide(); });
+    cv.addEventListener('pointerleave', function () { hov = -1; F0.tip.hide(); draw(); });
+    cv.addEventListener('click', function (ev) { if (!T) return; var j = nearest(ev); if (j >= 0) { sel = j; draw(); highlight(j); } });
+    function highlight(j) { list.querySelectorAll('li').forEach(function (li) { li.classList.toggle('on', +li.getAttribute('data-j') === j); }); }
+    list.addEventListener('click', function (e) {
+      var b = e.target.closest('.nt-go'); if (!b) return;
+      var it = items[+b.getAttribute('data-j')]; if (!it) return;
+      sel = +b.getAttribute('data-j'); draw(); highlight(sel);
+      if (SKY.show) SKY.show(T.tic[it.i], T.P[it.i]);
+    });
+    list.addEventListener('focusin', function (e) { var li = e.target.closest('li'); if (li) { sel = +li.getAttribute('data-j'); draw(); } });
+    document.querySelectorAll('.nt-ctrl [data-tz]').forEach(function (b) { b.addEventListener('click', function () { tz = b.dataset.tz; document.querySelectorAll('.nt-ctrl [data-tz]').forEach(function (x) { pressed(x, x === b); }); if (T) { renderList(F0.motion()); } }); });
+    $('nt-refresh').addEventListener('click', function () { if (T) refresh(); });
+    F0.whenVisible(cv, function () { visible = true; if (T) { if (Date.now() - t0 > 60e3) refresh(); startTimer(); } }, function () { visible = false; stopTimer(); });
+    F0.onMotion(function (on) { if (!T) return; if (on) startTimer(); else stopTimer(); renderList(on); });
+    C.resize(draw); F0.onTheme(draw);
+    F0.json('transits.json').then(function (d) {
+      T = d; refresh(); startTimer();
+      var tw = $('nt-twin');
+      tw.addEventListener('toggle', function () {
+        if (!tw.open) return;
+        var now = Date.now();
+        $('nt-table').innerHTML = '<table class="tbl"><caption>' + items.length + ' predicted transits from 3 hours ago to 48 hours ahead, computed ' + clock(t0) + ' (eumemic/exoplanets at ' + T.commit + ')</caption><thead><tr><th>Mid-transit</th><th>From now</th><th class="n">± 1σ (min)</th><th>TIC</th><th>Tier</th><th class="n">Period (d)</th><th class="n">Depth (ppm)</th><th class="n">Duration (h)</th></tr></thead><tbody>' +
+          items.map(function (it) { var i = it.i; return '<tr><td>' + clock(it.ms) + '</td><td>' + until(it.ms, now, false) + '</td><td class="n">' + Math.max(1, Math.round(it.sig)) + '</td><td>' + T.tic[i] + '</td><td>' + T.tiers[T.tier[i]] + '</td><td class="n">' + fmt(T.P[i], 4) + '</td><td class="n">' + grp(T.depth[i]) + '</td><td class="n">' + fmt(T.dur[i], 2) + '</td></tr>'; }).join('') + '</tbody></table>';
+      });
+    }).catch(function () { list.innerHTML = '<li>The predictions could not be loaded. They are in the repository: candidates/predictions.csv.</li>'; });
   })();
 
   /* =========================================================================

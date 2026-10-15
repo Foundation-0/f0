@@ -97,7 +97,7 @@
           <p class="fig-how"><b>How to read:</b> each mark is one candidate. In the sky view it sits at its star&rsquo;s place on the sky (right ascension grows to the left) and bigger marks are brighter stars; in the size view it sits at its orbital period and radius. Shape is the project&rsquo;s reliability tier. Point at a mark, or focus the figure and use the arrow keys.</p>
         </div>
         <div class="fig-stage sky-stage" style="--ratio:16/10">
-          <canvas id="sky-canvas" tabindex="0" role="img" aria-label="Sky map of the 665 counted candidates in a Hammer equal-area projection, with the ecliptic and the plane of the Milky Way. Use the left and right arrow keys to step through the candidates; details appear below the map."></canvas>
+          <canvas id="sky-canvas" tabindex="0" role="application" aria-roledescription="interactive map" aria-label="Sky map of the 665 counted candidates in a Hammer equal-area projection, with the ecliptic and the plane of the Milky Way. Use the left and right arrow keys to step through the candidates; details appear below the map, and every candidate is in the table." aria-describedby="sky-read"></canvas>
           <span class="corner tl" id="sky-corner" aria-hidden="true">Whole sky &middot; Hammer projection</span>
           <span class="corner tr fig-out" id="sky-count" aria-hidden="true"><!--prerender:sky-count-->665 shown<!--/prerender:sky-count--></span>
         </div>
@@ -132,7 +132,7 @@
   <!-- 00 A PLANET IS A CLOCK -->
   <section class="sec" id="clock" data-index="A planet is a clock" data-num="00" aria-labelledby="clock-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>First principles</p><span class="chip">Schematic, to scale in depth</span></div>
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>First principles</p><span class="chip">Computed from geometry</span></div>
       <h2 class="h2" id="clock-h">You cannot see the planet. You can see its shadow.</h2>
       <p class="lede">A planet around another star is a speck lost in a glare millions of times brighter. But if its orbit is edge-on to us, once per orbit it passes in front of the star and blocks a little of the light.</p>
       <div class="ex-cols">
@@ -143,19 +143,47 @@
         </div>
         <div class="prose">
           <p>The trick is that a planet is a clock. Its dips come back at exactly the same interval, its <dfn class="term">period</dfn>. Guess the period right, cut years of data into pieces that long and stack them, and the random flicker averages away while the dip adds up. Guess wrong by a few seconds and, hundreds of orbits later, the dips no longer line up.</p>
-          <p>So a search tries many thousands of periods for every star. That is the work this project did, for millions of stars, with an AI coding agent writing and running the code. The next three figures use the project&rsquo;s own light curves to show why it works, and how the search checks itself.</p>
-          <figure class="ex-depths" aria-labelledby="dp-cap">
-            <svg viewBox="0 0 460 150" role="img" aria-labelledby="dp-cap">
-              <g class="dp-axis"><line x1="40" x2="450" y1="24" y2="24"/><text x="34" y="28" text-anchor="end">0</text><text x="34" y="138" text-anchor="end">&minus;1%</text><line x1="40" x2="450" y1="134" y2="134" class="dp-grid"/></g>
-              <path class="dp-line" d="M40 24H80V24.9H120V24H190V37.9H230V24H300V139.5H340V24H450"/>
-              <text class="dp-lab" x="100" y="50" text-anchor="middle">Earth</text><text class="dp-val" x="100" y="66" text-anchor="middle">84 ppm</text>
-              <text class="dp-lab" x="210" y="60" text-anchor="middle">Neptune</text><text class="dp-val" x="210" y="76" text-anchor="middle">1,260 ppm</text>
-              <text class="dp-lab" x="350" y="70">Jupiter</text><text class="dp-val" x="350" y="86">10,500 ppm</text>
-            </svg>
-            <figcaption id="dp-cap">How deep each planet&rsquo;s shadow would be in front of the Sun, drawn to scale (depth = (planet radius &divide; Sun&rsquo;s radius)&sup2;). Earth&rsquo;s dip is less than one pixel. The 665 candidates counted on 14 October have a median depth of 1,098 ppm.</figcaption>
-          </figure>
+          <p>So a search tries many thousands of periods for every star. That is the work this project did, for millions of stars, with an AI coding agent writing and running the code. The figures after this one use the project&rsquo;s own light curves to show why it works, and how the search checks itself.</p>
         </div>
       </div>
+
+      <figure class="fig frame mt wide-fig" aria-labelledby="mt-title">
+        <div class="fig-head">
+          <p class="fig-title" id="mt-title">Make a transit</p>
+          <p class="fig-how"><b>How to read:</b> top, a star seen face-on, brighter in the middle than at its edge, and a planet crossing it; drag the planet, use the position slider, or press play. Bottom, the star&rsquo;s brightness as the planet crosses, worked out from exactly how much of the disc it covers. Change the planet&rsquo;s size and how far from the star&rsquo;s centre it passes.</p>
+        </div>
+        <div class="fig-stage mt-stage" style="--ratio:16/9">
+          <canvas id="mt-canvas" tabindex="0" role="application" aria-roledescription="interactive diagram" aria-label="A planet crossing a star, and the star's brightness below. Left and right arrow keys move the planet; the controls below change its size and path." aria-describedby="mt-read"></canvas>
+          <span class="corner tl" id="mt-corner" aria-hidden="true">A Sun-like star &middot; orbit like Earth&rsquo;s</span>
+        </div>
+        <dl class="hb-read mt-read" id="mt-read">
+          <div><dt>Planet</dt><dd id="mt-r-p">&mdash;</dd></div>
+          <div><dt>Depth, (R<sub>p</sub> &divide; R<sub>&lowast;</sub>)<sup>2</sup></dt><dd id="mt-r-d">&mdash;</dd></div>
+          <div><dt>Deepest point of the curve</dt><dd id="mt-r-dd">&mdash;</dd></div>
+          <div><dt>Duration</dt><dd id="mt-r-t">&mdash;</dd></div>
+          <div class="full"><dt>Shape</dt><dd id="mt-r-s">&mdash;</dd></div>
+        </dl>
+        <div class="fig-ctrl" role="group" aria-label="The planet">
+          <span class="ctrl-label">Planet //</span>
+          <button class="tbtn play" type="button" id="mt-play" aria-pressed="false" aria-label="Play the transit"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt" id="mt-play-txt">Play</span></button>
+          <label class="ctrl mt-sl" for="mt-x">Position <input class="range" type="range" id="mt-x" min="-1" max="1" step="0.005" value="0"> <output id="mt-x-out" for="mt-x" aria-live="off">mid-transit</output></label>
+          <label class="ctrl mt-sl" for="mt-rp">Size <input class="range" type="range" id="mt-rp" min="1" max="11.2" step="0.01" value="3.88"> <output id="mt-rp-out" for="mt-rp" aria-live="off">3.88 &times; Earth</output></label>
+          <label class="ctrl mt-sl" for="mt-b">Off-centre <input class="range" type="range" id="mt-b" min="0" max="1.1" step="0.005" value="0.3"> <output id="mt-b-out" for="mt-b" aria-live="off">b = 0.30</output></label>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Try these">
+          <span class="ctrl-label">Try //</span>
+          <div class="seg" role="group" aria-label="Planet size"><button type="button" data-rp="1" aria-pressed="false">Earth</button><button type="button" data-rp="3.88" aria-pressed="true">Neptune</button><button type="button" data-rp="11.2" aria-pressed="false">Jupiter</button></div>
+          <button class="tbtn" type="button" id="mt-graze">Graze the edge</button>
+          <button class="tbtn" type="button" id="mt-tic">TIC 4206066 inner signal: 398 ppm, 1.7 h</button>
+        </div>
+        <p class="sr-only" id="mt-say" aria-live="polite"></p>
+        <figcaption class="fig-foot"><span class="fig-src">Computed in your browser: the star&rsquo;s brightness falls from centre to edge by the quadratic rule with coefficients 0.5 and 0.2, the values the project&rsquo;s own site uses; the dip is the light of the covered part of the disc. Sizes: Earth 1, Neptune 3.88 and Jupiter 11.2 Earth radii, crossing a star the size of the Sun at Earth&rsquo;s distance (one orbit a year). The TIC 4206066 preset uses that signal&rsquo;s published depth, duration and 3.18-day period (<a href="https://github.com/eumemic/exoplanets/blob/58c6318/README.md#validation">README, Validation</a>). The 665 candidates counted on 14 October have a median depth of 1,098 ppm (<a href="candidates.json">candidates.json</a>).</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Three planets crossing the Sun, seen from far away"><table class="tbl"><caption>Three planets crossing a Sun-sized star at Earth&rsquo;s distance, through the centre (b = 0)</caption>
+            <thead><tr><th>Planet</th><th class="n">Radius (Earths)</th><th class="n">Depth by (R<sub>p</sub> &divide; R<sub>&lowast;</sub>)<sup>2</sup> (ppm)</th><th class="n">Deepest point of the curve (ppm)</th><th class="n">Duration (h)</th></tr></thead>
+            <tbody id="mt-tbody"></tbody></table></div>
+        </details>
+      </figure>
     </div>
   </section>
 
@@ -167,7 +195,7 @@
       <p class="lede">This is the real record of one nearby orange dwarf star, TIC 4206066: 4,075 brightness measurements, each averaged over 30 minutes, from three sectors in 2018, 2020 and 2025.</p>
       <div class="ex-cols">
         <div class="prose">
-          <p>In September 2026 Pavel Rabtsevich reported two transit-like signals on this star. The project&rsquo;s method follows his, and its search found both signals again without being told where they were: periods of 3.18278 and 11.13274 days, against his 3.182785 and 11.13274. The inner one would be a planet about 1.4 times Earth&rsquo;s width, blocking 398 ppm for 1.7 hours.</p>
+          <p>In September 2026 Pavel Rabtsevich reported two transit-like signals on this star. The project&rsquo;s method follows Rabtsevich&rsquo;s, and its search found both signals again without being told where they were: periods of 3.18278 and 11.13274 days, against Rabtsevich&rsquo;s 3.182785 and 11.13274. The inner one would be a planet about 1.4 times Earth&rsquo;s width, blocking 398 ppm for 1.7 hours.</p>
           <p>Each measurement wobbles by about 300 ppm, so a 398 ppm dip lasting three or four measurements is invisible in the raw record. Choose a trial period and the figure cuts the record into pieces that long and lays them on top of each other.</p>
         </div>
         <div class="prose">
@@ -184,7 +212,7 @@
         <div class="fig-stage hb-stage" style="--ratio:16/11">
           <canvas id="hb-canvas" role="img" aria-label="Three panels: the raw light curve of TIC 4206066 from 2018, 2020 and 2025; the same data stacked at the trial period; and the signal-to-noise ratio of the deepest dip at every period from 1 to 13 days. The readout below the figure gives the numbers."></canvas>
         </div>
-        <dl class="hb-read" id="hb-read" aria-live="polite">
+        <dl class="hb-read" id="hb-read">
           <div><dt>Trial period</dt><dd id="hb-r-p">3.182773 d</dd></div>
           <div><dt>Off from the best fit</dt><dd id="hb-r-off">0 s</dd></div>
           <div><dt>Deepest dip in the stack</dt><dd id="hb-r-dep">&mdash;</dd></div>
@@ -193,7 +221,7 @@
         </dl>
         <div class="fig-ctrl" role="group" aria-label="Trial period">
           <span class="ctrl-label">Period //</span>
-          <label class="ctrl hb-slider" for="hb-p">Trial period <input class="range" type="range" id="hb-p" min="0" max="20000" step="1" value="9000"> <output id="hb-p-out" for="hb-p">3.182773 d</output></label>
+          <label class="ctrl hb-slider" for="hb-p">Trial period <input class="range" type="range" id="hb-p" min="0" max="20000" step="1" value="9000"> <output id="hb-p-out" for="hb-p" aria-live="off">3.182773 d</output></label>
           <div class="seg hb-nudge" role="group" aria-label="Nudge the trial period">
             <button type="button" data-nudge="-10" aria-label="Ten seconds shorter">&minus;10 s</button><button type="button" data-nudge="-1" aria-label="One second shorter">&minus;1 s</button><button type="button" data-nudge="1" aria-label="One second longer">+1 s</button><button type="button" data-nudge="10" aria-label="Ten seconds longer">+10 s</button>
           </div>
@@ -212,6 +240,7 @@
           <div class="seg" role="group" aria-label="Middle panel"><button type="button" id="hb-v-orbit" aria-pressed="false">Whole orbit</button><button type="button" id="hb-v-zoom" aria-pressed="true">&plusmn;6 hours</button></div>
           <div class="seg" role="group" aria-label="Bottom panel"><button type="button" id="hb-s-all" aria-pressed="true">1&ndash;13 days</button><button type="button" id="hb-s-fine" aria-pressed="false">&plusmn;90 seconds</button></div>
         </div>
+        <p class="sr-only" id="hb-say" aria-live="polite"></p>
         <figcaption class="fig-foot"><span class="fig-src">Light curve: <a href="https://github.com/eumemic/exoplanets/tree/58c6318/video/public/data">video/public/data/lc.json</a> (eumemic, CC BY 4.0), copied to <a href="lightcurves.json">lightcurves.json</a>. Fitted periods and depths: the project&rsquo;s blind recovery (<a href="https://github.com/eumemic/exoplanets/blob/58c6318/README.md#validation">README, Validation</a>). The search and its signal-to-noise are Foundation0&rsquo;s simplified version (one box 1.70 h wide), not the project&rsquo;s pipeline. Rabtsevich&rsquo;s study: <a href="https://doi.org/10.5281/zenodo.22967456">doi:10.5281/zenodo.22967456</a>.</span></figcaption>
         <details class="twin"><summary>Show the numbers</summary>
           <div class="table-wrap" tabindex="0" role="region" aria-label="The deepest dip at a few trial periods (computed from the light curve as the figure does)"><table class="tbl"><caption>The deepest dip at a few trial periods (computed from the light curve as the figure does)</caption>
@@ -249,7 +278,7 @@
           </div>
           <div class="st-chart"><svg id="st-svg" viewBox="0 0 480 222" role="img" aria-labelledby="st-svg-cap"></svg></div>
           <p class="sr-only" id="st-svg-cap">Signal-to-noise against the number of transits stacked, from about 3.5 for one transit to about 15 for all 28, following the square-root rule.</p>
-          <dl class="hb-read st-read" id="st-read" aria-live="polite">
+          <dl class="hb-read st-read" id="st-read">
             <div><dt>Transits stacked</dt><dd id="st-r-n">6</dd></div>
             <div><dt>Points in the dip</dt><dd id="st-r-pts">20</dd></div>
             <div><dt>Dip depth</dt><dd id="st-r-dep">&mdash;</dd></div>
@@ -258,11 +287,12 @@
           <div class="fig-ctrl" role="group" aria-label="Stacking controls">
             <span class="ctrl-label">Ctrl //</span>
             <button class="tbtn play" type="button" id="st-play" aria-pressed="false" aria-label="Add transits one by one"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt" id="st-play-txt">Play</span></button>
-            <label class="ctrl st-slider" for="st-n">Transits <input class="range" type="range" id="st-n" min="1" max="28" step="1" value="6"> <output id="st-n-out" for="st-n">6 of 28</output></label>
+            <label class="ctrl st-slider" for="st-n">Transits <input class="range" type="range" id="st-n" min="1" max="28" step="1" value="6"> <output id="st-n-out" for="st-n" aria-live="off">6 of 28</output></label>
             <div class="seg st-seg" role="group" aria-label="Jump to">
               <button type="button" data-n="1" aria-pressed="false">1</button><button type="button" data-n="6" aria-pressed="true">2018</button><button type="button" data-n="14" aria-pressed="false">+2020</button><button type="button" data-n="28" aria-pressed="false">+2025</button>
             </div>
           </div>
+          <p class="sr-only" id="st-say" aria-live="polite"></p>
           <figcaption class="fig-foot"><span class="fig-src">Same light curve and fitted period as figure 01 (<a href="lightcurves.json">lightcurves.json</a>). The 7.1 line is the single-sector threshold of NASA&rsquo;s SPOC pipeline, quoted in <a href="https://github.com/eumemic/exoplanets/blob/58c6318/validation/findability.md">findability.md</a>.</span></figcaption>
           <details class="twin"><summary>Show the numbers</summary>
             <div class="table-wrap" tabindex="0" role="region" aria-label="Signal-to-noise as transits are added, oldest first"><table class="tbl"><caption>Signal-to-noise as transits are added, oldest first</caption>
@@ -415,7 +445,7 @@
           <h3>eumemic &middot; founding member</h3>
           <ul>
             <li>Owns the project and its decisions: the method (after Pavel Rabtsevich&rsquo;s study), the star samples, the checks, and the rules for what counts as a candidate.</li>
-            <li>Ran the search of 4,039,203 stars on rented cloud computers, and the earlier searches of nearby K and M dwarfs, faint M dwarfs and the hosts of 6,430 TESS Objects of Interest (stars already known to have planets or planet candidates).</li>
+            <li>Ran the search of 4,039,203 stars on rented cloud computers, and the earlier searches of nearby K and M dwarfs (stars smaller and cooler than the Sun), faint M dwarfs and the hosts of 6,430 TESS Objects of Interest (stars already known to have planets or planet candidates).</li>
             <li>Measured the search&rsquo;s own failure rates: flipped light curves, injected fake transits, known planets found again blind.</li>
             <li>Reviewed and merged the outside fixes, acknowledged them in the README, and re-ran the affected steps.</li>
           </ul>
@@ -436,9 +466,9 @@
       <p class="ex-aska-lede">Ten pull requests, all merged by eumemic on 13 and 14 October 2026 (UTC): four fixes to the pipeline, an independent check, the first version of the website, a fix to the transit predictions, tests and documentation. 9 of the 12 files in the project&rsquo;s <span class="mono">tests/</span> folder came from them.</p>
       <ol class="prs">
         <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/4">PR #4</a><span class="badge v">Merged</span></div><p class="pr-t">The false-alarm classifier was tested on stars it had seen in training.</p><p>Its check let signals from the same star sit on both sides of the split between training and testing, which flatters the score. Grouped by star, 8 tier L1 candidates fell below the cut and 11 others joined, which gave the count of 533 on 13 October. The classifier has been retrained this way since.</p></li>
-        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/6">PR #6</a><span class="badge v">Merged</span></div><p class="pr-t">Light curves with an empty error column were silently thrown away.</p><p>In the earlier searches that removed 24&ndash;82% of one data product&rsquo;s light curves (QLP) in Sectors 94&ndash;97 and 101&ndash;104. With the fix, 1,770,906 full-sky stars gained light curves; eumemic searched them again the same day and counted 120 new candidates (6 in tier A, 51 B, 25 N, 38 L1). <b>That re-search, with the classifier retrained on its signals, took the count from 533 to 671 the same day.</b></p></li>
+        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/6">PR #6</a><span class="badge v">Merged</span></div><p class="pr-t">Light curves with an empty error column were silently thrown away.</p><p>In the earlier searches that removed 24&ndash;82% of the light curves from QLP (MIT&rsquo;s Quick-Look Pipeline, one of the main sources of TESS light curves) in Sectors 94&ndash;97 and 101&ndash;104. With the fix, 1,770,906 full-sky stars gained light curves; eumemic searched them again the same day and counted 120 new candidates (6 in tier A, 51 B, 25 N, 38 L1). <b>That re-search, with the classifier retrained on its signals, took the count from 533 to 671 the same day.</b></p></li>
         <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/12">PR #12</a><span class="badge v">Merged</span></div><p class="pr-t">Re-delivered data files were not indexed.</p><p>NASA&rsquo;s archive re-issued Sectors 74&ndash;79 of the same product as version 2; the index looked only for version 1, so it held none of those light curves. They were included in the re-search.</p></li>
-        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/13">PR #13</a><span class="badge v">Merged</span></div><p class="pr-t">Fast-moving stars were never matched to the Gaia catalogue.</p><p>Matching without correcting for motion missed stars moving faster than about 0.19 arcseconds a year, so a binary-star check could never fire for them. The authors applied it: 3 counted candidates now have a Gaia RUWE above 1.4, a hint of a companion star, and moved to tier C.</p></li>
+        <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/13">PR #13</a><span class="badge v">Merged</span></div><p class="pr-t">Fast-moving stars were never matched to the Gaia catalogue.</p><p>Matching without correcting for motion missed stars moving faster than about 0.19 arcseconds a year, so a binary-star check could never fire for them. The authors applied it: 3 counted candidates now have a Gaia RUWE above 1.4 (RUWE is Gaia&rsquo;s measure of how much a star&rsquo;s position wobbles; above 1.4 hints at a companion star) and moved to tier C.</p></li>
         <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/7">PR #7</a><span class="badge v">Merged</span></div><p class="pr-t">An independent check of the signals the classifier fix moved.</p><p>The 29 signals that changed sides under PR #4 were measured again, transit by transit, in 210 public light curves with a simple local baseline. Seven of the eight counted candidates among them keep their dips; one depends on how the data are cleaned. It changes no tiers and proves no planets, and it says so.</p></li>
         <li><div class="pr-h"><a href="https://github.com/eumemic/exoplanets/pull/8">PR #8</a><span class="badge v">Merged</span></div><p class="pr-t">The project&rsquo;s website.</p><p>A summary of the search, a candidate explorer, a transit planner and the methods, now at <a href="https://eumemic.github.io/exoplanets/">eumemic.github.io/exoplanets</a>. Aska built the first version; the project now computes every number on it from the repository&rsquo;s own tables each time it is rebuilt, on every push.</p></li>
       </ol>
@@ -452,6 +482,31 @@
       <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>How sure</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Candidates</span><span class="badge n">Not confirmed</span><span class="badge n">Not peer reviewed</span></div></div>
       <h2 class="h2" id="hs-h">Candidates, checked many ways, and testable by anyone with a telescope.</h2>
       <p class="lede">None of the 665 is a confirmed planet. Confirming one needs other telescopes: ground-based photometry, sharp imaging to rule out a close neighbour, or measurements of the star&rsquo;s wobble. The authors expect false positives of tens of percent in tier B.</p>
+
+      <figure class="fig frame nt wide-fig" aria-labelledby="nt-title">
+        <div class="fig-head">
+          <p class="fig-title" id="nt-title">The next transits, predicted before anyone looks</p>
+          <p class="fig-how"><b>How to read:</b> the strip covers the next 48 hours from now. Each mark is one predicted transit of a counted candidate: its height is how deep the dip should be (log scale), its shape the candidate&rsquo;s tier. Below, the next ten, with how long until each and its uncertainty. Point at a mark, or use the list.</p>
+        </div>
+        <div class="badges nt-badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Predicted, not observed</span><span class="badge n">Confirming needs a telescope</span></div>
+        <div class="fig-stage nt-stage" style="--ratio:16/5">
+          <canvas id="nt-canvas" role="img" aria-label="Predicted transits of the counted candidates over the next 48 hours, one mark each; the list below gives the next ten."></canvas>
+          <span class="corner tl" id="nt-corner" aria-hidden="true">Next 48 hours</span>
+          <span class="corner tr fig-out" id="nt-now" aria-hidden="true"></span>
+        </div>
+        <ol class="nt-list" id="nt-list" aria-label="The next ten predicted transits"></ol>
+        <div class="fig-ctrl nt-ctrl" role="group" aria-label="Times">
+          <span class="ctrl-label">Times //</span>
+          <div class="seg" role="group" aria-label="Show times in"><button type="button" data-tz="utc" aria-pressed="true">UTC</button><button type="button" data-tz="local" aria-pressed="false">Your time</button></div>
+          <button class="tbtn" type="button" id="nt-refresh">Refresh</button>
+          <span class="nt-note" id="nt-note"></span>
+        </div>
+        <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://github.com/eumemic/exoplanets/blob/58c6318/candidates/predictions.csv">predictions.csv</a> and <a href="https://github.com/eumemic/exoplanets/blob/58c6318/candidates/ephemerides.csv">ephemerides.csv</a> at 58c6318 (CC BY 4.0, eumemic), compacted into <a href="transits.json">transits.json</a>: each candidate&rsquo;s period, a reference transit and its uncertainty. Times are worked out in your browser from those, so they never go stale; they match all 41,176 published times for the counted candidates to within 9 seconds of the published minute. Times are at Earth&rsquo;s centre; they assume a constant period, and an observer also needs the star above the horizon in a dark sky.</span></figcaption>
+        <details class="twin" id="nt-twin"><summary>Show every transit in the next 48 hours</summary>
+          <div class="table-wrap" id="nt-table" tabindex="0" role="region" aria-label="Every predicted transit in the next 48 hours"><p class="twin-note">Loading&hellip;</p></div>
+        </details>
+      </figure>
+
       <div class="table-wrap ex-status" tabindex="0" role="region" aria-label="How the search checks itself (all by the same team; not independent replication)">
         <table class="tbl">
           <caption>How the search checks itself (all by the same team; not independent replication)</caption>
@@ -459,9 +514,9 @@
           <tbody>
             <tr><td>Blind recovery of known signals</td><td>Both of Rabtsevich&rsquo;s signals on TIC 4206066; the known planets of TOI-700 and L 98-59</td></tr>
             <tr><td>Known candidates in its own light curves</td><td>6,258 of 6,321 TESS Objects of Interest (99.0%) detected at their catalogue periods</td></tr>
-            <tr><td>Fake transits injected at signal-to-noise 10</td><td>300 into earlier targets and 700 into full-sky targets; recovery is measured, and red noise lowers it</td></tr>
+            <tr><td>Fake transits injected at signal-to-noise 10</td><td>300 into earlier targets and 700 into full-sky targets; recovery is measured, and red noise (slow drifts in brightness that can mimic or hide dips) lowers it</td></tr>
             <tr><td>False alarms</td><td>Flipped light curves of 798,769 stars; rates by strength (section 03)</td></tr>
-            <tr><td>Which star dimmed</td><td>Per-sector centroid test: never rejects the target for 565 known planets (at p &lt; 0.001), catches 73% of 175 signals known to come from neighbours</td></tr>
+            <tr><td>Which star dimmed</td><td>Per-sector centroid test (does the dip come from the target star or a neighbour? It tracks where on the detector the light dims): never wrongly blames a neighbour for 565 known planets (at a 1-in-1,000 threshold), and catches 73% of 175 signals known to come from neighbours</td></tr>
             <tr><td>Binary stars and close companions</td><td>Gaia DR3, binary catalogues, and TRICERATOPS with Gaia limits; a 1&ndash;2&Prime; blind spot remains that only sharp imaging can close</td></tr>
           </tbody>
         </table>

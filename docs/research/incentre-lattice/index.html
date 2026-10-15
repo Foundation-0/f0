@@ -88,26 +88,33 @@
       <figure class="ph-fig fig frame doodle" aria-labelledby="dd-title">
         <div class="fig-head">
           <p class="fig-title" id="dd-title">The doodle, one step at a time</p>
-          <p class="fig-how"><b>How to read:</b> pick a step. The dots are the triangles&rsquo; incentres; each circle is the largest that fits in its triangle.</p>
+          <p class="fig-how"><b>How to read:</b> pick a step. The dots are the triangles&rsquo; incentres; each circle is the largest that fits in its triangle. Steps 6 and 7 carry the rule into a cube: drag the picture, or focus it and use the arrow keys, to turn it.</p>
         </div>
         <div class="fig-stage dd-stage" style="--ratio:1/1">
           <svg id="dd-svg" viewBox="-1.25 -1.25 4.5 4.5" role="img" aria-labelledby="dd-cap"></svg>
-          <span class="corner tl" aria-hidden="true">Square of side 2</span>
+          <canvas id="dd-canvas" hidden tabindex="0" role="application" aria-roledescription="3D view" aria-label="A cube cut into six pyramids, with one ball in each. Drag, or use the arrow keys, to turn it." aria-describedby="dd-cap"></canvas>
+          <span class="corner tl" id="dd-corner" aria-hidden="true">Square of side 2</span>
           <span class="corner br fig-out" aria-hidden="true">R = &radic;2 &minus; 1 &asymp; 0.4142</span>
         </div>
         <div class="fig-ctrl" role="group" aria-label="Steps of the doodle">
           <span class="ctrl-label">Step //</span>
           <div class="seg dd-seg" role="group" aria-label="Step">
-            <button type="button" data-step="1" aria-pressed="false">1</button><button type="button" data-step="2" aria-pressed="false">2</button><button type="button" data-step="3" aria-pressed="false">3</button><button type="button" data-step="4" aria-pressed="true">4</button><button type="button" data-step="5" aria-pressed="false">5</button>
+            <button type="button" data-step="1" aria-pressed="false">1</button><button type="button" data-step="2" aria-pressed="false">2</button><button type="button" data-step="3" aria-pressed="false">3</button><button type="button" data-step="4" aria-pressed="true">4</button><button type="button" data-step="5" aria-pressed="false">5</button><button type="button" data-step="6" aria-pressed="false">6</button><button type="button" data-step="7" aria-pressed="false">7</button>
           </div>
         </div>
-        <figcaption class="fig-foot"><span id="dd-cap" class="dd-cap" aria-live="polite">Step 4 of 5. Neighbouring circles just touch, along the diagonals and across the edges: every radius is &radic;2 &minus; 1.</span><span class="fig-src">Drawn here from the construction in <a href="https://aska-digital.github.io/incentre-lattice/origin.html">origin.html</a>.</span></figcaption>
+        <div class="fig-ctrl dd-3d" id="dd-3d" role="group" aria-label="The stacked cubes" hidden>
+          <span class="ctrl-label">Cubes //</span>
+          <label class="ctrl dd-n" for="dd-n">Per side <input class="range" type="range" id="dd-n" min="1" max="3" step="1" value="2"> <output id="dd-n-out" for="dd-n" aria-live="off">2</output></label>
+          <div class="seg" role="group" aria-label="Show"><button type="button" id="dd-balls" aria-pressed="true">Balls</button><button type="button" id="dd-rods" aria-pressed="false">Rods</button></div>
+          <div class="seg" role="group" aria-label="Look along a symmetry axis"><button type="button" data-view="face" aria-pressed="false" aria-label="Face: look along a 4-fold axis">Face</button><button type="button" data-view="edge" aria-pressed="false" aria-label="Edge: look along a 2-fold axis">Edge</button><button type="button" data-view="corner" aria-pressed="false" aria-label="Corner: look along a 3-fold axis">Corner</button></div>
+        </div>
+        <figcaption class="fig-foot"><span id="dd-cap" class="dd-cap" aria-live="polite">Step 4 of 7. Neighbouring circles just touch, along the diagonals and across the edges: every radius is &radic;2 &minus; 1.</span><span class="fig-src">Drawn here from the construction in <a href="https://aska-digital.github.io/incentre-lattice/origin.html">origin.html</a>.</span></figcaption>
       </figure>
 
       <ul class="statrow il-stats" aria-label="The project in numbers">
         <li><div class="v">22.3% &rarr; 74.05%</div><div class="k">space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, &pi;/&radic;18</div><span class="src"><a href="https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json">fold-continuous-fcc/certificate.json</a></span></li>
         <li><div class="v">16,240</div><div class="k">exact certificate numbers, every one &ge; 0, ruling out a collision anywhere along the fold (3,248 pair tests)</div><span class="src"><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md">PROOF.md</a></span></li>
-        <li><div class="v">1/(n&sup2;&minus;n&minus;1)</div><div class="k">how much the framework thins sideways when stretched, in every dimension n &ge; 3 (written proof)</div><span class="src"><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">rigidity-nd/PROOF.md</a></span></li>
+        <li><div class="v">1/(n<sup>2</sup>&minus;n&minus;1)</div><div class="k">how much the framework thins sideways when stretched, in every dimension n &ge; 3 (written proof)</div><span class="src"><a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">rigidity-nd/PROOF.md</a></span></li>
         <li><div class="v">~11 min</div><div class="k">for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs</div><span class="src"><a href="https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv">autoresearch-fold/results.tsv</a></span></li>
       </ul>
     </div>
@@ -129,7 +136,7 @@
         <div class="prose">
           <p>Most of that is old, and the project says so: the tiling, the boron skeleton and the size limits chemists use to predict how atoms pack were all known, and the site credits the people who got there first.</p>
           <p>The new questions start when you treat the balls and the rods between touching balls as a hinged toy. A rod (the papers call it a <dfn class="term">bar</dfn>) joins the centres of two touching balls and never changes length. How floppy is the toy? How far can it fold? Could it fold all the way into the tightest stacking of balls without stretching a rod, and without two balls ever passing through each other?</p>
-          <p>Those questions were worked on in October 2026 with AI models doing most of the proofs, code and checking, under Ahraz Arifuddin&rsquo;s direction. The sections below take them in order: where the number comes from, what it does in every dimension, the fold, and how an AI search found the fold&rsquo;s end point.</p>
+          <p>Those questions were worked on in October 2026 with AI models doing most of the proofs, code and checking, under Ahraz Arifuddin&rsquo;s direction. The sections below take them in order: where the number comes from, what it does in every dimension, what two sizes of ball can do, the fold, and how an AI search found the fold&rsquo;s end point.</p>
         </div>
       </div>
     </div>
@@ -156,7 +163,7 @@
             <p class="fig-how"><b>How to read:</b> drag the white dot inside the shaded chamber, or focus the picture and use the arrow keys. Link colours show which wall each link crosses; the bars below compare their lengths.</p>
           </div>
           <div class="fig-stage mr-stage" style="--ratio:1/1">
-            <canvas id="mr-canvas" tabindex="0" role="img" aria-label="The mirror room: a dot in a triangular chamber and its reflections across the floor, the diagonal and the centre line. Use the arrow keys to move the dot."></canvas>
+            <canvas id="mr-canvas" tabindex="0" role="application" aria-roledescription="interactive diagram" aria-label="The mirror room: a dot in a triangular chamber and its reflections across the floor, the diagonal and the centre line. Arrow keys move the dot; hold Shift for bigger steps." aria-describedby="mr-verdict"></canvas>
             <span class="corner tl" aria-hidden="true">Drag the dot</span>
             <span class="corner tr fig-out" id="mr-angle" aria-hidden="true">22.5&deg;</span>
           </div>
@@ -168,10 +175,8 @@
           <p class="mr-verdict" id="mr-verdict" aria-live="polite">All links equal: the dot is at height &radic;2 &minus; 1 = 0.4142 on the centre line.</p>
           <div class="fig-ctrl" role="group" aria-label="Mirror room controls">
             <span class="ctrl-label">Ctrl //</span>
-            <button class="tbtn" type="button" id="mr-snap-dot">Doodle&rsquo;s dot</button>
-            <button class="tbtn" type="button" id="mr-snap-all">All-equal point</button>
-            <button class="tbtn" type="button" id="mr-lock" aria-pressed="true">Keep on centre line</button>
-            <button class="tbtn" type="button" id="mr-balls" aria-pressed="true">Balls</button>
+            <span class="il-btns"><button class="tbtn" type="button" id="mr-snap-dot">Doodle&rsquo;s dot</button><button class="tbtn" type="button" id="mr-snap-all">All-equal point</button></span>
+            <span class="il-btns"><button class="tbtn" type="button" id="mr-lock" aria-pressed="true">Keep on centre line</button><button class="tbtn" type="button" id="mr-balls" aria-pressed="true">Balls</button></span>
           </div>
           <figcaption class="fig-foot"><span class="fig-src">Adapted from the kaleidoscope in <a href="https://aska-digital.github.io/incentre-lattice/mirrors.html">mirrors.html</a> (MIT, Ahraz Arifuddin, Aska Digital, and contributors). Distances: floor y, diagonal (x&minus;y)/&radic;2, centre line 1&minus;x.</span></figcaption>
           <details class="twin"><summary>Show the numbers</summary>
@@ -205,13 +210,13 @@
         <figure class="fig frame sticky dm" aria-labelledby="dm-title">
           <div class="fig-head">
             <p class="fig-title" id="dm-title">Every dimension at once</p>
-            <p class="fig-how"><b>How to read:</b> choose a dimension. Left: the 2n balls around one cube centre, flattened onto the page (a schematic). Right: the Poisson ratio for each dimension; the one you chose is marked.</p>
+            <p class="fig-how"><b>How to read:</b> choose a dimension. Left: the 2n balls around one cube centre, turned in n-dimensional space and projected onto the page (balls drawn small so the rods show; drag it, or press Turn). Each ball is joined to every other ball except its opposite partner. Right: the Poisson ratio for each dimension; the one you chose is marked.</p>
           </div>
           <div class="dm-stage">
-            <div class="fig-stage dm-poly" style="--ratio:1/1"><svg id="dm-poly" viewBox="-1.3 -1.3 2.6 2.6" role="img" aria-labelledby="dm-poly-cap"></svg><span class="corner tl" aria-hidden="true">Schematic</span></div>
+            <div class="fig-stage dm-poly" style="--ratio:1/1"><svg id="dm-poly" viewBox="-1.3 -1.3 2.6 2.6" role="img" aria-labelledby="dm-poly-cap"></svg><span class="corner tl" aria-hidden="true">Projection &middot; balls shrunk</span></div>
             <div class="dm-chart"><svg id="dm-chart" viewBox="0 0 300 260" role="img" aria-labelledby="dm-chart-cap"></svg></div>
           </div>
-          <p class="sr-only" id="dm-poly-cap">The balls around one cube centre in the chosen dimension, flattened onto the page: each ball is joined to every other ball except its opposite partner.</p>
+          <p class="sr-only" id="dm-poly-cap">The balls around one cube centre in the chosen dimension, projected onto the page: each ball is joined to every other ball except its opposite partner.</p>
           <p class="sr-only" id="dm-chart-cap">Bar chart of the Poisson ratio 1/(n squared minus n minus 1) for n from 3 to 8: 0.2, 0.091, 0.053, 0.034, 0.024, 0.018.</p>
           <dl class="dm-read" id="dm-read" aria-live="polite">
             <div><dt>Balls per cell</dt><dd id="dm-balls">6</dd></div>
@@ -224,6 +229,7 @@
           <div class="fig-ctrl" role="group" aria-label="Dimension">
             <span class="ctrl-label">Ctrl //</span>
             <label class="ctrl" for="dm-n">Dimension n <input class="range" type="range" id="dm-n" min="3" max="8" step="1" value="3"> <output id="dm-n-out" for="dm-n">3</output></label>
+            <button class="tbtn play" type="button" id="dm-turn" aria-pressed="false" aria-label="Turn the picture"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt">Turn</span></button>
           </div>
           <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md">results/rigidity-nd/PROOF.md</a> (statement, parts b and c). Floppy motions are counted per cell at a generic wave pattern.</span></figcaption>
           <details class="twin"><summary>Show the numbers</summary>
@@ -236,10 +242,58 @@
     </div>
   </section>
 
-  <!-- 03 THE FOLD -->
-  <section class="sec alt" id="fold" data-index="The fold" data-num="03" aria-labelledby="fold-h">
+  <!-- 03 TWO SIZES -->
+  <section class="sec alt" id="two-sizes" data-index="Two sizes beat one" data-num="03" aria-labelledby="ts-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>The fold</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Written proof + exact certificate</span><span class="badge n">Internal AI review only</span></div></div>
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>Two sizes</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Proven: upper bound and attainment</span><span class="badge n">AI review only</span></div></div>
+      <h2 class="h2" id="ts-h">Two sizes of ball beat one, in a sliver of size ratios.</h2>
+      <p class="lede">Equal balls can never fill more than &pi;/&radic;18 &asymp; 74.05% of space. Put big balls where calcium sits in calcium hexaboride and small balls on the doodle&rsquo;s six dots, where the boron sits, and the best this pattern can do is (&pi;/6)(30&radic;2 &minus; 41) &asymp; 74.69%, at a size ratio of exactly &radic;2 &minus; 1.</p>
+      <div class="split">
+        <div class="prose">
+          <p>Take a cube of side 1. A big ball sits at every corner, and six small balls sit inside, one on each line from the cube&rsquo;s centre to a face, as an octahedron. The size ratio <i>&gamma;</i> is the small radius divided by the big one. Two things limit how big the balls can be: neighbouring big balls along a cube edge must not overlap, and the small balls must not overlap each other, inside one octahedron or across to the next cube.</p>
+          <p>When the small balls are relatively small, the big ones touch first: the big radius is fixed at &frac12;, and the fraction filled is (&pi;/6)(1 + 6<i>&gamma;</i><sup>3</sup>). When they are relatively large, the small ones touch first, at radius (&radic;2 &minus; 1)/2. The best is where both touch at once, and that happens at <i>&gamma;</i> = &radic;2 &minus; 1: the doodle&rsquo;s number again.</p>
+          <p>It beats equal balls only between <i>&gamma;</i> = 0.41023 and 0.41591, and at its best by 0.64 percentage points. That is a geometric fact about this one pattern. Other patterns do better: the salt (NaCl) pattern reaches 79.31% at the same ratio.</p>
+          <aside class="callout caveat"><p class="c-k">How sure, and how new</p><p>The upper bound has a written proof; the proof that the bound is reached, checking every pair of balls in the endless crystal, was prepared with OpenAI&rsquo;s GPT-6 and has had no independent human review. The curve was plotted by Horst and Travesset in 2016, and the peak may be in a 2017 paper the project could not read: the closed form is not confirmed new. It is geometry, not a prediction about real CaB<sub>6</sub>.</p></aside>
+        </div>
+        <figure class="fig frame sticky ts" aria-labelledby="ts-title">
+          <div class="fig-head">
+            <p class="fig-title" id="ts-title">Two sizes beat one</p>
+            <p class="fig-how"><b>How to read:</b> move the size ratio. Left: one cube of the pattern, big balls at the corners (drawn see-through) and the six small balls inside; drag it to turn it. Right: the most space this pattern can fill at each ratio, against the 74.05% limit for equal balls; the gold sliver is where it wins.</p>
+          </div>
+          <div class="ts-grid">
+            <div class="fig-stage ts-stage" style="--ratio:1/1">
+              <canvas id="ts-canvas" tabindex="0" role="application" aria-roledescription="3D view" aria-label="One cube of the calcium hexaboride pattern: big balls at the eight corners, six small balls in an octahedron at the centre. Drag, or use the arrow keys, to turn it." aria-describedby="ts-read"></canvas>
+              <span class="corner tl" aria-hidden="true">One cube, side 1</span>
+            </div>
+            <div class="ts-chart"><svg id="ts-svg" viewBox="0 0 320 240" role="img" aria-labelledby="ts-svg-cap"></svg></div>
+          </div>
+          <p class="sr-only" id="ts-svg-cap">Line chart of the most space the pattern can fill against the size ratio from 0.30 to 0.60. It rises to a peak of 74.69% at the square root of 2 minus 1, about 0.4142, then falls; it is above the 74.05% limit for equal balls only between 0.41023 and 0.41591.</p>
+          <dl class="ts-read" id="ts-read">
+            <div><dt>Size ratio <span class="lc">&gamma;</span></dt><dd id="ts-g">0.4142</dd></div>
+            <div><dt>Space filled</dt><dd id="ts-phi">74.6865%</dd></div>
+            <div><dt>Against equal balls</dt><dd id="ts-vs">beats 74.05% by 0.64 points</dd></div>
+            <div><dt>What touches</dt><dd id="ts-touch">both: big balls along the edges, small balls with each other</dd></div>
+          </dl>
+          <div class="fig-ctrl" role="group" aria-label="Size ratio">
+            <span class="ctrl-label">Ctrl //</span>
+            <label class="ctrl ts-slider" for="ts-gamma">Size ratio <span class="lc">&gamma;</span> <input class="range" type="range" id="ts-gamma" min="0.30" max="0.60" step="0.0005" value="0.4142"> <output id="ts-g-out" for="ts-gamma" aria-live="off">0.4142</output></label>
+            <span class="il-btns"><button class="tbtn" type="button" id="ts-snap">&radic;2 &minus; 1</button><button class="tbtn" type="button" id="ts-lo">0.41023</button><button class="tbtn" type="button" id="ts-hi">0.41591</button></span>
+          </div>
+          <figcaption class="fig-foot"><span class="fig-src">Source: <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/cab6-packing/PROOF.md">results/cab6-packing/PROOF.md</a> and <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/cab6-packing/ATTAINMENT.md">ATTAINMENT.md</a>; curve computed here from the proved formula. Badges: <span class="badge n">Attainment prepared with GPT-6 &middot; no independent human review</span> <span class="badge n">Not confirmed new</span> <span class="badge n">Geometry, not a prediction about the real crystal</span></span></figcaption>
+          <details class="twin"><summary>Show the numbers</summary>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="The most space the pattern can fill, by size ratio"><table class="tbl"><caption>The most space the pattern can fill, by size ratio (cube side 1)</caption>
+              <thead><tr><th class="n">&gamma;</th><th class="n">Big radius</th><th class="n">Small radius</th><th class="n">Space filled</th><th class="n">Against 74.048%</th></tr></thead>
+              <tbody id="ts-tbody"></tbody></table></div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 THE FOLD -->
+  <section class="sec" id="fold" data-index="The fold" data-num="04" aria-labelledby="fold-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>The fold</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Written proof + exact certificate</span><span class="badge n">Internal AI review only</span></div></div>
       <h2 class="h2" id="fold-h">Fold the loose scaffold into the densest packing, without stretching a single rod.</h2>
       <p class="lede">In three dimensions the balls fill only 22.33% of space. The densest any stacking of equal balls can be is &pi;/&radic;18 &asymp; 74.05%: Johannes Kepler guessed it in 1611, and Thomas Hales proved it in 2005.</p>
       <div class="il-cols">
@@ -260,7 +314,7 @@
         </div>
         <div class="fd-grid">
           <div class="fig-stage fd-stage" style="--ratio:16/11">
-            <canvas id="fd-canvas" tabindex="0" role="img" aria-label="Eight repeating cells of six balls, joined by rods, folding as the slider moves. Drag or use the arrow keys to turn the view."></canvas>
+            <canvas id="fd-canvas" tabindex="0" role="application" aria-roledescription="3D view" aria-label="Eight repeating cells of six balls, joined by rods, folding as the slider moves. Drag, or use the arrow keys, to turn the view; the slider below sets the fold." aria-describedby="fd-read"></canvas>
             <span class="corner tl" aria-hidden="true">2 &times; 2 &times; 2 cells &middot; 48 balls</span>
             <span class="corner tr fig-out" id="fd-corner" aria-hidden="true">s = 0.000</span>
             <span class="corner bl" id="fd-note" aria-hidden="true">Open scaffold &middot; 5 touching neighbours per ball</span>
@@ -268,10 +322,10 @@
           <div class="fd-side">
             <svg id="fd-curve" viewBox="0 0 320 230" role="img" aria-labelledby="fd-curve-cap"></svg>
             <p class="sr-only" id="fd-curve-cap">Line chart of the space filled against s: it rises steadily from 22.3% at s = 0 to 74.05% at s = 1, which is the Kepler bound.</p>
-            <dl class="fd-read" aria-live="polite" id="fd-read">
+            <dl class="fd-read" id="fd-read">
               <div><dt>Space filled</dt><dd id="fd-dens">22.3266%</dd></div>
               <div><dt>Volume per cell</dt><dd id="fd-vol">39.799</dd></div>
-              <div><dt>Every rod</dt><dd id="fd-bar">&radic;2 &middot; error 2&times;10&#8315;&sup1;&#8310;</dd></div>
+              <div><dt>Every rod</dt><dd id="fd-bar">&radic;2 &middot; error 2&times;10<sup>&minus;16</sup></dd></div>
               <div><dt>Nearest unjoined pair</dt><dd id="fd-gap">2.0000 (touch: 1.4142)</dd></div>
             </dl>
           </div>
@@ -279,14 +333,16 @@
         <div class="fig-ctrl" role="group" aria-label="Fold controls">
           <span class="ctrl-label">Ctrl //</span>
           <button class="tbtn play" type="button" id="fd-play" aria-pressed="false" aria-label="Play the fold"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8l9 5.2-9 5.2z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" fill="currentColor"/><rect x="9.4" y="3" width="2.6" height="10" fill="currentColor"/></svg><span class="t-txt" id="fd-play-txt">Play</span></button>
-          <label class="ctrl fd-slider" for="fd-s">Fold s <input class="range" type="range" id="fd-s" min="0" max="1" step="0.001" value="0"> <output id="fd-s-out" for="fd-s">0.000</output></label>
+          <label class="ctrl fd-slider" for="fd-s">Fold s <input class="range" type="range" id="fd-s" min="0" max="1" step="0.001" value="0"> <output id="fd-s-out" for="fd-s" aria-live="off">0.000</output></label>
           <button class="tbtn" type="button" id="fd-open">Open scaffold</button>
           <button class="tbtn" type="button" id="fd-close">Densest packing</button>
           <div class="seg" role="group" aria-label="Show">
             <button type="button" id="fd-balls" aria-pressed="true">Balls</button><button type="button" id="fd-rods" aria-pressed="false">Rods only</button>
           </div>
           <button class="tbtn" type="button" id="fd-turn">Turn 30&deg;</button>
+          <button class="tbtn break" type="button" id="fd-break" aria-pressed="false" aria-describedby="fd-bar">Stretch one rod 1%</button>
         </div>
+        <p class="sr-only" id="fd-say" aria-live="polite"></p>
         <figcaption class="fig-foot"><span class="fig-src">Formula ported from <a href="https://aska-digital.github.io/incentre-lattice/fold-continuous.js">fold-continuous.js</a> (MIT, Ahraz Arifuddin, Aska Digital, and contributors); computed in your browser in floating point. The exact proof and certificate: <a href="https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md">PROOF.md</a>, <a href="https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json">certificate.json</a>.</span><span class="cert-chip"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>3,248 pair tests &middot; 16,240 coefficients &middot; all &ge; 0</span></span></figcaption>
         <details class="twin"><summary>Show the numbers</summary>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Checkpoints along the fold (recomputed from the formula; units: rod length √2, ball radius 1/√2)"><table class="tbl"><caption>Checkpoints along the fold (recomputed from the formula; units: rod length &radic;2, ball radius 1/&radic;2)</caption>
@@ -304,17 +360,17 @@
     </div>
   </section>
 
-  <!-- 04 THE SEARCH -->
-  <section class="sec" id="search" data-index="The search" data-num="04" aria-labelledby="search-h">
+  <!-- 05 THE SEARCH -->
+  <section class="sec alt" id="search" data-index="The search" data-num="05" aria-labelledby="search-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>The search</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Sampled path: evidence, not proof</span></div></div>
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>The search</p><div class="badges"><span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Sampled path: evidence, not proof</span></div></div>
       <h2 class="h2" id="search-h">Propose freely, verify strictly.</h2>
       <p class="lede">Before anyone had the exact fold, an AI agent was asked to find a folding path by trial. It could change one file, its own search script. A separate checker, which it could not touch, decided what counted.</p>
       <div class="split">
         <div class="prose">
           <p>The checker&rsquo;s file is locked by its fingerprint: a SHA-256 hash, a 64-character code that changes completely if one character of the file changes. The run script refuses to start if the fingerprint is off. So the agent could try any idea, but it could not make a bad path pass by editing the judge.</p>
           <p>Early on 12 October 2026 the loop ran five times in about eleven minutes. The first run reproduced a known fold that stops at 46.86%. The second, a free continuation after that fold, reached 71.09%. The third skipped the fold and got stuck. The fourth tried a bigger block of cells and moved too far in one step; the checker rejected it. The fifth folded only part of the way, then let the box shear freely, and reached 74.05% with every ball touching 12 others: the densest packing, in its hexagonal form.</p>
-          <p>The limit matters too. The checker tests a long list of snapshots, each at most 0.01 apart, plus the midpoints between them. That is strong evidence, not a proof that nothing goes wrong in between, and the project labels it VERIFIED rather than PROVEN. The exact fold in section 03, a different motion that ends at the cubic form of the densest packing, was found the next day.</p>
+          <p>The limit matters too. The checker tests a long list of snapshots, each at most 0.01 apart, plus the midpoints between them. That is strong evidence, not a proof that nothing goes wrong in between, and the project labels it VERIFIED rather than PROVEN. The exact fold in section 04, a different motion that ends at the cubic form of the densest packing, was found the next day.</p>
           <p class="il-note">The paper&rsquo;s disclosure says Claude models ran the numerical searches for fold paths. The loop follows Andrej Karpathy&rsquo;s open &ldquo;autoresearch&rdquo; pattern.</p>
         </div>
 
@@ -357,10 +413,10 @@
     </div>
   </section>
 
-  <!-- 05 WHO DID WHAT -->
-  <section class="sec alt" id="credit" data-index="Who did what" data-num="05" aria-labelledby="credit-h">
+  <!-- 06 WHO DID WHAT -->
+  <section class="sec" id="credit" data-index="Who did what" data-num="06" aria-labelledby="credit-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Who did what</p><span class="chip">As recorded in the repository</span></div>
+      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>Who did what</p><span class="chip">As recorded in the repository</span></div>
       <h2 class="h2" id="credit-h">A person with a question, and models that did most of the work.</h2>
       <p class="lede">The repository says plainly that most of the computation, proofs, checking and writing was done by AI models under direction, and it names which model did what.</p>
       <div class="il-who">
@@ -390,10 +446,10 @@
     </div>
   </section>
 
-  <!-- 06 HOW SURE -->
-  <section class="sec" id="status" data-index="How sure" data-num="06" aria-labelledby="status-h">
+  <!-- 07 HOW SURE -->
+  <section class="sec alt" id="status" data-index="How sure" data-num="07" aria-labelledby="status-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>06</b><i>//</i>How sure</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Preprint</span><span class="badge n">Not peer reviewed</span></div></div>
+      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>How sure</p><div class="badges"><span class="badge p"><span class="ladder" data-r="2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Preprint</span><span class="badge n">Not peer reviewed</span></div></div>
       <h2 class="h2" id="status-h">Written down, replayable, and not yet checked by an outside mathematician.</h2>
       <p class="lede">The project labels every claim. PROVEN means a written proof exists, so far reviewed only by AI models. VERIFIED means a finite computation that anyone can replay, which is not a proof. KNOWN means published by others and cited.</p>
       <div class="table-wrap il-status" tabindex="0" role="region" aria-label="The main results and how each is backed">
@@ -416,10 +472,10 @@
     </div>
   </section>
 
-  <!-- 07 SOURCES -->
-  <section class="sec alt" id="sources" data-index="Sources" data-num="07" aria-labelledby="sources-h">
+  <!-- 08 SOURCES -->
+  <section class="sec" id="sources" data-index="Sources" data-num="08" aria-labelledby="sources-h">
     <div class="wrap">
-      <div class="sec-head"><p class="sec-label"><b>07</b><i>//</i>Sources</p><span class="chip">Checked 13&ndash;14 Oct 2026</span></div>
+      <div class="sec-head"><p class="sec-label"><b>08</b><i>//</i>Sources</p><span class="chip">Checked 13&ndash;14 Oct 2026</span></div>
       <h2 class="h2" id="sources-h">Read it, replay it, argue with it.</h2>
       <p class="lede">Every result ships with code that re-runs it. Running <span class="mono">make verify</span> on a copy of the repository regenerated every certificate byte for byte when Foundation0 replayed it.</p>
       <div class="il-src">

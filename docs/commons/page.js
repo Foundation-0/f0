@@ -45,7 +45,7 @@
   }
 
   /* ======================================================================
-     HERO: two tools, eight promises
+     HERO: two tools, eight checks
      ====================================================================== */
   function initPromises() {
     var fig = $('.pm'), btn = $('#pm-gaps'); if (!fig || !btn) return;
@@ -54,10 +54,35 @@
     function upd(on) {
       fig.classList.toggle('gaps', on); btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       btn.textContent = on ? 'Show all eight' : 'Show only the gaps';
-      $('#pm-count').textContent = on ? gaps + ' promises with a gap' : '8 promises · ' + full + ' of ' + cells.length + ' kept in full';
+      $('#pm-count').textContent = on ? gaps + ' checks with a gap' : '8 checks · ' + full + ' of ' + cells.length + ' met in full';
     }
     btn.addEventListener('click', function () { upd(!fig.classList.contains('gaps')); });
     upd(false);
+  }
+
+  /* ======================================================================
+     00b: PROMISE 03, MEASURED. Bytes over the wire for a first visit, divided by an assumed speed.
+     ====================================================================== */
+  var WC = [
+    ['Nutrak', 'app and demo data', 30, 'var(--acc-nutrak)'],
+    ['MedCode demo', 'code tables only', 1219, 'var(--acc-medcode)'],
+    ['A median mobile web page', 'HTTP Archive, Sep 2026', 2629, 'var(--line-ui)']
+  ];
+  function initWeak() {
+    var ul = $('#wc-bars'); if (!ul) return;
+    var k = 50;
+    function secs(kb) { var s = kb / k; return s < 1 ? (s < 0.1 ? 'under 0.1 s' : s.toFixed(1) + ' s') : s < 10 ? s.toFixed(1) + ' s' : Math.round(s) + ' s'; }
+    function render() {
+      var max = Math.max.apply(null, WC.map(function (w) { return w[2]; }));
+      ul.innerHTML = WC.map(function (w) {
+        var pct = Math.max(0.6, 100 * w[2] / max);
+        return '<li><span class="wc-n"><b>' + esc(w[0]) + '</b> ' + esc(w[1]) + ' &middot; ' + (w[2] >= 1000 ? (w[2] / 1000).toFixed(w[2] >= 2000 ? 1 : 2) + ' MB' : w[2] + ' KB') + '</span>' +
+          '<span class="wc-track"><span class="wc-bar" style="width:calc((100% - 76px) * ' + (pct / 100).toFixed(4) + ');background:' + w[3] + '"></span><span class="wc-t">' + secs(w[2]) + '</span></span></li>';
+      }).join('');
+    }
+    $$('#wc-speed button').forEach(function (b) { b.addEventListener('click', function () { k = +b.getAttribute('data-k'); segPress($('#wc-speed'), b); render(); }); });
+    arrows($('#wc-speed'), 'button', function (b) { b.click(); });
+    render();
   }
 
   /* ======================================================================
@@ -177,7 +202,7 @@
     function side_() {
       var sb = $('#ca-side'), build = $('.ca-build', sb), grid = $('#ca-grid'), near = $('.ca-near', sb);
       if (cur === 'ankle') {
-        build.hidden = false; grid.hidden = false; if (near) near.remove();
+        build.hidden = false; grid.hidden = false; $('#ca-note').hidden = false; if (near) near.remove();
         var tb = grid.querySelector('tbody'); tb.innerHTML = '';
         ['1', '2', '9'].forEach(function (s) {
           var tr = h('tr', null, tb);
@@ -189,7 +214,7 @@
           });
         });
       } else {
-        build.hidden = true; grid.hidden = true;
+        build.hidden = true; grid.hidden = true; $('#ca-note').hidden = true;
         if (!near) near = h('div', { cls: 'ca-near' }, sb);
         var code = codeStr(CODES[cur].parts);
         near.innerHTML = '<p class="label">Change a character, change the sentence</p><ul>' + CODES[cur].near.map(function (n) {
@@ -246,6 +271,69 @@
   }
 
   /* ======================================================================
+     02b: WHY MATCHING WORDS IS NOT ENOUGH. The simplest keyword matcher, ours (not MedCode's), on 270 real
+     FY2027 codes from commons/ankle-codes.json: score = how many of the note's words a description contains.
+     ====================================================================== */
+  var KW_STOP = { a: 1, an: 1, the: 1, of: 1, and: 1, or: 1, to: 1, at: 1, in: 1, on: 1, for: 1, with: 1, my: 1, is: 1, was: 1, her: 1, his: 1, their: 1, i: 1, it: 1, this: 1, that: 1, by: 1 };
+  var KW_PRESETS = [
+    { q: 'sprain of left ankle, follow-up', right: 'S93.402D', why: 'No code says “follow-up”: the list calls a follow-up visit a “subsequent encounter”, so the first visit and the long-term after-effects score exactly the same.' },
+    { q: 'no fracture of the ankle', right: null, why: 'The note rules a fracture out. To a keyword matcher “no” is just one more word that matches nothing, so fracture codes rise to the top.' },
+    { q: 'rolled my ankle', right: 'S93.409A', why: 'A person reads “rolled my ankle” as a sprain. “Rolled” appears in no description, so only “ankle” counts, and every ankle code ties.' }
+  ];
+  function kwWords(s) { return String(s).toLowerCase().split(/[^a-z0-9]+/).filter(function (w) { return w && !KW_STOP[w]; }); }
+  function initKeywords() {
+    var input = $('#kw-q'), list = $('#kw-list'), read = $('#kw-read'); if (!input || !F0.json) return;
+    var codes = null, preset = 0;
+    function rank(q) {
+      var qs = kwWords(q).filter(function (w, i, a) { return a.indexOf(w) === i; });
+      var scored = codes.map(function (c, i) { var dw = c._w, hit = qs.filter(function (w) { return dw.indexOf(w) >= 0; }); return { c: c, i: i, s: hit.length, hit: hit }; })
+        .filter(function (x) { return x.s > 0; })
+        .sort(function (a, b) { return b.s - a.s || a.i - b.i; });
+      var r = 0, prev = -1; scored.forEach(function (x, k) { if (x.s !== prev) { r = k + 1; prev = x.s; } x.rank = r; });
+      return { qs: qs, scored: scored };
+    }
+    function mark(desc, hit) {
+      return desc.split(/([A-Za-z0-9]+)/).map(function (part, k) { return k % 2 && hit.indexOf(part.toLowerCase()) >= 0 ? '<mark>' + esc(part) + '</mark>' : esc(part); }).join('');
+    }
+    function render() {
+      if (!codes) return;
+      var q = input.value, R = rank(q), P = preset >= 0 ? KW_PRESETS[preset] : null, sc = R.scored;
+      var tie = function (x) { return sc.filter(function (y) { return y.s === x.s; }).length > 1; };
+      list.innerHTML = sc.slice(0, 5).map(function (x) {
+        var right = P && P.right === x.c[0];
+        return '<li class="' + (right ? 'right' : '') + (/fracture/i.test(x.c[1]) ? ' frac' : '') + '"><span class="kw-r">' + (tie(x) ? '=' : '') + x.rank + '</span><span class="kw-c">' + esc(x.c[0]) + '</span><span class="kw-d">' + mark(x.c[1], x.hit) + '</span><span class="kw-s">' + x.s + (x.s === 1 ? ' word' : ' words') + (right ? '<b>right code</b>' : '') + '</span></li>';
+      }).join('') || '<li class="kw-none">No description shares a word with this note.</li>';
+      var txt = '';
+      if (P) {
+        if (P.right) {
+          var rx = sc.filter(function (x) { return x.c[0] === P.right; })[0], d = codes.filter(function (c) { return c[0] === P.right; })[0];
+          if (!rx) txt = '<b>The right code, ' + esc(P.right) + ', does not appear at all.</b> ';
+          else {
+            var same = sc.filter(function (y) { return y.s === rx.s; }).length, pos = sc.indexOf(rx) + 1;
+            txt = '<b>The right code, ' + esc(P.right) + ' (&ldquo;' + esc(d[1]) + '&rdquo;), ' + (same > 1 ? 'ties for ' + (rx.rank === 1 ? 'first place' : 'rank ' + rx.rank) + ' with ' + fmt(same - 1) + ' other code' + (same === 2 ? '' : 's') : 'ranks #' + rx.rank) + '</b>' + (pos > 5 ? '; in code order it is #' + pos + ', off this list.' : '.') + ' ';
+          }
+        } else {
+          var top = sc.slice(0, 5), fr = top.filter(function (x) { return /fracture/i.test(x.c[1]); }).length;
+          txt = '<b>' + (fr === top.length && fr > 1 ? 'All ' + ['', 'one', 'two', 'three', 'four', 'five'][fr] + ' top matches are fracture codes' : fr + ' of the top ' + top.length + ' are fracture codes') + '</b>, for a note that says there is no fracture. ';
+        }
+        txt += esc(P.why);
+      } else {
+        txt = R.qs.length ? sc.length + ' of 270 codes share at least one word with this note' + (sc.length ? '; the best share ' + sc[0].s + ' of its ' + R.qs.length + ' words, and ' + sc.filter(function (y) { return y.s === sc[0].s; }).length + ' codes tie for first.' : '.') + ' A keyword match is not a judgment about which code is right.' : 'Type a short, made-up note.';
+      }
+      read.innerHTML = txt;
+    }
+    function setPreset(i) {
+      preset = i; if (i >= 0) input.value = KW_PRESETS[i].q;
+      $$('#kw-presets button').forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-p') === i ? 'true' : 'false'); });
+      render();
+    }
+    $$('#kw-presets button').forEach(function (b) { b.addEventListener('click', function () { setPreset(+b.getAttribute('data-p')); }); });
+    var t = 0;
+    input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(function () { var i = -1; KW_PRESETS.forEach(function (p, k) { if (p.q === input.value.trim()) i = k; }); setPreset(i); }, 80); });
+    F0.json('ankle-codes.json').then(function (d) { codes = d.codes.map(function (c) { c._w = kwWords(c[1]); return c; }); render(); }).catch(function (e) { console.error(e); });
+  }
+
+  /* ======================================================================
      03: WHO CHECKED THE CLAIM?  Counted from the public vendor table (snapshot 3 Oct 2026);
      names removed. v = verified, u = unverified, c = vendor claim, in the table's own order.
      ====================================================================== */
@@ -281,7 +369,7 @@
       h('h3', null, g, esc(m[1]) + ' <span>' + vs.length + ' vendors &middot; ' + tv + ' of ' + tt + ' verified</span>');
       vs.forEach(function (x) {
         var label = x.id + ', ' + m[1].toLowerCase() + ': ' + x.v + ' verified, ' + x.u + ' unverified, ' + x.c + ' vendor claim' + (x.c === 1 ? '' : 's');
-        var r = h('div', { cls: 'ev-row', tabindex: '0', role: 'group', 'aria-label': label }, g);
+        var r = h('div', { cls: 'ev-row', tabindex: '-1', role: 'group', 'aria-label': label }, g);
         h('span', { cls: 'ev-name', text: x.id }, r);
         var d = h('span', { cls: 'ev-dots', 'aria-hidden': 'true' }, r, x.tags ? x.tags.split('').map(shape).join('') : '<span class="none">no figure tagged</span>');
         h('span', { cls: 'ev-n', 'aria-hidden': 'true', text: x.v + ' / ' + x.tags.length }, r);
@@ -290,6 +378,16 @@
         r.addEventListener('focus', function () { tip(null); }); r.addEventListener('blur', tipHide);
       });
     });
+    /* one Tab stop for the whole chart: the current row has tabindex 0, the rest -1; arrow keys move */
+    function visibleRows() { return $$('.ev-row', rows).filter(function (r) { return !r.closest('.ev-grp').hidden; }); }
+    function rove(r, focus) { $$('.ev-row', rows).forEach(function (x) { x.tabIndex = x === r ? 0 : -1; }); if (focus && r) r.focus(); }
+    rows.addEventListener('keydown', function (e) {
+      var vs = visibleRows(), i = vs.indexOf(document.activeElement); if (i < 0) return;
+      var j = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? Math.min(vs.length - 1, i + 1) : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? Math.max(0, i - 1) : e.key === 'Home' ? 0 : e.key === 'End' ? vs.length - 1 : -1;
+      if (j < 0) return; e.preventDefault(); rove(vs[j], true);
+    });
+    rows.addEventListener('focusin', function (e) { var r = e.target.closest('.ev-row'); if (r) rove(r, false); });
+    rove(visibleRows()[0], false);
     // twin table
     var tb = $('#ev-table tbody');
     MODES.forEach(function (m) { all.filter(function (x) { return x.mode === m[0]; }).forEach(function (x) { h('tr', null, tb, '<th scope="row">' + x.id + '</th><td>' + esc(m[1]) + '</td><td class="n">' + x.v + '</td><td class="n">' + x.u + '</td><td class="n">' + x.c + '</td>'); }); });
@@ -319,6 +417,8 @@
       b.addEventListener('click', function () {
         mode = b.getAttribute('data-m'); segPress($('#ev-modes'), b);
         $$('.ev-grp', rows).forEach(function (g) { g.hidden = !(mode === 'all' || g.getAttribute('data-mode') === mode); });
+        var cur = $$('.ev-row', rows).filter(function (x) { return x.tabIndex === 0; })[0];
+        if (!cur || cur.closest('.ev-grp').hidden) rove(visibleRows()[0], false);
         reBar();
       });
     });
@@ -526,6 +626,6 @@
     onTheme(function () { re(); set(x); });
   }
 
-  function init() { initPromises(); initAnatomy(); initLetters(); initEvidence(); initWeek(); initRDA(); }
+  function init() { initPromises(); initWeak(); initAnatomy(); initLetters(); initKeywords(); initEvidence(); initWeek(); initRDA(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

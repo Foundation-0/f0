@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Not on the record · Foundation0">
 <meta property="og:description" content="This page is not on the record.">
-<meta property="og:image" content="assets/og.png">
+<meta property="og:image" content="https://aska-digital.github.io/frontier-math/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
@@ -24,7 +24,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap">
 <link rel="stylesheet" href="assets/f0.css">
 <script>
 /* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
@@ -87,8 +87,8 @@
       <a href="ledger/">Ledger</a><a href="research/">Research</a><a href="instruments/">Instruments</a><a href="commons/">Commons</a><a href="writing/">Writing</a><a href="charter/">Charter</a>
     </nav>
     <div class="tools">
-      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
-      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Motion"><span class="ico"></span><span class="t-txt">Motion</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Theme: switch"><span class="ico"></span><span class="t-txt">Theme</span></button>
     </div>
     <details class="menu">
       <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
@@ -110,10 +110,10 @@
         <p class="dek">There is no page at <code id="nf-path">this address</code>. It may have moved when this site grew from a single race tracker into Foundation0, or the link may have a typo.</p>
         <p class="callout note nf-moved" id="nf-moved" hidden></p>
         <ul class="doors" aria-label="Places to go">
-          <li><a class="door" href="./" style="--acc:var(--bio)"><span class="n">&#8709;</span><span class="t">Home</span><span class="d">The Radiant: every milestone people and AI reached together.</span></a></li>
+          <li><a class="door" href="./" style="--acc:var(--bio)"><span class="n">&#8709;</span><span class="t">Home</span><span class="d">The Radiant: every milestone on the Ledger, in one figure.</span></a></li>
           <li><a class="door" href="ledger/" style="--acc:var(--dig)"><span class="n">01</span><span class="t">The Ledger</span><span class="d">The full record, with sources and how sure each entry is.</span></a></li>
           <li><a class="door" href="research/" style="--acc:var(--acc-incentre)"><span class="n">03</span><span class="t">Research</span><span class="d">Our own work and the work we contributed to.</span></a></li>
-          <li><a class="door" href="research/integer-multiplication/live/" style="--acc:var(--acc-intmult)"><span class="n">03.2</span><span class="t">The &kappa; race, live</span><span class="d">The tracker this site began as, now under Research.</span></a></li>
+          <li><a class="door" href="research/integer-multiplication/live/" style="--acc:var(--acc-intmult)"><span class="n">03.2</span><span class="t">The &kappa; race tracker (feed of 11 Oct)</span><span class="d">The tracker this site began as, now under Research.</span></a></li>
         </ul>
       </div>
       <div>
@@ -126,7 +126,7 @@
         <article class="nf-entry frame" id="nf-entry" aria-live="polite">
           <p class="tip-k">Meanwhile, one entry that is on the record</p>
           <h2><a href="ledger/">The Ledger</a></h2>
-          <p>Every advance people and AI made together, from the 1960s to today, each with its sources and an honest evidence label.</p>
+          <p>Advances people and AI made together, from the 1960s to today, chosen by hand, each with its sources and an honest evidence label.</p>
           <button class="tbtn" type="button" id="nf-another" hidden>Show another</button>
         </article>
       </div>
@@ -143,9 +143,9 @@
         <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
       </div>
       <div class="foot-cols">
-        <div><h4>Record</h4><ul><li><a href="ledger/">The Ledger</a></li><li><a href="data/ledger.json">Ledger data (JSON)</a></li><li><a href="charter/">Charter</a></li></ul></div>
-        <div><h4>Work</h4><ul><li><a href="research/">Research</a></li><li><a href="instruments/">Instruments</a></li><li><a href="commons/">Commons</a></li><li><a href="writing/">Writing</a></li></ul></div>
-        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+        <div><h2 class="foot-h">Record</h2><ul><li><a href="ledger/">The Ledger</a></li><li><a href="data/ledger.json">Ledger data (JSON)</a></li><li><a href="charter/">Charter</a></li></ul></div>
+        <div><h2 class="foot-h">Work</h2><ul><li><a href="research/">Research</a></li><li><a href="instruments/">Instruments</a></li><li><a href="commons/">Commons</a></li><li><a href="writing/">Writing</a></li></ul></div>
+        <div><h2 class="foot-h">Source</h2><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
       </div>
     </div>
     <div class="stamp">
@@ -159,6 +159,8 @@
 /* 404 helpers: show the missing path, suggest where an old address moved, search ledger titles, show one entry. */
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
+  /* the <base> above makes "#main" mean "/<repo>/#main"; keep same-page links (the skip link) on this page */
+  [].forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) { a.setAttribute('href', location.pathname + location.search + a.getAttribute('href')); });
   var esc = F0.esc, path = decodeURIComponent(location.pathname + location.search);
   document.getElementById('nf-path').textContent = path;
   /* addresses from the original frontier-math dashboard, before the site became Foundation0 */

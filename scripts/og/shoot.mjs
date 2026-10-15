@@ -5,7 +5,8 @@
  *     node scripts/og/shoot.mjs              writes docs/assets/og.png
  *     node scripts/og/shoot.mjs out.png      writes somewhere else (to compare first)
  *
- * Run it after the ledger changes: the card shows the Radiant (every milestone as a mark) and the milestone count.
+ * The card shows the Radiant (every milestone as a mark) and no counts, so it stays true as the ledger grows;
+ * re-run it when the Radiant's look changes (CI may also run it on ledger changes).
  *
  * How: serves docs/ from a Node http server on a free 127.0.0.1 port, adds og.html (next to this script) at
  * /__og.html so it loads the site's own assets/f0.css, assets/f0.js, assets/radiant.js and data/ledger.json, and
