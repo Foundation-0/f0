@@ -232,22 +232,20 @@
         a += (bottom ? -1 : 1) * (cw + 1.4) / r;
       }
     }
-    /* the Zero-Octagon: octagon, octagram {8/3} and incentre circles (R = sqrt2 - 1), half gold, half cyan */
+    /* the incentre mark (the logo): a square, its diagonals, and the incircle of each of the four triangles,
+       radius (sqrt2 - 1) x half-side; neighbouring incircles touch, gold (biological) against cyan (digital) */
     function zeroMark(x, cx, cy, r) {
-      var pts = [];
-      for (var i = 0; i < 8; i++) { var a = (22.5 + 45 * i) * Math.PI / 180; pts.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); }
-      var inr = r * Math.cos(Math.PI / 8), Rs = Math.SQRT2 - 1;
-      [[tok['--bio'], cx - r - 2, cx], [tok['--dig'], cx, cx + r + 2]].forEach(function (half) {
-        x.save(); x.beginPath(); x.rect(half[1], cy - r - 2, half[2] - half[1], 2 * r + 4); x.clip();
-        x.strokeStyle = half[0]; x.lineWidth = 1.2;
-        x.beginPath(); pts.forEach(function (p, i) { i ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.closePath(); x.stroke();
-        x.globalAlpha = 0.55; x.lineWidth = 0.8; x.beginPath();
-        [0, 3, 6, 1, 4, 7, 2, 5, 0].forEach(function (k, i) { i ? x.lineTo(pts[k][0], pts[k][1]) : x.moveTo(pts[k][0], pts[k][1]); }); x.stroke();
-        x.globalAlpha = 1; x.lineWidth = 1;
-        x.beginPath(); x.arc(cx, cy, inr * Rs, 0, TWO_PI); x.stroke();
-        x.beginPath(); x.arc(cx, cy, inr * Rs * Rs, 0, TWO_PI); x.stroke();
-        x.restore();
+      var h = r * 0.72, rr = (Math.SQRT2 - 1) * h, d = h - rr;
+      x.save();
+      x.strokeStyle = tok['--ink-3']; x.globalAlpha = 0.7; x.lineWidth = 0.8;
+      x.beginPath(); x.moveTo(cx - h, cy - h); x.lineTo(cx + h, cy + h); x.moveTo(cx + h, cy - h); x.lineTo(cx - h, cy + h); x.stroke();
+      x.globalAlpha = 1; x.lineWidth = 1.2;
+      [[0, -d, '--bio'], [0, d, '--bio'], [-d, 0, '--dig'], [d, 0, '--dig']].forEach(function (c) {
+        x.strokeStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], rr, 0, TWO_PI); x.stroke();
+        x.fillStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], Math.max(1, rr * 0.2), 0, TWO_PI); x.fill();
       });
+      x.strokeStyle = tok['--ink-2']; x.lineWidth = 1.2; x.strokeRect(cx - h, cy - h, 2 * h, 2 * h);
+      x.restore();
     }
 
     /* ---- one frame ---- */

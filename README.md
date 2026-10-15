@@ -15,7 +15,7 @@ working together "without priority".
 
 Foundation0 is the organisation that should have come first: one that makes biological and digital
 intelligence work together in the open, so that the later Foundations are never needed. The zero is a
-nod to the Zeroth Law of Robotics, which outranks the other three. Foundation0 is not affiliated with
+nod to the 0<sup>th</sup> Law of Robotics, which outranks the other three. Foundation0 is not affiliated with
 the Asimov estate, his publishers or Apple.
 
 ## What is here

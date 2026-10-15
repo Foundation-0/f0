@@ -160,7 +160,7 @@
     function draw() {
       geo();
       while (svg.lastChild && svg.lastChild.nodeName !== 'title') svg.removeChild(svg.lastChild);
-      // the car body: a faint octagon (the Foundation0 zero)
+      // the car body: a faint octagon (the 4.8.8 tiling of the incentre lattice)
       var oct = [];
       for (var i = 0; i < 8; i++) { var a = (22.5 + 45 * i) * Math.PI / 180; oct.push((CX + (W / 2 - 10) * Math.cos(a)).toFixed(1) + ',' + (CY + (H / 2 - 16) * Math.sin(a)).toFixed(1)); }
       el('polygon', { points: oct.join(' '), fill: 'none', style: 'stroke:var(--line)', 'stroke-width': 1 }, svg);
