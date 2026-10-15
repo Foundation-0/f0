@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="robots" content="noindex"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crowd Research Frontier</title>
+<meta name="description" content="A public repository moved a research constant 3.6x in four days, with 857 pull requests from 172 people. What made it work.">
+<style>
+:root{color-scheme:light;--plane:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;
+--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--series:#2a78d6;--border:rgba(11,11,11,.10)}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme=light])){color-scheme:dark;
+--plane:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#898781;
+--grid:#2c2c2a;--axis:#383835;--series:#3987e5;--border:rgba(255,255,255,.10)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:800px;margin:0 auto;padding:72px 24px 96px}
+h1{font-size:40px;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px;font-weight:650}
+h2{font-size:21px;letter-spacing:-.01em;margin:56px 0 14px;font-weight:620}
+p{margin:0 0 18px;color:var(--ink2);max-width:66ch}
+p.lede{font-size:19px;color:var(--ink)}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--series);text-decoration:none;border-bottom:1px solid var(--border)}
+a:hover{border-bottom-color:var(--series)}
+.hero{margin:40px 0 8px}
+.hero .n{font-size:64px;line-height:1;font-weight:650;letter-spacing:-.03em}
+.hero .c{color:var(--ink2);margin-top:8px;font-size:15px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:32px 0}
+.tile{background:var(--surface);padding:16px 18px}
+.tile .v{font-size:26px;font-weight:620;letter-spacing:-.02em}
+.tile .l{font-size:13px;color:var(--muted);margin-top:3px}
+figure{margin:28px 0;background:var(--surface);border:1px solid var(--border);
+border-radius:10px;padding:18px 18px 10px}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.fig-title{font-size:14px;font-weight:600;margin-bottom:10px}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.pair{grid-template-columns:1fr}h1{font-size:31px}.hero .n{font-size:46px}}
+.grid{stroke:var(--grid);stroke-width:1}
+.axis{stroke:var(--axis);stroke-width:1}
+.series{fill:none;stroke:var(--series);stroke-width:2;stroke-linejoin:round}
+.dot{fill:var(--series);stroke:var(--surface);stroke-width:2}
+.bar{fill:var(--series)}
+.tick{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.tick-y{text-anchor:end}.tick-x{text-anchor:middle}
+.barval{fill:var(--ink2);font-size:11px;text-anchor:middle;font-weight:600}
+.lastlabel{fill:var(--ink);font-size:13px;font-weight:620;text-anchor:end}
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--ink);
+color:var(--plane);font-size:12px;padding:6px 9px;border-radius:6px;white-space:nowrap;z-index:9;
+font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+td.num{font-variant-numeric:tabular-nums;text-align:right}
+footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);
+font-size:13px;color:var(--muted)}
+</style></head>
+<body>
+<p class="legacy-notice" style="margin:0;padding:.55rem 1rem;font:13px/1.45 system-ui,sans-serif;background:#1f2a1f;color:#d7e3d2;border-bottom:1px solid #3d4f3a">Archived: the original frontier-math site, kept as it was on 14 October 2026, when the repository became <a href="../../" style="color:#9fd18b">Foundation0</a>. Its data is frozen; see <a href="../../research/integer-multiplication/story/" style="color:#9fd18b">the current story page</a> for the current version.</p>
+<main>
+<h1>When the crowd gets a frontier model</h1>
+
+<p class="lede">On 7 October someone opened a public repository holding one question: how much
+faster than <em>n</em>&#8201;log&#8201;<em>n</em> can you <strong>prove</strong> that two large
+numbers can be multiplied? Five days later it has 857 pull requests from
+172 people, and the reviewed answer has moved 3.6&times;.</p>
+
+<div class="hero">
+  <div class="n">3.6&times;</div>
+  <div class="c">improvement in the reviewed constant, 9 to 13 October 2026</div>
+</div>
+
+<figure>
+  <div class="fig-title">The reviewed constant &kappa;, as recorded in the repository's own certificate</div>
+  <svg class="chart" viewBox="0 0 760 320" role="img" aria-label="Verified kappa over time, 0.0004609169 to 0.001661634653669567">
+<line x1="64" y1="286.0" x2="742" y2="286.0" class="grid"/>
+<text x="54" y="290.0" class="tick tick-y">0.0000</text>
+<line x1="64" y1="221.5" x2="742" y2="221.5" class="grid"/>
+<text x="54" y="225.5" class="tick tick-y">0.0005</text>
+<line x1="64" y1="157.0" x2="742" y2="157.0" class="grid"/>
+<text x="54" y="161.0" class="tick tick-y">0.0010</text>
+<line x1="64" y1="92.5" x2="742" y2="92.5" class="grid"/>
+<text x="54" y="96.5" class="tick tick-y">0.0015</text>
+<line x1="64" y1="28.0" x2="742" y2="28.0" class="grid"/>
+<text x="54" y="32.0" class="tick tick-y">0.0020</text>
+<line x1="64.0" y1="28" x2="64.0" y2="286" class="grid"/>
+<text x="64.0" y="306" class="tick tick-x">Oct 9</text>
+<line x1="222.4" y1="28" x2="222.4" y2="286" class="grid"/>
+<text x="222.4" y="306" class="tick tick-x">Oct 10</text>
+<line x1="380.8" y1="28" x2="380.8" y2="286" class="grid"/>
+<text x="380.8" y="306" class="tick tick-x">Oct 11</text>
+<line x1="539.2" y1="28" x2="539.2" y2="286" class="grid"/>
+<text x="539.2" y="306" class="tick tick-x">Oct 12</text>
+<line x1="697.5" y1="28" x2="697.5" y2="286" class="grid"/>
+<text x="697.5" y="306" class="tick tick-x">Oct 13</text>
+<line x1="64" y1="286" x2="742" y2="286" class="axis"/>
+<path d="M 96.3 226.5 L 103.0 226.5 L 103.0 225.1 L 103.7 225.1 L 103.7 225.1 L 146.8 225.1 L 146.8 200.6 L 315.7 200.6 L 315.7 192.7 L 551.8 192.7 L 551.8 90.2 L 626.1 90.2 L 626.1 81.5 L 636.2 81.5 L 636.2 79.3 L 651.3 79.3 L 651.3 78.0 L 677.9 78.0 L 677.9 75.1 L 688.4 75.1 L 688.4 75.0 L 736.8 75.0 L 736.8 71.7 L 742.0 71.7 L 742.0 71.6 L 742.0 71.6" class="series"/>
+<circle cx="96.3" cy="226.5" r="4" class="dot" data-t="2026-10-09 04:53Z" data-k="0.000460916899999999998"/>
+<circle cx="103.0" cy="225.1" r="4" class="dot" data-t="2026-10-09 05:55Z" data-k="0.000472143084999999995"/>
+<circle cx="103.7" cy="225.1" r="4" class="dot" data-t="2026-10-09 06:01Z" data-k="0.000472154791000000003"/>
+<circle cx="146.8" cy="200.6" r="4" class="dot" data-t="2026-10-09 12:32Z" data-k="0.000661885549259597951"/>
+<circle cx="315.7" cy="192.7" r="4" class="dot" data-t="2026-10-10 14:08Z" data-k="0.000723571590007464002"/>
+<circle cx="551.8" cy="90.2" r="4" class="dot" data-t="2026-10-12 01:55Z" data-k="0.00151776097782033094"/>
+<circle cx="626.1" cy="81.5" r="4" class="dot" data-t="2026-10-12 13:10Z" data-k="0.00158493111178578693"/>
+<circle cx="636.2" cy="79.3" r="4" class="dot" data-t="2026-10-12 14:41Z" data-k="0.00160227892198321195"/>
+<circle cx="651.3" cy="78.0" r="4" class="dot" data-t="2026-10-12 16:59Z" data-k="0.00161272137265529997"/>
+<circle cx="677.9" cy="75.1" r="4" class="dot" data-t="2026-10-12 21:01Z" data-k="0.00163518372925577807"/>
+<circle cx="688.4" cy="75.0" r="4" class="dot" data-t="2026-10-12 22:36Z" data-k="0.00163552738037539189"/>
+<circle cx="736.8" cy="71.7" r="4" class="dot" data-t="2026-10-13 05:57Z" data-k="0.00166120264327223894"/>
+<circle cx="742.0" cy="71.6" r="4" class="dot" data-t="2026-10-13 06:44Z" data-k="0.00166163465366956698"/>
+<text x="734.0" y="57.6" class="lastlabel">0.001662</text>
+</svg>
+  <figcaption>Each step is a new result the maintainer reviewed and selected. Bigger is better:
+  the proven running time is <em>n</em>&#8201;(log&#8201;<em>n</em>)<sup>1&#8722;&kappa;</sup>.</figcaption>
+</figure>
+
+<div class="tiles">
+  <div class="tile"><div class="v">857</div><div class="l">pull requests</div></div>
+  <div class="tile"><div class="v">172</div><div class="l">people</div></div>
+  <div class="tile"><div class="v">152</div><div class="l">merged</div></div>
+  <div class="tile"><div class="v">6</div><div class="l">days old</div></div>
+</div>
+
+<h2>Why it moved</h2>
+<p>Two things were different. The first is obvious: a model will read a long technical argument
+with you and draft the next step. That gets you a candidate.</p>
+<p>The second matters more. <strong>Every result that moves the number arrives with a script that
+checks it.</strong> Nobody has to trust the person who sent it. You run their verifier on your own
+machine and it passes or it fails. A wrong answer costs its author some time and costs everyone
+else nothing.</p>
+<p>That is what makes a crowd usable on a problem like this. Without the check, 857 pull
+requests is just noise nobody can afford to read. With it, the work composes: pull requests
+name the exact constructions they build on, and those belong to other people.</p>
+
+<figure>
+  <div class="fig-title">Daily activity</div>
+  <div class="pair">
+    <div><svg class="chart small" viewBox="0 0 360 190" role="img" aria-label="Pull requests opened">
+<line x1="34" y1="160.0" x2="350" y2="160.0" class="grid"/>
+<text x="27" y="164.0" class="tick tick-y">0</text>
+<line x1="34" y1="111.3" x2="350" y2="111.3" class="grid"/>
+<text x="27" y="115.3" class="tick tick-y">100</text>
+<line x1="34" y1="62.7" x2="350" y2="62.7" class="grid"/>
+<text x="27" y="66.7" class="tick tick-y">200</text>
+<line x1="34" y1="14.0" x2="350" y2="14.0" class="grid"/>
+<text x="27" y="18.0" class="tick tick-y">300</text>
+<rect x="42.6" y="159.0" width="28.0" height="1.0" rx="3" class="bar" data-t="2026-10-07" data-k="2 pull requests opened"/>
+<text x="56.6" y="153.0" class="barval">2</text>
+<text x="56.6" y="178" class="tick tick-x">07</text>
+<rect x="87.7" y="107.9" width="28.0" height="52.1" rx="3" class="bar" data-t="2026-10-08" data-k="107 pull requests opened"/>
+<text x="101.7" y="101.9" class="barval">107</text>
+<text x="101.7" y="178" class="tick tick-x">08</text>
+<rect x="132.9" y="93.3" width="28.0" height="66.7" rx="3" class="bar" data-t="2026-10-09" data-k="137 pull requests opened"/>
+<text x="146.9" y="87.3" class="barval">137</text>
+<text x="146.9" y="178" class="tick tick-x">09</text>
+<rect x="178.0" y="110.8" width="28.0" height="49.2" rx="3" class="bar" data-t="2026-10-10" data-k="101 pull requests opened"/>
+<text x="192.0" y="104.8" class="barval">101</text>
+<text x="192.0" y="178" class="tick tick-x">10</text>
+<rect x="223.1" y="75.8" width="28.0" height="84.2" rx="3" class="bar" data-t="2026-10-11" data-k="173 pull requests opened"/>
+<text x="237.1" y="69.8" class="barval">173</text>
+<text x="237.1" y="178" class="tick tick-x">11</text>
+<rect x="268.3" y="103.1" width="28.0" height="56.9" rx="3" class="bar" data-t="2026-10-12" data-k="117 pull requests opened"/>
+<text x="282.3" y="97.1" class="barval">117</text>
+<text x="282.3" y="178" class="tick tick-x">12</text>
+<rect x="313.4" y="52.9" width="28.0" height="107.1" rx="3" class="bar" data-t="2026-10-13" data-k="220 pull requests opened"/>
+<text x="327.4" y="46.9" class="barval">220</text>
+<text x="327.4" y="178" class="tick tick-x">13</text>
+<line x1="34" y1="160" x2="350" y2="160" class="axis"/>
+</svg>
+      <figcaption>Pull requests opened, by day of October.</figcaption></div>
+    <div><svg class="chart small" viewBox="0 0 360 190" role="img" aria-label="First-time contributors">
+<line x1="34" y1="160.0" x2="350" y2="160.0" class="grid"/>
+<text x="27" y="164.0" class="tick tick-y">0</text>
+<line x1="34" y1="87.0" x2="350" y2="87.0" class="grid"/>
+<text x="27" y="91.0" class="tick tick-y">50</text>
+<line x1="34" y1="14.0" x2="350" y2="14.0" class="grid"/>
+<text x="27" y="18.0" class="tick tick-y">100</text>
+<rect x="42.6" y="157.1" width="28.0" height="2.9" rx="3" class="bar" data-t="2026-10-07" data-k="2 first-time contributors"/>
+<text x="56.6" y="151.1" class="barval">2</text>
+<text x="56.6" y="178" class="tick tick-x">07</text>
+<rect x="87.7" y="126.4" width="28.0" height="33.6" rx="3" class="bar" data-t="2026-10-08" data-k="23 first-time contributors"/>
+<text x="101.7" y="120.4" class="barval">23</text>
+<text x="101.7" y="178" class="tick tick-x">08</text>
+<rect x="132.9" y="119.1" width="28.0" height="40.9" rx="3" class="bar" data-t="2026-10-09" data-k="28 first-time contributors"/>
+<text x="146.9" y="113.1" class="barval">28</text>
+<text x="146.9" y="178" class="tick tick-x">09</text>
+<rect x="178.0" y="146.9" width="28.0" height="13.1" rx="3" class="bar" data-t="2026-10-10" data-k="9 first-time contributors"/>
+<text x="192.0" y="140.9" class="barval">9</text>
+<text x="192.0" y="178" class="tick tick-x">10</text>
+<rect x="223.1" y="143.9" width="28.0" height="16.1" rx="3" class="bar" data-t="2026-10-11" data-k="11 first-time contributors"/>
+<text x="237.1" y="137.9" class="barval">11</text>
+<text x="237.1" y="178" class="tick tick-x">11</text>
+<rect x="268.3" y="152.7" width="28.0" height="7.3" rx="3" class="bar" data-t="2026-10-12" data-k="5 first-time contributors"/>
+<text x="282.3" y="146.7" class="barval">5</text>
+<text x="282.3" y="178" class="tick tick-x">12</text>
+<rect x="313.4" y="22.8" width="28.0" height="137.2" rx="3" class="bar" data-t="2026-10-13" data-k="94 first-time contributors"/>
+<text x="327.4" y="16.8" class="barval">94</text>
+<text x="327.4" y="178" class="tick tick-x">13</text>
+<line x1="34" y1="160" x2="350" y2="160" class="axis"/>
+</svg>
+      <figcaption>People contributing for the first time.</figcaption></div>
+  </div>
+</figure>
+
+<h2>Most of it is not the answer</h2>
+<p>Look at what the pull requests actually contain and the shape of a working research community
+shows up. Alongside the improvements there are independent re-verifications, speedups to other
+people's checking scripts, formal proofs in Lean, and a steady stream of honest negative results:
+<em>this route is closed, here is the obstruction</em>. Of 857 pull requests,
+152 are merged. The rest are not waste. A closed route nobody has to try again is worth
+something, and the crowd is cheap enough to afford them.</p>
+
+<h2>What this is not</h2>
+<p>The result is conditional. It inherits a framework from an earlier paper, and the repository
+says plainly that its finite checks are not a complete machine-checked theorem, and that none of
+this is a claim about how fast your computer multiplies numbers today. The honesty is part of why
+it works: the scope of every claim is written down, so the next person knows exactly what they are
+standing on.</p>
+
+<h2>Our part</h2>
+<p>We have been working in two of these.</p>
+<p><strong>Circuit constructions.</strong> A separate repository collects the smallest known
+circuits for arithmetic in binary fields, measured in AND and XOR gates. Smaller circuits mean
+cheaper encryption work, particularly in secure multi-party computation and zero-knowledge proofs.
+We contributed multipliers for four fields it did not cover. Two of them came in below the
+published baseline. All five were re-checked by the author against the pack's own verifier,
+and merged.</p>
+<table>
+<tr><th>Field</th><th class="num">Baseline</th><th class="num">Ours</th><th class="num">Saved</th></tr>
+<tr><td>GF(2<sup>9</sup>)</td><td class="num">142</td><td class="num">136</td><td class="num">6</td></tr>
+<tr><td>GF(2<sup>10</sup>)</td><td class="num">172</td><td class="num">172</td><td class="num">0</td></tr>
+<tr><td>GF(2<sup>11</sup>)</td><td class="num">206</td><td class="num">199</td><td class="num">7</td></tr>
+<tr><td>GF(2<sup>128</sup>), the GHASH field</td><td class="num">11,972</td><td class="num">11,972</td><td class="num">0</td></tr>
+</table>
+<p><strong>The exponent race.</strong> We held the top open claim for several hours on 11 October,
+at &kappa; = 0.00135058, by re-timing an existing construction. The race has since moved a long way
+past it, on a different line of work. That is the honest state of it: a real contribution, briefly
+in front, now behind.</p>
+
+<h2>Why it matters</h2>
+<p>The interesting part is not the constant. It is that a machine-checkable problem statement turns
+a crowd with good tools into something that functions like a laboratory, in days, at almost no
+coordination cost. The number of problems that can be posed this way is much larger than the number
+that have been.</p>
+
+<footer>
+Figures read from the repository's own certificate file and the GitHub API,
+as of 2026-10-13T08:10Z. The race is
+<a href="https://github.com/CrocSwap/integer-mult-bounds">CrocSwap/integer-mult-bounds</a>,
+maintained by Douglas Colkitt. The circuit pack is
+<a href="https://github.com/Swapnil-jain/gf2m-circuits">Swapnil-jain/gf2m-circuits</a>.
+Numbers change by the hour; rebuild to refresh.
+</footer>
+</main>
+<div id="tip"></div>
+<script>
+const tip=document.getElementById('tip');
+for(const el of document.querySelectorAll('[data-t]')){
+ el.addEventListener('pointerenter',e=>{tip.textContent=el.dataset.t+'  ·  '+el.dataset.k;
+  tip.style.opacity=1;});
+ el.addEventListener('pointermove',e=>{tip.style.left=(e.clientX+14)+'px';
+  tip.style.top=(e.clientY-34)+'px';});
+ el.addEventListener('pointerleave',()=>tip.style.opacity=0);
+}
+</script></body></html>

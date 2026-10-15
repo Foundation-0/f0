@@ -17,7 +17,7 @@
 Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
   --external also checks every external URL in the pages, page scripts and data files (*.json): any 2xx
   passes; doi.org links resolve through api.crossref.org, then api.datacite.org; links into this
-  repository (github.com/aska-digital/frontier-math/blob|tree/main/...) are checked against the local
+  repository (github.com/aska-digital/f0/blob|tree/main/...) are checked against the local
   checkout; preconnect and dns-prefetch hints are skipped.
 """
 import datetime
@@ -33,8 +33,10 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-SITE = 'https://aska-digital.github.io/frontier-math/'   # the published site (GitHub Pages)
-THIS_REPO = 'https://github.com/aska-digital/frontier-math/'
+SITE = 'https://aska-digital.github.io/f0/'   # the published site (GitHub Pages)
+# The original frontier-math site, kept as it was: links are checked, page metadata is not.
+ARCHIVE = 'legacy-site/'
+THIS_REPO = 'https://github.com/aska-digital/f0/'
 errs = []
 warns = []
 
@@ -285,6 +287,9 @@ def check_pages(external_urls):
         parsed[rel] = (p, src)
         ids_by_page[rel] = p.ids
     for rel, (p, src) in parsed.items():
+        if rel.startswith(ARCHIVE):
+            check_refs(rel, p, src, ids_by_page, external_urls)
+            continue
         for flag, what in ((p.title, '<title>'), (p.desc, 'meta description'),
                            (p.viewport, 'meta viewport'), (p.lang, '<html lang>')):
             if not flag:
@@ -303,29 +308,34 @@ def check_pages(external_urls):
                 warn('pages', f'{rel}: og:image {og} is relative; share cards need {SITE}...')
         if not p.og_url and 'noindex' not in src:
             warn('pages', f'{rel}: no og:url')
-        refs = [r for _, r in p.refs if r not in p.hints]
-        refs += re.findall(r"""fetch\(\s*['"]([^'"$`]+)['"]""", src)
-        for ref in refs:
-            if ref.startswith(('mailto:', 'tel:', 'data:', 'javascript:')):
-                continue
-            if EXTERNAL.match(ref):
-                if ref.startswith('http'):
-                    external_urls.add(ref)
-                continue
-            if '${' in ref or '{{' in ref:
-                continue
-            target = resolve_internal(rel, ref)
-            if target is None:
-                err('links', f'{rel}: broken link {ref}')
-                continue
-            if '#' in ref:
-                frag = ref.split('#', 1)[1]
-                if frag and target.endswith('.html') and target in ids_by_page \
-                        and frag not in ids_by_page[target]:
-                    err('links', f'{rel}: {ref} -> no id "{frag}" in {target}')
-        for s in p.scripts:
-            if EXTERNAL.match(s):
-                err('scripts', f'{rel}: third-party script {s} (vendor it under docs/assets/)')
+        check_refs(rel, p, src, ids_by_page, external_urls)
+
+
+def check_refs(rel, p, src, ids_by_page, external_urls):
+    """Links, anchors and script origins of one page."""
+    refs = [r for _, r in p.refs if r not in p.hints]
+    refs += re.findall(r"""fetch\(\s*['"]([^'"$`]+)['"]""", src)
+    for ref in refs:
+        if ref.startswith(('mailto:', 'tel:', 'data:', 'javascript:')):
+            continue
+        if EXTERNAL.match(ref):
+            if ref.startswith('http'):
+                external_urls.add(ref)
+            continue
+        if '${' in ref or '{{' in ref:
+            continue
+        target = resolve_internal(rel, ref)
+        if target is None:
+            err('links', f'{rel}: broken link {ref}')
+            continue
+        if '#' in ref:
+            frag = ref.split('#', 1)[1]
+            if frag and target.endswith('.html') and target in ids_by_page \
+                    and frag not in ids_by_page[target]:
+                err('links', f'{rel}: {ref} -> no id "{frag}" in {target}')
+    for s in p.scripts:
+        if EXTERNAL.match(s):
+            err('scripts', f'{rel}: third-party script {s} (vendor it under docs/assets/)')
 
 
 # ---------------- 6 record consistency -------------------------------------------

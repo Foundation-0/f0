@@ -3,7 +3,7 @@
 An open, sourced record of the advances people and digital intelligence have made together,
 and research done the same way: in the open, checked, and credited to both.
 
-**Site:** https://aska-digital.github.io/frontier-math/ (moves to `/foundation0/` when the repository is renamed)
+**Site:** https://aska-digital.github.io/f0/ · the original frontier-math site is archived at [/legacy-site/](https://aska-digital.github.io/f0/legacy-site/)
 
 ## The name
 
@@ -44,6 +44,8 @@ the Asimov estate, his publishers or Apple.
 
 - `docs/` is the published site (GitHub Pages serves this folder). Plain HTML, CSS and JavaScript,
   no build step, no third-party scripts. Shared design system: `docs/assets/`.
+- `docs/legacy-site/` is the original frontier-math site, archived as it was on 14 October 2026
+  (its own frozen copies of the feed, so it keeps working; not indexed by search engines).
 - `docs/data/` holds the data every page renders from: `ledger.json` (+ schema), `members.json`,
   `projects.json`, `writing.json`, `openai-math-families.json`.
 - `scripts/check_site.py` gates the site: ledger schema, data files, internal links and anchors, page

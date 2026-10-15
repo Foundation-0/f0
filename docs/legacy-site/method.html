@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method — frontier-math</title>
+<style>
+  body { margin:0 auto; padding:2rem 1.5rem; max-width:760px; background:#0d1117;
+         color:#e6edf3; font:15px/1.6 system-ui, sans-serif; }
+  a { color:#79c0ff; } h1 { font-size:1.3rem; } code { background:#161b22;
+         padding:.1rem .35rem; border-radius:4px; }
+</style>
+</head>
+<body>
+<p class="legacy-notice" style="margin:0;padding:.55rem 1rem;font:13px/1.45 system-ui,sans-serif;background:#1f2a1f;color:#d7e3d2;border-bottom:1px solid #3d4f3a">Archived: the original frontier-math site, kept as it was on 14 October 2026, when the repository became <a href="../" style="color:#9fd18b">Foundation0</a>. Its data is frozen; see <a href="../research/integer-multiplication/live/method.html" style="color:#9fd18b">the current method page</a> for the current version.</p>
+<h1>Method</h1>
+<p>Back to <a href="index.html">dashboard</a>.</p>
+
+<h2>What “conditional κ” means</h2>
+<p>Upstream <code>CrocSwap/integer-mult-bounds</code> races an asymptotic
+integer-multiplication bound of the shape <code>T(n) = O(n (log n)^(1−κ))</code>.
+Every κ published there is <em>conditional</em>: it holds only given the retained
+interfaces the construction inherits (all-size compiler, weighted/common-ancestor
+chart, restored rows, selectors/routing, prime supply, precision/recovery, complex
+symbolic correctness, analytic transfer). A larger κ is better. It is not an
+unconditional multiplication-exponent theorem, and this dashboard never presents it
+as one.</p>
+
+<h2>Tiers</h2>
+<ul>
+<li><strong>claimed</strong> — default. Any open upstream PR whose title/body carries a
+parseable κ value (exact fraction and/or decimal). Draft PRs stay claimed and render
+hollow-grey; they are never promoted.</li>
+<li><strong>human-verified</strong> — only when a PR’s exact (κ fraction, κ decimal)
+matches upstream <code>certificates/selected-result.json</code> on <code>main</code>
+(maintainer-reviewed checkpoint, bound by its <code>certificate_sha256</code>).
+v1 expects exactly one such point.</li>
+<li><strong>lean-verified</strong> — reserved; requires a Lean formalization artifact.
+No upstream PR has one today, so v1 ships this set empty (schema support only).</li>
+</ul>
+
+<h2>Quarantine policy</h2>
+<p>A record is quarantined (<code>stale: true</code>) when its stated fraction and
+decimal disagree beyond 15 significant digits, when a κ-looking claim is unparseable,
+or when its head SHA changed without a successful re-fetch. Quarantined records stay
+in <code>data/records.json</code> and under <code>feed.json</code>’s
+<code>quarantined[]</code> (never silently deleted) but are excluded from the chart
+step-line until re-resolved.</p>
+
+<h2>Record key and staleness</h2>
+<p>One record per (PR × head SHA): any force-push creates a new record; old rows are
+retained append-only. <code>fetched_at</code> and <code>pr_updated_at</code> drive the
+age display; the red banner is always-on because the race moves roughly every ten
+minutes and nothing served here is a live quote.</p>
+
+<h2>Pipeline</h2>
+<p>A 15-minute GitHub Actions cron (<code>.github/workflows/update.yml</code>) runs
+<code>scripts/fetch.py</code> (upstream REST, conditional ETag requests) then
+<code>scripts/gate.py</code>: schema validation, byte-determinism re-emit,
+selected-result binding, and claimed/verified separation. Only if all four pass does
+the workflow commit the regenerated <code>docs/feed.json</code> and
+<code>docs/chart-data.json</code>; a failed run changes nothing and the last good
+state stays live. Parser behaviour is golden-file-gated on PRs #419/#425/#431/#433
+(<code>tests/golden_kappa_parse.json</code>, <code>tests/run_golden.py</code>).</p>
+
+<h2>Schema reservations (v2, additive)</h2>
+<p><code>feed.schema.json</code> already permits <code>project_id</code>,
+<code>claim_id</code>, <code>machine_checked</code>, <code>ai_refereed_count</code> and
+<code>feed_version: 2</code> for the planned multi-project feed
+(<code>integer-mult-kappa</code>, <code>threesum-derand</code>,
+<code>mobius-x1</code>). v1 producers emit none of them.</p>
+</body>
+</html>

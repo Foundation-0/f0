@@ -482,7 +482,7 @@ S_NUMBER = f"""<section class="sec st-sec" id="number" data-index="The constant"
   </div>
   <div class="st-stage"><div class="st-wide">{line_chart(k)}</div><div class="st-narrow">{line_chart(k, w=360, h=300, pad=(30, 14, 34, 58))}</div></div>
   <figcaption class="fig-foot"><span>Each step is a new result the maintainer reviewed and selected. Bigger is better:
-  the proven running time is <em>n</em>&#8239;(log&#8239;<em>n</em>)<sup>1&#8722;&kappa;</sup>.</span><span class="fig-src">Source: <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a> history, in <a href="https://github.com/aska-digital/frontier-math/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
+  the proven running time is <em>n</em>&#8239;(log&#8239;<em>n</em>)<sup>1&#8722;&kappa;</sup>.</span><span class="fig-src">Source: <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a> history, in <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
   <details class="twin"><summary>Show the numbers</summary><div class="table-wrap">{kappa_table(k)}</div></details>
 </figure>
 
@@ -517,7 +517,7 @@ name the exact constructions they build on, and those belong to other people.</p
     <div class="st-stage">{bar_chart(D['per_day'], 'new', 'First-time contributors')}
       <p class="st-cap">People contributing for the first time.</p></div>
   </div>
-  <figcaption class="fig-foot"><span class="fig-src">Source: the GitHub API, as of {AS_OF}, in <a href="https://github.com/aska-digital/frontier-math/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
+  <figcaption class="fig-foot"><span class="fig-src">Source: the GitHub API, as of {AS_OF}, in <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
   <details class="twin"><summary>Show the numbers</summary><div class="table-wrap">{day_table(D['per_day'])}</div></details>
 </figure>""", alt=True)
 
@@ -605,7 +605,8 @@ HEAD = f"""<!doctype html>
 <meta property="og:type" content="article">
 <meta property="og:title" content="When the crowd gets a frontier model · Foundation0">
 <meta property="og:description" content="A public repository moved a research constant 3.6x in four days, with {r['prs']} pull requests from {r['authors']} people. What made it work.">
-<meta property="og:image" content="../../../assets/og.png">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/research/integer-multiplication/story/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
@@ -691,7 +692,7 @@ HERO = f"""<header class="page-hero has-fig st-hero" style="--acc:var(--acc-intm
         <div><dt>Essay, 13 Oct</dt><dd>{k[-1]['k']:.6f} <small>{grow:.1f}&times;</small></dd></div>
         <div><dt id="sp-now-k">Last reviewed record</dt><dd id="sp-now">{float(SNAPREC['decimal']):.6f} <small>{float(SNAPREC['decimal']) / k[0]['k']:.2f}&times;</small></dd></div>
       </dl>
-      <figcaption class="fig-foot"><a class="chip" id="sp-chip" href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span id="sp-when">snapshot &middot; {utc_label(SNAPREC['t'])}</span></a><span class="fig-src">Source: <a href="https://github.com/aska-digital/frontier-math/blob/main/story-src/data.json">story-src/data.json</a>; the end point from <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">selected-result.json</a>, read live, else <a href="../kappa-history.json">kappa-history.json</a>.</span></figcaption>
+      <figcaption class="fig-foot"><a class="chip" id="sp-chip" href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span id="sp-when">snapshot &middot; {utc_label(SNAPREC['t'])}</span></a><span class="fig-src">Source: <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a>; the end point from <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">selected-result.json</a>, read live, else <a href="../kappa-history.json">kappa-history.json</a>.</span></figcaption>
     </figure>
   </div>
 </header>
@@ -703,17 +704,17 @@ FOOT = """<footer class="site-foot">
       <div>
         <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
         <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
-        <p>Source code under the <a href="https://github.com/aska-digital/frontier-math/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
       </div>
       <div class="foot-cols">
         <div><h4>Record</h4><ul><li><a href="../../../ledger/">The Ledger</a></li><li><a href="../../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../../charter/">Charter</a></li></ul></div>
         <div><h4>Work</h4><ul><li><a href="../../../research/">Research</a></li><li><a href="../../../instruments/">Instruments</a></li><li><a href="../../../commons/">Commons</a></li><li><a href="../../../writing/">Writing</a></li></ul></div>
-        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/frontier-math">Repository</a></li><li><a href="https://github.com/aska-digital/frontier-math/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
       </div>
     </div>
     <div class="stamp">
       <span>Terminus colophon</span>
-      <span>Built from <a href="https://github.com/aska-digital/frontier-math/blob/main/story-src/data.json">story-src/data.json</a> by story-src/build.py</span>
+      <span>Built from <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a> by story-src/build.py</span>
       <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
       <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
     </div>
