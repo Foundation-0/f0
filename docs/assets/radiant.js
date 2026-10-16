@@ -232,20 +232,20 @@
         a += (bottom ? -1 : 1) * (cw + 1.4) / r;
       }
     }
-    /* the incentre mark (the logo, as #zero): a square, its diagonals, and the incircle of each of the four
-       triangles, radius (sqrt2 - 1) x half-side. Weights are #zero's (in units of half-side / 40); rings are inked
-       inside their circle and the frame outside its square, so gold and cyan touch edge to edge, neither on top */
+    /* the incentre mark (the logo, as #zero): the four incircles of a square's diagonal triangles, radius
+       (sqrt2 - 1) x half-side, and the middle circle touching all four, each with its centre marked. Weights are
+       #zero's in units of half-side / 40; rings are inked inside their circle, so gold and cyan touch edge to edge */
     function zeroMark(x, cx, cy, r) {
-      var h = r * 0.72, u = h / 40, rr = (Math.SQRT2 - 1) * h, d = h - rr, w = 7.5 * u, fw = 2.8 * u;
+      var h = r * 0.72, u = h / 40, rr = (Math.SQRT2 - 1) * h, d = h - rr, m = d - rr, w = 2.2 * u, lw = 1.1 * u;
       x.save();
-      x.strokeStyle = tok['--ink-3']; x.lineWidth = 1.6 * u;
-      x.beginPath(); x.moveTo(cx - h, cy - h); x.lineTo(cx + h, cy + h); x.moveTo(cx + h, cy - h); x.lineTo(cx - h, cy + h); x.stroke();
       x.lineWidth = w;
       [[0, -d, '--bio'], [0, d, '--bio'], [-d, 0, '--dig'], [d, 0, '--dig']].forEach(function (c) {
         x.strokeStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], rr - w / 2, 0, TWO_PI); x.stroke();
-        x.fillStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], 3.1 * u, 0, TWO_PI); x.fill();
+        x.fillStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], 1.8 * u, 0, TWO_PI); x.fill();
       });
-      x.strokeStyle = tok['--ink-2']; x.lineWidth = fw; x.strokeRect(cx - h - fw / 2, cy - h - fw / 2, 2 * h + fw, 2 * h + fw);
+      x.strokeStyle = x.fillStyle = tok['--ink-2']; x.lineWidth = lw;
+      x.beginPath(); x.arc(cx, cy, m - lw / 2, 0, TWO_PI); x.stroke();
+      x.beginPath(); x.arc(cx, cy, 1.8 * u, 0, TWO_PI); x.fill();
       x.restore();
     }
 

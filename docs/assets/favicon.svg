@@ -1,13 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
   <title>Foundation0</title>
-  <!-- The small cut of the incentre mark (docs/index.html #zero), for 32 px and below: the four incircles of a square's
-       diagonal triangles, r = (sqrt2 - 1) x half-side. The diagonals and incentre dots fall under a pixel at this size and
-       are left out; the contact points still lie on the diagonals. Rings are inked inside their circle and the frame
-       outside its square, so gold and cyan touch edge to edge with neither on top. Half-side 38 on a dark tile. -->
+  <!-- Small cut of the incentre mark (docs/index.html #zero) for tab sizes: same circles, heavier lines, no dots. -->
   <rect x="-50" y="-50" width="100" height="100" rx="20" fill="#070b0e"/>
-  <g fill="none" stroke-width="9">
-    <circle cy="-22.260" r="11.240" stroke="#e6b874"/><circle cy="22.260" r="11.240" stroke="#e6b874"/>
-    <circle cx="-22.260" r="11.240" stroke="#5ccfec"/><circle cx="22.260" r="11.240" stroke="#5ccfec"/>
-  </g>
-  <rect x="-40" y="-40" width="80" height="80" fill="none" stroke="#c5cbc5" stroke-width="4"/>
+  <g fill="none" stroke-width="7"><circle cy="-25.775" r="14.725" stroke="#e6b874"/><circle cy="25.775" r="14.725" stroke="#e6b874"/><circle cx="-25.775" r="14.725" stroke="#5ccfec"/><circle cx="25.775" r="14.725" stroke="#5ccfec"/><circle r="5.749" stroke="#c5cbc5" stroke-width="3.6"/></g>
 </svg>
