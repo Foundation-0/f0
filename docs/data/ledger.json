@@ -12665,11 +12665,11 @@
    "sources": [
     {
      "label": "Proof: explicit continuous motion to fcc",
-     "url": "https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md"
+     "url": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md"
     },
     {
      "label": "Exact certificate (JSON)",
-     "url": "https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json"
+     "url": "https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json"
     },
     {
      "label": "Preprint v2 (Zenodo)",
@@ -12677,7 +12677,7 @@
     },
     {
      "label": "AI search log",
-     "url": "https://github.com/aska-digital/incentre-lattice/blob/main/autoresearch-fold/results.tsv"
+     "url": "https://github.com/Foundation-0/incentre-lattices/blob/main/autoresearch-fold/results.tsv"
     }
    ],
    "foundation0": true,

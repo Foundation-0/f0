@@ -49,10 +49,10 @@
       ],
       /* the index's own wording for each card's numbers (plain words, as on the project page); each keeps its source */
       stats: [
-        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json' },
-        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md' },
-        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md' },
-        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv' }
+        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json' },
+        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md' },
+        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/PROOF.md' },
+        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://foundation-0.github.io/incentre-lattices/autoresearch-fold/results.tsv' }
       ] },
     'exoplanets': {
       acc: '--acc-exoplanets', field: 'Astronomy', who: 'eumemic, with Aska',
