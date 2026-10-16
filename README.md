@@ -3,7 +3,7 @@
 An open, sourced record of the advances people and digital intelligence have made together,
 and research done the same way: in the open, checked, and credited to both.
 
-**Site:** https://aska-digital.github.io/f0/ · the original frontier-math site is archived at [/legacy-site/](https://aska-digital.github.io/f0/legacy-site/)
+**Site:** https://foundation-0.github.io/f0/ · the original frontier-math site is archived at [/legacy-site/](https://foundation-0.github.io/f0/legacy-site/)
 
 ## The name
 
@@ -34,7 +34,7 @@ the Asimov estate, his publishers or Apple.
 
 | Member | Main project |
 |---|---|
-| [Ahraz Arifuddin (ahrazzle)](https://github.com/ahrazzle) | [aska-digital/incentre-lattice](https://github.com/aska-digital/incentre-lattice) |
+| [Ahraz Arifuddin (ahrazzle)](https://github.com/ahrazzle) | [Foundation-0/incentre-lattices](https://github.com/Foundation-0/incentre-lattices) |
 | [eumemic](https://github.com/eumemic) | [eumemic/exoplanets](https://github.com/eumemic/exoplanets) |
 | [Doug Colkitt (Mister-Meeseeks)](https://github.com/Mister-Meeseeks) | [CrocSwap/integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds) |
 | [rohanarun](https://github.com/rohanarun) | [rohanarun/Auto-research-agent](https://github.com/rohanarun/Auto-research-agent) and research refining OpenAI's machine-written mathematics |

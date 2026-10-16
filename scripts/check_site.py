@@ -7,7 +7,8 @@
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
   4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
-               resolves to a file inside docs/ (relative, or absolute under SITE); a relative og:image
+               resolves to a file inside docs/ (relative, or absolute under SITE); og:url and
+               rel=canonical, where present, are the page's own address under SITE; a relative og:image
                or a missing og:url is a warning (share cards need absolute URLs)
   5  scripts:  no third-party script origins (the site must run with no CDN)
   6  record:   every ledger/#<id> link in pages, scripts and data names a ledger.json id; every key of the
@@ -17,7 +18,7 @@
 Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
   --external also checks every external URL in the pages, page scripts and data files (*.json): any 2xx
   passes; doi.org links resolve through api.crossref.org, then api.datacite.org; links into this
-  repository (github.com/aska-digital/f0/blob|tree/main/...) are checked against the local
+  repository (github.com/Foundation-0/f0/blob|tree/main/...) are checked against the local
   checkout; preconnect and dns-prefetch hints are skipped.
 """
 import datetime
@@ -33,10 +34,10 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-SITE = 'https://aska-digital.github.io/f0/'   # the published site (GitHub Pages)
+SITE = 'https://foundation-0.github.io/f0/'   # the published site (GitHub Pages)
 # The original frontier-math site, kept as it was: links are checked, page metadata is not.
 ARCHIVE = 'legacy-site/'
-THIS_REPO = 'https://github.com/aska-digital/f0/'
+THIS_REPO = 'https://github.com/Foundation-0/f0/'
 errs = []
 warns = []
 
@@ -210,7 +211,7 @@ class Page(html.parser.HTMLParser):
         self.refs, self.ids, self.scripts = [], set(), []
         self.title = self.desc = self.viewport = self.lang = False
         self.og_images = []
-        self.og_url = False
+        self.og_url = self.canonical = None
         self.hints = set()
         self._in_title = False
 
@@ -231,7 +232,9 @@ class Page(html.parser.HTMLParser):
         if tag == 'meta' and a.get('property') == 'og:image' and a.get('content'):
             self.og_images.append(a['content'])
         if tag == 'meta' and a.get('property') == 'og:url' and a.get('content'):
-            self.og_url = True
+            self.og_url = a['content']
+        if tag == 'link' and a.get('href') and 'canonical' in (a.get('rel') or '').split():
+            self.canonical = a['href']
         if tag == 'link' and a.get('href') and set((a.get('rel') or '').split()) & {'preconnect', 'dns-prefetch'}:
             self.hints.add(a['href'])
         for attr in ('href', 'src', 'data-src', 'poster'):
@@ -308,6 +311,12 @@ def check_pages(external_urls):
                 warn('pages', f'{rel}: og:image {og} is relative; share cards need {SITE}...')
         if not p.og_url and 'noindex' not in src:
             warn('pages', f'{rel}: no og:url')
+        # A share card or canonical link must name this page at the published address. 404.html is
+        # served at any missing path, so it names home.
+        own = SITE + ('' if rel in ('index.html', '404.html') else rel[:-len('index.html')] if rel.endswith('/index.html') else rel)
+        for what, u in (('og:url', p.og_url), ('canonical', p.canonical)):
+            if u and u != own:
+                err('pages', f'{rel}: {what} {u} is not this page\'s address {own}')
         check_refs(rel, p, src, ids_by_page, external_urls)
 
 
