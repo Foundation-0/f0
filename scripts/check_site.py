@@ -3,7 +3,8 @@
 
   1  ledger:   docs/data/ledger.json validates against the rules in
                docs/data/ledger.schema.json (types, enums, lengths, dates, ids)
-  2  projects: docs/data/projects.json and docs/data/writing.json are well formed
+  2  projects: docs/data/projects.json and docs/data/writing.json are well formed; docs/data/discussions.json
+               (the forum index) is well formed and every URL in it is one of this repository's discussions
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
   4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
@@ -202,6 +203,64 @@ def check_lists():
                     err('lists', f'{rel}[{i}]: missing {k}')
             if 'date' in r and not valid_date(r['date']):
                 err('lists', f'{rel}[{i}]: bad date {r["date"]!r}')
+
+
+def check_discussions():
+    """data/discussions.json indexes this repository's public forum and nothing else: every URL in it
+    must be one of this repository's discussion pages, so a private space can never leak into it."""
+    rel = 'data/discussions.json'
+    d = load(rel)
+    if d is None:
+        return
+    forum = THIS_REPO + 'discussions'
+    stamp = re.compile(r'^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$')
+    if not isinstance(d, dict):
+        err('forum', f'{rel}: expected an object')
+        return
+    if d.get('url') != forum:
+        err('forum', f'{rel}: url must be {forum}')
+    if not stamp.match(str(d.get('updated', ''))):
+        err('forum', f'{rel}: updated must be a UTC timestamp like 2026-10-16T18:00:00Z')
+    cats, threads = d.get('categories'), d.get('threads')
+    if not isinstance(d.get('enabled'), bool) or not isinstance(cats, list) or not isinstance(threads, list):
+        err('forum', f'{rel}: needs enabled (true/false), categories [] and threads []')
+        return
+    if not d['enabled'] and (cats or threads):
+        err('forum', f'{rel}: lists categories or threads while the forum is not enabled')
+    if not isinstance(d.get('total'), int) or d['total'] < len(threads):
+        err('forum', f'{rel}: total must be a whole number, at least the number of threads listed')
+    slugs = set()
+    for i, c in enumerate(cats):
+        slug = c.get('slug') if isinstance(c, dict) else None
+        if not isinstance(slug, str) or not re.match(r'^[a-z0-9][a-z0-9-]*$', slug):
+            err('forum', f'{rel}: categories[{i}] has a bad slug {slug!r}')
+            continue
+        slugs.add(slug)
+        if c.get('url') != f'{forum}/categories/{slug}':
+            err('forum', f'{rel}: category {slug} has url {c.get("url")!r}, not this forum\'s')
+        if not c.get('name') or not isinstance(c.get('count'), int) or c['count'] < 0:
+            err('forum', f'{rel}: category {slug} needs a name and a count')
+    for i, t in enumerate(threads):
+        if not isinstance(t, dict) or not isinstance(t.get('number'), int):
+            err('forum', f'{rel}: threads[{i}] needs a number')
+            continue
+        where = f'{rel}: thread #{t["number"]}'
+        if t.get('url') != f'{forum}/{t["number"]}':
+            err('forum', f'{where} has url {t.get("url")!r}, not this forum\'s')
+        if not isinstance(t.get('title'), str) or not t['title'].strip():
+            err('forum', f'{where} has no title')
+        if t.get('category') not in slugs:
+            err('forum', f'{where} names category {t.get("category")!r}, which is not listed')
+        for k in ('created', 'updated'):
+            if not stamp.match(str(t.get(k, ''))):
+                err('forum', f'{where}: bad {k} {t.get(k)!r}')
+        for k in ('comments', 'upvotes'):
+            if not isinstance(t.get(k), int) or t[k] < 0:
+                err('forum', f'{where}: {k} must be a whole number')
+        a = t.get('author')
+        if a is not None and not (isinstance(a, dict) and a.get('login') and str(a.get('url', '')).startswith('https://github.com/')
+                                  and isinstance(a.get('agent'), bool)):
+            err('forum', f'{where}: author needs login, a github.com url and agent (true/false)')
 
 
 # ---------------- 3 links, 4 pages, 5 scripts ------------------------------------
@@ -462,6 +521,7 @@ def check_external(urls):
 def main():
     check_ledger()
     check_lists()
+    check_discussions()
     urls = set()
     check_pages(urls)
     check_record()

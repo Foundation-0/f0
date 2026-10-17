@@ -1,0 +1,72 @@
+name: discussions
+# Keep the forum page's index (docs/data/discussions.json and its no-JavaScript copy in docs/forum/) in step
+# with the public forum: GitHub Discussions on this repository. It runs when a thread or a reply changes,
+# once a day as a backstop, or by hand. It reads this repository's discussions and nothing else, and it
+# commits only when the index changed.
+#
+# Untrusted text (titles, logins) reaches this job only through the API response that scripts/discussions.py
+# writes as JSON; nothing from the triggering event is put into a shell command.
+on:
+  discussion:
+  discussion_comment:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  discussions: read
+
+concurrency:
+  group: discussions
+  cancel-in-progress: true   # the newest run reads the newest state
+
+jobs:
+  refresh:
+    if: github.repository == 'Foundation-0/f0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the forum into docs/data/discussions.json
+        run: python3 scripts/discussions.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Did the index change?
+        id: diff
+        run: |
+          if git diff --quiet -- docs/data/discussions.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.diff.outputs.changed == 'true'
+        with:
+          node-version: '22'
+
+      - name: Install Playwright 1.56.1 and its Chromium
+        if: steps.diff.outputs.changed == 'true'
+        run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+
+      - name: Re-bake the forum page's no-JavaScript copy
+        if: steps.diff.outputs.changed == 'true'
+        run: node scripts/prerender.mjs docs/forum/index.html
+        env:
+          PRERENDER_CHROMIUM: playwright
+
+      - name: Site gate (the index is this repository's only, and well formed)
+        if: steps.diff.outputs.changed == 'true'
+        run: python3 scripts/check_site.py
+
+      - name: Commit the index and the page
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/discussions.json docs/forum/index.html
+          git commit -m "forum: refresh the index from GitHub Discussions"
+          git push || (git pull --rebase origin main && git push)

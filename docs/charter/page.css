@@ -197,7 +197,8 @@ html:not(.js) .psy-body, html:not(.js) .psy-read { display: none; }
 .ch-mcards .worklist .bo { color: var(--ink-3); }
 
 /* ---------- 04 take part ---------- */
-.join { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+.join { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+@media (max-width: 1199px) { .join { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .jc { position: relative; background: var(--bg-2); border: 1px solid var(--line); padding: 18px 20px 18px; display: flex; flex-direction: column; }
 .jc::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--bio); }
 .jc-n { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; color: var(--ink-3); }
