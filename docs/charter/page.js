@@ -316,7 +316,7 @@
   var DOMAIN = { mathematics: 'Mathematics', computing: 'Computing', biology: 'Biology', medicine: 'Medicine', 'chemistry-materials': 'Chemistry and materials', physics: 'Physics', 'astronomy-space': 'Astronomy and space', 'earth-climate': 'Earth and climate', energy: 'Energy', 'engineering-robotics': 'Engineering and robotics', 'science-of-science': 'Science of science' };
   var EVID = { 'formally-verified': ['v', 5, 'Formally verified'], 'independently-replicated': ['v', 4, 'Replicated'], 'peer-reviewed': ['r', 3, 'Peer reviewed'], deployed: ['d', 3, 'Deployed'], preprint: ['p', 2, 'Preprint'], claimed: ['c', 1, 'Claimed'] };
   var ROLE = { instrument: ['Instrument', 'M0 0L0 -7A7 7 0 0 1 7 0Z'], collaborator: ['Collaborator', 'M0 0L0 -7A7 7 0 0 1 0 7Z'], originator: ['Originator', 'M0 0L0 -7A7 7 0 1 1 -7 0Z'] };
-  var ISSUE = 'https://github.com/aska-digital/f0/issues/new';
+  var ISSUE = 'https://github.com/Foundation-0/f0/issues/new';
   var KEY = 'f0-ledger-draft';
 
   function draft() {

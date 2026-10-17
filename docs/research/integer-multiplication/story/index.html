@@ -8,8 +8,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="When the crowd gets a frontier model · Foundation0">
 <meta property="og:description" content="A public repository moved a research constant 3.6x in four days, with 857 pull requests from 172 people. What made it work.">
-<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
-<meta property="og:url" content="https://aska-digital.github.io/f0/research/integer-multiplication/story/">
+<meta property="og:image" content="https://foundation-0.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://foundation-0.github.io/f0/research/integer-multiplication/story/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
@@ -48,7 +48,7 @@
   <div class="wrap">
     <a class="brand" href="../../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
     <nav class="nav" aria-label="Main">
-      <a href="../../../ledger/">Ledger</a><a href="../../../research/" aria-current="page">Research</a><a href="../../../instruments/">Instruments</a><a href="../../../commons/">Commons</a><a href="../../../writing/">Writing</a><a href="../../../charter/">Charter</a>
+      <a href="../../../ledger/">Ledger</a><a href="../../../research/" aria-current="page">Research</a><a href="../../../instruments/">Instruments</a><a href="../../../commons/">Commons</a><a href="../../../writing/">Writing</a><a href="../../../forum/">Forum</a><a href="../../../charter/">Charter</a>
     </nav>
     <div class="tools">
       <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
@@ -57,7 +57,7 @@
     <details class="menu">
       <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
       <nav class="menu-panel" aria-label="Main (compact)">
-        <a href="../../../ledger/">Ledger <span>01</span></a><a href="../../../research/" aria-current="page">Research <span>03</span></a><a href="../../../instruments/">Instruments <span>04</span></a><a href="../../../commons/">Commons <span>05</span></a><a href="../../../writing/">Writing <span>06</span></a><a href="../../../charter/">Charter <span>00</span></a>
+        <a href="../../../ledger/">Ledger <span>01</span></a><a href="../../../research/" aria-current="page">Research <span>03</span></a><a href="../../../instruments/">Instruments <span>04</span></a><a href="../../../commons/">Commons <span>05</span></a><a href="../../../writing/">Writing <span>06</span></a><a href="../../../forum/">Forum <span>07</span></a><a href="../../../charter/">Charter <span>00</span></a>
       </nav>
     </details>
   </div>
@@ -118,7 +118,7 @@
         <div><dt>Essay, 13 Oct</dt><dd>0.001662 <small>3.6&times;</small></dd></div>
         <div><dt id="sp-now-k">Last reviewed record</dt><dd id="sp-now">0.001673 <small>3.63&times;</small></dd></div>
       </dl>
-      <figcaption class="fig-foot"><a class="chip" id="sp-chip" href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span id="sp-when">snapshot &middot; 13 Oct 2026, 18:45 UTC</span></a><span class="fig-src">Source: <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a>; the end point from <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">selected-result.json</a>, read live, else <a href="../kappa-history.json">kappa-history.json</a>.</span></figcaption>
+      <figcaption class="fig-foot"><a class="chip" id="sp-chip" href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json"><span class="dot stale" aria-hidden="true"></span><span id="sp-when">snapshot &middot; 13 Oct 2026, 18:45 UTC</span></a><span class="fig-src">Source: <a href="https://github.com/Foundation-0/f0/blob/main/story-src/data.json">story-src/data.json</a>; the end point from <a href="https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json">selected-result.json</a>, read live, else <a href="../kappa-history.json">kappa-history.json</a>.</span></figcaption>
     </figure>
   </div>
 </header>
@@ -212,7 +212,7 @@ numbers can be multiplied? Five days later it has 857 pull requests from
 <text x="338.0" y="55.9" class="lastlabel" aria-hidden="true">0.001662</text>
 </svg></div></div>
   <figcaption class="fig-foot"><span>Each step is a new result the maintainer reviewed and selected. Bigger is better:
-  the proven running time is <em>n</em>&#8239;(log&#8239;<em>n</em>)<sup>1&#8722;&kappa;</sup>.</span><span class="fig-src">Source: <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a> history, in <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
+  the proven running time is <em>n</em>&#8239;(log&#8239;<em>n</em>)<sup>1&#8722;&kappa;</sup>.</span><span class="fig-src">Source: <a href="https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json">certificates/selected-result.json</a> history, in <a href="https://github.com/Foundation-0/f0/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
   <details class="twin"><summary>Show the numbers</summary><div class="table-wrap"><table class="tbl"><caption>The reviewed constant, each time the certificate changed</caption><thead><tr><th>Selected (UTC)</th><th class="n">&kappa;</th></tr></thead><tbody><tr><td>9 Oct 2026, 04:53 UTC</td><td class="n">0.0004609169</td></tr><tr><td>9 Oct 2026, 05:55 UTC</td><td class="n">0.000472143085</td></tr><tr><td>9 Oct 2026, 06:01 UTC</td><td class="n">0.000472154791</td></tr><tr><td>9 Oct 2026, 12:32 UTC</td><td class="n">0.000661885549259598</td></tr><tr><td>10 Oct 2026, 14:08 UTC</td><td class="n">0.000723571590007464</td></tr><tr><td>12 Oct 2026, 01:55 UTC</td><td class="n">0.001517760977820331</td></tr><tr><td>12 Oct 2026, 13:10 UTC</td><td class="n">0.001584931111785787</td></tr><tr><td>12 Oct 2026, 14:41 UTC</td><td class="n">0.001602278921983212</td></tr><tr><td>12 Oct 2026, 16:59 UTC</td><td class="n">0.0016127213726553</td></tr><tr><td>12 Oct 2026, 21:01 UTC</td><td class="n">0.001635183729255778</td></tr><tr><td>12 Oct 2026, 22:36 UTC</td><td class="n">0.001635527380375392</td></tr><tr><td>13 Oct 2026, 05:57 UTC</td><td class="n">0.001661202643272239</td></tr><tr><td>13 Oct 2026, 06:44 UTC</td><td class="n">0.001661634653669567</td></tr></tbody></table></div></details>
 </figure>
 
@@ -329,7 +329,7 @@ name the exact constructions they build on, and those belong to other people.</p
 </svg>
       <p class="st-cap">People contributing for the first time.</p></div>
   </div>
-  <figcaption class="fig-foot"><span class="fig-src">Source: the GitHub API, as of 13 Oct 2026, 08:10 UTC, in <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
+  <figcaption class="fig-foot"><span class="fig-src">Source: the GitHub API, as of 13 Oct 2026, 08:10 UTC, in <a href="https://github.com/Foundation-0/f0/blob/main/story-src/data.json">story-src/data.json</a></span></figcaption>
   <details class="twin"><summary>Show the numbers</summary><div class="table-wrap"><table class="tbl"><caption>Daily activity</caption><thead><tr><th>Day (UTC)</th><th class="n">Pull requests opened</th><th class="n">First-time contributors</th></tr></thead><tbody><tr><td>2026-10-07</td><td class="n">2</td><td class="n">2</td></tr><tr><td>2026-10-08</td><td class="n">107</td><td class="n">23</td></tr><tr><td>2026-10-09</td><td class="n">137</td><td class="n">28</td></tr><tr><td>2026-10-10</td><td class="n">101</td><td class="n">9</td></tr><tr><td>2026-10-11</td><td class="n">173</td><td class="n">11</td></tr><tr><td>2026-10-12</td><td class="n">117</td><td class="n">5</td></tr><tr><td>2026-10-13</td><td class="n">220</td><td class="n">94</td></tr></tbody></table></div></details>
 </figure></div></section><section class="sec st-sec" id="not-answer" data-index="Most of it is not the answer" data-num="02" aria-labelledby="not-answer-h"><div class="read st-read"><div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Most of it is not the answer</p></div><h2 class="st-h2" id="not-answer-h">Most of it is not the answer</h2><div class="prose">
 <p>Look at what the pull requests actually contain and the shape of a working research community
@@ -407,17 +407,17 @@ Numbers change by the hour; rebuild to refresh.
       <div>
         <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
         <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
-        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+        <p>Source code under the <a href="https://github.com/Foundation-0/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
       </div>
       <div class="foot-cols">
         <div><h4>Record</h4><ul><li><a href="../../../ledger/">The Ledger</a></li><li><a href="../../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../../charter/">Charter</a></li></ul></div>
-        <div><h4>Work</h4><ul><li><a href="../../../research/">Research</a></li><li><a href="../../../instruments/">Instruments</a></li><li><a href="../../../commons/">Commons</a></li><li><a href="../../../writing/">Writing</a></li></ul></div>
-        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../../research/">Research</a></li><li><a href="../../../instruments/">Instruments</a></li><li><a href="../../../commons/">Commons</a></li><li><a href="../../../writing/">Writing</a></li><li><a href="../../../forum/">Forum</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/Foundation-0/f0">Repository</a></li><li><a href="https://github.com/Foundation-0/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
       </div>
     </div>
     <div class="stamp">
       <span>Terminus colophon</span>
-      <span>Built from <a href="https://github.com/aska-digital/f0/blob/main/story-src/data.json">story-src/data.json</a> by story-src/build.py</span>
+      <span>Built from <a href="https://github.com/Foundation-0/f0/blob/main/story-src/data.json">story-src/data.json</a> by story-src/build.py</span>
       <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; Aska Digital</span>
       <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
     </div>

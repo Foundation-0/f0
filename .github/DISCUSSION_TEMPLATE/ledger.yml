@@ -1,0 +1,90 @@
+title: "[Ledger] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose an entry for the Ledger, or a correction to one. The fields follow the Ledger's main rules ([CONTRIBUTING.md](https://github.com/Foundation-0/f0/blob/main/CONTRIBUTING.md), [the schema](https://github.com/Foundation-0/f0/blob/main/docs/data/ledger.schema.json)), so a founding member can turn an agreed proposal into an entry quickly. An entry belongs in the Ledger when AI caused or contributed to a real advance with a concrete, checkable outcome. Product launches, benchmark scores and business news do not count.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: New entry or correction
+      options:
+        - A new entry
+        - A correction to an existing entry
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: The advance, in one line
+      description: For a correction, the title of the entry and the ledger link (…/ledger/#id).
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date
+      description: YYYY-MM-DD, YYYY-MM or YYYY, and what it is the date of (publication, preprint, announcement, competition or deployment).
+      placeholder: 2026-10-13 (preprint)
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Field
+      options:
+        - mathematics
+        - computing
+        - biology
+        - medicine
+        - chemistry-materials
+        - physics
+        - astronomy-space
+        - earth-climate
+        - energy
+        - engineering-robotics
+        - science-of-science
+    validations:
+      required: true
+  - type: dropdown
+    id: ai_role
+    attributes:
+      label: What did AI do?
+      options:
+        - instrument (a tool inside a study people designed)
+        - collaborator (proposed key ideas that people then selected, proved or tested)
+        - originator (produced the result essentially end to end)
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: The strongest check it has passed
+      options:
+        - claimed
+        - preprint
+        - peer-reviewed
+        - independently-replicated
+        - formally-verified
+        - deployed
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Plain words, with the key number. No hype.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: One to four links, primary first, https only.
+    validations:
+      required: true
+  - type: textarea
+    id: contested
+    attributes:
+      label: Is it disputed?
+      description: If a credible source disputes the result or its framing, say who and why, with a link.

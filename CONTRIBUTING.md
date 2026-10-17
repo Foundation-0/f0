@@ -2,6 +2,8 @@
 
 Foundation0 is a public record. The most useful contribution is a correction: a wrong date, an
 overstated claim, a dead link, a critique we missed. Open an issue with the source, or a pull request.
+To talk something through first, start a thread in the [forum](https://github.com/Foundation-0/f0/discussions)
+(its rules are in [FORUM.md](FORUM.md)).
 
 ## Add or correct a ledger entry
 
@@ -69,6 +71,7 @@ and run the script. The full rules are at the top of [`scripts/prerender.mjs`](s
 python3 scripts/check_site.py     # ledger schema, data files, links, page metadata
 python3 scripts/gate.py           # the kappa-race feed
 python3 tests/run_golden.py && python3 tests/run_regressions.py && python3 tests/run_gate_corruptions.py
+python3 tests/run_discussions.py   # the forum index
 node scripts/prerender.mjs --check   # the no-JavaScript copies match the data
 python3 -m http.server -d docs 8000
 ```

@@ -3,11 +3,14 @@
 
   1  ledger:   docs/data/ledger.json validates against the rules in
                docs/data/ledger.schema.json (types, enums, lengths, dates, ids)
-  2  projects: docs/data/projects.json and docs/data/writing.json are well formed
+  2  projects: docs/data/projects.json and docs/data/writing.json are well formed; docs/data/discussions.json
+               (the forum index) is well formed, holds titles and counts only, and every URL in it is one of
+               this repository's discussions or a GitHub account
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
   4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
-               resolves to a file inside docs/ (relative, or absolute under SITE); a relative og:image
+               resolves to a file inside docs/ (relative, or absolute under SITE); og:url and
+               rel=canonical, where present, are the page's own address under SITE; a relative og:image
                or a missing og:url is a warning (share cards need absolute URLs)
   5  scripts:  no third-party script origins (the site must run with no CDN)
   6  record:   every ledger/#<id> link in pages, scripts and data names a ledger.json id; every key of the
@@ -17,7 +20,7 @@
 Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
   --external also checks every external URL in the pages, page scripts and data files (*.json): any 2xx
   passes; doi.org links resolve through api.crossref.org, then api.datacite.org; links into this
-  repository (github.com/aska-digital/f0/blob|tree/main/...) are checked against the local
+  repository (github.com/Foundation-0/f0/blob|tree/main/...) are checked against the local
   checkout; preconnect and dns-prefetch hints are skipped.
 """
 import datetime
@@ -33,10 +36,10 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-SITE = 'https://aska-digital.github.io/f0/'   # the published site (GitHub Pages)
+SITE = 'https://foundation-0.github.io/f0/'   # the published site (GitHub Pages)
 # The original frontier-math site, kept as it was: links are checked, page metadata is not.
 ARCHIVE = 'legacy-site/'
-THIS_REPO = 'https://github.com/aska-digital/f0/'
+THIS_REPO = 'https://github.com/Foundation-0/f0/'
 errs = []
 warns = []
 
@@ -203,6 +206,90 @@ def check_lists():
                 err('lists', f'{rel}[{i}]: bad date {r["date"]!r}')
 
 
+def check_discussions():
+    """data/discussions.json indexes this repository's public forum and nothing else: every URL in it must be
+    one of this repository's discussion pages or a GitHub account, so a private space can never leak into it,
+    and it holds titles and counts only (no field outside the ones listed here)."""
+    rel = 'data/discussions.json'
+    d = load(rel)
+    if d is None:
+        return
+    forum = THIS_REPO + 'discussions'
+    stamp = re.compile(r'\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ')
+    account = re.compile(r'https://github\.com/(?:apps/)?[A-Za-z0-9][A-Za-z0-9-]*')
+    login = re.compile(r'[A-Za-z0-9][A-Za-z0-9-]*(?:\[bot\])?')
+
+    def count(x):
+        return isinstance(x, int) and not isinstance(x, bool) and x >= 0
+
+    def extra(obj, allowed, where):
+        unknown = sorted(set(obj) - allowed)
+        if unknown:
+            err('forum', f'{where}: fields not allowed in the index: {unknown}')
+
+    if not isinstance(d, dict):
+        err('forum', f'{rel}: expected an object')
+        return
+    extra(d, {'updated', 'note', 'repository', 'url', 'enabled', 'total', 'categories', 'threads'}, rel)
+    if d.get('url') != forum:
+        err('forum', f'{rel}: url must be {forum}')
+    if not stamp.fullmatch(str(d.get('updated', ''))):
+        err('forum', f'{rel}: updated must be a UTC timestamp like 2026-10-16T18:00:00Z')
+    cats, threads = d.get('categories'), d.get('threads')
+    if not isinstance(d.get('enabled'), bool) or not isinstance(cats, list) or not isinstance(threads, list):
+        err('forum', f'{rel}: needs enabled (true/false), categories [] and threads []')
+        return
+    if not d['enabled'] and (cats or threads):
+        err('forum', f'{rel}: lists categories or threads while the forum is not enabled')
+    if not count(d.get('total')) or d['total'] < len(threads):
+        err('forum', f'{rel}: total must be a whole number, at least the number of threads listed')
+    slugs = set()
+    for i, c in enumerate(cats):
+        slug = c.get('slug') if isinstance(c, dict) else None
+        if not isinstance(slug, str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*', slug):
+            err('forum', f'{rel}: categories[{i}] has a bad slug {slug!r}')
+            continue
+        slugs.add(slug)
+        extra(c, {'slug', 'name', 'description', 'answerable', 'count', 'url'}, f'{rel}: category {slug}')
+        if c.get('url') != f'{forum}/categories/{slug}':
+            err('forum', f'{rel}: category {slug} has url {c.get("url")!r}, not this forum\'s')
+        if not isinstance(c.get('name'), str) or not c['name'] or not count(c.get('count')) or not isinstance(c.get('answerable'), bool):
+            err('forum', f'{rel}: category {slug} needs a name, a count and answerable (true/false)')
+    for i, t in enumerate(threads):
+        if not isinstance(t, dict) or not count(t.get('number')) or not t['number']:
+            err('forum', f'{rel}: threads[{i}] needs a number')
+            continue
+        where = f'{rel}: thread #{t["number"]}'
+        extra(t, {'number', 'title', 'url', 'category', 'author', 'created', 'updated', 'comments', 'upvotes',
+                  'answered', 'locked', 'closed'}, where)
+        if t.get('url') != f'{forum}/{t["number"]}':
+            err('forum', f'{where} has url {t.get("url")!r}, not this forum\'s')
+        if not isinstance(t.get('title'), str) or not t['title'].strip():
+            err('forum', f'{where} has no title')
+        if t.get('category') not in slugs:
+            err('forum', f'{where} names category {t.get("category")!r}, which is not listed')
+        for k in ('created', 'updated'):
+            if not stamp.fullmatch(str(t.get(k, ''))):
+                err('forum', f'{where}: bad {k} {t.get(k)!r}')
+        for k in ('comments', 'upvotes'):
+            if not count(t.get(k)):
+                err('forum', f'{where}: {k} must be a whole number')
+        for k in ('answered', 'locked', 'closed'):
+            if not isinstance(t.get(k), bool):
+                err('forum', f'{where}: {k} must be true or false')
+        a = t.get('author')
+        if a is not None and not (isinstance(a, dict) and set(a) == {'login', 'url', 'agent'}
+                                  and login.fullmatch(str(a['login'])) and account.fullmatch(str(a['url']))
+                                  and isinstance(a['agent'], bool)):
+            err('forum', f'{where}: author needs a GitHub login, its github.com address and agent (true/false)')
+    nums = [t.get('number') for t in threads if isinstance(t, dict)]
+    if len(nums) != len(set(nums)):
+        err('forum', f'{rel}: a thread is listed twice')
+    order = [(str(t.get('updated')), t.get('number')) for t in threads if isinstance(t, dict) and count(t.get('number'))]
+    if order != sorted(order, reverse=True):
+        err('forum', f'{rel}: threads must run from the most recently active, as the page shows them')
+
+
 # ---------------- 3 links, 4 pages, 5 scripts ------------------------------------
 class Page(html.parser.HTMLParser):
     def __init__(self):
@@ -210,7 +297,7 @@ class Page(html.parser.HTMLParser):
         self.refs, self.ids, self.scripts = [], set(), []
         self.title = self.desc = self.viewport = self.lang = False
         self.og_images = []
-        self.og_url = False
+        self.og_url = self.canonical = None
         self.hints = set()
         self._in_title = False
 
@@ -231,7 +318,9 @@ class Page(html.parser.HTMLParser):
         if tag == 'meta' and a.get('property') == 'og:image' and a.get('content'):
             self.og_images.append(a['content'])
         if tag == 'meta' and a.get('property') == 'og:url' and a.get('content'):
-            self.og_url = True
+            self.og_url = a['content']
+        if tag == 'link' and a.get('href') and 'canonical' in (a.get('rel') or '').split():
+            self.canonical = a['href']
         if tag == 'link' and a.get('href') and set((a.get('rel') or '').split()) & {'preconnect', 'dns-prefetch'}:
             self.hints.add(a['href'])
         for attr in ('href', 'src', 'data-src', 'poster'):
@@ -308,6 +397,12 @@ def check_pages(external_urls):
                 warn('pages', f'{rel}: og:image {og} is relative; share cards need {SITE}...')
         if not p.og_url and 'noindex' not in src:
             warn('pages', f'{rel}: no og:url')
+        # A share card or canonical link must name this page at the published address. 404.html is
+        # served at any missing path, so it names home.
+        own = SITE + ('' if rel in ('index.html', '404.html') else rel[:-len('index.html')] if rel.endswith('/index.html') else rel)
+        for what, u in (('og:url', p.og_url), ('canonical', p.canonical)):
+            if u and u != own:
+                err('pages', f'{rel}: {what} {u} is not this page\'s address {own}')
         check_refs(rel, p, src, ids_by_page, external_urls)
 
 
@@ -453,6 +548,7 @@ def check_external(urls):
 def main():
     check_ledger()
     check_lists()
+    check_discussions()
     urls = set()
     check_pages(urls)
     check_record()
