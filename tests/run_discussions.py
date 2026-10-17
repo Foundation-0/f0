@@ -53,6 +53,7 @@ def fake_graphql(enabled=True):
         if 'hasDiscussionsEnabled' in query:
             return {'repository': {'hasDiscussionsEnabled': enabled, 'discussionCategories': {'nodes': CATS if enabled else []}}}
         if 'c0: discussions' in query:
+            assert variables['c0'] == 'C1' and variables['c1'] == 'C2' and '$c0: ID!' in query, 'category ids go as variables'
             return {'repository': {'c0': {'totalCount': 1}, 'c1': {'totalCount': 7}}}
         if 'orderBy' in query:
             assert variables['n'] == 30
@@ -68,9 +69,9 @@ def main():
 
     # 1. an open forum
     disc.graphql = fake_graphql(True)
-    wrote = disc.main(out=out, now='2026-10-16T16:00:00Z')
+    disc.main(out=out, now='2026-10-16T16:00:00Z')
     d = json.load(open(out, encoding='utf-8'))
-    check(wrote and d['enabled'] and d['total'] == 8, 'open forum: written, enabled, total from GitHub')
+    check(d['enabled'] and d['total'] == 8 and d['updated'] == '2026-10-16T16:00:00Z', 'open forum: enabled, total from GitHub, stamped with the build time')
     check([c['count'] for c in d['categories']] == [1, 7], 'each category carries its own thread count')
     check(all(c['url'] == f'{FORUM}/categories/{c["slug"]}' for c in d['categories']), 'category links point at this forum')
     check(d['categories'][1]['description'] == '', 'a missing description becomes an empty string')
@@ -81,19 +82,14 @@ def main():
     check(by[5]['title'] == '<script>alert(1)</script> and "quotes"', 'titles are stored as given (the page escapes them)')
     check('body' not in json.dumps(d), 'no post text is copied')
 
-    # 2. nothing changed -> nothing written, stamp kept
-    before = open(out, encoding='utf-8').read()
-    wrote = disc.main(out=out, now='2026-10-17T00:00:00Z')
-    check(not wrote and open(out, encoding='utf-8').read() == before, 'a run that finds no change leaves the file untouched')
-
-    # 3. a closed forum
+    # 2. a closed forum
     disc.graphql = fake_graphql(False)
     out2 = os.path.join(tmp, 'closed.json')
     disc.main(out=out2, now='2026-10-16T16:00:00Z')
     d2 = json.load(open(out2, encoding='utf-8'))
     check(d2['enabled'] is False and d2['categories'] == [] and d2['threads'] == [], 'closed forum: no categories, no threads')
 
-    # 4. the site gate accepts both, and refuses corrupted copies
+    # 3. the site gate accepts both, and refuses corrupted copies
     site = load('check_site', 'scripts/check_site.py')
     os.makedirs(os.path.join(tmp, 'data'), exist_ok=True)
 
@@ -120,6 +116,14 @@ def main():
         'more threads than the total': lambda x: x.update(total=1),
         'a thread listed twice': lambda x: x['threads'].append(dict(x['threads'][-1])),
         'threads out of order': lambda x: x['threads'].reverse(),
+        'an author link climbing out of github.com/': lambda x: x['threads'][0]['author'].update(url='https://github.com/../evil'),
+        'an author link to another repository': lambda x: x['threads'][0]['author'].update(url='https://github.com/Foundation-0/members/discussions/9'),
+        'an author link with a query': lambda x: x['threads'][0]['author'].update(url='https://github.com/login/oauth/authorize?client_id=x'),
+        'an author link with a backslash': lambda x: x['threads'][0]['author'].update(url='https://github.com/\\evil.com'),
+        'a count that is true/false': lambda x: x.update(total=True),
+        'a timestamp with a trailing newline': lambda x: x.update(updated='2026-10-16T16:00:00Z\n'),
+        'a post body in the index': lambda x: x['threads'][0].update(body='the text of a post'),
+        'a state that is not true/false': lambda x: x['threads'][0].update(locked='no'),
     }
     for what, corrupt in probes.items():
         bad = copy.deepcopy(d)

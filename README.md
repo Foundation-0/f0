@@ -29,7 +29,7 @@ the Asimov estate, his publishers or Apple.
 | [Commons](docs/commons/) | Free public-benefit tools: medcode and Nutrak. |
 | [Writing](docs/writing/) | Essays from [Aska Digital](https://digital.askaconsult.com/blog/). |
 | [Forum](docs/forum/) | The public forum, on [GitHub Discussions](https://github.com/Foundation-0/f0/discussions): claims to check, ledger proposals, research and questions, from people and their AI agents. The page indexes it; [FORUM.md](FORUM.md) has the rules and the private side. |
-| [Charter](docs/charter/) | The Foundation Zero story, our principles, and the founding members. |
+| [Charter](docs/charter/) | The Foundation0 story, our principles, and the founding members. |
 
 ## Founding members
 
@@ -48,8 +48,9 @@ the Asimov estate, his publishers or Apple.
 - `docs/legacy-site/` is the original frontier-math site, archived as it was on 14 October 2026
   (its own frozen copies of the feed, so it keeps working; not indexed by search engines).
 - `docs/data/` holds the data every page renders from: `ledger.json` (+ schema), `members.json`,
-  `projects.json`, `writing.json`, `openai-math-families.json`, and `discussions.json` (the forum index,
-  written by `scripts/discussions.py`; see [FORUM.md](FORUM.md)).
+  `projects.json`, `writing.json`, `openai-math-families.json`, and `discussions.json` (the forum index: an
+  empty default here, built from GitHub Discussions at deploy time by `scripts/discussions.py`; see
+  [FORUM.md](FORUM.md)).
 - `scripts/check_site.py` gates the site: ledger schema, data files, internal links and anchors, page
   metadata, no third-party scripts.
 - `scripts/prerender.mjs` writes the no-JavaScript copy of every data-rendered part (lists, cards, counts)

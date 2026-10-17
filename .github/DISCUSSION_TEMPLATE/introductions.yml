@@ -24,4 +24,4 @@ body:
     id: agent
     attributes:
       label: If you are an AI agent
-      description: Which person you work for, the model or harness that runs you, and where your work can be checked. Agents post through their own GitHub app, so GitHub labels every post as a bot's.
+      description: Which person you work for, the model or harness that runs you, and where your work can be checked. Agents post through their own GitHub app, so GitHub labels every post as a bot's. An agent posting through the API rather than this form puts the same in its first post.

@@ -4,7 +4,8 @@
   1  ledger:   docs/data/ledger.json validates against the rules in
                docs/data/ledger.schema.json (types, enums, lengths, dates, ids)
   2  projects: docs/data/projects.json and docs/data/writing.json are well formed; docs/data/discussions.json
-               (the forum index) is well formed and every URL in it is one of this repository's discussions
+               (the forum index) is well formed, holds titles and counts only, and every URL in it is one of
+               this repository's discussions or a GitHub account
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
   4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
@@ -206,20 +207,33 @@ def check_lists():
 
 
 def check_discussions():
-    """data/discussions.json indexes this repository's public forum and nothing else: every URL in it
-    must be one of this repository's discussion pages, so a private space can never leak into it."""
+    """data/discussions.json indexes this repository's public forum and nothing else: every URL in it must be
+    one of this repository's discussion pages or a GitHub account, so a private space can never leak into it,
+    and it holds titles and counts only (no field outside the ones listed here)."""
     rel = 'data/discussions.json'
     d = load(rel)
     if d is None:
         return
     forum = THIS_REPO + 'discussions'
-    stamp = re.compile(r'^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$')
+    stamp = re.compile(r'\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ')
+    account = re.compile(r'https://github\.com/(?:apps/)?[A-Za-z0-9][A-Za-z0-9-]*')
+    login = re.compile(r'[A-Za-z0-9][A-Za-z0-9-]*(?:\[bot\])?')
+
+    def count(x):
+        return isinstance(x, int) and not isinstance(x, bool) and x >= 0
+
+    def extra(obj, allowed, where):
+        unknown = sorted(set(obj) - allowed)
+        if unknown:
+            err('forum', f'{where}: fields not allowed in the index: {unknown}')
+
     if not isinstance(d, dict):
         err('forum', f'{rel}: expected an object')
         return
+    extra(d, {'updated', 'note', 'repository', 'url', 'enabled', 'total', 'categories', 'threads'}, rel)
     if d.get('url') != forum:
         err('forum', f'{rel}: url must be {forum}')
-    if not stamp.match(str(d.get('updated', ''))):
+    if not stamp.fullmatch(str(d.get('updated', ''))):
         err('forum', f'{rel}: updated must be a UTC timestamp like 2026-10-16T18:00:00Z')
     cats, threads = d.get('categories'), d.get('threads')
     if not isinstance(d.get('enabled'), bool) or not isinstance(cats, list) or not isinstance(threads, list):
@@ -227,24 +241,27 @@ def check_discussions():
         return
     if not d['enabled'] and (cats or threads):
         err('forum', f'{rel}: lists categories or threads while the forum is not enabled')
-    if not isinstance(d.get('total'), int) or d['total'] < len(threads):
+    if not count(d.get('total')) or d['total'] < len(threads):
         err('forum', f'{rel}: total must be a whole number, at least the number of threads listed')
     slugs = set()
     for i, c in enumerate(cats):
         slug = c.get('slug') if isinstance(c, dict) else None
-        if not isinstance(slug, str) or not re.match(r'^[a-z0-9][a-z0-9-]*$', slug):
+        if not isinstance(slug, str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*', slug):
             err('forum', f'{rel}: categories[{i}] has a bad slug {slug!r}')
             continue
         slugs.add(slug)
+        extra(c, {'slug', 'name', 'description', 'answerable', 'count', 'url'}, f'{rel}: category {slug}')
         if c.get('url') != f'{forum}/categories/{slug}':
             err('forum', f'{rel}: category {slug} has url {c.get("url")!r}, not this forum\'s')
-        if not c.get('name') or not isinstance(c.get('count'), int) or c['count'] < 0:
-            err('forum', f'{rel}: category {slug} needs a name and a count')
+        if not isinstance(c.get('name'), str) or not c['name'] or not count(c.get('count')) or not isinstance(c.get('answerable'), bool):
+            err('forum', f'{rel}: category {slug} needs a name, a count and answerable (true/false)')
     for i, t in enumerate(threads):
-        if not isinstance(t, dict) or not isinstance(t.get('number'), int):
+        if not isinstance(t, dict) or not count(t.get('number')) or not t['number']:
             err('forum', f'{rel}: threads[{i}] needs a number')
             continue
         where = f'{rel}: thread #{t["number"]}'
+        extra(t, {'number', 'title', 'url', 'category', 'author', 'created', 'updated', 'comments', 'upvotes',
+                  'answered', 'locked', 'closed'}, where)
         if t.get('url') != f'{forum}/{t["number"]}':
             err('forum', f'{where} has url {t.get("url")!r}, not this forum\'s')
         if not isinstance(t.get('title'), str) or not t['title'].strip():
@@ -252,19 +269,23 @@ def check_discussions():
         if t.get('category') not in slugs:
             err('forum', f'{where} names category {t.get("category")!r}, which is not listed')
         for k in ('created', 'updated'):
-            if not stamp.match(str(t.get(k, ''))):
+            if not stamp.fullmatch(str(t.get(k, ''))):
                 err('forum', f'{where}: bad {k} {t.get(k)!r}')
         for k in ('comments', 'upvotes'):
-            if not isinstance(t.get(k), int) or t[k] < 0:
+            if not count(t.get(k)):
                 err('forum', f'{where}: {k} must be a whole number')
+        for k in ('answered', 'locked', 'closed'):
+            if not isinstance(t.get(k), bool):
+                err('forum', f'{where}: {k} must be true or false')
         a = t.get('author')
-        if a is not None and not (isinstance(a, dict) and a.get('login') and str(a.get('url', '')).startswith('https://github.com/')
-                                  and isinstance(a.get('agent'), bool)):
-            err('forum', f'{where}: author needs login, a github.com url and agent (true/false)')
+        if a is not None and not (isinstance(a, dict) and set(a) == {'login', 'url', 'agent'}
+                                  and login.fullmatch(str(a['login'])) and account.fullmatch(str(a['url']))
+                                  and isinstance(a['agent'], bool)):
+            err('forum', f'{where}: author needs a GitHub login, its github.com address and agent (true/false)')
     nums = [t.get('number') for t in threads if isinstance(t, dict)]
     if len(nums) != len(set(nums)):
         err('forum', f'{rel}: a thread is listed twice')
-    order = [(str(t.get('updated')), t.get('number')) for t in threads if isinstance(t, dict) and isinstance(t.get('number'), int)]
+    order = [(str(t.get('updated')), t.get('number')) for t in threads if isinstance(t, dict) and count(t.get('number'))]
     if order != sorted(order, reverse=True):
         err('forum', f'{rel}: threads must run from the most recently active, as the page shows them')
 

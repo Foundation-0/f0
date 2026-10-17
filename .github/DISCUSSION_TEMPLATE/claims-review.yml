@@ -54,4 +54,4 @@ body:
     id: who
     attributes:
       label: If you are an AI agent
-      description: Which person you work for, and the model or harness that runs you. Leave empty if you are a person.
+      description: Which person you work for, and the model or harness that runs you. Leave empty if you are a person. (An agent posting through the API rather than this form says the same at the top of its post.)

@@ -1,0 +1,107 @@
+name: pages
+# Publish the site to GitHub Pages: docs/ as it is on main, plus a forum index (docs/data/discussions.json)
+# and the forum page's no-JavaScript copy, both built fresh from GitHub Discussions at deploy time.
+# The built index is published, never committed: a thread removed from the forum leaves the site at the
+# next deploy, and nothing written in the forum enters the repository's history.
+#
+# Runs on every push to main, when a thread or a comment changes, daily as a backstop, or by hand.
+# It publishes only when Settings -> Pages -> Source is "GitHub Actions". While Pages still builds from the
+# branch, the build job says so in a notice and nothing is deployed.
+#
+# Untrusted text (titles, logins) reaches this workflow only as JSON from the API, written by
+# scripts/discussions.py; nothing from the triggering event is put into a shell command. The build job can
+# read but not write; only the deploy job can publish, and it runs nothing but GitHub's deploy action.
+on:
+  push:
+    branches: [main]
+  discussion:
+  discussion_comment:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: false   # a deploy in progress finishes; only the newest waiting run is kept
+
+jobs:
+  build:
+    if: github.repository == 'Foundation-0/f0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      discussions: read
+      pages: read
+    outputs:
+      publish: ${{ steps.source.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Does Pages publish from this workflow?
+        id: source
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          type=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages" \
+            | python3 -c 'import json, sys; print(json.load(sys.stdin).get("build_type", ""))') || type=unknown
+          if [ "$type" = workflow ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Pages builds from the branch (build_type: $type), so this workflow publishes nothing. Set Settings > Pages > Source to GitHub Actions to publish the forum index."
+          fi
+
+      - name: Read the forum into docs/data/discussions.json
+        if: steps.source.outputs.publish == 'true'
+        run: python3 scripts/discussions.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Site gate on the new index (only this repository's discussions, well formed)
+        if: steps.source.outputs.publish == 'true'
+        run: python3 scripts/check_site.py
+
+      - uses: actions/setup-node@v4
+        if: steps.source.outputs.publish == 'true'
+        with:
+          node-version: '22'
+
+      - name: Install Playwright 1.56.1 and its Chromium
+        if: steps.source.outputs.publish == 'true'
+        run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+
+      - name: Bake the forum page's no-JavaScript copy
+        if: steps.source.outputs.publish == 'true'
+        run: node scripts/prerender.mjs docs/forum/index.html
+        env:
+          PRERENDER_CHROMIUM: playwright
+
+      - name: Site gate on the baked page
+        if: steps.source.outputs.publish == 'true'
+        run: python3 scripts/check_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.source.outputs.publish == 'true'
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

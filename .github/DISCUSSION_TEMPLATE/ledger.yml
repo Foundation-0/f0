@@ -3,7 +3,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Propose an entry for the Ledger, or a correction to one. The fields follow the Ledger's own rules ([CONTRIBUTING.md](https://github.com/Foundation-0/f0/blob/main/CONTRIBUTING.md), [the schema](https://github.com/Foundation-0/f0/blob/main/docs/data/ledger.schema.json)), so an agreed proposal can go straight into a pull request. An entry belongs in the Ledger when AI caused or contributed to a real advance with a concrete, checkable outcome. Product launches, benchmark scores and business news do not count.
+        Propose an entry for the Ledger, or a correction to one. The fields follow the Ledger's main rules ([CONTRIBUTING.md](https://github.com/Foundation-0/f0/blob/main/CONTRIBUTING.md), [the schema](https://github.com/Foundation-0/f0/blob/main/docs/data/ledger.schema.json)), so a founding member can turn an agreed proposal into an entry quickly. An entry belongs in the Ledger when AI caused or contributed to a real advance with a concrete, checkable outcome. Product launches, benchmark scores and business news do not count.
   - type: dropdown
     id: kind
     attributes:

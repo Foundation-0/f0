@@ -5,12 +5,12 @@ The forum itself lives on GitHub: https://github.com/Foundation-0/f0/discussions
 small index the site's forum page renders: the categories with their thread counts, and the most recently
 active threads (title, category, author, replies, state). It never copies the text of a post.
 
-    GH_TOKEN=... python3 scripts/discussions.py        # .github/workflows/discussions.yml runs this
+    GH_TOKEN=... python3 scripts/discussions.py        # .github/workflows/pages.yml runs this at deploy time
 
 Standard library only. It reads this repository and nothing else, so a private space can never leak into
-the public snapshot (the site gate checks every URL in the file as well). The file is rewritten only when
-something in it changed, so its "updated" stamp is the time of the last change the snapshot saw, and a
-run that finds nothing new commits nothing.
+the public index (the site gate checks every URL in the file as well). The deploy builds the index fresh
+and publishes it without committing it; the copy in the repository is the empty default. "updated" is the
+time the index was built.
 """
 import datetime
 import json
@@ -24,8 +24,8 @@ FORUM = f'https://github.com/{OWNER}/{NAME}/discussions'
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs', 'data', 'discussions.json')
 API = 'https://api.github.com/graphql'
 THREADS = 30          # most recently active threads kept in the snapshot
-NOTE = ('Index of the public forum (GitHub Discussions on Foundation-0/f0), written by scripts/discussions.py. '
-        'Titles and counts only; the posts themselves stay on GitHub. "updated" is when this index last changed.')
+NOTE = ('Index of the public forum (GitHub Discussions on Foundation-0/f0), built by scripts/discussions.py when the '
+        'site is published. Titles and counts only; the posts themselves stay on GitHub. "updated" is when it was built.')
 
 META = """query($owner: String!, $name: String!) {
   repository(owner: $owner, name: $name) {
@@ -77,11 +77,12 @@ def snapshot():
     if not snap['enabled']:
         return snap
     cats = meta['discussionCategories']['nodes']
-    if cats:   # one count per category, in one request
-        fields = ' '.join(f'c{i}: discussions(categoryId: {json.dumps(c["id"])}, first: 1) {{ totalCount }}'
-                          for i, c in enumerate(cats))
-        counts = graphql(f'query($owner: String!, $name: String!) {{ repository(owner: $owner, name: $name) {{ {fields} }} }}',
-                         {'owner': OWNER, 'name': NAME})['repository']
+    if cats:   # one count per category, in one request; the category ids travel as variables
+        params = ''.join(f', $c{i}: ID!' for i in range(len(cats)))
+        fields = ' '.join(f'c{i}: discussions(categoryId: $c{i}, first: 1) {{ totalCount }}' for i in range(len(cats)))
+        variables = {'owner': OWNER, 'name': NAME, **{f'c{i}': c['id'] for i, c in enumerate(cats)}}
+        counts = graphql(f'query($owner: String!, $name: String!{params}) {{ repository(owner: $owner, name: $name) {{ {fields} }} }}',
+                         variables)['repository']
     for i, c in enumerate(cats):
         snap['categories'].append({
             'slug': c['slug'], 'name': c['name'], 'description': c['description'] or '',
@@ -104,21 +105,12 @@ def snapshot():
 
 def main(out=OUT, now=None):
     snap = snapshot()
-    try:
-        with open(out, encoding='utf-8') as f:
-            old = json.load(f)
-    except (OSError, ValueError):
-        old = None
-    if old is not None and {k: v for k, v in old.items() if k != 'updated'} == snap:
-        print(f'discussions: no change ({len(snap["threads"])} threads, enabled={snap["enabled"]})')
-        return False
     stamp = now or datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     with open(out, 'w', encoding='utf-8') as f:
         json.dump({'updated': stamp, **snap}, f, ensure_ascii=False, indent=1)
         f.write('\n')
     print(f'discussions: wrote {os.path.relpath(out)} ({len(snap["threads"])} of {snap["total"]} threads, '
           f'{len(snap["categories"])} categories, enabled={snap["enabled"]})')
-    return True
 
 
 if __name__ == '__main__':
