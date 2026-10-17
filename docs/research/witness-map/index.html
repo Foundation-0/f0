@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Witness Map · Foundation0</title>
+<meta name="description" content="Every object from an electron to the Milky Way, asked the same question: can it be in two places at once? An order-of-magnitude model of how fast surroundings erase wave behaviour, and why dark matter is the one thing nothing watches. Exploration, not peer reviewed.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Witness Map: where quantum turns classical, from electrons to galaxies · Foundation0">
+<meta property="og:description" content="Two clocks race: how fast an object's wave spreads, and how fast its surroundings record where it is. Fourteen objects, one scale, and the one substance with no witnesses at all. Exploration, not peer reviewed.">
+<meta property="og:image" content="https://aska-digital.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://aska-digital.github.io/f0/research/witness-map/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="physics.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="research-witness-map">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <!-- The incentre mark: a square, its diagonals, and the incircle of each triangle (r = (sqrt2 - 1) x half-side).
+           Neighbouring incircles touch at one point: gold (biological) meets cyan (digital). -->
+      <path d="M-40-40L40 40M40-40L-40 40" fill="none" stroke-width="2" style="stroke:var(--ink-3)"/>
+      <g fill="none" stroke-width="4"><circle cy="-23.431" r="16.569" style="stroke:var(--bio)"/><circle cy="23.431" r="16.569" style="stroke:var(--bio)"/><circle cx="-23.431" r="16.569" style="stroke:var(--dig)"/><circle cx="23.431" r="16.569" style="stroke:var(--dig)"/></g>
+      <g><circle cy="-23.431" r="3.4" style="fill:var(--bio)"/><circle cy="23.431" r="3.4" style="fill:var(--bio)"/><circle cx="-23.431" r="3.4" style="fill:var(--dig)"/><circle cx="23.431" r="3.4" style="fill:var(--dig)"/></g>
+      <rect x="-40" y="-40" width="80" height="80" fill="none" stroke-width="4.4" style="stroke:var(--ink)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../../research/" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../../research/" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <header class="page-hero" style="--acc:var(--dig)">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">Witness Map</li></ol></nav>
+      <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Physics &middot; Aska Digital&rsquo;s own exploration</p>
+      <h1 class="h1">Witness Map: where quantum turns classical</h1>
+      <p class="dek">Every object from an electron to the Milky Way is asked the same question: can it be in two places at once? The answer comes down to a race between two clocks, and one substance in the universe has nothing watching it at all.</p>
+      <div class="meta-row">
+        <span class="badge n">Exploration</span>
+        <span class="badge n">Not peer reviewed</span>
+        <span class="badge n">No new result claimed</span>
+        <span class="chip">Order-of-magnitude model &middot; 16 Oct 2026</span>
+        <a class="chip" href="https://github.com/Foundation-0/fractals">Foundation-0/fractals @ c44283e</a>
+      </div>
+      <p class="wm-note">Explored by Aska Digital with Claude (Anthropic). Model, checks and open questions: <a href="https://github.com/Foundation-0/fractals">Foundation-0/fractals</a>.</p>
+    </div>
+  </header>
+
+  <section class="sec" id="question" data-index="The question" data-num="00" aria-labelledby="question-h">
+    <div class="wrap read">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>The question</p><span class="chip">First principles</span></div>
+      <h2 class="h2" id="question-h">A wave can only interfere with itself if no record of its path exists anywhere.</h2>
+      <p class="lede">Electrons go through both slits; planets do not. The usual story blames the size of the planet. A sharper story asks who is watching.</p>
+      <div class="prose">
+        <p>In a two-slit experiment, an electron&rsquo;s wave passes through both slits and the two halves overlap into stripes. Put a detector at the slits and the stripes vanish. It is tempting to say the detector knocks the electron off course. In 1998 Dürr, Nonn and Rempe tested exactly that: their detector&rsquo;s push on the atoms was far too small to wash out the stripes, yet the stripes still vanished. What destroyed them was the record itself, the fact that the detector now held which-path information.</p>
+        <p>Any photon that bounces off an object and flies away is such a record. So is a gas atom that collides with it, and so is the object&rsquo;s own heat glow. Physicists call the loss of wave behaviour this way <dfn class="term">decoherence</dfn>. A planet is not quiet; it is one of the most watched objects there is.</p>
+      </div>
+      <div class="wm-clocks">
+        <aside class="callout def"><p class="c-k">Wave clock</p><p>How long the object&rsquo;s wave needs to spread across the gap between the two places: m&middot;&Delta;x&sup2;/&#8463;. Heavier things spread slower, so their clock runs long.</p></aside>
+        <aside class="callout def"><p class="c-k">Witness clock</p><p>How long until something in its surroundings carries off a record of which place it is in: one over the rate of informative hits.</p></aside>
+      </div>
+      <div class="prose">
+        <p>Their ratio is the <dfn class="term">witness number</dfn>, W = wave clock &divide; witness clock. Below 1, the wave crosses the gap before anything can record which side the object is on, and it can act quantum. Above 1, the witnesses win and it acts classical.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="map" data-index="The map" data-num="01" aria-labelledby="map-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>The map</p><span class="chip">Computed in your browser</span></div>
+      <h2 class="h2" id="map-h">Fourteen objects, one scale, about 130 powers of ten.</h2>
+      <p class="lede">Change the gap, move everything into the same surroundings, or add the Milky Way&rsquo;s central black hole as a witness.</p>
+      <figure class="fig frame wide wm-fig" aria-labelledby="wm-t">
+        <div class="fig-head">
+          <p class="fig-title" id="wm-t">Witness number W for each object</p>
+          <p class="fig-how"><b>How to read:</b> one row per object, ordered by mass. The axis is W on a log scale; the vertical line is W&nbsp;=&nbsp;1. Left of it the wave wins, right of it the witnesses win. A hollow dot at the left edge means nothing witnesses it. Point at a row for its clocks; press it for the full readout.</p>
+        </div>
+        <div class="fig-ctrl wm-ctrls" role="group" aria-label="Map settings">
+          <div class="ctrl"><span class="ctrl-label">Gap //</span><input class="range" type="range" id="wm-gap" min="-9" max="20" step="0.01" value="-6.602" aria-label="Gap between the two places, on a log scale from 1 nanometre to 3 kiloparsecs"><output id="wm-gap-out" for="wm-gap">250 nm</output></div>
+          <div class="ctrl"><span class="ctrl-label">Presets //</span><div class="seg" id="wm-presets" role="group" aria-label="Gap presets"></div></div>
+          <div class="ctrl"><label class="ctrl-label" for="wm-env">Surroundings //</label><select class="wm-sel" id="wm-env"></select></div>
+          <div class="ctrl"><label class="wm-check" for="wm-bh"><input type="checkbox" id="wm-bh"> Black hole witness</label><select class="wm-sel" id="wm-bh-dist" aria-label="Distance from Sagittarius A*, in horizon radii" disabled></select></div>
+        </div>
+        <div class="wm-chart">
+          <div class="wm-grid wm-axis-row" aria-hidden="true"><span class="wm-sp"></span><div class="wm-axis" id="wm-axis"></div><span class="wm-capw">W</span></div>
+          <div class="wm-rows" id="wm-rows" role="group" aria-label="Objects, ordered by mass"></div>
+        </div>
+        <p class="wm-nojs">The map needs JavaScript. Its numbers at the default settings are in the table below.</p>
+        <div class="wm-detail" id="wm-detail" aria-live="polite"></div>
+        <figcaption class="fig-foot"><span id="wm-cap" aria-live="polite">Gap 250 nm, each object in its natural home.</span><span class="fig-src">Model in <a href="physics.js">physics.js</a>, a copy of <a href="https://github.com/Foundation-0/fractals/blob/main/witness-map/model.js">witness-map/model.js</a>; method and checks in section 03. Black hole: Sagittarius A*, 4.3 million solar masses, horizon formula of <a href="https://arxiv.org/abs/2205.06279">Danielson, Satishchandran &amp; Wald (2022)</a>.</span></figcaption>
+        <details class="twin"><summary>Show the numbers</summary>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Witness numbers as a table"><table class="tbl"><caption id="wm-twin-cap">At the default settings: gap 250 nm</caption>
+            <thead><tr><th scope="col">Object</th><th scope="col">Surroundings</th><th scope="col" class="n">Wave clock</th><th scope="col" class="n">Witness clock</th><th scope="col" class="n">W</th><th scope="col">Main witness</th></tr></thead>
+            <tbody id="wm-twin-body">
+              <tr><th scope="row">Electron</th><td>Lab vacuum, room temperature</td><td class="n">540&nbsp;ps</td><td class="n">55&nbsp;min</td><td class="n">10<sup>−13</sup></td><td>Leftover gas molecules</td></tr>
+              <tr><th scope="row">Rubidium atom</th><td>Lab vacuum, room temperature</td><td class="n">86&nbsp;µs</td><td class="n">7.8&nbsp;min</td><td class="n">10<sup>−7</sup></td><td>Leftover gas molecules</td></tr>
+              <tr><th scope="row">Buckyball (60 carbon atoms)</th><td>Lab vacuum, room temperature</td><td class="n">710&nbsp;µs</td><td class="n">2.8&nbsp;s</td><td class="n">10<sup>−4</sup></td><td>Its own heat glow</td></tr>
+              <tr><th scope="row">Giant molecule (~2,000 atoms)</th><td>Lab vacuum, room temperature</td><td class="n">25&nbsp;ms</td><td class="n">470&nbsp;ms</td><td class="n">10<sup>−1</sup></td><td>Its own heat glow</td></tr>
+              <tr><th scope="row">Virus</th><td>Room air</td><td class="n">5.9&nbsp;min</td><td class="n">1.1×10<sup>−14</sup>&nbsp;s</td><td class="n">10<sup>17</sup></td><td>Air molecules</td></tr>
+              <tr><th scope="row">Interstellar dust grain</th><td>Interstellar space</td><td class="n">6.9&nbsp;days</td><td class="n">25&nbsp;ms</td><td class="n">10<sup>7</sup></td><td>Starlight</td></tr>
+              <tr><th scope="row">Grain of sand</th><td>Room air</td><td class="n">2.6×10<sup>7</sup>&nbsp;years</td><td class="n">1.1×10<sup>−22</sup>&nbsp;s</td><td class="n">10<sup>37</sup></td><td>Air molecules</td></tr>
+              <tr><th scope="row">Cat (alive, 38 °C)</th><td>Room air</td><td class="n">7.5×10<sup>13</sup>&nbsp;years</td><td class="n">1.2×10<sup>−27</sup>&nbsp;s</td><td class="n">10<sup>48</sup></td><td>Air molecules</td></tr>
+              <tr><th scope="row">Moon</th><td>Open space near Earth, in sunlight</td><td class="n">1.4×10<sup>36</sup>&nbsp;years</td><td class="n">3×10<sup>−35</sup>&nbsp;s</td><td class="n">10<sup>78</sup></td><td>Sunlight</td></tr>
+              <tr><th scope="row">Earth</th><td>Open space near Earth, in sunlight</td><td class="n">1.1×10<sup>38</sup>&nbsp;years</td><td class="n">2.2×10<sup>−36</sup>&nbsp;s</td><td class="n">10<sup>81</sup></td><td>Sunlight</td></tr>
+              <tr><th scope="row">Sun</th><td>Interstellar space</td><td class="n">3.7×10<sup>43</sup>&nbsp;years</td><td class="n">1.1×10<sup>−45</sup>&nbsp;s</td><td class="n">10<sup>96</sup></td><td>Its own heat glow</td></tr>
+              <tr><th scope="row">Milky Way (whole galaxy)</th><td>Intergalactic void</td><td class="n">5.6×10<sup>55</sup>&nbsp;years</td><td class="n">3.7×10<sup>−56</sup>&nbsp;s</td><td class="n">10<sup>119</sup></td><td>Its own starlight</td></tr>
+              <tr><th scope="row">Wave dark matter particle</th><td>Intergalactic void</td><td class="n">1.1×10<sup>−37</sup>&nbsp;s</td><td class="n">never</td><td class="n">0</td><td>none</td></tr>
+              <tr><th scope="row">Heavy dark matter particle</th><td>Intergalactic void</td><td class="n">110&nbsp;µs</td><td class="n">never</td><td class="n">0</td><td>none</td></tr>
+            </tbody></table></div>
+          <p class="twin-note">Times are order-of-magnitude. &ldquo;Never&rdquo; means nothing in the model records the object at all.</p>
+        </details>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="shows" data-index="What it shows" data-num="02" aria-labelledby="shows-h">
+    <div class="wrap read">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>What it shows</p><span class="chip">At a 250 nm gap</span></div>
+      <h2 class="h2" id="shows-h">The lab-proven waves land on the wave side, and dark matter is never watched.</h2>
+      <ol class="wm-findings">
+        <li><b>The model agrees with experiment.</b> All four objects that have been seen acting as waves (an electron, a rubidium atom, a buckyball and a 2,000-atom molecule) land left of the line, at W from about 10<sup>&minus;13</sup> to 0.05. Raise the gap and the giant molecule crosses first, watched by its own heat glow.</li>
+        <li><b>Everything bigger is flooded with witnesses at home.</b> The closest call is an interstellar dust grain at W &asymp; 10<sup>7</sup>. A virus in air scores about 10<sup>16</sup>, a cat about 10<sup>48</sup>, Earth about 10<sup>81</sup>.</li>
+        <li><b>Mass counts through one door, the wave clock.</b> Heavy things spread so slowly that a trickle of witnesses settles them. Silence the witnesses and a virus can cross: in a 4&nbsp;K vacuum it scores W &asymp; 0.04, which is why a virus in two places at once inside a cold vacuum has been proposed as an experiment.</li>
+        <li><b>Dark matter has no witnesses at all.</b> No light bounces off it and it does not collide with gas, so it stays on the wave side at every gap, however heavy the particle. That lack of witnesses is part of what makes a galaxy-sized dark matter wave possible: a particle of 10<sup>&minus;22</sup>&nbsp;eV has a wavelength of about a kiloparsec.</li>
+        <li><b>A black hole watches, but feebly.</b> Even ten horizon radii from Sagittarius A*, a wave dark matter particle split by 1&nbsp;&micro;m would wait about 10<sup>170</sup> years for the horizon to record it. The horizon only beats ordinary witnesses for objects that are already classical.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec alt" id="method" data-index="How it is computed" data-num="03" aria-labelledby="method-h">
+    <div class="wrap read">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>How it is computed</p><a class="chip" href="https://github.com/Foundation-0/fractals/blob/main/tests/checks.mjs">npm test</a></div>
+      <h2 class="h2" id="method-h">Count the hits, weigh what each one learns, compare with the wave.</h2>
+      <p class="wm-formula">wave clock = m&middot;&Delta;x&sup2;/&#8463; &nbsp;&middot;&nbsp; witness rate &Gamma; = &Sigma; (hits per second) &times; (information per hit) &nbsp;&middot;&nbsp; W = &Gamma; &times; wave clock</p>
+      <div class="prose">
+        <ul>
+          <li><b>Hits per second.</b> Photons from the surroundings (a full thermal spectrum for each source), gas atoms, the solar wind and the object&rsquo;s own heat glow. Cross-sections are geometric for objects bigger than the wavelength and fall off as (size/wavelength)<sup>4</sup> for smaller ones; the electron uses the standard electron&ndash;photon value. Molecules glow 100 times more weakly than solid grains.</li>
+          <li><b>Information per hit.</b> A hit with wavelength &lambda; can tell the two places apart only if the gap is comparable to &lambda;. The fraction is 1&nbsp;&minus;&nbsp;exp(&minus;(2&pi;&Delta;x/&lambda;)&sup2;/3): tiny for gaps much smaller than &lambda;, one full record for larger gaps.</li>
+          <li><b>Black hole horizon.</b> &Gamma; = G<sup>6</sup>M<sup>5</sup>m<sup>2</sup>&Delta;x<sup>4</sup>/(&#8463;c<sup>10</sup>b<sup>10</sup>) at distance b, plus an electric version for the electron. Valid only when the gap is much smaller than the distance.</li>
+        </ul>
+        <h3>Checks against published numbers</h3>
+        <ul>
+          <li>Light and gas scattering on a 10&nbsp;&micro;m grain match the Joos&ndash;Zeh decoherence table to within a factor of 3 for the Big Bang afterglow and air, and 4.4 for sunlight. The table gives powers of ten only.</li>
+          <li>The horizon formula reproduces both worked examples in the Wald paper: Earth split by its own radius beside a Sun-mass black hole (paper ~10&nbsp;&micro;s, here ~20&nbsp;&micro;s) and an electron split by 1&nbsp;m (paper ~10<sup>43</sup> years, here ~4&times;10<sup>42</sup> years).</li>
+          <li>A buckyball here loses its wave behaviour when heated to about 2,500&ndash;3,000&nbsp;K, in line with the 2004 Vienna heating experiment.</li>
+          <li>All of these run as <a href="https://github.com/Foundation-0/fractals/blob/main/tests/checks.mjs">automated checks</a> in the research repository.</li>
+        </ul>
+      </div>
+      <aside class="callout caveat"><p class="c-k">What it leaves out</p><p>Objects sit still: fast motion, internal structure and spin are ignored. W is per particle, while wave dark matter&rsquo;s galaxy-wide wave is a crowd effect of enormous numbers of particles sharing one wave, which this map does not model. Gravity&rsquo;s only witness here is a black hole horizon; nudges from passing stars are treated as zero. Every number is good to a factor of a few, on a scale that spans more than 150 powers of ten.</p></aside>
+      <aside class="callout note"><p class="c-k">Corrections, kept on the record</p><p>Claims made during the exploration that did not survive it are logged in <a href="https://github.com/Foundation-0/fractals/blob/main/CORRECTIONS.md">CORRECTIONS.md</a>. Three of them matter here. The detector&rsquo;s push does not explain lost interference; the record does. &ldquo;The line is set by witnesses, not size&rdquo; was too strong; mass enters through the wave clock. And a quoted figure that the Big Bang afterglow pins a dust grain &ldquo;in about a nanosecond&rdquo; became about a millisecond for a 10&nbsp;&micro;m grain split by 1&nbsp;mm.</p></aside>
+    </div>
+  </section>
+
+  <section class="sec" id="open" data-index="Open questions" data-num="04" aria-labelledby="open-h">
+    <div class="wrap read">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Open questions</p><a class="chip" href="https://github.com/Foundation-0/fractals/issues">fractals issues</a></div>
+      <h2 class="h2" id="open-h">If a black hole shapes dark matter, it is by feeding it, not by watching it.</h2>
+      <p class="lede">The map rules out the strong version of the idea that a galaxy&rsquo;s black hole &ldquo;collapses&rdquo; its surroundings into particles. It leaves a more interesting version open.</p>
+      <div class="prose">
+        <p>A spinning black hole can amplify very light particles into a cloud around itself, a process called <dfn class="term">superradiance</dfn>. The cloud settles into the same energy levels as a hydrogen atom, with gravity in place of electric attraction: a &ldquo;gravitational atom&rdquo;. Here the old intuition that atoms are little solar systems becomes literally true, because the same equation, a wave held by a pull that weakens with distance, has the same solution at any scale.</p>
+        <ul>
+          <li>Do lensing anomalies attributed to wave dark matter (Amruth et al., 2023) correlate with the lens galaxy&rsquo;s central black hole mass or spin? (<a href="https://github.com/Foundation-0/fractals/issues/1">fractals #1</a>)</li>
+          <li>Model the crowd wave (one shared field under its own gravity) instead of single particles. (<a href="https://github.com/Foundation-0/fractals/issues/2">#2</a>)</li>
+          <li>Put a number on gravity-only witnesses other than horizons. (<a href="https://github.com/Foundation-0/fractals/issues/3">#3</a>)</li>
+          <li>Draw hydrogen and a gravitational atom side by side, at the same scale. (<a href="https://github.com/Foundation-0/fractals/issues/4">#4</a>)</li>
+          <li>Re-check the model independently. (<a href="https://github.com/Foundation-0/fractals/issues/5">#5</a>)</li>
+        </ul>
+      </div>
+      <div class="wm-cols">
+        <div><h3 class="wm-h3">This research</h3><ul class="src-list">
+          <li><a href="https://github.com/Foundation-0/fractals">Foundation-0/fractals</a></li>
+          <li><a href="https://github.com/Foundation-0/fractals/blob/main/CORRECTIONS.md">CORRECTIONS.md</a></li>
+        </ul></div>
+        <div><h3 class="wm-h3">Decoherence</h3><ul class="src-list">
+          <li><a href="https://doi.org/10.1007/BF01725541">Joos &amp; Zeh, 1985</a></li>
+          <li><a href="https://doi.org/10.1038/25653">Dürr, Nonn &amp; Rempe, 1998</a></li>
+          <li><a href="https://arxiv.org/abs/1001.3419">Riedel &amp; Zurek, 2010</a></li>
+          <li><a href="https://arxiv.org/abs/2211.00449">Bild et al., 16 &micro;g cat state, 2023</a></li>
+        </ul></div>
+        <div><h3 class="wm-h3">Black holes</h3><ul class="src-list">
+          <li><a href="https://arxiv.org/abs/2205.06279">Danielson, Satishchandran &amp; Wald, 2022</a></li>
+          <li><a href="https://arxiv.org/abs/1810.03812">Gravitational atoms: energy levels</a></li>
+        </ul></div>
+        <div><h3 class="wm-h3">Wave dark matter</h3><ul class="src-list">
+          <li><a href="https://arxiv.org/abs/2304.09895">Amruth et al., Einstein rings, 2023</a></li>
+          <li><a href="https://arxiv.org/abs/2603.07175">Core&ndash;halo diversity and mass limits, 2026</a></li>
+        </ul></div>
+      </div>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../"><span>&larr; Back</span>All research</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../research/">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Model and page facts checked 16 Oct 2026</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Aska Digital</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
