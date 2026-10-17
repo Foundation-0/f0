@@ -69,7 +69,7 @@ html:not(.js) .wm-nojs { display: block; }
 .wm-findings { display: grid; gap: var(--s-3); margin: var(--s-5) 0 0; padding-left: 1.1rem; max-width: var(--measure); }
 .wm-findings li { font: 400 var(--fs-base)/1.6 var(--f-serif); color: var(--ink-2); }
 .wm-formula { font: 400 var(--fs-xs)/1.6 var(--f-mono); background: var(--bg-2); border: 1px solid var(--line); padding: var(--s-3) var(--s-4); overflow-x: auto; white-space: nowrap; color: var(--ink); }
-.wm-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); margin-top: var(--s-5); }
+.wm-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--s-5); margin-top: var(--s-5); }
 .wm-h3 { font: 600 var(--fs-ui)/1.3 var(--f-sans); margin: 0 0 var(--s-2); }
 
 @media (max-width: 760px) {

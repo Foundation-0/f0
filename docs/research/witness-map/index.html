@@ -77,8 +77,9 @@
         <span class="badge n">Not peer reviewed</span>
         <span class="badge n">No new result claimed</span>
         <span class="chip">Order-of-magnitude model &middot; 16 Oct 2026</span>
+        <a class="chip" href="https://github.com/Foundation-0/fractals">Foundation-0/fractals @ c44283e</a>
       </div>
-      <p class="wm-note">Explored by Aska Digital with Claude (Anthropic). Discussion and open questions: <a href="https://github.com/Foundation-0/f0/issues/10">issue #10</a>.</p>
+      <p class="wm-note">Explored by Aska Digital with Claude (Anthropic). Model, checks and open questions: <a href="https://github.com/Foundation-0/fractals">Foundation-0/fractals</a>.</p>
     </div>
   </header>
 
@@ -123,7 +124,7 @@
         </div>
         <p class="wm-nojs">The map needs JavaScript. Its numbers at the default settings are in the table below.</p>
         <div class="wm-detail" id="wm-detail" aria-live="polite"></div>
-        <figcaption class="fig-foot"><span id="wm-cap" aria-live="polite">Gap 250 nm, each object in its natural home.</span><span class="fig-src">Model in <a href="physics.js">physics.js</a>; method and checks in section 03. Black hole: Sagittarius A*, 4.3 million solar masses, horizon formula of <a href="https://arxiv.org/abs/2205.06279">Danielson, Satishchandran &amp; Wald (2022)</a>.</span></figcaption>
+        <figcaption class="fig-foot"><span id="wm-cap" aria-live="polite">Gap 250 nm, each object in its natural home.</span><span class="fig-src">Model in <a href="physics.js">physics.js</a>, a copy of <a href="https://github.com/Foundation-0/fractals/blob/main/witness-map/model.js">witness-map/model.js</a>; method and checks in section 03. Black hole: Sagittarius A*, 4.3 million solar masses, horizon formula of <a href="https://arxiv.org/abs/2205.06279">Danielson, Satishchandran &amp; Wald (2022)</a>.</span></figcaption>
         <details class="twin"><summary>Show the numbers</summary>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Witness numbers as a table"><table class="tbl"><caption id="wm-twin-cap">At the default settings: gap 250 nm</caption>
             <thead><tr><th scope="col">Object</th><th scope="col">Surroundings</th><th scope="col" class="n">Wave clock</th><th scope="col" class="n">Witness clock</th><th scope="col" class="n">W</th><th scope="col">Main witness</th></tr></thead>
@@ -165,7 +166,7 @@
 
   <section class="sec alt" id="method" data-index="How it is computed" data-num="03" aria-labelledby="method-h">
     <div class="wrap read">
-      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>How it is computed</p><span class="chip">physics.js</span></div>
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>How it is computed</p><a class="chip" href="https://github.com/Foundation-0/fractals/blob/main/tests/checks.mjs">npm test</a></div>
       <h2 class="h2" id="method-h">Count the hits, weigh what each one learns, compare with the wave.</h2>
       <p class="wm-formula">wave clock = m&middot;&Delta;x&sup2;/&#8463; &nbsp;&middot;&nbsp; witness rate &Gamma; = &Sigma; (hits per second) &times; (information per hit) &nbsp;&middot;&nbsp; W = &Gamma; &times; wave clock</p>
       <div class="prose">
@@ -176,31 +177,37 @@
         </ul>
         <h3>Checks against published numbers</h3>
         <ul>
-          <li>Light and gas scattering on a 10&nbsp;&micro;m grain match the Joos&ndash;Zeh decoherence table to within a factor of about 3 for the Big Bang afterglow, sunlight and air.</li>
+          <li>Light and gas scattering on a 10&nbsp;&micro;m grain match the Joos&ndash;Zeh decoherence table to within a factor of 3 for the Big Bang afterglow and air, and 4.4 for sunlight. The table gives powers of ten only.</li>
           <li>The horizon formula reproduces both worked examples in the Wald paper: Earth split by its own radius beside a Sun-mass black hole (paper ~10&nbsp;&micro;s, here ~20&nbsp;&micro;s) and an electron split by 1&nbsp;m (paper ~10<sup>43</sup> years, here ~4&times;10<sup>42</sup> years).</li>
           <li>A buckyball here loses its wave behaviour when heated to about 2,500&ndash;3,000&nbsp;K, in line with the 2004 Vienna heating experiment.</li>
+          <li>All of these run as <a href="https://github.com/Foundation-0/fractals/blob/main/tests/checks.mjs">automated checks</a> in the research repository.</li>
         </ul>
       </div>
       <aside class="callout caveat"><p class="c-k">What it leaves out</p><p>Objects sit still: fast motion, internal structure and spin are ignored. W is per particle, while wave dark matter&rsquo;s galaxy-wide wave is a crowd effect of enormous numbers of particles sharing one wave, which this map does not model. Gravity&rsquo;s only witness here is a black hole horizon; nudges from passing stars are treated as zero. Every number is good to a factor of a few, on a scale that spans more than 150 powers of ten.</p></aside>
-      <aside class="callout note"><p class="c-k">Corrections, kept on the record</p><p>Three claims made during the exploration did not survive it. The detector&rsquo;s push does not explain lost interference; the record does. &ldquo;The line is set by witnesses, not size&rdquo; was too strong; mass enters through the wave clock. And a quoted figure that the Big Bang afterglow pins a dust grain &ldquo;in about a nanosecond&rdquo; became about a millisecond for a 10&nbsp;&micro;m grain split by 1&nbsp;mm.</p></aside>
+      <aside class="callout note"><p class="c-k">Corrections, kept on the record</p><p>Claims made during the exploration that did not survive it are logged in <a href="https://github.com/Foundation-0/fractals/blob/main/CORRECTIONS.md">CORRECTIONS.md</a>. Three of them matter here. The detector&rsquo;s push does not explain lost interference; the record does. &ldquo;The line is set by witnesses, not size&rdquo; was too strong; mass enters through the wave clock. And a quoted figure that the Big Bang afterglow pins a dust grain &ldquo;in about a nanosecond&rdquo; became about a millisecond for a 10&nbsp;&micro;m grain split by 1&nbsp;mm.</p></aside>
     </div>
   </section>
 
   <section class="sec" id="open" data-index="Open questions" data-num="04" aria-labelledby="open-h">
     <div class="wrap read">
-      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Open questions</p><a class="chip" href="https://github.com/Foundation-0/f0/issues/10">Issue #10</a></div>
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Open questions</p><a class="chip" href="https://github.com/Foundation-0/fractals/issues">fractals issues</a></div>
       <h2 class="h2" id="open-h">If a black hole shapes dark matter, it is by feeding it, not by watching it.</h2>
       <p class="lede">The map rules out the strong version of the idea that a galaxy&rsquo;s black hole &ldquo;collapses&rdquo; its surroundings into particles. It leaves a more interesting version open.</p>
       <div class="prose">
         <p>A spinning black hole can amplify very light particles into a cloud around itself, a process called <dfn class="term">superradiance</dfn>. The cloud settles into the same energy levels as a hydrogen atom, with gravity in place of electric attraction: a &ldquo;gravitational atom&rdquo;. Here the old intuition that atoms are little solar systems becomes literally true, because the same equation, a wave held by a pull that weakens with distance, has the same solution at any scale.</p>
         <ul>
-          <li>Do lensing anomalies attributed to wave dark matter (Amruth et al., 2023) correlate with the lens galaxy&rsquo;s central black hole mass or spin?</li>
-          <li>Model the crowd wave (one shared field under its own gravity) instead of single particles.</li>
-          <li>Put a number on gravity-only witnesses other than horizons.</li>
-          <li>Draw hydrogen and a gravitational atom side by side, at the same scale.</li>
+          <li>Do lensing anomalies attributed to wave dark matter (Amruth et al., 2023) correlate with the lens galaxy&rsquo;s central black hole mass or spin? (<a href="https://github.com/Foundation-0/fractals/issues/1">fractals #1</a>)</li>
+          <li>Model the crowd wave (one shared field under its own gravity) instead of single particles. (<a href="https://github.com/Foundation-0/fractals/issues/2">#2</a>)</li>
+          <li>Put a number on gravity-only witnesses other than horizons. (<a href="https://github.com/Foundation-0/fractals/issues/3">#3</a>)</li>
+          <li>Draw hydrogen and a gravitational atom side by side, at the same scale. (<a href="https://github.com/Foundation-0/fractals/issues/4">#4</a>)</li>
+          <li>Re-check the model independently. (<a href="https://github.com/Foundation-0/fractals/issues/5">#5</a>)</li>
         </ul>
       </div>
       <div class="wm-cols">
+        <div><h3 class="wm-h3">This research</h3><ul class="src-list">
+          <li><a href="https://github.com/Foundation-0/fractals">Foundation-0/fractals</a></li>
+          <li><a href="https://github.com/Foundation-0/fractals/blob/main/CORRECTIONS.md">CORRECTIONS.md</a></li>
+        </ul></div>
         <div><h3 class="wm-h3">Decoherence</h3><ul class="src-list">
           <li><a href="https://doi.org/10.1007/BF01725541">Joos &amp; Zeh, 1985</a></li>
           <li><a href="https://doi.org/10.1038/25653">Dürr, Nonn &amp; Rempe, 1998</a></li>

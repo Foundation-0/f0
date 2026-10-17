@@ -1,4 +1,5 @@
 /* Witness Map physics: order-of-magnitude, first-principles estimates. No dependencies.
+ * Copy of witness-map/model.js in https://github.com/Foundation-0/fractals (c44283e); change it there first.
  *
  * For an object of mass m asked to be in two places a gap dx apart:
  *   wave clock     t_wave = m dx^2 / hbar   (time for its wave to spread across the gap)
