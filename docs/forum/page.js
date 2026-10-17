@@ -46,7 +46,7 @@
     return '<li class="fo-t" data-cat="' + esc(t.category) + '">' +
       '<div class="fo-t-meta"><span class="fo-t-cat">' + esc(c.name) + '</span><time datetime="' + esc(t.updated) + '">' + day(t.updated) + '</time></div>' +
       '<div class="fo-t-body"><h3 class="fo-t-title"><a href="' + esc(t.url) + '">' + esc(t.title) + '</a></h3>' +
-      '<p class="fo-t-by"><span>' + by + '</span><span>' + plural(t.comments, 'reply', 'replies') + '</span>' +
+      '<p class="fo-t-by"><span>' + by + '</span><span>' + plural(t.comments, 'comment') + '</span>' +
       (t.upvotes ? '<span>' + plural(t.upvotes, 'upvote') + '</span>' : '') +
       '<span>started ' + day(t.created) + '</span>' + state.join('') + '</p></div></li>';
   }
@@ -66,11 +66,11 @@
     var cats = {};
     d.categories.forEach(function (c) { cats[c.slug] = c; });
     $('#fo-open').innerHTML = openHTML(d);
-    $('#fo-asof').textContent = 'Snapshot ' + stamp(d.updated);
+    $('#fo-asof').textContent = 'Index changed ' + stamp(d.updated);
     $('#fo-filter').innerHTML = filterHTML(d);
     $('#fo-status').textContent = statusText(d, d.threads.length);
     $('#fo-list').innerHTML = d.threads.length ? d.threads.map(function (t) { return threadHTML(t, cats); }).join('') : emptyHTML(d);
-    $('#fo-stamp').textContent = 'Forum snapshot ' + d.updated.slice(0, 10) + ' · ' + plural(d.total, 'thread');
+    $('#fo-stamp').textContent = 'Forum index changed ' + d.updated.slice(0, 10) + ' · ' + plural(d.total, 'thread');
 
     $('#fo-filter').addEventListener('click', function (e) {
       var btn = e.target.closest('button[data-cat]');

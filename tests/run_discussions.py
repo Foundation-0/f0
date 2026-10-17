@@ -118,6 +118,8 @@ def main():
         'a bad timestamp': lambda x: x['threads'][0].update(updated='yesterday'),
         'a forum url that is not this repository': lambda x: x.update(url='https://github.com/someone/else/discussions'),
         'more threads than the total': lambda x: x.update(total=1),
+        'a thread listed twice': lambda x: x['threads'].append(dict(x['threads'][-1])),
+        'threads out of order': lambda x: x['threads'].reverse(),
     }
     for what, corrupt in probes.items():
         bad = copy.deepcopy(d)

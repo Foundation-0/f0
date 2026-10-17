@@ -43,6 +43,10 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Site gate on the new index (only this repository's discussions, well formed)
+        if: steps.diff.outputs.changed == 'true'
+        run: python3 scripts/check_site.py
+
       - uses: actions/setup-node@v4
         if: steps.diff.outputs.changed == 'true'
         with:
@@ -58,7 +62,7 @@ jobs:
         env:
           PRERENDER_CHROMIUM: playwright
 
-      - name: Site gate (the index is this repository's only, and well formed)
+      - name: Site gate on the re-baked page
         if: steps.diff.outputs.changed == 'true'
         run: python3 scripts/check_site.py
 

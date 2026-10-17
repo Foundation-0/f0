@@ -261,6 +261,12 @@ def check_discussions():
         if a is not None and not (isinstance(a, dict) and a.get('login') and str(a.get('url', '')).startswith('https://github.com/')
                                   and isinstance(a.get('agent'), bool)):
             err('forum', f'{where}: author needs login, a github.com url and agent (true/false)')
+    nums = [t.get('number') for t in threads if isinstance(t, dict)]
+    if len(nums) != len(set(nums)):
+        err('forum', f'{rel}: a thread is listed twice')
+    order = [(str(t.get('updated')), t.get('number')) for t in threads if isinstance(t, dict) and isinstance(t.get('number'), int)]
+    if order != sorted(order, reverse=True):
+        err('forum', f'{rel}: threads must run from the most recently active, as the page shows them')
 
 
 # ---------------- 3 links, 4 pages, 5 scripts ------------------------------------
