@@ -169,7 +169,7 @@
    "slug": "maxwell-charges",
    "kind": "research",
    "member": "ahrazzle",
-   "owner": "Foundation0 (physics0)",
+   "owner": "Foundation0 (point-charges)",
    "contribution": "Claude (Anthropic) chose the question and wrote the code, certificates and note at the founding member's request; no person has reviewed it yet.",
    "page": "research/maxwell-charges/",
    "accent": "#ff8fc0",
@@ -179,38 +179,38 @@
    "links": [
     {
      "label": "Study",
-     "url": "https://github.com/Foundation-0/physics0/tree/ca07252d3263262193b0fa24ee05760410462b21/maxwell"
+     "url": "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9"
     },
     {
      "label": "Note",
-     "url": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/NOTE.md"
+     "url": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md"
     },
     {
      "label": "Certificates",
-     "url": "https://github.com/Foundation-0/physics0/tree/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates"
+     "url": "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates"
     }
    ],
-   "one_line": "Foundation0's first physics study: Maxwell said n positive point charges have at most (n−1)² points of balance. Interval-arithmetic certificates, each confirmed by a second program that shares no code, give exact counts: 9 for four charges (the bound), 24 for an explicit five-charge counterexample, and 29 for six. Done by Claude (Anthropic); not yet reviewed by a person.",
+   "one_line": "Foundation0's first physics study, a project of its physics0 hub: Maxwell said n positive point charges have at most (n−1)² points of balance. Interval-arithmetic certificates, each confirmed by a second program that shares no code, give exact counts: 9 for four charges (the bound), 24 for an explicit five-charge counterexample, and 29 for six. Done by Claude (Anthropic); not yet reviewed by a person.",
    "stats": [
     {
      "value": "9",
      "label": "equilibria for four charges: exactly Maxwell's bound (n−1)², which a 2026 paper knew no configuration to reach for n > 3",
-     "source": "maxwell/certificates/n4-triangle-plus-centre.json"
+     "source": "certificates/n4-triangle-plus-centre.json"
     },
     {
      "value": "24",
      "label": "equilibria, exactly, in an explicit five-charge counterexample to Maxwell (bound 16); every one enclosed, none degenerate",
-     "source": "maxwell/certificates/n5-abk-bipyramid.json"
+     "source": "certificates/n5-abk-bipyramid.json"
     },
     {
      "value": "29 > 25",
      "label": "equilibria for six charges, above Maxwell's bound for six",
-     "source": "maxwell/certificates/n6-abk-plus-centre.json"
+     "source": "certificates/n6-abk-plus-centre.json"
     },
     {
      "value": "2",
      "label": "verifiers that share no code confirm every count; both reject four deliberately corrupted certificates",
-     "source": "maxwell/verify_arb.py; maxwell/tests/test_verifier_rejects.py"
+     "source": "verify_arb.py; tests/test_verifier_rejects.py"
     }
    ]
   },

@@ -1,5 +1,5 @@
 {
- "source": "Foundation-0/physics0, maxwell/certificates at ca07252d3263262193b0fa24ee05760410462b21",
+ "source": "Foundation-0/point-charges, certificates at 5b73d78f8609cd9e0162275c1b4f3f4125906ca9",
  "frame": "centre of the triangle at the origin, its axis along z, a vertex on +x, unit circumradius",
  "configs": [
   {
@@ -63,7 +63,7 @@
      2
     ]
    ],
-   "cert": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n3-triangle.json"
+   "cert": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n3-triangle.json"
   },
   {
    "id": "n4",
@@ -163,7 +163,7 @@
      2
     ]
    ],
-   "cert": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n4-triangle-plus-centre.json"
+   "cert": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json"
   },
   {
    "id": "n5",
@@ -360,7 +360,7 @@
      2
     ]
    ],
-   "cert": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n5-abk-bipyramid.json"
+   "cert": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json"
   },
   {
    "id": "n6",
@@ -594,7 +594,7 @@
      2
     ]
    ],
-   "cert": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n6-abk-plus-centre.json"
+   "cert": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json"
   }
  ]
 }

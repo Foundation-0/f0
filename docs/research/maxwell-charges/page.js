@@ -1,5 +1,5 @@
 /* Maxwell's point charges (research/maxwell-charges): two figures.
-   Hero: the certified equilibria of four configurations (equilibria.json, written from the physics0 certificates),
+   Hero: the certified equilibria of four configurations (equilibria.json, written from the point-charges certificates),
    drawn in 3D; drag or arrow keys turn it, the slider zooms by up to 10,000 times. "Search again here" runs a
    numerical search from scratch in the browser (Newton's method from many starting points) and compares what it
    finds with the certified list; "Hide one point" removes one point from the list so the comparison must fail.

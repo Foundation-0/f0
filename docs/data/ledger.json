@@ -12790,7 +12790,7 @@
    "title": "Certified counts: four charges reach Maxwell's bound, six charges exceed it",
    "domain": "physics",
    "subfield": "mathematical physics (electrostatics)",
-   "summary": "In Foundation0's physics0 repository, Claude used interval arithmetic to certify exact equilibrium counts for explicit point-charge configurations, each re-checked by independent code: 9 for four charges, Maxwell's bound, which a 2026 paper knew no example of reaching beyond three charges; exactly 24 for a five-charge counterexample; and 29 for six charges, above the bound of 25.",
+   "summary": "In Foundation0's point-charges repository, Claude used interval arithmetic to certify exact equilibrium counts for explicit point-charge configurations, each re-checked by independent code: 9 for four charges, Maxwell's bound, which a 2026 paper knew no example of reaching beyond three charges; exactly 24 for a five-charge counterexample; and 29 for six charges, above the bound of 25.",
    "before_after": {
     "metric": "Most equilibria known for six positive charges",
     "before": "25, Maxwell's bound (five-charge counterexample plus one far charge)",
@@ -12801,7 +12801,7 @@
     "Claude (Anthropic)"
    ],
    "organizations": [
-    "Foundation0 (physics0 repository)"
+    "Foundation0 (point-charges repository)"
    ],
    "ai_role": "originator",
    "evidence": "claimed",
@@ -12810,12 +12810,12 @@
    "significance": 1,
    "sources": [
     {
-     "label": "Foundation-0/physics0: maxwell/NOTE.md",
-     "url": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/NOTE.md"
+     "label": "Foundation-0/point-charges: NOTE.md",
+     "url": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md"
     },
     {
-     "label": "Certificates and verifiers (Foundation-0/physics0, maxwell/)",
-     "url": "https://github.com/Foundation-0/physics0/tree/ca07252d3263262193b0fa24ee05760410462b21/maxwell"
+     "label": "Certificates and verifiers (Foundation-0/point-charges)",
+     "url": "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9"
     },
     {
      "label": "Arathoon, Ball, Kvalheim (arXiv:2607.27197): the five-charge construction",
@@ -12823,7 +12823,7 @@
     }
    ],
    "foundation0": true,
-   "foundation0_note": "Foundation0's own physics0 repository. Claude (Anthropic) chose the question and did the computation and writing at founding member Ahraz Arifuddin's request; no person has reviewed it yet.",
+   "foundation0_note": "Foundation0's own point-charges repository, part of its physics0 hub. Claude (Anthropic) chose the question and did the computation and writing at founding member Ahraz Arifuddin's request; no person has reviewed it yet.",
    "foundation0_members": [
     "ahrazzle"
    ],

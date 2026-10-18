@@ -100,21 +100,21 @@
         ['3', 'manuscripts withdrawn by OpenAI on 7 Oct after a sign error; none refereed by people so far', 'openai/math history.md @ fd4aeeb']
       ] },
     'maxwell-charges': {
-      acc: '--acc-maxwell', field: 'Physics', who: 'physics0 · Claude, asked by Ahraz Arifuddin',
-      credit: '<b>Foundation0’s own physics0 repository.</b> Asked by founding member Ahraz Arifuddin to find new areas for Foundation0, Claude (Anthropic) chose this question and wrote the code, certificates and note in one session. No person has reviewed it yet.',
+      acc: '--acc-maxwell', field: 'Physics', who: 'point-charges · Claude, asked by Ahraz Arifuddin',
+      credit: '<b>Foundation0’s own point-charges repository</b>, a project of its physics0 hub. Asked by founding member Ahraz Arifuddin to find new areas for Foundation0, Claude (Anthropic) chose this question and wrote the code, certificates and note in one session. No person has reviewed it yet.',
       glyph: 'charges', gk: 'SIX CHARGES · DISTANCE ON A LOG SCALE', gr: '29 equilibria',
       aria: 'The 29 certified equilibria of six charges, seen along the triangle’s axis, with distance from the centre on a log scale from 0.0001 to 1: three clusters near the centre and the triangle’s corners at the rim.',
       cap: 'Every certified equilibrium of the six-charge configuration, seen down the axis, with distance from the centre on a log scale from 0.0001 to 1 (the rim): the inner clusters are 50 to 5,000 times smaller than the triangle. Filled: 1-saddles; rings: 2-saddles.',
       loop: [
-        ['24 → 29', 'a tiny charge placed on the symmetric centre of the five-charge counterexample turns one point of balance into six', 'maxwell/NOTE.md, Proposition 2'],
-        ['2', 'verifiers that share no code (float intervals; Arb balls and exact fractions) confirm 4, 9, 24 and 29; four corrupted certificates are rejected', 'maxwell/verify_arb.py, tests/test_verifier_rejects.py'],
-        ['0', 'people have reviewed it so far; its novelty was checked by web search only', 'maxwell/NOTE.md, section 5']
+        ['24 → 29', 'a tiny charge placed on the symmetric centre of the five-charge counterexample turns one point of balance into six', 'point-charges NOTE.md, Proposition 2'],
+        ['2', 'verifiers that share no code (float intervals; Arb balls and exact fractions) confirm 4, 9, 24 and 29; four corrupted certificates are rejected', 'point-charges verify_arb.py, tests/test_verifier_rejects.py'],
+        ['0', 'people have reviewed it so far; its novelty was checked by web search only', 'point-charges NOTE.md, section 5']
       ],
       stats: [
-        { value: '9', label: 'points of balance for four charges: exactly Maxwell’s bound, which a 2026 paper knew no configuration to reach for n > 3', source: 'certificates/n4-triangle-plus-centre.json', href: 'https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n4-triangle-plus-centre.json' },
-        { value: '24', label: 'exactly, for an explicit five-charge counterexample to Maxwell (bound 16): every point enclosed, none degenerate', source: 'certificates/n5-abk-bipyramid.json', href: 'https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n5-abk-bipyramid.json' },
-        { value: '29 > 25', label: 'points of balance for six charges, above Maxwell’s bound for six', source: 'certificates/n6-abk-plus-centre.json', href: 'https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/certificates/n6-abk-plus-centre.json' },
-        { value: '2', label: 'verifiers that share no code; both reject four deliberately corrupted certificates', source: 'verify_arb.py · tests/test_verifier_rejects.py', href: 'https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/verify_arb.py' }
+        { value: '9', label: 'points of balance for four charges: exactly Maxwell’s bound, which a 2026 paper knew no configuration to reach for n > 3', source: 'certificates/n4-triangle-plus-centre.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json' },
+        { value: '24', label: 'exactly, for an explicit five-charge counterexample to Maxwell (bound 16): every point enclosed, none degenerate', source: 'certificates/n5-abk-bipyramid.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json' },
+        { value: '29 > 25', label: 'points of balance for six charges, above Maxwell’s bound for six', source: 'certificates/n6-abk-plus-centre.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json' },
+        { value: '2', label: 'verifiers that share no code; both reject four deliberately corrupted certificates', source: 'verify_arb.py · tests/test_verifier_rejects.py', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py' }
       ] },
     'mobius-x1': {
       acc: '--acc-mobius', field: 'Circuits', who: 'Swapnil Jain + Aska',
@@ -290,7 +290,7 @@ var G = {
     } }
   };
   var GL = {};
-  var MAXWELL = null; // six-charge configuration from research/maxwell-charges/equilibria.json (written from the physics0 certificates)
+  var MAXWELL = null; // six-charge configuration from research/maxwell-charges/equilibria.json (written from the point-charges certificates)
   F0.json(R + 'research/maxwell-charges/equilibria.json').then(function (d) { MAXWELL = (d.configs || []).filter(function (c) { return c.id === 'n6'; })[0] || null; if (GL.charges) GL.charges(); }).catch(function (e) { console.warn('maxwell data:', e); });
   function glyphs(root) {
     $$('canvas[data-glyph]', root).forEach(function (cv) {
