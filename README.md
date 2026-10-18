@@ -23,7 +23,7 @@ the Asimov estate, his publishers or Apple.
 | Page | What it is |
 |---|---|
 | [Ledger](docs/ledger/) | Every advance in science, maths and technology that AI caused or contributed to, from the 1960s to today. Each entry says what AI did (instrument, collaborator or originator), how strongly the result has been checked, and whether it is contested. Data: [`docs/data/ledger.json`](docs/data/ledger.json). |
-| [Research](docs/research/) | The founding members' research and the work we contributed to. |
+| [Research](docs/research/) | The founding members' research, the work we contributed to, and Foundation0's own studies, starting with [Maxwell's point charges](docs/research/maxwell-charges/) from the [physics0](https://github.com/Foundation-0/physics0) repository. |
 | [After the 722](docs/research/machine-mathematics/) | OpenAI's 722 machine-written maths papers, and what people with AI agents did next. |
 | [Instruments](docs/instruments/) | Harnesses that let one person work with AI at the level of a lab: Exo and Exo OS (private preview), Auto-research-agent, autofoundry. |
 | [Commons](docs/commons/) | Free public-benefit tools: medcode and Nutrak. |

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14",
+ "updated": "2026-10-18",
  "milestones": [
   {
    "id": "dendral-structure-elucidation",
@@ -11202,6 +11202,46 @@
    "foundation0": false
   },
   {
+   "id": "maxwell-conjecture-five-charge-counterexample",
+   "date": "2026-07-29",
+   "date_basis": "preprint",
+   "title": "GPT-5.6 Sol's idea disproves Maxwell's 1873 bound on point-charge equilibria",
+   "domain": "physics",
+   "subfield": "mathematical physics (electrostatics)",
+   "summary": "Maxwell asserted that n point charges create at most (n−1)² equilibria, points where the electric field vanishes. Philip Arathoon, Gavin Ball and Matthew Kvalheim give five positive charges, three on a triangle and two small ones on its axis, with at least 24 non-degenerate equilibria, above the bound of 16. OpenAI's GPT-5.6 Sol suggested the construction; the authors verified it.",
+   "before_after": {
+    "metric": "Most equilibria known for five positive charges",
+    "before": "16, conjectured maximum (Maxwell 1873; Gabrielov, Novikov, Shapiro 2007)",
+    "after": "at least 24"
+   },
+   "why_it_matters": "A claim from a classic 1873 physics treatise falls to a construction an AI suggested. The three- and four-charge cases remain open.",
+   "ai_systems": [
+    "GPT-5.6 Sol (OpenAI)"
+   ],
+   "organizations": [
+    "Babson College",
+    "University of Missouri",
+    "University of Maryland, Baltimore County"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Arathoon, Ball, Kvalheim, The Maxwell Conjecture is False (arXiv:2607.27197)",
+     "url": "https://arxiv.org/abs/2607.27197"
+    },
+    {
+     "label": "Philip Arathoon on X: counterexample found by AI (GPT-5.6 Sol)",
+     "url": "https://x.com/philarathoon/status/2082831490560262624"
+    }
+   ],
+   "foundation0": false,
+   "page": "research/maxwell-charges/"
+  },
+  {
    "id": "openai-ten-advances-lean",
    "date": "2026-08-01",
    "date_basis": "announcement",
@@ -12742,6 +12782,52 @@
     "rohanarun"
    ],
    "page": "research/machine-mathematics/"
+  },
+  {
+   "id": "maxwell-certified-counts-four-five-six",
+   "date": "2026-10-18",
+   "date_basis": "announcement",
+   "title": "Certified counts: four charges reach Maxwell's bound, six charges exceed it",
+   "domain": "physics",
+   "subfield": "mathematical physics (electrostatics)",
+   "summary": "In Foundation0's physics0 repository, Claude used interval arithmetic to certify exact equilibrium counts for explicit point-charge configurations, each re-checked by independent code: 9 for four charges, Maxwell's bound, which a 2026 paper knew no example of reaching beyond three charges; exactly 24 for a five-charge counterexample; and 29 for six charges, above the bound of 25.",
+   "before_after": {
+    "metric": "Most equilibria known for six positive charges",
+    "before": "25, Maxwell's bound (five-charge counterexample plus one far charge)",
+    "after": "29, certified exactly"
+   },
+   "why_it_matters": "Exact, machine-checked counts replace existence arguments, and Maxwell's bound now fails for six charges too. Four charges remain open; no counterexample turned up in extensive searches.",
+   "ai_systems": [
+    "Claude (Anthropic)"
+   ],
+   "organizations": [
+    "Foundation0 (physics0 repository)"
+   ],
+   "ai_role": "originator",
+   "evidence": "claimed",
+   "contested": false,
+   "contested_note": "No person has reviewed it. Every count has a certificate checked by two programs that share no code; novelty was checked by web search only.",
+   "significance": 1,
+   "sources": [
+    {
+     "label": "Foundation-0/physics0: maxwell/NOTE.md",
+     "url": "https://github.com/Foundation-0/physics0/blob/ca07252d3263262193b0fa24ee05760410462b21/maxwell/NOTE.md"
+    },
+    {
+     "label": "Certificates and verifiers (Foundation-0/physics0, maxwell/)",
+     "url": "https://github.com/Foundation-0/physics0/tree/ca07252d3263262193b0fa24ee05760410462b21/maxwell"
+    },
+    {
+     "label": "Arathoon, Ball, Kvalheim (arXiv:2607.27197): the five-charge construction",
+     "url": "https://arxiv.org/abs/2607.27197"
+    }
+   ],
+   "foundation0": true,
+   "foundation0_note": "Foundation0's own physics0 repository. Claude (Anthropic) chose the question and did the computation and writing at founding member Ahraz Arifuddin's request; no person has reviewed it yet.",
+   "foundation0_members": [
+    "ahrazzle"
+   ],
+   "page": "research/maxwell-charges/"
   }
  ]
 }
