@@ -265,6 +265,7 @@
       glyph: 'families', hit: true, gk: 'THE 372 FAMILIES', gr: '', aria: '',
       cap: 'One square per family of OpenAI’s papers.',
       capHTML: '<span class="lg"><i class="sq" style="background:var(--acc-mm)"></i>links a Lean scope document by 7 Oct</span><span class="lg"><i class="sq" style="border:1px solid var(--ink-3)"></i>no such document</span><span class="lg"><i class="sq" style="border:1.5px solid var(--hair)"></i>founding members built on it</span><span class="gdef">Lean is a program that checks proofs step by step; a scope document is a plan for such a check, not a finished one.</span>' },
+    'maxwell-charges': { field: 'Physics', role: 'Our own work', who: 'point-charges · Claude', acc: '--acc-maxwell', fact: 2, factK: 'equilibria for six charges, above Maxwell’s bound of 25 (certified)' },
     'mobius-x1': { field: 'Circuits', role: 'Aska contributed', acc: '--acc-mobius', fact: 1, factK: 'failures in Aska’s full-network check',
       glyph: 'pascal', gk: 'PASCAL MOD 2 · N = 32', gr: 'row 31', aria: 'Pascal’s triangle modulo 2 for 32 inputs, the matrix the transform computes, beside the XOR counts of the naive method (211) and Yates’ method (80).',
       cap: 'The transform’s matrix, computed here. The claimed saving only appears when the input size has billions of digits.' },
