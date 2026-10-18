@@ -8,15 +8,15 @@
    "github": "https://github.com/ahrazzle",
    "main_project": {
     "name": "Incentre lattice",
-    "url": "https://github.com/aska-digital/incentre-lattice",
-    "site": "https://aska-digital.github.io/incentre-lattice/",
+    "url": "https://github.com/Foundation-0/incentre-lattices",
+    "site": "https://foundation-0.github.io/incentre-lattices/",
     "page": "research/incentre-lattice/"
    },
    "summary": "Runs Aska Digital's team of AI agents and points it at open questions. The main project follows a childhood doodle (a square, its diagonals, one dot per triangle) into crystal geometry, ending in an exact proof that a loose ball-and-rod scaffold folds, without stretching, into the densest stacking of equal balls.",
    "work": [
     {
      "name": "Incentre lattice",
-     "url": "https://github.com/aska-digital/incentre-lattice",
+     "url": "https://github.com/Foundation-0/incentre-lattices",
      "page": "research/incentre-lattice/",
      "status": "Preprint · not peer reviewed",
      "note": "Exact fold from density 0.2233 to 0.7405 (the Kepler bound), with 16,240 exact certificate coefficients."
@@ -44,7 +44,7 @@
     },
     {
      "name": "Foundation0",
-     "url": "https://github.com/aska-digital/f0",
+     "url": "https://github.com/Foundation-0/f0",
      "status": "This site",
      "note": "Began as a live tracker of the integer-multiplication race."
     }
