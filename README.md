@@ -42,6 +42,8 @@ the Asimov estate, his publishers or Apple.
 
 ## Layout
 
+- `deep-fields/` is where to look next: a scouting report on overlooked public data and open problems, and the
+  pilots run in them (first: [`deep-fields/dasch-pilot/`](deep-fields/dasch-pilot/), a century of Harvard plates). Not part of the site.
 - `docs/` is the published site (GitHub Pages serves this folder). Plain HTML, CSS and JavaScript,
   no build step, no third-party scripts. Shared design system: `docs/assets/`.
 - `docs/legacy-site/` is the original frontier-math site, archived as it was on 14 October 2026
