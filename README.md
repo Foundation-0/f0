@@ -42,8 +42,10 @@ the Asimov estate, his publishers or Apple.
 
 ## Layout
 
-- `deep-fields/` is where to look next: a scouting report on overlooked public data and open problems, and the
-  pilots run in them (first: [`deep-fields/dasch-pilot/`](deep-fields/dasch-pilot/), a century of Harvard plates). Not part of the site.
+- `deep-fields/` is where to look next: a cross-field map of overlooked public data and open problems, the four
+  scout reports behind it, and the life-science pilot scripts. Each field's leads also sit in its hub (astr0, math0,
+  physics0), and the first pilot is now its own project, [plate-eclipses](https://github.com/Foundation-0/plate-eclipses).
+  Not part of the site.
 - `docs/` is the published site (GitHub Pages serves this folder). Plain HTML, CSS and JavaScript,
   no build step, no third-party scripts. Shared design system: `docs/assets/`.
 - `docs/legacy-site/` is the original frontier-math site, archived as it was on 14 October 2026
