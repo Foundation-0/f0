@@ -8,8 +8,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maxwell&rsquo;s point charges: counting the points of balance · Foundation0">
 <meta property="og:description" content="Four charges reach Maxwell&rsquo;s bound of 9; six charges have 29, above his 25. Every count is checked by two programs that share no code. Not yet reviewed by a person.">
-<meta property="og:image" content="https://foundation-0.github.io/f0/assets/og.png">
-<meta property="og:url" content="https://foundation-0.github.io/f0/research/maxwell-charges/">
+<meta property="og:image" content="https://fdn0.org/assets/og.png">
+<meta property="og:url" content="https://fdn0.org/research/maxwell-charges/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
@@ -213,6 +213,7 @@
         <div class="prose">
           <p>When every box is settled, the count of Krawczyk boxes is the count of equilibria, with no rounding error anywhere. The kind of each point, 1-saddle or 2-saddle, is proved the same way.</p>
           <p>We wrote the check twice. The main program uses ordinary computer arithmetic with every result rounded outward. The second one shares no code with it: it uses Arb ball arithmetic and exact fractions, reads only the charges and the boxes from each certificate, and redoes the whole proof. Both agree on all four counts.</p>
+          <p>Two Foundation0 projects, not started yet, plan the same kind of proof: <a href="https://github.com/Foundation-0/relative-equilibria">relative-equilibria</a>, to count the shapes that masses or whirlpools can keep while they spin, and <a href="https://github.com/Foundation-0/certified-orbits">certified-orbits</a>, to show that published orbits of three bodies really exist.</p>
           <aside class="callout caveat"><p class="c-k">Break it</p><p>A checker that always says yes proves nothing. So the tests hand the second program four damaged certificates: one point removed, one point listed twice, one point given the wrong kind, and one charge changed. It rejects all four. In the figure above, &ldquo;Hide one point&rdquo; does a numerical version of the first test in your browser.</p></aside>
         </div>
       </div>

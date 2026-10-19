@@ -3,7 +3,9 @@
 
   1  ledger:   docs/data/ledger.json validates against the rules in
                docs/data/ledger.schema.json (types, enums, lengths, dates, ids)
-  2  projects: docs/data/projects.json and docs/data/writing.json are well formed; docs/data/discussions.json
+  2  projects: docs/data/projects.json and docs/data/writing.json are well formed; every open project (kind
+               "repository") names a listed field, a question, a status, its README commit, its Foundation-0
+               repository and that repository's good-first-issue list; docs/data/discussions.json
                (the forum index) is well formed, holds titles and counts only, and every URL in it is one of
                this repository's discussions or a GitHub account
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
@@ -36,7 +38,7 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-SITE = 'https://foundation-0.github.io/f0/'   # the published site (GitHub Pages)
+SITE = 'https://fdn0.org/'   # the published site (GitHub Pages, at its own domain; foundation-0.github.io/f0/ redirects here)
 # The original frontier-math site, kept as it was: links are checked, page metadata is not.
 ARCHIVE = 'legacy-site/'
 THIS_REPO = 'https://github.com/Foundation-0/f0/'
@@ -204,6 +206,45 @@ def check_lists():
                     err('lists', f'{rel}[{i}]: missing {k}')
             if 'date' in r and not valid_date(r['date']):
                 err('lists', f'{rel}[{i}]: bad date {r["date"]!r}')
+
+
+def check_repositories():
+    """Open projects in data/projects.json (kind "repository"): one Foundation-0 repository each, in a field the file
+    lists, with the question, the status as its README states it, the README commit that status was read at, and
+    links to the repository and to its open good-first-issue list."""
+    rel = 'data/projects.json'
+    d = load(rel)
+    if not isinstance(d, dict):
+        return
+    fields = d.get('fields') or []
+    names = [f.get('name') for f in fields if isinstance(f, dict)]
+    for f in fields:
+        hub = f.get('hub') if isinstance(f, dict) else None
+        if not isinstance(f, dict) or not f.get('name') or not (hub is None or re.fullmatch(r'[a-z0-9][a-z0-9-]*', str(hub))):
+            err('lists', f'{rel}: fields entries need a name and a hub (a Foundation-0 repository name, or null): {f!r}')
+    slugs = [r.get('slug') for r in d.get('projects', []) if isinstance(r, dict)]
+    if len(slugs) != len(set(slugs)):
+        err('lists', f'{rel}: a slug is used twice')
+    for r in d.get('projects', []):
+        if not isinstance(r, dict) or r.get('kind') != 'repository':
+            continue
+        slug = str(r.get('slug', ''))
+        where = f'{rel}: repository {slug}'
+        for k in ('field', 'question', 'status', 'source'):
+            if not isinstance(r.get(k), str) or not r[k].strip():
+                err('lists', f'{where}: missing {k}')
+        if r.get('field') not in names:
+            err('lists', f'{where}: field {r.get("field")!r} is not one of the fields listed in {rel}')
+        if not re.fullmatch(r'README\.md at [0-9a-f]{7,40}', str(r.get('source', ''))):
+            err('lists', f'{where}: source must read "README.md at <commit>"')
+        home = 'https://github.com/Foundation-0/' + slug
+        urls = [l.get('url') for l in r.get('links', []) if isinstance(l, dict)]
+        if not urls or urls[0] != home:
+            err('lists', f'{where}: its first link must be {home}')
+        if home + '/issues?q=is%3Aopen+label%3A%22good+first+issue%22' not in urls:
+            err('lists', f'{where}: needs a link to its open good-first-issue list')
+        if r.get('page') and not resolve_internal('index.html', r['page']):
+            err('lists', f'{where}: page {r["page"]} does not exist')
 
 
 def check_discussions():
@@ -548,6 +589,7 @@ def check_external(urls):
 def main():
     check_ledger()
     check_lists()
+    check_repositories()
     check_discussions()
     urls = set()
     check_pages(urls)
