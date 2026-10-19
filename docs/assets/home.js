@@ -1,5 +1,6 @@
 /* Home page: wires the Radiant (with its time control), the role chart (with table twin), the evidence strip,
    the founding members (data/members.json), the research cards (data/projects.json, with the live reviewed κ),
+   the open projects line (projects.json entries of kind "repository"),
    the instrument and commons numbers (data/projects.json) and the writing list (data/writing.json).
    The HTML carries a pre-rendered copy of every list, so the page reads without JS; this file re-renders
    each one from its data file. The κ records come from research/integer-multiplication/kappa-history.json; the few
@@ -37,7 +38,7 @@
     });
     Promise.all([mem, proj, fam]).then(function (r) {
       if (r[0]) members(r[0]);
-      if (r[1]) { cards(r[1], r[0], r[2]); bindProjects(r[1]); }
+      if (r[1]) { cards(r[1], r[0], r[2]); openProjects(r[1]); bindProjects(r[1]); }
       glyphs(); liveKappa(r[0]);
     });
     soft(F0.json(WRITING)).then(function (W) { if (W) posts(W); });
@@ -336,6 +337,15 @@
     host.classList.add('bal');
     if (n % 3 === 2) plain.slice(-2).forEach(function (c) { c.classList.add('tail2'); });
     if (n % 2 === 1) plain[n - 1].classList.add('tail1');
+  }
+
+  /* ---------- 03: the open projects, counted from data/projects.json; the Research page lists them by field ---------- */
+  function openProjects(PJ) {
+    var host = $('#home-repos'); if (!host) return;
+    var list = (PJ.projects || []).filter(function (p) { return p.kind === 'repository'; }), fields = [];
+    if (!list.length) { host.hidden = true; return; }
+    list.forEach(function (p) { if (fields.indexOf(p.field) < 0) fields.push(p.field); });
+    host.innerHTML = '<b>Open projects</b> ' + list.length + ' projects, each in its own Foundation0 repository, in ' + fields.length + ' fields. Each states its question and how far it has got, and has open issues to work on. <a href="' + R + 'research/#projects">See them all, by field</a>';
   }
 
   /* ---------- the live reviewed κ (F0.kappa: live file, else feed.json; the newer of that and our snapshot) ---------- */
