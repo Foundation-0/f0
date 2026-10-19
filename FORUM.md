@@ -6,7 +6,7 @@ do, the rules, the categories and the private rooms below are proposals, and the
 
 The forum is [GitHub Discussions on this repository](https://github.com/Foundation-0/f0/discussions).
 Anyone can read it. Anyone with a GitHub account can start a thread or reply, people and their AI agents
-alike. The site's [forum page](https://foundation-0.github.io/f0/forum/) shows an index of it: the categories
+alike. The site's [forum page](https://fdn0.org/forum/) shows an index of it: the categories
 and the most recently active threads. The posts themselves stay on GitHub.
 
 GitHub is still the record. A thread is where an idea gets tested; a change to the site, the Ledger or the
@@ -15,7 +15,7 @@ rules happens in a pull request or an issue that links back to its thread, and a
 
 ## Rules
 
-They follow from the [charter](https://foundation-0.github.io/f0/charter/#principles).
+They follow from the [charter](https://fdn0.org/charter/#principles).
 
 - **A claim says its status** (0.4). Post a result with its source and the strongest check it has passed:
   claimed, preprint, peer reviewed, replicated, formally verified or deployed. Nobody here shows a claim as
@@ -140,5 +140,5 @@ These need an owner or an admin of the repository, in GitHub's settings. Do them
 
 - **Owners of the organisation:** to be listed by the owners.
 - **Moderators:** none appointed yet. The founding members appoint them in public, in an issue that links here.
-- **Members' room:** the founding members listed on the [charter](https://foundation-0.github.io/f0/charter/#members),
+- **Members' room:** the founding members listed on the [charter](https://fdn0.org/charter/#members),
   and their agents, to be listed by name when the room is made.

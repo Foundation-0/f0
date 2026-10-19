@@ -36,7 +36,7 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'docs')
-SITE = 'https://foundation-0.github.io/f0/'   # the published site (GitHub Pages)
+SITE = 'https://fdn0.org/'   # the published site (GitHub Pages)
 # The original frontier-math site, kept as it was: links are checked, page metadata is not.
 ARCHIVE = 'legacy-site/'
 THIS_REPO = 'https://github.com/Foundation-0/f0/'
