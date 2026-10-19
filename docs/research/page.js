@@ -73,7 +73,7 @@
       ] },
     'integer-multiplication': {
       acc: '--acc-intmult', field: 'Algorithms', who: 'Doug Colkitt + crowd',
-      credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member rohanarun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
+      credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member Rohan Arun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
       glyph: 'kappa', gk: 'LOG₂ κ · DATED 23 SEP → 13 OCT', gr: 'log₂κ −9.22',
       aria: 'Staircase of the exponent saving kappa on a halvings scale: from 2 to the minus 182 in the machine-written paper dated 23 September to about 2 to the minus 9.22 on 13 October 2026.',
       cap: 'Every reviewed record on a halvings scale, from the machine-written paper’s 2^-182 to 2^-9.22. All of them rest on that unreviewed paper.',
@@ -83,14 +83,14 @@
         ['17', 'reviewed records selected by maintainer Doug Colkitt, 9 to 13 Oct; all conditional on the unreviewed manuscript', 'certificates/selected-result.json history (20 commits, 17 distinct values)']
       ],
       stats: [
-        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member rohanarun', source: 'certificates/selected-result.json @ 0a31ad884' },
+        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member Rohan Arun', source: 'certificates/selected-result.json @ 0a31ad884' },
         { value: '2^-182 → 2^-9.22', label: 'κ since the machine-written preprint dated 23 Sep 2026 (about 1.03×10^52 times larger)', source: 'upstream/build/sections/00-introduction.tex; log2 of selected κ (computed)' },
         { value: '17', label: 'successive reviewed κ records in 5 days (9–13 Oct)', source: 'git log -- certificates/selected-result.json (20 commits, 17 distinct values)', href: 'https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json' },
         { value: '1,334', label: 'pull requests opened upstream by 13 Oct 2026 (highest #1374)', source: 'git ls-remote origin refs/pull/*/head, 13 Oct 2026, about 23:40 UTC' }
       ] },
     'machine-mathematics': {
       acc: '--acc-mm', field: 'Mathematics', who: 'Members + crowd',
-      credit: '<b>Starts from OpenAI’s 722 machine-written manuscripts.</b> Founding members rohanarun and Ryan Shea took six of its families further within a week, and Doug Colkitt’s race a seventh; eumemic and many others joined in.',
+      credit: '<b>Starts from OpenAI’s 722 machine-written manuscripts.</b> Founding members Rohan Arun and Ryan Shea took six of its families further within a week, and Doug Colkitt’s race a seventh; eumemic and many others joined in.',
       glyph: 'slack', gk: 'TIMES BETTER, LOG SCALE', gr: '',
       aria: 'Six bars on a logarithmic scale, one per refined result, showing how many times better each number became: about 10 to the 79 for the matroid fraction, 10 to the 52 for kappa, 10 to the 10 for the Fourier saving, 11,111 for the van der Waerden constant, 8.7 for the Sidorenko constant and 3.1 for the unit-distance grid.',
       cap: 'How many times better six numbers got in a week, on a log scale. Long bars mean loose first proofs, not important results.',
@@ -458,7 +458,7 @@ var G = {
       if (k.source !== 'live' && !(Date.parse(k.at) > Date.parse(SNAP.at))) k = SNAP; // the local feed is older than our snapshot
       var live = k.source === 'live';
       $('[data-k-v]', box).textContent = k.decimal;
-      $('[data-k-k]', box).textContent = 'reviewed κ, conditional' + (k.pr ? ', PR #' + k.pr + (k.pr === 1094 ? ' by founding member rohanarun' : '') : '') + (live ? ', fetched just now' : '');
+      $('[data-k-k]', box).textContent = 'reviewed κ, conditional' + (k.pr ? ', PR #' + k.pr + (k.pr === 1094 ? ' by founding member Rohan Arun' : '') : '') + (live ? ', fetched just now' : '');
       $('[data-k-when]', box).textContent = live ? 'live · ' + utc(k.at) : k.source === 'snapshot' ? 'snapshot · ' + utc(k.at) + ' (live file unreachable)' : 'feed.json · ' + (k.at ? utc(k.at) : '');
       $('.dot', box).className = 'dot ' + (live ? 'live' : 'stale');
       if (k.source === 'feed') $('[data-k-src]', box).href = R + 'feed.json';

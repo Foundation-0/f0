@@ -48,7 +48,7 @@
   /* Founding members' work in the ledger: items with foundation0 true. Their credit line is the item's own
      foundation0_note (docs/data/ledger.json); memberNote() below is only a fallback for an item without one. */
   var MEMBER_NAMES = [{ name: 'Ahraz Arifuddin', login: 'ahrazzle' }, { name: 'eumemic', login: 'eumemic' }, { name: 'Doug Colkitt', login: 'Mister-Meeseeks' },
-    { name: 'rohanarun', login: 'rohanarun' }, { name: 'Ryan Shea', login: 'shea256' }];
+    { name: 'Rohan Arun', login: 'rohanarun' }, { name: 'Ryan Shea', login: 'shea256' }];
   /* a credit line for a ledger item flagged foundation0 that has no hand-written note above */
   function memberNote(m, people) {
     var orgs = (m.organizations || []).join(' | ');
