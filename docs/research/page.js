@@ -49,10 +49,10 @@
       ],
       /* the index's own wording for each card's numbers (plain words, as on the project page); each keeps its source */
       stats: [
-        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json' },
-        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md' },
-        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md' },
-        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv' }
+        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json' },
+        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md' },
+        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/PROOF.md' },
+        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://foundation-0.github.io/incentre-lattices/autoresearch-fold/results.tsv' }
       ] },
     'exoplanets': {
       acc: '--acc-exoplanets', field: 'Astronomy', who: 'eumemic, with Aska',
@@ -99,6 +99,23 @@
         ['300 / 719', 'top-line results formalized in Lean by OpenAI’s own count on 7 Oct; its catalogue marks them unreviewed', 'openai/math history.md @ fd4aeeb'],
         ['3', 'manuscripts withdrawn by OpenAI on 7 Oct after a sign error; none refereed by people so far', 'openai/math history.md @ fd4aeeb']
       ] },
+    'maxwell-charges': {
+      acc: '--acc-maxwell', field: 'Physics', who: 'point-charges · Claude, asked by Ahraz Arifuddin',
+      credit: '<b>Foundation0’s own point-charges repository</b>, a project of its physics0 hub. Asked by founding member Ahraz Arifuddin to find new areas for Foundation0, Claude (Anthropic) chose this question and wrote the code, certificates and note in one session. No person has reviewed it yet.',
+      glyph: 'charges', gk: 'SIX CHARGES · DISTANCE ON A LOG SCALE', gr: '29 equilibria',
+      aria: 'The 29 certified equilibria of six charges, seen along the triangle’s axis, with distance from the centre on a log scale from 0.0001 to 1: three clusters near the centre and the triangle’s corners at the rim.',
+      cap: 'Every certified equilibrium of the six-charge configuration, seen down the axis, with distance from the centre on a log scale from 0.0001 to 1 (the rim): the inner clusters are 50 to 5,000 times smaller than the triangle. Filled: 1-saddles; rings: 2-saddles.',
+      loop: [
+        ['24 → 29', 'a tiny charge placed on the symmetric centre of the five-charge counterexample turns one point of balance into six', 'point-charges NOTE.md, Proposition 2'],
+        ['2', 'verifiers that share no code (float intervals; Arb balls and exact fractions) confirm 4, 9, 24 and 29; four corrupted certificates are rejected', 'point-charges verify_arb.py, tests/test_verifier_rejects.py'],
+        ['0', 'people have reviewed it so far; its novelty was checked by web search only', 'point-charges NOTE.md, section 5']
+      ],
+      stats: [
+        { value: '9', label: 'points of balance for four charges: exactly Maxwell’s bound, which a 2026 paper knew no configuration to reach for n > 3', source: 'certificates/n4-triangle-plus-centre.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json' },
+        { value: '24', label: 'exactly, for an explicit five-charge counterexample to Maxwell (bound 16): every point enclosed, none degenerate', source: 'certificates/n5-abk-bipyramid.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json' },
+        { value: '29 > 25', label: 'points of balance for six charges, above Maxwell’s bound for six', source: 'certificates/n6-abk-plus-centre.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json' },
+        { value: '2', label: 'verifiers that share no code; both reject four deliberately corrupted certificates', source: 'verify_arb.py · tests/test_verifier_rejects.py', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py' }
+      ] },
     'mobius-x1': {
       acc: '--acc-mobius', field: 'Circuits', who: 'Swapnil Jain + Aska',
       credit: '<b>Swapnil Jain’s repository.</b> Aska wrote and ran the full-network check behind Theorem 2, its strongest version: 3,456,000 bank swaps tested in a network of size h = 10, with zero failures (merged PR #1).',
@@ -136,7 +153,7 @@
         { value: '30', label: 'Lean 4 proofs that a circuit computes the right answer (19 multipliers, 11 S-boxes); gate counts and depths are not Lean-checked', source: 'multipliers/lean, sbox/lean and their .out files', href: 'https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean' }
       ] }
   };
-  var ORDER_RESEARCH = ['incentre-lattice', 'exoplanets', 'integer-multiplication', 'machine-mathematics'];
+  var ORDER_RESEARCH = ['incentre-lattice', 'exoplanets', 'integer-multiplication', 'machine-mathematics', 'maxwell-charges'];
   var ORDER_CONTRIB = ['mobius-x1', 'gf2m-circuits'];
   var LOOP_ORDER = ['exoplanets', 'integer-multiplication', 'incentre-lattice', 'machine-mathematics', 'mobius-x1', 'gf2m-circuits'];
   var STATIONS = [['Agents propose', 'dig'], ['Checkers verify', 'chk'], ['People decide and sign', 'bio']];
@@ -229,6 +246,29 @@ var G = {
       var ones = 0; for (var jj = 0; jj <= row; jj++) if ((jj & row) === jj) ones++;
       out('row ' + row + ' · ' + ones + ' odd');
     } },
+    charges: { period: 1600, once: true, draw: function (x, w, h, ph, out) {
+      var acc = tk('--acc-maxwell'), T = top(w), cx = w / 2, cy = (T + h - 6) / 2, Rr = Math.max(10, Math.min((h - 6 - T) / 2, w / 2 - 12)), r0 = Rr * 0.12;
+      var lr = function (r) { return r0 + (Rr - r0) * Math.max(0, Math.min(1, (Math.log(r) / Math.LN10 + 4.2) / 4.2)); };
+      x.strokeStyle = tk('--grid'); x.lineWidth = 1;
+      [1e-4, 1e-3, 1e-2, 1e-1].forEach(function (r) { x.beginPath(); x.arc(cx, cy, lr(r), 0, Math.PI * 2); x.stroke(); });
+      x.strokeStyle = acc; x.beginPath(); x.arc(cx, cy, lr(1), 0, Math.PI * 2); x.stroke(); // the triangle's circumcircle
+      x.fillStyle = tk('--ink-3'); x.font = mono(11); x.textAlign = 'left';
+      x.fillText('1', cx + lr(1) * 0.71 + 3, cy - lr(1) * 0.71 - 2);
+      if (!MAXWELL) { out(''); return; }
+      var c = MAXWELL, prog = ph == null ? 1 : Math.min(1, ph), dig = tk('--mark-dig'), bio = tk('--mark-bio'), bg = tk('--bg-1');
+      c.sites.forEach(function (p, i) {
+        var r = Math.hypot(p[0], p[1]); if (r < 1e-9) { x.fillStyle = tk('--ink'); x.beginPath(); x.arc(cx, cy, 2.5, 0, Math.PI * 2); x.fill(); return; }
+        if (Math.abs(p[2]) > 1e-9) return; // the axial pair sits on the axis, at the centre of this view
+        var a = Math.atan2(p[1], p[0]), rr = lr(r);
+        x.fillStyle = tk('--ink'); x.beginPath(); x.arc(cx + rr * Math.cos(a), cy - rr * Math.sin(a), 4, 0, Math.PI * 2); x.fill();
+      });
+      var eq = c.equilibria.slice().sort(function (a, b) { return Math.hypot(b[0], b[1], b[2]) - Math.hypot(a[0], a[1], a[2]); }), n = Math.max(1, Math.round(prog * eq.length));
+      eq.slice(0, n).forEach(function (e) {
+        var r = Math.hypot(e[0], e[1], e[2]), a = Math.atan2(e[1], e[0]), rr = lr(r), px = cx + rr * Math.cos(a), py = cy - rr * Math.sin(a);
+        if (e[3] === 1) ring(x, px, py, 3, dig, bg); else { x.strokeStyle = bg; x.lineWidth = 3.5; x.beginPath(); x.arc(px, py, 3.4, 0, Math.PI * 2); x.stroke(); x.strokeStyle = bio; x.lineWidth = 1.6; x.beginPath(); x.arc(px, py, 3.4, 0, Math.PI * 2); x.stroke(); }
+      });
+      out(n + ' equilibria · Maxwell: ' + c.maxwell);
+    } },
     gates: { period: 1800, once: true, draw: function (x, w, h, ph, out) {
       var acc = tk('--acc-gf2m'), L0 = 34, R0 = w - 14, T = top(w) + 2, B = h - 22;
       var X = function (d) { return L0 + (R0 - L0) * (d - 5) / 9; }, Y = function (g) { return B - (B - T) * (g - 105) / 14; };
@@ -250,6 +290,8 @@ var G = {
     } }
   };
   var GL = {};
+  var MAXWELL = null; // six-charge configuration from research/maxwell-charges/equilibria.json (written from the point-charges certificates)
+  F0.json(R + 'research/maxwell-charges/equilibria.json').then(function (d) { MAXWELL = (d.configs || []).filter(function (c) { return c.id === 'n6'; })[0] || null; if (GL.charges) GL.charges(); }).catch(function (e) { console.warn('maxwell data:', e); });
   function glyphs(root) {
     $$('canvas[data-glyph]', root).forEach(function (cv) {
       if (cv._f0) return; cv._f0 = true;
@@ -432,7 +474,7 @@ var G = {
     var fam = {}; ((FD && FD.families) || []).forEach(function (f) { fam[f.id] = f; });
     function famTitle(id) { var f = fam[id]; return f ? String(f.title).replace(/\\log\s*/g, ' log ').replace(/<[^>]+>/g, '').replace(/\s{2,}/g, ' ') : ''; }
     var list = MB.members || [];
-    var PAGE_LBL = { 'research/incentre-lattice/': 'Incentre lattice', 'research/exoplanets/': 'Exoplanets', 'research/integer-multiplication/': 'Integer multiplication', 'research/mobius-x1/': 'mobius-x1', 'research/gf2m-circuits/': 'gf2m-circuits', 'instruments/#auto-research': 'Instruments: Auto-research-agent', 'instruments/#autofoundry': 'Instruments: autofoundry' };
+    var PAGE_LBL = { 'research/incentre-lattice/': 'Incentre lattice', 'research/exoplanets/': 'Exoplanets', 'research/integer-multiplication/': 'Integer multiplication', 'research/mobius-x1/': 'mobius-x1', 'research/gf2m-circuits/': 'gf2m-circuits', 'research/maxwell-charges/': 'Maxwell’s point charges', 'instruments/#auto-research': 'Instruments: Auto-research-agent', 'instruments/#autofoundry': 'Instruments: autofoundry' };
     host.innerHTML = list.map(function (m, i) {
       var work = (m.work || []).map(function (w) {
         var bo = /#(\d+)/.exec(w.builds_on || ''), id = bo ? ('00' + bo[1]).slice(-3) : null;

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maxwell&rsquo;s point charges · Foundation0</title>
+<meta name="description" content="How many points of balance can a few electric charges have? Maxwell said at most (n − 1)². Foundation0's first physics study certifies exact counts: four charges reach 9, an explicit five-charge counterexample has exactly 24, and six charges have 29. Computer-certified; not yet reviewed by a person.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maxwell&rsquo;s point charges: counting the points of balance · Foundation0">
+<meta property="og:description" content="Four charges reach Maxwell&rsquo;s bound of 9; six charges have 29, above his 25. Every count is checked by two programs that share no code. Not yet reviewed by a person.">
+<meta property="og:image" content="https://foundation-0.github.io/f0/assets/og.png">
+<meta property="og:url" content="https://foundation-0.github.io/f0/research/maxwell-charges/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="../../assets/f0.css">
+<link rel="stylesheet" href="page.css">
+<script>
+/* theme + motion bootstrap, before paint: ?theme=dark|light and ?motion=on|off override the stored choice */
+(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('f0-theme'),m=q.get('motion')||localStorage.getItem('f0-motion');if(t==='dark'||t==='light')d.setAttribute('data-theme',t);if(m==='on'||m==='off')d.setAttribute('data-motion-pref',m);}catch(e){}var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,p=d.getAttribute('data-motion-pref');d.setAttribute('data-motion',p?p:(r?'off':'on'));})();
+</script>
+<script defer src="../../assets/f0.js"></script>
+<script defer src="page.js"></script>
+</head>
+<body data-page="research-maxwell-charges">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="zero" viewBox="-50 -50 100 100">
+      <!-- The incentre mark: a square, its diagonals, and the incircle of each triangle (r = (sqrt2 - 1) x half-side).
+           Neighbouring incircles touch at one point: gold (biological) meets cyan (digital). -->
+      <path d="M-40-40L40 40M40-40L-40 40" fill="none" stroke-width="2" style="stroke:var(--ink-3)"/>
+      <g fill="none" stroke-width="4"><circle cy="-23.431" r="16.569" style="stroke:var(--bio)"/><circle cy="23.431" r="16.569" style="stroke:var(--bio)"/><circle cx="-23.431" r="16.569" style="stroke:var(--dig)"/><circle cx="23.431" r="16.569" style="stroke:var(--dig)"/></g>
+      <g><circle cy="-23.431" r="3.4" style="fill:var(--bio)"/><circle cy="23.431" r="3.4" style="fill:var(--bio)"/><circle cx="-23.431" r="3.4" style="fill:var(--dig)"/><circle cx="23.431" r="3.4" style="fill:var(--dig)"/></g>
+      <rect x="-40" y="-40" width="80" height="80" fill="none" stroke-width="4.4" style="stroke:var(--ink)"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../ledger/">Ledger</a><a href="../../research/" aria-current="page">Research</a><a href="../../instruments/">Instruments</a><a href="../../commons/">Commons</a><a href="../../writing/">Writing</a><a href="../../charter/">Charter</a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
+      <button class="tbtn" type="button" data-theme-toggle aria-label="Switch theme"><span class="ico"></span><span class="t-txt">Theme</span></button>
+    </div>
+    <details class="menu">
+      <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main (compact)">
+        <a href="../../ledger/">Ledger <span>01</span></a><a href="../../research/" aria-current="page">Research <span>03</span></a><a href="../../instruments/">Instruments <span>04</span></a><a href="../../commons/">Commons <span>05</span></a><a href="../../writing/">Writing <span>06</span></a><a href="../../charter/">Charter <span>00</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="hud" data-hud aria-label="On this page"></nav>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="page-hero has-fig mc-hero" style="--acc:var(--acc-maxwell)">
+    <div class="wrap">
+      <div class="ph-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Research</a></li><li aria-current="page">Maxwell&rsquo;s point charges</li></ol></nav>
+        <p class="kicker"><span class="pair" aria-hidden="true"><i></i><i></i></span>Physics &middot; a physics0 project &middot; first study</p>
+        <h1 class="h1">How many points of balance?</h1>
+        <p class="dek">Put a few positive electric charges in space. Between them are points where a test charge would feel no force at all. In 1873 James Clerk Maxwell wrote that n charges make at most (n&nbsp;&minus;&nbsp;1)<sup>2</sup> such points. In July 2026 that was shown false for five charges. We counted exactly what four, five and six charges can do, and a computer checks every count.</p>
+        <div class="meta-row">
+          <span class="badge c"><span class="ladder" data-r="1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Computer-certified &middot; not peer reviewed</span>
+          <span class="badge n">Not yet reviewed by a person</span>
+          <span class="badge n">Novelty checked by web search only</span>
+          <a class="chip" href="https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9">point-charges at 5b73d78 &middot; 18 Oct 2026</a>
+        </div>
+        <p class="mc-credit"><b>Foundation0&rsquo;s own point-charges repository, a project of the <a href="https://github.com/Foundation-0/physics0">physics0</a> hub.</b> At founding member <a href="../../charter/#m-ahrazzle">Ahraz Arifuddin</a>&rsquo;s request to find new areas for Foundation0, Claude (Anthropic) chose this question, wrote the code, ran the computations and wrote it up, in one session on 18 October 2026. No person has checked it yet. What makes it checkable is that every count comes with a certificate, and two programs that share no code each confirm it.</p>
+        <p class="mc-links"><a href="https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9">The study</a><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md">The note</a><a href="https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates">Certificates</a><a href="https://github.com/Foundation-0/physics0/blob/c647fb6f138099c28b13de3753c7e14edac0a031/AREAS.md">Where physics0 goes next</a><a href="../../ledger/#maxwell-certified-counts-four-five-six">On the Ledger</a></p>
+      </div>
+
+      <figure class="ph-fig fig frame mc-view" aria-labelledby="mv-t">
+        <div class="fig-head">
+          <p class="fig-title" id="mv-t">Every point of balance, certified</p>
+          <p class="fig-how"><b>How to read:</b> large discs are the charges. Filled cyan dots are 1-saddles, gold rings are 2-saddles (see section 00). Drag to turn the picture. Zoom in to see the clusters near the centre. Or focus the picture and use the arrow keys, + and &minus;.</p>
+        </div>
+        <div class="fig-stage mv-stage" style="--ratio:1/1">
+          <canvas id="mv-cv" tabindex="0" role="img" aria-label="Charges and their certified equilibria, drawn in three dimensions. Arrow keys turn the picture; plus and minus zoom."></canvas>
+          <span class="corner tl mv-corner" aria-hidden="true" id="mv-scale">view radius 1.2</span>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Which configuration">
+          <span class="ctrl-label">Charges //</span>
+          <div class="seg" id="mv-n" role="group" aria-label="Number of charges">
+            <button type="button" data-c="n3" aria-pressed="false">3</button><button type="button" data-c="n4" aria-pressed="false">4</button><button type="button" data-c="n5" aria-pressed="true">5</button><button type="button" data-c="n6" aria-pressed="false">6</button>
+          </div>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Zoom">
+          <label class="ctrl-label" for="mv-zoom">Zoom //</label>
+          <input class="range" type="range" id="mv-zoom" min="0" max="4" step="0.05" value="0" aria-describedby="mv-zout">
+          <output id="mv-zout" for="mv-zoom">&times;1</output>
+        </div>
+        <div class="fig-ctrl" role="group" aria-label="Check in your browser">
+          <span class="ctrl-label">Check //</span>
+          <button class="tbtn" type="button" id="mv-check">Search again here</button>
+          <button class="tbtn break" type="button" id="mv-break" aria-pressed="false">Hide one point</button>
+        </div>
+        <p class="mv-check" id="mv-msg" aria-live="polite">Press &ldquo;Search again here&rdquo; to look for equilibria from scratch in your browser and compare with the certified list.</p>
+        <figcaption class="fig-foot"><span id="mv-cap" class="mv-cap">Five charges: 24 equilibria, 10 of them 1-saddles and 14 2-saddles. Maxwell&rsquo;s bound for five charges is 16.</span><span class="fig-src">Data: <a href="equilibria.json">equilibria.json</a>, written from the <a href="https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates">point-charges certificates</a>. The in-browser search is numerical (Newton&rsquo;s method from many starting points), not a proof.</span></figcaption>
+      </figure>
+
+      <ul class="statrow mc-stats" aria-label="The study in numbers">
+        <li><div class="v">9</div><div class="k">points of balance for four charges, exactly Maxwell&rsquo;s bound; a 2026 paper knew of no configuration reaching (n&nbsp;&minus;&nbsp;1)<sup>2</sup> for n&nbsp;&gt;&nbsp;3</div><span class="src"><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json">certificate</a></span></li>
+        <li><div class="v">24</div><div class="k">exactly, for an explicit five-charge counterexample to Maxwell; every point enclosed, none degenerate</div><span class="src"><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json">certificate</a></span></li>
+        <li><div class="v">29 &gt; 25</div><div class="k">points of balance for six charges, beating Maxwell&rsquo;s bound for six</div><span class="src"><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json">certificate</a></span></li>
+        <li><div class="v">2</div><div class="k">programs, sharing no code, that check every certificate; both reject four deliberately corrupted ones</div><span class="src"><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py">verify_arb.py</a> &middot; <a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/tests/test_verifier_rejects.py">negative controls</a></span></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 00 BALANCE -->
+  <section class="sec" id="balance" data-index="Balance" data-num="00" aria-labelledby="balance-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>00</b><i>//</i>Balance</p><span class="chip">First principles</span></div>
+      <h2 class="h2" id="balance-h">Where the pushes cancel.</h2>
+      <p class="lede">Two positive charges push each other apart. Put a third, small test charge somewhere near them: it is pushed by both. At one point on the line between them the two pushes are equal and opposite, and the test charge feels nothing. That point is an <b>equilibrium</b>, a point of balance.</p>
+      <div class="mc-cols">
+        <div class="prose">
+          <p>With more charges there are more such points, scattered between them. Each is a place where the electric field, the push a test charge would feel, is exactly zero.</p>
+          <aside class="callout def"><p class="c-k">Definition</p><p>The <dfn>potential</dfn> V(x) = q<sub>1</sub>/|x&nbsp;&minus;&nbsp;a<sub>1</sub>| + &hellip; + q<sub>n</sub>/|x&nbsp;&minus;&nbsp;a<sub>n</sub>| measures how hard it is to bring a test charge to the point x. The field points downhill on it. An equilibrium is a point where V is flat in every direction: a <dfn>critical point</dfn>.</p></aside>
+          <p>No equilibrium is stable. That is Earnshaw&rsquo;s theorem (1842): a test charge always has some direction in which it slides away. So the points come in two kinds:</p>
+          <ul>
+            <li>a <dfn class="term">1-saddle</dfn> holds the test charge in a whole plane but lets it escape along one line;</li>
+            <li>a <dfn class="term">2-saddle</dfn> holds it along one line but lets it escape across a whole plane, like the point between two charges.</li>
+          </ul>
+        </div>
+        <div class="prose">
+          <p>A theorem from topology, Morse theory, fixes the balance between the two kinds. For n positive charges, when no equilibrium is degenerate (flat to higher order), there are always exactly n&nbsp;&minus;&nbsp;1 more 2-saddles than 1-saddles. So the total is</p>
+          <p class="mc-eq">equilibria = (n&nbsp;&minus;&nbsp;1) + 2 &times; (number of 1-saddles).</p>
+          <p>Counting equilibria is the same as counting 1-saddles. Three equal charges on a triangle have one 1-saddle, at the centre, and three 2-saddles near the edges: 4 in all.</p>
+          <p>In his 1873 <i>Treatise on Electricity and Magnetism</i> (&sect;113), Maxwell asserted that n charges have at most (n&nbsp;&minus;&nbsp;1)<sup>2</sup> equilibria. His argument had a gap. In 2007 Andrei Gabrielov, Dmitry Novikov and Boris Shapiro made it a precise conjecture, and for nearly 20 years nobody could prove or refute it.</p>
+          <aside class="callout note"><p class="c-k">Why it matters</p><p>Counting critical points of physical potentials is a basic question of mathematical physics: it tells you how complicated the field of a few charges, masses or vortices can be. This one has been open since Maxwell, and in 2026 AI-assisted work started moving it.</p></aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 SCOREBOARD -->
+  <section class="sec alt" id="scoreboard" data-index="Scoreboard" data-num="01" aria-labelledby="score-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>01</b><i>//</i>Scoreboard</p><span class="chip">As of 18 Oct 2026</span></div>
+      <h2 class="h2" id="score-h">Maxwell&rsquo;s bound now fails for five, six and seven charges.</h2>
+      <p class="lede">For each number of charges: Maxwell&rsquo;s bound, and the most equilibria anyone has shown. Three and four charges are still open; for eight and more no configuration above the bound is known.</p>
+      <figure class="fig frame wide mc-score" aria-labelledby="sb-t">
+        <div class="fig-head">
+          <p class="fig-title" id="sb-t">The most equilibria known, against Maxwell&rsquo;s (n&nbsp;&minus;&nbsp;1)<sup>2</sup></p>
+          <p class="fig-how"><b>How to read:</b> the grey line is Maxwell&rsquo;s bound. Dots are the most equilibria shown so far. A red ring marks a count from this study, and the bar at three charges is the range the true maximum could still take. Point at a mark, or focus the chart and use the arrow keys.</p>
+        </div>
+        <div class="fig-stage sb-stage" style="--ratio:16/8"><svg id="sb-svg" tabindex="0" role="img" aria-label="Chart of the most equilibria known for 2 to 9 charges against Maxwell's bound. Details in the table below."></svg></div>
+        <figcaption class="fig-foot"><span class="mc-cap" id="sb-cap" aria-live="polite">Five, six and seven charges are above the line. At eight and nine the best constructions tie with it.</span><span class="fig-src">Sources: Gabrielov, Novikov, Novikov and Shapiro (three charges, upper bound 6); Arathoon, Ball and Kvalheim (five and seven); this study (four, six, and the exact count for five). Full list in the table.</span></figcaption>
+        <details class="twin">
+          <summary>Show the numbers</summary>
+          <div class="table-wrap">
+            <table class="tbl">
+              <caption>Most equilibria known, by number of charges</caption>
+              <thead><tr><th scope="col">Charges</th><th scope="col" class="n">Maxwell</th><th scope="col" class="n">Most known</th><th scope="col">Status and source</th></tr></thead>
+              <tbody id="sb-rows">
+                <tr><th scope="row">2</th><td class="n">1</td><td class="n">1</td><td>Settled: always exactly one, between the two charges.</td></tr>
+                <tr><th scope="row">3</th><td class="n">4</td><td class="n">4</td><td>Open. At most 6 (Gabrielov, Novikov, Novikov and Shapiro, July 2026); at most 4 for equal charges (Tsai, 2015). Our scan of triangle shapes found no case above 4.</td></tr>
+                <tr><th scope="row">4</th><td class="n">9</td><td class="n">9</td><td>Open. 9 reached by an explicit configuration, certified (this study). No configuration above 9 found in our searches.</td></tr>
+                <tr><th scope="row">5</th><td class="n">16</td><td class="n">24</td><td>Maxwell false: at least 24 (Arathoon, Ball and Kvalheim, July 2026); an explicit instance with exactly 24, certified (this study).</td></tr>
+                <tr><th scope="row">6</th><td class="n">25</td><td class="n">29</td><td>Maxwell false: exactly 29, certified (this study).</td></tr>
+                <tr><th scope="row">7</th><td class="n">36</td><td class="n">44</td><td>Maxwell false: at least 44, by repeating the five-charge construction (Arathoon, Ball and Kvalheim, Proposition 1).</td></tr>
+                <tr><th scope="row">8</th><td class="n">49</td><td class="n">49</td><td>Tie: the seven-charge construction plus a tiny centre charge (proof sketch in our note; not certified).</td></tr>
+                <tr><th scope="row">9</th><td class="n">64</td><td class="n">64</td><td>Tie: the construction repeated a third time (Arathoon, Ball and Kvalheim, Proposition 1).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </figure>
+      <div class="mc-cols">
+        <div class="prose">
+          <h3>The counterexample</h3>
+          <p>Philip Arathoon, Gavin Ball and Matthew Kvalheim posted <a href="https://arxiv.org/abs/2607.27197">&ldquo;The Maxwell Conjecture is False&rdquo;</a> on 29 July 2026. They say the construction was suggested by OpenAI&rsquo;s GPT-5.6 Sol, and that they checked every detail and wrote the argument themselves. Put three unit charges on an equilateral triangle, then two tiny charges on its axis, just above and below the centre, with their strength tuned to their distance. The triangle&rsquo;s centre, a 1-saddle, splits into 21 points of balance, while the three edge points survive: 24, against Maxwell&rsquo;s 16. <a href="../../ledger/#maxwell-conjecture-five-charge-counterexample">On the Ledger.</a></p>
+        </div>
+        <div class="prose">
+          <h3>What their paper leaves open, and what we added</h3>
+          <p>Their proof shows at least 24 for small enough tuning, then nudges the charges by an unspecified amount to rule out degenerate points elsewhere. We give exact rational charges and positions and prove there are exactly 24, all non-degenerate, with nothing else anywhere. Two related facts: four charges can reach Maxwell&rsquo;s 9, and six charges can have 29.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CERTIFIED -->
+  <section class="sec" id="certified" data-index="Certified" data-num="02" aria-labelledby="cert-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>02</b><i>//</i>Certified</p><span class="chip">Interval arithmetic &middot; Krawczyk test</span></div>
+      <h2 class="h2" id="cert-h">How a computer can prove a count.</h2>
+      <p class="lede">A computer cannot try every point in space, and ordinary arithmetic on it rounds. A certificate gets around both. Every number is replaced by a range that is guaranteed to contain the true value, and space is cut into boxes until each box is settled one way or the other.</p>
+      <div class="mc-cols">
+        <div class="prose">
+          <aside class="callout def"><p class="c-k">Definition</p><p><dfn>Interval arithmetic</dfn>: compute with ranges instead of numbers, rounding every lower end down and every upper end up. If the range for the field at a box does not include zero, there is no equilibrium anywhere in that box. That is a proof, not an estimate.</p></aside>
+          <p>The program starts from a box around all the charges. With positive charges, every equilibrium lies inside the region they span, so nothing outside needs checking. It then halves boxes again and again. A box is settled when one of three things happens:</p>
+          <ol>
+            <li>the range for the field excludes zero, so the box is empty;</li>
+            <li>one charge is so close that its push outweighs all the others combined, so again the box is empty;</li>
+            <li>the box passes the <dfn class="term">Krawczyk test</dfn>, a version of Newton&rsquo;s method run on ranges. It proves that the box holds exactly one equilibrium, and that the equilibrium is not degenerate.</li>
+          </ol>
+        </div>
+        <div class="prose">
+          <p>When every box is settled, the count of Krawczyk boxes is the count of equilibria, with no rounding error anywhere. The kind of each point, 1-saddle or 2-saddle, is proved the same way.</p>
+          <p>We wrote the check twice. The main program uses ordinary computer arithmetic with every result rounded outward. The second one shares no code with it: it uses Arb ball arithmetic and exact fractions, reads only the charges and the boxes from each certificate, and redoes the whole proof. Both agree on all four counts.</p>
+          <aside class="callout caveat"><p class="c-k">Break it</p><p>A checker that always says yes proves nothing. So the tests hand the second program four damaged certificates: one point removed, one point listed twice, one point given the wrong kind, and one charge changed. It rejects all four. In the figure above, &ldquo;Hide one point&rdquo; does a numerical version of the first test in your browser.</p></aside>
+        </div>
+      </div>
+      <figure class="fig frame wide mc-table" aria-labelledby="ct-t">
+        <div class="fig-head"><p class="fig-title" id="ct-t">The four certified configurations</p><p class="fig-how"><b>How to read:</b> sites are three unit charges at (3,0,0), (0,3,0) and (0,0,3), plus any listed extra charges at (1,1,1) or at (1,1,1)&nbsp;&plusmn;&nbsp;(&frac14;,&frac14;,&frac14;). Every number is exact.</p></div>
+        <div class="table-wrap">
+          <table class="tbl">
+            <caption>Exact equilibrium counts, all non-degenerate</caption>
+            <thead><tr><th scope="col">Charges</th><th scope="col" class="n">Maxwell</th><th scope="col" class="n">Equilibria</th><th scope="col" class="n">1-saddles</th><th scope="col" class="n">2-saddles</th><th scope="col">Charge strengths</th></tr></thead>
+            <tbody>
+<tr><th scope="row">3</th><td class="n">4</td><td class="n">4</td><td class="n">1</td><td class="n">3</td><td>1, 1, 1</td></tr>
+<tr><th scope="row">4</th><td class="n">9</td><td class="n">9</td><td class="n">3</td><td class="n">6</td><td>1, 1, 1, 2<sup>&minus;10</sup></td></tr>
+<tr><th scope="row">5</th><td class="n">16</td><td class="n">24</td><td class="n">10</td><td class="n">14</td><td>1, 1, 1, 541/131072, 541/131072</td></tr>
+<tr><th scope="row">6</th><td class="n">25</td><td class="n">29</td><td class="n">12</td><td class="n">17</td><td>1, 1, 1, 541/131072, 541/131072, 2<sup>&minus;44</sup></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <details class="twin">
+          <summary>Show every equilibrium</summary>
+          <div class="table-wrap">
+            <table class="tbl mc-detail">
+              <caption>Positions in the page&rsquo;s frame: triangle centre at the origin, axis along z, circumradius 1</caption>
+              <thead><tr><th scope="col">Charges</th><th scope="col" class="n">x</th><th scope="col" class="n">y</th><th scope="col" class="n">z</th><th scope="col" class="n">distance from centre</th><th scope="col">Kind</th></tr></thead>
+              <tbody>
+<tr class="mc-grp"><th scope="rowgroup" colspan="6">3 charges: 4 equilibria (Three equal charges on a triangle)</th></tr>
+<tr><td>3</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td>1-saddle</td></tr>
+<tr><td>3</td><td class="n">&minus;0.284718</td><td class="n">0</td><td class="n">0</td><td class="n">0.284718</td><td>2-saddle</td></tr>
+<tr><td>3</td><td class="n">0.142359</td><td class="n">&minus;0.246573</td><td class="n">0</td><td class="n">0.284718</td><td>2-saddle</td></tr>
+<tr><td>3</td><td class="n">0.142359</td><td class="n">0.246573</td><td class="n">0</td><td class="n">0.284718</td><td>2-saddle</td></tr>
+<tr class="mc-grp"><th scope="rowgroup" colspan="6">4 charges: 9 equilibria (The triangle plus a tiny charge at its centre)</th></tr>
+<tr><td>4</td><td class="n">&minus;0.0396449</td><td class="n">&minus;0.068667</td><td class="n">0</td><td class="n">0.0792898</td><td>2-saddle</td></tr>
+<tr><td>4</td><td class="n">&minus;0.0396449</td><td class="n">0.068667</td><td class="n">0</td><td class="n">0.0792898</td><td>2-saddle</td></tr>
+<tr><td>4</td><td class="n">0.0792898</td><td class="n">0</td><td class="n">0</td><td class="n">0.0792898</td><td>2-saddle</td></tr>
+<tr><td>4</td><td class="n">&minus;0.101087</td><td class="n">0</td><td class="n">0</td><td class="n">0.101087</td><td>1-saddle</td></tr>
+<tr><td>4</td><td class="n">0.0505437</td><td class="n">&minus;0.0875442</td><td class="n">0</td><td class="n">0.101087</td><td>1-saddle</td></tr>
+<tr><td>4</td><td class="n">0.0505437</td><td class="n">0.0875442</td><td class="n">0</td><td class="n">0.101087</td><td>1-saddle</td></tr>
+<tr><td>4</td><td class="n">&minus;0.27508</td><td class="n">0</td><td class="n">0</td><td class="n">0.27508</td><td>2-saddle</td></tr>
+<tr><td>4</td><td class="n">0.13754</td><td class="n">&minus;0.238226</td><td class="n">0</td><td class="n">0.27508</td><td>2-saddle</td></tr>
+<tr><td>4</td><td class="n">0.13754</td><td class="n">0.238226</td><td class="n">0</td><td class="n">0.27508</td><td>2-saddle</td></tr>
+<tr class="mc-grp"><th scope="rowgroup" colspan="6">5 charges: 24 equilibria (The triangle plus two small charges on its axis (Arathoon, Ball and Kvalheim))</th></tr>
+<tr><td>5</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00102427</td><td class="n">0</td><td class="n">0</td><td class="n">0.00102427</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0.000512134</td><td class="n">&minus;0.000887043</td><td class="n">0</td><td class="n">0.00102427</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0.000512134</td><td class="n">0.000887043</td><td class="n">0</td><td class="n">0.00102427</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0</td><td class="n">0</td><td class="n">&minus;0.00761019</td><td class="n">0.00761019</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0</td><td class="n">0</td><td class="n">0.00761019</td><td class="n">0.00761019</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00120522</td><td class="n">&minus;0.0020875</td><td class="n">&minus;0.00816506</td><td class="n">0.00851343</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00120522</td><td class="n">&minus;0.0020875</td><td class="n">0.00816506</td><td class="n">0.00851343</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00120522</td><td class="n">0.0020875</td><td class="n">&minus;0.00816506</td><td class="n">0.00851343</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00120522</td><td class="n">0.0020875</td><td class="n">0.00816506</td><td class="n">0.00851343</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">0.00241044</td><td class="n">0</td><td class="n">&minus;0.00816506</td><td class="n">0.00851343</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">0.00241044</td><td class="n">0</td><td class="n">0.00816506</td><td class="n">0.00851343</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00620474</td><td class="n">&minus;0.0107469</td><td class="n">&minus;0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00620474</td><td class="n">&minus;0.0107469</td><td class="n">0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00620474</td><td class="n">0.0107469</td><td class="n">&minus;0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.00620474</td><td class="n">0.0107469</td><td class="n">0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0.0124095</td><td class="n">0</td><td class="n">&minus;0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0.0124095</td><td class="n">0</td><td class="n">0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.121656</td><td class="n">0</td><td class="n">0</td><td class="n">0.121656</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">0.0608282</td><td class="n">&minus;0.105358</td><td class="n">0</td><td class="n">0.121656</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">0.0608282</td><td class="n">0.105358</td><td class="n">0</td><td class="n">0.121656</td><td>1-saddle</td></tr>
+<tr><td>5</td><td class="n">&minus;0.193141</td><td class="n">0</td><td class="n">0</td><td class="n">0.193141</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0.0965706</td><td class="n">&minus;0.167265</td><td class="n">0</td><td class="n">0.193141</td><td>2-saddle</td></tr>
+<tr><td>5</td><td class="n">0.0965706</td><td class="n">0.167265</td><td class="n">0</td><td class="n">0.193141</td><td>2-saddle</td></tr>
+<tr class="mc-grp"><th scope="rowgroup" colspan="6">6 charges: 29 equilibria (The five-charge example plus a tiny charge at its centre)</th></tr>
+<tr><td>6</td><td class="n">&minus;0.000101339</td><td class="n">&minus;0.000175523</td><td class="n">0</td><td class="n">0.000202677</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.000101339</td><td class="n">0.000175523</td><td class="n">0</td><td class="n">0.000202677</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.000202677</td><td class="n">0</td><td class="n">0</td><td class="n">0.000202677</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.000235266</td><td class="n">0</td><td class="n">0</td><td class="n">0.000235266</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">0.000117633</td><td class="n">&minus;0.000203746</td><td class="n">0</td><td class="n">0.000235266</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">0.000117633</td><td class="n">0.000203746</td><td class="n">0</td><td class="n">0.000235266</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00101432</td><td class="n">0</td><td class="n">0</td><td class="n">0.00101432</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.00050716</td><td class="n">&minus;0.000878427</td><td class="n">0</td><td class="n">0.00101432</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.00050716</td><td class="n">0.000878427</td><td class="n">0</td><td class="n">0.00101432</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0</td><td class="n">0</td><td class="n">&minus;0.00761023</td><td class="n">0.00761023</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0</td><td class="n">0</td><td class="n">0.00761023</td><td class="n">0.00761023</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00120525</td><td class="n">&minus;0.00208756</td><td class="n">&minus;0.00816511</td><td class="n">0.0085135</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00120525</td><td class="n">&minus;0.00208756</td><td class="n">0.00816511</td><td class="n">0.0085135</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00120525</td><td class="n">0.00208756</td><td class="n">&minus;0.00816511</td><td class="n">0.0085135</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00120525</td><td class="n">0.00208756</td><td class="n">0.00816511</td><td class="n">0.0085135</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0024105</td><td class="n">0</td><td class="n">&minus;0.00816511</td><td class="n">0.0085135</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0024105</td><td class="n">0</td><td class="n">0.00816511</td><td class="n">0.0085135</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00620474</td><td class="n">&minus;0.0107469</td><td class="n">&minus;0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00620474</td><td class="n">&minus;0.0107469</td><td class="n">0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00620474</td><td class="n">0.0107469</td><td class="n">&minus;0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.00620474</td><td class="n">0.0107469</td><td class="n">0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0124095</td><td class="n">0</td><td class="n">&minus;0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0124095</td><td class="n">0</td><td class="n">0.0171384</td><td class="n">0.0211594</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.121656</td><td class="n">0</td><td class="n">0</td><td class="n">0.121656</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0608282</td><td class="n">&minus;0.105358</td><td class="n">0</td><td class="n">0.121656</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0608282</td><td class="n">0.105358</td><td class="n">0</td><td class="n">0.121656</td><td>1-saddle</td></tr>
+<tr><td>6</td><td class="n">&minus;0.193141</td><td class="n">0</td><td class="n">0</td><td class="n">0.193141</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0965706</td><td class="n">&minus;0.167265</td><td class="n">0</td><td class="n">0.193141</td><td>2-saddle</td></tr>
+<tr><td>6</td><td class="n">0.0965706</td><td class="n">0.167265</td><td class="n">0</td><td class="n">0.193141</td><td>2-saddle</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <figcaption class="fig-foot"><span class="fig-src">Certificates: <a href="https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates">certificates/</a>. Run <code>python3 make_certs.py</code> (about 5 seconds) and <code>python3 verify_arb.py certificates/*.json</code> (about 70 seconds) to check them yourself.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 03 SIX CHARGES -->
+  <section class="sec alt" id="six" data-index="Six charges" data-num="03" aria-labelledby="six-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>03</b><i>//</i>Six charges</p><span class="chip">A tiny charge on a balance point</span></div>
+      <h2 class="h2" id="six-h">One tiny charge turns one point of balance into six.</h2>
+      <p class="lede">The four- and six-charge results come from the same simple move: drop a very small charge exactly onto a 1-saddle that looks the same from every side around an axis.</p>
+      <div class="mc-cols">
+        <div class="prose">
+          <p>Near a 1-saddle the field is held in a plane and escapes along a line. A tiny charge placed there pushes outward in every direction. In the plane, its outward push is matched by the inward hold on a small ring around it, so a ring of balance appears. If the 1-saddle is perfectly symmetric about its axis, the ring is a whole circle of balance points. The next, three-fold term of the field breaks the circle into six points, alternating 1-saddles and 2-saddles. One point of balance becomes six, so the count goes up by 5.</p>
+          <p>The triangle&rsquo;s centre is such a point. That gives four charges with 4&nbsp;&minus;&nbsp;1&nbsp;+&nbsp;6&nbsp;=&nbsp;9 equilibria, exactly Maxwell&rsquo;s bound. The centre of the five-charge counterexample is such a point too. That gives six charges with 24&nbsp;&minus;&nbsp;1&nbsp;+&nbsp;6&nbsp;=&nbsp;29.</p>
+        </div>
+        <div class="prose">
+          <p>If the 1-saddle is not symmetric, the same move gives four points instead of six: a gain of 3. Our note proves both cases in outline. The certificates do not depend on that outline; they check the final configurations directly.</p>
+          <aside class="callout caveat"><p class="c-k">How new</p><p>Both moves are simple, and specialists may well know them. We found no earlier configuration with nine equilibria for four charges, or more than 25 for six. The 2026 paper by Edelsbrunner, Fillmore and Oliveira states that no configuration reaching (n&nbsp;&minus;&nbsp;1)<sup>2</sup> was known for n&nbsp;&gt;&nbsp;3. If you know earlier work, please <a href="https://github.com/Foundation-0/point-charges/issues">tell us</a>.</p></aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 OPEN -->
+  <section class="sec" id="open" data-index="Still open" data-num="04" aria-labelledby="open-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>04</b><i>//</i>Still open</p><span class="chip">Evidence, not proof</span></div>
+      <h2 class="h2" id="open-h">Three charges, four charges, and many.</h2>
+      <p class="lede">Maxwell may still be right for three and four charges, and may be right again for large numbers of charges. Here is what we looked at, and what we found.</p>
+      <div class="mc-cols three">
+        <div class="prose">
+          <h3>Three charges</h3>
+          <p>The bound now stands between 4 and 6. For three charges there is a neat reformulation. Each point inside the triangle is a point of balance for exactly one choice of charge ratios, which follows from Lami&rsquo;s theorem. Maxwell&rsquo;s bound then says that this map from points to charge ratios never reaches the same ratios from two different local minima. We checked that over 1,289 triangle shapes. In the 799 where the region of minima shows up at our grid&rsquo;s resolution, no ratio was reached twice; three doubled pixels at cusps were artifacts that a direct solve ruled out. The other shapes, mostly very flat, showed no minima at that resolution, so for them the evidence is weak.</p>
+        </div>
+        <div class="prose">
+          <h3>Four charges</h3>
+          <p>No four-charge configuration with more than 9 turned up in several searches, together tens of thousands of configurations. They included a fine scan of the symmetric family, random sampling across many scales, hill-climbing, and a least-squares search for four 1-saddles sharing one set of charges, which never converged. A local model explains the ceiling: one small charge in a smooth field can create at most 4 nearby points, or 6 with symmetry, so &ldquo;three charges plus one&rdquo; stops at 9.</p>
+        </div>
+        <div class="prose">
+          <h3>Many charges</h3>
+          <p>Every known construction grows in step with the number of charges, about 20 more equilibria for every two charges added. Maxwell&rsquo;s bound grows with the square. So from eight charges up, no known configuration beats it. Whether it fails for large n needs a new idea. We also found that the counterexample&rsquo;s central structure is already the best its design allows: its 21 central points are all the solutions its local equations can have.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 SOURCES -->
+  <section class="sec alt" id="sources" data-index="Sources" data-num="05" aria-labelledby="src-h">
+    <div class="wrap">
+      <div class="sec-head"><p class="sec-label"><b>05</b><i>//</i>Sources</p><span class="chip">Credits and status</span></div>
+      <h2 class="h2" id="src-h">Who did what, and what has been checked.</h2>
+      <div class="mc-cols">
+        <div>
+          <h3 class="mc-h3">This study</h3>
+          <ul class="src-list">
+            <li><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md">physics0 note 1 (NOTE.md): statements, method, evidence</a></li>
+            <li><a href="https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates">Certificates (JSON, exact rationals)</a></li>
+            <li><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certify.py">certify.py</a> and <a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py">verify_arb.py</a></li>
+            <li><a href="https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/results/SUMMARY.md">Every search run, with its outcome</a></li>
+            <li><a href="https://github.com/Foundation-0/physics0/blob/c647fb6f138099c28b13de3753c7e14edac0a031/AREAS.md">AREAS.md: where Foundation0 can go next in physics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mc-h3">Prior work</h3>
+          <ul class="src-list">
+            <li><a href="https://arxiv.org/abs/2607.27197">Arathoon, Ball, Kvalheim: The Maxwell Conjecture is False (2026)</a></li>
+            <li><a href="https://arxiv.org/abs/2607.28785">Gabrielov, Novikov, Novikov, Shapiro: From 12 to 6 (2026)</a></li>
+            <li><a href="https://arxiv.org/abs/2501.05315">Edelsbrunner, Fillmore, Oliveira: Counting equilibria of the electrostatic potential</a></li>
+            <li><a href="https://arxiv.org/abs/2609.03965">Enciso, Peralta-Salas: the finiteness conjecture (2026)</a></li>
+            <li><a href="https://doi.org/10.1016/j.physd.2015.07.007">Tsai: three equal charges (Physica D, 2015)</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="chart-foot mc-lic">Status: computer-certified counts (two independent verifiers) and numerical evidence; written by Claude (Anthropic), not yet reviewed by a person. Novelty was checked by web search on 18 October 2026 only. The figures on this page are new code; the certificates and verifiers are in the point-charges repository.</p>
+      <nav class="prevnext" aria-label="More research">
+        <a href="../gf2m-circuits/"><span>&larr; Previous</span>gf2m-circuits: smaller wiring for AES</a>
+        <a class="next" href="../"><span>Back to &rarr;</span>All research</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
+        <p>Source code under the <a href="https://github.com/aska-digital/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Record</h4><ul><li><a href="../../ledger/">The Ledger</a></li><li><a href="../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../charter/">Charter</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../research/">Research</a></li><li><a href="../../instruments/">Instruments</a></li><li><a href="../../commons/">Commons</a></li><li><a href="../../writing/">Writing</a></li></ul></div>
+        <div><h4>Source</h4><ul><li><a href="https://github.com/aska-digital/f0">Repository</a></li><li><a href="https://github.com/aska-digital/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
+      </div>
+    </div>
+    <div class="stamp">
+      <span>Terminus colophon</span>
+      <span>Page facts checked 18 Oct 2026 against Foundation-0/point-charges at 5b73d78</span>
+      <span class="who"><i style="background:var(--bio)" aria-hidden="true"></i>Human: Ahraz Arifuddin &middot; asked for new areas</span>
+      <span class="who"><i style="background:var(--dig)" aria-hidden="true"></i>Digital: Claude (Anthropic)</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
