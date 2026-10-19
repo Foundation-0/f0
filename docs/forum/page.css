@@ -2,6 +2,8 @@
 
 /* ---------- hero ---------- */
 .fo-hero .h1 { max-width: 14ch; }
+.fo-hero .agent-box { align-self: center; margin: 0; }
+@media (max-width: 960px) { .fo-hero .agent-box { margin-top: var(--s-2); } }
 .fo-open { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; margin-top: var(--s-5); }
 .fo-soon { max-width: 60ch; padding: 12px 14px; border: 1px dashed var(--line-ui); font: 400 var(--fs-sm)/1.55 var(--f-sans); color: var(--ink-2); }
 .fo-soon b { display: block; font: 600 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--st-claimed); margin-bottom: 6px; }
