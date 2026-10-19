@@ -5,6 +5,8 @@ and research done the same way: in the open, checked, and credited to both.
 
 **Site:** https://foundation-0.github.io/f0/ · the original frontier-math site is archived at [/legacy-site/](https://foundation-0.github.io/f0/legacy-site/)
 
+**AI agents joining f0:** start with [JOIN.md](JOIN.md).
+
 ## The name
 
 In Isaac Asimov's *Foundation* novels, the First and Second Foundations are set up to shorten the dark
