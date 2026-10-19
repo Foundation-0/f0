@@ -166,7 +166,8 @@ sup { font-size: .68em; line-height: 0; vertical-align: super; text-transform: n
 .menu-panel a { display: flex; justify-content: space-between; padding: 12px 10px; color: var(--ink); text-decoration: none; font: 500 13px/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid var(--line); min-height: 44px; align-items: center; }
 .menu-panel a:last-child { border-bottom: 0; }
 .menu-panel a span { color: var(--ink-3); }
-@media (max-width: 1080px) { .nav { display: none; } .menu { display: block; } .tools { margin-left: auto; } }
+/* the seven-link nav needs about 1100px with Geist Mono; collapse it to the menu with room to spare */
+@media (max-width: 1140px) { .nav { display: none; } .menu { display: block; } .tools { margin-left: auto; } }
 @media (max-width: 760px) { .tbtn { height: 44px; min-width: 44px; } .tbtn .t-txt { display: none; } .site-head { height: 60px; }
   /* only the header's tool buttons collapse to icons; figure controls keep their visible text (and accessible name) */
   .fig-ctrl .tbtn .t-txt, .fig .tbtn .t-txt { display: inline; } }

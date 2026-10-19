@@ -1,0 +1,76 @@
+/* Forum page (docs/forum). f0.css tokens only; no new colours. */
+
+/* ---------- hero ---------- */
+.fo-hero .h1 { max-width: 14ch; }
+.fo-open { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; margin-top: var(--s-5); }
+.fo-soon { max-width: 60ch; padding: 12px 14px; border: 1px dashed var(--line-ui); font: 400 var(--fs-sm)/1.55 var(--f-sans); color: var(--ink-2); }
+.fo-soon b { display: block; font: 600 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--st-claimed); margin-bottom: 6px; }
+.chip-link { color: var(--link); text-decoration: none; }
+.chip-link:hover { border-color: var(--line-ui); text-decoration: underline; }
+.fo-jump { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: var(--s-5); font: 500 12px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; }
+.fo-jump a { padding: 8px 0; text-decoration: none; color: var(--link); }
+.fo-jump a::before { content: "\2193"; font-family: var(--f-sans); margin-right: 6px; color: var(--ink-3); letter-spacing: 0; }
+.fo-jump a:hover { text-decoration: underline; }
+
+/* the Bot label (a GitHub app wrote the post): cyan is the digital strand everywhere on the site */
+.fo-bot { display: inline-block; font: 600 10.5px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dig); border: 1px solid var(--dig); padding: 1px 6px; border-radius: var(--r-chip); vertical-align: 1px; }
+
+/* ---------- 01 recent threads ---------- */
+.fo-ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: var(--s-5); }
+.fo-ctrl:empty { display: none; }
+/* the filter wraps at every width; each button draws its own border, overlapped by 1px, so wrapped rows
+   keep clean dividers and no row ends in a hole */
+.fo-seg { display: flex; flex-wrap: wrap; border: 0; border-radius: 0; overflow: visible; padding: 0 1px 1px 0; }
+.fo-seg button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-ui); margin: 0 -1px -1px 0; }
+.fo-seg button + button { border-left: 1px solid var(--line-ui); }
+.fo-seg button .n { font-size: 11px; opacity: .75; }
+@media (max-width: 700px) { .fo-seg button { flex: 1 1 auto; justify-content: center; } }
+.fo-status { margin-top: 12px; font: 500 12px/1.5 var(--f-mono); letter-spacing: .04em; color: var(--ink-2); min-height: 1.5em; }
+.fo-status:empty { min-height: 0; margin-top: 0; }
+
+.fo-list { list-style: none; margin: var(--s-4) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.fo-t { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 32px; padding: 22px 0 20px; border-bottom: 1px solid var(--line); }
+.fo-t-meta { display: flex; flex-direction: column; gap: 6px; padding-top: 3px; }
+.fo-t-cat { font: 500 11px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.fo-t-meta time { font: 500 12px/1.4 var(--f-mono); letter-spacing: .1em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.fo-t-body { min-width: 0; }
+.fo-t-title { font: 500 clamp(20px, .8vw + 15px, 25px)/1.25 var(--f-serif); letter-spacing: -.01em; overflow-wrap: anywhere; }
+.fo-t-title a { color: var(--ink); text-decoration: none; }
+.fo-t-title a:hover { text-decoration: underline; text-decoration-color: var(--bio); text-underline-offset: 4px; }
+.fo-t-by { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 8px; font: 400 var(--fs-xs)/1.5 var(--f-sans); color: var(--ink-2); }
+.fo-t-by a { overflow-wrap: anywhere; }
+.fo-none { display: block; }
+.fo-none p { font: 400 var(--fs-sm)/1.55 var(--f-sans); color: var(--ink-2); }
+@media (max-width: 760px) {
+  .fo-t { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 18px 0 16px; }
+  .fo-t-meta { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 12px; padding-top: 0; }
+}
+
+/* ---------- 02 how it works ---------- */
+/* five rules: one row when they fit; otherwise one card spans two columns, so no row ends in a hole
+   (the second, which has the most text, at three columns; the first at two, so the order stays) */
+.fo-rules { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+@media (max-width: 1319px) { .fo-rules { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fo-rules li:nth-child(2) { grid-column: span 2; } }
+@media (max-width: 899px) { .fo-rules { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fo-rules li:nth-child(2) { grid-column: auto; } .fo-rules li:first-child { grid-column: span 2; } }
+@media (max-width: 559px) { .fo-rules { grid-template-columns: minmax(0, 1fr); } .fo-rules li:first-child { grid-column: auto; } }
+.fo-rules li { position: relative; background: var(--bg-2); border: 1px solid var(--line); padding: 18px 20px; }
+.fo-rules li::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--bio); }
+.fo-rule-n { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; color: var(--ink-3); }
+.fo-rules h3 { font: 600 19px/1.25 var(--f-sans); letter-spacing: -.01em; margin-top: 10px; }
+.fo-rules p:not(.fo-rule-n) { font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); margin-top: 8px; }
+
+.fo-cats-h { font: 600 21px/1.25 var(--f-sans); letter-spacing: -.015em; margin-top: var(--s-7); }
+.fo-catlist { margin: var(--s-4) 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(16px, 3vw, 48px); border-top: 1px solid var(--line); }
+.fo-catlist > div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.fo-catlist dt { font: 500 12px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.fo-catlist dd { margin: 4px 0 0; font: 400 var(--fs-sm)/1.55 var(--f-sans); color: var(--ink-2); max-width: 60ch; }
+@media (max-width: 700px) { .fo-catlist { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- 03 the private side ---------- */
+.fo-rooms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); margin-top: var(--s-6); max-width: 900px; }
+.fo-room { background: var(--bg-2); border: 1px dashed var(--line-ui); padding: 18px 20px; }
+.fo-room h3 { font: 600 19px/1.25 var(--f-sans); letter-spacing: -.01em; }
+.fo-room p { font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); margin-top: 8px; }
+@media (max-width: 700px) { .fo-rooms { grid-template-columns: minmax(0, 1fr); } }
+.fo-rule-box { margin-top: var(--s-5); max-width: var(--measure); padding: 4px 0 4px 16px; border-left: 2px solid var(--dig); font: 400 var(--fs-base)/1.6 var(--f-serif); color: var(--ink-2); }
+.fo-rule-box b { color: var(--ink); font-weight: 600; }
