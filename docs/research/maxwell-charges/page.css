@@ -1,0 +1,62 @@
+/* Maxwell's point charges (research/maxwell-charges). f0.css tokens only.
+   Equilibrium kind is never colour alone: 1-saddles are filled cyan dots (--mark-dig), 2-saddles are gold rings
+   (--mark-bio); charges are ink discs. In the scoreboard the bound is a grey line with hollow squares, the best known
+   counts are ink dots, and a red hairline ring (--hair) marks counts from this study. */
+
+/* ---------- hero ---------- */
+.mc-hero .wrap { align-items: start; }
+.mc-hero .ph-text { min-width: 0; padding-top: 8px; }
+.mc-hero .h1 { max-width: 14ch; }
+.mc-credit { font: 400 var(--fs-sm)/1.6 var(--f-sans); color: var(--ink-2); margin-top: var(--s-5); max-width: 62ch; padding-left: 14px; border-left: 2px solid var(--acc-maxwell); }
+.mc-credit b { color: var(--ink); font-weight: 600; }
+.mc-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: var(--s-4); font: 500 12.5px/1.4 var(--f-mono); letter-spacing: .02em; }
+.mc-links a { padding: 8px 0; }
+.mc-view { width: 100%; max-width: 560px; justify-self: end; }
+.mv-stage { background: var(--bg-1); }
+.mv-stage canvas { cursor: grab; touch-action: pan-y; }
+.mv-stage canvas.drag { cursor: grabbing; }
+.mv-stage canvas:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.mv-corner { background: color-mix(in srgb, var(--bg-1) 85%, transparent); padding: 2px 4px; }
+.mc-view .fig-ctrl output { font: 500 12.5px/1 var(--f-mono); color: var(--ink-2); min-width: 7ch; }
+.mc-view input.range { flex: 1 1 140px; min-width: 120px; }
+.mv-check { margin-top: 10px; font: 500 12.5px/1.45 var(--f-mono); color: var(--ink-2); padding: 8px 12px; border-left: 2px solid var(--line-ui); background: var(--bg-1); }
+.mv-check.ok { border-left-color: var(--st-verified); }
+.mv-check.bad { border-left-color: var(--st-contested); }
+.mv-check b { color: var(--ink); }
+.mv-cap, .mc-cap { color: var(--ink-2); max-width: 56ch; }
+.mc-stats { grid-column: 1 / -1; margin-top: clamp(28px, 4vw, 48px); }
+.mc-stats .v { font-size: clamp(22px, 1.3vw + 14px, 30px); font-variant-numeric: normal; }
+@media (max-width: 960px) { .mc-view { justify-self: stretch; max-width: none; } }
+
+/* ---------- shared ---------- */
+.mc-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) clamp(28px, 4vw, 64px); margin-top: var(--s-6); align-items: start; }
+.mc-cols.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.mc-cols .prose { max-width: none; }
+.mc-cols .prose h3 { margin-top: 0; }
+@media (max-width: 960px) { .mc-cols, .mc-cols.three { grid-template-columns: minmax(0, 1fr); } }
+.mc-eq { font: 500 var(--fs-sm)/1.5 var(--f-mono); color: var(--ink); padding: 10px 14px; border: 1px solid var(--line); background: var(--bg-1); }
+.wide.fig { margin-top: var(--s-7); }
+.mc-h3 { font: 600 16px/1.25 var(--f-sans); letter-spacing: -.01em; margin: var(--s-6) 0 var(--s-3); }
+.mc-lic { margin-top: var(--s-6); max-width: 90ch; }
+.mc-table .table-wrap { margin-top: 14px; overflow-x: auto; }
+.mc-detail tr.mc-grp th { font: 600 12px/1.3 var(--f-mono); color: var(--ink); letter-spacing: .04em; text-transform: none; background: var(--bg-3); position: static; }
+.prose sup, .lede sup, .fig-how sup, .mc-credit sup, .dek sup, .k sup, .fig-title sup, .tbl sup { line-height: 0; }
+.fig .fig-ctrl .tbtn[aria-pressed="true"]:not(.play) { color: var(--ink); border-color: var(--ink-2); background: var(--bg-3); }
+.tbtn:disabled { opacity: .45; cursor: default; }
+
+/* ---------- scoreboard chart ---------- */
+.sb-stage { background: var(--bg-1); }
+.sb-stage svg:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.sb-t { font: 500 11px var(--f-mono); fill: var(--ink-3); }
+.sb-t.ink { fill: var(--ink-2); }
+.sb-t.strong { fill: var(--ink); font-weight: 600; }
+.sb .grid { stroke: var(--grid); stroke-width: 1; }
+.sb .axis { stroke: var(--line-ui); stroke-width: 1; }
+.sb .bound { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.sb .bsq { fill: var(--bg-1); stroke: var(--ink-3); stroke-width: 1.5; }
+.sb .known { fill: var(--ink); }
+.sb .ours { fill: none; stroke: var(--hair); stroke-width: 1.5; }
+.sb .range { stroke: var(--ink-2); stroke-width: 2; }
+.sb .above { fill: color-mix(in srgb, var(--hair) 10%, transparent); }
+.sb .hit { fill: transparent; }
+.sb .pt.cur .hit { stroke: var(--focus); stroke-width: 2; }
