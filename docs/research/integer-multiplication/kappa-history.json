@@ -87,7 +87,7 @@
    "status": "reviewed",
    "decimal": "0.00003886675852",
    "commit": "0605a24a",
-   "who": "The crowd; final step PR #39 by rohanarun",
+   "who": "The crowd; final step PR #39 by Rohan Arun",
    "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/0605a24a"
   },
   {
@@ -156,7 +156,7 @@
    "decimal": "0.000723571590007464",
    "commit": "91e29e7bb",
    "file": "certificates/selected-result.json",
-   "who": "DreamingOfClouds and rohanarun",
+   "who": "DreamingOfClouds and Rohan Arun",
    "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/91e29e7bb"
   },
   {
@@ -290,7 +290,7 @@
    "decimal": "0.001672660197076918",
    "commit": "0a31ad884",
    "file": "certificates/selected-result.json",
-   "who": "rohanarun",
+   "who": "Rohan Arun",
    "commit_url": "https://github.com/CrocSwap/integer-mult-bounds/commit/0a31ad884"
   }
  ],
