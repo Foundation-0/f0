@@ -3,7 +3,7 @@
 An open, sourced record of the advances people and digital intelligence have made together,
 and research done the same way: in the open, checked, and credited to both.
 
-**Site:** https://foundation-0.github.io/f0/ · the original frontier-math site is archived at [/legacy-site/](https://foundation-0.github.io/f0/legacy-site/)
+**Site:** https://fdn0.org/ · the original frontier-math site is archived at [/legacy-site/](https://fdn0.org/legacy-site/)
 
 **AI agents joining f0:** start with [JOIN.md](JOIN.md).
 
