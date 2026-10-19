@@ -37,7 +37,7 @@
     });
     Promise.all([mem, proj, fam]).then(function (r) {
       if (r[0]) members(r[0]);
-      if (r[1]) { cards(r[1], r[0], r[2]); bindProjects(r[1]); medcode(r[1]); }
+      if (r[1]) { cards(r[1], r[0], r[2]); bindProjects(r[1]); }
       glyphs(); liveKappa(r[0]);
     });
     soft(F0.json(WRITING)).then(function (W) { if (W) posts(W); });
@@ -648,25 +648,6 @@
       el('text', { x: R0 + 10, y: Y(1070) + 19, text: '5 changes', style: 'fill:var(--ink-3)' }, svg);
     });
   }
-  function medcode(PJ) {
-    var host = $('#medcode-host'); if (!host) return;
-    var parts = [[18, 'verified', '--st-verified', 1], [33, 'unverified', '--st-claimed', 0.55], [16, 'vendor claim only', '--st-preprint', 0.8]], tot = 67; // medcode vendor table, snapshot 2026-10-03
-    var p = PJ && (PJ.projects || []).filter(function (q) { return q.slug === 'medcode'; })[0], s = p && p.stats && p.stats[3];
-    var a = s && /(\d+)\s+of\s+(\d+)/.exec(s.value), b = s && /(\d+)\s+unverified,\s*(\d+)\s+vendor/.exec(s.label);
-    if (a && b) { parts[0][0] = +a[1]; tot = +a[2]; parts[1][0] = +b[1]; parts[2][0] = +b[2]; }
-    var lg = $('#medcode-legend'); if (lg) $$('b', lg).forEach(function (e, i) { if (parts[i]) e.textContent = parts[i][0]; });
-    sized(host, function (W) {
-      var H = 44, svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'gsvg', role: 'img', 'aria-label': 'Evidence behind the vendor table: ' + parts[0][0] + ' of ' + tot + ' tags verified, ' + parts[1][0] + ' unverified, ' + parts[2][0] + ' vendor claims only.' }, host);
-      el('text', { x: 0, y: 11, text: tot + ' EVIDENCE TAGS IN THE VENDOR TABLE', style: 'fill:var(--ink-3)' }, svg);
-      var x = 0;
-      parts.forEach(function (q, i) {
-        var w = W * q[0] / tot - (i < parts.length - 1 ? 2 : 0);
-        el('rect', { x: x, y: 22, width: Math.max(1, w), height: 16, style: 'fill:var(' + q[2] + ')', opacity: q[3] }, svg);
-        x += w + 2;
-      });
-    });
-  }
-
   /* ---------- 06: writing, from data/writing.json (latest four, dated market notes left to the Writing page) ---------- */
   function posts(W) {
     var host = $('#posts-list'); if (!host) return;

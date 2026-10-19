@@ -32,7 +32,7 @@
   /* project accents (card bar + glyph line) */
   --acc-incentre: #127a48; --acc-exoplanets: #8a5a10; --acc-intmult: #2a5fb0;
   --acc-mobius: #a3333a; --acc-gf2m: #8a2f9a; --acc-rohan: #1f5f8f; --acc-shea: #4a6f12;
-  --acc-exo: #b23a06; --acc-medcode: #0e6b5c; --acc-nutrak: #8a6508; --acc-mm: #6b45ad; --acc-maxwell: #a8325e;
+  --acc-exo: #b23a06; --acc-nutrak: #8a6508; --acc-mm: #6b45ad; --acc-maxwell: #a8325e;
   --glow: 0;               /* light theme: no additive glow */
   --shadow-panel: 0 18px 40px -28px rgba(22,33,62,.25);
   --header-bg: rgba(245,240,230,.88);
@@ -78,7 +78,7 @@
     --st-claimed: #d8c9a6; --st-contested: #f2909e; --st-retracted: #a2a9ad; --st-deployed: #c9a8ff;
     --acc-incentre: #37ff9a; --acc-exoplanets: #f0b25a; --acc-intmult: #5b9cf0;
     --acc-mobius: #f07a7a; --acc-gf2m: #e58cf0; --acc-rohan: #9ad1ff; --acc-shea: #b5f27a;
-    --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
+    --acc-exo: #ff5b14; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
     --glow: 1;
     --shadow-panel: 0 30px 60px -40px rgba(0,0,0,.9);
     --header-bg: rgba(7,11,14,.86);
@@ -97,7 +97,7 @@
   --st-claimed: #d8c9a6; --st-contested: #f2909e; --st-retracted: #a2a9ad; --st-deployed: #c9a8ff;
   --acc-incentre: #37ff9a; --acc-exoplanets: #f0b25a; --acc-intmult: #5b9cf0;
   --acc-mobius: #f07a7a; --acc-gf2m: #e58cf0; --acc-rohan: #9ad1ff; --acc-shea: #b5f27a;
-  --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
+  --acc-exo: #ff5b14; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
   --glow: 1;
   --shadow-panel: 0 30px 60px -40px rgba(0,0,0,.9);
   --header-bg: rgba(7,11,14,.86);

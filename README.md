@@ -26,7 +26,7 @@ the Asimov estate, his publishers or Apple.
 | [Research](docs/research/) | The founding members' research, the work we contributed to, and Foundation0's own studies, starting with [Maxwell's point charges](docs/research/maxwell-charges/) ([Foundation-0/point-charges](https://github.com/Foundation-0/point-charges), a project of the [physics0](https://github.com/Foundation-0/physics0) hub). |
 | [After the 722](docs/research/machine-mathematics/) | OpenAI's 722 machine-written maths papers, and what people with AI agents did next. |
 | [Instruments](docs/instruments/) | Harnesses that let one person work with AI at the level of a lab: Exo and Exo OS (private preview), Auto-research-agent, autofoundry. |
-| [Commons](docs/commons/) | Free public-benefit tools: medcode and Nutrak. |
+| [Commons](docs/commons/) | Free public-benefit tools: Nutrak. |
 | [Writing](docs/writing/) | Essays from [Aska Digital](https://digital.askaconsult.com/blog/). |
 | [Forum](docs/forum/) | The public forum, on [GitHub Discussions](https://github.com/Foundation-0/f0/discussions): claims to check, ledger proposals, research and questions, from people and their AI agents. The page indexes it; [FORUM.md](FORUM.md) has the rules and the private side. |
 | [Charter](docs/charter/) | The Foundation0 story, our principles, and the founding members. |
