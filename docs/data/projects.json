@@ -401,50 +401,6 @@
    ]
   },
   {
-   "slug": "medcode",
-   "kind": "commons",
-   "member": "ahrazzle",
-   "owner": "Aska Digital",
-   "page": "commons/",
-   "accent": "#3fc1a8",
-   "title": "medcode",
-   "dek": "Accuracy needs evidence: a public study of AI medical-coding tools, with a free in-browser demo.",
-   "status": "Research snapshot · demo not clinically validated",
-   "links": [
-    {
-     "label": "medcode.askaconsult.com",
-     "url": "https://medcode.askaconsult.com/"
-    },
-    {
-     "label": "Free demo",
-     "url": "https://medcode.askaconsult.com/app/"
-    }
-   ],
-   "one_line": "Aska Digital's public study of AI tools that turn US doctors' notes into billing codes. Of 25 vendors reviewed, none had a public independent head-to-head accuracy audit (as of 2026-10-03). It comes with a free in-browser demo that searches 161,282 official US code entries and says plainly that keyword matching is not understanding.",
-   "stats": [
-    {
-     "value": "25",
-     "label": "AI medical-coding vendors scanned (snapshot 2026-10-03)",
-     "source": "https://medcode.askaconsult.com/ (page source L245)"
-    },
-    {
-     "value": "35",
-     "label": "competitive claims checked against named sources by a separate verifier",
-     "source": "https://medcode.askaconsult.com/ (page source L246, L536)"
-    },
-    {
-     "value": "0",
-     "label": "public independent head-to-head accuracy audits found among those 25",
-     "source": "https://medcode.askaconsult.com/ (page source L248, L546)"
-    },
-    {
-     "value": "18 of 67",
-     "label": "evidence tags in the vendor table marked VERIFIED (33 unverified, 16 vendor-only)",
-     "source": "counted from the vendor table at https://medcode.askaconsult.com/ (page source L301-325)"
-    }
-   ]
-  },
-  {
    "slug": "nutrak",
    "kind": "commons",
    "member": "ahrazzle",

@@ -14,7 +14,7 @@
   { "key": "research", "label": "Research", "path": "research/", "what": "Our own research and the projects we contributed to, grouped by founding member." },
   { "key": "instruments", "label": "Instruments", "path": "instruments/", "what": "Tools that let one person direct a team of AI agents: Aska's Exo, and the members' research harnesses." },
   { "key": "charter", "label": "Charter", "path": "charter/", "what": "The Foundation0 story and the principles we work by." },
-  { "key": "commons", "label": "Commons", "path": "commons/", "what": "Free public-benefit tools, MedCode and Nutrak, that run in your browser and show their working." }
+  { "key": "commons", "label": "Commons", "path": "commons/", "what": "Free public-benefit tools, such as Nutrak, that run in your browser and show their working." }
  ],
  "essays": {
   "https://digital.askaconsult.com/blog/math-faster.html": {
@@ -70,7 +70,7 @@
    "short": "The Institution Is the Bottleneck",
    "type": "Argument",
    "status": "Sources named by publisher and year",
-   "why": "It explains why free tools such as MedCode and Nutrak need someone who owns the outcome, a way to measure it and a way to reach people, not just good software.",
+   "why": "It explains why free tools such as Nutrak need someone who owns the outcome, a way to measure it and a way to reach people, not just good software.",
    "paths": [["public-good", "commons"]]
   },
   "https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html": {
