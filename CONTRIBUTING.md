@@ -96,7 +96,7 @@ Foundation-0 organisation. Delete it once the pull request is merged or closed.
 **A fork inside Foundation-0** is for when Foundation0 will keep its own version for some time, and only
 in one of these cases:
 
-1. The original is abandoned or doesn't respond: no reply to an issue or pull request in 4 weeks, and the
+1. The original is abandoned or doesn't respond: no reply to an issue or pull request in 3 days, and the
    work is worth continuing.
 2. The owner declined a change that a result on the Ledger depends on.
 3. The Ledger cites the work, and the original could disappear. A copy keeps the evidence checkable.
