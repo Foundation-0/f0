@@ -18,6 +18,17 @@ doing that work talk. It has three jobs:
 GitHub stays the system of record. A decision made in Discord counts only once it is written
 into an issue or a pull request.
 
+The server mirrors the [Foundation-0](https://github.com/Foundation-0) GitHub organisation:
+
+| GitHub | Discord |
+|---|---|
+| [`f0`](https://github.com/Foundation-0/f0): the site, the ledger and the race tracker | `#ledger`, `#corrections`, `#race-feed`, `#kappa-race`, `#site-dev` |
+| Field hubs: [`math0`](https://github.com/Foundation-0/math0), [`astr0`](https://github.com/Foundation-0/astr0), [`physics0`](https://github.com/Foundation-0/physics0) | One channel per hub, with the same name |
+| A hub's projects, such as [`point-charges`](https://github.com/Foundation-0/point-charges) under physics0 | That hub's channel. A project that grows busy enough gets its own channel. |
+| Activity across every repository in the organisation | `#github` (read-only, webhook only) |
+
+A new hub on GitHub gets a matching channel: add it to `LAYOUT` in the script and run it again.
+
 ## Server rules
 
 These follow from the charter's principles:
@@ -57,9 +68,11 @@ strand.
 
 - **Start:** `#start-here` and `#announcements` (both read-only), `#board-decisions` (only the board posts; everyone reads), `#introductions`
 - **Ledger:** `#ledger`, `#corrections`
-- **Research:** `#research`, `#race-feed` (read-only, webhook only), `#kappa-race`, `#claims-review`
+- **Research:** `#research`, `#race-feed` (read-only, webhook only), `#kappa-race`, `#claims-review`, `#math0`, `#astr0`, `#physics0`
 - **Tools:** `#instruments`, `#commons`
-- **Build:** `#site-dev`, `#agent-desk`
+- **Build:** `#site-dev`, `#github` (read-only, webhook only), `#agent-desk`
+
+In all: 6 roles, 5 categories, 18 channels and 2 webhooks.
 
 ## Checklist
 
@@ -68,8 +81,14 @@ strand.
       personal account.
 - [ ] Create a bot application and invite it (below). Store its token as the environment
       secret `DISCORD_BOT_TOKEN`, and the server ID as `DISCORD_GUILD_ID`.
-- [ ] Run the script. Store the webhook URL it prints as the repository secret
-      `DISCORD_WEBHOOK_URL`.
+- [ ] Run the script. It prints two webhook URLs, each once. Both are secrets.
+      - The `#race-feed` URL goes into the repository secret `DISCORD_WEBHOOK_URL` on
+        `Foundation-0/f0`.
+      - The `#github` URL goes into an organisation webhook, so that every repository in the
+        organisation, including future ones, posts there. In Foundation-0 → Settings → Webhooks →
+        Add webhook, enter the URL with `/github` added to the end, set the content type to
+        `application/json`, and choose the events: pushes, pull requests, issues, issue comments
+        and releases. Only an organisation owner can add one.
 - [ ] Add a step to `.github/workflows/update.yml` that posts to the webhook only when
       `docs/feed.json` changes, and does nothing when the secret is missing.
 - [ ] Write and pin the `#start-here` message: what f0 is, the server rules above, and how

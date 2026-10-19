@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Foundation0 Discord hub setup (see HUB.md).
 
-Creates the hub's roles, categories, channels and the race-feed webhook in an
+Creates the hub's roles, categories, channels and its two webhooks in an
 existing Discord server. Idempotent: anything that already exists by name is
 left alone, so re-running is safe. Never deletes.
 
@@ -17,7 +17,7 @@ Env:
 
 Usage:
   python3 scripts/discord_setup.py --dry-run   # print the plan, no network
-  python3 scripts/discord_setup.py             # apply; prints the webhook URL once
+  python3 scripts/discord_setup.py             # apply; prints each new webhook URL once
 
 stdlib only.
 """
@@ -67,6 +67,10 @@ LAYOUT = [
         ("race-feed", "Automated: new or changed κ claims in the integer-multiplication race. Claimed is not verified.", STEWARD),
         ("kappa-race", "Discussion of the integer-multiplication κ race.", OPEN),
         ("claims-review", "Independent checking of claimed results. Propose freely, verify strictly.", OPEN),
+        # One channel per field hub on GitHub; a hub's projects are discussed in its channel.
+        ("math0", "Mathematics hub: https://github.com/Foundation-0/math0", OPEN),
+        ("astr0", "Astronomy hub: https://github.com/Foundation-0/astr0", OPEN),
+        ("physics0", "Physics and Earth science hub, including point-charges: https://github.com/Foundation-0/physics0", OPEN),
     ]),
     ("Tools", [
         ("instruments", "Harnesses for working with AI at the level of a lab.", OPEN),
@@ -74,12 +78,16 @@ LAYOUT = [
     ]),
     ("Build", [
         ("site-dev", "The f0 site, data and pipelines. Bugs and changes.", OPEN),
+        ("github", "Automated: pushes, pull requests, issues and releases across the Foundation-0 GitHub organisation.", STEWARD),
         ("agent-desk", "Members' agents coordinating in the open. Every agent here carries the Agent role and names its member.", OPEN),
     ]),
 ]
 
-WEBHOOK_CHANNEL = "race-feed"
-WEBHOOK_NAME = "f0 race feed"
+# (channel, webhook name, where its URL goes). Each URL is printed once and is a secret.
+WEBHOOKS = [
+    ("race-feed", "f0 race feed", "repository secret DISCORD_WEBHOOK_URL on Foundation-0/f0"),
+    ("github", "Foundation-0 GitHub", "org Settings > Webhooks, with /github appended, content type application/json"),
+]
 
 
 def call(token, method, path, body=None):
@@ -122,7 +130,8 @@ def main():
             for name, topic, posters in chans:
                 who = f" (posts: {', '.join(posters)})" if posters else ""
                 print(f"  #{name}{who}: {topic}")
-        print(f"webhook: '{WEBHOOK_NAME}' in #{WEBHOOK_CHANNEL}")
+        for ch, name, _ in WEBHOOKS:
+            print(f"webhook: '{name}' in #{ch}")
         return
 
     token = os.environ.get("DISCORD_BOT_TOKEN")
@@ -156,15 +165,15 @@ def main():
             texts[name] = call(token, "POST", f"/guilds/{guild}/channels", body)["id"]
             print(f"#{name}: created")
 
-    ch = texts[WEBHOOK_CHANNEL]
-    hooks = [h for h in call(token, "GET", f"/channels/{ch}/webhooks") if h.get("name") == WEBHOOK_NAME]
-    if hooks:
-        print(f"webhook in #{WEBHOOK_CHANNEL}: exists (URL not reprinted)")
-    else:
-        h = call(token, "POST", f"/channels/{ch}/webhooks", {"name": WEBHOOK_NAME})
-        # Printed once; store it as the DISCORD_WEBHOOK_URL repo secret, never commit it.
-        print(f"webhook in #{WEBHOOK_CHANNEL}: created")
-        print(f"DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/{h['id']}/{h['token']}")
+    for chan, name, dest in WEBHOOKS:
+        ch = texts[chan]
+        if any(h.get("name") == name for h in call(token, "GET", f"/channels/{ch}/webhooks")):
+            print(f"webhook in #{chan}: exists (URL not reprinted)")
+            continue
+        h = call(token, "POST", f"/channels/{ch}/webhooks", {"name": name})
+        # Printed once; it goes only to the place named, never into a commit, chat or log.
+        print(f"webhook in #{chan}: created; store it in {dest}")
+        print(f"  https://discord.com/api/webhooks/{h['id']}/{h['token']}")
 
 
 if __name__ == "__main__":
