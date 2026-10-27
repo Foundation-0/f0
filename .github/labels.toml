@@ -1,0 +1,38 @@
+# f0's own labels under the labelling standard (LABELS-STANDARD.md in Foundation-0/.github): area: labels only,
+# each with the paths it covers. A pull request touching those paths gets the label from the triage bot.
+version = 1
+
+[[labels]]
+name = "area: ledger"
+description = "The Ledger: its entries, schema and page"
+paths = ["docs/data/ledger.json", "docs/data/ledger.schema.json", "docs/ledger/"]
+
+[[labels]]
+name = "area: kappa race"
+description = "The integer-multiplication race feed and its gate"
+paths = ["scripts/fetch.py", "scripts/gate.py", "docs/feed.json", "docs/chart-data.json", "feed.schema.json", "tests/run_golden.py", "tests/run_regressions.py", "tests/run_gate_corruptions.py", "tests/golden_kappa_parse.json", "data/"]
+
+[[labels]]
+name = "area: research pages"
+description = "The research stories and project pages"
+paths = ["docs/research/", "story-src/", "deep-fields/"]
+
+[[labels]]
+name = "area: site"
+description = "The site's shared design, other pages, and the site gate"
+paths = ["docs/assets/", "docs/index.html", "docs/instruments/", "docs/commons/", "docs/writing/", "docs/404.html", "scripts/check_site.py", "scripts/prerender.mjs", "scripts/og/", ".github/workflows/site.yml", ".github/workflows/pages.yml", ".github/workflows/prerender.yml"]
+
+[[labels]]
+name = "area: charter"
+description = "The charter, its principles and the members"
+paths = ["docs/charter/", "docs/data/members.json"]
+
+[[labels]]
+name = "area: forum"
+description = "The forum page, its index and the internal board"
+paths = ["docs/forum/", "scripts/discussions.py", "tests/run_discussions.py", "FORUM.md", ".github/forum/", ".github/DISCUSSION_TEMPLATE/"]
+
+[[labels]]
+name = "area: process"
+description = "How Foundation0 works: contributing, merging, security"
+paths = ["CONTRIBUTING.md", "MERGE-SOP.md", "SECURITY.md"]
