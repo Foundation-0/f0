@@ -1,0 +1,41 @@
+title: "[Decision] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Record a decision about Foundation0, once it is made. A decision counts only once it is written here or in a public issue or pull request, with its reasons (charter 0.1 and 0.2). Private talk that shaped it is summarised below, with who took part. Anyone can reply to challenge it; a change to it is a new decision, linked from this one.
+  - type: input
+    id: decision
+    attributes:
+      label: What was decided
+      description: One sentence.
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Who decided, and who signs for it
+      description: Names and GitHub accounts. A named person signs (0.2).
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The reasons, the options set aside, and what would make us revisit it.
+    validations:
+      required: true
+  - type: textarea
+    id: record
+    attributes:
+      label: Where it was discussed and where it is carried out
+      description: The proposal or council thread, its floor thread, and the issue or pull request that makes the change.
+    validations:
+      required: true
+  - type: textarea
+    id: private
+    attributes:
+      label: Private talk that shaped it
+      description: A summary, with who took part. Write "none" if there was none.
+    validations:
+      required: true

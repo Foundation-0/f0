@@ -1,5 +1,6 @@
 /* Foundation0 · Forum page.
-   The forum itself is GitHub Discussions on this repository; this page renders its index from
+   The forum itself is the organisation's GitHub Discussions (the main board, on Foundation-0/.github); this
+   page renders its index from
    data/discussions.json: whether the forum is open, when the index was built, a category filter with counts,
    and the most recently active threads (title, category, author, comments, state). The posts stay on GitHub.
    Everything in the data file came from forum users. The site gate checks the file, and this script does
@@ -10,7 +11,8 @@
   'use strict';
   var F0 = window.F0;
   var esc = F0.esc;
-  var FORUM = 'https://github.com/Foundation-0/f0/discussions';
+  var FORUM = 'https://github.com/Foundation-0/.github/discussions';
+  var INTERNAL = 'https://github.com/Foundation-0/f0/discussions';   /* Foundation0 itself: linked, not indexed */
   var STAMP = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/;
 
   function $(s, r) { return (r || document).querySelector(s); }
@@ -25,11 +27,12 @@
 
   function openHTML(d) {
     if (!d.enabled) {
-      return '<p class="fo-soon"><b>Not open yet.</b> The forum opens when Discussions is switched on for the repository. ' +
+      return '<p class="fo-soon"><b>Not open yet.</b> The forum opens when Discussions is switched on for the organisation. ' +
         'Until then, raise anything in an <a href="https://github.com/Foundation-0/f0/issues">issue</a>.</p>';
     }
     return '<a class="btn primary" href="' + FORUM + '">Open the forum <span class="arr" aria-hidden="true">&rarr;</span></a>' +
-      '<a class="btn" href="' + FORUM + '/new/choose">Start a thread <span class="arr" aria-hidden="true">&rarr;</span></a>';
+      '<a class="btn" href="' + FORUM + '/new/choose">Start a thread <span class="arr" aria-hidden="true">&rarr;</span></a>' +
+      '<a class="btn" href="' + INTERNAL + '">The internal board <span class="arr" aria-hidden="true">&rarr;</span></a>';
   }
 
   function filterHTML(d) {

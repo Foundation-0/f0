@@ -1,0 +1,37 @@
+title: "[Charter] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a change to the [charter](https://foundation-0.github.io/f0/charter/): one of the eight principles, the members, or how Foundation0 decides. The thread tests the idea; the change itself lands by pull request to `docs/charter/`, once the founding members agree, and is recorded in Decisions.
+  - type: dropdown
+    id: part
+    attributes:
+      label: Which part
+      options:
+        - a principle (0.1 to 0.8)
+        - the members
+        - how decisions are made
+        - something else in the charter
+    validations:
+      required: true
+  - type: textarea
+    id: now
+    attributes:
+      label: What it says now
+      description: Quote it, with a link.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: What it would say
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What it fixes, and what case it would have decided differently.
+    validations:
+      required: true

@@ -12,7 +12,7 @@ import sys
 import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FORUM = 'https://github.com/Foundation-0/f0/discussions'
+FORUM = 'https://github.com/Foundation-0/.github/discussions'
 fails = []
 
 
@@ -34,7 +34,7 @@ CATS = [{'id': 'C1', 'name': 'Claims review', 'slug': 'claims-review', 'descript
 
 
 def thread(n, title, updated, cat, author, **kw):
-    return {'number': n, 'title': title, 'url': f'{FORUM}/{n}', 'createdAt': '2026-10-16T09:00:00Z', 'updatedAt': updated,
+    return {'number': n, 'title': title, 'createdAt': '2026-10-16T09:00:00Z', 'updatedAt': updated,
             'locked': kw.get('locked', False), 'closed': False, 'isAnswered': kw.get('answered', False), 'upvoteCount': 2,
             'category': {'slug': cat}, 'comments': {'totalCount': kw.get('comments', 0)}, 'author': author}
 
@@ -73,7 +73,8 @@ def main():
     d = json.load(open(out, encoding='utf-8'))
     check(d['enabled'] and d['total'] == 8 and d['updated'] == '2026-10-16T16:00:00Z', 'open forum: enabled, total from GitHub, stamped with the build time')
     check([c['count'] for c in d['categories']] == [1, 7], 'each category carries its own thread count')
-    check(all(c['url'] == f'{FORUM}/categories/{c["slug"]}' for c in d['categories']), 'category links point at this forum')
+    check(all(c['url'] == f'{FORUM}/categories/{c["slug"]}' for c in d['categories']), 'category links point at the main board')
+    check(all(t['url'] == f'{FORUM}/{t["number"]}' for t in d['threads']), 'thread links are built from the number, on the main board')
     check(d['categories'][1]['description'] == '', 'a missing description becomes an empty string')
     check([t['number'] for t in d['threads']] == [5, 4, 3], 'threads: newest activity first, then the higher number')
     by = {t['number']: t for t in d['threads']}
@@ -107,6 +108,7 @@ def main():
           'gate accepts the committed docs/data/discussions.json')
     probes = {
         'a thread from another (private) repository': lambda x: x['threads'][0].update(url='https://github.com/Foundation-0/members/discussions/5'),
+        'a thread from the internal board': lambda x: x['threads'][0].update(url=f'https://github.com/Foundation-0/f0/discussions/{x["threads"][0]["number"]}'),
         'a category link to another repository': lambda x: x['categories'][0].update(url='https://github.com/Foundation-0/members/discussions/categories/claims-review'),
         'a thread in an unlisted category': lambda x: x['threads'][0].update(category='board'),
         'an author link off GitHub': lambda x: x['threads'][0]['author'].update(url='https://example.com/u'),

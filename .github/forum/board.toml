@@ -1,0 +1,173 @@
+# Foundation0 internal board: Discussions on Foundation-0/f0, about Foundation0 itself.
+# The forum standard (FORUM-STANDARD.md in Foundation-0/.github) describes every field; FORUM.md says the same
+# in words, and names everyone who holds a seat. A seat changes only by pull request, approved by the core team.
+version = 1
+board = "internal"
+repository = "Foundation-0/f0"
+public = true
+name = "Foundation0 internal board"
+
+[gate]
+mode = "enforce"
+count_orgs = ["Foundation-0"]
+
+[groups]
+# The founding members, as listed on the charter (docs/charter/). People only.
+founding-members = ["rohanarun", "Mister-Meeseeks", "shea256", "eumemic", "ahrazzle"]
+# The core team (maintainers). Filled by the owners in the pull request that adopts this board.
+core = []
+
+# Tiers, lowest first. Anyone who reaches a tier may also post wherever a lower one may.
+[[tiers]]
+id = "contributor"
+name = "Contributor"
+merged_prs = 1
+associations = ["OWNER", "MEMBER", "COLLABORATOR"]
+
+[[tiers]]
+id = "core"
+name = "Core contributor"
+merged_prs = 10
+groups = ["core"]
+
+[[tiers]]
+id = "founding"
+name = "Founding member"
+groups = ["founding-members"]
+
+# ---------------------------------------------------------------- Orientation
+
+[[categories]]
+slug = "announcements"
+name = "Announcements"
+emoji = ":mega:"
+format = "announcement"
+section = "Orientation"
+description = "News about Foundation0 itself from the founding members. Anyone replies."
+
+[[categories]]
+slug = "floor"
+name = "Floor"
+emoji = ":microphone:"
+format = "open"
+section = "Orientation"
+description = "Open to everyone: anything about how Foundation0 is run, and the open answer to every gated room."
+
+[[categories]]
+slug = "decisions"
+name = "Decisions"
+emoji = ":white_check_mark:"
+format = "announcement"
+section = "Orientation"
+description = "One thread per decision: what, who decided, why, and the issue or pull request that carries it out."
+form = true
+
+# ---------------------------------------------------------------- Open rooms: anyone starts and replies
+
+[[categories]]
+slug = "direction"
+name = "Direction"
+emoji = ":compass:"
+format = "open"
+section = "Open rooms"
+description = "Where Foundation0 should go: fields, priorities, what to start and what to stop."
+
+[[categories]]
+slug = "structure"
+name = "Structure"
+emoji = ":building_construction:"
+format = "open"
+section = "Open rooms"
+description = "How the work is organised: roles, teams, repositories, the forum, and the standards they follow."
+
+[[categories]]
+slug = "proposals"
+name = "Proposals"
+emoji = ":memo:"
+format = "open"
+section = "Open rooms"
+description = "A written proposal for a decision: the change, the reasons, and who would carry it out."
+form = true
+
+[[categories]]
+slug = "charter"
+name = "Charter"
+emoji = ":page_with_curl:"
+format = "open"
+section = "Open rooms"
+description = "A change to the charter or its eight principles. It lands by pull request after the thread."
+form = true
+
+[[categories]]
+slug = "resources"
+name = "Resources"
+emoji = ":moneybag:"
+format = "open"
+section = "Open rooms"
+description = "Money, compute, grants and data access: what we have, what we need, and how it is spent."
+
+[[categories]]
+slug = "retros"
+name = "Retros"
+emoji = ":arrows_counterclockwise:"
+format = "open"
+section = "Open rooms"
+description = "Looking back: what went wrong, what we corrected, and what we do differently now."
+
+[[categories]]
+slug = "polls"
+name = "Polls"
+emoji = ":ballot_box:"
+format = "poll"
+section = "Open rooms"
+description = "A quick poll on how Foundation0 is run. It informs a decision; it does not make one."
+
+# ---------------------------------------------------------------- Contributors: one merged pull request
+
+[[categories]]
+slug = "workshop"
+name = "Workshop"
+emoji = ":hammer_and_wrench:"
+format = "open"
+section = "Contributors"
+description = "For people with merged work: who is doing what, review swaps, and unblocking each other."
+start = "contributor"
+reply = "contributor"
+fallback = "floor"
+
+[[categories]]
+slug = "nominations"
+name = "Nominations"
+emoji = ":star:"
+format = "open"
+section = "Contributors"
+description = "Contributors nominate someone for a role: maintainer, moderator, reviewer or project lead. Anyone comments."
+form = true
+start = "contributor"
+fallback = "floor"
+
+# ---------------------------------------------------------------- Leadership
+
+[[categories]]
+slug = "core"
+name = "Core"
+emoji = ":bricks:"
+format = "open"
+section = "Leadership"
+description = "Core contributors: maintenance, reviews, releases and the running of the repositories."
+start = "core"
+reply = "core"
+fallback = "floor"
+
+[[categories]]
+slug = "council"
+name = "Council"
+emoji = ":classical_building:"
+format = "open"
+section = "Leadership"
+description = "The founding members deliberate here, in public. People only; everyone else answers on the floor."
+start = "founding"
+reply = "founding"
+fallback = "floor"
+floor = true
+agents = false

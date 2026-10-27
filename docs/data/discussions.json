@@ -1,8 +1,8 @@
 {
  "updated": "2026-10-17T00:52:05Z",
- "note": "Default index of the public forum (GitHub Discussions on Foundation-0/f0). This copy is never updated: when the site is published, .github/workflows/pages.yml runs scripts/discussions.py, which builds the live index from GitHub. Titles and counts only; the posts themselves stay on GitHub. \"updated\" is when it was built.",
- "repository": "Foundation-0/f0",
- "url": "https://github.com/Foundation-0/f0/discussions",
+ "note": "Default index of the public forum (GitHub Discussions on Foundation-0/.github). This copy is never updated: when the site is published, .github/workflows/pages.yml runs scripts/discussions.py, which builds the live index from GitHub. Titles and counts only; the posts themselves stay on GitHub. \"updated\" is when it was built.",
+ "repository": "Foundation-0/.github",
+ "url": "https://github.com/Foundation-0/.github/discussions",
  "enabled": false,
  "total": 0,
  "categories": [],

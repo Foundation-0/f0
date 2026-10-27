@@ -1,10 +1,13 @@
 name: pages
 # Publish the site to GitHub Pages: docs/ as it is on main, plus a forum index (docs/data/discussions.json)
-# and the forum page's no-JavaScript copy, both built fresh from GitHub Discussions at deploy time.
+# and the forum page's no-JavaScript copy, both built fresh at deploy time from the main board (GitHub
+# Discussions on Foundation-0/.github).
 # The built index is published, never committed: a thread removed from the forum leaves the site at the
 # next deploy, and nothing written in the forum enters the repository's history.
 #
-# Runs on every push to main, when a thread or a comment changes, daily as a backstop, or by hand.
+# Runs on every push to main, when a thread or a comment on this repository's internal board changes, daily
+# as a backstop, or by hand. The main board lives in another repository, so its threads reach the index at
+# the next of those runs.
 # It publishes only when Settings -> Pages -> Source is "GitHub Actions". While Pages still builds from the
 # branch, the build job says so in a notice and nothing is deployed.
 #
@@ -63,7 +66,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Site gate on the new index (only this repository's discussions, well formed)
+      - name: Site gate on the new index (only the main board's discussions, well formed)
         if: steps.source.outputs.publish == 'true'
         run: python3 scripts/check_site.py
 

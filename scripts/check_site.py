@@ -5,7 +5,7 @@
                docs/data/ledger.schema.json (types, enums, lengths, dates, ids)
   2  projects: docs/data/projects.json and docs/data/writing.json are well formed; docs/data/discussions.json
                (the forum index) is well formed, holds titles and counts only, and every URL in it is one of
-               this repository's discussions or a GitHub account
+               the main board's discussions (Foundation-0/.github) or a GitHub account
   3  links:    every relative href/src/fetch in docs/**/*.html resolves to a file
                inside docs/, and every same-page #anchor exists
   4  pages:    every page has <title>, a description, lang, a viewport, and an og:image that
@@ -40,6 +40,7 @@ SITE = 'https://foundation-0.github.io/f0/'   # the published site (GitHub Pages
 # The original frontier-math site, kept as it was: links are checked, page metadata is not.
 ARCHIVE = 'legacy-site/'
 THIS_REPO = 'https://github.com/Foundation-0/f0/'
+FORUM = 'https://github.com/Foundation-0/.github/discussions'   # the main board, which the forum page indexes
 errs = []
 warns = []
 
@@ -207,14 +208,14 @@ def check_lists():
 
 
 def check_discussions():
-    """data/discussions.json indexes this repository's public forum and nothing else: every URL in it must be
-    one of this repository's discussion pages or a GitHub account, so a private space can never leak into it,
+    """data/discussions.json indexes the public forum (the main board) and nothing else: every URL in it must be
+    one of the main board's discussion pages or a GitHub account, so a private space can never leak into it,
     and it holds titles and counts only (no field outside the ones listed here)."""
     rel = 'data/discussions.json'
     d = load(rel)
     if d is None:
         return
-    forum = THIS_REPO + 'discussions'
+    forum = FORUM
     stamp = re.compile(r'\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ')
     account = re.compile(r'https://github\.com/(?:apps/)?[A-Za-z0-9][A-Za-z0-9-]*')
     login = re.compile(r'[A-Za-z0-9][A-Za-z0-9-]*(?:\[bot\])?')

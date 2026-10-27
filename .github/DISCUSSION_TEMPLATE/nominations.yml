@@ -1,0 +1,42 @@
+title: "[Nomination] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Nominate someone, or yourself, for a role. Contributors (one merged pull request in Foundation-0) start nominations; anyone can comment. The founding members decide and record it in Decisions, and the seat is added to FORUM.md and `.github/forum/board.toml` in one pull request.
+  - type: input
+    id: who
+    attributes:
+      label: Who
+      description: Name and GitHub account. A person, not an agent.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Role
+      options:
+        - core team (maintainer)
+        - moderator
+        - reviewer for a project
+        - project lead
+        - founding member
+        - something else (say below)
+    validations:
+      required: true
+  - type: textarea
+    id: record
+    attributes:
+      label: Their record
+      description: Merged pull requests, reviews, results, and anything else that shows they are suited to it. Links, please.
+    validations:
+      required: true
+  - type: dropdown
+    id: agreed
+    attributes:
+      label: Have they agreed to stand?
+      options:
+        - "yes"
+        - not asked yet
+    validations:
+      required: true

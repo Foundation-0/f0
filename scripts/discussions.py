@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Snapshot the public forum (GitHub Discussions on this repository) into docs/data/discussions.json.
+"""Snapshot the public forum (the main board: GitHub Discussions on Foundation-0/.github, shown as the
+organisation's Discussions) into docs/data/discussions.json.
 
-The forum itself lives on GitHub: https://github.com/Foundation-0/f0/discussions. This script writes the
+The forum itself lives on GitHub: https://github.com/orgs/Foundation-0/discussions. This script writes the
 small index the site's forum page renders: the categories with their thread counts, and the most recently
-active threads (title, category, author, replies, state). It never copies the text of a post.
+active threads (title, category, author, replies, state). It never copies the text of a post. The internal
+board on this repository is not indexed; the forum page links it.
 
     GH_TOKEN=... python3 scripts/discussions.py        # .github/workflows/pages.yml runs this at deploy time
 
-Standard library only. It reads this repository and nothing else, so a private space can never leak into
+Standard library only. It reads the main board and nothing else, so a private space can never leak into
 the public index (the site gate checks every URL in the file as well). The deploy builds the index fresh
 and publishes it without committing it; the copy in the repository is the empty default. "updated" is the
 time the index was built.
@@ -19,12 +21,12 @@ import sys
 import urllib.error
 import urllib.request
 
-OWNER, NAME = 'Foundation-0', 'f0'
+OWNER, NAME = 'Foundation-0', '.github'   # the main board's source repository
 FORUM = f'https://github.com/{OWNER}/{NAME}/discussions'
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs', 'data', 'discussions.json')
 API = 'https://api.github.com/graphql'
 THREADS = 30          # most recently active threads kept in the snapshot
-NOTE = ('Index of the public forum (GitHub Discussions on Foundation-0/f0), built by scripts/discussions.py when the '
+NOTE = ('Index of the public forum (GitHub Discussions on Foundation-0/.github), built by scripts/discussions.py when the '
         'site is published. Titles and counts only; the posts themselves stay on GitHub. "updated" is when it was built.')
 
 META = """query($owner: String!, $name: String!) {
@@ -39,7 +41,7 @@ THREADS_Q = """query($owner: String!, $name: String!, $n: Int!) {
     discussions(first: $n, orderBy: {field: UPDATED_AT, direction: DESC}) {
       totalCount
       nodes {
-        number title url createdAt updatedAt locked closed isAnswered upvoteCount
+        number title createdAt updatedAt locked closed isAnswered upvoteCount
         category { slug }
         comments { totalCount }
         author { __typename login url }
@@ -93,7 +95,9 @@ def snapshot():
     for t in d['nodes']:
         a = t.get('author')   # None when the account was deleted
         snap['threads'].append({
-            'number': t['number'], 'title': t['title'], 'url': t['url'],
+            # built from the number, not taken from the API: an organisation's discussions answer to an
+            # orgs/ address too, and the index keeps to one form the site gate can check
+            'number': t['number'], 'title': t['title'], 'url': f'{FORUM}/{t["number"]}',
             'category': (t.get('category') or {}).get('slug'),
             'author': None if not a else {'login': a['login'], 'url': a['url'], 'agent': a['__typename'] == 'Bot'},
             'created': t['createdAt'], 'updated': t['updatedAt'],

@@ -2,8 +2,10 @@
 
 Foundation0 is a public record. The most useful contribution is a correction: a wrong date, an
 overstated claim, a dead link, a critique we missed. Open an issue with the source, or a pull request.
-To talk something through first, start a thread in the [forum](https://github.com/Foundation-0/f0/discussions)
-(its rules are in [FORUM.md](FORUM.md)).
+To talk something through first, start a thread in the [forum](https://github.com/orgs/Foundation-0/discussions)
+(its rules are in [its FORUM.md](https://github.com/Foundation-0/.github/blob/main/FORUM.md)). Questions about
+Foundation0 itself, its direction and how it is run, go to [the internal board](https://github.com/Foundation-0/f0/discussions)
+([FORUM.md](FORUM.md)).
 
 ## Add or correct a ledger entry
 
@@ -72,6 +74,7 @@ python3 scripts/check_site.py     # ledger schema, data files, links, page metad
 python3 scripts/gate.py           # the kappa-race feed
 python3 tests/run_golden.py && python3 tests/run_regressions.py && python3 tests/run_gate_corruptions.py
 python3 tests/run_discussions.py   # the forum index
+python3 .github/forum/gate.py check && python3 .github/forum/test_gate.py   # the internal board and its gate
 node scripts/prerender.mjs --check   # the no-JavaScript copies match the data
 python3 -m http.server -d docs 8000
 ```
