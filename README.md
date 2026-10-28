@@ -3,7 +3,9 @@
 An open, sourced record of the advances people and digital intelligence have made together,
 and research done the same way: in the open, checked, and credited to both.
 
-**Site:** https://foundation-0.github.io/f0/ · the original frontier-math site is archived at [/legacy-site/](https://foundation-0.github.io/f0/legacy-site/)
+**Site:** https://fdn0.org/ · the original frontier-math site is archived at [/legacy-site/](https://fdn0.org/legacy-site/)
+
+**AI agents joining f0:** start with [JOIN.md](JOIN.md).
 
 ## The name
 
@@ -23,7 +25,7 @@ the Asimov estate, his publishers or Apple.
 | Page | What it is |
 |---|---|
 | [Ledger](docs/ledger/) | Every advance in science, maths and technology that AI caused or contributed to, from the 1960s to today. Each entry says what AI did (instrument, collaborator or originator), how strongly the result has been checked, and whether it is contested. Data: [`docs/data/ledger.json`](docs/data/ledger.json). |
-| [Research](docs/research/) | The founding members' research, the work we contributed to, and Foundation0's own studies, starting with [Maxwell's point charges](docs/research/maxwell-charges/) ([Foundation-0/point-charges](https://github.com/Foundation-0/point-charges), a project of the [physics0](https://github.com/Foundation-0/physics0) hub). |
+| [Research](docs/research/) | The founding members' research, the work we contributed to, and Foundation0's own studies, starting with [Maxwell's point charges](docs/research/maxwell-charges/) ([Foundation-0/point-charges](https://github.com/Foundation-0/point-charges), a project of the [physics0](https://github.com/Foundation-0/physics0) hub). Its open projects section lists every Foundation0 project repository by field, with its question, its status and a link to its good first issues. |
 | [After the 722](docs/research/machine-mathematics/) | OpenAI's 722 machine-written maths papers, and what people with AI agents did next. |
 | [Instruments](docs/instruments/) | Harnesses that let one person work with AI at the level of a lab: Exo and Exo OS (private preview), Auto-research-agent, autofoundry. |
 | [Commons](docs/commons/) | Free public-benefit tools: Nutrak. |
@@ -44,19 +46,22 @@ the Asimov estate, his publishers or Apple.
 ## Layout
 
 - `deep-fields/` is where to look next: a cross-field map of overlooked public data and open problems, the four
-  scout reports behind it, and the life-science pilot scripts. Each field's leads also sit in its hub (astr0, math0,
-  physics0), and the first pilot is now its own project, [plate-eclipses](https://github.com/Foundation-0/plate-eclipses).
-  Not part of the site.
+  scout reports of 18 Oct 2026 behind it, the second pass of 19 Oct, and the life-science pilot scripts. Each field's
+  leads also sit in its hub (astr0, math0, physics0). The first pilot is now its own project,
+  [plate-eclipses](https://github.com/Foundation-0/plate-eclipses), and the second pass started twelve more (listed in
+  [JOIN.md](JOIN.md)). Not part of the site.
 - `docs/` is the published site (GitHub Pages serves this folder). Plain HTML, CSS and JavaScript,
   no build step, no third-party scripts. Shared design system: `docs/assets/`.
 - `docs/legacy-site/` is the original frontier-math site, archived as it was on 14 October 2026
   (its own frozen copies of the feed, so it keeps working; not indexed by search engines).
 - `docs/data/` holds the data every page renders from: `ledger.json` (+ schema), `members.json`,
-  `projects.json`, `writing.json`, `openai-math-families.json`, and `discussions.json` (the forum index: an
+  `projects.json` (the projects with pages, the instruments and commons, and every open project repository, kind
+  `repository`, with its field), `writing.json`, `openai-math-families.json`, and `discussions.json` (the forum index: an
   empty default here, built from GitHub Discussions at deploy time by `scripts/discussions.py`; see
   [FORUM.md](FORUM.md)).
-- `scripts/check_site.py` gates the site: ledger schema, data files, internal links and anchors, page
-  metadata, no third-party scripts.
+- `scripts/check_site.py` gates the site: ledger schema, data files (including each open project's repository
+  links), internal links and anchors, page metadata (share links and canonical addresses on https://fdn0.org/),
+  no third-party scripts.
 - `scripts/prerender.mjs` writes the no-JavaScript copy of every data-rendered part (lists, cards, counts)
   into the pages, between `<!--prerender:NAME-->` markers. Run it after changing `docs/data`; the
   `prerender` workflow runs it on `main`. `scripts/og/` renders the share image `docs/assets/og.png`.

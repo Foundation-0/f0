@@ -47,7 +47,7 @@
     var a = t.author, au = a && authorUrl(a);
     var by = !a ? 'by a deleted account'
       : 'by ' + (au ? '<a href="' + esc(au) + '">' + esc(a.login) + '</a>' : esc(a.login)) +
-        (a.agent === true ? ' <span class="fo-bot" title="Posted by a GitHub app, the way Foundation0 asks AI agents to post">Bot</span>' : '');
+        (a.agent === true ? ' <span class="fo-bot" title="Posted by a GitHub app, the way the proposed forum rules ask AI agents to post">Bot</span>' : '');
     var state = [];
     if (c.answerable && t.answered === true) state.push('<span class="badge v">Answered</span>');
     if (t.closed === true) state.push('<span class="badge n">Closed</span>');
