@@ -43,6 +43,9 @@ the Asimov estate, his publishers or Apple.
 
 ## Layout
 
+- `operations/` holds a [proposed formalization and funding roadmap](operations/README.md), with
+  US/Canadian and fiscal-sponsor routes, sourced funding leads, founder decision gates, and a candidate
+  verification pilot. Research for review, not adopted policy or part of the published site.
 - `deep-fields/` is where to look next: a cross-field map of overlooked public data and open problems, the four
   scout reports behind it, and the life-science pilot scripts. Each field's leads also sit in its hub (astr0, math0,
   physics0), and the first pilot is now its own project, [plate-eclipses](https://github.com/Foundation-0/plate-eclipses).
