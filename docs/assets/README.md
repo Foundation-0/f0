@@ -38,7 +38,11 @@ Alternate `.sec` and `.sec.alt` for banding. Inner pages open with a `.page-hero
 
 ### The wordmark and the mark
 
-- **Mark** (`#zero`, `favicon.svg`): the founding drawing of the incentre-lattice research. A square, its two diagonals, and the incircle of each of the four triangles; with half-side 1 the radius is √2 − 1, and neighbouring incircles touch. Opposite pairs are gold (`--bio`) and cyan (`--dig`), so every gold circle touches both cyan ones.
+- **Mark** (`#zero`, `favicon.svg`): from the founding drawing of the incentre-lattice research. A square and its diagonals make four triangles; the mark keeps their four incircles (with half-side 1, radius √2 − 1) and the middle circle that touches all four (radius (√2 − 1)²), and marks every centre with a dot. The square and the diagonals are implied: each pair of neighbouring circles touches on a diagonal. Opposite pairs are gold (`--bio`) and cyan (`--dig`), so every gold circle touches both cyan ones; the middle circle and its dot are `--ink-2`.
+  - **Every true circle is an ink edge, not a stroke centre.** Rings are inked inside their circle, so each contact is two edges meeting: gold and cyan touch at one point, neither on top ("without priority").
+  - **Weights** (half-side 40): outer rings 2.2, middle ring 1.1, dots r 1.8. Scale them together; `radiant.js` draws the same proportions on canvas.
+  - **Small cut** (`favicon.svg`): the same five circles with heavier lines and no dots, on the dark tile; thin lines and dots fall under a pixel at tab size.
+  - **Exports** in `brand/`, each for dark and light grounds: `f0-mark-*` (the mark), `f0-mark-lattice-*` (large format only: the founding drawing repeated in the centre at scale (√2 − 1)², its inner lines stopping where they would overlap around a centre dot) and `f0-mark-lattice-simple-*` (the same with the inner lines simply crossing, kept as an alternative). `f0-avatar-512.png` is safe for a circular crop (GitHub, Discord).
 - **Wordmark**: "Foundation0" in Geist 600 with a dotted zero (`.display .zero::after`): the font's own 0 with the incentre as a dot at the centre of its counter, which also tells 0 from O.
 - **Ordinals**: write 0<sup>th</sup> with `<sup>` in HTML text, and "0ᵗʰ" (U+1D57, U+02B0) where markup is impossible (attributes, titles, JSON shown as text).
 
