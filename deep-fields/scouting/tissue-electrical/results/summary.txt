@@ -1,0 +1,71 @@
+A. Gabriel model at 100 Hz vs IT'IS low-frequency compilation (tissues with their own Gabriel fit, n >= 5)
+   Bone Marrow (Yellow)     model  0.0023 S/m   compiled  0.180 (range 0.00247-2.04, n=25)   ratio   77.4   model outside range
+   Nerve                    model  0.0280 S/m   compiled  0.348 (range 0.0644-0.852, n=194)   ratio   12.4   model outside range
+   Bone Marrow (Red)        model  0.1013 S/m   compiled  0.620 (range 0.368-1.12, n=44)   ratio    6.1   model outside range
+   Brain (White Matter)     model  0.0581 S/m   compiled  0.348 (range 0.0644-0.852, n=194)   ratio    6.0   model outside range
+   Cerebellum               model  0.1090 S/m   compiled  0.577 (range 0.48-0.647, n=33)   ratio    5.3   model outside range
+   Liver                    model  0.0381 S/m   compiled  0.185 (range 0.0637-0.43, n=91)   ratio    4.9   model outside range
+   Brain (Grey Matter)      model  0.0890 S/m   compiled  0.419 (range 0.06-0.83, n=214)   ratio    4.7
+   Cartilage                model  0.1721 S/m   compiled  0.739 (range 0.6-1.43, n=42)   ratio    4.3   model outside range
+   Heart Muscle             model  0.0936 S/m   compiled  0.385 (range 0.104-0.775, n=55)   ratio    4.1   model outside range
+   Fat (Not Infiltrated)    model  0.0208 S/m   compiled  0.078 (range 0.024-0.215, n=91)   ratio    3.7   model outside range
+   Kidney                   model  0.1022 S/m   compiled  0.342 (range 0.142-0.901, n=9)   ratio    3.3   model outside range
+   Spleen                   model  0.0957 S/m   compiled  0.221 (range 0.107-0.48, n=9)   ratio    2.3   model outside range
+   Fat (Average Infiltrated) model  0.0406 S/m   compiled  0.078 (range 0.024-0.215, n=91)   ratio    1.9
+   Tongue                   model  0.2721 S/m   compiled  0.461 (range 0.1-0.726, n=24)   ratio    1.7
+   Urinary Bladder Wall     model  0.2056 S/m   compiled  0.315 (range 0.189-0.407, n=54)   ratio    1.5
+   Bone (Cancellous)        model  0.0810 S/m   compiled  0.080 (range 0.006-0.2, n=5)   ratio    1.0
+   Blood                    model  0.7000 S/m   compiled  0.662 (range 0.433-0.946, n=33)   ratio    0.9
+   Cerebrospinal Fluid      model  2.0000 S/m   compiled  1.879 (range 1.13-3.19, n=100)   ratio    0.9
+   Lung (Inflated)          model  0.0730 S/m   compiled  0.058 (range 0.0415-0.07, n=120)   ratio    0.8   model outside range
+   Lung (Deflated)          model  0.2059 S/m   compiled  0.111 (range 0.0418-0.202, n=118)   ratio    0.5   model outside range
+   Gallbladder              model  0.9000 S/m   compiled  0.315 (range 0.189-0.407, n=54)   ratio    0.3   model outside range
+   Bone (Cortical)          model  0.0201 S/m   compiled  0.006 (range 0.00185-0.0091, n=6)   ratio    0.3   model outside range
+   11 of 22 are more than 3x below the compiled mean; 15 fall outside the compiled min-max range.
+
+B. IT'IS V5.0 alternative dielectric entries vs Sasaki et al. (2014) Table 2: 95 entries, 95 reproduce a Table 2 row exactly.
+   Urinary Bladder Wall: declared source 'Urinary Bladder Wall' (Table 2 'Bladder'), but its parameters are row 1 'Aorta'.
+   Table 2 rows used by no IT'IS entry: Bladder, Muscle (Parallel), Skin (Wet).
+   SQLite material database, version '4.2-sasaki': Urinary Bladder Wall = Aorta row (ef 2.27, del2 28.2, sig 0.292).
+   SQLite material database, version '5.0-sasaki': Urinary Bladder Wall = Aorta row (ef 2.27, del2 28.2, sig 0.292).
+
+C. At 128 MHz (3 T MRI): NICT (2023) fit vs the IT'IS main entry, largest disagreements
+   Fat-Breast                 eps   5.6 ->  13.6 (x2.41)   sigma 0.030 -> 0.134 (x4.42)
+   Bladder                    eps  21.9 ->  73.7 (x3.37)   sigma 0.298 -> 0.846 (x2.84)
+   Intestine-Small intestine  eps  88.0 ->  55.8 (x0.63)   sigma 1.693 -> 0.503 (x0.30)
+   Intestine-Mesenteric lymph eps  74.5 ->  39.6 (x0.53)   sigma 0.865 -> 0.321 (x0.37) [IT'IS uses Mesenchymal Lymph Node]
+   Submandibular gland        eps  73.7 ->  46.6 (x0.63)   sigma 0.921 -> 0.390 (x0.42)
+   Thyroid                    eps  66.8 ->  41.1 (x0.62)   sigma 0.804 -> 0.360 (x0.45)
+   Diaphragm                  eps  63.5 ->  38.3 (x0.60)   sigma 0.719 -> 0.329 (x0.46) [IT'IS uses Muscles]
+   Fat-Subcutaneous           eps  12.4 ->   7.0 (x0.56)   sigma 0.070 -> 0.037 (x0.53)
+   Intestine-Large intestine  eps  76.6 ->  59.4 (x0.78)   sigma 0.705 -> 0.418 (x0.59)
+   Medulla oblongata          eps  79.7 ->  59.7 (x0.75)   sigma 0.829 -> 0.494 (x0.60) [IT'IS uses Cerebellum]
+   Genital organ-Epididymis   eps  72.1 ->  62.2 (x0.86)   sigma 0.926 -> 0.571 (x0.62) [IT'IS uses Testis]
+   Spleen                     eps  82.9 ->  65.5 (x0.79)   sigma 0.835 -> 0.522 (x0.63)
+   19 of 45 pairs agree within 25% in both permittivity and conductivity at 128 MHz.
+
+D. Gabriel permittivity at 900 MHz vs IT'IS water content (40 tissues with their own fit): eps = 0.801 x water% -9.5, rms scatter 8.0
+   Urinary Bladder Wall   water  70.0% (n=2)  eps  18.9  trend  46.6  residual  -27.7 (-3.4 rms)
+   Nerve                  water  78.0% (n=1)  eps  32.5  trend  53.0  residual  -20.5 (-2.5 rms)
+   Bone Marrow (Red)      water  40.8% (n=2)  eps  11.3  trend  23.2  residual  -11.9 (-1.5 rms)
+   NICT bladder at 900 MHz: eps 59.7 (trend at 70% water: 46.6)
+
+E. Physical bounds
+   IT'IS 'Water': static permittivity (sum of ef and deltas): 84.6  (78.30 at 25 C, 74.15 at 37 C; equals pure water at 7.9 C (Malmberg & Maryott 1956), but its relaxation time 8.38 ps is that of water at 24.4 C (Liebe et al. 1991))
+   Gabriel Cerebrospinal Fluid: max permittivity 10 MHz-1 GHz: 108.6  (pure water at 37 C: 74.15; above pure water from 10 to 251 MHz)
+   Gabriel Eye (Vitreous Humor): max permittivity 10 MHz-1 GHz: 70.0  (pure water at 37 C: 74.15; never above pure water)
+   Gabriel Bile: max permittivity 10 MHz-1 GHz: 119.5  (pure water at 37 C: 74.15; above pure water from 10 to 324 MHz)
+   IT'IS (Peyman) Urine: max permittivity 10 MHz-1 GHz: 96.5  (pure water at 37 C: 74.15; above pure water from 10 to 178 MHz)
+   NICT Brain-Cerebrospinal fluid: max permittivity 10 MHz-1 GHz: 73.8  (pure water at 37 C: 74.15; below pure water)
+   NICT Eye-Vitreous: max permittivity 10 MHz-1 GHz: 168.0  (pure water at 37 C: 74.15; above pure water)
+   NICT Eye-Anterior humor: max permittivity 10 MHz-1 GHz: 127.1  (pure water at 37 C: 74.15; above pure water)
+   NICT Gallbladder bile: max permittivity 10 MHz-1 GHz: 154.5  (pure water at 37 C: 74.15; above pure water)
+   Sasaki Cerebrospinal Fluid: permittivity at 1 MHz (fitted data start at 130 MHz): 9110.9  (73.2 at 130 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Dura: permittivity at 1 MHz (fitted data start at 130 MHz): 84.4  (60.3 at 130 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Gall Bladder: permittivity at 1 MHz (fitted data start at 12 MHz): 105.2  (98.6 at 12 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Gall Bladder Bile: permittivity at 1 MHz (fitted data start at 20 MHz): 135.7  (123.4 at 20 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Lung (Deflated): permittivity at 1 MHz (fitted data start at 3.6 MHz): 842.5  (443.2 at 3.6 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Stomach: permittivity at 1 MHz (fitted data start at 3 MHz): 1240.8  (782.0 at 3 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Testis: permittivity at 1 MHz (fitted data start at 3.6 MHz): 2682.7  (694.1 at 3.6 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+   Sasaki Vitreous Humor: permittivity at 1 MHz (fitted data start at 130 MHz): 126.2  (67.9 at 130 MHz; IT'IS documents the alternative set as valid above 1 MHz)
+

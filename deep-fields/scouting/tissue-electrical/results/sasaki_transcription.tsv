@@ -1,0 +1,96 @@
+itis_tissue	itis_declared_source	expected_sasaki_row	matching_sasaki_row	matching_row_no	max_rel_param_diff	consistent
+Bile	Bile	Gall Bladder Bile	Gall Bladder Bile	18	7.73e-08	True
+Blood	Blood	Blood	Blood	3	3.34e-08	True
+Blood Vessel Wall	Blood Vessel Wall	Aorta	Aorta	1	5.71e-09	True
+Bone (Cancellous)	Bone (Cancellous)	Bone Cancellous	Bone Cancellous	4	5.71e-09	True
+Bone (Cortical)	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Bone Marrow (Yellow)	Bone Marrow (Yellow)	Bone Marrow	Bone Marrow	6	3.2e-08	True
+Brain	Cerebellum	Cerebellum	Cerebellum	9	4.71e-08	True
+Brain (Grey Matter)	Brain (Grey Matter)	Grey Matter	Grey Matter	19	5.6e-08	True
+Brain (White Matter)	Brain (White Matter)	White Matter	White Matter	43	1.45e-08	True
+Breast Fat	Breast Fat	Breast Fat	Breast Fat	7	1.32e-08	True
+Breast Gland	Thyroid gland	Thyroid	Thyroid	38	4.34e-08	True
+Bronchi	Trachea	Trachea	Trachea	40	2.52e-08	True
+Cartilage	Cartilage	Cartilage	Cartilage	8	2.95e-08	True
+Cerebellum	Cerebellum	Cerebellum	Cerebellum	9	4.71e-08	True
+Cerebrospinal Fluid	Cerebrospinal Fluid	Cerebrospinal Fluid	Cerebrospinal Fluid	11	1.82e-08	True
+Cervix	Cervix	Cervix	Cervix	10	1.51e-08	True
+Commissura Anterior	Brain (White Matter)	White Matter	White Matter	43	1.45e-08	True
+Commissura Posterior	Brain (White Matter)	White Matter	White Matter	43	1.45e-08	True
+Connective Tissue	Tendon\Ligament	Tendon	Tendon	36	1.94e-08	True
+Diaphragm	Muscles	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Ductus Deferens	Blood Vessel Wall	Aorta	Aorta	1	5.71e-09	True
+Dura	Dura	Dura	Dura	14	5.6e-08	True
+Epididymis	Testis	Testis	Testis	37	1.94e-08	True
+Esophagus	Stomach	Stomach	Stomach	35	1.06e-08	True
+Extracellular Fluids	Cerebrospinal Fluid	Cerebrospinal Fluid	Cerebrospinal Fluid	11	1.82e-08	True
+Eye (Aqueous Humor)	Cerebrospinal Fluid	Cerebrospinal Fluid	Cerebrospinal Fluid	11	1.82e-08	True
+Eye (Choroid)	Blood	Blood	Blood	3	3.34e-08	True
+Eye (Ciliary Body)	Muscle	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Eye (Cornea)	Eye (Cornea)	Cornea	Cornea	13	4.33e-08	True
+Eye (Iris)	Muscle	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Eye (Lens)	Eye (Lens)	Lens Nucleus	Lens Nucleus	23	2.56e-09	True
+Eye (Retina)	Brain (Grey Matter)	Grey Matter	Grey Matter	19	5.6e-08	True
+Eye (Sclera)	Eye (Sclera)	Eye Sclera	Eye Sclera	15	5.08e-08	True
+Eye (Vitreous Humor)	Eye (Vitrous Humor)	Vitreous Humor	Vitreous Humor	42	5.71e-09	True
+Eye Lens (Cortex)	Eye Lens (Cortex)	Lens Cortex	Lens Cortex	22	2.52e-08	True
+Eye Lens (Nucleus)	Eye (Lens)	Lens Nucleus	Lens Nucleus	23	2.56e-09	True
+Fat	Fat (Average Infiltrated)	Fat	Fat	16	4.71e-08	True
+Fat (Average Infiltrated)	Fat (Average Infiltrated)	Fat	Fat	16	4.71e-08	True
+Gallbladder	Gallbladder	Gall Bladder	Gall Bladder	17	6.85e-08	True
+Heart Lumen	Blood	Blood	Blood	3	3.34e-08	True
+Heart Muscle	Heart Muscle	Heart Muscle	Heart Muscle	20	5.6e-08	True
+Hippocampus	Brain (Grey Matter)	Grey Matter	Grey Matter	19	5.6e-08	True
+Hypophysis	Thyroid gland	Thyroid	Thyroid	38	4.34e-08	True
+Hypothalamus	Brain (Grey Matter)	Grey Matter	Grey Matter	19	5.6e-08	True
+Kidney	Kidney	Kidney	Kidney	21	5.35e-08	True
+Kidney (Cortex)	Kidney	Kidney	Kidney	21	5.35e-08	True
+Kidney (Medulla)	Kidney	Kidney	Kidney	21	5.35e-08	True
+Large Intestine	Large Intestine	Colon	Colon	12	5.46e-08	True
+Large Intestine Lumen	Muscles	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Larynx	Cartilage	Cartilage	Cartilage	8	2.95e-08	True
+Liver	Liver	Liver	Liver	24	2.7e-08	True
+Lung	Lung(Inflated)	Lung (Inflated)	Lung (Inflated)	26	1.94e-08	True
+Lung (Deflated)	Lung (Deflated)	Lung (Deflated)	Lung (Deflated)	25	3.34e-08	True
+Lung (Inflated)	Lung (Inflated)	Lung (Inflated)	Lung (Inflated)	26	1.94e-08	True
+Mandible	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Medulla Oblongata	Cerebellum	Cerebellum	Cerebellum	9	4.71e-08	True
+Meniscus	Cartilage	Cartilage	Cartilage	8	2.95e-08	True
+Midbrain	Cerebellum	Cerebellum	Cerebellum	9	4.71e-08	True
+Mucous Membrane	Muscles	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Muscle	Muscles	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Nerve	Nerve	Nerve	Nerve	29	6.23e-09	True
+Ovary	Ovary	Ovary	Ovary	30	4.33e-08	True
+Pancreas	Thyroid gland	Thyroid	Thyroid	38	4.34e-08	True
+Penis	Blood Vessel Wall	Aorta	Aorta	1	5.71e-09	True
+Pineal Body	Thyroid gland	Thyroid	Thyroid	38	4.34e-08	True
+Placenta	Blood	Blood	Blood	3	3.34e-08	True
+Pons	Cerebellum	Cerebellum	Cerebellum	9	4.71e-08	True
+Prostate	Testis	Testis	Testis	37	1.94e-08	True
+SAT (Subcutaneous Fat)	Fat (Average Infiltrated)	Fat	Fat	16	4.71e-08	True
+Scalp	Skin	Skin (Dry)	Skin (Dry)	31	2.08e-08	True
+Seminal vesicle	Testis	Testis	Testis	37	1.94e-08	True
+Skin	Skin (Dry)	Skin (Dry)	Skin (Dry)	31	2.08e-08	True
+Skull	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Skull (Cancellous)	Bone Cancellous	Bone Cancellous	Bone Cancellous	4	5.71e-09	True
+Skull (Cortical)	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Small Intestine	Small Intestine	Small Intestine	Small Intestine	33	1.51e-08	True
+Small Intestine Lumen	Muscles	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Spinal Cord	Nerve	Nerve	Nerve	29	6.23e-09	True
+Spleen	Spleen	Spleen	Spleen	34	5.71e-09	True
+Stomach	Stomach	Stomach	Stomach	35	1.06e-08	True
+Stomach Lumen	Muscle	Muscle (Transverse)	Muscle (Transverse)	28	1.32e-08	True
+Tendon\Ligament	Tendon\Ligament	Tendon	Tendon	36	1.94e-08	True
+Testis	Testis	Testis	Testis	37	1.94e-08	True
+Thalamus	Brain (Grey Matter)	Grey Matter	Grey Matter	19	5.6e-08	True
+Thyroid Gland	Thyroid gland	Thyroid	Thyroid	38	4.34e-08	True
+Tongue	Tongue	Tongue	Tongue	39	3.72e-09	True
+Tooth	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Tooth (Dentine)	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Tooth (Enamel)	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
+Trachea	Trachea	Trachea	Trachea	40	2.52e-08	True
+Ureter\Urethra	Blood Vessel Wall	Aorta	Aorta	1	5.71e-09	True
+Urinary Bladder Wall	Urinary Bladder Wall	Bladder	Aorta	1	5.71e-09	False
+Uterus	Uterus	Uterus	Uterus	41	5.6e-08	True
+Vagina	Large Intestine	Colon	Colon	12	5.46e-08	True
+Vertebrae	Bone (Cortical)	Bone Cortical	Bone Cortical	5	2.29e-08	True
