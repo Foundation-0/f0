@@ -81,6 +81,10 @@ dura and vitreous humour start at 130 MHz. IT'IS documents the alternative set a
 
 ## Next
 
+This pilot continues as its own project, Foundation-0/tissue-dielectrics (private for now), which also compares the
+models with the measured spectra. See section 4 of [../tissue-electrical.md](../tissue-electrical.md). The list below
+was the plan on the day of the pilot.
+
 - Ask the IT'IS Foundation about the bladder row and the water entry (a person sends this, not an agent).
 - NICT also publishes its **measured** spectra, behind a terms-of-use page. A person who accepts those terms can
   compare every fit above with the raw data, tissue by tissue. Gabriel's 1996 measured data are published as graphs in

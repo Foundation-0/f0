@@ -115,6 +115,41 @@ looks wrong, so each needs a person's judgement before anything is sent.
 - **The ADEPT simulated EPT database** is less open than its description: most of its files sit behind an access
   request *(survey; [doi:10.34894/V0HBJ8](https://doi.org/10.34894/V0HBJ8))*.
 
+## 4. Follow-up, 31 October 2026
+
+Later the same day, with Ahraz Arifuddin's go-ahead, the leads became work. Each result below is **claimed**: not
+reviewed by a person yet, and nothing has been sent to any maintainer.
+
+- **The tissue tables became a project** (Foundation-0/tissue-dielectrics, private for now). Ahraz accepted NICT's
+  terms of use for Foundation0, so the project now also compares every model with the measured spectra behind it:
+  NICT's (58 tissues) and Gabriel's 1996 data from IFAC's mirror (41 tissues).
+  - The IFAC copy of Gabriel's data reproduces Sasaki's Table 3 for 37 of 40 tissues, so it is the data Sasaki
+    fitted.
+  - **Bladder:** the gap is in the measured data. Gabriel's single human bladder sample reads εr 19.5 at 128 MHz,
+    NICT's bladder 70.7. Gabriel's other human autopsy samples are not systematically off (NICT/Gabriel median 0.89,
+    against 0.93 for his animal samples). The bladder is a one-sample anomaly.
+  - **Fluids:** the excess permittivity of vitreous, aqueous humour and bile near 10 MHz is in NICT's measured
+    spectra, likely electrode polarisation. Gabriel's CSF data start at 130 MHz, so his CSF model below that is
+    extrapolation.
+  - **Skin above 6 GHz:** ICNIRP 2020 Table 10 is internally consistent. NICT's published dermis spectra give 25–27%
+    lower conductivity at 60–100 GHz, and a 0.44 mm instead of 0.35 mm penetration depth at 100 GHz.
+  - A draft report to IT'IS (the bladder row and the water entry) waits in Ahraz's mailbox; draft questions for NICT
+    are in the project.
+  - The literature leads (in vivo vs ex vivo, tumour contrast vs water, tool defaults, the 5.37 S/m muscle value)
+    are issues there.
+  - The intracranial-recordings scoreboard is planned, but needs a CRCNS account in a person's name.
+- **NHANES became a project** ([Foundation-0/nhanes-bioimpedance](https://github.com/Foundation-0/nhanes-bioimpedance)).
+  - All 13,276 spectra were refitted, reproducing CDC's Cole parameters (median difference 0.2% for Re, 2.3% for Ri).
+  - On a held-out survey cycle, the full spectrum adds almost nothing to a 50 kHz equation for DXA lean mass
+    (R² gain 0.000–0.002).
+  - For mortality, in adults 20–49 (286 deaths to 2019), it adds no consistent discrimination over 50 kHz phase
+    angle (C-index changes +0.016, +0.001, −0.008).
+  - The answer to lead 2 is "little, for these outcomes"; membrane-sensitive outcomes are next.
+- **A life-sciences hub,** Foundation-0/bi0 (private for now), now holds the life-science leads from all three
+  scouting passes.
+
+The pilot below stays here unchanged, so this report remains reproducible on its own.
+
 ## Sources
 
 Primary sources the pilot reads or checks against:
