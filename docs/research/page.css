@@ -58,7 +58,7 @@ html[data-motion="on"] .ri-loop.swap .ri-st:nth-child(3) .v, html[data-motion="o
 .ri-none { font: 400 12.5px/1.4 var(--f-sans); color: var(--ink-3); font-style: italic; }
 @media (max-width: 760px) { .ri-chip { min-height: 40px; } }
 
-/* ---------- 01 / 02 cards ---------- */
+/* ---------- 01 / 03 cards ---------- */
 .ri-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); margin-top: var(--s-6); }
 @media (max-width: 860px) { .ri-cards { grid-template-columns: minmax(0, 1fr); } }
 .ri-card { scroll-margin-top: 84px; }
@@ -79,7 +79,27 @@ html[data-motion="on"] .ri-stats .dot.live { animation: pulse 2.8s var(--ease-io
 @media (max-width: 420px) { .ri-stats { grid-template-columns: minmax(0, 1fr); } }
 .ri-card .links { margin-top: 2px; }
 
-/* ---------- 03 every repository ---------- */
+/* ---------- 02 open projects: one cell per repository, grouped by field ---------- */
+.ri-fields { display: grid; gap: var(--s-7); margin-top: var(--s-6); }
+.ri-field-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line-ui); }
+.ri-field-head h3 { font: 600 var(--fs-h3)/1.2 var(--f-sans); letter-spacing: -.01em; color: var(--ink); }
+.ri-field-head .hub { font: 500 12px/1.4 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); padding: 4px 0; }
+.ri-field-head a.hub { color: var(--link); }
+.ri-field-head .n { margin-left: auto; font: 500 12px/1.4 var(--f-mono); color: var(--ink-3); }
+.ri-repos { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+.ri-repo { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 14px 16px 12px; background: var(--bg-2); border: 1px solid var(--line); scroll-margin-top: 120px; }
+.ri-repo h4 { font: 600 15px/1.3 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; }
+.ri-repo h4 a { color: var(--ink); text-decoration: none; }
+.ri-repo h4 a:hover { color: var(--link); text-decoration: underline; }
+.ri-repo .q { font: 400 15.5px/1.45 var(--f-serif); color: var(--ink-2); }
+.ri-repo .links { display: flex; flex-wrap: wrap; gap: 0 16px; margin-top: auto; font: 500 12px/1.4 var(--f-mono); letter-spacing: .04em; }
+.ri-repo .links a { padding: 6px 0; }
+.ri-repo .src { font: 500 11px/1.35 var(--f-mono); color: var(--ink-3); overflow-wrap: anywhere; }
+.ri-repo .src a { color: var(--ink-3); }
+.ri-repo .src a:hover { color: var(--link); }
+@media (max-width: 760px) { .ri-repo .links a { padding: 11px 0; } }
+
+/* ---------- 04 every repository ---------- */
 .ri-repo-ctrl { margin-top: var(--s-6); }
 .ri-repo-count { font: 500 12.5px/1.3 var(--f-mono); color: var(--ink); }
 /* cards in rows, read left to right; each worklist shows four entries, the rest behind "+N more" */

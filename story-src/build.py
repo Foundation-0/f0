@@ -605,8 +605,8 @@ HEAD = f"""<!doctype html>
 <meta property="og:type" content="article">
 <meta property="og:title" content="When the crowd gets a frontier model · Foundation0">
 <meta property="og:description" content="A public repository moved a research constant 3.6x in four days, with {r['prs']} pull requests from {r['authors']} people. What made it work.">
-<meta property="og:image" content="https://foundation-0.github.io/f0/assets/og.png">
-<meta property="og:url" content="https://foundation-0.github.io/f0/research/integer-multiplication/story/">
+<meta property="og:image" content="https://fdn0.org/assets/og.png">
+<meta property="og:url" content="https://fdn0.org/research/integer-multiplication/story/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">

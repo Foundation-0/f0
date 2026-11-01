@@ -1,5 +1,27 @@
 {
- "updated": "2026-10-18",
+ "updated": "2026-10-19",
+ "fields": [
+  {
+   "name": "Mathematics",
+   "hub": "math0"
+  },
+  {
+   "name": "Physics and Earth science",
+   "hub": "physics0"
+  },
+  {
+   "name": "Astronomy",
+   "hub": "astr0"
+  },
+  {
+   "name": "Life sciences and metascience",
+   "hub": null
+  },
+  {
+   "name": "Humanities",
+   "hub": null
+  }
+ ],
  "projects": [
   {
    "slug": "incentre-lattice",
@@ -441,6 +463,327 @@
      "value": "26",
      "label": "Plain-words glossary terms behind the receipts",
      "source": "src/glossary.json terms (length 26)"
+    }
+   ]
+  },
+  {
+   "slug": "incentre-lattices",
+   "kind": "repository",
+   "title": "incentre-lattices",
+   "field": "Mathematics",
+   "question": "Where does one rule (join the incentres of a square’s four triangles) lead, in any number of dimensions?",
+   "status": "Preprint · not peer reviewed",
+   "page": "research/incentre-lattice/",
+   "source": "README.md at db3b51d",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/incentre-lattices"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/incentre-lattices/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "formal-claims-audit",
+   "kind": "repository",
+   "title": "formal-claims-audit",
+   "field": "Mathematics",
+   "question": "When an AI-claimed result is called “Lean-verified” or “formally verified”, does its formal statement say what the paper claims?",
+   "status": "Not started · no verdicts yet",
+   "started": "2026-10-19",
+   "source": "README.md at 20f83b3",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/formal-claims-audit"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/formal-claims-audit/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "covering-min-modulus",
+   "kind": "repository",
+   "title": "covering-min-modulus",
+   "field": "Mathematics",
+   "question": "Does the record covering system with minimum modulus 42 check out, and is there one with minimum modulus 43?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at ac0b556",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/covering-min-modulus"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/covering-min-modulus/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "gfq-codes",
+   "kind": "repository",
+   "title": "gfq-codes",
+   "field": "Mathematics",
+   "question": "Which open entries in the tables of best known linear codes over GF(3) to GF(9) can be improved, with a minimum distance anyone can recompute?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at 77a01d4",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/gfq-codes"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/gfq-codes/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "rigid-realizations",
+   "kind": "repository",
+   "title": "rigid-realizations",
+   "field": "Mathematics",
+   "question": "Can bar lengths be chosen so that all 880 complex realizations of the 10-vertex rigid framework are real?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at 344f9de",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/rigid-realizations"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/rigid-realizations/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "point-charges",
+   "kind": "repository",
+   "title": "point-charges",
+   "field": "Physics and Earth science",
+   "question": "How many places of perfect balance can a handful of electric charges have?",
+   "status": "Claimed · computer-checked counts · not reviewed by a person",
+   "started": "2026-10-18",
+   "page": "research/maxwell-charges/",
+   "source": "README.md at dd5a0dd",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/point-charges"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/point-charges/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "relative-equilibria",
+   "kind": "repository",
+   "title": "relative-equilibria",
+   "field": "Physics and Earth science",
+   "question": "Exactly how many equilibrium shapes (central configurations) do 8 equal masses have, and how many relative equilibria do 5, 6 and 7 identical point vortices have?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at 607dd12",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/relative-equilibria"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/relative-equilibria/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "certified-orbits",
+   "kind": "repository",
+   "title": "certified-orbits",
+   "field": "Physics and Earth science",
+   "question": "Which published numerical periodic orbits of the three-body problem provably exist, and which of the “stable” ones are provably stable?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at 74bf661",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/certified-orbits"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/certified-orbits/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "wwssn-microseisms",
+   "kind": "repository",
+   "title": "wwssn-microseisms",
+   "field": "Physics and Earth science",
+   "question": "Did ocean wave energy, as recorded in seismic microseisms, change between 1962–78 and today?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at 5bbc188",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/wwssn-microseisms"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/wwssn-microseisms/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "fractals",
+   "kind": "repository",
+   "title": "fractals",
+   "field": "Physics and Earth science",
+   "question": "Does reality repeat itself across scales?",
+   "status": "Exploration · not peer reviewed · no new result claimed",
+   "started": "2026-10-16",
+   "source": "README.md at 9698b22",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/fractals"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/fractals/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "plate-eclipses",
+   "kind": "repository",
+   "title": "plate-eclipses",
+   "field": "Astronomy",
+   "question": "Can a century of Harvard photographic plates (DASCH) recover the past eclipses of stars that dim only once every few years?",
+   "status": "Claimed · not peer reviewed · no person outside the project has checked it yet",
+   "started": "2026-10-18",
+   "source": "README.md at c0b7b0b",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/plate-eclipses"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/plate-eclipses/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "plate-novae",
+   "kind": "repository",
+   "title": "plate-novae",
+   "field": "Astronomy",
+   "question": "Did any known nova erupt earlier, unseen, on the Harvard plates (about 1890 to 1990)?",
+   "status": "Pilot · claimed · not peer reviewed · no person outside the project has checked it",
+   "started": "2026-10-19",
+   "source": "README.md at 7ec7280",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/plate-novae"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/plate-novae/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "gaia-dr4",
+   "kind": "repository",
+   "title": "gaia-dr4",
+   "field": "Astronomy",
+   "question": "Which earlier claims hold up once Gaia’s fourth data release (DR4) is out?",
+   "status": "Preparing · no results yet",
+   "started": "2026-10-19",
+   "source": "README.md at 64dc9c6",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/gaia-dr4"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/gaia-dr4/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "lost-eclipses",
+   "kind": "repository",
+   "title": "lost-eclipses",
+   "field": "Astronomy",
+   "question": "Which eclipsing binaries catalogued from old photographic plates no longer eclipse in TESS?",
+   "status": "Not started",
+   "started": "2026-10-19",
+   "source": "README.md at eb62a1b",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/lost-eclipses"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/lost-eclipses/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "overdue-data",
+   "kind": "repository",
+   "title": "overdue-data",
+   "field": "Life sciences and metascience",
+   "question": "Which datasets that published papers say were deposited in a public archive are still unreleased more than 18 months later?",
+   "status": "Pilot · claimed · not peer reviewed",
+   "started": "2026-10-19",
+   "source": "README.md at fb6507f",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/overdue-data"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/overdue-data/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+    }
+   ]
+  },
+  {
+   "slug": "rism-anon",
+   "kind": "repository",
+   "title": "rism-anon",
+   "field": "Humanities",
+   "question": "Which anonymous music manuscripts in RISM open with the same melody as a work RISM attributes to a named composer?",
+   "status": "Pilot · claimed · not peer reviewed · matches are candidates, not attributions",
+   "started": "2026-10-19",
+   "source": "README.md at 92102a4",
+   "links": [
+    {
+     "label": "Repository",
+     "url": "https://github.com/Foundation-0/rism-anon"
+    },
+    {
+     "label": "Good first issues",
+     "url": "https://github.com/Foundation-0/rism-anon/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
     }
    ]
   }

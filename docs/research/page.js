@@ -3,6 +3,7 @@
      - the hero figure: each project's numbers at the three steps (agents propose, checkers verify, people decide)
      - the evidence ladder: where each project's own status line puts it
      - the project cards, each with a small live figure drawn in the browser
+     - the open projects: every Foundation0 project repository (projects.json, kind "repository"), by field
      - every founding member's repositories, with a filter
    Figures start on a still, informative frame and only move on hover, focus or play (and never with motion off). */
 (function () {
@@ -396,14 +397,17 @@ var G = {
   function ladder(PJ) {
     $$('.ri-rung').forEach(function (h) { h.innerHTML = ''; });
     var list = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; });
-    list.forEach(function (p) {
-      var host = $('.ri-rung[data-rung="' + rungOf(p) + '"]'); if (!host) return;
+    /* open projects join the ladder once they claim a result; the two with a card above are already on it */
+    var open = (PJ.projects || []).filter(function (p) { return p.kind === 'repository' && !p.page && repoRung(p); });
+    list.concat(open).forEach(function (p) {
+      var repo = p.kind === 'repository';
+      var host = $('.ri-rung[data-rung="' + (repo ? repoRung(p) : rungOf(p)) + '"]'); if (!host) return;
       var note = P[p.slug] && P[p.slug].rungNote;
       var a = document.createElement('a');
-      a.className = 'ri-chip'; a.href = '#card-' + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
+      a.className = 'ri-chip'; a.href = (repo ? '#repo-' : '#card-') + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
       a.textContent = p.title;
       a.setAttribute('aria-label', p.title + ': ' + p.status + (note ? '. ' + note : ''));
-      var tip = '<div class="tip-k">' + esc(p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + F0.statusBadges(p.status, { ladder: 1 }) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
+      var tip = '<div class="tip-k">' + esc(repo ? 'Open project' : p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + (repo ? repoBadges(p.status) : F0.statusBadges(p.status, { ladder: 1 })) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
       a.addEventListener('pointerenter', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointermove', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointerleave', function () { F0.tip.hide(); });
@@ -412,6 +416,52 @@ var G = {
       host.appendChild(a);
     });
     $$('.ri-rung').forEach(function (h) { if (!h.children.length) { h.innerHTML = '<span class="ri-none">none of our projects yet</span>'; } });
+  }
+
+  /* ---------- open projects: every Foundation0 project repository, grouped by field ---------- */
+  /* Statuses are the READMEs' own words. A part that opens with "no" or "not" ("not started", "no new result
+     claimed") is a plain label, never a claim, and a status with no claim gets no evidence rung. */
+  function segClass(seg) { return /^(no|not)\b/i.test(seg) ? { cls: 'n', rung: 0 } : F0.classifyStatus(seg); }
+  function repoBadges(status) {
+    var groups = [];
+    String(status || '').split(/\s+·\s+/).filter(Boolean).forEach(function (seg) {
+      var c = segClass(seg), g = groups[groups.length - 1];
+      if (g && g.cls === c.cls && g.rung === c.rung) g.text.push(seg); else groups.push({ cls: c.cls, rung: c.rung, text: [seg] });
+    });
+    return groups.map(function (g) {
+      var t = g.text.join(' · ');
+      return '<span class="badge ' + g.cls + '">' + (g.rung ? F0.ladderHTML(g.rung) : '') + esc(t.charAt(0).toUpperCase() + t.slice(1)) + '</span>';
+    }).join('');
+  }
+  function repoRung(p) {
+    var r = 0;
+    String(p.status || '').split(/\s+·\s+/).forEach(function (seg) { var c = segClass(seg); if (c.rung && (!r || c.rung < r)) r = c.rung; });
+    return r;
+  }
+  function repoHTML(p) {
+    var L = p.links || [], home = L[0] || {}, sha = /\bat ([0-9a-f]{7,40})$/.exec(p.source || ''), sr = '<span class="sr-only"> for ' + esc(p.title) + '</span>';
+    var links = L.slice(1).map(function (l) { return '<a href="' + esc(l.url) + '">' + esc(l.label) + sr + '</a>'; }).join('') +
+      (p.page ? '<a href="' + esc(rel(p.page)) + '">On Foundation0' + sr + '</a>' : '');
+    return '<li class="ri-repo" id="repo-' + esc(p.slug) + '"><h4><a href="' + esc(home.url) + '">' + esc(p.title) + '</a></h4>' +
+      '<p class="q">' + esc(p.question || '') + '</p>' +
+      '<div class="badges">' + repoBadges(p.status) + '</div>' +
+      '<p class="links">' + links + '</p>' +
+      (p.source ? '<p class="src">Status: ' + (sha && home.url ? '<a href="' + esc(home.url + '/blob/' + sha[1] + '/README.md') + '">' + esc(p.source) + '</a>' : esc(p.source)) + '</p>' : '') + '</li>';
+  }
+  function repos(PJ) {
+    var host = $('#repo-fields'); if (!host) return;
+    var list = (PJ.projects || []).filter(function (p) { return p.kind === 'repository'; });
+    var fields = (PJ.fields || []).slice();
+    list.forEach(function (p) { if (!fields.some(function (f) { return f.name === p.field; })) fields.push({ name: p.field, hub: null }); });
+    host.innerHTML = fields.map(function (f) {
+      var rs = list.filter(function (p) { return p.field === f.name; }); if (!rs.length) return '';
+      var id = 'field-' + String(f.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return '<div class="ri-field"><div class="ri-field-head"><h3 id="' + id + '">' + esc(f.name) + '</h3>' +
+        (f.hub ? '<a class="hub" href="https://github.com/Foundation-0/' + esc(f.hub) + '">Field hub: ' + esc(f.hub) + '</a>' : '<span class="hub">No field hub yet</span>') +
+        '<span class="n">' + rs.length + (rs.length === 1 ? ' project' : ' projects') + '</span></div>' +
+        '<ul class="ri-repos" aria-labelledby="' + id + '">' + rs.map(repoHTML).join('') + '</ul></div>';
+    }).join('');
+    $$('[data-count-repos]').forEach(function (e) { e.textContent = list.length; });
   }
 
   /* ---------- project cards ---------- */
@@ -533,12 +583,14 @@ var G = {
       F0.json(R + 'data/openai-math-families.json').catch(function () { return null; })
     ]).then(function (d) {
       var PJ = d[0], MB = d[1], FD = d[2];
-      var n = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; }).length;
+      /* every project on the page once: the cards, and the open projects that have no card */
+      var n = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution' || (p.kind === 'repository' && !p.page); }).length;
       $$('[data-count-proj]').forEach(function (e) { e.textContent = n; });
       if (PJ.updated) $$('[data-updated]').forEach(function (e) { e.textContent = F0.fmtDate(PJ.updated); });
       loopFig(PJ);
       ladder(PJ);
       cards(PJ, MB, FD);
+      repos(PJ);
       members(MB, FD);
     }).catch(function (e) { console.warn('research data:', e); });
   }

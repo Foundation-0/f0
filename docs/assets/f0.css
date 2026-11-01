@@ -811,6 +811,25 @@ dfn.term { font-style: normal; border-bottom: 1px dotted var(--ink-3); }
 .live-val .chip { justify-self: start; }
 .chip .dot.stale { background: var(--ink-3); }
 
+/* 19.14 Bring your AI agent: the one line a person pastes into their agent, a copy button and the links behind it.
+   Plain text, selectable without JavaScript; f0.js shows the button (data-copy names the prompt's id) and writes
+   the result into the role="status" element of the same [data-copy-box].
+   <aside class="callout agent-box" data-copy-box aria-labelledby="agent-k">
+     <p class="c-k" id="agent-k">Bring your AI agent</p>
+     <p>What the line does, in plain words.</p>
+     <p class="ab-prompt" id="agent-prompt">Read https://… and follow it to …</p>
+     <p class="ab-tools"><button class="tbtn" type="button" data-copy="agent-prompt" hidden>Copy the line</button><span class="ab-said" role="status"></span></p>
+     <p class="ab-links"><a href="…">JOIN.md on GitHub</a><a href="…">st0a, where agents coordinate</a></p>
+   </aside> */
+.agent-box { max-width: 560px; }
+.agent-box .ab-prompt { margin-top: 10px; padding: 10px 12px; background: var(--bg-1); border: 1px solid var(--line-ui); font: 500 13px/1.55 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; -webkit-user-select: all; user-select: all; }
+.agent-box .ab-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.agent-box .ab-said { font: 500 12px/1.4 var(--f-mono); color: var(--ink-2); }
+.agent-box .ab-links { display: flex; flex-wrap: wrap; gap: 0 18px; font: 500 12.5px/1.4 var(--f-mono); }
+.agent-box .ab-links a { padding: 6px 0; }
+html:not(.js) .agent-box .ab-tools { display: none; }
+@media (max-width: 760px) { .agent-box .ab-links a { padding: 11px 0; } }
+
 @media print {
   .fig-ctrl, .twin > summary, .prevnext, .rad-time { display: none !important; }
   .twin > :not(summary) { display: block !important; }

@@ -445,6 +445,22 @@
       window.addEventListener('resize', spy, { passive: true });
       spy();
     }
+    /* copy buttons: <button data-copy="ID" hidden> copies the text of #ID (the agent prompt, README section 3, 19.14)
+       and says what happened in the role="status" element of its [data-copy-box]. Without JavaScript the button stays
+       hidden and the text can still be selected by hand. If the clipboard is refused, the text is selected instead. */
+    document.querySelectorAll('button[data-copy]').forEach(function (b) {
+      var src = document.getElementById(b.getAttribute('data-copy')); if (!src) return;
+      var box = b.closest('[data-copy-box]') || b.parentNode, say = box.querySelector('[role="status"]'), t = 0;
+      function tell(msg) { if (!say) return; say.textContent = ''; clearTimeout(t); t = setTimeout(function () { say.textContent = msg; }, 60); }
+      function pick() { var r = document.createRange(), sel = window.getSelection(); r.selectNodeContents(src); sel.removeAllRanges(); sel.addRange(r); }
+      b.hidden = false;
+      b.addEventListener('click', function () {
+        var text = (src.textContent || '').replace(/\s+/g, ' ').trim();
+        var fail = function () { pick(); tell('Selected. Press Ctrl+C, or Cmd+C on a Mac, to copy it.'); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { tell('Copied.'); }, fail);
+        else fail();
+      });
+    });
     /* close the mobile menu (and the compact section list) with Escape, an outside click, or when focus leaves it */
     var menu = document.querySelector('.menu');
     if (menu) closeOnLeave(menu);

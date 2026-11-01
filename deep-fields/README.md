@@ -24,7 +24,7 @@ hub, which directs Foundation0's effort there:
   seismic and climate archives.
 
 Life sciences and the humanities have no hub yet, so their leads stay here. Projects that grow get their own
-repositories. Until the branches named `claude/sleepy-pasteur-k5knht` are merged, that is where this material is.
+repositories. A second pass on 19 October 2026 started twelve of them; see [scouting/2026-10-19.md](scouting/2026-10-19.md).
 
 **Status of this page.** The counts and claims below were checked by the agents on 18 Oct 2026; each links its source.
 They are a starting map, not a survey of record. Check a number before you build on it.
