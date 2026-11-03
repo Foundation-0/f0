@@ -18,7 +18,7 @@
  * of 500 KB; some chat apps skip large preview images); pass --full to keep the full-colour screenshot.
  *
  * Playwright and the browser are found as in scripts/prerender.mjs: PLAYWRIGHT_MODULE or `playwright`
- * (npm i --no-save playwright@1.56.1); PRERENDER_CHROMIUM=playwright for Playwright's own Chromium, or a path.
+ * (npm ci --ignore-scripts); PRERENDER_CHROMIUM=playwright for Playwright's own Chromium, or a path.
  */
 import fs from 'node:fs';
 import http from 'node:http';
@@ -56,7 +56,7 @@ async function loadPlaywright() {
   for (const t of [process.env.PLAYWRIGHT_MODULE, 'playwright', '/opt/node22/lib/node_modules/playwright/index.mjs'].filter(Boolean)) {
     try { return await import(path.isAbsolute(t) ? pathToFileURL(t).href : t); } catch { /* next */ }
   }
-  throw new Error('Playwright not found: run `npm i --no-save playwright@1.56.1` (or set PLAYWRIGHT_MODULE)');
+  throw new Error('Playwright not found: run `npm ci --ignore-scripts` (or set PLAYWRIGHT_MODULE)');
 }
 function launchOptions() {
   const v = process.env.PRERENDER_CHROMIUM;

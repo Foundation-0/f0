@@ -29,7 +29,8 @@ concurrency:
 jobs:
   build:
     if: github.repository == 'Foundation-0/f0'
-    runs-on: ubuntu-latest
+    # Keep the browser dependency installation on a supported, explicit Ubuntu release.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: read
@@ -70,11 +71,11 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.source.outputs.publish == 'true'
         with:
-          node-version: '22'
+          node-version-file: '.node-version'
 
-      - name: Install Playwright 1.56.1 and its Chromium
+      - name: Install locked Playwright and its Chromium
         if: steps.source.outputs.publish == 'true'
-        run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+        run: npm ci --ignore-scripts && node scripts/check_browser_toolchain.mjs && npx --no-install playwright install --with-deps chromium
 
       - name: Bake the forum page's no-JavaScript copy
         if: steps.source.outputs.publish == 'true'

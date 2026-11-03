@@ -20,17 +20,18 @@ concurrency:
 
 jobs:
   prerender:
-    runs-on: ubuntu-latest
+    # Keep the browser dependency installation on a supported, explicit Ubuntu release.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version-file: '.node-version'
 
-      - name: Install Playwright 1.56.1 and its Chromium
-        run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+      - name: Install locked Playwright and its Chromium
+        run: npm ci --ignore-scripts && node scripts/check_browser_toolchain.mjs && npx --no-install playwright install --with-deps chromium
 
       - name: Prerender the data-rendered parts into the HTML
         run: node scripts/prerender.mjs

@@ -45,7 +45,7 @@
  *   node scripts/prerender.mjs docs/ledger/index.html   only these pages
  *   node scripts/prerender.mjs --check             render and compare only; exit 1 if any file would change
  *
- * Needs Playwright (npm i --no-save playwright@1.56.1, or PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs)
+ * Needs Playwright (npm ci --ignore-scripts, or PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs)
  * and a Chromium. PRERENDER_CHROMIUM=playwright uses Playwright's own download (npx playwright install
  * chromium; this is what CI sets); PRERENDER_CHROMIUM=/path/to/chrome uses that binary; unset, the script
  * uses /opt/pw-browsers/chromium-1194/chrome-linux/chrome when it exists, else Playwright's own.
@@ -267,7 +267,7 @@ async function loadPlaywright() {
   for (const t of tries) {
     try { return await import(path.isAbsolute(t) ? pathToFileURL(t).href : t); } catch { /* next */ }
   }
-  throw new Error('Playwright not found: run `npm i --no-save playwright@1.56.1` (or set PLAYWRIGHT_MODULE)');
+  throw new Error('Playwright not found: run `npm ci --ignore-scripts` (or set PLAYWRIGHT_MODULE)');
 }
 function launchOptions() {
   const v = process.env.PRERENDER_CHROMIUM;
