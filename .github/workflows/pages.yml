@@ -29,7 +29,8 @@ concurrency:
 jobs:
   build:
     if: github.repository == 'Foundation-0/f0'
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1 supports Ubuntu 24.04, not newer ubuntu-latest images.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: read
