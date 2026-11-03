@@ -53,8 +53,11 @@ node scripts/prerender.mjs
 It serves `docs/` locally, opens every page that has `<!--prerender:NAME-->` markers in headless Chromium
 with the network to GitHub blocked, and writes what each page's own script rendered back between its
 markers. Commit the changed `docs/**/*.html` with the data. It needs Playwright
-(`npm i --no-save playwright@1.56.1 && npx playwright install chromium`; set `PRERENDER_CHROMIUM=playwright`
+(use Node from `.node-version`, then `npm ci --ignore-scripts && npx --no-install playwright install chromium`; set `PRERENDER_CHROMIUM=playwright`
 to use that browser). `node scripts/prerender.mjs --check` only reports whether any page is out of date.
+The lockfile pins Playwright and its browser revision. Run `node scripts/check_browser_toolchain.mjs`
+to verify Node, Playwright and the bundled ws version. PR CI checks the forum page with this toolchain;
+it does not deploy or commit generated content.
 On `main`, the `prerender` workflow does the same and commits the result.
 
 After a change to `docs/data/ledger.json`, also refresh the share image, which shows every milestone and their
