@@ -1,8 +1,9 @@
 name: pages
-# Publish the site to GitHub Pages: docs/ as it is on main, plus a forum index (docs/data/discussions.json)
-# and the forum page's no-JavaScript copy, both built fresh from GitHub Discussions at deploy time.
-# The built index is published, never committed: a thread removed from the forum leaves the site at the
-# next deploy, and nothing written in the forum enters the repository's history.
+# Publish the site to GitHub Pages: docs/ as it is on main, plus a forum index (docs/data/discussions.json),
+# the forum page's no-JavaScript copy (from that index), and freshly baked no-JavaScript copies of every
+# other data-rendered page (scripts/prerender.mjs), all built at deploy time.
+# None of that generated HTML is committed: prerendered pages track live data through this workflow, and
+# the forum index leaves the site when a thread is removed, without anything from the forum entering git.
 #
 # Runs on every push to main, when a thread or a comment changes, daily as a backstop, or by hand.
 # It publishes only when Settings -> Pages -> Source is "GitHub Actions". While Pages still builds from the
@@ -76,9 +77,9 @@ jobs:
         if: steps.source.outputs.publish == 'true'
         run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
 
-      - name: Bake the forum page's no-JavaScript copy
+      - name: Bake every data-rendered page's no-JavaScript copy
         if: steps.source.outputs.publish == 'true'
-        run: node scripts/prerender.mjs docs/forum/index.html
+        run: node scripts/prerender.mjs
         env:
           PRERENDER_CHROMIUM: playwright
 

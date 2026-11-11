@@ -9,6 +9,8 @@ on:
     - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
+# Pushes to main require bypassing branch protection (same GH006 as the old prerender workflow).
+# Until the update pipeline uses a bypass token or opens PRs, scheduled runs commit locally then fail on push.
 permissions:
   contents: write
 
