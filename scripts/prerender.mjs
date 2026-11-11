@@ -4,8 +4,8 @@
  *
  *     After changing docs/data (or a page script that renders from it), run:
  *         node scripts/prerender.mjs
- *     and commit the changed docs/**\/*.html with the data. CI does the same on main
- *     (.github/workflows/prerender.yml).
+ *     and commit the changed docs/**\/*.html with the data if you want them in git; on publish,
+ *     CI bakes them at deploy time instead (.github/workflows/pages.yml).
  *
  * Why. Pages draw their lists, cards and counts from docs/data/*.json in the browser. Each such part also
  * ships a static copy inside the HTML, so the page reads without JavaScript (and before the data arrives).
