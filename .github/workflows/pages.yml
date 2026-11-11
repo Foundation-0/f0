@@ -29,7 +29,7 @@ concurrency:
 jobs:
   build:
     if: github.repository == 'Foundation-0/f0'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56.1 has no chromium build for ubuntu26.04 (ubuntu-latest)
     timeout-minutes: 15
     permissions:
       contents: read
