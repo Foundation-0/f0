@@ -38,3 +38,7 @@ Do not merge when any item in the rule fails.
 - A draft needs to be marked ready first.
 - An approval on an old head needs a fresh approval on the new head.
 - A pull request stacked on an unmerged branch waits until that branch lands on main.
+
+## Proposed complementary guidance
+
+[GitHub collaboration guidance](GITHUB-COLLABORATION.md) describes native stacks, issue plans and media evidence. It does not change this SOP's review, current-head, check or parent-landing rules.
