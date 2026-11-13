@@ -23,10 +23,10 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 
 # Typed-in constants. Neither is derived in this file.
-# EPS_C25_DIVISOR: the "/4" in the C25 ceiling is a divisor typed in to match the
-# project-asma figure 10179/563920; it is not derived here.
-# C25_SEPARATION_THRESHOLD: 1/60 is a benchmark choice (the separation bar used
-# in project-asma), not a quantity this file computes.
+# EPS_C25_DIVISOR: the "/4" in the C25 ceiling is typed in. project-asma's
+# tools/verify_identifiability_and_c20.py types the same divisor; neither derives it.
+# C25_SEPARATION_THRESHOLD: 1/60 is a benchmark choice made in project-asma, not
+# a quantity this file computes.
 EPS_C25_DIVISOR = 4
 C25_SEPARATION_THRESHOLD = Fraction(1, 60)
 
