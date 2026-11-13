@@ -9,6 +9,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import acq_kernel as acq
 
 
+CHANNEL = "assay-channel"
+
+
+def control(y: Fraction) -> acq.NullControl:
+    return acq.NullControl(y, "independent-c0-control", CHANNEL, Fraction(0, 1))
+
+
 class TestAnchoredConservationQuotient(unittest.TestCase):
     def test_portfolio_witness_suite(self) -> None:
         cert = acq.run_portfolio_suite()
@@ -18,19 +25,74 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
         self.assertEqual(cert["weft_midrank_restored_auc"], "1")
         self.assertEqual(cert["soko_certified_floor"], 3)
 
-    def test_unanchored_pgl2_indistinguishability_and_anchor_resolution(self) -> None:
-        # Pure selection (c=0, r=6) with bleed alpha=1/2 equals true conversion (c=1/2, r=6, alpha=0) at all p
+    def test_unanchored_pgl2_indistinguishability(self) -> None:
+        """Pure selection with bleed 1/2 equals true conversion c = 1/2 at every p."""
         for num in range(0, 11):
             p = Fraction(num, 10)
             y_bleed = acq.observe_contaminated_fraction(p, Fraction(6, 1), Fraction(0, 1), Fraction(1, 2))
             y_conv = acq.observe_contaminated_fraction(p, Fraction(6, 1), Fraction(1, 2), Fraction(0, 1))
             self.assertEqual(y_bleed, y_conv)
-        # Measuring p=0 anchor separates them deterministically
+
+    def test_independent_control_separates_bleed_from_conversion(self) -> None:
+        r, p1, p2 = Fraction(6, 1), Fraction(1, 20), Fraction(3, 8)
+        # Bleed world: c = 0, alpha = 1/2. The independent c = 0 control reads 1/2.
+        y1 = acq.observe_contaminated_fraction(p1, r, Fraction(0, 1), Fraction(1, 2))
+        y2 = acq.observe_contaminated_fraction(p2, r, Fraction(0, 1), Fraction(1, 2))
+        bleed = acq.recover_anchored_parameters(control(Fraction(1, 2)), "sample", CHANNEL, p1, y1, p2, y2)
+        self.assertEqual((bleed["c"], bleed["r"]), (0, r))
+        # Conversion world: c = 1/2, alpha = 0. The independent control reads 0.
+        y1 = acq.observe_contaminated_fraction(p1, r, Fraction(1, 2), Fraction(0, 1))
+        y2 = acq.observe_contaminated_fraction(p2, r, Fraction(1, 2), Fraction(0, 1))
+        conv = acq.recover_anchored_parameters(control(Fraction(0, 1)), "sample", CHANNEL, p1, y1, p2, y2)
+        self.assertEqual((conv["c"], conv["r"]), (Fraction(1, 2), r))
+
+    def test_conversion_recovered_with_nonzero_bleed(self) -> None:
+        r, c, alpha = Fraction(6, 1), Fraction(1, 2), Fraction(1, 10)
         p1, p2 = Fraction(1, 20), Fraction(3, 8)
-        y1 = acq.observe_contaminated_fraction(p1, Fraction(6, 1), Fraction(0, 1), Fraction(1, 2))
-        y2 = acq.observe_contaminated_fraction(p2, Fraction(6, 1), Fraction(0, 1), Fraction(1, 2))
-        self.assertEqual(acq.recover_anchored_parameters(Fraction(1, 2), p1, y1, p2, y2)["c"], 0)
-        self.assertEqual(acq.recover_anchored_parameters(Fraction(0, 1), p1, y1, p2, y2)["c"], Fraction(1, 2))
+        y1 = acq.observe_contaminated_fraction(p1, r, c, alpha)
+        y2 = acq.observe_contaminated_fraction(p2, r, c, alpha)
+        rec = acq.recover_anchored_parameters(control(alpha), "sample", CHANNEL, p1, y1, p2, y2)
+        self.assertEqual((rec["c"], rec["r"]), (c, r))
+
+    def test_sample_own_endpoint_is_rejected_as_anchor(self) -> None:
+        r, c, alpha = Fraction(6, 1), Fraction(1, 2), Fraction(0, 1)
+        p1, p2 = Fraction(1, 20), Fraction(3, 8)
+        endpoint = acq.observe_contaminated_fraction(Fraction(0, 1), r, c, alpha)
+        self.assertEqual(endpoint, Fraction(1, 2))  # conversion shows up as apparent bleed
+        y1 = acq.observe_contaminated_fraction(p1, r, c, alpha)
+        y2 = acq.observe_contaminated_fraction(p2, r, c, alpha)
+        own = acq.NullControl(endpoint, "sample", CHANNEL, Fraction(0, 1))
+        with self.assertRaises(ValueError):
+            acq.recover_anchored_parameters(own, "sample", CHANNEL, p1, y1, p2, y2)
+
+    def test_why_the_endpoint_cannot_anchor(self) -> None:
+        """If the endpoint is passed off as an independent control, conversion is erased.
+
+        The kernel checks declared provenance only. This test records the failure
+        the provenance check exists to prevent.
+        """
+        r, c = Fraction(6, 1), Fraction(1, 2)
+        p1, p2 = Fraction(1, 20), Fraction(3, 8)
+        endpoint = acq.observe_contaminated_fraction(Fraction(0, 1), r, c, Fraction(0, 1))
+        y1 = acq.observe_contaminated_fraction(p1, r, c, Fraction(0, 1))
+        y2 = acq.observe_contaminated_fraction(p2, r, c, Fraction(0, 1))
+        disguised = acq.NullControl(endpoint, "other-name", CHANNEL, Fraction(0, 1))
+        self.assertEqual(acq.recover_anchored_parameters(disguised, "sample", CHANNEL, p1, y1, p2, y2)["c"], 0)
+
+    def test_missing_or_invalid_control_raises(self) -> None:
+        p1, p2 = Fraction(1, 20), Fraction(3, 8)
+        y1, y2 = Fraction(1, 5), Fraction(1, 2)
+        args = ("sample", CHANNEL, p1, y1, p2, y2)
+        with self.assertRaises(ValueError):
+            acq.recover_anchored_parameters(None, *args)
+        with self.assertRaises(ValueError):
+            acq.recover_anchored_parameters(Fraction(0, 1), *args)  # type: ignore[arg-type]
+        with self.assertRaises(ValueError):
+            acq.recover_anchored_parameters(acq.NullControl(Fraction(0, 1), "ctrl", CHANNEL, Fraction(1, 4)), *args)
+        with self.assertRaises(ValueError):
+            acq.recover_anchored_parameters(acq.NullControl(Fraction(0, 1), "ctrl", "other-channel", Fraction(0, 1)), *args)
+        with self.assertRaises(ValueError):
+            acq.recover_anchored_parameters(control(Fraction(1, 1)), *args)
 
     def test_inadmissible_quotient_edge_rejected(self) -> None:
         # Planted F-11 over-estimating heuristic edge (h(0)=4 > 1 + h(1)=2) must fail closed

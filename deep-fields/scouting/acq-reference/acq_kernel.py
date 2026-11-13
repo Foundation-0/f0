@@ -3,7 +3,7 @@
 Anchored Conservation Quotient (ACQ) verification architecture.
 
 Unifies:
-  - Gate 1: Null-boundary channel-bleed deflation & within-shard mid-rank pooling
+  - Gate 1: Channel-bleed deflation against an independent c = 0 control & within-shard mid-rank pooling
   - Gate 2: Step-admissible quotient lower-bound & ordinal budget conservation
   - Gate 3: Survival-ratio affine linearization & division-free regime triggers
   - Gate 4: Comment-aware Lean 4 `Init` & Python checker anti-tautology auditing
@@ -12,13 +12,14 @@ Unifies:
 from __future__ import annotations
 
 import ast
+from dataclasses import dataclass
 from fractions import Fraction
 import hashlib
 import json
 import os
 import re
 import sys
-from typing import Dict, List, Sequence, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 
 # Typed-in constants. Neither is derived in this file.
@@ -52,18 +53,54 @@ def observe_contaminated_fraction(p: Fraction, r: Fraction, c: Fraction, alpha: 
     return (1 - alpha) * q + alpha
 
 
+@dataclass(frozen=True)
+class NullControl:
+    """A bleed measurement taken on an independent specimen with known c = 0.
+
+    The model is y(p) = alpha + (1 - alpha) * q(p, r, c). At p = 0, q = c, so a
+    sample's own p = 0 endpoint is alpha + (1 - alpha) * c. That mixes bleed with
+    conversion and cannot anchor alpha. A valid anchor is a different specimen
+    that has no conversion (for example a recombinant paralog control with
+    c = 0), read on the same channel as the sample, so y_control = alpha.
+
+    The kernel checks the declared provenance (distinct specimen, same channel,
+    known conversion 0). It cannot tell whether the declared specimen really has
+    c = 0; that is a wet-lab or data-provenance fact the caller must supply.
+    """
+
+    y: Fraction
+    specimen_id: str
+    channel_id: str
+    known_conversion: Fraction
+
+
 def recover_anchored_parameters(
-    alpha_null: Fraction,
+    control: Optional[NullControl],
+    sample_id: str,
+    channel_id: str,
     p_low: Fraction,
     y_low: Fraction,
     p_high: Fraction,
     y_high: Fraction,
 ) -> Dict[str, Fraction]:
-    """Deflates `p = 0` bleed `alpha_null` and recovers exact `(r, c)` from two
-    mixtures via `Phi(p) = (1 - p) / (1 - q_corr(p)) = ((r - 1)/(1 - c))*p + 1/(1 - c)`.
+    """Deflates the channel bleed measured on `control` and recovers exact `(r, c)`
+    from two mixtures of the sample via
+    `Phi(p) = (1 - p) / (1 - q_corr(p)) = ((r - 1)/(1 - c))*p + 1/(1 - c)`.
+
+    Raises ValueError when the control is missing, is not a NullControl, is the
+    sample itself, has a nonzero known conversion, or is on another channel.
     """
+    if control is None or not isinstance(control, NullControl):
+        raise ValueError("An independent c = 0 control measurement (NullControl) is required.")
+    if control.specimen_id == sample_id:
+        raise ValueError("The sample's own p = 0 endpoint cannot anchor alpha; use an independent c = 0 control.")
+    if control.channel_id != channel_id:
+        raise ValueError("Control and sample must be read on the same channel.")
+    if control.known_conversion != 0:
+        raise ValueError("The control specimen must have known conversion c = 0.")
+    alpha_null = control.y
     if not (Fraction(0, 1) <= alpha_null < Fraction(1, 1)):
-        raise ValueError("Null anchor alpha must lie in [0, 1).")
+        raise ValueError("Control bleed must lie in [0, 1).")
     if not (Fraction(0, 1) < p_low < p_high < Fraction(1, 1)):
         raise ValueError("Requires 0 < p_low < p_high < 1.")
 
@@ -79,14 +116,12 @@ def recover_anchored_parameters(
     if intercept <= 0:
         raise ValueError("Non-positive survival intercept.")
 
-    c_rec = 1 - Fraction(1, 1) / intercept
-    r_rec = 1 + slope / intercept
     return {
         "alpha_null": alpha_null,
         "Phi_intercept": intercept,
         "Phi_slope": slope,
-        "c": c_rec,
-        "r": r_rec,
+        "c": 1 - Fraction(1, 1) / intercept,
+        "r": 1 + slope / intercept,
     }
 
 
@@ -305,8 +340,9 @@ def run_portfolio_suite() -> Dict[str, object]:
     _require(eps_c25 == Fraction(10179, 563920), f"C25 ceiling is {eps_c25}, expected 10179/563920")
     _require(eps_c25 > C25_SEPARATION_THRESHOLD, f"C25 ceiling {eps_c25} does not exceed {C25_SEPARATION_THRESHOLD}")
 
+    paralog_control = NullControl(Fraction(3, 20), "recombinant-paralog-control", "assay-channel", Fraction(0, 1))
     rec_asma = recover_anchored_parameters(
-        Fraction(3, 20), pL,
+        paralog_control, "snapshot-mixtures", "assay-channel", pL,
         observe_contaminated_fraction(pL, Fraction(11, 1), Fraction(1, 4), Fraction(3, 20)),
         pH,
         observe_contaminated_fraction(pH, Fraction(11, 1), Fraction(1, 4), Fraction(3, 20)),
@@ -346,8 +382,9 @@ def run_portfolio_suite() -> Dict[str, object]:
     _require(soko_lb["certified_floor"] == 3, f"toy certified floor is {soko_lb['certified_floor']}")
 
     # 5. exoplanets-frontier: null-control deflation on a synthetic mixture
+    null_control = NullControl(Fraction(1, 10), "inverted-null-control", "flux-channel", Fraction(0, 1))
     rec_exo = recover_anchored_parameters(
-        Fraction(1, 10), Fraction(1, 10),
+        null_control, "synthetic-mixtures", "flux-channel", Fraction(1, 10),
         observe_contaminated_fraction(Fraction(1, 10), Fraction(9, 1), Fraction(0, 1), Fraction(1, 10)),
         Fraction(1, 2),
         observe_contaminated_fraction(Fraction(1, 2), Fraction(9, 1), Fraction(0, 1), Fraction(1, 10)),
