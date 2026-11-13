@@ -1,12 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
   <title>Foundation0</title>
-  <!-- The incentre mark (docs/index.html #zero): a square, its diagonals, and the incircle of each of the four
-       triangles, r = (sqrt2 - 1) x half-side. Neighbouring incircles touch: gold (biological) meets cyan (digital). -->
+  <!-- Small cut of the incentre mark (docs/index.html #zero) for tab sizes: same circles, heavier lines, no dots. -->
   <rect x="-50" y="-50" width="100" height="100" rx="20" fill="#070b0e"/>
-  <path d="M-38-38L38 38M38-38L-38 38" fill="none" stroke="#97a4a3" stroke-width="3"/>
-  <g fill="none" stroke-width="5.5">
-    <circle cy="-22.260" r="15.740" stroke="#e6b874"/><circle cy="22.260" r="15.740" stroke="#e6b874"/>
-    <circle cx="-22.260" r="15.740" stroke="#5ccfec"/><circle cx="22.260" r="15.740" stroke="#5ccfec"/>
-  </g>
-  <rect x="-38" y="-38" width="76" height="76" fill="none" stroke="#eeeadf" stroke-width="5.5"/>
+  <g fill="none" stroke-width="7"><circle cy="-25.775" r="14.725" stroke="#e6b874"/><circle cy="25.775" r="14.725" stroke="#e6b874"/><circle cx="-25.775" r="14.725" stroke="#5ccfec"/><circle cx="25.775" r="14.725" stroke="#5ccfec"/><circle r="5.749" stroke="#c5cbc5" stroke-width="3.6"/></g>
 </svg>
