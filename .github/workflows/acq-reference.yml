@@ -1,0 +1,43 @@
+name: acq-reference
+# Run the ACQ reference package under deep-fields/scouting/acq-reference:
+# its unittest suite, its CLI, and the Lean proof check with the pinned toolchain.
+# Separate from `site` because installing Lean needs the network, and `site`
+# reads only files in the repository.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'deep-fields/scouting/acq-reference/**'
+      - '.github/workflows/acq-reference.yml'
+  pull_request:
+    paths:
+      - 'deep-fields/scouting/acq-reference/**'
+      - '.github/workflows/acq-reference.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lean v4.35.0
+        run: |
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --no-modify-path --default-toolchain leanprover/lean4:v4.35.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Check the Lean version
+        run: lean --version | grep -F "version 4.35.0"
+
+      - name: Unit tests (kernel, planted lint vectors, Lean proof-check tests)
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -I -m unittest discover -s deep-fields/scouting/acq-reference -p 'test_*.py'
+
+      - name: Reference suite (python -O, so a witness check cannot depend on assert)
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -I -O deep-fields/scouting/acq-reference/acq_kernel.py
+
+      - name: Compile the Lean file and check the axioms of every theorem
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -I deep-fields/scouting/acq-reference/check_lean.py
