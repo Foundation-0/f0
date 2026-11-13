@@ -6,7 +6,7 @@ Unifies:
   - Gate 1: Channel-bleed deflation against an independent c = 0 control & within-shard mid-rank pooling
   - Gate 2: Step-admissible quotient lower-bound & ordinal budget conservation
   - Gate 3: Survival-ratio affine linearization & division-free regime triggers
-  - Gate 4: Comment-aware Lean 4 `Init` & Python checker anti-tautology auditing
+  - Gate 4: Lean 4 source lint (a token scan, not a proof check) & Python checker float/bare-except scan
 """
 
 from __future__ import annotations
@@ -240,69 +240,145 @@ def check_division_free_mitosis(
 
 
 # ---------------------------------------------------------------------------
-# Gate 4: Static Stock-Init Lean 4 & Dual-Oracle Python AST Hygiene Gate
+# Gate 4: Lean 4 source lint (not a proof check) & Python checker hygiene scan
 # ---------------------------------------------------------------------------
-FORBIDDEN_LEAN_TRUST = {"sorry", "admit", "axiom", "opaque", "native_decide"}
-FORBIDDEN_LEAN_SYNTAX = {"notation", "infix", "infixl", "infixr", "prefix", "postfix", "macro", "elab"}
-FORBIDDEN_LEAN_ATTRS = {"extern", "implemented_by", "csimp"}
+# SOURCE LINT ONLY. Everything in this section scans Lean text. It does not
+# elaborate the file, does not run the kernel and does not inspect axioms. A
+# clean result means "none of these known bad tokens appear". It is not evidence
+# that a theorem is proved. Proof status comes from compiling the file with the
+# pinned Lean toolchain and checking `#print axioms` (see check_lean.py and CI).
+LINT_SCOPE = "source-lint-not-proof-check"
+
+FORBIDDEN_LEAN_TRUST = {
+    "sorry", "sorryAx", "admit", "axiom", "opaque", "native_decide",
+    "ofReduceBool", "reduceBool", "trustCompiler", "skipKernelTC", "lcProof",
+}
+FORBIDDEN_LEAN_SYNTAX = {
+    "notation", "infix", "infixl", "infixr", "prefix", "postfix",
+    "macro", "macro_rules", "syntax", "elab", "elab_rules", "declare_syntax_cat",
+    "command_elab", "term_elab", "tactic_elab",
+}
+FORBIDDEN_LEAN_ATTRS = {"extern", "implemented_by", "csimp", "export"}
+FORBIDDEN_LEAN_UNSAFE = {"unsafe", "unsafeCast", "unsafeBaseIO", "unsafeIO"}
+FORBIDDEN_LEAN_EXEC = {"#eval", "#exit", "run_cmd", "run_elab", "run_meta", "initialize", "builtin_initialize"}
 NON_INIT_LEAN_TACTICS = {"ac_rfl", "ring", "ring_nf", "linarith", "nlinarith", "polyrith", "norm_num"}
+# Only the Init prefix may be imported. Mathlib, Std, Lean and any other module are rejected.
+ALLOWED_LEAN_IMPORT = re.compile(r"^Init(\.[A-Za-z_][A-Za-z0-9_']*)*$")
+
+_LEAN_TOKEN = re.compile(r"«[^»]*»|#[A-Za-z_]+|[^\W\d][\w'!?]*|\S")
+_LEAN_CHAR_LITERAL = re.compile(r"'(?:\\[^'\n]*|[^'\\\n])'")
+_LEAN_IMPORT_LINE = re.compile(r"^\s*(?:(?:public|meta|private)\s+)*import\b(.*)$")
 
 
 def _strip_lean_comments_keep_strings(src: str) -> str:
+    """Remove comments, blank out string literals and skip char literals.
+
+    Char literals such as '"' must be consumed as a unit. Otherwise the quote
+    starts a phantom string that can swallow real code from the scan.
+    """
     out: List[str] = []
     i, n, depth = 0, len(src), 0
     while i < n:
         if depth > 0:
             if src[i:i + 2] == "/-":
-                depth += 1; i += 2
+                depth += 1
+                i += 2
             elif src[i:i + 2] == "-/":
-                depth -= 1; i += 2
+                depth -= 1
+                i += 2
             else:
-                if src[i] == "\n": out.append("\n")
+                if src[i] == "\n":
+                    out.append("\n")
                 i += 1
         else:
             if src[i:i + 2] == "/-":
-                depth = 1; i += 2
+                depth = 1
+                i += 2
             elif src[i:i + 2] == "--":
-                while i < n and src[i] != "\n": i += 1
+                while i < n and src[i] != "\n":
+                    i += 1
+            elif src[i] == "'" and not (i > 0 and (src[i - 1].isalnum() or src[i - 1] in "_'")):
+                m = _LEAN_CHAR_LITERAL.match(src, i)
+                if m:
+                    out.append("'C'")
+                    i = m.end()
+                else:
+                    out.append(src[i])
+                    i += 1
             elif src[i] == '"':
-                out.append('"S"'); i += 1
+                out.append('"S"')
+                i += 1
                 while i < n and src[i] != '"':
-                    if src[i] == "\\" and i + 1 < n: i += 2
+                    if src[i] == "\\" and i + 1 < n:
+                        i += 2
                     else:
-                        if src[i] == "\n": out.append("\n")
+                        if src[i] == "\n":
+                            out.append("\n")
                         i += 1
-                if i < n: i += 1
+                if i < n:
+                    i += 1
             else:
-                out.append(src[i]); i += 1
+                out.append(src[i])
+                i += 1
     return "".join(out)
 
 
+def _lean_tokens(line: str) -> List[str]:
+    toks: List[str] = []
+    for raw in _LEAN_TOKEN.findall(line):
+        if raw.startswith("«"):
+            toks.extend(_LEAN_TOKEN.findall(raw[1:-1]))
+        else:
+            toks.append(raw)
+    return toks
+
+
 def audit_lean4_init_module(source: str, label: str = "<lean>") -> Dict[str, object]:
+    """SOURCE LINT for a stock-Lean-4-`Init` module. Not a proof check.
+
+    Flags known trust bypasses and portability problems by scanning tokens:
+    sorry, sorryAx, admit, axiom, opaque, native_decide and related kernel
+    escapes; any import outside `Init`; syntax and macro extensions; `#eval`
+    and other code that runs at elaboration; `unsafe` code; extern,
+    implemented_by and csimp attributes; non-Init tactics; Float carriers; and
+    nonlinear omega goals.
+
+    What it cannot do: it does not elaborate the file, so it cannot see a
+    bypass that is spelled in a way this scan does not know, and a clean result
+    proves nothing about the theorems. Use it as a cheap tripwire in front of
+    the real check (compile with the pinned Lean, then `#print axioms`).
+    """
     cleaned = _strip_lean_comments_keep_strings(source)
     findings: List[Dict[str, object]] = []
     for lineno, line in enumerate(cleaned.splitlines(), 1):
-        tokens = re.findall(r"@\[[^\]]+\]|[A-Za-z_][A-Za-z0-9_']*|\S", line)
-        for tok in tokens:
+        for tok in _lean_tokens(line):
             if tok in FORBIDDEN_LEAN_TRUST:
                 findings.append({"line": lineno, "code": "TRUST_BYPASS", "detail": tok})
             elif tok in FORBIDDEN_LEAN_SYNTAX:
                 findings.append({"line": lineno, "code": "SYNTAX_OVERRIDE", "detail": tok})
-            elif tok.startswith("@["):
-                for attr in FORBIDDEN_LEAN_ATTRS:
-                    if re.search(rf"\b{attr}\b", tok[2:-1]):
-                        findings.append({"line": lineno, "code": "UNSOUND_ATTR", "detail": tok})
+            elif tok in FORBIDDEN_LEAN_ATTRS:
+                findings.append({"line": lineno, "code": "UNSOUND_ATTR", "detail": tok})
+            elif tok in FORBIDDEN_LEAN_UNSAFE:
+                findings.append({"line": lineno, "code": "UNSAFE_CODE", "detail": tok})
+            elif tok in FORBIDDEN_LEAN_EXEC:
+                findings.append({"line": lineno, "code": "ELABORATION_TIME_EXEC", "detail": tok})
             elif tok in NON_INIT_LEAN_TACTICS:
                 findings.append({"line": lineno, "code": "NON_INIT_TACTIC", "detail": tok})
-        if re.match(r"^\s*import\s+(Mathlib|Std)\b", line):
-            findings.append({"line": lineno, "code": "NON_INIT_IMPORT", "detail": line.strip()})
+            elif tok == "prelude":
+                findings.append({"line": lineno, "code": "NON_INIT_IMPORT", "detail": "prelude"})
+        imp = _LEAN_IMPORT_LINE.match(line)
+        if imp:
+            mods = [m for m in re.split(r"[\s,]+", imp.group(1).strip()) if m and m not in {"all", "runtime"}]
+            bad = [m for m in mods if not ALLOWED_LEAN_IMPORT.match(m)]
+            if bad or not mods:
+                findings.append({"line": lineno, "code": "NON_INIT_IMPORT", "detail": line.strip()})
         if re.search(r":\s*Float\b", line):
             findings.append({"line": lineno, "code": "FLOAT_SPEC_CARRIER", "detail": line.strip()})
         if re.search(r":=\s*by\s+omega\b", line):
             lhs = line.split(":=")[0]
             if re.search(r"\b\d+\s*\*\s*[A-Za-z_]\w*\s*\*\s*\(", lhs):
                 findings.append({"line": lineno, "code": "NONLINEAR_OMEGA_PRODUCT", "detail": lhs.strip()})
-    return {"label": label, "ok": len(findings) == 0, "findings": findings}
+    return {"label": label, "scope": LINT_SCOPE, "ok": len(findings) == 0, "findings": findings}
 
 
 def audit_python_exact_checker(source: str) -> Dict[str, object]:
@@ -394,7 +470,7 @@ def run_portfolio_suite() -> Dict[str, object]:
 
     return {
         "schema": "foundation-0.f0.acq-reference-certificates.v1",
-        "lean_init_audit_ok": True,
+        "lean_source_lint_ok": True,
         "project_asma_c25_ceiling": str(eps_c25),
         "weft_dust_regime": dust_gate["regime"],
         "weft_midrank_restored_auc": str(shift_res["midrank_pooled_auc"]),

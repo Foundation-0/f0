@@ -19,7 +19,7 @@ def control(y: Fraction) -> acq.NullControl:
 class TestAnchoredConservationQuotient(unittest.TestCase):
     def test_portfolio_witness_suite(self) -> None:
         cert = acq.run_portfolio_suite()
-        self.assertTrue(cert["lean_init_audit_ok"])
+        self.assertTrue(cert["lean_source_lint_ok"])
         self.assertEqual(cert["project_asma_c25_ceiling"], "10179/563920")
         self.assertEqual(cert["weft_dust_regime"], "OPTIMIZER_STUCK")
         self.assertEqual(cert["weft_midrank_restored_auc"], "1")
@@ -101,7 +101,7 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
         self.assertEqual(bad["bellman_violations"], 1)
         self.assertIsNone(bad["certified_floor"])
 
-    def test_lean_init_auditor_catches_adversarial_mutations(self) -> None:
+    def test_lean_lint_catches_adversarial_mutations(self) -> None:
         adv_src = (
             'def x : Int := 1; axiom bad : False\n'
             'notation:50 a " = " b => True\n'
@@ -111,11 +111,70 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
         )
         res = acq.audit_lean4_init_module(adv_src, label="planted")
         self.assertFalse(res["ok"])
-        codes = {f["code"] for f in res["findings"]}
         self.assertEqual(
-            codes,
+            {f["code"] for f in res["findings"]},
             {"TRUST_BYPASS", "SYNTAX_OVERRIDE", "FLOAT_SPEC_CARRIER", "NONLINEAR_OMEGA_PRODUCT", "NON_INIT_TACTIC"},
         )
+
+    def test_lean_lint_is_labelled_a_source_lint(self) -> None:
+        res = acq.audit_lean4_init_module("def x : Int := 1\n")
+        self.assertEqual(res["scope"], "source-lint-not-proof-check")
+        self.assertIn("not a proof check", (acq.audit_lean4_init_module.__doc__ or "").lower())
+
+    def test_lean_lint_planted_vectors(self) -> None:
+        planted = {
+            "direct sorryAx": ("theorem forged : False := sorryAx False true\n", "TRUST_BYPASS"),
+            "qualified sorryAx": ("theorem forged : False := Lean.sorryAx False true\n", "TRUST_BYPASS"),
+            "guillemet sorry": ("theorem forged : False := \u00absorry\u00bb\n", "TRUST_BYPASS"),
+            "sorry": ("theorem forged : False := by sorry\n", "TRUST_BYPASS"),
+            "axiom": ("axiom bad : False\n", "TRUST_BYPASS"),
+            "native_decide": ("theorem t : 1 + 1 = 2 := by native_decide\n", "TRUST_BYPASS"),
+            "skip kernel": ("set_option debug.skipKernelTC true\n", "TRUST_BYPASS"),
+            "custom import": ("import Custom.Untrusted\n\ntheorem t : True := trivial\n", "NON_INIT_IMPORT"),
+            "Mathlib import": ("import Mathlib.Tactic\n", "NON_INIT_IMPORT"),
+            "Std import": ("import Std\n", "NON_INIT_IMPORT"),
+            "Lean import": ("import Lean\n", "NON_INIT_IMPORT"),
+            "mixed import line": ("import Init Custom.Untrusted\n", "NON_INIT_IMPORT"),
+            "lookalike prefix": ("import InitEvil\n", "NON_INIT_IMPORT"),
+            "prelude": ("prelude\n", "NON_INIT_IMPORT"),
+            "syntax": ('syntax "foo" : term\n', "SYNTAX_OVERRIDE"),
+            "macro_rules": ("macro_rules | `(foo) => `(True)\n", "SYNTAX_OVERRIDE"),
+            "macro": ('macro "foo" : term => `(True)\n', "SYNTAX_OVERRIDE"),
+            "#eval": ("#eval IO.println \"hi\"\n", "ELABORATION_TIME_EXEC"),
+            "#exit": ("#exit\ntheorem later : False := sorry\n", "ELABORATION_TIME_EXEC"),
+            "unsafe": ("unsafe def f : Nat := 0\n", "UNSAFE_CODE"),
+            "extern": ('@[extern "c_f"] def f : Nat := 0\n', "UNSOUND_ATTR"),
+            "implemented_by": ("@[implemented_by g] def f : Nat := 0\n", "UNSOUND_ATTR"),
+            "attribute implemented_by": ("attribute [implemented_by g] f\n", "UNSOUND_ATTR"),
+            "multi-line attribute": ("@[simp,\n  implemented_by g]\ndef f : Nat := 0\n", "UNSOUND_ATTR"),
+            "char literal hides code": (
+                "def q : Char := '\"'\n"
+                "theorem forged : False := sorryAx False true\n"
+                "def q2 : Char := '\"'\n",
+                "TRUST_BYPASS",
+            ),
+        }
+        for name, (src, code) in planted.items():
+            with self.subTest(vector=name):
+                res = acq.audit_lean4_init_module(src)
+                self.assertFalse(res["ok"], res)
+                self.assertIn(code, {f["code"] for f in res["findings"]})
+
+    def test_lean_lint_accepts_clean_sources(self) -> None:
+        clean = {
+            "no import": "theorem t : 1 + 1 = 2 := by decide\n",
+            "Init import": "import Init\n\ntheorem t : 1 + 1 = 2 := by decide\n",
+            "Init submodule": "import Init.Data.Nat\n",
+            "forbidden words only in comments": "/- sorry, sorryAx, import Mathlib, #eval -/\n-- axiom unsafe\ndef x : Nat := 1\n",
+            "forbidden words only in strings": 'def s : String := "sorryAx import Mathlib"\n',
+            "identifier with prime": "def x' : Nat := 1\ndef y : Nat := x'\n",
+        }
+        for name, src in clean.items():
+            with self.subTest(source=name):
+                res = acq.audit_lean4_init_module(src)
+                self.assertTrue(res["ok"], res)
+        with open(os.path.join(HERE, "AnchoredConservationQuotient.lean"), encoding="utf-8") as fh:
+            self.assertTrue(acq.audit_lean4_init_module(fh.read())["ok"])
 
     def test_python_exact_checker_flags_float_literals(self) -> None:
         res = acq.audit_python_exact_checker("def check(x):\n    return abs(x - 0.5) < 1e-9\n")
