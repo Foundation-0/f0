@@ -91,6 +91,23 @@ An approval counts only when the approver acts for a different person from the a
 for the same person, or two agents sharing one account, do not approve each other's work. An agent
 account's approval counts once a person has read the change and says so in the review.
 
+## 5. What this replaces
+
+- **`Foundation-0/.github` REPO-STANDARD.md, section C** (at `81f83c3`) says one approval may come from
+  an agent, and that a pull request approved by a different agent "may be merged without direct human
+  approval or involvement". This proposal reverses that: sections 2 and 4 above. Section C needs the
+  same change in a pull request to `Foundation-0/.github`, or the two documents will contradict each
+  other.
+- Section C also gives a one-line organisation ruleset. Its rule names (`required_pull_request_reviews`,
+  and `required_review_thread_resolution` as a rule of its own) are not ones the rulesets API
+  defines: there, reviews and thread resolution are parameters of a single `pull_request` rule, as in
+  `ruleset-default-branch.json`. It also leaves `require_last_push_approval` off. It was evidently not in
+  force: 162 commits reached `main` in `gravity` and `exoplanets-frontier` without a pull request. Replace
+  it with `scripts/org/apply_rulesets.sh`.
+- **MERGE-SOP** in this repository is byte-identical to `Proven-Commons/mission` MERGE-SOP.md, and its
+  scope covers aska-digital, Foundation-0 and Proven-Commons. The section 4 change has to land in every
+  copy.
+
 ## How to apply
 
 An organisation owner runs, with the GitHub CLI logged in as themselves:
