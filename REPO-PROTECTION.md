@@ -112,3 +112,23 @@ Then make the account changes in section 2 by hand, in the organisation's People
 Expect friction for a few days. Agents that push to `main` will get "GH013: Repository rule
 violations"; they need to open a pull request instead. Workflows that push to `main` (for example
 `f0`'s `update.yml`, now disabled) will need to open pull requests too.
+
+## Recovering overwritten work
+
+Two read-only scripts look for work that a force push, a reset or a delete-and-recreate left behind.
+
+```
+scripts/org/find_force_pushes.sh --since 2026-10-01           # an owner, with the GitHub CLI
+scripts/org/find_lost_local.sh ~/code ~/agent-workspaces      # on each machine agents worked on
+```
+
+`find_force_pushes.sh` reads GitHub's record of every force push on every branch, and says which
+overwritten commits are missing from the default branch and whether GitHub still serves them. With
+`--rescue` it creates a `rescue/<date>-<sha>` branch at each such commit so it can't be
+garbage-collected; restore from there with a pull request.
+
+`find_lost_local.sh` checks every clone under the folders it is given: local branches never pushed,
+commits only the reflog still holds (a clone that fetched before someone force-pushed keeps the old
+commits for 30 to 90 days), stashes and uncommitted changes. `--sha256 HASH` also finds a file by its
+hash, in the working tree or anywhere in the object store, for files a `SHA256SUMS` manifest
+certifies but no commit contains.
