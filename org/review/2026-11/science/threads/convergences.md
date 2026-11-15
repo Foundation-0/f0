@@ -37,6 +37,12 @@ What it became: a reading of Maxwell's bound as "one wall per pair", and the sea
 
 What it became: a closed form for every flat four-charge configuration, and the second of the two certified configurations with 11. Note: `four-charges-eleven.md`.
 
+### 4a. Levels stack
+
+[F] A point flat to order d - 1 can be unfolded one degree at a time, each at its own scale. Level p gives I(p) - 1 balance points, about p²/2. The counts 5, 7, 11, 17, 25 and on to 71 were found by three different programs. In exact 21-charge arithmetic the groups 1, 5, 7, 11, 17, 25 are proved.
+
+What it became: an argument that balance points can grow like n^(3/2). Note: `growth.md`.
+
 ## Patterns that are measured and not yet explained
 
 ### 5. Realizations turn real near equal edge lengths

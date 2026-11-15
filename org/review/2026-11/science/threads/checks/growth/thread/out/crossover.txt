@@ -1,0 +1,51 @@
+d= 3 n_flat~   4  hierarchical count >=      1  record      9  ratio count/n  0.25  
+d= 4 n_flat~   5  hierarchical count >=      6  record     24  ratio count/n  1.20  
+d= 5 n_flat~   8  hierarchical count >=     13  record     49  ratio count/n  1.62  
+d= 6 n_flat~  12  hierarchical count >=     24  record     89  ratio count/n  2.00  
+d= 7 n_flat~  16  hierarchical count >=     41  record    129  ratio count/n  2.56  
+d= 8 n_flat~  21  hierarchical count >=     66  record    184  ratio count/n  3.14  
+d= 9 n_flat~  27  hierarchical count >=     97  record    244  ratio count/n  3.59  
+d=10 n_flat~  33  hierarchical count >=    136  record    304  ratio count/n  4.12  
+d=11 n_flat~  40  hierarchical count >=    185  record    369  ratio count/n  4.62  
+d=12 n_flat~  48  hierarchical count >=    246  record    449  ratio count/n  5.12  
+d=15 n_flat~  75  hierarchical count >=    497  record    724  ratio count/n  6.63  
+d=20 n_flat~ 133  hierarchical count >=   1222  record   1304  ratio count/n  9.19  
+d=21 n_flat~ 147  hierarchical count >=   1421  record   1444  ratio count/n  9.67  
+d=22 n_flat~ 161  hierarchical count >=   1640  record   1584  ratio count/n 10.19  BEATS
+d=23 n_flat~ 176  hierarchical count >=   1881  record   1729  ratio count/n 10.69  BEATS
+d=24 n_flat~ 192  hierarchical count >=   2146  record   1889  ratio count/n 11.18  BEATS
+d=25 n_flat~ 208  hierarchical count >=   2433  record   2049  ratio count/n 11.70  BEATS
+d=26 n_flat~ 225  hierarchical count >=   2744  record   2224  ratio count/n 12.20  BEATS
+d=27 n_flat~ 243  hierarchical count >=   3081  record   2404  ratio count/n 12.68  BEATS
+d=28 n_flat~ 261  hierarchical count >=   3446  record   2584  ratio count/n 13.20  BEATS
+d=29 n_flat~ 280  hierarchical count >=   3837  record   2769  ratio count/n 13.70  BEATS
+d=30 n_flat~ 300  hierarchical count >=   4256  record   2969  ratio count/n 14.19  BEATS
+d=31 n_flat~ 320  hierarchical count >=   4705  record   3169  ratio count/n 14.70  BEATS
+d=32 n_flat~ 341  hierarchical count >=   5186  record   3384  ratio count/n 15.21  BEATS
+d=33 n_flat~ 363  hierarchical count >=   5697  record   3604  ratio count/n 15.69  BEATS
+d=34 n_flat~ 385  hierarchical count >=   6240  record   3824  ratio count/n 16.21  BEATS
+d=35 n_flat~ 408  hierarchical count >=   6817  record   4049  ratio count/n 16.71  BEATS
+d=36 n_flat~ 432  hierarchical count >=   7430  record   4289  ratio count/n 17.20  BEATS
+d=37 n_flat~ 456  hierarchical count >=   8077  record   4529  ratio count/n 17.71  BEATS
+d=38 n_flat~ 481  hierarchical count >=   8760  record   4784  ratio count/n 18.21  BEATS
+d=39 n_flat~ 507  hierarchical count >=   9481  record   5044  ratio count/n 18.70  BEATS
+d=40 n_flat~ 533  hierarchical count >=  10242  record   5304  ratio count/n 19.22  BEATS
+d=41 n_flat~ 560  hierarchical count >=  11041  record   5569  ratio count/n 19.72  BEATS
+d=42 n_flat~ 588  hierarchical count >=  11880  record   5849  ratio count/n 20.20  BEATS
+d=43 n_flat~ 616  hierarchical count >=  12761  record   6129  ratio count/n 20.72  BEATS
+d=44 n_flat~ 645  hierarchical count >=  13686  record   6424  ratio count/n 21.22  BEATS
+d=45 n_flat~ 675  hierarchical count >=  14653  record   6724  ratio count/n 21.71  BEATS
+d=46 n_flat~ 705  hierarchical count >=  15664  record   7024  ratio count/n 22.22  BEATS
+d=47 n_flat~ 736  hierarchical count >=  16721  record   7329  ratio count/n 22.72  BEATS
+d=48 n_flat~ 768  hierarchical count >=  17826  record   7649  ratio count/n 23.21  BEATS
+d=49 n_flat~ 800  hierarchical count >=  18977  record   7969  ratio count/n 23.72  BEATS
+d=50 n_flat~ 833  hierarchical count >=  20176  record   8304  ratio count/n 24.22  BEATS
+d=51 n_flat~ 867  hierarchical count >=  21425  record   8644  ratio count/n 24.71  BEATS
+d=52 n_flat~ 901  hierarchical count >=  22726  record   8984  ratio count/n 25.22  BEATS
+d=53 n_flat~ 936  hierarchical count >=  24077  record   9329  ratio count/n 25.72  BEATS
+d=54 n_flat~ 972  hierarchical count >=  25480  record   9689  ratio count/n 26.21  BEATS
+d=55 n_flat~1008  hierarchical count >=  26937  record  10049  ratio count/n 26.72  BEATS
+d=56 n_flat~1045  hierarchical count >=  28450  record  10424  ratio count/n 27.22  BEATS
+d=57 n_flat~1083  hierarchical count >=  30017  record  10804  ratio count/n 27.72  BEATS
+d=58 n_flat~1121  hierarchical count >=  31640  record  11184  ratio count/n 28.22  BEATS
+d=59 n_flat~1160  hierarchical count >=  33321  record  11569  ratio count/n 28.73  BEATS

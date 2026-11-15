@@ -1,0 +1,6 @@
+out/push3_b12_21_tr0.03.json runs 30 best counts {11: 30} final counts {11: 24, 7: 3, 5: 3} T start min/ nearest final min 3.867 0.000 max |dtheta| 1.8e-03 mean accepted 53
+out/push3_b12_7.json runs 30 best counts {11: 30} final counts {11: 25, 7: 4, 9: 1} T start min/ nearest final min 3.867 0.000 max |dtheta| 2.1e-03 mean accepted 50
+out/push3_flat_21_tr0.03.json runs 30 best counts {11: 30} final counts {11: 30} T start min/ nearest final min 1.176 1.172 max |dtheta| 1.4e-02 mean accepted 48
+out/push3_flat_7.json runs 30 best counts {11: 30} final counts {11: 30} T start min/ nearest final min 1.176 1.173 max |dtheta| 7.0e-03 mean accepted 64
+out/push3_short_21_tr0.03.json runs 30 best counts {11: 30} final counts {11: 30} T start min/ nearest final min 1.176 1.172 max |dtheta| 1.4e-02 mean accepted 64
+out/push3_short_7.json runs 30 best counts {11: 30} final counts {11: 30} T start min/ nearest final min 1.176 1.173 max |dtheta| 7.0e-03 mean accepted 59

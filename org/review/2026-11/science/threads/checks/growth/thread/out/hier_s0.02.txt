@@ -1,0 +1,5 @@
+d=3 s=0.02: complex 6 (Bezout 8, lost 2), real 4 (index1 2, index2 2), predicted 6, min|eig|/max 3.6e-01, |x| range 3.0e-02..3.5e-02, 0s
+d=4 s=0.02: complex 16 (Bezout 27, lost 11), real 9 (index1 3, index2 6), predicted 13, min|eig|/max 9.8e-02, |x| range 2.3e-02..9.1e-02, 0s
+d=5 s=0.02: complex 52 (Bezout 64, lost 12), real 16 (index1 8, index2 8), predicted 24, min|eig|/max 1.4e-01, |x| range 2.0e-02..6.4e-02, 0s
+d=6 s=0.02: complex 105 (Bezout 125, lost 20), real 25 (index1 12, index2 13), predicted 41, min|eig|/max 4.2e-02, |x| range 1.9e-02..1.3e-01, 0s
+d=7 s=0.02: complex 186 (Bezout 216, lost 30), real 44 (index1 22, index2 22), predicted 66, min|eig|/max 1.1e-02, |x| range 1.9e-02..8.4e-02, 1s

@@ -1,0 +1,8 @@
+p=4 fix=none start real 9 of 9 nonzero found (expected 19)
+  it 0: real 11 of 19
+  it 831: real 15 of 19
+p=4 fix=none seed=1: best 15 of 19; 84s
+p=6 fix=ico6 start real 19 of 45 nonzero found (expected 61)
+  it 0: real 21 of 61
+  it 162: real 23 of 61
+p=6 fix=ico6 seed=1: best 23 of 61; 157s

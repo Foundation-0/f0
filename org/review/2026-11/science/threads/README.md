@@ -31,16 +31,18 @@ Threads that followed from the first ones:
 | 12-vertex rigid graph | 3,904 of 6,180 realizations real, certified. The graph has no triangle, so it cannot raise the growth bound. | `l2288.md` |
 | Realizations near equal edge lengths | The real share is far higher near equal lengths. All-real directions exist for 8, 9 and 10 vertices. Numerical. | `unit-point.md` |
 | Walls between charges | Each index-2 balance point is a wall between two charges. Maxwell's bound is the count for one wall per pair. Two predictions made from this held. | `relational-geometry.md` |
+| Growth with the number of charges | Balance points can grow like n^(3/2), where every known construction grows like 10n. A four-step argument with a proof sketch, numerical checks of each step, and proved lower bounds of 26 for 9 charges and 87 near one point for 21. No single record is beaten. | `growth.md` |
 | Centres flat to high order | By an inversion rule, the centre of twelve equal charges on an icosahedron could give up to 125 balance points, against a record of 89. How many can be real is open and being worked. | `flat-centres.md` |
 | A light particle for the surviving residual | One fermion of 9 to 21 eV fits galaxies, groups and clusters. Its weakest point is the count of light species at recombination. A conjecture with stated tests. | `neutrino-like.md`, `fabric.md` |
 
 ## What is new and holds
 
 1. **Four charges with 11 balance points.** [F] Maxwell's bound for four charges is 9. Three configurations are certified, one of them with coordinates of five decimals. [I] It was found by looking where the problem is most degenerate: the centre of a regular tetrahedron of equal charges is a balance point of multiplicity 11. The July 2026 counterexample starts at five charges.
-2. **A rigid graph on 11 vertices with every realization real.** [F] 2,288 of 2,288, certified in exact arithmetic and checked by a third program written for this review. [I] It raises the best known growth rate for real realizations from 2.3780 to 2.4116 per vertex. A survey from February 2025 still quotes the older figure.
-3. **Exact counts for eight and nine point charges.** [F] 49 and 64, each equal to Maxwell's bound. No explicit configuration or exact count for these was found in print.
-4. **Thousands of sharper entries in the standard code tables.** [F] Every one has an exact certificate that three checkers accept. The method is old. What is new is running it across the tables.
-5. **227 more proved recurrences, and the law behind them.** [F] None of the empirical recurrences tested was false. [F] The recurrence for grids with one marked pair is the square of the recurrence for grids with none, and this is now a theorem.
+2. **Growth faster than linear.** [I] A point where the potential is flat to high order can be unfolded level by level, and the count of balance points then grows like the number of charges to the power 3/2. [F] Each step is checked numerically, and the pattern is proved as a lower bound in two exact configurations. It is an argument with a proof sketch, not yet a proof.
+3. **A rigid graph on 11 vertices with every realization real.** [F] 2,288 of 2,288, certified in exact arithmetic and checked by a third program written for this review. [I] It raises the best known growth rate for real realizations from 2.3780 to 2.4116 per vertex. A survey from February 2025 still quotes the older figure.
+4. **Exact counts for eight and nine point charges.** [F] 49 and 64, each equal to Maxwell's bound. No explicit configuration or exact count for these was found in print.
+5. **Thousands of sharper entries in the standard code tables.** [F] Every one has an exact certificate that three checkers accept. The method is old. What is new is running it across the tables.
+6. **227 more proved recurrences, and the law behind them.** [F] None of the empirical recurrences tested was false. [F] The recurrence for grids with one marked pair is the square of the recurrence for grids with none, and this is now a theorem.
 
 Novelty in every case means "no earlier report found" after a stated search. It is not a priority claim.
 
@@ -48,7 +50,7 @@ Novelty in every case means "no earlier report found" after a stated search. It 
 
 - [F] **Gravity, the zero-parameter claim.** Fast early-type galaxies show none of the extra mass it predicts, by nine standard errors. It also counts the modified-gravity boost twice.
 - [F] **Gravity, the threshold that falls with redshift.** The repository states this prediction itself. Of 41 galaxies at redshift 0.7 to 2.5, none shows the predicted dark fraction.
-- [I] **Maxwell's bound beyond nine charges.** Every known construction adds about 10 balance points per charge, and the bound grows with the square. Nothing known reaches the bound from 10 charges up.
+- [I] **Maxwell's bound beyond nine charges.** Every construction known before this pass adds about 10 balance points per charge, and the bound grows with the square. Nothing known reaches the bound from 10 charges up. The growth found here, n^(3/2), does not reach it either.
 
 A failed prediction that was stated in advance is a result. The repository wrote its redshift test down before anyone ran it, which is what made the test possible.
 

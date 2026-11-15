@@ -1,0 +1,12 @@
+p=3 sect/zon: homotopy nonzero 7 (expect 7), real 5, forced 3, max|x| real 269
+p=3 zon/sect: homotopy nonzero 6 (expect 7), real 4, forced 4, max|x| real 0.944
+p=4 sect/zon: homotopy nonzero 19 (expect 19), real 11, forced 8, max|x| real 1.07e+04
+p=4 zon/sect: homotopy nonzero 19 (expect 19), real 11, forced 9, max|x| real 2
+p=5 sect/zon: homotopy nonzero 36 (expect 37), real 19, forced 15, max|x| real 1.51e+03
+p=5 zon/sect: homotopy nonzero 34 (expect 37), real 18, forced 16, max|x| real 1.79
+p=6 sect/zon: homotopy nonzero 49 (expect 61), real 29, forced 24, max|x| real 3.68e+03
+p=6 zon/sect: homotopy nonzero 45 (expect 61), real 25, forced 25, max|x| real 2.66
+p=7 sect/zon: homotopy nonzero 71 (expect 91), real 31, forced 35, max|x| real 720
+p=7 zon/sect: homotopy nonzero 58 (expect 91), real 28, forced 36, max|x| real 2.44
+p=8 sect/zon: homotopy nonzero 97 (expect 127), real 41, forced 48, max|x| real 3.71e+03
+p=8 zon/sect: homotopy nonzero 77 (expect 127), real 35, forced 49, max|x| real 3.2

@@ -167,6 +167,10 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 - [F] In the family with two equal pairs the cubic is degenerate: its critical points fill a pair of lines through the flat point. The fourth-order term along those lines never vanishes (`c2v_family.py`), so the multiplicity stays at 10. `c2v_others.py` counts the one other point.
 - [F] `disc_scan.py` scanned 300,000 flat configurations for degenerate cubics. The deepest degeneracy it found is this family and the regular tetrahedron.
 
+[F] A second test started from the three certified configurations and tried to pull one more pair of complex solutions onto the real axis, with the engine of `maxwell-push.md`. In 180 runs the count never rose above 11.
+
+[F] At each seed, every non-real solution of the polynomial system belongs to a system with a negative charge, so none is close to becoming a balance point. In 2,250 random nearby configurations no count above 11 appeared. Programs and summaries are in `checks/four/push13/`.
+
 [I] So every route through a flat point stops at 11. The three cases reach the same number in three different ways, which suggests 11 is a real ceiling for this kind of construction. It says nothing about configurations with no flat point nearby.
 
 ## Open

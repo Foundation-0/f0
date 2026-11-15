@@ -47,6 +47,10 @@ This is the whole question, and it is open.
 
 [I] So the octahedron does not reach its record of 29 by this route, and probably not Maxwell's 25 either. The case that matters is the icosahedron, and it needs a better solver and a structured search. A worker is on it.
 
+## Answered since
+
+[F] `growth.md` answers the general question. A harmonic polynomial of degree d in three variables can have about d³/6 real critical points, by stacking levels at separated scales. That is enough for growth like n^(3/2), which that note argues in four steps and confirms with exact lower bounds for 9 and 21 charges. The icosahedron question below is still open.
+
 ## Why this could change the growth law
 
 [P] Spherical k-designs exist with a number of points that grows like k².

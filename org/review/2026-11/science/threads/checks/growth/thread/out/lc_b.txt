@@ -1,0 +1,6 @@
+p=5 fix=none start real 16 of 16 nonzero found (expected 37)
+  it 7: real 19 of 37
+p=5 fix=none seed=1: best 19 of 37; 126s
+p=6 fix=none start real 25 of 25 nonzero found (expected 61)
+  it 40: real 29 of 60
+p=6 fix=none seed=2: best 29 of 61; 166s
