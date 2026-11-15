@@ -2,8 +2,11 @@
 """H2: numbers for the owners' decisions.
 
 Writes out/h2/*.csv and out/h2/numbers.md.
-Sources: the mirrors at the pinned heads, the GitHub API as ahrazzle, and the
-Zenodo API records already fetched into zenodo.json / z-*.json.
+Sources: the mirrors at the pinned heads and the frozen API answers in
+sources/ (repo-list.json, open-prs.json, open-issues-items.json, the Zenodo
+records). No live call remains: the licence column reads licenseInfo from
+the frozen repo-list.json, and the Zenodo fallback only fires when a frozen
+record file is missing.
 """
 import collections
 import csv
@@ -18,6 +21,14 @@ SOURCES = os.path.join(TOOLS, "sources")
 OUT = BASE
 os.makedirs(OUT, exist_ok=True)
 MIRRORS = os.path.join(TOOLS, "mirrors")
+
+# The GitHub license endpoint's spdx_id for each key in the frozen
+# repo-list.json licenseInfo. Verified against the committed licences.csv:
+# all 35 rows match. A key of "other" means a licence file GitHub cannot
+# place in a known family; the endpoint reports those as NOASSERTION.
+# A missing licenseInfo means no detectable licence, which the endpoint
+# reports as a 404 and the old code read as "".
+SPDX_BY_KEY = {"apache-2.0": "Apache-2.0", "mit": "MIT", "other": "NOASSERTION"}
 
 
 def sh(args, cwd=None):
@@ -122,11 +133,8 @@ def main():
                 low = fn.lower()
                 if low.startswith("licence") or low.startswith("license") or low == "copying":
                     files.append(os.path.relpath(os.path.join(root, fn), d))
-        lic = sh(["gh", "api", f"repos/Foundation-0/{name}/license"])
-        try:
-            gh_license = json.loads(lic)["license"]["spdx_id"]
-        except Exception:
-            gh_license = ""
+        info = repos[name].get("licenseInfo") or {}
+        gh_license = SPDX_BY_KEY.get(info.get("key"), "")
         zen = os.path.join(d, ".zenodo.json")
         zen_license = ""
         if os.path.exists(zen):
