@@ -36,9 +36,12 @@ Rows are added one at a time. A state is the last row together with the number o
 
 - [F] `checks/oeis/verify_all.py` rebuilds every machine from the definition and checks all 211 certificates in exact integers, in about 25 seconds, with and without `-O`. It rejects 105 of 105 corrupted certificates.
 - [F] A brute-force count that shares no code with the machine builder matches the machines and the OEIS data for small n.
-- [F] A third program, written for this review without reading the other two (`checks/oeis/spot_proof.py`), builds its own machine straight from the OEIS wording. It proves 46 of the entries, one from each combination of neighbour kind, alphabet, condition and orientation. All 46 give the same starting index as the certificates.
+- [F] A third program, written for this review without reading the other two (`checks/oeis/spot_proof.py`), builds its own machine straight from the OEIS wording. It proves 46 of the entries, one from each combination of neighbour kind, alphabet, condition and orientation.
+  The script compares its starting index with the certificate's and stops with an error on any difference. All 46 agree. It also stops if no entry is chosen, or if a name does not parse and is not a listed skip.
 
-Verdict: **VERIFIED** for the 46 above, which have a third proof. REPRODUCED for the other 165. These are the labels in `README.md`. A later study (`square-law.md`) proved all 211 again by a different argument with separately written code, and the starting index agrees in all 211.
+Verdict: **VERIFIED** for the 46 entries that `spot_proof.py` proves again. **REPRODUCED** for the other 165, where the thread's own prover and verifier agree. The label is REPRODUCED and not VERIFIED because the verifier and the prover share a parser and were written in the same pass.
+
+A later study (`square-law.md`) proved all 211 again by a different argument. Its verifier is also from this thread, so it does not change the labels. The starting index agrees in all 211.
 
 ## Findings on the way
 

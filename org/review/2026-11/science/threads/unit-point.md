@@ -16,6 +16,8 @@ The first half holds strongly. The second half is false as stated, and what repl
 
 [F] For the largest graph on 6 to 11 vertices, edge lengths were drawn in two ways: close to the all-equal point (squared lengths 1 + eps u, with u a random direction and eps from 0.001 to 1), and far from it (each length uniform between 0.5 and 1.5). There were 12,307 samples and the solver returned the full set of solutions in every one.
 
+Design: near samples used random directions at eps from 0.001 to 1 (the table shows eps = 0.001). Far samples drew each length uniformly from 0.5 to 1.5 and were kept only if the pinned triangle exists. A sample counts only if the solver returned all solutions and the set is closed under complex conjugation (`checks/unit/unit.py`, `analysis.json`).
+
 | Vertices | Complex realizations | Mean real share, near (eps = 0.001) | Mean real share, far |
 |---|---|---|---|
 | 6 | 24 | 0.90 | 0.52 |
@@ -33,11 +35,11 @@ The first half holds strongly. The second half is false as stated, and what repl
 
 ### But all-real directions exist, and the record is one of them
 
-- [F] For 8, 9 and 10 vertices a directed climb found directions u whose whole ray is all real, at every eps tested from 0.001 down to 0.00001. For 10 vertices there are at least two, 126 degrees apart.
-- [F] The certified 880 point lies on such a ray. Along its direction the count is 880 of 880 at every eps from its own 0.033 down to 0.00001.
-- [F] Along the direction of the published lengths (Bartzos and co-authors) the count is 868 at its own eps of 0.0019 and at every smaller eps tested (0.001, 0.0001 and 0.00001). At larger eps it is lower: 860 at 0.003 and 856 at 0.01 (`checks/unit/certray_868.json`).
+- [F] For 8, 9 and 10 vertices a directed climb found directions u that are all real at the 5 eps values tested from 0.001 down to 0.00001 (`rayprofile_n*.json`, which tests 11 values from 0.3). Between the tested values nothing was checked. For 10 vertices there are at least two such directions, 126 degrees apart.
+- [F] The certified 880 point lies on such a ray. Along its direction the count is 880 of 880 at all 6 eps values tested, from its own 0.033 down to 0.00001 (`certray_880.json`).
+- [F] Along the direction of the published lengths (Bartzos and co-authors) the count is 868 at its own eps of 0.0019 and at the 3 smaller values tested (0.001, 0.0001, 0.00001). At the 2 larger values it is lower: 856 at eps 0.01 and 860 at eps 0.003 (`certray_868.json`).
 - [F] The all-real cone is open and thin. For 8 vertices, 27 of 30 directions tilted by 0.02 radians stay all real, and 3 of 30 at 0.4. For 10 vertices it is 8 of 20 at 0.02 and none at 0.1.
-- [F] For 11 vertices the certified direction gives 2,288 at eps of 0.001 to 0.01 and 2,284 at 0.0001. Whether a ray exists that is all real all the way in is open.
+- [F] For 11 vertices the certified direction gives 2,288 at its own eps of 0.026 and at 0.01, 0.003 and 0.001, and 2,284 at 0.0001. The solver is unreliable below eps 0.001 for the largest graphs (see Not verified), so the 2,284 may be a solver loss and not a true count. At eps 0.00001 the profile failed outright (ok is false, 916 of 2,288 found, `certray_2288.json`). Whether a ray exists that is all real all the way in is open.
 
 [I] So the record counts are a property of a direction at the all-equal point, not of a distance from it. The published search and the repository's search were both near that point. They differ in direction.
 
@@ -45,7 +47,7 @@ A correction to the premise of this thread: the published lengths are closer to 
 
 ## What the solutions do as lengths approach equality
 
-[F] Along a ray the solutions do not pile up. All of them tend to distinct limits. They split into two kinds.
+[F] Along a ray the solutions do not pile up. This comes from three rays per graph. All of them tend to distinct limits. They split into two kinds.
 
 | Vertices | Fixed part | Moving part | Real share of the moving part |
 |---|---|---|---|
@@ -74,12 +76,12 @@ The cheapest test: for 11 vertices, climb at eps of 0.0001 from the certified di
 
 ## Rerun
 
-Programs and data are in `checks/unit/`. `unit.py` draws the samples, `analyse.py` produces `analysis.txt`, `structure.py` and `struct_an.py` the limits, `conesize.py` the width of the cone. `allreal_lengths.json` holds the all-real lengths found for 8, 9 and 10 vertices, uncertified.
+Programs and data are in `checks/unit/`. `certray.py` and `task1_distances.py` need a clone of the rigid-realizations repository, found through the `RIGID_REPO` environment variable (default: a `repos/rigid-realizations` folder beside this one). `unit.py` draws the samples, `analyse.py` produces `analysis.txt`, `structure.py` and `struct_an.py` the limits, `conesize.py` the width of the cone. `allreal_lengths.json` holds the all-real lengths found for 8, 9 and 10 vertices, uncertified.
 
 ## Not verified
 
 - Nothing is certified. The solver's separation between real and non-real solutions is more than six orders of magnitude, and no sample was rejected.
 - Below eps of 0.001 the solver becomes unreliable for the largest graphs.
-- The limits come from three rays per graph.
+- The limits come from three rays per graph. The ray tables in this note have 6 or 11 eps values each, so a statement about a ray holds at those values only.
 - The reviewer re-ran a fresh slice of 60 directions for 6 vertices: mean real share 0.88 near and 0.51 far, with 19 of 60 all real. That agrees with the full sample. The larger graphs were not re-run.
 - No literature search was made.

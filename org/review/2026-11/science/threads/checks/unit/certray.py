@@ -5,19 +5,23 @@ from fractions import Fraction
 import numpy as np
 from unit import make, load_generic, solve_at_s, classify, HERE
 
-S = "S"
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+# Clone of the rigid-realizations repository (not in this folder). Set RIGID_REPO to its path.
+RIGID_REPO = _os.environ.get("RIGID_REPO", _os.path.join(_HERE, "..", "..", "..", "repos", "rigid-realizations"))
+L2288 = _os.path.join(_HERE, "..", "l2288", "lengths_2288.json")
 which = sys.argv[1]
 if which == "880":
     n = 10
-    d = json.load(open(S + "/repos/rigid-realizations/rigid_realizations_l880_pr_bundle/results/l880-all-880-real/l880_certificate.json"))
+    d = json.load(open(RIGID_REPO + "/rigid_realizations_l880_pr_bundle/results/l880-all-880-real/l880_certificate.json"))
     s = np.array([float(Fraction(x)) ** 2 for x in d["edge_lengths"]]); E = [tuple(e) for e in d["edges"]]
 elif which == "868":
     n = 10
-    d = json.load(open(S + "/repos/rigid-realizations/rigid_realizations_l880_pr_bundle/results/l880-bartzos-868/l880_bartzos868_certificate.json"))
+    d = json.load(open(RIGID_REPO + "/rigid_realizations_l880_pr_bundle/results/l880-bartzos-868/l880_bartzos868_certificate.json"))
     s = np.array([float(Fraction(x)) ** 2 for x in d["edge_lengths"]]); E = [tuple(e) for e in d["edges"]]
 else:
     n = 11
-    d = json.load(open(S + "/threads/l2288/lengths_2288.json"))
+    d = json.load(open(L2288))
     s = np.array([float(Fraction(x)) for x in d["sq_lengths_exact"]]); E = [tuple(e) for e in d["edges"]]
 L, N = make(n)
 assert [tuple(e) for e in L.E] == E, "edge order differs"

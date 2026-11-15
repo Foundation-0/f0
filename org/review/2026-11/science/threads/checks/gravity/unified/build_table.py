@@ -1,6 +1,6 @@
 """Part 1: one table, one row per system and radius.  build(dlogMs=0, hse=1.0) returns a list of dicts.
 dlogMs shifts every stellar mass (not gas) by that many dex; hse multiplies hydrostatic cluster masses.
-Reuses parsers of ../t3, ../t4, ../t5, ../t6 (same thread, my own code)."""
+Reuses the parsers of ../t3, ../t4, ../t5 and ../t6."""
 import math, re, json, pathlib, sys
 import numpy as np
 HERE = pathlib.Path(__file__).resolve().parent; T = HERE.parent
@@ -153,7 +153,7 @@ def highz():
         seen.add(re.sub(r"[ _\-]", "", d["name"]).upper())
         out.append(dict(cls="highz_RC100", name=d["name"], z=float(d["z"]), r=Re, Mb=Mb, Mtot=Mt, sigma=Vc / math.sqrt(2),
                         e_logMtot=2 * float(d["e_Vc"]) / Vc / math.log(10), e_logMb=float(d["e_fDM"]) / max(1 - f, 0.05) / math.log(10),
-                        sigma_def="V_c(R_e)/sqrt2", src="Nestor Shachar+2023 Table 3 (transcribed by accel thread, S/threads/accel/data/rc100_table3.csv)",
+                        sigma_def="V_c(R_e)/sqrt2", src="Nestor Shachar+2023 Table 3 (transcribed, checks/accel/data/rc100_table3.csv)",
                         sel="mass-selected SFGs, z 0.6-2.5, resolved RC quality; M_b(<R_e)=(1-f_DM) M_tot from the published decomposition"))
     return out
 
@@ -173,7 +173,7 @@ if __name__ == "__main__":
     rows = build()
     cols = ["cls", "name", "z", "r", "Mb", "Mtot", "e_logMb", "e_logMtot", "sigma", "g_b", "g_tot", "deltaA", "M_extraB", "yB", "sigma_def", "src", "sel"]
     with open(HERE / "unified_table.csv", "w", newline="") as f:
-        w = csv.writer(f); w.writerow(cols)
+        w = csv.writer(f, lineterminator="\n"); w.writerow(cols)
         for d in rows: w.writerow([("%.5g" % d[c]) if isinstance(d[c], float) else d[c] for c in cols])
     from collections import Counter
     cnt = Counter(d["cls"] for d in rows)

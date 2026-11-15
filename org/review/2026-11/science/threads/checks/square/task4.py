@@ -60,7 +60,7 @@ if __name__ == '__main__':
         ex = exact_counts(k, q, kinds, t, 3, nmax)
         for n in range(1, nmax + 1):
             b = brute(n, k, q, kinds, t)
-            assert all(ex[n - 1][j] == b.get(j, 0) for j in range(4)), (k, q, kinds, t, n)
+            if not all(ex[n - 1][j] == b.get(j, 0) for j in range(4)): raise SystemExit("machine != brute force: %r" % ((k, q, kinds, t, n),))
     print("machine == brute force for 4 specs, all n up to the listed sizes, j = 0..3")
     # law check
     specs = []

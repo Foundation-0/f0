@@ -1,399 +1,453 @@
-# Three charges: the hand derivations
+# Three charges: derivations behind the structural lemmas and the equilateral certificate
 
-This file writes out in full the hand proofs that `three-charges.md` relies on. These are the lemmas listed as L1 to L7 in `NOTES.md`, and the lemmas behind the computer proof in `run_cert3.py` and `verify_arb3.py`: exclusion, coverage, the injectivity test (kind J), the valley test (kind V) and the pair step.
+This file writes out every hand argument that `three-charges.md` and `NOTES.md` state in one line. Each statement carries one label.
 
-Formulas carry labels D1 to D52. The program `derivations_check.py` checks every one of them, symbolically with SymPy where it can, and otherwise at random points with mpmath at 50 digits. It also checks that the thread's programs compute these formulas (checks X1 to X9), and it reproduces the example behind one correction to the note (check N1). Its output is `derivations_check.out`.
+- **Proved here.** The full argument is in this file.
+- **Checked by program.** A program evaluates a finite list of inequalities. The file names the program and says which inequalities it checks.
+- **Numerical.** Floating-point evidence, not a proof.
 
-Rerun from this directory: `python3 -O derivations_check.py`. It needs SymPy, mpmath, NumPy and python-flint, and takes about 20 seconds. `python3 -O derivations_check.py --flip psi4` corrupts one formula on purpose and must fail.
+File names are relative to `checks/three/`.
 
-## Status: read this first
+## 1. Setting and notation
 
-Every lemma below holds as stated here. Writing them out showed that five sentences of `three-charges.md` said more than was proved. Each was corrected with the smallest change.
+Three sites a1, a2, a3 in space are not on one line. They span a plane, called the plane below. The charges q1, q2, q3 are positive. Write r_i = |x - a_i|.
 
-1. **Lemma 3 needs non-degeneracy.** "Saddles minus minima is 2" holds when every critical point is non-degenerate. A degenerate critical point can be neither a saddle nor a minimum. Line 23 of the note now says so. The conclusion the note draws from it (at most one minimum gives at most 4 non-degenerate balance points) holds for every charge vector, by Corollary 11.1.
-2. **Lemma 5 characterises non-degenerate minima.** |m| < 1/3 is exactly a non-degenerate minimum. At |m| = 1/3 the Hessian is singular and decides nothing. Line 26 now says "non-degenerate minimum". The certificate uses only the safe direction: every local minimum, degenerate or not, has |m| <= 1/3.
-3. **Lemma 7 is about a limit model.** It is proved for the scaling model F_L, the limit of a small charge near the saddle of the other two. The step from the model to actual small charges is not proved, here or elsewhere in the thread. Line 43 now says "In the limit model".
-4. **The inverse map is not one-to-one on every box.** Line 50 said it is. That holds for the 3,015 boxes of kind J. It fails for boxes of kind V that cross the fold, where the inverse map is two-to-one: a minimum and a saddle share their charges. Check N1 exhibits such a pair inside one valley box at 50 digits. In floating point, 375 of the 4,328 valley boxes cross the fold. What the valley test proves is that no two minima share their charges there (Lemma 13). Line 50 now says "one-to-one on the minima".
-5. **Different boxes can share charge ratios.** Line 51 said no two different boxes share a set of charge ratios. Neighbouring boxes do, and 197,271 pairs were resolved by containment rather than by separation. What is proved is that no two different boxes hold minima for the same ratios (Lemma 14). Line 51 now says so, and "one image inside a region" now reads "one box inside a region".
+```
+V(x) = q1/r1 + q2/r2 + q3/r3        x in R^3, x not a site
+v    = V restricted to the plane    (the planar potential)
+```
 
-Nothing in the mathematics of the certificate turned out false. The valley formulas and the injectivity argument are the ones the reviewer reconstructed. Two hypotheses that the code relies on are now explicit, and both hold for the archived run (check D47). Every J region lies inside the open triangle (Lemma 12). Every leaf box lies inside it too, so every enclosure of the charge ratios is finite (remark after Lemma 14).
+Coordinates put the plane at z = 0. In the plane, a1 = (0,0), a2 = (1,0) and a3 = (a,b) with b > 0, so the triangle T = a1 a2 a3 is counterclockwise. T° is its open interior.
 
-## 0. Setting and notation
+Each site is a pole of v, since v tends to plus infinity there. At infinity v tends to 0 from above.
 
-- Sites A_1, A_2, A_3 lie in a plane and are not on one line. Charges q_1, q_2, q_3 are positive. In space the plane is z = 0.
-- V(X) = sum_k q_k / |X - A_k| for X in R^3. A balance point is a critical point of V. On the plane, V also denotes the restriction of V.
-- The index k runs over 1, 2, 3. When (k, l, n) appears, it is a cyclic order of (1, 2, 3). The letter i is the imaginary unit.
-- For a point x of the plane other than a site: y_k = x - A_k, r_k = |y_k|, u_k = y_k / r_k = (cos θ_k, sin θ_k). So θ_k is the direction angle from A_k to x.
-- β_1, β_2, β_3 are the barycentric coordinates of x: x = sum_k β_k A_k with sum_k β_k = 1. T is the open triangle, where every β_k > 0.
-- m(x) = sum_k β_k exp(2iθ_k).
-- For plane vectors, u × v = u_1 v_2 - u_2 v_1.
-- D^nV(x)[v_1, ..., v_n] is the n-th derivative of V at x in the directions v_1, ..., v_n. For fixed vectors t and s, V_s = DV[s], V_ts = D^2V[t, s], V_tts = D^3V[t, t, s], and so on. H is the 2 by 2 Hessian of V on the plane.
-- The certificate's coordinates are A_1 = (0, 0), A_2 = (1, 0), A_3 = (a, b) with b > 0. A point is given by (β_2, β_3), and β_1 = 1 - β_2 - β_3. Σ_0 is the open simplex {β_2 > 0, β_3 > 0, β_2 + β_3 < 1}, which is T in these coordinates. The charge ratios are ρ_2 = q_2/q_1 and ρ_3 = q_3/q_1.
-- Every triangle is similar to one in these coordinates. A similarity (rotation, translation, scaling, reflection) does not change the number or the kind of critical points, so nothing is lost.
+Only the ratios of the charges matter for the critical points. The charge-ratio simplex is the set of positive triples up to a common positive factor. We often use the chart rho2 = q2/q1, rho3 = q3/q1.
 
-## Part A. The structure lemmas (L1 to L7 of NOTES.md)
+A balance point is a critical point of V. The words minimum, saddle and degenerate refer to v and its 2 by 2 Hessian unless stated otherwise.
 
-### Lemma 1 (planarity)
+## 2. L1: every balance point lies in the plane (proved here)
 
-**Statement.** Every balance point lies in the plane of the charges. At a point of the plane that is not a site, ∂V/∂z = 0, the mixed derivatives ∂²V/∂x∂z and ∂²V/∂y∂z vanish, and ∂²V/∂z² = -C with C = sum_k q_k / r_k^3. So the balance points are exactly the critical points of V on the plane. At such a point the 3 by 3 Hessian is the block matrix diag(H, -C). In particular a balance point is non-degenerate in space exactly when it is non-degenerate on the plane.
+Differentiate V across the plane:
 
-**Proof.** Write X = (p, z) with p in the plane, and R_k = (|p - A_k|^2 + z^2)^(1/2). Direct differentiation gives:
+```
+dV/dz = - z * sum_i q_i / r_i^3
+```
 
-- [D1] ∂(1/R_k)/∂z = -z / R_k^3.
-- [D2] ∂²(1/R_k)/∂z² = -1/R_k^3 + 3z^2/R_k^5. At z = 0 this is -1/r_k^3.
-- [D3] ∂²(1/R_k)/∂p_j∂z = 3z (p_j - A_k,j) / R_k^5. At z = 0 this is 0.
+The sum is positive, so dV/dz vanishes only at z = 0. At z = 0 the in-plane partial derivatives of V are those of v. So the balance points of V are exactly the critical points of v.
 
-By D1, ∂V/∂z = -z sum_k q_k/R_k^3. The sum is positive, so ∂V/∂z = 0 forces z = 0. At z = 0 the gradient of V in space is the gradient on the plane with third component 0. So the critical points in space are the critical points on the plane. D2 and D3 give the block form of the Hessian. Its determinant is -C det H, and C > 0. ∎
+At a point of the plane the mixed derivatives d2V/dx dz and d2V/dy dz equal z times a smooth function, so they vanish. The Hessian of V is block diagonal there. One block is the Hessian of v. The other entry is
 
-### Lemma 2 (the Laplacian on the plane)
+```
+V_zz = - sum_i q_i / r_i^3  <  0.
+```
 
-**Statement.** Away from the sites, the Laplacian of V on the plane is ΔV = sum_k q_k / r_k^3 = C > 0. So trace H = C > 0 at every point. Hence V has no local maximum on the plane away from the sites. A non-degenerate critical point is a minimum (det H > 0) or a saddle (det H < 0). At a degenerate critical point the eigenvalues of H are 0 and C. Near each site V tends to +∞, so the sites are peaks.
+So V is non-degenerate at a balance point exactly when v is. The Morse index of V is the index of v plus 1.
 
-**Proof.** [D4] On the plane, the Hessian of 1/|y| is (3 y yᵀ - |y|^2 I) / |y|^5. Its trace is (3|y|^2 - 2|y|^2)/|y|^5 = 1/|y|^3. Summing with weights q_k gives ΔV = C. (The same follows from Lemma 1: 1/|X| is harmonic in space, so ΔV = -∂²V/∂z² = C.) At a local maximum H would be negative semidefinite, with trace <= 0, which is impossible. If det H > 0 and the trace is positive, both eigenvalues are positive. If det H < 0, they have opposite signs. If det H = 0, one eigenvalue is 0 and the other equals the trace. ∎
+## 3. L2 and L3: the planar Laplacian and the index count (proved here)
 
-### Lemma 3 (index count)
+**L2.** V is harmonic away from the sites. So, in the plane,
 
-**Statement.** Suppose every critical point of V on the plane is non-degenerate. Then there are finitely many, each is a minimum or a saddle, and s - m = 2, where s is the number of saddles and m the number of minima.
+```
+v_xx + v_yy = - V_zz = C(x),    C(x) = sum_i q_i / r_i^3 > 0.
+```
 
-**The hypothesis matters.** At a degenerate critical point V can look like t^3 + s^2 (a fold point), which is neither a minimum nor a saddle. Configurations with degenerate points are handled in Corollary 11.1.
+The Hessian of v has positive trace everywhere. So v has no local maximum. A non-degenerate critical point is a minimum (index +1 for the gradient field) or a saddle (index -1). At a degenerate critical point the Hessian eigenvalues are 0 and C, so there is exactly one soft direction.
 
-**Proof.**
+**Critical points lie in the open triangle.** This is proved in section 4 and used here only to know that the critical points form a compact set away from the sites.
 
-(a) Each critical point is a minimum or a saddle, by Lemma 2.
+**L3.** Assume every critical point of v is non-degenerate. Then they are isolated, and by the remark above they lie in a compact subset of T°, so there are finitely many. Let m be the number of minima and s the number of saddles. Then s - m = 2.
 
-(b) Finiteness. Lemma 4 below puts every critical point in T. Near a site A_k, |∇V(x)| >= q_k/r_k^2 - sum over l ≠ k of q_l/r_l^2, which is positive once r_k is small. So all critical points lie in a compact set K inside T, at positive distance from the sites. A non-degenerate critical point is isolated (inverse function theorem applied to ∇V). Infinitely many critical points in K would accumulate at a point of K. By continuity that point is critical, and it is not isolated, which is a contradiction. So there are finitely many.
+*Proof.* Let g = grad v = - sum_i q_i (x - a_i)/r_i^3. Take a disk D_R of radius R centred at a1 that contains T, and disks D_i of small radius e around the sites. In the region G = D_R minus the three small disks, g has only the critical points as zeros. The sum of their indices equals the winding number of g along the boundary of G. Here the outer circle is taken counterclockwise and each inner circle clockwise.
 
-(c) Count. Let F = ∇V, a smooth vector field on the plane minus the sites. For a closed curve γ on which F has no zero, w(F, γ) is the winding number of F along γ. Three standard facts are used.
+*The outer circle (infinity).* Put Q = q1 + q2 + q3 and h(x) = -Q x/|x|^3. For |x| = R each term obeys |(x - a_i)/|x - a_i|^3 - x/|x|^3| <= c/R^3 for a constant c that depends only on the sites. So |g - h| <= Q c/R^3, which is less than |h| = Q/R^2 once R > c. The straight-line homotopy from h to g has no zero on the circle. The field h points along -x, and x -> -x has degree 1. So the winding number is +1.
 
-- Poincaré-Hopf in the plane (the argument principle for vector fields). Let Ω be a closed disc with finitely many disjoint open discs removed from its interior, F smooth on Ω, and F without zeros on the boundary of Ω. Orient every circle counterclockwise. Then w(F, outer circle) is the sum of w(F, inner circle) over the inner circles plus the sum of the indices of the zeros of F in Ω.
-- The index of a non-degenerate zero is the sign of det DF = det H: +1 at a minimum and -1 at a saddle.
-- Dog on a leash. If |F - G| < |G| along γ, then w(F, γ) = w(G, γ).
+*The small circles (the poles).* On |x - a_i| = e, g = -q_i (x - a_i)/e^3 + B with |B| bounded independently of e. For small e the first term dominates. Taken counterclockwise its winding number is +1, so clockwise it is -1 for each site.
 
-Small circle |x - A_k| = ε. Here F(x) = -q_k (x - A_k)/ε^3 + E(x), with |E(x)| <= sum over l ≠ k of q_l/r_l^2, which stays bounded as ε → 0. The main term G has length q_k/ε^2, so |E| < |G| for small ε. G points from x towards A_k and turns once as x goes once around. So w = +1.
+The total is 1 - 3 = -2. Each minimum contributes +1 and each saddle -1, so m - s = -2. ∎
 
-Big circle |x| = R. [D5] F(x) = -Q x/R^3 + E(x), where Q = sum_k q_k and |E(x)| <= sum_k 2 q_k |A_k| / (R - |A_k|)^3. To see the bound, write F(x) = -sum_k q_k f(x - A_k) with f(y) = y/|y|^3. Then Df(y) = (I - 3 ŷŷᵀ)/|y|^3, whose eigenvalues are 1/|y|^3 and -2/|y|^3, so its operator norm is 2/|y|^3. Along the segment from x to x - A_k we have |y| >= R - |A_k|. The mean value inequality gives |f(x - A_k) - f(x)| <= 2|A_k|/(R - |A_k|)^3. The main term has length Q/R^2, which beats the error of order R^-3. It points inwards and turns once. So w = +1.
+**Consequences (proved here).** For a non-degenerate configuration the number of balance points is N = s + m = 2m + 2. So N <= 4 exactly when m <= 1, and N <= 6 exactly when m <= 2. The second statement is the bound of arXiv:2607.28785. Its last section also states that m <= 1 is equivalent to Maxwell's bound.
 
-Take Ω to be the disc of radius R minus the three ε-discs. The zeros of F in Ω are all the critical points. So 1 = 3 + (m - s), that is, s - m = 2. ∎
+## 4. L4: the inverse map (proved here)
 
-[D6] The check computes these winding numbers for random configurations and finds +1 each time.
+**Critical points lie in T°.** Let x be a point of the plane outside the closed triangle. A line strictly separates x from T. So there is a unit vector e with e.(x - a_i) > 0 for i = 1, 2, 3. Then
 
-### Lemma 4 (the inverse map)
+```
+e . g(x) = - sum_i q_i e.(x - a_i)/r_i^3 < 0.
+```
 
-**Statement.** A point x of the plane, not a site, is a critical point of V exactly when x lies in T and q = λ (β_1 r_1^3, β_2 r_2^3, β_3 r_3^3) for some λ > 0. So every critical point lies in T, and each x in T is a critical point for exactly one ray of charge vectors. Write Z(x) = [β_1 r_1^3 : β_2 r_2^3 : β_3 r_3^3] for that ray. In the certificate's coordinates:
+Now let x lie on an open edge, say between a1 and a2. Take e normal to that edge and pointing away from a3. Then e.(x - a1) = e.(x - a2) = 0 and e.(x - a3) > 0, so again e.g(x) < 0. The same separating-plane argument in space shows that V has no balance point outside the closed triangle.
 
-- [D7] ρ_k = q_k/q_1 = (β_k/β_1)(r_k/r_1)^3 for k = 2, 3. (`cert3.rho` writes (r_k/r_1)^3 as s√s with s = r_k^2/r_1^2.)
+**The inverse map.** Put c_i = q_i/r_i^3 > 0. The equation g(x) = 0 reads sum_i c_i (x - a_i) = 0, that is
 
-Moreover, for x in T and (k, l, n) cyclic:
+```
+x = sum_i (c_i / sum_j c_j) a_i .
+```
 
-- [D8] β_k = (A_l - x) × (A_n - x) / ((A_2 - A_1) × (A_3 - A_1)) = r_l r_n (u_l × u_n) / (2 Area), where Area is the signed area of (A_1, A_2, A_3). So Z(x) = [r_1^2 w_1 : r_2^2 w_2 : r_3^2 w_3] with w_k = u_l × u_n. This is the form `lib3.lami` uses (Lami's theorem).
+The sites are affinely independent, so barycentric coordinates are unique. Hence x is critical for q exactly when c_i / sum_j c_j = beta_i(x), the barycentric coordinates of x. Equivalently:
 
-**Proof.** [D9] The gradient of 1/|y| is -y/|y|^3. So ∇V(x) = -sum_k c_k (x - A_k) with c_k = q_k/r_k^3 > 0. This vanishes exactly when (sum_k c_k) x = sum_k c_k A_k, that is, when x = sum_k (c_k/C) A_k with C = sum_k c_k. The weights c_k/C are positive and sum to 1. Barycentric coordinates are unique because the sites are not on one line. So x lies in T and β_k = c_k/C, which says q_k = C β_k r_k^3. Conversely, if x is in T and q_k = λ β_k r_k^3, then c_k = λ β_k and ∇V(x) = -λ sum_k β_k (x - A_k) = -λ (x - sum_k β_k A_k) = 0.
+```
+x is critical for q   <=>   q is proportional to ( beta_1 r_1^3 , beta_2 r_2^3 , beta_3 r_3^3 ).
+```
 
-For D8: β_k is the ratio of the signed area of the triangle (x, A_l, A_n) to that of (A_1, A_2, A_3). This is the standard area formula for barycentric coordinates. Twice the first area is (A_l - x) × (A_n - x) = (-r_l u_l) × (-r_n u_n) = r_l r_n (u_l × u_n). So β_k r_k^3 = r_1 r_2 r_3 r_k^2 w_k / (2 Area), and the common factor drops out of the ray. ∎
+For x in T° all beta_i are positive, so the right side is a valid charge vector. Define the inverse map Z from T° to the simplex by Z(x) = [beta_i(x) r_i(x)^3].
 
-### Lemma 5 (the Hessian at a balance point, and the minimum criterion)
+Then the critical points of v_q are exactly the points of Z^{-1}([q]). Every interior point is a balance point for exactly one charge ratio. Z is real analytic on T°.
 
-**Statement.** Let x be in T and q = λ (β_k r_k^3). Put M = sum_k β_k u_k u_kᵀ. Then:
+## 5. L5: the minimum criterion (proved here)
 
-- [D10] H = λ (3M - I), and λ = C = sum_k q_k / r_k^3.
-- [D11] M = (1/2) [[1 + Re m, Im m], [Im m, 1 - Re m]].
-- [D12] det M = (1 - |m|^2)/4. The eigenvalues of M are (1 ± |m|)/2. The eigenvalues of H are λ (1 ± 3|m|)/2.
+For f(y) = 1/|y| in space, the Hessian is (3 y y^T - |y|^2 I)/|y|^5. At a point of the plane, with an in-plane unit vector u_i = (x - a_i)/r_i, its in-plane block is (3 u_i u_i^T - I)/r_i^3. So
 
-Hence:
+```
+Hess v(x) = sum_i c_i (3 u_i u_i^T - I),     c_i = q_i / r_i^3 .
+```
 
-- (a) |m| < 1/3 exactly when H is positive definite, that is, when x is a non-degenerate local minimum of V.
-- (b) |m| > 1/3 exactly when x is a non-degenerate saddle.
-- (c) |m| = 1/3 exactly when x is degenerate.
-- (d) Every local minimum, degenerate or not, has |m| <= 1/3.
+At a critical point, c_i = C beta_i with C = sum_j c_j (section 4). So
 
-Equivalent forms used by the programs:
+```
+Hess v = C (3M - I),     M = sum_i beta_i u_i u_i^T,     trace M = 1.
+```
 
-- [D13] For |m| >= 0: det M > 2/9 holds exactly when |m| < 1/3, and exactly when λ_min(M)/λ_max(M) > 1/2. (`lib3.mu` returns λ_min/λ_max - 1/2.)
-- [D14] Write m = |m| exp(iφ). At |m| = 1/3 the kernel of H is spanned by (-sin(φ/2), cos(φ/2)). In particular the kernel is the direction (1, 0) exactly when m = -1/3. (`cuspset.py` uses this.)
-- [D15] |m| >= 2β_k - 1 for each k. (`cert3.m2_lower` and `verify_arb3.py` use this as an extra lower bound.)
+Write u_i = (cos t_i, sin t_i), where t_i is the direction from a_i to x. Then u u^T = I/2 + (1/2) [[cos 2t, sin 2t], [sin 2t, -cos 2t]]. So, with the complex number
 
-**The word non-degenerate matters in (a).** At |m| = 1/3 the second derivative test says nothing, and whether x is a minimum depends on higher derivatives (Appendix A2). This is why line 26 of the note now says "non-degenerate minimum".
+```
+m(x) = sum_i beta_i(x) exp(2 i t_i(x)),
+M = I/2 + (1/2) [[Re m, Im m], [Im m, -Re m]].
+```
 
-**Proof.** By D4, H = sum_k q_k (3 u_k u_kᵀ - I)/r_k^3 = sum_k c_k (3 u_k u_kᵀ - I). With c_k = λ β_k and sum_k β_k = 1 this is λ (3M - I), and λ = sum_k c_k = C. This is D10.
+The eigenvalues of M are (1 ± |m|)/2. Those of Hess v are therefore C(1/2 + 3|m|/2) and C(1/2 - 3|m|/2). Hence, at a critical point x:
 
-By the double angle formulas, u_k u_kᵀ = (1/2) [[1 + cos 2θ_k, sin 2θ_k], [sin 2θ_k, 1 - cos 2θ_k]]. Summing with weights β_k and using sum_k β_k = 1 gives D11, because Re m = sum_k β_k cos 2θ_k and Im m = sum_k β_k sin 2θ_k.
+- x is a non-degenerate minimum exactly when |m(x)| < 1/3,
+- x is degenerate exactly when |m(x)| = 1/3,
+- x is a saddle exactly when |m(x)| > 1/3,
+- the Hessian is positive semi-definite exactly when |m(x)| <= 1/3. This holds at every local minimum, strict or not.
 
-D12: by D11, det M = ((1 + Re m)(1 - Re m) - (Im m)^2)/4 = (1 - |m|^2)/4. M has trace 1, so its eigenvalues are (1 ± |m|)/2. So H has eigenvalues λ (3μ - 1) = λ (1 ± 3|m|)/2.
+The equivalent form det M > 2/9 in `NOTES.md` follows from det M = (1 - |m|^2)/4.
 
-(a) to (c): λ > 0 and λ (1 + 3|m|)/2 > 0, so the sign of det H is the sign of 1 - 3|m|. (d) is the second order necessary condition: at a local minimum H is positive semidefinite, so 1 - 3|m| >= 0.
+**A bound used by the certificate.** By the triangle inequality, |m| >= beta_i - sum over j != i of beta_j = 2 beta_i - 1. So |m| <= 1/3 forces beta_i <= 2/3 for every i.
 
-D13: (1 - |m|^2)/4 > 2/9 is |m|^2 < 1/9. And (1 - |m|)/(1 + |m|) > 1/2 is 2 - 2|m| > 1 + |m|, which is |m| < 1/3.
+Call R = { x in T° : |m(x)| < 1/3 } the minimum region. By the above, Z restricted to R lists the charge ratios with a non-degenerate minimum, together with where that minimum sits.
 
-D14: H = (λ/2)(I + 3N) with N = |m| [[cos φ, sin φ], [sin φ, -cos φ]]. N is |m| times the reflection in the line at angle φ/2. So N v = -|m| v for v = (-sin(φ/2), cos(φ/2)), which is perpendicular to that line. At |m| = 1/3 this gives H v = 0. For m = -1/3 we have φ = π and v = (-1, 0).
+## 6. L6: every triangle has a point with m = 0 (proved here)
 
-D15: by the triangle inequality, |m| >= |β_k exp(2iθ_k)| - sum over l ≠ k of β_l = β_k - (1 - β_k), since the β_l are positive in T. ∎
+m is continuous on the closed triangle minus the three vertices, because the formula needs only x different from each site.
 
-**Remark (line 29 of the note, marked [I]).** Inversion in the unit circle about x sends the charge q_k at A_k to the charge q_k/r_k at x - u_k/r_k (Kelvin's rule for a point charge). [D16] Their second moment about x is sum_k (q_k/r_k)(u_k/r_k)(u_k/r_k)ᵀ = sum_k c_k u_k u_kᵀ = λ M. So by D13, x is a non-degenerate minimum exactly when the smaller principal moment of the inverted charges is more than half the larger.
+**On an open edge.** On the edge a1 a2, beta_3 = 0 and u1, u2 are plus or minus the edge direction. So exp(2i t_1) = exp(2i t_2) = exp(2i phi_12), where phi_12 is the angle of the edge. Hence m = (beta_1 + beta_2) exp(2i phi_12), and |m| = 1. The other edges are the same.
 
-### Lemma 6 (the isotropic point)
+**Near a vertex.** Let x = a_i + p (cos t, sin t) with small p > 0 and t in the vertex's angular range. Then beta_i = 1 - p * (a bounded factor), since 1 - beta_i is the distance to the opposite side measured in units of the height. So |m - exp(2it)| <= 2(1 - beta_i) <= K p, uniformly in t.
 
-**Statement.** For every triangle, m has a zero x* in T. By Lemma 5(a), x* is a non-degenerate minimum of V for the charges Z(x*). So every triangle has a minimum for some charges.
+**The loop.** Fix p so small that K p < 1. Let Gamma be the boundary of T with a circular arc of radius p cut out at each vertex, traversed counterclockwise. Gamma lies in the closed triangle minus the vertices. It bounds the region G_p, which is T with three small sectors removed.
 
-**Proof.**
+On the edge pieces m is a constant of modulus 1. On the arc at a_i, m stays within distance K p < 1 of exp(2it). So m is homotopic in C minus 0 to the loop that equals exp(2it) on the arcs and the same constants on the edges. The pieces join continuously, because the arc ends point along the edges.
 
-Step 1 (edges). [D17] On the open edge from A_l to A_n we have β_k = 0, and x - A_l and x - A_n point in opposite directions along the edge. So θ_l and θ_n differ by π, and exp(2iθ_l) = exp(2iθ_n) = exp(2iα), where α is the direction angle of the edge. Hence m = (β_l + β_n) exp(2iα) = exp(2iα). On each open edge, m is a constant of modulus 1.
+**Its winding.** Traversing Gamma counterclockwise, the arc at a_i is followed clockwise as seen from a_i. Along it t decreases by the interior angle alpha_i, so arg m decreases by 2 alpha_i. The edges contribute nothing. The total change is -2(alpha_1 + alpha_2 + alpha_3) = -2 pi, so the winding number is -1.
 
-Step 2 (corners). [D18] |m(x) - exp(2iθ_k(x))| <= 2(1 - β_k(x)). Indeed m - exp(2iθ_k) = (β_k - 1) exp(2iθ_k) + sum over l ≠ k of β_l exp(2iθ_l), and its modulus is at most (1 - β_k) + sum over l ≠ k of β_l = 2(1 - β_k). Also β_l = dist(x, line A_k A_n) / dist(A_l, line A_k A_n) <= r_k / h_l, where h_l is the height from A_l. So 1 - β_k = β_l + β_n <= c r_k for a constant c.
+If m had no zero in G_p, then m/|m| would extend over the disk G_p and the winding number would be 0. So m has a zero in G_p. It is not on the edges, where |m| = 1, so it lies in T°. ∎
 
-Step 3 (winding). Fix a small ε > 0. Let K_ε be the closed triangle minus the open discs of radius ε around the three vertices. K_ε is a closed topological disc, and m is continuous on it, since every r_k > 0 there and the formula for m is continuous up to the open edges. Orient the boundary of K_ε counterclockwise. It consists of three pieces of edges and three circular arcs. Define g on the boundary by g = exp(2iα) on each edge piece (so g = m there), and g = exp(2iθ_k) on the arc around A_k. At an end of that arc the point lies on an edge through A_k, and θ_k is that edge's direction modulo π, so g is continuous. |g| = 1, and on the arcs |m - g| <= 2cε < 1 for small ε. By the dog on a leash fact, m and g have the same winding number along the boundary.
+At that point |m| = 0 < 1/3, so the minimum region R is not empty. Every triangle carries a non-degenerate minimum for the charges Z(x*).
 
-The arc around A_k is traversed clockwise as seen from A_k, because the vertex lies outside K_ε. It runs from the direction of the incoming edge to the direction of the outgoing edge. So θ_k decreases by the interior angle γ_k, and arg g decreases by 2γ_k. On the edge pieces g is constant. In total arg g changes by -2(γ_1 + γ_2 + γ_3) = -2π. So the winding number of m along the boundary of K_ε is -1.
+## 7. The equivalences
 
-[D19] The check computes this winding number on random triangles and finds -1 each time.
+**7a. Regular values (proved here).** Write F(x, rho) = grad v_q(x) with q = (1, rho2, rho3). Then F(x, Z(x)) = 0 on T°. Differentiating gives
 
-Step 4. If m had no zero in K_ε, then m/|m| would be a continuous map from the disc K_ε to the circle. Its restriction to the boundary would then have winding number 0, because a loop that extends over a disc is null-homotopic. This contradicts Step 3. So m has a zero in K_ε, which lies in T. ∎
+```
+Hess v(x) + F_rho(x) DZ(x) = 0,    F_rho = [ grad(1/r_2) , grad(1/r_3) ] = [ -u_2/r_2^2 , -u_3/r_3^2 ].
+```
 
-### Lemma 7 (the small-charge model)
+For x in T°, u_2 and u_3 are not parallel, so F_rho is invertible. Hence det DZ(x) = 0 exactly when x is a degenerate critical point of v_{Z(x)}. In particular det DZ is non-zero on R.
 
-**Where the model comes from (motivation only).** Put two charges q_2 and q_3 on the first axis at (-d_2, 0) and (d_3, 0), in balance at the origin: q_2/d_2^2 = q_3/d_3^2. [D20] The gradient of their potential V_0 vanishes at the origin, and its Hessian there is C_0 diag(2, -1) with C_0 = q_2/d_2^3 + q_3/d_3^3. So V_0(y) = V_0(0) + C_0 (y_1^2 - y_2^2/2) + O(|y|^3). Add a small charge ε = C_0 λ^3 at a point p near the saddle, and write y = p + λX. [D21] Then, leaving out the cubic remainder,
+On each connected component of R, det DZ therefore keeps one sign.
 
-C_0 ((p_1 + λX_1)^2 - (p_2 + λX_2)^2/2) + ε/(λ|X|) = C_0 (p_1^2 - p_2^2/2) + C_0 λ^2 F_L(X),
+By Sard's theorem the critical values of Z have measure zero. So for almost every charge ratio q, every critical point of v_q is non-degenerate.
 
-with L = (-2p_1/λ, p_2/λ) and
+**7b. Maxwell for one triangle (proved here).** For a fixed triangle T the following are equivalent.
 
-F_L(X) = X_1^2 - X_2^2/2 + 1/|X| - L·X.
+1. Every non-degenerate configuration on T has at most 4 balance points.
+2. Z is one-to-one on R.
+3. For every positive q, v_q has at most one strict local minimum.
 
-When p is of order λ, the remainder is of order λ^3, small against the main term C_0 λ^2. So F_L is the limit of the rescaled potential near the small charge as ε → 0 with p/λ fixed.
+*(3) implies (1).* Non-degenerate minima are strict, and L3 gives N = 2m + 2.
 
-**What is and is not proved.** The lemma below is a statement about F_L only. Passing to actual small charges would need uniform convergence of the rescaled potential with two derivatives on the scaling window, control of minima outside the window, and uniformity in L near the L where F_L is degenerate. None of this is written in the thread. So line 43 of the note is a statement about the limit model, and it now says so.
+*(1) implies (2).* Suppose x ≠ y in R with Z(x) = Z(y) = q. Both are non-degenerate minima of v_q. By the implicit function theorem they persist as two minima of v_q' for q' near q. Choose q' a regular value of Z (7a). Then v_q' is non-degenerate with m >= 2, so N >= 6, contradicting (1).
 
-**Statement.** Let L = (L_1, L_2) with L_1 ≠ 0. Then F_L has at most one local minimum on the plane minus the origin.
+*(2) implies (3).* Let v_q have two strict local minima x, y. Take disjoint small circles around them on which v_q exceeds its value at the centre by some h > 0. For q' close enough to q, v_q' still has a local minimum inside each circle. Choose q' regular (7a). Those minima are non-degenerate, so they lie in R. They are distinct with the same image q', contradicting (2).
 
-**Proof.**
+**7c. A sufficient condition (proved here).** Suppose the closure of R is a closed topological disk whose boundary is the fold curve F = {|m| = 1/3}, and suppose Z is one-to-one on F. Then Z is one-to-one on R.
 
-Step 1 (critical points are roots of one equation). [D22] ∇F_L = (2X_1 - X_1/r^3 - L_1, -X_2 - X_2/r^3 - L_2) with r = |X|. Put c = 1/r^3 > 0. A critical point satisfies X_1 (2 - c) = L_1 and -X_2 (1 + c) = L_2. Since L_1 ≠ 0, c ≠ 2, and X = (L_1/(2 - c), -L_2/(1 + c)). Substituting into r^2 = c^(-2/3) gives
+*Proof.* Take q not in Z(F). Z has no zero of det DZ in R, and det DZ has one sign there. By degree theory the number of preimages of q in R equals, up to sign, the winding number of the closed curve Z(F) around q. Z(F) is a Jordan curve, so that number is 0 or 1.
 
-- [D23] g(c) := c^(2/3) [A/(2 - c)^2 + B/(1 + c)^2] = 1, with A = L_1^2 > 0 and B = L_2^2 >= 0.
+For q in Z(F), two preimages in R would give two preimages for every nearby q', since R is open and det DZ ≠ 0. Some of those q' lie off the curve Z(F), which is a contradiction. ∎
 
-Conversely, every root c in (0, 2) or (2, ∞) of g = 1 gives the point X = (L_1/(2 - c), -L_2/(1 + c)). It has |X|^2 = c^(-2/3) g(c) = c^(-2/3), so 1/|X|^3 = c, and the gradient equations hold. Different roots give different points, since they give different r. So critical points and roots correspond one to one.
+The converse (simple fold image is necessary) holds only under genericity assumptions, described in 7d. It is labelled an inference in `three-charges.md`, which is accurate.
 
-Step 2 (the Hessian). [D24] Hess F_L = diag(2 - c, -1 - c) + 3c u uᵀ with u = X/r, and its trace is 1 + c > 0. Put a = u_1^2 and b = u_2^2. [D25] For D = diag(2 - c, -1 - c), det(D + 3c u uᵀ) = (2 - c)(-1 - c) + 3c [(-1 - c) a + (2 - c) b], by the rule det(D + v vᵀ) = det D + vᵀ adj(D) v. At a critical point, a = c^(2/3) A/(2 - c)^2 and b = c^(2/3) B/(1 + c)^2, so a + b = 1. The logarithmic derivative of g gives g'(c) = (2/(3c))(a + b) + 2a/(2 - c) - 2b/(1 + c). A direct computation gives the identity
+**7d. Degenerate events that would force two minima.** At a degenerate critical point p the Hessian has eigenvalues 0 and C > 0 (L2). By the splitting lemma (the Morse lemma with parameters), near p and for nearby parameters there are coordinates in which
 
-det H = -(3c/2)(2 - c)(1 + c) g'(c) + (2 - c)(-1 - c)(1 - a - b).
+```
+v = phi(t) + s^2 .
+```
 
-So at a critical point, det H = -(3c/2)(2 - c)(1 + c) g'(c).
+Critical points of v near p correspond to critical points of phi, and minima to minima. The family has four parameters: two for the shape and two for the charge ratios.
 
-Step 3 (which roots can be minima).
+**(i) A cusp of the plus kind (proved here, under one condition).** The cusp is phi''' = 0 with phi'''' > 0, so phi is like t^4. Assume the family unfolds it versally. That means the parameters move the coefficients (a, b) of the unfolding t^4 + a t^2 + b t independently, which is a rank condition and holds generically.
 
-- (i) If c > 2: for v perpendicular to u, vᵀ H v = (2 - c) v_1^2 + (-1 - c) v_2^2 < 0. So H is not positive semidefinite, and X is not a local minimum.
-- (ii) If 0 < c < 2: (2 - c)(1 + c) > 0, so det H has the sign of -g'(c). A local minimum needs det H >= 0, so g'(c) <= 0. Since the trace is positive, a non-degenerate minimum is exactly g'(c) < 0.
+For a < 0 and b = 0 the unfolding has two local minima and one local maximum. So v has two minima and one saddle near p, which gives m >= 2 and N >= 6.
 
-Step 4 (the shape of g on (0, 2)).
+At a cusp of the minus kind (phi'''' < 0) the unfolding gives two saddles and one minimum, which is harmless.
 
-- [D26] g'(c) = (c^(2/3)/(3c)) [4A(1 + c)/(2 - c)^3 - 2B(2c - 1)/(1 + c)^3].
+**(ii) A point of fourth order (proved here, under the same kind of condition).** This is phi''' = phi'''' = 0 with a non-zero fifth derivative. The versal unfolding t^5 + a t^3 + b t^2 + c t contains, for example, the case phi' = k (t^2 - 1)(t^2 - 4). Its sign pattern is +, -, +, -, + with sign changes from minus to plus at t = -1 and t = 2. That is two minima, so m >= 2.
 
-On (0, 1/2] the first term in the bracket is positive and the second is >= 0, so g' > 0. On (1/2, 2):
+**(iii) A fold while another minimum exists (proved here).** Suppose at parameter p0 the point p is a fold (phi''' ≠ 0) and v has a non-degenerate minimum y ≠ p. On the side of the fold where a minimum and a saddle are born near p, y persists, so m >= 2.
 
-- [D27] g'(c) = (2(2c - 1) c^(2/3) / (3c (1 + c)^3)) (A R(c) - B), with R(c) = 2(1 + c)^4 / ((2 - c)^3 (2c - 1)).
+**(iv) A transversal double fold (proved here).** Suppose that at p0 there are two distinct fold points, so p0 lies on two fold hypersurfaces S and S' that cross transversally. Near p0 they cut the parameters into four regions.
 
-The prefactor is positive, so g' has the sign of A R(c) - B.
+Crossing S changes m by a fixed e = +1 or -1, and crossing S' by e' = +1 or -1. The two folds are independent and all other critical points persist. So the four regions have m equal to m0, m0 + e, m0 + e' and m0 + e + e'.
 
-- [D28] R'(c)/R(c) = 4/(1 + c) + 3/(2 - c) - 2/(2c - 1) = 3(7c - 5) / ((1 + c)(2 - c)(2c - 1)).
+These values contain three consecutive integers, all at least 0, so the largest is at least 2.
 
-So on (1/2, 2), R decreases strictly up to c = 5/7 and increases strictly after it, and R → +∞ at both ends.
+**(v) The converse for one generic triangle (inference).** Fix a triangle and let only the charges move. Suppose F is a smooth curve and Z(F) consists of fold arcs and finitely many cusps. Z(closure of R) is compact in the open simplex, so m = 0 for charges outside it.
 
-- [D29] R(5/7) = 512/27.
+Join a point with m = 2 to a point with m = 0 by a path that crosses Z(F) transversally at fold points. m changes by 1 at each crossing. The first crossing where m drops from 2 to 1 is a fold while another minimum exists, which is event (iii).
 
-Hence the set I = {c in (1/2, 2) : R(c) <= B/A} is a closed interval, a single point, or empty. On (0, 2), g' <= 0 exactly on I, and g' < 0 in the interior of I.
+The genericity assumptions in (v) are not proved for every triangle. So the full equivalence "Maxwell exactly when no event (i) to (iv) occurs" is an inference. Each event forcing 6 is proved, given the versality condition in (i) and (ii).
 
-Step 5 (conclusion). By Step 3, a local minimum has its c in I. If I is a single point, there is at most one such c. Otherwise g is strictly decreasing on I, so g = 1 has at most one root in I. By Step 1, roots and critical points correspond one to one. So F_L has at most one local minimum. ∎
+## 8. L7: one small charge near the saddle of the other two (proved here)
 
-**Further facts, also checked.**
+**The model.** Two positive charges have a single balance point, on the segment between them. In space its Hessian is diag(2C', -C', -C'). The axial term is the second derivative of the sum of q/|x| along the axis, which is 2 sum q/r^3. Harmonicity and the symmetry about the axis give the other two.
 
-- [D30] On (2, ∞) both terms in D26 are negative. So g decreases strictly from +∞ to 0 there, and g = 1 has exactly one root, which is a saddle.
-- On (0, 2), g rises from 0, may fall on I, and rises to +∞ as c → 2. So g = 1 has one or three roots there, counted with multiplicity, and a minimum needs 1/2 < c < 2. This is the "at most 3 roots on (0, 2)" of `NOTES.md`.
-- [D31] If B/A < 512/27, that is |L_2| < (512/27)^(1/2) |L_1|, then I is empty and F_L has no minimum. The check finds every critical point for 80 random L as roots of the degree 12 polynomial y^2 [A(1 + y^3)^2 + B(2 - y^3)^2] - (2 - y^3)^2 (1 + y^3)^2 (put c = y^3 in D23), and confirms all of the above.
+In the plane the background is therefore C' diag(2, -1). Adding a small charge near that point and rescaling gives the model
 
-## Part B. The lemmas behind the computer proof
+```
+F_L(X) = X1^2 - X2^2/2 + 1/|X| - L.X ,      X in the plane minus 0,   L in R^2.
+```
 
-`run_cert3.py` proves, for a box S of triangle shapes (a, b), that V has at most one local minimum on every triangle in S. It works in three steps: exclusion and coverage (Lemmas 8 and 9), a local certificate for each leaf box (Lemma 12 for kind J, Lemma 13 for kind V), and a pair step (Lemma 14). It computes with interval arithmetic with outward rounding. The only property used here is the inclusion property: if every input lies in its interval, the computed interval contains the exact result. The shape enters through intervals for a and b, so every statement below holds for every triangle in S at once.
+That this model describes the limit of a flat triangle with a small third charge is an inference. The lemma below concerns the model itself.
 
-### Lemma 8 (exclusion)
+**Lemma L7.** For every L, F_L has at most one strict local minimum.
 
-**Statement.** Let B be a box in the (β_2, β_3) plane. Suppose a computed number ℓ satisfies ℓ <= |m(x)|^2 for every x in B that lies in Σ_0, and 9ℓ > 1. Then no point of B is a local minimum of V, for any charges.
+**Critical points as roots in one variable.** grad F_L = (2 X1, -X2) - X/|X|^3 - L. Write X = r (cos f, sin f) and c = r^{-3} in (0, infinity), so r = c^{-1/3}. Then grad F_L = 0 reads
 
-Formulas used by `cert3.m2_lower` and `verify_arb3.m2_lower_bound`, with (dx, dy) = y_k:
+```
+L1 = h(c) cos f,    L2 = - g(c) sin f,    h(c) = (2 - c) c^{-1/3},    g(c) = (1 + c) c^{-1/3}.
+```
 
-- [D32] cos 2θ_k = 1 - 2dy^2/r_k^2 = 2dx^2/r_k^2 - 1, and sin 2θ_k = 2 dx dy / r_k^2.
-- [D33] x = β_2 A_2 + β_3 A_3 = (β_2 + aβ_3, bβ_3), so y_1 = x, y_2 = x - (1, 0) and y_3 = x - (a, b).
-- D15, used when the interval for 2β_k - 1 is positive.
+Assume first that L1 ≠ 0. Then c ≠ 2, since h(2) = 0. For c ≠ 2 the pair (cos f, sin f) = (L1/h, -L2/g) is a unit vector exactly when
 
-**Proof.** Points outside T are never critical (Lemma 4). For x in B and in Σ_0, |m(x)|^2 >= ℓ > 1/9, so |m(x)| > 1/3, and x is not a local minimum by Lemma 5(d). The programs obtain ℓ as follows. Both expressions in D32 equal cos 2θ_k exactly, so the intersection of their interval enclosures with [-1, 1] still contains cos 2θ_k. The same holds for sin 2θ_k and [-1, 1]. Multiplying by the interval for β_k and summing gives intervals that contain Re m and Im m, and the lower end of Re^2 + Im^2 is a valid ℓ. When the interval for 2β_k - 1 is positive, D15 gives |m|^2 >= (2β_k - 1)^2 at every point of B in Σ_0, so the larger of the two lower bounds is still valid there. D15 needs every β_l >= 0, which is why the bound is claimed only on Σ_0. Points of B outside the triangle do not matter. ∎
+```
+P(c) = c^{2/3} [ L1^2/(2-c)^2 + L2^2/(1+c)^2 ] = 1 ,
+```
 
-### Lemma 9 (coverage: where a minimum can be)
+and then f is unique. So the critical points correspond one to one with the roots of P = 1 in (0,2) and (2, infinity).
 
-**Statement.** If phase A of `run_cert3.py` ends with no box left to split, then every local minimum of V, on every triangle of S and for every charge vector, lies in one of the leaf boxes.
+**The Hessian.** Hess F_L = diag(2, -1) + c (3 u u^T - I) with u = (cos f, sin f). Its trace is 1 + c > 0. Its determinant is
 
-**Proof.** A local minimum is a critical point, so by Lemma 4 its coordinates (β_2, β_3) lie in Σ_0, and by Lemma 5(d) it has |m| <= 1/3. The program starts from the dyadic grid of side 2^-d_0 on [0, 1]^2 and keeps the boxes whose lower left corner has β_2 + β_3 < 1. These cover the closed simplex. Each later step keeps a box or replaces it by its four children, which cover it. A child is dropped only if its lower left corner has β_2 + β_3 >= 1, so that it has no point of Σ_0, or if Lemma 8 excludes it. A box leaves phase A only by getting a local certificate, and then it is a leaf. By induction on the steps, every point of Σ_0 with |m| <= 1/3 always lies in a kept box, and at the end in a leaf. `verify_arb3.py` re-derives this coverage with its own arithmetic. ∎
+```
+det = (2 - c + 3c cos^2 f)(-1 - c + 3c sin^2 f) - 9 c^2 cos^2 f sin^2 f = 9 c sin^2 f - 2 (1 + c)^2 .
+```
 
-### Lemma 10 (the Jacobian of the inverse map, and where it vanishes)
+A minimum needs 9c > 2(1+c)^2, that is (2c - 1)(c - 2) < 0, so c lies in (1/2, 2).
 
-**Statement.** On Σ_0 let G = (log ρ_2, log ρ_3), as a function of (β_2, β_3). Put e_2 = A_2 - A_1 = (1, 0) and e_3 = A_3 - A_1 = (a, b). For k and j in {2, 3}:
+**Minimum means P decreasing.** Let Phi(c,f) = (h cos f, -g sin f) and X(c,f) = c^{-1/3}(cos f, sin f). Phi equals G(X), where G is the gradient of X1^2 - X2^2/2 + 1/|X|. Its derivative is Hess F_L. So det DPhi = det Hess F_L times det DX.
 
-- [D34] ∂G_k/∂β_j = 1/β_1 + δ_kj/β_k + 3 (y_k · e_j)/r_k^2 - 3 (y_1 · e_j)/r_1^2.
-- [D35] ∂ρ_k/∂β_j = ρ_k ∂G_k/∂β_j.
-- [D36] Let E be the matrix with columns e_2 and e_3, and N the matrix with columns -y_2/r_2^3 and -y_3/r_3^3. Let H be the Hessian of V at x for the charges (1, ρ_2(x), ρ_3(x)). Then H E = -N diag(ρ_2, ρ_3) DG. Consequently, with λ = 1/r_1^3 + ρ_2/r_2^3 + ρ_3/r_3^3, det DG = λ^2 (1 - 9|m|^2) det E / (4 det N ρ_2 ρ_3), which vanishes exactly on the fold {|m| = 1/3}.
+Here det DX = r dr/dc < 0. Direct computation gives det DPhi = -h' g cos^2 f - h g' sin^2 f. At a root, where cos f = L1/h and sin f = -L2/g,
 
-**Proof.** By D7, G_k = log β_k - log β_1 + (3/2) log r_k^2 - (3/2) log r_1^2. Since β_1 = 1 - β_2 - β_3, ∂(log β_1)/∂β_j = -1/β_1, and ∂(log β_k)/∂β_j = δ_kj/β_k. Since x = A_1 + β_2 e_2 + β_3 e_3, ∂x/∂β_j = e_j, and ∂((1/2) log r_k^2)/∂β_j = (y_k · e_j)/r_k^2. This gives D34. D35 is the chain rule for ρ_k = exp(G_k).
+```
+P'(c) = -2 L1^2 h'/h^3 - 2 L2^2 g'/g^3 = (2/(h g)) det DPhi .
+```
 
-For D36, let Φ(x, ρ) be ∇V for the charges (1, ρ_2, ρ_3), that is Φ = -y_1/r_1^3 - ρ_2 y_2/r_2^3 - ρ_3 y_3/r_3^3. By Lemma 4, Φ(x, ρ(x)) = 0 on T. Differentiate along e_j: D_xΦ e_j + sum_k (∂Φ/∂ρ_k)(∂ρ_k/∂β_j) = 0. Here D_xΦ = H, ∂Φ/∂ρ_k = -y_k/r_k^3, and D35 gives ∂ρ_k/∂β_j. This is H E = -N diag(ρ) DG. For 2 by 2 matrices det(-X) = det X, so taking determinants gives det H det E = det N ρ_2 ρ_3 det DG. E is invertible because the triangle is non-degenerate. N is invertible because a point x of T is not on the line A_2 A_3, so y_2 and y_3 are independent. With det H = λ^2 (1 - 9|m|^2)/4 from D12 (here q = (1, ρ_2, ρ_3), so λ = sum_k q_k/r_k^3 as in D10), the formula follows. ∎
+For c in (0,2), h g > 0. So the sign of det Hess F_L is minus the sign of P'(c). A root in (0,2) is a non-degenerate minimum exactly when P'(c) < 0.
 
-**Consequences.** A J certificate (Lemma 12) can never succeed on a box that meets the fold. Near the fold the certificate must use the valley test (Lemma 13). The critical values of Z are exactly the charge vectors for which V has a degenerate critical point.
+**Counting on (2, infinity).** There P = L1^2 p1 + L2^2 p2 with p1 = c^{2/3}(2-c)^{-2} and p2 = c^{2/3}(1+c)^{-2}. Here p1'/p1 = 2/(3c) - 2/(c-2) < 0, since 3c > c - 2. Also p2'/p2 = (2 - 4c)/(3c(1+c)) < 0. So P falls strictly from +infinity to 0, giving exactly one root. It is a saddle, since c > 2.
 
-### Lemma 11 (two consequences used by the note)
+**Counting on (0,2).** P(0+) = 0 and P(2-) = +infinity. p1 is increasing on (0,2). p2 is increasing on (0, 1/2] and decreasing after, so P' > 0 on (0, 1/2]. On (1/2, 2), -p2' > 0 and
 
-**Corollary 11.1 (counting).** Fix a triangle. Suppose that V has at most one minimum for every charge vector whose critical points are all non-degenerate. Then V has at most 4 non-degenerate balance points for every charge vector.
+```
+P'(c) = (-p2'(c)) * ( L1^2 R(c) - L2^2 ),      R(c) = p1'/(-p2') = 2 (1+c)^4 / ( (2-c)^3 (2c-1) ).
+```
 
-**Proof.** Suppose V has five distinct non-degenerate critical points for some charges q_0. By the implicit function theorem, each continues to a non-degenerate critical point for all q near q_0, and the five stay distinct. A degenerate critical point x for charges q has |m(x)| = 1/3 (Lemma 5(c)) and q = Z(x) (Lemma 4), so q is a critical value of Z (Lemma 10). By Sard's theorem the critical values have measure zero. So there are charges q arbitrarily close to q_0 for which every critical point is non-degenerate. For such q, Lemma 3 gives s - m = 2 with s + m >= 5, so m >= 2, a contradiction. ∎
+Derivation of R: p1'/p1 = (4 + 4c)/(3c(2-c)), -p2'/p2 = (4c - 2)/(3c(1+c)) and p1/p2 = (1+c)^2/(2-c)^2. Multiplying gives the formula above.
 
-So line 9 of the note holds for every charge vector, including those with degenerate balance points. The certificate gives more than the hypothesis: at most one local minimum of any kind, for every charge vector.
+**R has a single critical point on (1/2, 2).**
 
-**Corollary 11.2 (the reduction, line 33 of the note).** V has two non-degenerate minima for some charges exactly when Z takes the same value at two different points of the minimum region {|m| < 1/3}.
+```
+(log R)' = 4/(1+c) + 3/(2-c) - 2/(2c-1).
+```
 
-**Proof.** If x ≠ y are non-degenerate minima for charges q, both are critical, so Z(x) = Z(y) = [q] by Lemma 4, and both have |m| < 1/3 by Lemma 5(a). Conversely, if x ≠ y in {|m| < 1/3} have Z(x) = Z(y) = [q], then both are critical points for q by Lemma 4, and both are non-degenerate minima by Lemma 5(a). ∎
+Multiply by (1+c)(2-c)(2c-1) > 0:
 
-### Lemma 12 (injectivity on a box: certificates of kind J)
+```
+4(2-c)(2c-1) + 3(1+c)(2c-1) - 2(1+c)(2-c)
+  = (-8c^2 + 20c - 8) + (6c^2 + 3c - 3) + (2c^2 - 2c - 4) = 21 c - 15 .
+```
 
-**Statement.** Let N be a box [β_2^-, β_2^+] × [β_3^-, β_3^+] contained in Σ_0. Let J_kj (k, j in {2, 3}) be intervals such that ∂G_k/∂β_j(z) lies in J_kj for every z in N. Let Δ be an interval that contains M_22 M_33 - M_23 M_32 for every choice of numbers M_kj in J_kj. (The interval evaluation of J_22 J_33 - J_23 J_32 has this property, by the inclusion property.) If 0 is not in Δ, then G, and so Z, is one-to-one on N.
+This vanishes only at c = 5/7 and changes from negative to positive there. R tends to +infinity at both ends, so R decreases on (1/2, 5/7] and increases on [5/7, 2).
 
-**Proof.** Let x and y be in N. N is convex, so the segment from x to y lies in N. By the fundamental theorem of calculus, applied to each component of G along the segment:
+**Conclusion for L1 ≠ 0.** The set where R exceeds L2^2/L1^2 is (1/2, c1) together with (c2, 2), and the set below is (c1, c2), possibly empty. So P increases on (0, c1], decreases on [c1, c2] and increases on [c2, 2).
 
-- [D37] G(y) - G(x) = M (y - x), with M_kj = ∫_0^1 ∂G_k/∂β_j(x + τ(y - x)) dτ.
+The equation P = 1 has at most three roots in (0,2) and at most one root with P' < 0. Hence F_L has at most one non-degenerate minimum.
 
-Each integrand takes values in J_kj, so its average M_kj also lies in J_kj. Hence det M lies in Δ, so det M ≠ 0 and M is invertible. If G(y) = G(x), then M (y - x) = 0 and y = x. Finally, Z(x) = Z(y) means ρ(x) = ρ(y), which means G(x) = G(y). ∎
+**All L, strict minima.** Suppose F_L had two strict local minima. They persist as local minima for L' near L. Choose L' with L1' ≠ 0 and L' a regular value of G, which is possible by Sard's theorem. Then those minima are non-degenerate, which contradicts the conclusion above. ∎
 
-**Remarks.**
+`l7_check.py` compares a two-dimensional Newton count with the root count of P on 400 random L, and finds agreement and never two minima. This is numerical.
 
-1. The hypothesis that N lies in Σ_0 is needed, because G is defined and smooth only there. The test enforces it. The leaf B inside N has a point in Σ_0, so if N left Σ_0, the interval of some β_k over N would contain 0. Then the enclosure of 1/β_k is unbounded (`iv.py` returns [-∞, ∞]) and the test fails. `verify_arb3.py` checks β_k > 0 explicitly. All archived J regions lie inside Σ_0 (check D47).
-2. A pointwise condition, det DG(z) ≠ 0 at every z in N, would not be enough: it gives only local injectivity. For example, the complex exponential has Jacobian determinant e^(2x) > 0 everywhere but is not one-to-one on a box of height more than 2π. The argument above works because the interval determinant bounds det M for the mean value matrix M, whose entries are averages taken separately.
-3. By Lemma 10, a box that meets the fold never passes this test.
+## 9. The certificate for the equilateral triangle
 
-### Lemma 13 (the valley lemma: certificates of kind V)
+### 9.0 What is checked by which program
 
-**Setting.** A cell is a parallelogram C = {c + τt + σs : |τ| <= h_t, |σ| <= h_s}, where t and s are linearly independent (they need not be orthonormal), and C contains no site. Q is a set of charge vectors. At each point put a = V_ts/V_ss and w = t - a s.
+- `run_cert3.py` with `cert3.py` and `iv.py` is the primary engine. It does the full run: coverage, every leaf certificate, and the pair step. Its saved output is `out/c3_equi.json`, `out/c3_equi_leaves.npy` and `out/c3_equi.log`.
+- `verify_arb3.py` is an independent re-check in ball arithmetic. It re-checks coverage and every leaf certificate.
+- `verify_pairs_arb3.py` re-checks the pair step on 200 random non-trivial leaf pairs only.
 
-**Statement.** Suppose that for every q in Q:
+The statements in 9.1 to 9.5 below are proved here. Each says that a set of inequalities, if it holds, implies a conclusion. The programs check the inequalities.
 
-- (V1) V_ss > 0 at every point of C;
-- (V2) V_s < 0 at every point of the edge σ = -h_s, and V_s > 0 at every point of the edge σ = +h_s;
-- and either (V3) D^3V[w, w, w] > 0 at every point of C, or D^3V[w, w, w] < 0 at every point of C;
-- or (V4) D^4V[w, w, w, w] - 3 (D^3V[w, w, s])^2 / V_ss < 0 at every point of C.
+The shape is a = 1/2 with b in the interval [0.8660254037844385, 0.8660254037844387]. This interval contains sqrt(3)/2, since the squares of its endpoints straddle 3/4. Every formula is evaluated with b as an interval, so each conclusion holds for every b in it, and in particular for the exact equilateral triangle.
 
-Then for every q in Q, V has at most one local minimum in C.
+### 9.1 Soundness of the arithmetic (proved here)
 
-**Proof.** Fix q and put f(τ, σ) = V(c + τt + σs), which is smooth near [-h_t, h_t] × [-h_s, h_s]. By the chain rule its partial derivatives are the directional derivatives: f_σ = V_s, f_σσ = V_ss, f_τσ = V_ts, and so on.
+The primary engine uses float64 intervals. After every +, -, *, / and square root, it widens the lower end down by one unit in the last place and the upper end up by one. IEEE 754 rounds these five operations correctly, so every computed interval contains the exact range. No other function is used in a proof step.
 
-Step 1 (the valley floor). For fixed τ, f_σσ > 0 on [-h_s, h_s] by V1, so σ ↦ f_σ(τ, σ) is strictly increasing. By V2 it is negative at -h_s and positive at h_s. So it has exactly one zero σ*(τ), and |σ*(τ)| < h_s. By the implicit function theorem (f_σσ ≠ 0), σ* is smooth on [-h_t, h_t]. Put γ(τ) = c + τt + σ*(τ)s, a curve in C, and ψ(τ) = f(τ, σ*(τ)) = V(γ(τ)).
+Where a box touches a site, 0 times infinity can produce NaN. The code then falls back to the bounds [-1, 1] for cos and sin of 2t, which are always true.
 
-Step 2 (derivatives along the floor). Differentiating f_σ(τ, σ*(τ)) = 0 gives:
+### 9.2 Coverage: every local minimum lies in a candidate box (proved here, checked by program)
 
-- [D38] σ*' = -V_ts/V_ss, so γ' = t + σ*' s = w.
-- [D39] Hence D^2V[w, s] = V_ts + σ*' V_ss = 0 along γ.
+Coordinates are (beta2, beta3), so x = beta2 a2 + beta3 a3. The dyadic grid of side 2^-5 on the unit square, restricted to boxes whose lower-left corner has beta2 + beta3 < 1, covers T. A box whose lower-left corner has beta2 + beta3 >= 1 lies where beta1 <= 0, which is outside T°.
 
-Since DV(γ)[s] = 0 along γ:
+A box is discarded when one of two things holds. Either a rigorous lower bound of |m|^2 over the box exceeds 1/9, or some beta_i exceeds 2/3 on the whole box, which gives |m| > 1/3 by section 5. Otherwise it is split, down to side 2^-8.
 
-- [D40] ψ' = DV(γ)[w] = DV(γ)[t].
+The boxes that remain are the candidate boxes. Every local minimum of every v_q has |m| <= 1/3 (section 5), so it lies in a candidate box.
 
-Differentiating ψ' = DV(γ)[t], with t constant, gives D^2V[w, t]. By D39 this equals D^2V[w, w]:
+The lower bound of |m|^2 uses enclosures of cos 2t_i, sin 2t_i and beta_i. cos 2t is enclosed both as 1 - 2 y^2/r^2 and as 2 x^2/r^2 - 1, and the two enclosures are intersected.
 
-- [D41] ψ'' = D^2V[w, w] = V_tt - V_ts^2/V_ss.
+Checked by `run_cert3.py` (2645 candidate boxes) and again by `verify_arb3.py`.
 
-Differentiate ψ'' = D^2V(γ)[w, w]. The base point moves with velocity w, and w' = σ*'' s, so ψ''' = D^3V[w, w, w] + 2σ*'' D^2V[w, s]. The last term vanishes by D39:
+### 9.3 The Jacobian test (proved here, checked by program)
 
-- [D42] ψ''' = D^3V[w, w, w].
+Let N be a box (in beta coordinates) on which each beta_i is bounded away from 0. N is convex and meets T°, so each beta_i keeps its sign on N and is positive there. Set
 
-Differentiating D39, that is D^2V(γ)[w, s] = 0, gives D^3V[w, w, s] + σ*'' V_ss = 0:
+```
+Lam(x) = ( log rho2 , log rho3 ),   rho_i = beta_i r_i^3 / (beta_1 r_1^3),
+d log rho_i / d beta_k = delta_ik / beta_i + 1/beta_1 + 3 d_i . P_k / r_i^2 - 3 d_1 . P_k / r_1^2 ,
+```
 
-- [D44] σ*'' = -D^3V[w, w, s]/V_ss.
+where d_i = x - a_i, P_2 = (1, 0) and P_3 = a3 = (a, b).
 
-Differentiate ψ''' = D^3V(γ)[w, w, w]: ψ'''' = D^4V[w, w, w, w] + 3σ*'' D^3V[w, w, s]. With D44:
+Let x, y be points of N. The segment between them lies in N. By the mean value theorem, applied to each component on its own, Lam_k(y) - Lam_k(x) = grad Lam_k(xi_k).(y - x) for some xi_k on the segment. So
 
-- [D43] ψ'''' = D^4V[w, w, w, w] - 3 (D^3V[w, w, s])^2 / V_ss.
+```
+Lam(y) - Lam(x) = Jbar (y - x),     row k of Jbar = grad Lam_k(xi_k).
+```
 
-The programs expand these by multilinearity in the derivatives along t and s, with a = V_ts/V_ss:
+The two rows come from different points. Every entry of Jbar lies in the interval enclosure [J_kl] of that entry over N.
 
-- [D45] D^3V[w, w, w] = V_ttt - 3a V_tts + 3a^2 V_tss - a^3 V_sss; D^3V[w, w, s] = V_tts - 2a V_tss + a^2 V_sss; D^4V[w, w, w, w] = V_tttt - 4a V_ttts + 6a^2 V_ttss - 4a^3 V_tsss + a^4 V_ssss.
+The expression det = J22 J33 - J23 J32 uses each entry once. So its interval evaluation contains the determinant of every matrix whose entries lie in those intervals, and in particular det Jbar. If that interval excludes 0, Jbar is invertible and Lam(y) = Lam(x) forces y = x. Then Z is one-to-one on N.
 
-The programs check the signs in V3 and V4 at every point of C, not only on γ. Since γ lies in C, the signs hold along γ. Under V3, ψ''' has one strict sign on [-h_t, h_t]. Under V4, ψ'''' < 0 there.
+A pointwise sign of det DZ on N would not be enough here, because the rows of Jbar come from different points.
 
-Step 3 (a minimum of V gives a point where ψ' = 0 and ψ'' >= 0). Let x_0 = c + τ_0 t + σ_0 s in C be a local minimum of V. Then ∇V(x_0) = 0, so f_σ(τ_0, σ_0) = 0. By V2, |σ_0| < h_s, and by uniqueness σ_0 = σ*(τ_0), so x_0 = γ(τ_0). Then ψ'(τ_0) = DV(x_0)[t] = 0. The Hessian of V at x_0 is positive semidefinite (second order necessary condition), so ψ''(τ_0) = D^2V(x_0)[w, w] >= 0. Different minima have different τ_0, because x_0 = γ(τ_0).
+For a leaf of kind J the program checks this on N = the leaf box enlarged by two box widths on each side.
 
-Step 4 (there is at most one such point). Suppose τ_a < τ_b in [-h_t, h_t] with ψ'(τ_a) = ψ'(τ_b) = 0, ψ''(τ_a) >= 0 and ψ''(τ_b) >= 0.
+### 9.4 The valley test (proved here, checked by program)
 
-- Under V3 with ψ''' > 0: by the mean value theorem there is ξ in (τ_a, τ_b) with ψ''(ξ) = (ψ'(τ_b) - ψ'(τ_a))/(τ_b - τ_a) = 0. Since ψ'' is strictly increasing, ψ''(τ_a) < ψ''(ξ) = 0, a contradiction. With ψ''' < 0, ψ'' is strictly decreasing and ψ''(τ_b) < ψ''(ξ) = 0, again a contradiction.
-- Under V4: ψ'' is strictly concave on [τ_a, τ_b], so ψ''(τ) > min(ψ''(τ_a), ψ''(τ_b)) >= 0 for τ_a < τ < τ_b. So ψ' is strictly increasing on [τ_a, τ_b], which contradicts ψ'(τ_a) = ψ'(τ_b).
+**The setting.** Take a cell C = { c + tau t + sig s : |tau| <= ht, |sig| <= hs }, where t and s are fixed, linearly independent vectors. Take a box Q of charge ratios with q = (1, rho2, rho3). Write V for v_q, V_s for the derivative along s, and D^kV[...] for the k-th derivative applied to vectors.
 
-Steps 3 and 4 together prove the lemma. ∎
+The program checks, for all q in Q:
 
-**Remarks.**
+```
+(V1)  V_ss > 0 on C;
+(V2)  V_s < 0 on the edge sig = -hs and V_s > 0 on the edge sig = +hs, for all |tau| <= ht;
+(V3)  psi3 = D3V[w,w,w] has one strict sign on C,   w = t - (V_ts / V_ss) s ;
+  or
+(V4)  psi4 = D4V[w,w,w,w] - 3 D3V[w,w,s]^2 / V_ss < 0 on C.
+```
 
-1. Interval soundness. The programs evaluate D45 and D43 on small sub-cells with interval arithmetic, treating V_ts, V_ss and the rest as separate intervals. By the inclusion property the result contains the true value at every point of the sub-cell, for every q in the interval box Q. They test V1 on every sub-cell and V2 on every piece of the two s-edges, so the hypotheses hold as stated. Check X9 runs the source lines of the three valley tests (`run_cert2.valley_vec`, which `run_cert3.py` uses, `cert3.valley_ok` and `verify_arb3.valley_check`) on symbols and confirms that they compute D45 and D43.
-2. The lemma does not say that Z is one-to-one on C. Near the fold Z is two-to-one, since a minimum and a saddle share their charges (check N1). The lemma says that two minima cannot share their charges.
-3. At a degenerate critical point with unit kernel vector t and unit s perpendicular to it, V_ts = 0 and w = t. Then ψ'''' = V_tttt - 3 V_tts^2/V_ss = 24κ, the cusp coefficient of `fold.py` (Appendix A2).
+**Claim.** Then, for each q in Q, v_q has at most one local minimum in C.
 
-### Lemma 14 (assembly: the theorem for a shape box)
+**The valley curve.** Fix q. For each tau, the map sig -> V is strictly convex on [-hs, hs] by (V1). Its derivative is negative at the left end and positive at the right end by (V2). So there is a unique minimiser sig*(tau) in the open interval, and it is the only zero of V_s on that segment.
 
-**Statement.** Let S be a shape box. Suppose the output of `run_cert3.py` has these properties.
+By the implicit function theorem, using V_ss ≠ 0, sig* is smooth on [-ht, ht]. Call its graph the valley curve. Every critical point of V in C has V_s = 0, so it lies on the valley curve.
 
-- (E) Coverage as in Lemma 9.
-- (A) Each leaf box B has a region N(B) that contains B. Either N(B) is a box that satisfies Lemma 12 (kind J), or N(B) is a cell C that satisfies Lemma 13 with Q an interval enclosure of {(1, ρ_2(x), ρ_3(x)) : x in B} (kind V).
-- (B) Every pair of different leaves (B, B') is resolved. Here a pair of boxes (b, b') with b inside B and b' inside B' counts as resolved if (B1) the enclosures of ρ over b and over b' are disjoint, or (B2) b' lies in N(B), or (B3) b lies in N(B'), or (B4) every pair (c, c') of kept children of b and b' is resolved. A child is dropped only if it has no point of Σ_0 or Lemma 8 excludes it.
+**The reduced function.** Put psi(tau) = V(tau, sig*(tau)). Since V(tau, sig) >= psi(tau), with equality on the valley curve, the point (tau0, sig*(tau0)) is a local minimum of V exactly when tau0 is a local minimum of psi.
 
-Then, for every triangle in S and every charge vector, V has at most one local minimum.
+**Derivatives along the curve.** Write a = V_ts/V_ss, so sig*' = -a and the curve moves with velocity w = t - a s. The definition of a gives the identity
 
-**Proof.** First a key fact (K): if x in B and y in N(B) are local minima of the same V, then x = y. For kind J: Z(x) = Z(y) by Lemma 4, and Z is one-to-one on N(B) by Lemma 12. For kind V: x is in B, so (1, ρ(x)) lies in Q, and the charges are a positive multiple of a member of Q. Scaling the charges does not move the minima. So x and y are two minima in C (x is in B, which lies in C) of a potential with charges in Q, and Lemma 13 gives x = y.
+```
+D2V[w, s] = V_ts - a V_ss = 0 .
+```
 
-Now suppose x ≠ y are local minima of the same V. By (E), x lies in a leaf B and y in a leaf B'. By Lemma 4, ρ(x) = ρ(y). If B = B', then y lies in B, which lies in N(B), and (K) gives x = y. If B ≠ B', the pair (B, B') is resolved. Follow (B4) down. At each split, x lies in a kept child of the current b and y in a kept child of the current b', because the children cover their parent and a dropped child holds no local minimum. The descent ends at a pair (b, b') with x in b and y in b' that is resolved by (B1), (B2) or (B3). (B1) is impossible, because ρ(x) = ρ(y) lies in both enclosures. (B2) puts y in N(B) with x in B, and (K) gives x = y. (B3) is the same with the roles exchanged. Every case contradicts x ≠ y. ∎
+Then:
 
-**How the program meets (B).** The initial pair list sorts the leaves by the lower end of the ρ_2 enclosure and lists every pair whose enclosures overlap in both coordinates. An unlisted pair satisfies (B1). Listed pairs are split jointly, both boxes into four, until each sub-pair satisfies (B1), (B2) or (B3), with the same dropping rule as in Lemma 9. The case of one leaf uses B inside N(B), which holds by construction for kind J and is tested for kind V.
+```
+psi'   = DV[w] = V_t                 (V_s = 0 on the curve)
+psi''  = D2V[w,w] + DV[w'] = D2V[w,w]                       (w' = -a' s, DV[s] = 0)
+psi''' = D3V[w,w,w] + 2 D2V[w,w'] = D3V[w,w,w]              (D2V[w,s] = 0)
+```
 
-**Remark (a hypothesis the pair list needs).** The pair list compares endpoints of enclosures. An enclosure that came out as NaN would fail every comparison, so its leaf would be paired with nothing and silently treated as separated. This cannot happen in the archived run. Every leaf box lies inside Σ_0, with every β_k >= 0.21875 on it, so every enclosure is finite (check D47). The second program raises an error on any division by an interval that contains 0.
+Differentiating the identity D2V[w,s] = 0 along the curve gives D3V[w,w,s] - a' V_ss = 0, so a' = D3V[w,w,s]/V_ss. Hence
 
-**The equilateral triangle.** [D46] The archived shape box is a = 1/2 and b in [0.8660254037844385, 0.8660254037844387], as binary floating point numbers. It contains √3/2: in exact rational arithmetic, (2b^-)^2 < 3 < (2b^+)^2. So Lemma 14 applies to the equilateral triangle, and by similarity to every equilateral triangle. By Corollary 11.1, every charge vector on it has at most 4 non-degenerate balance points.
+```
+psi'''' = D4V[w,w,w,w] + 3 D3V[w,w,w'] = D4V[w,w,w,w] - 3 D3V[w,w,s]^2 / V_ss .
+```
 
-[D47] The check also confirms the hypotheses of Lemmas 12 to 14 that concern the archived leaves: every leaf box and every J region lies inside Σ_0, each J region contains its box, and no valley cell contains a site (the margin is at least 0.43).
+**Under (V3).** psi''' has one strict sign on the curve, which lies in C. So psi' is strictly convex or strictly concave. It has at most two zeros, and it changes sign from minus to plus at most once.
 
-## Appendix A1. Derivatives of 1/|y|
+A local minimum of psi needs psi' <= 0 just before and psi' >= 0 just after. At a double zero of psi', the sign of psi' is the same on both sides and psi is strictly monotone there. So psi has at most one local minimum.
 
-[D48] For y ≠ 0, r = |y| and vectors a, b, c, e:
+**Under (V4).** psi'' is strictly concave. So it has at most two zeros and sign pattern contained in (-, +, -). Then psi' decreases, increases and decreases on at most three intervals, strictly on each. A change of psi' from minus to plus can happen only on the increasing piece, and at most once. So psi has at most one local minimum. ∎
 
-- D(1/r)[a] = -(y·a)/r^3.
-- D^2(1/r)[a, b] = 3(y·a)(y·b)/r^5 - (a·b)/r^3.
-- D^3(1/r)[a, b, c] = -15 (y·a)(y·b)(y·c)/r^7 + 3 [(a·b)(y·c) + (a·c)(y·b) + (b·c)(y·a)]/r^5.
-- D^4(1/r)[a, b, c, e] = 105 (y·a)(y·b)(y·c)(y·e)/r^9 - 15 S_6/r^7 + 3 [(a·b)(c·e) + (a·c)(b·e) + (a·e)(b·c)]/r^5, where S_6 is the sum of the six terms (a·b)(y·c)(y·e), one for each way to choose the pair of vectors that are dotted with each other.
+**How a leaf uses it.** For a leaf of kind V the program takes Q to be an enclosure of rho over the leaf box B. It also checks that B lies in C, and checks (V1), (V2) and (V3) or (V4) on a 4 by 4 split of C and a 4-piece split of each s-edge.
 
-**Proof.** Each line follows from the one before by differentiating along the next vector, using D(y·a)[b] = a·b and D(r^-n)[b] = -n (y·b) r^(-n-2). This is standard. The check verifies every component in the plane. The derivatives of V are sum_k q_k times these, with y = y_k. This is what `cert3.tensors`, `verify_arb3.derivs` and `lib3.derivs` compute (checks X3 and X8).
+Conclusion (proved here): if x is in B, y is in C, and both are local minima of the same v_q, then q = Z(x) lies in Q, so x = y.
 
-## Appendix A2. The cusp coefficient
+The derivatives of 1/|y| along in-plane vectors u, v, w, z are the spatial derivatives evaluated in the plane:
 
-This appendix is not needed for the equilateral proof. It writes out the formulas behind the statements on cusps (`fold.py`, `cuspset.py`, `cusp_scan.py`).
+```
+D2[u,v]     = 3 (y.u)(y.v)/r^5 - (u.v)/r^3
+D3[u,v,w]   = -15 (y.u)(y.v)(y.w)/r^7 + 3[(u.v)(y.w) + (u.w)(y.v) + (v.w)(y.u)]/r^5
+D4[u,v,w,z] = 105 (y.u)(y.v)(y.w)(y.z)/r^9 - 15 S6/r^7 + 3 S3/r^5
+```
 
-At a degenerate critical point x, let t be a unit kernel vector of H and s a unit vector perpendicular to it. By Lemma 5, H = diag(0, λ) in the frame (t, s), so V_ts = 0, V_ss = λ and w = t. Let ψ be the valley function of Lemma 13 through x. Then ψ' = ψ'' = 0 at x, ψ''' = V_ttt, and
+Here S6 sums (u.v)(y.w)(y.z) over the six ways to choose the pair that is dotted together. S3 is (u.v)(w.z) + (u.w)(v.z) + (u.z)(v.w).
 
-- [D49] ψ'''' = V_tttt - 3 V_tts^2/V_ss = 24κ, with κ = V_tttt/24 - V_tts^2/(8 V_ss), the coefficient `kap` of `fold.py`.
+### 9.5 The pair step (proved here, the inequalities checked by program)
 
-Near x, V(c + τt + σs) >= ψ(τ) for σ near σ*(τ), with equality on the floor, because f is convex in σ there. So x is a local minimum of V exactly when 0 is a local minimum of ψ. At a cusp point (V_ttt = 0) with κ ≠ 0, ψ(τ) = ψ(0) + κτ^4 + O(τ^5). So x is a degenerate local minimum if κ > 0, and not a local minimum if κ < 0. That nearby charges then have two minima when κ > 0 is the standard unfolding of the cusp singularity. The note uses it only as an inference [I].
+The leaves cover the candidate boxes. Each leaf L_j has a region: the enlarged box N_j for kind J, or the cell C_j with its charge box for kind V. The pair step needs one fact about each leaf.
 
-**The formulas of cuspset.py.** Put t = (1, 0) and let φ_k be the angle of u_k (called psi in `cuspset.py`), so cos φ_k = u_k · t.
+```
+(*)  if x is in N_j (or C_j), y is in L_j, and x, y are local minima of the same v_q, then x = y.
+```
 
-- [D50] D^3(1/r)[t, t, t] = -6 P_3(cos φ)/r^4, D^3(1/r)[t, t, s] = -3 sin φ (5cos^2 φ - 1)/r^4, and D^4(1/r)[t, t, t, t] = 24 P_4(cos φ)/r^5, with the Legendre polynomials P_3(c) = (5c^3 - 3c)/2 and P_4(c) = (35c^4 - 30c^2 + 3)/8. These follow from D48 with y = r (cos φ, sin φ).
+For kind J this holds because Z is one-to-one on N_j, which contains L_j. For kind V it holds by 9.4.
 
-By D14 the kernel is t exactly when m = -1/3. Together with sum_k β_k = 1, this condition is linear in β: β is the vector of barycentric coordinates of the point -1/3 with respect to the three points exp(2iφ_k) (`beta_of` in `cuspset.py`). By D8, β_k r_k is proportional to w_k = u_l × u_n = sin(φ_n - φ_l). Scaling the triangle makes the factor 1, so r_k = w_k/β_k, and the sites are A_k = x - r_k u_k.
+**Claim.** No v_q has two distinct local minima in T°.
 
-- [D51] The identity sum_k w_k u_k = 0 shows that x has barycentric coordinates β with respect to these sites.
-- [D52] With q_k = β_k r_k^3 (so λ = sum_k β_k = 1 and V_ss = 1): V_ttt = -6G, V_tts = -3 sum_k β_k^2 sin φ_k (5cos^2 φ_k - 1)/w_k, V_tttt = 24 sum_k β_k^3 P_4(cos φ_k)/w_k^2, and ψ'''' = 24K. Here G = sum_k β_k^2 P_3(cos φ_k)/w_k and K = sum_k β_k^3 P_4(cos φ_k)/w_k^2 - (9/8) (sum_k β_k^2 sin φ_k (5cos^2 φ_k - 1)/w_k)^2 are the functions computed by `cuspset.GK`.
+*Proof.* Suppose x ≠ y are local minima of v_q. By 9.2 they lie in candidate boxes, so in leaves L_i and L_j.
 
-So G = 0 is the cusp condition, and the sign of K is the sign of κ. Each line of D52 is D50 summed with weights q_k/r_k^4 = β_k/r_k = β_k^2/w_k or q_k/r_k^5 = β_k^3/w_k^2.
+If i = j, then (*) applies directly, since L_i lies in its own region.
 
-## What is not proved here
+If i ≠ j and the rho-enclosures of L_i and L_j are disjoint, then Z(x) ≠ Z(y), which is impossible.
 
-- The step from the model F_L to actual small charges (Lemma 7).
-- The model of two charges in a uniform field (`l8_model.py`). The note already says it is not proved.
-- The [I] statements of "The reduction" about folds, cusps and crossings, beyond Corollary 11.2 and Appendix A2.
-- The soundness of the interval arithmetic itself: outward rounding in `iv.py`, and ball arithmetic in `verify_arb3.py`. This file proves the mathematical statements that the code tests. The reviewer's reading and the second program cover the arithmetic.
-- The numerical scans of shapes and cusps.
+Otherwise the pair (L_i, L_j) is one of the 121,485 leaf pairs with overlapping enclosures, and the program processes it as follows.
+
+The program takes a pair of sub-boxes (X, Y), with X inside L_i and Y inside L_j, and records one of three outcomes:
+
+- **disjoint**: the rho-enclosures of X and Y do not meet. Then no x in X and y in Y have the same image.
+- **contained**: X lies in the region of L_j, or Y lies in the region of L_i. Then (*) gives x = y.
+- **split**: X and Y are each cut into four. Children outside the triangle, or with |m|^2 > 1/9 throughout, are dropped, since they hold no local minimum. The 16 child pairs are processed in turn.
+
+The children of a split cover X times Y, minus points that cannot be local minima. The run ended with no unresolved pair, so (x, y) lies in a resolved sub-pair. That contradicts x ≠ y. ∎
+
+By 7b this gives Maxwell's bound of 4 for every non-degenerate configuration on the equilateral triangle.
+
+**What the count of 55 million means.** It is 54,941,484 sub-box pairs resolved as disjoint plus 197,271 resolved as contained. That makes 55,138,755 resolutions of sub-box pairs, produced by splitting the 121,485 overlapping leaf pairs. It is not a count of pairs among the 7,343 leaves. The source is `out/c3_equi.json` and `out/c3_equi.log`.
+
+### 9.6 The charge-ratio window (checked by program, output not saved)
+
+The rho-enclosures of all leaves lie in rho2 in [0.6421, 1.5836] and rho3 in [0.6635, 1.5834]. So a local minimum on this triangle needs both q2/q1 and q3/q1 in [0.642, 1.584]. Under relabelling of the vertices the equilateral triangle maps to itself, so the same window applies to every ratio q_i/q_j.
+
+This was computed with `cert3.rho_centered` over `out/c3_equi_leaves.npy` in a one-off command. No output file for it is in the checkout.
+
+## 10. What is still not proved
+
+- The pair step of 9.5 rests on one program. `verify_pairs_arb3.py` re-checks 200 random non-trivial leaf pairs. A full second check was not run.
+- No triangle other than the equilateral one is certified. The right isosceles and obtuse runs were stopped unfinished, and a box of shapes of width 7.6e-6 failed.
+- The flat-triangle limit and the colliding-pair limit have no uniform bounds. L7 covers the model, but the passage from the model to the limit with explicit constants is not done. The uniform-field model L8 is numerical only.
+- The genericity assumptions of 7d(v) are not proved for all triangles.
+- The scans (`scan_shapes.py`, `cusp_scan.py`) and the sign of the cusp coefficient over the family are numerical.
+- The versality condition used in 7d(i) and 7d(ii) is not checked along the family.

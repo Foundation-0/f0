@@ -18,12 +18,12 @@ The three-charge case is still open. This thread did not prove Maxwell's bound o
 
 ## The structure of the problem
 
-All of these are proved by hand in `checks/three/DERIVATIONS.md`. Every formula there is checked by `checks/three/derivations_check.py`, with output in `checks/three/derivations_check.out`.
+Each of these is proved in full in `checks/three/DERIVATIONS.md`, which was written after the team review found that the notes held only the statements. `checks/three/NOTES.md` is the short working list.
 
-- [F] Every balance point lies in the plane of the charges. In that plane the charges are peaks. When the other critical points are non-degenerate, they are saddles and minima, and saddles minus minima is 2.
+- [F] Every balance point lies in the plane of the charges. In that plane the charges are peaks, and the other critical points are saddles and minima. For a configuration whose balance points are all non-degenerate, saddles minus minima is 2.
 - [F] Maxwell's bound of 4 is 3 saddles and 1 minimum. The proved bound of 6 allows 4 saddles and 2 minima. So the whole question is whether two minima can exist.
 - [F] **The inverse map.** A point x inside the triangle is a balance point exactly when each charge is proportional to the barycentric coordinate of x at that corner times the cube of its distance from x. So every interior point is a balance point for exactly one set of charge ratios.
-- [F] **When it is a minimum.** Put m(x) for the sum over corners of the barycentric coordinate times the unit complex number at twice the direction angle from the corner to x. Then x is a non-degenerate minimum exactly when |m(x)| is below 1/3.
+- [F] **When it is a minimum.** Put m(x) for the sum over corners of the barycentric coordinate times the unit complex number at twice the direction angle from the corner to x. Then x is a minimum exactly when |m(x)| is below 1/3.
 - [F] Every triangle has a point where m is zero, so every triangle has a minimum for some charges.
 
 [I] In the language of `flat-centres.md`: reflect the charges in a circle about x. The point x is a minimum when the second moments of the reflected charges are round enough, with the smaller more than half the larger.
@@ -40,22 +40,22 @@ All of these are proved by hand in `checks/three/DERIVATIONS.md`. Every formula 
 - [F] `cusp_scan.py` sampled 4,866 cusps over the whole family. The coefficient that decides the kind of cusp, scaled, is at most -1/3 in all of them. A positive value would mean two minima. The value -1/3 is approached only when one charge is small and near the saddle of the other two.
 - [F] A separate search by the reviewer, `degenerate3_reviewer.py`, solves for cusps directly from 400 random starts with its own reduction to one variable. It found 88 cusps. The fourth derivative is negative at all 88, the harmless kind.
 - [F] The same program, asked for points of fourth order, which would force 6 balance points, found none from 250 starts.
-- [F] **A local lemma.** In the limit model of a small charge near the saddle of the other two, there is at most one minimum. The proof reduces to counting roots of one equation in one variable. A numerical check on 400 random cases agrees.
+- [F] **A local lemma.** A small charge near the saddle of the other two has at most one minimum. The proof reduces to counting roots of one equation in one variable. A numerical check on 400 random cases agrees.
 - [F] The limit where two charges collide, modelled as two charges in a uniform field, shows the same simple picture. That model is not proved.
 
 ## The equilateral triangle, for all charges
 
 [F] `run_cert3.py` covers the minimum region of the equilateral triangle with boxes. It then proves both of the following.
 
-1. In each of 7,343 small boxes the inverse map is one-to-one on the minima. The test is a sign of the Jacobian, or, near the fold, a sign of the third or fourth derivative across a valley.
-2. No two different boxes hold minima for the same charge ratios. That is 55 million pairs, each shown to have disjoint images or one box inside a region already handled.
+1. Each of 7,343 small boxes carries one of two certificates. A Jacobian certificate proves the inverse map is one-to-one on an enlarged box, from an interval determinant that excludes zero. A valley certificate, used near the fold, proves that for any one set of charges the box holds at most one minimum, from the signs of the third or fourth derivative across a valley.
+2. No two distinct minima share a set of charge ratios. The 7,343 boxes give 121,485 pairs whose images overlap. Splitting those gives 55.1 million smaller pairs, each shown to have disjoint images (54,941,484) or to lie inside a region already certified (197,271).
 
 - [F] The arithmetic is interval arithmetic with outward rounding. The run takes about six minutes and ends with `RESULT PROVED`.
 - [F] A separate program, `verify_arb3.py`, uses ball arithmetic from another library and shares no code with the first. It re-proves the coverage and all 7,343 box certificates. For the pairs it re-proves 200 chosen at random, and all 200 pass.
 - [F] Three corrupted certificates are rejected, also under `python -O`.
-- [F] The certificate shows as a by-product that a minimum exists only when every ratio of two charges lies between 0.642 and 1.584.
+- [F] A by-product: a minimum exists only when every ratio of two charges lies between 0.642 and 1.584. This came from a single command whose output was not saved, and it uses the symmetry of the triangle to cover every ratio. Treat it as reported, not as part of the certificate.
 
-[I] The pair step is the part that rests on one program. A full second check of the 55 million pairs was not run.
+[I] The pair step is the part that rests on one program. A full second check of the 55.1 million smaller pairs was not run.
 
 ## What did not work
 
@@ -84,6 +84,12 @@ python3 -O verify_pairs_arb3.py out/c3_equi 200 12
 sh run_corrupt.sh
 python3 cusp_scan.py 200
 ```
+
+## What the written derivations leave open
+
+- The two cases "a cusp of the plus kind" and "a point of fourth order" force 6 balance points under a rank condition that is not checked along the family.
+- That two minima force a fold while another minimum exists is an inference. It needs the fold curve to be generic.
+- The step from the local lemma to the actual limit of a small charge has no explicit constants.
 
 ## Not verified
 

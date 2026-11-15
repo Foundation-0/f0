@@ -6,9 +6,9 @@
 
 | Repository | Taken | Returned | Link |
 |---|---|---|---|
-| rigid-realizations | the L880 certificate, the counting code, the search method | a certificate for the 11-vertex graph with all 2,288 realizations real, a 12-vertex result, a second count program, a standard-library re-check of L880 | [pull 21](https://github.com/Foundation-0/rigid-realizations/pull/21) |
+| rigid-realizations | the L880 certificate, the counting code, the search method | a certificate for the 11-vertex graph with at least 2,288 real realizations, its full complex count, a 12-vertex result, a second count program, a standard-library re-check of L880 | [pull 21](https://github.com/Foundation-0/rigid-realizations/pull/21) |
 | point-charges | the certified counts, the repository verifier, the open four-charge question | three certified four-charge configurations with 11 balance points, the growth argument with its two proved lower bounds, a fix for the verifier under `python -O`, certificates for eight and nine charges, a second family with 9, three further checkers | [pull 22](https://github.com/Foundation-0/point-charges/pull/22) |
-| gravity | the threshold model, its certificates, the acceleration-evolution folder | data tests of the 185 km/s claims on 763 systems, a fix for two check modes that passed when they should fail, proposals for six ledger entries | [pull 28](https://github.com/Foundation-0/gravity/pull/28) |
+| gravity | the threshold model, its certificates, the acceleration-evolution folder | data tests of the 185 km/s claims on a table of 763 rows, a fix for two check modes that passed when they should fail, proposals for six ledger entries | [pull 28](https://github.com/Foundation-0/gravity/pull/28) |
 | gfq-codes | the method of excluding codes by a classical bound | the bound run over every open entry of three reference tables, 1,519 certificates, 2,418 improved entries | [pull 19](https://github.com/Foundation-0/gfq-codes/pull/19) |
 | finite-state-proofs | the zero-vector method and eleven proved recurrences | 238 proved recurrences, the square law with a full proof, two corrections to the method | [pull 5](https://github.com/Foundation-0/finite-state-proofs/pull/5) |
 | incentre-lattices | the elastic theorem and the fold | two exact checks written separately, and a correction: one shear modulus is zero, not both | [pull 102](https://github.com/Foundation-0/incentre-lattices/pull/102) |
@@ -44,5 +44,5 @@ For relative-equilibria, issue 6 says a group in Kraków should be told before a
 
 ## What each side gained
 
-- The sources gained checks that do not share code with their own, fixes for three verifiers that passed corrupted input under `python -O`, one corrected statement, and results that extend their own.
+- The sources gained checks that do not share code with their own, fixes for three verifiers that passed corrupted input under `python -O` (the saved run in this folder is the point-charges one), one corrected statement, and results that extend their own.
 - The review gained its starting points. Every new result in this folder began from a method or a certificate in one of these repositories.

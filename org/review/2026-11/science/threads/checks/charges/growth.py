@@ -8,7 +8,7 @@ Rules (status in brackets):
   ins-b  M(4+2m) >= 9+20m  (charge at the D3h centre of the ABK chain) [NOTE Prop. 2(b), sketch;
                                                                       certified m=0,1 (repo, this thread), m=2 numerically/see n8 run]
   ins-a  M(n+1) >= M(n)+3 when an index-1 point exists               [NOTE Prop. 2(a), sketch]
-  clus   M(a+b-1) >= M(a)+M(b)  (shrink config A into one charge of B) [standard persistence argument, REPORT.md]
+  clus   M(a+b-1) >= M(a)+M(b)  (shrink config A into one charge of B) [standard persistence argument, sketched in LEMMAS.md section 4]
 """
 
 N = 40

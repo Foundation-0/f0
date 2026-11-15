@@ -1,6 +1,6 @@
 # Pull request 58: an independent check, a literature check, and answers to its review
 
-15 November 2026. This folder sits beside `threads/` (pull request 58) and `pr58-addendum/` (pull request 60, the review record). It holds work that does not trust the threads' own programs. The same pull request also edits files in `threads/` to answer the review's blocking items. Marks: **[F]** fact from a run or a proof, **[P]** published, **[I]** inference, **[C]** conjecture.
+15 November 2026. This folder sits beside `threads/` (pull request 58) and `pr58-addendum/` (pull request 60, the review record). It holds work that does not trust the threads' own programs. The author of pull request 58 answered the review's items in their own commits; this pull request changes only two notes in `threads/`, to add what the literature check found. Marks: **[F]** fact from a run or a proof, **[P]** published, **[I]** inference, **[C]** conjecture.
 
 ## Check it yourself in one minute
 
@@ -20,7 +20,6 @@ python3 -O check.py short_table.json certs/short_table.cert.json 11
 | `four/NOTE.md` | A proof that four charges have exactly 11 balance points, for all four certificates, by a checker written without reading the earlier ones. Its lemmas, controls, the adversarial review it received, and its limits. |
 | `four/T444.md` | Why the routes in the thread stop at 11. The tetrahedron centre is Arnold's T(4,4,4), whose Milnor number is 11. The flat points form a ladder of types with multiplicities 8, 9, 10 and 11. A prediction made from the ladder, and a first test of it. |
 | `LITERATURE.md` | What is published, with quotes and the queries run. Written because the review says "Literature and novelty claims were not checked in any thread." |
-| `CHECKER-AUDIT.md` | Which checkers in `threads/checks/` raise on failure and have a saved run on corrupted input under `-O`. It answers review item 3. |
 
 ## Findings, most important first
 
@@ -29,22 +28,18 @@ python3 -O check.py short_table.json certs/short_table.cert.json 11
 3. **[P] The count 11 at the regular tetrahedron is already in print, though not for the Coulomb potential.** Gabrielov, Novikov and Shapiro (2007) note 11 effective cells for the regular tetrahedron, above 9, for their potential with a large exponent. A 2026 paper (arXiv:2501.05315) reads the degenerate centre as 11 co-located critical points, with a minimum, and does not realise them. The thread's note did not cite the first and described the second wrongly. Both are corrected in `threads/four-charges-eleven.md`. [F] No report of more than 9 for four Coulomb charges was found. The novelty claim stands as "no earlier report found", now with the closest prior statements named.
 4. **[F] The multiplicity 11 is a theorem, not only a computation.** The centre is of type T(4,4,4) in Arnold's classification. A Groebner basis computation agrees. The thread's other multiplicities, 8 and 10, are the types P8 and T(3,4,4) of the same ladder. [I] The next type up, U12, with multiplicity 12, would open a route to 13. Searches find no flat four-charge point of that type.
 5. **[F] A prediction from the ladder passes a first test on the thread's own data.** Near the nodal stratum, one far balance point should approach the flat point linearly in the distance to the stratum. Over the thread's 23 printed samples the log-log slope is 1.01 and the rank correlation 0.82.
-6. **[F] The three-charge proof now has its derivations in the record.** `threads/checks/three/DERIVATIONS.md` writes out every lemma, and `derivations_check.py` checks 62 formulas and statements, failing as it should when a sign is flipped. Two sentences in `three-charges.md` claimed more than the certificate proves and are narrowed: the inverse map is one-to-one on the minima, not on every box, and boxes are shown not to hold minima for the same charges.
+6. **[F] Two separate write-ups of the three-charge lemmas found the same two over-claims.** The author of pull request 58 and a separate agent for this pull request each wrote out the derivations behind `three-charges.md`. Both found that the inverse map is one-to-one only on the minima, not on every box, and that the pair step shows no two minima share charges, not that no two boxes do. The author's corrected note and `checks/three/DERIVATIONS.md` are the ones kept; the second write-up is not added.
 7. **[F] A rounding sentence was ambiguous.** "Rounding to four decimals leaves 9" holds for the unrounded source. Rounding the printed table again gives 7. The note now names its source.
 
 ## Changes to `threads/` in this pull request
 
-| Review item | File | Change |
-|---|---|---|
-| Blocking 1 | `unit-point.md` | Gives the counts that `certray_868.json` holds at each eps. |
-| Blocking 2 | `recurrences.md`, `square-law.md` | Labels aligned with `README.md`. PROVEN, defined only in an unmerged pull request, is dropped. The four entries with no separate verifier run are named. |
-| Blocking 3 | `README.md`, `convergences.md` | The sentence that every checker raises and ran under `-O` now names the nine that the record supports, and points to `CHECKER-AUDIT.md`. |
-| Blocking 4 | `three-charges.md`, `checks/three/` | Derivations written out and machine-checked; two over-claims narrowed. |
-| Blocking 5 | `gravity.md`, `neutrino-like.md`, two programs | Stale paths fixed where the target exists. Both notes now say they cannot be re-run from this checkout and that the 9 eV end of the window rests on an output with no program. This item is answered in wording only. |
-| Major items | `l2288.md`, `central-configurations.md`, `neutrino-like.md`, `fabric.md`, `growth.md`, `convergences.md` | Shared proof template named; equality qualified; corruption counts matched to the record; the 100 eV system named; a tag lowered to [I]; the growth constant's numerical basis stated. |
-| Literature | `four-charges-eleven.md`, `README.md` | The two prior statements above cited; "for the Coulomb potential" added; the later checker and the T(4,4,4) identification cited. |
+The author of pull request 58 answered every blocking and major item of the review in their own commits, so this pull request no longer carries fixes for them. It changes two notes, and the manifest:
 
-`threads/MANIFEST.sha256` is regenerated and verifies 1,445 of 1,445 files. Nothing else in `threads/` changes.
+| File | Change |
+|---|---|
+| `four-charges-eleven.md` | Cites the 2007 remark of 11 at the tetrahedron and describes arXiv:2501.05315 as it reads. Adds "for the Coulomb potential" to the novelty sentences, and the 570 bound of arXiv:2609.03965, read from its Theorem 1.1. Names the source of the rounding sentence. Lists the later checker and the T(4,4,4) identification. |
+| `README.md` | One sentence on the two prior statements, beside the novelty claim. |
+| `MANIFEST.sha256` | The two checksums. `checks/verify_folder.py` passes: 1,481 files, 193 of 193 ledger claims, 22 checkers. |
 
 ## For the owners
 

@@ -56,7 +56,7 @@ Anyone can test a listed point with a few lines of code: the field there is zero
 | `../pr58-trust/four/check.py`, written later without reading the three above, standard library only, no floating point | exactly N | 11 | 11 |
 
 - `indep_count.py` reads only the sites and the charges. It is the third checker from `point-charges.md`.
-- `verify_arb.py` is the repository's own verifier at the pinned head. It was run without `-O`, because at that head its checks are `assert` statements.
+- `verify_arb.py` is the point-charges repository's own verifier. At the pinned head its checks are `assert` statements, so there it was run without `-O`. Its corrected form, from pull request 22 of that repository, is copied into `checks/charges/repo_verifier/` so that this folder holds both exact programs. The copy passes all three configurations under `-O`. The output is `checks/charges/out/repo_verifier_fixed_under_O_on_four.txt`.
 - `lower_bound_check.py` was written for this result without reading the other two. It finds its own candidates, then proves one zero in each small cube with the Krawczyk test in ball arithmetic, and fixes the index from the sign of the determinant.
 
 [F] Controls, all of which fail as they should:
@@ -140,16 +140,18 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 - [P] A 2022 paper gives nine balance points for four charges in a plane, which meets the bound.
 - [P] arXiv:2501.05315 (Proc. London Math. Soc. 132 (2026) e70163) treats the centre of the regular tetrahedron as degenerate. It reads its local homology as "consistent with three 2-saddles co-located at its center" and also "with one minimum, four 1-saddles, and six 2-saddles co-located at the center", 11 in all, and prefers the second reading. It calls 3 a lower bound for the unfolding and does not realise more. [I] A Coulomb potential has no minimum, so that split cannot occur here; the certified split is 7 and 4 with no minimum.
 - [P] Gabrielov, Novikov and Shapiro, "Mystery of point charges" (Proc. London Math. Soc. 95 (2007); arXiv:math-ph/0409009): "already for a regular tetrahedron the number of effective cells is 11, which is greater than the Maxwell's bound 9. Thus a stronger version of Maxwell's conjecture in R3 fails". That is for their potential with exponent alpha large. The Coulomb potential is alpha = 1/2 in their notation, and their 11 include a minimum.
-- [P] arXiv:2609.03965 (September 2026) proves a finite bound for charges of one sign. For four charges it gives at most 570.
 
-[F] Searches on 15 November 2026 found no report of more than 9 for four charges with the Coulomb potential, and none of the multiplicity 11 or the type T(4,4,4). The count 11 at the regular tetrahedron is in print for a related potential and as a reading of the degenerate centre (the two items above). Sources and queries: `../pr58-trust/LITERATURE.md`. That is "no earlier report found". It is not proof that the result is new.
+- [P] arXiv:2609.00336 bounds the critical points along a line by 2n - 1. arXiv:2609.03965 treats whether the number of balance points is always finite. Neither gives a count for four charges. [P] Its Theorem 1.1 proves the set of balance points finite for any nonzero charges at distinct sites, with at most 2^(N-4)(N-1)(9N² + 9N + 10) of them where the sum of q_i/|x - a_i|³ is non-zero, which for charges of one sign is everywhere, and with no genericity or non-degeneracy assumption. For four charges that is at most 570, the best explicit upper bound found.
+
+[F] Searches on 15 November 2026, repeated after the team review noted that novelty had not been checked, found no report of more than 9 for four charges with the Coulomb potential. [P] The count 11 at the regular tetrahedron is in print, for a related potential and as a reading of the degenerate centre (the two items above); a later check that read the full texts found both (`../pr58-trust/LITERATURE.md`). None names the multiplicity 11 or the type T(4,4,4). That is "no earlier report found". It is not proof that the result is new. The papers were read from their abstracts, and the two September papers only from search summaries.
 
 [I] If the result holds, four is the smallest number of charges at which Maxwell's bound is known to fail for the Coulomb potential. For three charges the bound is 4 and the proved limit is 6.
 
 ## Not verified
 
 - Nothing here shows that 11 is the largest count for four charges. The surveys of the flat family are numerical.
-- The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine. The later checker in `../pr58-trust/four/` does not use them.
+- The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine. The proofs are written out in `checks/charges/LEMMAS.md`, with the other steps of the count. The later checker in `../pr58-trust/four/` does not use them.
+- `indep_count.py` and `lower_bound_check.py` both use the python-flint library for ball arithmetic. A fault in that library would affect both.
 - That the regular tetrahedron has only one balance point is numerical.
 - The degree argument is a sketch. The certified counts do not depend on it.
 - The wall traces and the width table are numerical.
@@ -184,11 +186,11 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 
 ## Rerun
 
-From `checks/four/`, with python-flint and NumPy installed. The first two commands need `indep_count.py` from `checks/charges/` and the repository's `verify_arb.py` at the pinned head.
+From `checks/four/`, with python-flint and NumPy installed. Every program named is in this folder.
 
 ```
 python3 -O ../charges/indep_count.py verify/n4_eleven_flat.json out.json
-python3 verify_arb.py verify/n4_eleven_flat.repo.json
+python3 -O ../charges/repo_verifier/verify_arb.py verify/n4_eleven_flat.repo.json
 python3 -O verify/lower_bound_check.py verify/n4_eleven_short.json 11
 python3 -O verify/lower_bound_check.py verify/n4_eleven_flat.json 11
 python3 -O verify/lower_bound_check.py jet-route/n4_eleven_b12.json 11

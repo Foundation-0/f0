@@ -7,7 +7,7 @@ All code in this directory is new (does not import repo code).
 - arXiv:math-ph/0409009v1 (GNS 2007 "Mystery of point charges"), PDF, cached sources/gns_0409009.pdf/.txt.
 - Not read: Tsai 2015 (Physica D 309, equal charges), Tsai 2011, Killian 2009 (not on arXiv).
 
-## Lemmas (proved by hand; written out in DERIVATIONS.md)
+## Lemmas (proved by hand, see final report for write-up)
 L1 planarity; L2 planar Laplacian = sum q/r^3; L3 index count m - s = -2.
 L4 (barycentric form of the inverse map). x critical for q  <=>  q_i/r_i^3 proportional to the barycentric
    coordinates beta_i(x).  So Z(x) = [beta_i r_i^3].

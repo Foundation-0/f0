@@ -8,7 +8,7 @@ The 211 recurrences proved in `recurrences.md` count grids of fixed width in whi
 
 - [F] 209 of the 211 are perfect squares. The other two, A268888 and A268997, are a square times (x + 1). No factor occurs more than twice.
 - [F] In all 88 families where both conditions are proved, "exactly once" and "at most once" have the same polynomial.
-- [F] For all 170 entries small enough to test with a separate machine, the square root g is the minimal recurrence of the count with no such pair at all. In the two exceptions that minimal recurrence is g (x + 1).
+- [F] For 168 of the 170 entries small enough to test with a separate machine, the square root g is the minimal recurrence of the count with no such pair at all. In the two exceptions that minimal recurrence is g (x + 1).
 
 So the recurrence for "one pair" is the square of the recurrence for "no pair". The rest of this note states that as a theorem, proves it, and uses it.
 
@@ -75,6 +75,7 @@ For each entry: take the integer square root g of the listed polynomial, find th
 |---|---|
 | Entries of the first pass proved again | 211 of 211, same starting index in every one |
 | Entries the first pass skipped for cost | 27 of 27 proved |
+| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |
 | New entries proved in all | 227, with the 11 controls 238 |
 | Starting index against the OEIS, for the 27 | equal to the stated start in all 27 |
 | Corrupted inputs rejected | 73 of 73, also under `python3 -O` |
@@ -83,7 +84,14 @@ For each entry: take the integer square root g of the listed polynomial, find th
 - [F] An entry the first method abandoned at 158 million transitions takes 1.4 seconds.
 - [F] The verifier was re-run for this review on the 211 entries under `python3 -O`. All pass.
 
-Verdict for the 211, as in `README.md`: **VERIFIED** for the 46 that a third program proves again, REPRODUCED for the other 165. Two programs written apart, using different arguments, agree on every starting index. The 27 are proved by one method, the theorem above with its machine check. The first method does not reach them, so no second argument covers them. `README.md` counts them with the REPRODUCED entries. The verifier log `checks/square/verify_all.log` holds 237 passes for 238 proof files. A269766 has no verifier pass, so only the prover checked it. A269765, A269900 and A270057 passed the verifier only through the prover's own engine, because the verifier's dense form is too large for them.
+Verdict: **VERIFIED** for the 46 entries that `checks/oeis/spot_proof.py` proves again, written apart from the rest. **REPRODUCED** for the other 192. These are the other 165 of the 211, and the 27 added here. The 27 are proved by the square-law theorem and checked by the thread's verifier. The label is REPRODUCED and not VERIFIED because the dense verifier and the prover share a parser and were written in the same pass.
+
+Four of the 27 need a closer note.
+
+- A269765 and A270057 were first checked only through the prover's tensor engine. The dense verifier now also passes both.
+- A269766 and A269900 are too large for the dense form here. The verifier checked them through the prover's tensor engine, which the verifier shares with the prover. A269766 was run through the verifier later than the rest.
+
+The other 234 passed the dense verifier. The engine used for each entry is in the `verifier_engine` column of `checks/square/table.csv`, and the full output is `checks/square/verify_all.log`.
 
 ## How far the law goes
 
@@ -98,7 +106,8 @@ Verdict for the 211, as in `README.md`: **VERIFIED** for the 46 that a third pro
 
 ```
 cd checks/square
-python3 verify.py proofs/A2*.json          # all 238; the saved log has 237, A269766 was not run
+python3 verify.py proofs/A2*.json          # all 238; the largest entry alone takes about 8 minutes
+SQUARE_DENSE_MAX=60000 python3 verify.py proofs/A270057.json   # force the dense engine on a larger entry
 python3 -O test_corrupt.py
 python3 ../converge/oeis_structure.py ../oeis/certs
 ```

@@ -12,6 +12,9 @@ import numpy as np
 
 
 def decode(n, code):
+    # Bit order: most significant bit first over pairs (1,2),(1,3),... (MSB-lexicographic).
+    # laman/laman_count.py reads the same integer least significant bit first (lnumber order), so the
+    # two give differently labelled but isomorphic graphs.
     pairs = list(itertools.combinations(range(1, n + 1), 2)); m = len(pairs)
     return [pairs[k] for k in range(m) if (code >> (m - 1 - k)) & 1]
 

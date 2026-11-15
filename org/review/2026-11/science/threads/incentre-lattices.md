@@ -15,7 +15,7 @@ The repository states the elastic constants of its lattice in every dimension, a
 Statement: C11/C12 = (n-1)^2, C44 = 0, and Poisson ratio 1/(n^2-n-1) along an axis.
 
 - [F] Separate exact code (`checks/incentre/elastic_indep.py`, arithmetic in Q(sqrt 2), bars found by a distance search) gives these values for every n from 2 to 9. It shares no code with the repository.
-- [F] The values do not change when the bridge-to-edge ratio changes. Three ratios were tried.
+- [F] The values do not change when the bridge-to-edge ratio changes. This was tried at three rational ratios, for n from 2 to 6 only.
 - [F] A target corrupted by 1% is rejected, also under `python3 -O`.
 - [F] Each step of the written proof was re-derived and follows.
 

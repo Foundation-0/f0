@@ -1,6 +1,6 @@
 """T6: dark-matter fractions inside R_e of z = 0.6-2.5 star-forming galaxies vs the falling threshold.
 Data: Genzel+2020 (RC41, arXiv:2006.03046) Table D1 (logM*, logMgas, logMbar, v_c(R_e), R_e, B/T, f_DM(R_e)) and
-Table 1 (z), text extraction made by the accel thread; Ubler+2017 KMOS3D (VizieR J/ApJ/842/121 table3: z, logMbar, V_circ,max).
+Table 1 (z), text extraction made by fetch_sources.py; Ubler+2017 KMOS3D (VizieR J/ApJ/842/121 table3: z, logMbar, V_circ,max).
 Prediction: f_DM = 1 - 1/(nu(y) + R f_trap(v_c/sqrt2; sigma_J(z))), y = g_b(R_e)/a0 from M_bar, R_e, B/T."""
 import re, math, pathlib, sys
 import numpy as np
@@ -63,7 +63,7 @@ P("  -> for model A to hold, M_bar would have to be overestimated by a factor ~ 
   f"{np.median((np.array([float(nu(x)) for x in r[:,6]]) + PARAMS['A']['R']*0.97) / need):.1f}")
 
 # ---- Ubler+2017 KMOS3D baryonic TF: offset of log V from the z=0 SPARC-calibrated BTFR, against z
-P("\n== Ubler+2017 KMOS3D (V_circ,max, logMbar): offset d = log V - 0.25 log(G Mb a0) relative to SPARC c0 = 0.0327 (gravity thread t2)")
+P("\n== Ubler+2017 KMOS3D (V_circ,max, logMbar): offset d = log V - 0.25 log(G Mb a0) relative to SPARC c0 = 0.0327 (gravity/t2)")
 L = [l for l in (src / "ubler2017_vizier.tsv").read_text().splitlines() if l and not l.startswith("#")]
 hdr = L[0].split("\t"); data = [l.split("\t") for l in L[3:]]
 iz, imb, iv = hdr.index("z"), hdr.index("logMb"), hdr.index("Vcirc")
