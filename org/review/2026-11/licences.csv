@@ -1,0 +1,36 @@
+repository,license_files,github_detected_license,zenodo_license_field
+.github,,,
+astr0,,,
+certified-orbits,LICENSE,Apache-2.0,Apache-2.0
+cfrp-strengthening,LICENSE,NOASSERTION,MIT
+cosmic-denoising,,,
+covering-min-modulus,LICENSE,Apache-2.0,Apache-2.0
+discussi0n,,,
+ductricity,LICENSE; LICENSE-DOCS,Apache-2.0,cc-by-4.0
+exoplanets-frontier,LICENSE,MIT,
+f0,LICENSE,Apache-2.0,
+finite-state-proofs,,,
+formal-claims-audit,LICENSE,Apache-2.0,Apache-2.0
+fractals,LICENSE,Apache-2.0,
+gaia-dr4,LICENSE,Apache-2.0,Apache-2.0
+gfq-codes,LICENSE,Apache-2.0,Apache-2.0
+gravity,,,
+incentre-lattices,LICENSE,NOASSERTION,cc-by-4.0
+lost-eclipses,LICENSE,Apache-2.0,Apache-2.0
+math0,,,
+nhanes-bioimpedance,LICENSE; LICENSE-CC-BY-4.0,Apache-2.0,Apache-2.0
+overdue-data,LICENSE,Apache-2.0,Apache-2.0
+physics0,LICENSE; LICENSE-CC-BY-4.0,Apache-2.0,
+plate-eclipses,LICENSE,Apache-2.0,
+plate-novae,LICENSE,Apache-2.0,Apache-2.0
+point-charges,LICENSE; LICENSE-CC-BY-4.0,Apache-2.0,Apache-2.0
+project-asma,LICENSE,NOASSERTION,cc-by-4.0
+proven-commons,LICENSE,Apache-2.0,
+relative-equilibria,LICENSE,Apache-2.0,Apache-2.0
+rigid-realizations,LICENSE,Apache-2.0,Apache-2.0
+rism-anon,LICENSE,Apache-2.0,Apache-2.0
+st0a,LICENSE; sym2/LICENSE,Apache-2.0,
+thermal-capture,LICENSE; LICENSE-DOCS,Apache-2.0,cc-by-4.0
+virtual-human,LICENSE,MIT,
+vitruvian3d,LICENSE-CODE; LICENSE-TEXT.md,MIT,
+wwssn-microseisms,LICENSE,Apache-2.0,Apache-2.0
