@@ -82,19 +82,37 @@ Not inventoried: figures, site HTML, CSS and JavaScript, CI workflows, licences,
 - exoplanets-frontier: 8 claims (`C-01` to `C-08`) from `CLAIMS.md`.
 - project-asma: 118 claims from `registries/claims-ledger.json`.
 
+The `scope` column carries the decision: `in` for gravity and exoplanets-frontier, 60 rows in all, and `reference` for project-asma, 118 rows. F2 can filter on the column instead of the repository name.
+
 The label column repeats the label as written, with Markdown backticks removed and nothing else changed. Where a claim carries two labels, both are kept.
 
 **32 of the 35 public repositories define no claim ID at all.** They state results in a `README.md`, a `PROOF.md`, or named result folders, without IDs to cite. The exceptions are gravity, exoplanets-frontier and project-asma. A scan of every Markdown and JSON file for an ID pattern followed by a label found no other register. The 32:
 
 `.github`, `astr0`, `certified-orbits`, `cfrp-strengthening`, `cosmic-denoising`, `covering-min-modulus`, `discussi0n`, `ductricity`, `f0`, `finite-state-proofs`, `formal-claims-audit`, `fractals`, `gaia-dr4`, `gfq-codes`, `incentre-lattices`, `lost-eclipses`, `math0`, `nhanes-bioimpedance`, `overdue-data`, `physics0`, `plate-eclipses`, `plate-novae`, `point-charges`, `proven-commons`, `relative-equilibria`, `rigid-realizations`, `rism-anon`, `st0a`, `thermal-capture`, `virtual-human`, `vitruvian3d`, `wwssn-microseisms`.
 
-This matters for decision 4 and for F2: a glossary cannot be applied to claims that have no identifier to carry a label. The repositories that do use IDs use three different label vocabularies:
+This matters for decision 4 and for F2: a glossary cannot be applied to claims that have no identifier to carry a label. The next section indexes their stated results. The repositories that do use IDs use three different label vocabularies:
 
 | repository | labels |
 |---|---|
 | gravity | COMPUTED (known framework or model scan), EMPIRICAL-FIT, KNOWN-LITERATURE-VALUE, CONJECTURE, and PROVEN (ARITHMETIC-LEMMA) on the Lean lemmas |
 | exoplanets-frontier | VERIFIED, FALSIFIED, CONJECTURE, KNOWN |
 | project-asma | VERIFIED, KNOWN, CONJECTURE |
+
+## Results without a claim ID
+
+`results-index.csv` has 383 rows from 24 repositories. The columns match `claims-index.csv`. The ID is provisional, `<repository>/R-<n>`, numbered in file and line order within each repository. 340 rows carry a label. Labels and text have Markdown emphasis, backticks and heading marks removed and whitespace collapsed. Nothing else changes.
+
+Three sources, all mechanical:
+
+- **result-table**, 308 rows: the body rows of a table whose header has a subject column and a status column. The subject column is the first header that begins with `result`, `statement`, `theorem`, `claim`, `contribution`, `question`, `track`, `area`, `proposition`, `lemma` or `evidence`, in that order. The label comes from a `label`, `status` or `verdict` column. A project index (`Project | Question | Status`) keeps the question as the text and the status as the label.
+- **proof-title** and **proof-statement**, 34 rows each: every `PROOF.md` and `THEOREM.md` gives two rows. The first is the title, taken from the first heading or the first bold line. The second is the first paragraph of the statement, or the paragraph after the title when the file has no statement heading. The statement row names the title row in `xref`.
+- **result-line**, 7 rows: a line that begins `Theorem`, `Proposition`, `Lemma`, `Conjecture` or `Result` in a file typed paper, monograph or note, outside a code fence and at least 25 characters long.
+
+8 repositories give no row: `.github`, `cosmic-denoising`, `discussi0n`, `ductricity`, `fractals`, `proven-commons`, `st0a`, `thermal-capture`. None of them has a result table, a `PROOF.md` or `THEOREM.md`, or a theorem line at this head, so any result they state is written in prose. Fable's F1 covers prose.
+
+Rows that record a plan rather than a result are kept and labelled as written, for example `Not started.` in `astr0`, `physics0` and `math0`. The rule copies and does not judge, and F2 decides what to do with them.
+
+`coverage.csv` carries a `results_indexed` column, so a repository with no row is visible in the same table as the claim count. The `scope` column is `in` on every row: these are results in repositories the issue puts in scope, and a result indexed here cannot be outside it.
 
 ## Checks census
 
@@ -129,14 +147,24 @@ The gap is scope. This count covers every file whose name marks it as a checker,
 ## How to rerun
 
 ```
-bash clone-all.sh            # clones the 35 repositories, records heads.tsv
-python3 build_h1.py          # writes inventory.csv, claims-index.csv, checks-census.csv
-python3 build_coverage.py    # writes coverage.csv
+bash tools/clone-all.sh          # clones the 35 repositories into tools/mirrors,
+                                 # writes tools/heads.tsv
+python3 tools/build_h1.py        # writes inventory.csv, claims-index.csv,
+                                 # checks-census.csv
+python3 tools/build_results.py   # writes results-index.csv from inventory.csv
+python3 tools/build_coverage.py  # writes coverage.csv
+python3 tools/make_docs.py --h1  # writes this note
 ```
 
-The scripts are not in this folder. They are held by the author and can be attached to the pull request on request. The counting rules above are the whole method, so the files can be rebuilt without them.
+The scripts are in `tools/`. `tools/mirrors/` holds the clones and `tools/.gitignore` keeps them out of the commit. `clone-all.sh` is the only step that needs the network.
 
-Two runs on 15 November produced byte-identical files. The same two runs under `python3 -O` also matched, because the scripts contain no `assert`. A mutation test on a copy of the clones: deleting the `C-10` definition from `gravity/CLAIMS.md` removed exactly that row (178 to 177 rows at the time), and adding one `assert` to `gravity/verify_all.py` raised gravity's count from 245 to 246. Restoring the copy returned the recorded hashes.
+Three runs on 15 November produced byte-identical copies of every file here: two plain runs and one under `python3 -O`. The scripts contain no `assert`, so an optimised run cannot skip a check.
+
+Three mutation tests on copies of the clones, each discarded afterwards:
+
+- Deleting the `gaia-dr4` row from the project table in `astr0/README.md` removed exactly one row, `astr0/R-5`, and left 382
+- Deleting the `C-10` line from `gravity/CLAIMS.md` removed exactly that row, 178 to 177
+- Adding one `assert` to `gravity/verify_all.py` raised gravity's count from 245 to 246
 
 ## Limits
 
