@@ -158,11 +158,11 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 
 | Flat configuration | Multiplicity of the flat point | Other balance points | Most the method can give |
 |---|---|---|---|
-| general, 1,134 random samples | 8 | exactly 3 in every sample | 11 |
+| general, 1,998 random samples in two surveys | 8 | exactly 3 in every sample | 11 |
 | two equal pairs of charges, 50 samples along the family | 10 | exactly 1 in every sample | 11 |
 | regular tetrahedron | 11 | none | 11 |
 
-- [F] The general case is `survey_flat.py`. Another 136 samples were dropped because the count failed the index test, which false points near the flat point cause.
+- [F] The general case is `survey_flat.py` and `survey_flat2.py`, with 1,134 and 864 samples. Another 136 and 159 samples were dropped because the count failed the index test. A missed point or a false point near the flat point causes that. They are not yet resolved.
 - [F] In the family with two equal pairs the cubic is degenerate: its critical points fill a pair of lines through the flat point. The fourth-order term along those lines never vanishes (`c2v_family.py`), so the multiplicity stays at 10. `c2v_others.py` counts the one other point.
 - [F] `disc_scan.py` scanned 300,000 flat configurations for degenerate cubics. The deepest degeneracy it found is this family and the regular tetrahedron.
 
@@ -172,7 +172,7 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 
 1. Whether any four-charge configuration has 13. A degenerate point of another kind, a long chain along a curve, is not excluded by anything here.
 2. A proof that a flat configuration always has exactly 3 other balance points.
-3. For more charges, one flat point is worth 8 balance points where a plain one is worth 1. Whether that raises the growth per charge is untested.
+3. For more charges, a point can be flat to a higher order and worth more. `flat-centres.md` takes this up.
 
 ## Rerun
 

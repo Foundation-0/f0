@@ -31,6 +31,7 @@ Threads that followed from the first ones:
 | 12-vertex rigid graph | 3,904 of 6,180 realizations real, certified. The graph has no triangle, so it cannot raise the growth bound. | `l2288.md` |
 | Realizations near equal edge lengths | The real share is far higher near equal lengths. All-real directions exist for 8, 9 and 10 vertices. Numerical. | `unit-point.md` |
 | Walls between charges | Each index-2 balance point is a wall between two charges. Maxwell's bound is the count for one wall per pair. Two predictions made from this held. | `relational-geometry.md` |
+| Centres flat to high order | By an inversion rule, the centre of twelve equal charges on an icosahedron could give up to 125 balance points, against a record of 89. How many can be real is open and being worked. | `flat-centres.md` |
 | A light particle for the surviving residual | One fermion of 9 to 21 eV fits galaxies, groups and clusters. Its weakest point is the count of light species at recombination. A conjecture with stated tests. | `neutrino-like.md`, `fabric.md` |
 
 ## What is new and holds
