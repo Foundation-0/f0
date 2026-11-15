@@ -1,0 +1,6 @@
+order 3: starts 400, converged solutions 88
+  sign of the fourth derivative at the cusps: positive 0, negative 88; smallest |value| 4.27e-03
+  stiff eigenvalue sign: positive 88, negative 0
+   largest fourth derivative: [-0.9379  0.3562  6.9928  6.9995  0.011   0.0601] phi4 = -0.0043
+   largest fourth derivative: [-0.9349  0.3548  6.9988  6.9987  0.011   0.06  ] phi4 = -0.0043
+   largest fourth derivative: [-0.9356  0.3549  6.9987  7.      0.011   0.06  ] phi4 = -0.0043

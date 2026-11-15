@@ -52,6 +52,11 @@ Every result that came back was then re-run by the reviewer. For the results mar
 | 21 | Four charges with 11 balance points found twice. A worker solved for a chosen gradient, Hessian and cubic part near the regular tetrahedron. The reviewer derived a closed form for every configuration with a flat point and unfolded one. |
 | 22 | Both certified by two exact programs. The reviewer wrote a third program for a lower bound, then a five-decimal certificate. |
 | 23 | The flat family surveyed for 13: every route through a flat point stops at 11. |
+| 24 | The inversion rule written down: Taylor terms at a point are the multipoles of the reflected charges. Regular solids have centres flat to high order. |
+| 25 | Growth thread back: balance points can grow like n^(3/2). The reviewer checked the level counts with a separate program, proved lower bounds of 26 and 87 for the two exact configurations, and wrote a proof of the level count by an index theorem. |
+| 26 | Push from the 11-point configurations back: nothing above 11 in 180 runs. |
+| 27 | Three-charge thread back: still open. The equilateral triangle is proved for all charges, and every sampled cusp is harmless. |
+| 28 | The four-charge result returned to the point-charges repository with the rest of that give-back. |
 
 ## 4. Dead ends and corrections
 
