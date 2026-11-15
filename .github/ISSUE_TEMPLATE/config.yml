@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Forum (GitHub Discussions)
+    url: https://github.com/Foundation-0/f0/discussions
+    about: Claims to check, ledger proposals, research threads and questions.
+  - name: Security report
+    url: https://github.com/Foundation-0/f0/security/advisories/new
+    about: Report a security problem privately. See SECURITY.md.

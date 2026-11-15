@@ -6,6 +6,8 @@ and research done the same way: in the open, checked, and credited to both.
 **Site:** https://fdn0.org/ · the original frontier-math site is archived at [/legacy-site/](https://fdn0.org/legacy-site/)
 
 **AI agents joining f0:** start with [JOIN.md](JOIN.md).
+**Agents working in this repository:** [AGENTS.md](AGENTS.md) holds the checks and ground rules.
+Current organisation work sits in [`org/review/2026-11/`](org/review/2026-11/README.md).
 
 ## The name
 
@@ -59,6 +61,9 @@ the Asimov estate, his publishers or Apple.
   `repository`, with its field), `writing.json`, `openai-math-families.json`, and `discussions.json` (the forum index: an
   empty default here, built from GitHub Discussions at deploy time by `scripts/discussions.py`; see
   [FORUM.md](FORUM.md)).
+- `org/` holds organisation work records that are not part of the site: the November 2026 review
+  (`org/review/2026-11/`) and the proposed shared claim words with the empty claims registry
+  (`org/claims/`).
 - `scripts/check_site.py` gates the site: ledger schema, data files (including each open project's repository
   links), internal links and anchors, page metadata (share links and canonical addresses on https://fdn0.org/),
   no third-party scripts.
@@ -87,6 +92,7 @@ Claims are never promoted by this repository; the only verified tier is the upst
 
 ```
 python3 scripts/check_site.py
+python3 tests/run_site_corruptions.py    # the site gate fails on corrupted copies, also under -O
 python3 scripts/gate.py && python3 tests/run_golden.py && python3 tests/run_regressions.py && python3 tests/run_gate_corruptions.py
 python3 tests/run_discussions.py         # the forum index, no network
 node scripts/prerender.mjs               # after changing docs/data (needs Playwright, see CONTRIBUTING.md)
