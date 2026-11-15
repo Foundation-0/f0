@@ -1,0 +1,3 @@
+n=6 e0.001 : samples 60, accepted 60, mean real share 0.881, all real in 19 of 60
+n=6 e0.1   : samples 60, accepted 60, mean real share 0.881, all real in 19 of 60
+n=6 far    : samples 60, accepted 60, mean real share 0.506, all real in 1 of 60

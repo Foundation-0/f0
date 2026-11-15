@@ -1,0 +1,109 @@
+{
+ "n": 8,
+ "climb_eps": 0.001,
+ "u": [
+  -0.012669404649931024,
+  -0.4751348817865385,
+  -0.019130528797957888,
+  0.035286992991744134,
+  0.061239974991352336,
+  0.010138996359546834,
+  -0.04629077614198862,
+  0.4829374287722182,
+  -0.0010600118620005636,
+  0.46897673883786667,
+  0.22222552613952215,
+  -0.36097237323476034,
+  -0.36554768161907314
+ ],
+ "profile": [
+  {
+   "eps": 0.3,
+   "ok": true,
+   "real_full": 128,
+   "N_full": 136,
+   "minsep": 0.31406828728533853,
+   "min_imag_nonreal": 0.09916794409323146
+  },
+  {
+   "eps": 0.1,
+   "ok": true,
+   "real_full": 132,
+   "N_full": 136,
+   "minsep": 0.23511640309022197,
+   "min_imag_nonreal": 0.11384851934617879
+  },
+  {
+   "eps": 0.05,
+   "ok": true,
+   "real_full": 132,
+   "N_full": 136,
+   "minsep": 0.17396812063177353,
+   "min_imag_nonreal": 0.04306405091497356
+  },
+  {
+   "eps": 0.03,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.21802664244675896,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.01,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.3585713757680753,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.003,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.39711983542927765,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.001,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.40755427482047346,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.0003,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.41115313182222296,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.0001,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.41217649467873757,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 3e-05,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.4125341652673517,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 1e-05,
+   "ok": true,
+   "real_full": 136,
+   "N_full": 136,
+   "minsep": 0.41263630871771,
+   "min_imag_nonreal": null
+  }
+ ]
+}

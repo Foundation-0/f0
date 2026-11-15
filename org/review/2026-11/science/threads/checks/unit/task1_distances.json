@@ -1,0 +1,38 @@
+[
+ {
+  "name": "L880 all-880 certificate",
+  "m": 17,
+  "ratio_max_min": 1.0148739146203254,
+  "max_rel_dev_len": 0.009210946309840207,
+  "l2_dev_len": 0.01659669993024649,
+  "eps_equiv_sq": 0.03314145044410041
+ },
+ {
+  "name": "L880 Bartzos et al. published lengths (>=860 Maple, 868 certified)",
+  "m": 17,
+  "ratio_max_min": 1.0007998540083944,
+  "max_rel_dev_len": 0.0004064226694040496,
+  "l2_dev_len": 0.0009403040630051662,
+  "eps_equiv_sq": 0.001880614334081341
+ },
+ {
+  "name": "L2288 all-2288 lengths",
+  "m": 19,
+  "ratio_max_min": 1.013692226309177,
+  "max_rel_dev_len": 0.007176573387499552,
+  "l2_dev_len": 0.012961973002054528,
+  "eps_equiv_sq": 0.02590498000693129
+ },
+ {
+  "name": "far cell reference, m=17: median eps_equiv_sq",
+  "eps_equiv_sq": 2.1519852855506736,
+  "q05": 1.6558626969788188,
+  "q95": 2.671752065356281
+ },
+ {
+  "name": "far cell reference, m=19: median eps_equiv_sq",
+  "eps_equiv_sq": 2.2821715527801656,
+  "q05": 1.7831759147066617,
+  "q95": 2.807506891840732
+ }
+]

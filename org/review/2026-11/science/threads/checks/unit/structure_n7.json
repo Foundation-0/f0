@@ -1,0 +1,206 @@
+{
+ "n": 7,
+ "N": 28,
+ "rays": {
+  "0": {
+   "0.01": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.2897761984275892,
+    "maxabs": 7.8488374407617965
+   },
+   "0.001": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.27078207668061255,
+    "maxabs": 7.90556898466615
+   },
+   "0.0001": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.26881198871670103,
+    "maxabs": 7.911163503819961
+   },
+   "1e-05": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.26861421652354417,
+    "maxabs": 7.911722150679819
+   },
+   "1e-06": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.26859443191744903,
+    "maxabs": 7.911778022039545
+   },
+   "limit_eps_used": 1e-06,
+   "move_prev_to_limit": {
+    "median": 1.2152984439054334e-05,
+    "max": 0.0001014227902719949
+   },
+   "clusters_tol0.0001": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "clusters_tol0.001": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "clusters_tol0.01": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "limit_with_coincidence": 28,
+   "limit_with_coincidence_real": 24,
+   "limit_no_coincidence_nonreal": 0,
+   "real_limits_all_vertices_on_lattice": 12,
+   "nreal_at_1e-6": 24
+  },
+  "1": {
+   "0.01": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 28,
+    "minsep": 0.6421714184112045,
+    "maxabs": 2.0013854027005515
+   },
+   "0.001": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 28,
+    "minsep": 0.6486528859882538,
+    "maxabs": 1.9998500412806046
+   },
+   "0.0001": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 28,
+    "minsep": 0.6493006566456896,
+    "maxabs": 1.9999673810567176
+   },
+   "1e-05": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 28,
+    "minsep": 0.6493654305318545,
+    "maxabs": 1.9999967381124542
+   },
+   "1e-06": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 28,
+    "minsep": 0.6493719080067234,
+    "maxabs": 1.9999996738113135
+   },
+   "limit_eps_used": 1e-06,
+   "move_prev_to_limit": {
+    "median": 7.675303256307515e-06,
+    "max": 2.285925122732815e-05
+   },
+   "clusters_tol0.0001": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "clusters_tol0.001": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "clusters_tol0.01": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "limit_with_coincidence": 28,
+   "limit_with_coincidence_real": 28,
+   "limit_no_coincidence_nonreal": 0,
+   "real_limits_all_vertices_on_lattice": 12,
+   "nreal_at_1e-6": 28
+  },
+  "2": {
+   "0.01": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.4261539448742764,
+    "maxabs": 3.5054415899953972
+   },
+   "0.001": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.4314887436229266,
+    "maxabs": 3.502765872988331
+   },
+   "0.0001": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.43201873867874796,
+    "maxabs": 3.5024982382622896
+   },
+   "1e-05": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.43207170405115997,
+    "maxabs": 3.502471474160948
+   },
+   "1e-06": {
+    "found": 28,
+    "conj_ok": true,
+    "nreal": 24,
+    "minsep": 0.4320770002978068,
+    "maxabs": 3.5024687970681128
+   },
+   "limit_eps_used": 1e-06,
+   "move_prev_to_limit": {
+    "median": 1.1682147466577702e-05,
+    "max": 2.507917186394485e-05
+   },
+   "clusters_tol0.0001": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "clusters_tol0.001": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "clusters_tol0.01": {
+    "n": 28,
+    "multiplicities": {
+     "1": 28
+    }
+   },
+   "limit_with_coincidence": 28,
+   "limit_with_coincidence_real": 24,
+   "limit_no_coincidence_nonreal": 0,
+   "real_limits_all_vertices_on_lattice": 12,
+   "nreal_at_1e-6": 24
+  }
+ },
+ "common_limits_all_rays": {
+  "count": 12,
+  "real": 12,
+  "nonreal": 0
+ }
+}

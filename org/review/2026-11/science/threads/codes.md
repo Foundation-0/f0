@@ -23,7 +23,7 @@ A base entry is one the method proves directly. The other improved entries follo
 - [F] All 18 statements in the repository appear in the scan with the same bounds.
 - [I] The counts are lower limits. The floating-point search returned nothing usable for several thousand entries, and those were not pursued.
 
-For GF(9) the scan lists 1,377 entries. In 531 of them the table is not consistent with its own neighbours, so the improvement there needs no new method. The 916 above are what remains.
+For GF(9) the scan lists 1,377 entries. In 461 of them the table is not consistent with its own neighbours, so the improvement there needs no new method. The 916 above are what remains. The table holds 531 such inconsistent entries in all, and the method improves 70 of them further.
 
 ## New base entries over GF(7)
 
