@@ -1,0 +1,5 @@
+graph: 10 vertices, 17 edges, Laman (all vertex subsets checked); integer encoding 4778440734593
+frame: v7 at origin, v2 on the positive x-axis, v3 above it; pinned edges exact; 14 equations, 14 unknowns
+440 boxes: each holds exactly one real nonsingular solution (worst contraction bound 2.493e-04, worst inclusion ratio 1.280e-04)
+pairwise disjoint: min centre separation 0.084374 against 2r = 2.980e-08
+RESULT: 440 distinct real nonsingular realizations with v3 above the axis; mirror images give 880 classes modulo direct isometries
