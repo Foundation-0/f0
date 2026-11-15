@@ -4,12 +4,15 @@
     python3 tools/check_site_inventory.py
 
 Exit 0 when every backticked path in site-method.md resolves, every source pin
-in site-inventory.csv names a file that exists at the pinned head, and the CSV
-uses the declared columns, kinds and marks.
+in site-inventory.csv names a file that exists at the pinned head with the
+pinned line inside it, and the CSV uses the declared columns, kinds and marks.
+The .github pin is checked by path only (profile/README.md): that repository
+is not in this checkout, so its head cannot be read here.
 """
 import csv
 import os
 import re
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -31,6 +34,27 @@ for tok in sorted(set(re.findall(r"`([^`\s]+)`", method))):
     if not os.path.exists(os.path.join(REPO, tok)):
         misses.append(("method path", tok))
 
+# Line counts at the pinned heads, one git read per unique (sha, path).
+# A pin is verified only when the file exists at that sha and the pinned
+# line is inside it; a missing file or a line past the end is a miss.
+_line_counts = {}
+
+
+def line_count(sha, path):
+    if (sha, path) not in _line_counts:
+        out = subprocess.run(["git", "-C", REPO, "show", "%s:%s" % (sha, path)],
+                             capture_output=True)
+        if out.returncode != 0:
+            _line_counts[(sha, path)] = None
+        else:
+            # Lines, not newlines: a file with no trailing newline has one
+            # more line than newline (a minified one-line file has 0).
+            data = out.stdout
+            _line_counts[(sha, path)] = (data.count(b"\n")
+                                         + (1 if data and not data.endswith(b"\n")
+                                            else 0))
+    return _line_counts[(sha, path)]
+
 rows = list(csv.DictReader(open(os.path.join(REVIEW, "site-inventory.csv"))))
 if list(rows[0].keys()) != COLUMNS:
     misses.append(("columns", list(rows[0].keys())))
@@ -44,8 +68,13 @@ for r in rows:
         misses.append(("bad pin", r["source"]))
         continue
     repo, sha, path, line = m.groups()
-    if repo == "Foundation-0/f0" and not os.path.exists(os.path.join(REPO, path)):
-        misses.append(("missing file", path))
+    if repo == "Foundation-0/f0":
+        total = line_count(sha, path)
+        if total is None:
+            misses.append(("missing file at pinned head", path))
+        elif int(line) > total:
+            misses.append(("line past end at pinned head",
+                           "%s:%s" % (path, line)))
     if repo == "Foundation-0/.github" and path != "profile/README.md":
         misses.append(("missing profile", path))
 

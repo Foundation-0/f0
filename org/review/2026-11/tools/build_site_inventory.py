@@ -27,6 +27,12 @@ OUT = os.path.join(REVIEW, "site-inventory.csv")
 F0_SHA = "6ea3a0b3d18fa1e7cf1845e3dc67220a35781948"
 GH_SHA = "81f83c38918382b4ca142b81debd3cc5ccf61d3a"
 
+# The now_source for the founding-member rows: the four-who-never-joined
+# claim is W1's reading, and no repository pin supports it, so those rows
+# are marked [I] (see the "founding member" branch below).
+W1_NOW = ("W1 (unmerged review package): the four-who-never-joined claim "
+          "is W1's reading; no repository pin supports it")
+
 # Data files whose records are datasets, not site statements: they contribute a
 # date row and a count row, but their thousands of PR URLs are not site links.
 DATASETS = [
@@ -210,7 +216,7 @@ def page_rows(rows, snap, files):
                     ns = now_pin(".github/workflows/update.yml")
                 elif low == "founding member":
                     now = "Four of the five named founding members never joined; W1 removes them as members and keeps their names only as credit for their own work."
-                    ns = now_pin("README.md")
+                    ns = W1_NOW
                 elif low == "private preview":
                     now = "No public repository named Exo or Exo OS is in the 35 public repositories read on 15 November."
                     ns = "run: gh repo list Foundation-0 --limit 200 --json name,isPrivate (site-sources.json)"
@@ -219,7 +225,7 @@ def page_rows(rows, snap, files):
                     ns = now_pin(path)
                 emit(rows, path, n, "status", snippet(line, m), now, src, ns,
                      "[F]" if low in ("disabled", "enabled", "live tracker",
-                                      "founding member", "private preview") else "[I]",
+                                      "private preview") else "[I]",
                      "Status wording, not a judgment on the work.")
                 break
             if re.search(r"https?://|\bhref=|\burl\b|\bsrc=", line, re.I):
@@ -276,7 +282,7 @@ def page_rows(rows, snap, files):
         if "founding member" in line.lower():
             emit(rows, "Foundation-0/.github:profile/README.md", n, "member",
                  snippet(line), "The four who never joined are removed as members by W1; this profile needs an owner to change it.",
-                 src, src, "[F]",
+                 src, W1_NOW, "[I]",
                  "A cloud session cannot write to Foundation-0/.github.")
         for m in URL_RE.finditer(line):
             add_link(rows, snap, "Foundation-0/.github:profile/README.md", n,
