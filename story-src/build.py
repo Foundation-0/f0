@@ -605,8 +605,8 @@ HEAD = f"""<!doctype html>
 <meta property="og:type" content="article">
 <meta property="og:title" content="When the crowd gets a frontier model · Foundation0">
 <meta property="og:description" content="A public repository moved a research constant 3.6x in four days, with {r['prs']} pull requests from {r['authors']} people. What made it work.">
-<meta property="og:image" content="https://foundation-0.github.io/f0/assets/og.png">
-<meta property="og:url" content="https://foundation-0.github.io/f0/research/integer-multiplication/story/">
+<meta property="og:image" content="https://fdn0.org/assets/og.png">
+<meta property="og:url" content="https://fdn0.org/research/integer-multiplication/story/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
@@ -637,15 +637,23 @@ HEAD = f"""<!doctype html>
       <g><circle cy="-23.431" r="1.8" style="fill:var(--bio)"/><circle cy="23.431" r="1.8" style="fill:var(--bio)"/><circle cx="-23.431" r="1.8" style="fill:var(--dig)"/><circle cx="23.431" r="1.8" style="fill:var(--dig)"/></g>
       <circle r="6.313" fill="none" stroke-width="1.1" style="stroke:var(--ink-2)"/><circle r="1.8" style="fill:var(--ink-2)"/>
     </symbol>
+    <symbol id="zero-sm" viewBox="-42 -42 84 84">
+      <!-- Heavier cut of the incentre mark for sizes of 36px and below: same circles, thicker rings
+           (outer 3.3, middle 1.65) and dots r 2.7, so the outer rings stay at least 1px wide at 26px.
+           Rings are inked inside their true circle, so gold and cyan still touch edge to edge. -->
+      <g fill="none" stroke-width="3.3"><circle cy="-23.431" r="14.919" style="stroke:var(--bio)"/><circle cy="23.431" r="14.919" style="stroke:var(--bio)"/><circle cx="-23.431" r="14.919" style="stroke:var(--dig)"/><circle cx="23.431" r="14.919" style="stroke:var(--dig)"/></g>
+      <g><circle cy="-23.431" r="2.7" style="fill:var(--bio)"/><circle cy="23.431" r="2.7" style="fill:var(--bio)"/><circle cx="-23.431" r="2.7" style="fill:var(--dig)"/><circle cx="23.431" r="2.7" style="fill:var(--dig)"/></g>
+      <circle r="6.038" fill="none" stroke-width="1.65" style="stroke:var(--ink-2)"/><circle r="2.7" style="fill:var(--ink-2)"/>
+    </symbol>
   </defs>
 </svg>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="../../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</a>
+    <a class="brand" href="../../../" aria-label="Foundation0 home"><svg aria-hidden="true"><use href="#zero-sm"/></svg>Foundation0</a>
     <nav class="nav" aria-label="Main">
-      <a href="../../../ledger/">Ledger</a><a href="../../../research/" aria-current="page">Research</a><a href="../../../instruments/">Instruments</a><a href="../../../commons/">Commons</a><a href="../../../writing/">Writing</a><a href="../../../charter/">Charter</a>
+      <a href="../../../ledger/">Ledger</a><a href="../../../research/" aria-current="page">Research</a><a href="../../../instruments/">Instruments</a><a href="../../../commons/">Commons</a><a href="../../../writing/">Writing</a><a href="../../../forum/">Forum</a><a href="../../../charter/">Charter</a>
     </nav>
     <div class="tools">
       <button class="tbtn" type="button" data-motion-toggle aria-pressed="true" aria-label="Pause motion"><span class="ico"></span><span class="t-txt">Motion on</span></button>
@@ -654,7 +662,7 @@ HEAD = f"""<!doctype html>
     <details class="menu">
       <summary class="tbtn" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4"/></svg><span class="t-txt">Menu</span></summary>
       <nav class="menu-panel" aria-label="Main (compact)">
-        <a href="../../../ledger/">Ledger <span>01</span></a><a href="../../../research/" aria-current="page">Research <span>03</span></a><a href="../../../instruments/">Instruments <span>04</span></a><a href="../../../commons/">Commons <span>05</span></a><a href="../../../writing/">Writing <span>06</span></a><a href="../../../charter/">Charter <span>00</span></a>
+        <a href="../../../ledger/">Ledger <span>01</span></a><a href="../../../research/" aria-current="page">Research <span>03</span></a><a href="../../../instruments/">Instruments <span>04</span></a><a href="../../../commons/">Commons <span>05</span></a><a href="../../../writing/">Writing <span>06</span></a><a href="../../../forum/">Forum <span>07</span></a><a href="../../../charter/">Charter <span>00</span></a>
       </nav>
     </details>
   </div>
@@ -698,13 +706,13 @@ FOOT = """<footer class="site-foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero"/></svg>Foundation0</div>
+        <div class="foot-brand"><svg aria-hidden="true"><use href="#zero-sm"/></svg>Foundation0</div>
         <p>Foundation0 is an independent project, not affiliated with the Asimov estate, his publishers, or Apple TV+. Quotations from Asimov are one sentence each, for commentary.</p>
         <p>Source code under the <a href="https://github.com/Foundation-0/f0/blob/main/LICENSE">Apache License 2.0</a>. Every number on this page links to a data file or a source.</p>
       </div>
       <div class="foot-cols">
         <div><h4>Record</h4><ul><li><a href="../../../ledger/">The Ledger</a></li><li><a href="../../../data/ledger.json">Ledger data (JSON)</a></li><li><a href="../../../charter/">Charter</a></li></ul></div>
-        <div><h4>Work</h4><ul><li><a href="../../../research/">Research</a></li><li><a href="../../../instruments/">Instruments</a></li><li><a href="../../../commons/">Commons</a></li><li><a href="../../../writing/">Writing</a></li></ul></div>
+        <div><h4>Work</h4><ul><li><a href="../../../research/">Research</a></li><li><a href="../../../instruments/">Instruments</a></li><li><a href="../../../commons/">Commons</a></li><li><a href="../../../writing/">Writing</a></li><li><a href="../../../forum/">Forum</a></li></ul></div>
         <div><h4>Source</h4><ul><li><a href="https://github.com/Foundation-0/f0">Repository</a></li><li><a href="https://github.com/Foundation-0/f0/issues">Report an error</a></li><li><a href="https://digital.askaconsult.com/">Aska Digital</a></li></ul></div>
       </div>
     </div>

@@ -48,7 +48,7 @@
   /* Founding members' work in the ledger: items with foundation0 true. Their credit line is the item's own
      foundation0_note (docs/data/ledger.json); memberNote() below is only a fallback for an item without one. */
   var MEMBER_NAMES = [{ name: 'Ahraz Arifuddin', login: 'ahrazzle' }, { name: 'eumemic', login: 'eumemic' }, { name: 'Doug Colkitt', login: 'Mister-Meeseeks' },
-    { name: 'rohanarun', login: 'rohanarun' }, { name: 'Ryan Shea', login: 'shea256' }];
+    { name: 'Rohan Arun', login: 'rohanarun' }, { name: 'Ryan Shea', login: 'shea256' }];
   /* a credit line for a ledger item flagged foundation0 that has no hand-written note above */
   function memberNote(m, people) {
     var orgs = (m.organizations || []).join(' | ');
@@ -234,18 +234,19 @@
     }
     /* the incentre mark (the logo, as #zero): the four incircles of a square's diagonal triangles, radius
        (sqrt2 - 1) x half-side, and the middle circle touching all four, each with its centre marked. Weights are
-       #zero's in units of half-side / 40; rings are inked inside their circle, so gold and cyan touch edge to edge */
+       #zero's in units of half-side / 40; rings are inked inside their circle, so gold and cyan touch edge to edge.
+       Weights and dots are floored at 1px, so the mark stays legible where it is drawn small. */
     function zeroMark(x, cx, cy, r) {
-      var h = r * 0.72, u = h / 40, rr = (Math.SQRT2 - 1) * h, d = h - rr, m = d - rr, w = 2.2 * u, lw = 1.1 * u;
+      var h = r * 0.72, u = h / 40, rr = (Math.SQRT2 - 1) * h, d = h - rr, m = d - rr, w = Math.max(2.2 * u, 1), lw = Math.max(1.1 * u, 1), dot = Math.max(1.8 * u, 1);
       x.save();
       x.lineWidth = w;
       [[0, -d, '--bio'], [0, d, '--bio'], [-d, 0, '--dig'], [d, 0, '--dig']].forEach(function (c) {
         x.strokeStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], rr - w / 2, 0, TWO_PI); x.stroke();
-        x.fillStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], 1.8 * u, 0, TWO_PI); x.fill();
+        x.fillStyle = tok[c[2]]; x.beginPath(); x.arc(cx + c[0], cy + c[1], dot, 0, TWO_PI); x.fill();
       });
       x.strokeStyle = x.fillStyle = tok['--ink-2']; x.lineWidth = lw;
       x.beginPath(); x.arc(cx, cy, m - lw / 2, 0, TWO_PI); x.stroke();
-      x.beginPath(); x.arc(cx, cy, 1.8 * u, 0, TWO_PI); x.fill();
+      x.beginPath(); x.arc(cx, cy, dot, 0, TWO_PI); x.fill();
       x.restore();
     }
 

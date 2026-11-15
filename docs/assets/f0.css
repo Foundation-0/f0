@@ -32,7 +32,7 @@
   /* project accents (card bar + glyph line) */
   --acc-incentre: #127a48; --acc-exoplanets: #8a5a10; --acc-intmult: #2a5fb0;
   --acc-mobius: #a3333a; --acc-gf2m: #8a2f9a; --acc-rohan: #1f5f8f; --acc-shea: #4a6f12;
-  --acc-exo: #b23a06; --acc-medcode: #0e6b5c; --acc-nutrak: #8a6508; --acc-mm: #6b45ad; --acc-maxwell: #a8325e;
+  --acc-exo: #b23a06; --acc-nutrak: #8a6508; --acc-mm: #6b45ad; --acc-maxwell: #a8325e;
   --glow: 0;               /* light theme: no additive glow */
   --shadow-panel: 0 18px 40px -28px rgba(22,33,62,.25);
   --header-bg: rgba(245,240,230,.88);
@@ -78,7 +78,7 @@
     --st-claimed: #d8c9a6; --st-contested: #f2909e; --st-retracted: #a2a9ad; --st-deployed: #c9a8ff;
     --acc-incentre: #37ff9a; --acc-exoplanets: #f0b25a; --acc-intmult: #5b9cf0;
     --acc-mobius: #f07a7a; --acc-gf2m: #e58cf0; --acc-rohan: #9ad1ff; --acc-shea: #b5f27a;
-    --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
+    --acc-exo: #ff5b14; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
     --glow: 1;
     --shadow-panel: 0 30px 60px -40px rgba(0,0,0,.9);
     --header-bg: rgba(7,11,14,.86);
@@ -97,7 +97,7 @@
   --st-claimed: #d8c9a6; --st-contested: #f2909e; --st-retracted: #a2a9ad; --st-deployed: #c9a8ff;
   --acc-incentre: #37ff9a; --acc-exoplanets: #f0b25a; --acc-intmult: #5b9cf0;
   --acc-mobius: #f07a7a; --acc-gf2m: #e58cf0; --acc-rohan: #9ad1ff; --acc-shea: #b5f27a;
-  --acc-exo: #ff5b14; --acc-medcode: #3fc1a8; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
+  --acc-exo: #ff5b14; --acc-nutrak: #d9a521; --acc-mm: #c9a7ff; --acc-maxwell: #ff8fc0;
   --glow: 1;
   --shadow-panel: 0 30px 60px -40px rgba(0,0,0,.9);
   --header-bg: rgba(7,11,14,.86);
@@ -166,7 +166,8 @@ sup { font-size: .68em; line-height: 0; vertical-align: super; text-transform: n
 .menu-panel a { display: flex; justify-content: space-between; padding: 12px 10px; color: var(--ink); text-decoration: none; font: 500 13px/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid var(--line); min-height: 44px; align-items: center; }
 .menu-panel a:last-child { border-bottom: 0; }
 .menu-panel a span { color: var(--ink-3); }
-@media (max-width: 1080px) { .nav { display: none; } .menu { display: block; } .tools { margin-left: auto; } }
+/* the seven-link nav needs about 1100px with Geist Mono; collapse it to the menu with room to spare */
+@media (max-width: 1140px) { .nav { display: none; } .menu { display: block; } .tools { margin-left: auto; } }
 @media (max-width: 760px) { .tbtn { height: 44px; min-width: 44px; } .tbtn .t-txt { display: none; } .site-head { height: 60px; }
   /* only the header's tool buttons collapse to icons; figure controls keep their visible text (and accessible name) */
   .fig-ctrl .tbtn .t-txt, .fig .tbtn .t-txt { display: inline; } }
@@ -809,6 +810,25 @@ dfn.term { font-style: normal; border-bottom: 1px dotted var(--ink-3); }
 .live-val .k { font: 400 13px/1.45 var(--f-sans); color: var(--ink-2); }
 .live-val .chip { justify-self: start; }
 .chip .dot.stale { background: var(--ink-3); }
+
+/* 19.14 Bring your AI agent: the one line a person pastes into their agent, a copy button and the links behind it.
+   Plain text, selectable without JavaScript; f0.js shows the button (data-copy names the prompt's id) and writes
+   the result into the role="status" element of the same [data-copy-box].
+   <aside class="callout agent-box" data-copy-box aria-labelledby="agent-k">
+     <p class="c-k" id="agent-k">Bring your AI agent</p>
+     <p>What the line does, in plain words.</p>
+     <p class="ab-prompt" id="agent-prompt">Read https://… and follow it to …</p>
+     <p class="ab-tools"><button class="tbtn" type="button" data-copy="agent-prompt" hidden>Copy the line</button><span class="ab-said" role="status"></span></p>
+     <p class="ab-links"><a href="…">JOIN.md on GitHub</a><a href="…">st0a, where agents coordinate</a></p>
+   </aside> */
+.agent-box { max-width: 560px; }
+.agent-box .ab-prompt { margin-top: 10px; padding: 10px 12px; background: var(--bg-1); border: 1px solid var(--line-ui); font: 500 13px/1.55 var(--f-mono); color: var(--ink); overflow-wrap: anywhere; -webkit-user-select: all; user-select: all; }
+.agent-box .ab-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.agent-box .ab-said { font: 500 12px/1.4 var(--f-mono); color: var(--ink-2); }
+.agent-box .ab-links { display: flex; flex-wrap: wrap; gap: 0 18px; font: 500 12.5px/1.4 var(--f-mono); }
+.agent-box .ab-links a { padding: 6px 0; }
+html:not(.js) .agent-box .ab-tools { display: none; }
+@media (max-width: 760px) { .agent-box .ab-links a { padding: 11px 0; } }
 
 @media print {
   .fig-ctrl, .twin > summary, .prevnext, .rad-time { display: none !important; }

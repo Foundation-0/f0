@@ -3,6 +3,7 @@
      - the hero figure: each project's numbers at the three steps (agents propose, checkers verify, people decide)
      - the evidence ladder: where each project's own status line puts it
      - the project cards, each with a small live figure drawn in the browser
+     - the open projects: every Foundation0 project repository (projects.json, kind "repository"), by field
      - every founding member's repositories, with a filter
    Figures start on a still, informative frame and only move on hover, focus or play (and never with motion off). */
 (function () {
@@ -73,7 +74,7 @@
       ] },
     'integer-multiplication': {
       acc: '--acc-intmult', field: 'Algorithms', who: 'Doug Colkitt + crowd',
-      credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member rohanarun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
+      credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member Rohan Arun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
       glyph: 'kappa', gk: 'LOG₂ κ · DATED 23 SEP → 13 OCT', gr: 'log₂κ −9.22',
       aria: 'Staircase of the exponent saving kappa on a halvings scale: from 2 to the minus 182 in the machine-written paper dated 23 September to about 2 to the minus 9.22 on 13 October 2026.',
       cap: 'Every reviewed record on a halvings scale, from the machine-written paper’s 2^-182 to 2^-9.22. All of them rest on that unreviewed paper.',
@@ -83,14 +84,14 @@
         ['17', 'reviewed records selected by maintainer Doug Colkitt, 9 to 13 Oct; all conditional on the unreviewed manuscript', 'certificates/selected-result.json history (20 commits, 17 distinct values)']
       ],
       stats: [
-        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member rohanarun', source: 'certificates/selected-result.json @ 0a31ad884' },
+        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member Rohan Arun', source: 'certificates/selected-result.json @ 0a31ad884' },
         { value: '2^-182 → 2^-9.22', label: 'κ since the machine-written preprint dated 23 Sep 2026 (about 1.03×10^52 times larger)', source: 'upstream/build/sections/00-introduction.tex; log2 of selected κ (computed)' },
         { value: '17', label: 'successive reviewed κ records in 5 days (9–13 Oct)', source: 'git log -- certificates/selected-result.json (20 commits, 17 distinct values)', href: 'https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json' },
         { value: '1,334', label: 'pull requests opened upstream by 13 Oct 2026 (highest #1374)', source: 'git ls-remote origin refs/pull/*/head, 13 Oct 2026, about 23:40 UTC' }
       ] },
     'machine-mathematics': {
       acc: '--acc-mm', field: 'Mathematics', who: 'Members + crowd',
-      credit: '<b>Starts from OpenAI’s 722 machine-written manuscripts.</b> Founding members rohanarun and Ryan Shea took six of its families further within a week, and Doug Colkitt’s race a seventh; eumemic and many others joined in.',
+      credit: '<b>Starts from OpenAI’s 722 machine-written manuscripts.</b> Founding members Rohan Arun and Ryan Shea took six of its families further within a week, and Doug Colkitt’s race a seventh; eumemic and many others joined in.',
       glyph: 'slack', gk: 'TIMES BETTER, LOG SCALE', gr: '',
       aria: 'Six bars on a logarithmic scale, one per refined result, showing how many times better each number became: about 10 to the 79 for the matroid fraction, 10 to the 52 for kappa, 10 to the 10 for the Fourier saving, 11,111 for the van der Waerden constant, 8.7 for the Sidorenko constant and 3.1 for the unit-distance grid.',
       cap: 'How many times better six numbers got in a week, on a log scale. Long bars mean loose first proofs, not important results.',
@@ -396,14 +397,17 @@ var G = {
   function ladder(PJ) {
     $$('.ri-rung').forEach(function (h) { h.innerHTML = ''; });
     var list = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; });
-    list.forEach(function (p) {
-      var host = $('.ri-rung[data-rung="' + rungOf(p) + '"]'); if (!host) return;
+    /* open projects join the ladder once they claim a result; the two with a card above are already on it */
+    var open = (PJ.projects || []).filter(function (p) { return p.kind === 'repository' && !p.page && repoRung(p); });
+    list.concat(open).forEach(function (p) {
+      var repo = p.kind === 'repository';
+      var host = $('.ri-rung[data-rung="' + (repo ? repoRung(p) : rungOf(p)) + '"]'); if (!host) return;
       var note = P[p.slug] && P[p.slug].rungNote;
       var a = document.createElement('a');
-      a.className = 'ri-chip'; a.href = '#card-' + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
+      a.className = 'ri-chip'; a.href = (repo ? '#repo-' : '#card-') + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
       a.textContent = p.title;
       a.setAttribute('aria-label', p.title + ': ' + p.status + (note ? '. ' + note : ''));
-      var tip = '<div class="tip-k">' + esc(p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + F0.statusBadges(p.status, { ladder: 1 }) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
+      var tip = '<div class="tip-k">' + esc(repo ? 'Open project' : p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + (repo ? repoBadges(p.status) : F0.statusBadges(p.status, { ladder: 1 })) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
       a.addEventListener('pointerenter', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointermove', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointerleave', function () { F0.tip.hide(); });
@@ -412,6 +416,52 @@ var G = {
       host.appendChild(a);
     });
     $$('.ri-rung').forEach(function (h) { if (!h.children.length) { h.innerHTML = '<span class="ri-none">none of our projects yet</span>'; } });
+  }
+
+  /* ---------- open projects: every Foundation0 project repository, grouped by field ---------- */
+  /* Statuses are the READMEs' own words. A part that opens with "no" or "not" ("not started", "no new result
+     claimed") is a plain label, never a claim, and a status with no claim gets no evidence rung. */
+  function segClass(seg) { return /^(no|not)\b/i.test(seg) ? { cls: 'n', rung: 0 } : F0.classifyStatus(seg); }
+  function repoBadges(status) {
+    var groups = [];
+    String(status || '').split(/\s+·\s+/).filter(Boolean).forEach(function (seg) {
+      var c = segClass(seg), g = groups[groups.length - 1];
+      if (g && g.cls === c.cls && g.rung === c.rung) g.text.push(seg); else groups.push({ cls: c.cls, rung: c.rung, text: [seg] });
+    });
+    return groups.map(function (g) {
+      var t = g.text.join(' · ');
+      return '<span class="badge ' + g.cls + '">' + (g.rung ? F0.ladderHTML(g.rung) : '') + esc(t.charAt(0).toUpperCase() + t.slice(1)) + '</span>';
+    }).join('');
+  }
+  function repoRung(p) {
+    var r = 0;
+    String(p.status || '').split(/\s+·\s+/).forEach(function (seg) { var c = segClass(seg); if (c.rung && (!r || c.rung < r)) r = c.rung; });
+    return r;
+  }
+  function repoHTML(p) {
+    var L = p.links || [], home = L[0] || {}, sha = /\bat ([0-9a-f]{7,40})$/.exec(p.source || ''), sr = '<span class="sr-only"> for ' + esc(p.title) + '</span>';
+    var links = L.slice(1).map(function (l) { return '<a href="' + esc(l.url) + '">' + esc(l.label) + sr + '</a>'; }).join('') +
+      (p.page ? '<a href="' + esc(rel(p.page)) + '">On Foundation0' + sr + '</a>' : '');
+    return '<li class="ri-repo" id="repo-' + esc(p.slug) + '"><h4><a href="' + esc(home.url) + '">' + esc(p.title) + '</a></h4>' +
+      '<p class="q">' + esc(p.question || '') + '</p>' +
+      '<div class="badges">' + repoBadges(p.status) + '</div>' +
+      '<p class="links">' + links + '</p>' +
+      (p.source ? '<p class="src">Status: ' + (sha && home.url ? '<a href="' + esc(home.url + '/blob/' + sha[1] + '/README.md') + '">' + esc(p.source) + '</a>' : esc(p.source)) + '</p>' : '') + '</li>';
+  }
+  function repos(PJ) {
+    var host = $('#repo-fields'); if (!host) return;
+    var list = (PJ.projects || []).filter(function (p) { return p.kind === 'repository'; });
+    var fields = (PJ.fields || []).slice();
+    list.forEach(function (p) { if (!fields.some(function (f) { return f.name === p.field; })) fields.push({ name: p.field, hub: null }); });
+    host.innerHTML = fields.map(function (f) {
+      var rs = list.filter(function (p) { return p.field === f.name; }); if (!rs.length) return '';
+      var id = 'field-' + String(f.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return '<div class="ri-field"><div class="ri-field-head"><h3 id="' + id + '">' + esc(f.name) + '</h3>' +
+        (f.hub ? '<a class="hub" href="https://github.com/Foundation-0/' + esc(f.hub) + '">Field hub: ' + esc(f.hub) + '</a>' : '<span class="hub">No field hub yet</span>') +
+        '<span class="n">' + rs.length + (rs.length === 1 ? ' project' : ' projects') + '</span></div>' +
+        '<ul class="ri-repos" aria-labelledby="' + id + '">' + rs.map(repoHTML).join('') + '</ul></div>';
+    }).join('');
+    $$('[data-count-repos]').forEach(function (e) { e.textContent = list.length; });
   }
 
   /* ---------- project cards ---------- */
@@ -458,7 +508,7 @@ var G = {
       if (k.source !== 'live' && !(Date.parse(k.at) > Date.parse(SNAP.at))) k = SNAP; // the local feed is older than our snapshot
       var live = k.source === 'live';
       $('[data-k-v]', box).textContent = k.decimal;
-      $('[data-k-k]', box).textContent = 'reviewed κ, conditional' + (k.pr ? ', PR #' + k.pr + (k.pr === 1094 ? ' by founding member rohanarun' : '') : '') + (live ? ', fetched just now' : '');
+      $('[data-k-k]', box).textContent = 'reviewed κ, conditional' + (k.pr ? ', PR #' + k.pr + (k.pr === 1094 ? ' by founding member Rohan Arun' : '') : '') + (live ? ', fetched just now' : '');
       $('[data-k-when]', box).textContent = live ? 'live · ' + utc(k.at) : k.source === 'snapshot' ? 'snapshot · ' + utc(k.at) + ' (live file unreachable)' : 'feed.json · ' + (k.at ? utc(k.at) : '');
       $('.dot', box).className = 'dot ' + (live ? 'live' : 'stale');
       if (k.source === 'feed') $('[data-k-src]', box).href = R + 'feed.json';
@@ -533,12 +583,14 @@ var G = {
       F0.json(R + 'data/openai-math-families.json').catch(function () { return null; })
     ]).then(function (d) {
       var PJ = d[0], MB = d[1], FD = d[2];
-      var n = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; }).length;
+      /* every project on the page once: the cards, and the open projects that have no card */
+      var n = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution' || (p.kind === 'repository' && !p.page); }).length;
       $$('[data-count-proj]').forEach(function (e) { e.textContent = n; });
       if (PJ.updated) $$('[data-updated]').forEach(function (e) { e.textContent = F0.fmtDate(PJ.updated); });
       loopFig(PJ);
       ladder(PJ);
       cards(PJ, MB, FD);
+      repos(PJ);
       members(MB, FD);
     }).catch(function (e) { console.warn('research data:', e); });
   }

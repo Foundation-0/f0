@@ -12210,7 +12210,7 @@
    "organizations": [
     "OpenAI",
     "integer-mult-bounds community (CrocSwap), run by founding member Doug Colkitt",
-    "rohanarun (founding member; reviewed record, PR #1094)",
+    "Rohan Arun (founding member; reviewed record, PR #1094)",
     "Aska Digital (built the race tracker)"
    ],
    "ai_role": "collaborator",
@@ -12229,7 +12229,7 @@
     }
    ],
    "foundation0": true,
-   "foundation0_note": "Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member rohanarun's PR #1094 was the reviewed κ record on 13–14 Oct 2026; eumemic and Ryan Shea also contribute. Aska Digital built the live tracker that grew into this site.",
+   "foundation0_note": "Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member Rohan Arun's PR #1094 was the reviewed κ record on 13–14 Oct 2026; eumemic and Ryan Shea also contribute. Aska Digital built the live tracker that grew into this site.",
    "foundation0_members": [
     "Mister-Meeseeks",
     "rohanarun",
@@ -12734,7 +12734,7 @@
    "title": "Open AI-assisted notes raise a van der Waerden constant from 1/100000 to 1/9",
    "domain": "mathematics",
    "subfield": "combinatorics / Ramsey theory",
-   "summary": "OpenAI's machine-written preprint showed van der Waerden numbers W_r(k) exceed k^(c·k·⌊log2 r⌋) with c = 1/100000. In a public repository started by rohanarun with Codex and Claude, and extended by Claude-assisted contributors, step-by-step refinements raised c to 1/9, about 11,111 times larger. Exact checks pass; the argument is conditional and unreviewed.",
+   "summary": "OpenAI's machine-written preprint showed van der Waerden numbers W_r(k) exceed k^(c·k·⌊log2 r⌋) with c = 1/100000. In a public repository started by Rohan Arun with Codex and Claude, and extended by Claude-assisted contributors, step-by-step refinements raised c to 1/9, about 11,111 times larger. Exact checks pass; the argument is conditional and unreviewed.",
    "before_after": {
     "metric": "Constant c in W_r(k) > k^(c·k·⌊log2 r⌋)",
     "before": "1/100000 (OpenAI preprint)",
@@ -12750,7 +12750,7 @@
    ],
    "organizations": [
     "OpenAI (source preprint)",
-    "rohanarun (independent)",
+    "Rohan Arun (independent)",
     "independent contributors DaysSky and artuskg"
    ],
    "ai_role": "collaborator",
@@ -12777,7 +12777,7 @@
     }
    ],
    "foundation0": true,
-   "foundation0_note": "Started by founding member rohanarun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.",
+   "foundation0_note": "Started by founding member Rohan Arun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.",
    "foundation0_members": [
     "rohanarun"
    ],
