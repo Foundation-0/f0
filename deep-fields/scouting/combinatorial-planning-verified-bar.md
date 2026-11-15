@@ -32,7 +32,30 @@ To let agents formalize arbitrary discrete state machines (planning, protocol sa
 1. **AST-Sandboxed Exact Arithmetic:** Reject imports, I/O, globals, dunder escapes, and IEEE-754 floats; expose `fractions.Fraction` so rational potentials and dual multipliers (`gfq-codes` pattern) evaluate bit-exactly.
 2. **Alpha-Normalized AST Skeleton Distinctness (`H_alpha(SPEC) != H_alpha(IMPL)`):** Canonicalize local variable names in AST preorder and reject variable-renamed copy-paste duplicates (`REJECTED_IDENTICAL_AST_SKELETON`), paired with mandatory `must_fail_controls` and `100%` planted-mutation kills (`Proven-Commons` pattern).
 3. **Constructive Search & Counterexample Extraction:** Exact Dijkstra/BFS (shortest goal witness or shortest safety-invariant violation), symmetry-reflected Tube Beam, and Sliding-Window LNS, replaying every candidate trace across all locked checkers.
-4. **Zero-Trust Lower Bounds & Inductive Invariants:** Accept lower bounds only via machine-checked **Quotient Graph Homomorphisms** (`pi: S -> Q` verifying `w_Q(pi(s), pi(s')) <= c(s,a,s')` on every transition), **Inductive Ranking Potentials** (`V(s) <= c(s,a,s') + V(s')`), or **Houdini Greatest-Fixpoint Invariants / Deadlock Traps** (emitting `PROVEN` only when concrete or syntactic state enumeration closes without truncation).
+4. **Zero-Trust Lower Bounds & Inductive Invariants:** Accept lower bounds only
+   through machine-checked certificates with the following obligations.
+
+   - **Quotient Graph Homomorphisms:** For `pi: S -> Q`, verify
+     `w_Q(pi(s), pi(s')) <= c(s,a,s')` on every covered concrete transition.
+     The abstract goal set must contain the image of every relevant concrete
+     goal. Certify the abstract distance lower bound.
+   - **Inductive Ranking Potentials:** Verify `h(s) <= c(s,a,s') + h(s')`
+     on every covered edge and `h(g) <= 0` at every relevant goal `g`.
+   - **Houdini Greatest-Fixpoint Invariants / Deadlock Traps:** Emit `PROVEN`
+     only when concrete or syntactic state enumeration closes without truncation.
+
+For a finite path `s_0 -> ... -> s_k = g`, summing the potential inequalities
+gives `h(s_0) <= sum_i c(s_i,a_i,s_{i+1}) + h(g)`. The goal boundary therefore
+makes `h(s_0)` a lower bound on every covered solution's cost. Edge inequalities
+alone are insufficient: on one edge `start -> goal` of cost 1, the constant
+potential `h = 35` satisfies `35 <= 1 + 35` but does not bound the optimal cost 1.
+A certificate must identify its state model, transition costs, start and goals,
+and justify coverage of every possible solution path from that start. A sampled
+edge set or truncated enumeration does not suffice. For an unsolvable state,
+there is no finite goal path to which this argument applies: a finite potential
+does not itself prove unsolvability, which needs a separate closed invariant or
+exhaustive no-goal argument. This completes the stated proof obligation. It does
+not assess or refute any room record listed below.
 
 ## 4. Verified Frontier Ledger & Open Leads (`2026-11-12`)
 
