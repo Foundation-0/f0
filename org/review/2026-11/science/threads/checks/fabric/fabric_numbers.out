@@ -1,0 +1,23 @@
+Reference: fully thermal species
+thermal 11 eV (2008 proposal)          m= 11.0 eV chi=1.00 | K= 11.0 eV  A=11.00 eV  Omega h2=0.118  cosmic ratio=5.28 | galaxy halo/baryons at 300 kpc=0.67 | core ceiling at 8 keV=2.61e+08 Msun/kpc3 | relic speed today 14.4 km/s
+thermal 12 eV                          m= 12.0 eV chi=1.00 | K= 12.0 eV  A=12.00 eV  Omega h2=0.129  cosmic ratio=5.76 | galaxy halo/baryons at 300 kpc=0.95 | core ceiling at 8 keV=3.70e+08 Msun/kpc3 | relic speed today 13.2 km/s
+
+Shared after decoupling among 3 ordinary + 1 new species: each at 3/4 of thermal
+11 eV at 3/4                           m= 11.0 eV chi=0.75 | K= 10.2 eV  A= 8.25 eV  Omega h2=0.089  cosmic ratio=3.96 | galaxy halo/baryons at 300 kpc=0.50 | core ceiling at 8 keV=1.96e+08 Msun/kpc3 | relic speed today 14.4 km/s
+12 eV at 3/4                           m= 12.0 eV chi=0.75 | K= 11.2 eV  A= 9.00 eV  Omega h2=0.097  cosmic ratio=4.32 | galaxy halo/baryons at 300 kpc=0.71 | core ceiling at 8 keV=2.77e+08 Msun/kpc3 | relic speed today 13.2 km/s
+13 eV at 3/4                           m= 13.0 eV chi=0.75 | K= 12.1 eV  A= 9.75 eV  Omega h2=0.105  cosmic ratio=4.68 | galaxy halo/baryons at 300 kpc=0.98 | core ceiling at 8 keV=3.82e+08 Msun/kpc3 | relic speed today 12.2 km/s
+
+Lower populations
+15 eV at 0.40                          m= 15.0 eV chi=0.40 | K= 11.9 eV  A= 6.00 eV  Omega h2=0.064  cosmic ratio=2.88 | galaxy halo/baryons at 300 kpc=0.93 | core ceiling at 8 keV=3.61e+08 Msun/kpc3 | relic speed today 10.6 km/s
+17 eV at 0.36                          m= 17.0 eV chi=0.36 | K= 13.2 eV  A= 6.12 eV  Omega h2=0.066  cosmic ratio=2.94 | galaxy halo/baryons at 300 kpc=1.38 | core ceiling at 8 keV=5.36e+08 Msun/kpc3 | relic speed today  9.3 km/s
+21 eV at 0.15                          m= 21.0 eV chi=0.15 | K= 13.1 eV  A= 3.15 eV  Omega h2=0.034  cosmic ratio=1.51 | galaxy halo/baryons at 300 kpc=1.34 | core ceiling at 8 keV=5.20e+08 Msun/kpc3 | relic speed today  7.5 km/s
+
+Radiation count (effective number of light species), if the new species takes its particles from the ordinary
+neutrinos after they decouple and is slow by recombination (m >> 0.6 eV):
+  at nucleosynthesis: 3.046 (no extra load); at recombination: 2.28 (ordinary neutrinos depleted to 0.75)
+If instead it is produced before decoupling at population chi: nucleosynthesis 3.046 + chi; recombination 3.046.
+
+Published bounds to compare [from the literature notes]: Planck 2018 N_eff = 2.99 +- 0.17 (standard model);
+galaxy lensing 2-sigma upper limits on extra/baryons inside 300 kpc: 0.58 to 2.67; central values 0.09 to 0.92;
+richest six clusters hold A = 3.3 to 8.8 eV-equivalent inside r500 depending on corrections;
+cluster cores need K >= 8 (strong corrections) to 17 eV (none), for 95% of systems.
