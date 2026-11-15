@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation-0: Interwoven Unification of Sciences — Interactive Research Atlas</title>
+  <meta name="description" content="Six research threads — gravity, physics, astronomy, mathematics, life sciences, formal software — pass through Foundation0's three verification gates and converge in the Fable synthesis pass. An interactive atlas of the whole network.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Convergence Loom · Foundation0">
+  <meta property="og:description" content="Six threads, three verification gates, one synthesis pass. The interactive atlas of Foundation0's research network.">
+  <meta property="og:image" content="https://fdn0.org/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Foundation0: the Radiant, every ledger milestone as a mark, beside the wordmark.">
+  <meta property="og:url" content="https://fdn0.org/loom/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://fdn0.org/loom/">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Chosen Palette: Warm Woven Parchment (#F8F7F3 background, #FFFFFF crisp surfaces, #18181B obsidian ink) braided with six harmonious disciplinary thread hues: Celestial Indigo (#4338CA for gravity/quantum), Deep Teal (#0F766E for physics0), Terracotta (#C2410C for astr0), Forest Emerald (#15803D for math0), Crimson Rose (#BE123C for bio/oncology), and Slate Cyan (#0369A1 for formal software/safety), converging into Burnished Ochre (#B45309) at the f0/Fable nexus. -->
+  <!-- Application Structure Plan: Designed around the visual and structural metaphor of a Convergence Loom: (1) Hero Interactive Convergence Loom Canvas & Thread Inspector (an animated, clickable HTML5 Canvas network showing the 6 disciplinary threads passing through 3 verification gates and knotting at cross-hub bridges into the f0#50 Fable nexus); (2) Three-Gate Epistemic Protocol (f0#38 pipeline, Ledger progression, and Charter 0.6 self-correction log); (3) Multi-Hub Ecosystem & Thread-Bridge Explorer (filterable/searchable matrix with colored thread-strand badges and live inspector); (4) Gravity, Witness Map & Cosmological Vetting (interactive Galactic-to-Cluster RAR crossover chart and TESS 665-candidate tier breakdown); (5) Cross-Scale Structural Bridges (interactive Point-Charges Morse saddle chart, CaB6 packing slider/chart, and cross-domain bridge cards); and (6) Fable (f0#50: F1–F8) Convergence Bottlenecks. -->
+  <!-- Visualization & Content Choices: (1) Interactive Convergence Loom Network (Custom HTML5 Canvas) with clickable domain threads, verification gates, and bridge knots to visualize cross-disciplinary convergence without SVG; (2) Galactic RAR vs Cosmic Saturation Line Chart (Chart.js Canvas) with regime toggles illustrating the g_b,x / a_0 = 0.0289 crossover; (3) TESS Exoplanet Candidate Tier Doughnut Chart (Chart.js Canvas) with tier selector; (4) Point Charges Equilibrium vs Maxwell Bound Bar Chart (Chart.js Canvas) with N=4..9 Morse decomposition selector; (5) Incentre-Lattices Packing Density Curve (Chart.js Canvas) with interactive gamma slider comparing CaB6 peak (0.746865) to Kepler's fcc bound (0.740480). Confirmed zero SVG and zero Mermaid JS. -->
+  <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+  <link rel="stylesheet" href="page.css">
+  <script src="../assets/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F8F7F3;
+      background-image:
+        linear-gradient(to right, rgba(28, 25, 23, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(28, 25, 23, 0.025) 1px, transparent 1px);
+      background-size: 28px 28px;
+      color: #18181B;
+      overflow-x: hidden;
+    }
+    .font-serif-editorial {
+      font-family: 'Newsreader', Georgia, serif;
+    }
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .thread-braid-bar {
+      height: 4px;
+      background: linear-gradient(
+        90deg,
+        #4338CA 0%,
+        #0F766E 20%,
+        #C2410C 40%,
+        #15803D 60%,
+        #BE123C 80%,
+        #0369A1 92%,
+        #B45309 100%
+      );
+    }
+    .loom-container {
+      position: relative;
+      width: 100%;
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 310px;
+      max-height: 360px;
+    }
+    @media (min-width: 768px) {
+      .loom-container {
+        height: 345px;
+      }
+    }
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 295px;
+      max-height: 370px;
+    }
+    @media (min-width: 768px) {
+      .chart-container {
+        height: 335px;
+      }
+    }
+    .card-woven {
+      background-color: #FFFFFF;
+      border: 1px solid #E7E5E4;
+      box-shadow: 0 2px 10px rgba(24, 24, 27, 0.035);
+    }
+    .badge-proven {
+      background-color: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+    }
+    .badge-verified {
+      background-color: #EEF2FF;
+      color: #3730A3;
+      border: 1px solid #C7D2FE;
+    }
+    .badge-active {
+      background-color: #FFFBEB;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+    .badge-conjecture {
+      background-color: #F4F4F5;
+      color: #3F3F46;
+      border: 1px solid #D4D4D8;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-100 selection:text-amber-950">
+
+  <div class="thread-braid-bar w-full"></div>
+
+  <header class="sticky top-0 z-40 bg-[#F8F7F3]/95 backdrop-blur border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between py-3 gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-stone-900 text-amber-50 flex flex-col items-center justify-center shadow-sm">
+              <span class="font-mono-code font-bold text-xs leading-none">f0</span>
+              <span class="w-5 h-0.5 mt-1 rounded-full bg-gradient-to-r from-indigo-400 via-teal-400 to-amber-400"></span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold tracking-tight text-stone-900 flex items-center gap-2">
+                <span>Foundation-0 Convergence Atlas</span>
+                <span class="hidden sm:inline-block text-[11px] font-mono-code px-2 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200">F1 → F8 Weave</span>
+              </div>
+              <div class="text-xs text-stone-500">Interwoven Scientific Threads · C/Fe Epistemic Architecture</div>
+            </div>
+          </div>
+          <span class="md:hidden inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono-code bg-amber-50 text-amber-900 border border-amber-200">
+            f0#38 · f0#50
+          </span>
+        </div>
+
+        <nav aria-label="Primary sections" class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+          <a href="#convergence-loom" class="px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 hover:bg-stone-200/70 transition whitespace-nowrap">0. Convergence Loom</a>
+          <a href="#epistemic-protocol" class="px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 hover:bg-stone-200/70 transition whitespace-nowrap">1. Epistemic Gates</a>
+          <a href="#ecosystem-map" class="px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 hover:bg-stone-200/70 transition whitespace-nowrap">2. Hub &amp; Bridge Matrix</a>
+          <a href="#gravity-cosmos" class="px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 hover:bg-stone-200/70 transition whitespace-nowrap">3. Gravity &amp; Cosmos</a>
+          <a href="#structural-bridges" class="px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 hover:bg-stone-200/70 transition whitespace-nowrap">4. Structural Bridges</a>
+          <a href="#fable-trajectory" class="px-3 py-1.5 rounded-full text-xs font-medium text-stone-700 hover:bg-stone-200/70 transition whitespace-nowrap">5. Fable Synthesis</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16">
+
+    <section id="convergence-loom" class="space-y-6">
+      <div class="card-woven rounded-2xl overflow-hidden">
+        <div class="thread-braid-bar w-full"></div>
+        <div class="p-6 sm:p-9 space-y-6 bg-gradient-to-br from-white via-[#FAF9F5] to-stone-100/60">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-code bg-stone-900 text-stone-50">fdn0.org</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-code bg-teal-50 text-teal-900 border border-teal-200">C/Fe Collaboration</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-code bg-amber-50 text-amber-900 border border-amber-200">Baseline: Nov 15, 2026</span>
+            </div>
+            <div class="text-xs font-mono-code text-stone-500">
+              6 Disciplinary Threads ⇄ 3 Verification Gates ➔ f0#50 Nexus
+            </div>
+          </div>
+
+          <div class="max-w-4xl space-y-3">
+            <h1 class="font-serif-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold text-stone-900 tracking-tight leading-tight">
+              The Convergence of Sciences: How Independent Research Threads Weave Into Foundation-0
+            </h1>
+            <p class="text-sm sm:text-base text-stone-700 leading-relaxed">
+              Foundation-0 does not flatten biology, astronomy, or condensed matter into prose analogies. Instead, it acts as a <strong>structural loom</strong>: independent threads from <span class="font-semibold text-indigo-800">gravity</span>, <span class="font-semibold text-teal-800">physics0</span>, <span class="font-semibold text-orange-800">astr0</span>, <span class="font-semibold text-emerald-800">math0</span>, <span class="font-semibold text-rose-800">oncology &amp; physiology</span>, and <span class="font-semibold text-sky-800">formal software</span> pass through shared machine-executable verification gates (<span class="font-mono-code text-xs bg-stone-100 px-1.5 py-0.5 rounded">f0#38</span>), knot together at cross-scale mathematical invariants, and converge into the <span class="font-mono-code text-xs bg-stone-100 px-1.5 py-0.5 rounded">f0#50</span> <em>Fable (F1–F8)</em> synthesis pass.
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-[#FCFBF9] border border-stone-200/90 p-4 sm:p-5 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <div class="text-xs font-mono-code uppercase tracking-wider text-stone-500">Interactive Topology Loom · Click Any Thread or Bridge Node</div>
+                <div class="text-xs text-stone-600">Trace how individual hubs pass through verification strata and interlock via shared invariants.</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5" id="loom-thread-pills">
+                <button type="button" data-thread="all" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-stone-900 text-white transition">All Threads</button>
+                <button type="button" data-thread="gravity" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-indigo-50 text-indigo-900 border border-indigo-200 hover:bg-indigo-100 transition">● gravity</button>
+                <button type="button" data-thread="physics0" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-teal-50 text-teal-900 border border-teal-200 hover:bg-teal-100 transition">● physics0</button>
+                <button type="button" data-thread="astr0" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-orange-50 text-orange-900 border border-orange-200 hover:bg-orange-100 transition">● astr0</button>
+                <button type="button" data-thread="math0" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100 transition">● math0</button>
+                <button type="button" data-thread="bio" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-rose-50 text-rose-900 border border-rose-200 hover:bg-rose-100 transition">● bio/asma</button>
+                <button type="button" data-thread="formal" class="loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-sky-50 text-sky-900 border border-sky-200 hover:bg-sky-100 transition">● formal</button>
+              </div>
+            </div>
+
+            <div class="loom-container rounded-xl bg-white border border-stone-200/80 overflow-hidden">
+              <canvas id="convergenceCanvas" class="w-full h-full cursor-pointer block"></canvas>
+            </div>
+
+            <div id="loom-inspector" class="p-4 rounded-xl bg-white border border-stone-200 text-xs leading-relaxed">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl bg-white border border-stone-200 relative overflow-hidden">
+              <div class="h-1 w-full bg-gradient-to-r from-indigo-600 to-teal-600 absolute top-0 left-0"></div>
+              <div class="text-xs font-mono-code uppercase tracking-wider text-stone-500">Interwoven Ecosystem</div>
+              <div class="mt-1 text-2xl font-bold text-stone-900">30+ Repos</div>
+              <p class="mt-1 text-xs text-stone-600">Braiding <span class="font-mono-code">f0</span>, <span class="font-mono-code">gravity</span>, <span class="font-mono-code">physics0</span>, <span class="font-mono-code">astr0</span>, <span class="font-mono-code">math0</span>, oncology, and Lean tools.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-stone-200 relative overflow-hidden">
+              <div class="h-1 w-full bg-gradient-to-r from-teal-600 to-emerald-600 absolute top-0 left-0"></div>
+              <div class="text-xs font-mono-code uppercase tracking-wider text-stone-500">Ledger Accountability</div>
+              <div class="mt-1 text-2xl font-bold text-teal-800">343 Milestones</div>
+              <p class="mt-1 text-xs text-stone-600">Includes <span class="font-semibold text-amber-800">31 contested claims</span> surfaced publicly under Charter 0.6.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-stone-200 relative overflow-hidden">
+              <div class="h-1 w-full bg-gradient-to-r from-orange-600 to-amber-600 absolute top-0 left-0"></div>
+              <div class="text-xs font-mono-code uppercase tracking-wider text-stone-500">Wide-Field Cosmos</div>
+              <div class="mt-1 text-2xl font-bold text-stone-900">4.04M Stars</div>
+              <p class="mt-1 text-xs text-stone-600">TESS Sectors 1–104 vetted via 798.8k inverted light curves → 665 candidates.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-stone-200 relative overflow-hidden">
+              <div class="h-1 w-full bg-gradient-to-r from-rose-600 to-sky-600 absolute top-0 left-0"></div>
+              <div class="text-xs font-mono-code uppercase tracking-wider text-stone-500">Human Spec Gate</div>
+              <div class="mt-1 text-2xl font-bold text-indigo-900">0 / 36 Premature</div>
+              <p class="mt-1 text-xs text-stone-600">Zero <span class="font-mono-code">Proven-Commons</span> targets called "verified" before human sign-off.</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-stone-200">
+            <button id="toggle-audit-note" type="button" class="inline-flex items-center gap-2 text-xs font-mono-code font-medium text-stone-700 hover:text-stone-900 bg-stone-100 hover:bg-stone-200/80 px-3 py-1.5 rounded-lg transition">
+              <span>◈ Source &amp; Evidentiary Access Baseline (Nov 14–15, 2026)</span>
+              <span id="audit-note-chevron">▼</span>
+            </button>
+            <div id="audit-note-panel" class="hidden mt-3 p-4 rounded-xl bg-white border border-stone-200 text-xs text-stone-700 space-y-2 leading-relaxed">
+              <p><strong>Verified Public Records:</strong> Organization-level structure, issue trackers (<span class="font-mono-code">f0#10</span>, <span class="font-mono-code">f0#38</span>, <span class="font-mono-code">f0#42</span>, <span class="font-mono-code">f0#50</span>), <span class="font-mono-code">JOIN.md</span> cross-hub mappings, <span class="font-mono-code">fdn0.org/research/</span>, and full project repositories (<span class="font-mono-code">incentre-lattices</span>, <span class="font-mono-code">point-charges</span>, <span class="font-mono-code">eumemic/exoplanets</span>, <span class="font-mono-code">project-asma</span>, <span class="font-mono-code">Proven-Commons</span>, <span class="font-mono-code">After the 722</span>) are directly documented.</p>
+              <p><strong>Access Boundaries Explicitly Noted:</strong> <span class="font-mono-code">Foundation-0/gravity</span> is confirmed as an active public Python repository exploring the fundamental nature of gravity, though its internal source tree was unindexed by public web fetch; the linked Google Drive folder (<span class="font-mono-code">1VovXDsJsVkueXK_inx4qBMsEDzDU48TY</span>) requires authentication; and standalone <span class="font-mono-code">physics0</span>, <span class="font-mono-code">astr0</span>, and <span class="font-mono-code">math0</span> landing Markdowns are synthesized via their complete cross-referenced repository maps in <span class="font-mono-code">f0</span>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="epistemic-protocol" class="space-y-6">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-mono-code uppercase tracking-wider text-teal-800 font-semibold">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-teal-700"></span>
+          <span>Section 01 · The Shared Loom</span>
+        </div>
+        <h2 class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-stone-900 mt-1">
+          The Three-Gate Verification Triad (<span class="font-mono-code text-2xl">f0#38</span>)
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-stone-700 leading-relaxed">
+          What binds an exoplanet transit pipeline, an electrostatic saddle proof, and a cancer proteomics audit into one unified enterprise? Every thread must pass through the exact same three-stage <span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">f0#38</span> tensioning gates—separating fast AI-driven exploration from deterministic mathematical enclosure and human-signed verification.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 card-woven rounded-2xl p-6 space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-base font-semibold text-stone-900">Interactive Gate Inspector (<span class="font-mono-code text-sm">f0#38</span>)</h3>
+            <span class="text-xs text-stone-500">Select a gate to trace how claims tighten</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="pipeline-tabs">
+            <button type="button" data-stage="discover" class="pipeline-tab text-left p-3.5 rounded-xl border-2 border-stone-900 bg-stone-900 text-white transition">
+              <div class="text-xs font-mono-code opacity-80">GATE I · WARP</div>
+              <div class="font-semibold text-sm mt-0.5">⚡ Discover</div>
+              <div class="text-xs opacity-80 mt-1">AI Agents Propose Freely</div>
+            </button>
+            <button type="button" data-stage="enclose" class="pipeline-tab text-left p-3.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-800 hover:bg-stone-100 transition">
+              <div class="text-xs font-mono-code text-stone-500">GATE II · WEFT</div>
+              <div class="font-semibold text-sm mt-0.5">🛡️ Rigorously Enclose</div>
+              <div class="text-xs text-stone-600 mt-1">Checkers Verify Strictly</div>
+            </button>
+            <button type="button" data-stage="verify" class="pipeline-tab text-left p-3.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-800 hover:bg-stone-100 transition">
+              <div class="text-xs font-mono-code text-stone-500">GATE III · KNOT</div>
+              <div class="font-semibold text-sm mt-0.5">✓ Verify &amp; Sign</div>
+              <div class="text-xs text-stone-600 mt-1">People Decide &amp; Answer</div>
+            </button>
+          </div>
+
+          <div id="pipeline-detail" class="p-5 rounded-xl bg-[#FAF9F5] border border-stone-200 space-y-4">
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 card-woven rounded-2xl p-6 flex flex-col justify-between space-y-5">
+          <div>
+            <h3 class="text-base font-semibold text-stone-900">Public Self-Correction Log (<span class="font-mono-code text-sm">Charter 0.6</span>)</h3>
+            <p class="text-xs text-stone-600 mt-1">
+              "A stated rule is not a checked rule." When a thread frays under audit, Foundation-0 publishes the retraction or downgrade openly.
+            </p>
+            <div class="mt-4 space-y-3" id="audit-log-list">
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-stone-200">
+            <div class="text-xs font-mono-code uppercase tracking-wider text-stone-500 mb-2">Ledger Epistemic Tensioning Ladder</div>
+            <div class="flex flex-wrap items-center gap-1.5 text-xs font-mono-code">
+              <span class="px-2 py-1 rounded bg-stone-100 text-stone-700 border border-stone-200">claimed</span>
+              <span class="text-stone-400">➔</span>
+              <span class="px-2 py-1 rounded bg-stone-100 text-stone-700 border border-stone-200">preprint</span>
+              <span class="text-stone-400">➔</span>
+              <span class="px-2 py-1 rounded bg-amber-50 text-amber-900 border border-amber-200">replicated</span>
+              <span class="text-stone-400">➔</span>
+              <span class="px-2 py-1 rounded bg-indigo-50 text-indigo-900 border border-indigo-200">formally verified</span>
+              <span class="text-stone-400">➔</span>
+              <span class="px-2 py-1 rounded bg-emerald-50 text-emerald-900 border border-emerald-200">deployed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem-map" class="space-y-6">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-mono-code uppercase tracking-wider text-indigo-800 font-semibold">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-indigo-700"></span>
+          <span>Section 02 · Multi-Hub Topology</span>
+        </div>
+        <h2 class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-stone-900 mt-1">
+          Ecosystem Matrix: Hubs, Repositories &amp; Cross-Disciplinary Knots
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-stone-700 leading-relaxed">
+          Anchored by <span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">Foundation-0/f0</span> and its <span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">deep-fields/</span> scouting passes, each disciplinary hub cultivates deep domain proofs while intentional bridge repositories braid multiple threads together. Filter by hub, toggle cross-hub bridges, or click any repository to inspect its woven thread strands.
+        </p>
+      </div>
+
+      <div class="card-woven rounded-2xl overflow-hidden">
+        <div class="thread-braid-bar w-full"></div>
+        <div class="p-6 space-y-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-stone-200">
+            <div class="flex flex-wrap gap-1.5" id="hub-filters">
+              <button type="button" data-hub="all" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-900 text-white transition">All Hubs (14)</button>
+              <button type="button" data-hub="core" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">f0 Core</button>
+              <button type="button" data-hub="gravity" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-50 text-indigo-900 hover:bg-indigo-100 transition">gravity &amp; Quantum</button>
+              <button type="button" data-hub="physics0" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-teal-50 text-teal-900 hover:bg-teal-100 transition">physics0</button>
+              <button type="button" data-hub="astr0" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-orange-50 text-orange-900 hover:bg-orange-100 transition">astr0</button>
+              <button type="button" data-hub="math0" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-900 hover:bg-emerald-100 transition">math0</button>
+              <button type="button" data-hub="bio" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-900 hover:bg-rose-100 transition">Bio &amp; Oncology</button>
+              <button type="button" data-hub="formal" class="hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-sky-50 text-sky-900 hover:bg-sky-100 transition">Formal &amp; Humanities</button>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <label class="inline-flex items-center gap-2 text-xs text-stone-700 cursor-pointer select-none font-medium">
+                <input id="bridge-only-toggle" type="checkbox" class="rounded border-stone-300 text-amber-700 focus:ring-amber-600" />
+                <span>⇄ Cross-Hub Knots Only</span>
+              </label>
+              <input id="repo-search" type="text" placeholder="Filter repos or methods..." class="px-3 py-1.5 text-xs rounded-lg border border-stone-300 bg-white text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 w-44 sm:w-52" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-7 space-y-2.5 max-h-[530px] overflow-y-auto pr-1" id="repo-list-container">
+            </div>
+
+            <div class="lg:col-span-5">
+              <div id="repo-inspector" class="sticky top-20 p-5 rounded-xl bg-[#FAF9F5] border border-stone-200 space-y-4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gravity-cosmos" class="space-y-6">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-mono-code uppercase tracking-wider text-orange-800 font-semibold">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-indigo-700"></span>
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-orange-700 -ml-1"></span>
+          <span>Section 03 · Gravity, Quantum &amp; Cosmos</span>
+        </div>
+        <h2 class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-stone-900 mt-1">
+          Where Quantum Turns Classical (<span class="font-mono-code text-2xl">f0#10</span>) &amp; Wide-Field Cosmology
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-stone-700 leading-relaxed">
+          Here the <span class="font-semibold text-indigo-800">gravity</span> thread (<span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">Foundation-0/gravity</span> &amp; <span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">f0#10</span>) weaves directly into <span class="font-semibold text-teal-800">physics0</span> orbital enclosures and <span class="font-semibold text-orange-800">astr0</span> observational catalogs. Test the galactic-to-cluster acceleration crossover where superfluid dark-matter phonon amplification meets the Planck 2018 cosmic saturation ceiling, and inspect the 665-candidate TESS exoplanet vetting pipeline.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="card-woven rounded-2xl p-6 flex flex-col justify-between space-y-4 border-t-4 border-t-indigo-700">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-mono-code uppercase tracking-wider text-indigo-900 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded">gravity ⇄ astr0 · RAR Crossover</span>
+              <span class="text-xs font-mono-code text-stone-500">f0#10 Witness Map</span>
+            </div>
+            <h3 class="text-lg font-semibold text-stone-900">Galactic Phonon Boost vs. Cosmic Saturation Ceiling</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Cold galaxies follow McGaugh's Radial Acceleration Relation <span class="font-mono-code">g_obs/g_b = (1 - exp(-√(g_b/a₀)))⁻¹</span> via coherent U(1) condensate phonons, whereas warmer galaxy clusters transition toward a thermalized phase. Equating galactic RAR amplification to the Planck 2018 cosmic saturation ceiling <span class="font-mono-code">Ω_m/Ω_b ≈ 6.393</span> yields an exact crossover at <span class="font-mono-code">g_b,x / a₀ = [ln(1 - f_b)]² ≈ 0.0289</span>.
+            </p>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="accelerationChart"></canvas>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex flex-wrap gap-1.5" id="regime-buttons">
+              <button type="button" data-regime="deep" class="regime-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">Deep Galactic (0.005 a₀)</button>
+              <button type="button" data-regime="crossover" class="regime-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-900 text-white transition">Exact Crossover (0.029 a₀)</button>
+              <button type="button" data-regime="cluster" class="regime-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">Cluster Regime (1.0 a₀)</button>
+            </div>
+            <div id="regime-readout" class="p-3.5 rounded-xl bg-[#FAF9F5] border border-stone-200 text-xs text-stone-700 leading-relaxed">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-woven rounded-2xl p-6 flex flex-col justify-between space-y-4 border-t-4 border-t-orange-700">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-mono-code uppercase tracking-wider text-orange-900 bg-orange-50 border border-orange-200 px-2 py-0.5 rounded">astr0 · Pre-Registered Vetting</span>
+              <span class="text-xs font-mono-code text-stone-500">exoplanets · frontier</span>
+            </div>
+            <h3 class="text-lg font-semibold text-stone-900">665 TESS Candidates Vetted via Inverted Light Curves</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Searching 4,039,203 TESS stars (Sectors 1–104) filtered 7.46M repeating dips through 17 LEO-Vetter checks, pixel centroids, and 798,769 upside-down inverted light curves (empirically measuring symmetric noise while ignoring true transits). Select a candidate tier to inspect its selection profile and Sector 106–107 out-of-sample test plan.
+            </p>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="exoplanetsChart"></canvas>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex flex-wrap gap-1.5" id="tier-buttons">
+              <button type="button" data-tier="all" class="tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-900 text-white transition">All 665</button>
+              <button type="button" data-tier="AM" class="tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">Tier A/M (44)</button>
+              <button type="button" data-tier="BS" class="tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">Tier B/S (331)</button>
+              <button type="button" data-tier="N" class="tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">Tier N (177)</button>
+              <button type="button" data-tier="L1" class="tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">Tier L1 (113)</button>
+            </div>
+            <div id="tier-readout" class="p-3.5 rounded-xl bg-[#FAF9F5] border border-stone-200 text-xs text-stone-700 leading-relaxed">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-woven rounded-2xl p-6">
+        <h3 class="text-base font-semibold text-stone-900">Three Converging Strands Inside <span class="font-mono-code text-sm">f0#10</span> ("Witness Map")</h3>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed">
+          <div class="p-4 rounded-xl bg-[#FAF9F5] border border-stone-200 space-y-1.5 border-l-4 border-l-indigo-700">
+            <div class="font-mono-code font-semibold text-stone-900">1. Cosmic Dawn &amp; ψDM Jeans Cutoff</div>
+            <p class="text-stone-700">
+              Deep JWST spectroscopy reveals a sharp "Cosmic Daybreak" onset near <span class="font-mono-code">z = 15</span> (luminous galaxies confirmed to <span class="font-mono-code">z = 14.44–14.5</span>), aligning with ultralight Wave Dark Matter (<span class="font-mono-code">ψDM</span>) quantum de Broglie pressure delaying halo collapse until a critical Jeans mass is crossed.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#FAF9F5] border border-stone-200 space-y-1.5 border-l-4 border-l-orange-700">
+            <div class="font-mono-code font-semibold text-stone-900">2. Black Hole Soliton Reshaping</div>
+            <p class="text-stone-700">
+              <span class="font-mono-code">f0#10</span> investigates whether central black holes reshape surrounding wave/superfluid condensates—inducing soliton density spikes, quantized vortices, phonon-damped dynamical friction, and gravitational-wave dephasing testable against <span class="font-mono-code">gaia-dr4</span> astrometry.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#FAF9F5] border border-stone-200 space-y-1.5 border-l-4 border-l-teal-700">
+            <div class="font-mono-code font-semibold text-stone-900">3. Formal Noether &amp; Orbital Enclosures</div>
+            <p class="text-stone-700">
+              While <span class="font-mono-code">physics0</span> (<span class="font-mono-code">certified-orbits</span>, <span class="font-mono-code">relative-equilibria</span>) encloses N-body trajectories with interval/ball arithmetic, Lean 4 mechanics formalizations isolate exact pointwise Noether conservation laws from unproved global assumptions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="structural-bridges" class="space-y-6">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-mono-code uppercase tracking-wider text-emerald-800 font-semibold">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-teal-700"></span>
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-700 -ml-1"></span>
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-rose-700 -ml-1"></span>
+          <span>Section 04 · Cross-Scale Structural Knots</span>
+        </div>
+        <h2 class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-stone-900 mt-1">
+          Exact Mathematical Bridges Across Electrostatics, Crystals, Perception &amp; Biomedicine
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-stone-700 leading-relaxed">
+          The deepest knots in the Foundation-0 loom appear when a single algebraic or topological structure governs multiple physical domains simultaneously. Explore the Morse equilibrium disproof of Maxwell's conjecture (<span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">point-charges</span>), test the CaB₆ crystal packing peak and visual skeleton perception bridge (<span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">incentre-lattices</span>), and inspect how identical proof gates unify complexity theory, ovarian cancer proteomics, and cellular AI safety.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="card-woven rounded-2xl p-6 flex flex-col justify-between space-y-4 border-t-4 border-t-teal-700">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-mono-code uppercase tracking-wider text-teal-900 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded">physics0 · Arb &amp; Krawczyk Certified</span>
+              <span class="text-xs font-mono-code text-stone-500">point-charges</span>
+            </div>
+            <h3 class="text-lg font-semibold text-stone-900">Disproving Maxwell's 1873 Point-Charge Equilibrium Bound</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Maxwell conjectured at most <span class="font-mono-code">(n - 1)²</span> zero-field points for <span class="font-mono-code">n</span> positive charges in 3D. Dual zero-shared-code interval and Arb ball verifiers certified exact non-degenerate counts beating Maxwell at <span class="font-mono-code">N = 5</span> (24 vs 16), <span class="font-mono-code">N = 6</span> (29 vs 25), and <span class="font-mono-code">N = 7</span> (≥44 vs 36). Select <span class="font-mono-code">N</span> below to inspect the Morse saddle decomposition.
+            </p>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="pointChargesChart"></canvas>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex flex-wrap items-center gap-1.5" id="charge-n-buttons">
+              <button type="button" data-n="4" class="charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">N = 4</button>
+              <button type="button" data-n="5" class="charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">N = 5</button>
+              <button type="button" data-n="6" class="charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-900 text-white transition">N = 6 (q = 2⁻⁴⁴)</button>
+              <button type="button" data-n="7" class="charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">N = 7</button>
+              <button type="button" data-n="8" class="charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">N = 8</button>
+              <button type="button" data-n="9" class="charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition">N = 9</button>
+            </div>
+            <div id="charge-readout" class="p-3.5 rounded-xl bg-[#FAF9F5] border border-stone-200 text-xs text-stone-700 leading-relaxed">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-woven rounded-2xl p-6 flex flex-col justify-between space-y-4 border-t-4 border-t-emerald-700">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-mono-code uppercase tracking-wider text-emerald-900 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">math0 ⇄ physics0 ⇄ Cognition</span>
+              <span class="text-xs font-mono-code text-stone-500">incentre-lattices</span>
+            </div>
+            <h3 class="text-lg font-semibold text-stone-900">From CaB₆ Crystal Packing to Visual Medial-Axis Perception</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Angle bisectors of right isosceles pyramids lift into 3D to recover the exact boron scaffold of calcium hexaboride (<span class="font-mono-code">CaB₆</span>), achieving hard-sphere packing density <span class="font-mono-code">ρ_max ≈ 0.746865</span> at <span class="font-mono-code">γ* = √2 - 1 ≈ 0.414214</span>—beating Kepler's fcc bound (<span class="font-mono-code">0.740480</span>)—and folding continuously to fcc. Slide <span class="font-mono-code">γ</span> to explore the density window.
+            </p>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="packingChart"></canvas>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#FAF9F5] p-3 rounded-xl border border-stone-200">
+              <label for="gamma-slider" class="text-xs font-mono-code font-medium text-stone-800">
+                Radius Ratio γ = <span id="gamma-value" class="text-emerald-800 font-bold">0.4142</span>
+              </label>
+              <input id="gamma-slider" type="range" min="0.385" max="0.435" step="0.0005" value="0.4142" class="w-full sm:w-56 accent-emerald-700 cursor-pointer" />
+            </div>
+            <div id="gamma-readout" class="p-3.5 rounded-xl bg-[#FAF9F5] border border-stone-200 text-xs text-stone-700 leading-relaxed">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card-woven rounded-2xl p-5 space-y-2.5 border-l-4 border-l-emerald-700">
+          <div class="text-xs font-mono-code text-emerald-800 font-semibold">MATH0 ⇄ PERCEPTION</div>
+          <h4 class="text-sm font-semibold text-stone-900">Medial-Axis Triangle Skeleton (<span class="font-mono-code text-xs">mind.html</span>)</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Classical perceived-center studies tested near-equilateral triangles where incentre–centroid separation is tiny (<strong>0.0%</strong> equilateral, <strong>1.7%</strong> right isosceles). <span class="font-mono-code">incentre-lattices</span> specifies thin obtuse triangles (<strong>6.0%–8.2%</strong> separation) to test cortical medial-axis skeleton perception vs center of mass.
+          </p>
+        </div>
+
+        <div class="card-woven rounded-2xl p-5 space-y-2.5 border-l-4 border-l-sky-700">
+          <div class="text-xs font-mono-code text-sky-800 font-semibold">MATH0 ⇄ FORMAL</div>
+          <h4 class="text-sm font-semibold text-stone-900">Lean 4.34.1 Sub-n log n Bounds (<span class="font-mono-code text-xs">After the 722</span>)</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Integer multiplication saving <span class="font-mono-code">κ</span> reached <strong>0.00167266</strong> across 1,334 PRs, while a Lean 4 Reusable Transfer Theorem proved exact all-length DFT bounds at <strong>δ = 0.0012331685</strong> (safety gap <span class="font-mono-code">10⁻¹⁰</span>). <span class="font-mono-code">gf2m-circuits</span> cut AES GF(2⁸) multiplication from 117 to <strong>112 gates</strong>.
+          </p>
+        </div>
+
+        <div class="card-woven rounded-2xl p-5 space-y-2.5 border-l-4 border-l-rose-700">
+          <div class="text-xs font-mono-code text-rose-800 font-semibold">BIO ⇄ PROVENANCE</div>
+          <h4 class="text-sm font-semibold text-stone-900">Gate 0 &amp; CDR2L/HLA-II (<span class="font-mono-code text-xs">project-asma</span>)</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Auditing platinum-refractory HGSOC proteomics uncovered an AUROC discrepancy (<strong>0.80885 vs 0.83</strong>), enforcing local-only live data execution (Gate 0), frozen 13/8 validation contracts, and Round 2 synthetic protocols on <strong>CDR2L</strong> &amp; <span class="font-mono-code">HLA-DRB1*07:01</span> (~90% anti-Yo association).
+          </p>
+        </div>
+
+        <div class="card-woven rounded-2xl p-5 space-y-2.5 border-l-4 border-l-amber-700">
+          <div class="text-xs font-mono-code text-amber-800 font-semibold">CELLULAR AI ⇄ SAFETY</div>
+          <h4 class="text-sm font-semibold text-stone-900">Plasm Homeostasis Gate (<span class="font-mono-code text-xs">ML Weft</span>)</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Companion Moissanite Labs models post-deployment neural adaptation on biological cells: a 540,688-byte <span class="font-mono-code">Plasm</span> cell locks a 25% watermarked core while C11/Python/JS safety gate <span class="font-mono-code">C2</span> enforces <span class="font-mono-code">‖W' - W₀‖_F ≤ R</span> to block drift and sign-flip attacks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fable-trajectory" class="space-y-6">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-mono-code uppercase tracking-wider text-amber-800 font-semibold">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-700"></span>
+          <span>Section 05 · The Convergence Knot</span>
+        </div>
+        <h2 class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-stone-900 mt-1">
+          Tightening the Weave into Fable (<span class="font-mono-code text-2xl">f0#50</span>: Science Pass F1 to F8)
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-stone-700 leading-relaxed">
+          Launched on November 15, 2026 UTC, <span class="font-mono-code text-xs bg-stone-200/70 px-1.5 py-0.5 rounded">f0#50</span> (<em>"Fable: the science pass (F1 to F8), single entry point"</em>) gathers Foundation-0's multi-hub threads into one unified scientific pass. Viewing the whole network as a single verification instrument surfaces three structural bottlenecks—and the concrete mechanisms resolving them.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-woven rounded-2xl p-6 space-y-3 border-t-4 border-t-sky-700">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono-code font-semibold text-sky-900">TENSION 01</span>
+            <span class="text-xs font-mono-code bg-sky-50 text-sky-900 px-2 py-0.5 rounded">0 / 36 Verified</span>
+          </div>
+          <h3 class="text-base font-semibold text-stone-900">Human Specification Review Ceiling</h3>
+          <p class="text-xs text-stone-700 leading-relaxed">
+            AI agents draft compiling Lean 4 proofs and candidate circuits faster than human experts can audit definitions. Inside <span class="font-mono-code">Proven-Commons</span>, 36 repositories have merged slices and passed millions of differential tests, yet all 36 await non-author human specification sign-off (Bar Item 1).
+          </p>
+          <div class="pt-2 border-t border-stone-200 text-xs text-stone-800">
+            <strong>Resolution:</strong> Scaling the four-tier <span class="font-mono-code">Proven-Commons</span> Academy (Reader → Apprentice → Verifier → Spec Lead) while upstreaming reusable lemmas to <span class="font-mono-code">Mathlib</span> and <span class="font-mono-code">CSLib</span>.
+          </div>
+        </div>
+
+        <div class="card-woven rounded-2xl p-6 space-y-3 border-t-4 border-t-orange-700">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono-code font-semibold text-orange-900">TENSION 02</span>
+            <span class="text-xs font-mono-code bg-orange-50 text-orange-900 px-2 py-0.5 rounded">45,781 Windows</span>
+          </div>
+          <h3 class="text-base font-semibold text-stone-900">Closing the Semantic-to-Physical Gap</h3>
+          <p class="text-xs text-stone-700 leading-relaxed">
+            Formal checkers prove exact fidelity to stated equations, but cannot alone confirm that an equation captures physical reality—just as <span class="font-mono-code">Proven-Commons/tar</span> proved a string property narrower than full OS path confinement.
+          </p>
+          <div class="pt-2 border-t border-stone-200 text-xs text-stone-800">
+            <strong>Resolution:</strong> Locking pre-registered predictions before observation—as in <span class="font-mono-code">exoplanets-frontier</span> (Sectors 106–107), <span class="font-mono-code">project-asma</span> (frozen 13/8 contract), and future <span class="font-mono-code">gravity</span> / <span class="font-mono-code">gaia-dr4</span> dark-matter tests.
+          </div>
+        </div>
+
+        <div class="card-woven rounded-2xl p-6 space-y-3 border-t-4 border-t-amber-700">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono-code font-semibold text-amber-900">TENSION 03</span>
+            <span class="text-xs font-mono-code bg-amber-50 text-amber-900 px-2 py-0.5 rounded">31 / 343 Contested</span>
+          </div>
+          <h3 class="text-base font-semibold text-stone-900">Transparent Self-Auditing as Social Glue</h3>
+          <p class="text-xs text-stone-700 leading-relaxed">
+            Disciplinary silos often hide failed parameter sweeps and specification mismatches behind post-hoc prose. Foundation-0 treats contested Ledger entries, stripped prose checks (<span class="font-mono-code">incentre-lattices PR #91</span>), and <span class="font-mono-code">overdue-data</span> audits as public infrastructure.
+          </p>
+          <div class="pt-2 border-t border-stone-200 text-xs text-stone-800">
+            <strong>Resolution:</strong> Enforcing signed human GitHub accountability (<span class="font-mono-code">Charter 0.2</span>) and SHA-256 verification commitments across every F1–F8 synthesis module.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-stone-200 bg-white mt-16">
+    <div class="thread-braid-bar w-full"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-stone-600">
+      <div>
+        <span class="font-semibold text-stone-900">Foundation-0 Convergence Atlas</span> · Weaving <span class="font-mono-code">Foundation-0/f0</span>, <span class="font-mono-code">gravity</span>, <span class="font-mono-code">physics0</span>, <span class="font-mono-code">astr0</span>, <span class="font-mono-code">math0</span>, <span class="font-mono-code">project-asma</span>, and <span class="font-mono-code">Proven-Commons</span>.
+      </div>
+      <div class="font-mono-code text-stone-500">
+        Discover · Rigorously Enclose · Independently Verify
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 text-xs text-stone-500">
+      <a href="../" class="underline hover:text-stone-900">Foundation0 home</a> &middot; <a href="../research/" class="underline hover:text-stone-900">Research</a> &middot; <a href="https://github.com/Foundation-0/f0/issues/50" class="underline hover:text-stone-900">f0#50 Fable</a>
+    </div>
+  </footer>
+
+  <script>
+    const loomThreadInfo = {
+      all: {
+        badge: "Unified Network View · All 6 Threads Active",
+        color: "#B45309",
+        title: "Foundation-0 Convergence Network (30+ Repos ➔ f0#50 Fable F1–F8)",
+        desc: "Six distinct scientific threads originate on the left, pass vertically through the three f0#38 verification gates (Discover, Rigorously Enclose, Independently Verify), interlock at cross-scale mathematical bridge knots, and converge into the unified f0#50 Fable synthesis nexus on the right. Click any colored thread pill or canvas node to isolate its path."
+      },
+      gravity: {
+        badge: "Thread 01 · Fundamental Gravity & Quantum-Classical Boundary",
+        color: "#4338CA",
+        title: "Foundation-0/gravity & f0#10 ('The Witness Map')",
+        desc: "Explores the fundamental nature of gravity, where quantum coherence transitions to classical dynamics ('Witness Map'), and whether black holes reshape wave/superfluid dark matter—linking the galactic-to-cluster RAR crossover (g_b,x = 0.029 a₀) to physics0 orbital enclosures and astr0 JWST/Gaia tests."
+      },
+      physics0: {
+        badge: "Thread 02 · Mathematical Physics & Validated Enclosures",
+        color: "#0F766E",
+        title: "physics0 Hub (point-charges, certified-orbits, relative-equilibria)",
+        desc: "Replaces floating-point approximations with outward-rounded Krawczyk intervals and zero-shared-code Arb ball certificates—disproving Maxwell's 1873 point-charge bound at N=5, 6, 7 and bridging into math0 via rigid-realizations and incentre-lattices."
+      },
+      astr0: {
+        badge: "Thread 03 · Wide-Field Survey Astronomy & Time-Domain Archives",
+        color: "#C2410C",
+        title: "astr0 Hub (exoplanets, exoplanets-frontier, gaia-dr4, plate-novae)",
+        desc: "Scales falsifiable empirical vetting across 4,039,203 TESS stars using 798,769 inverted light curves (665 candidates locked for Sector 106–107 out-of-sample testing) while mining century-old glass plates and Gaia DR4 astrometry."
+      },
+      math0: {
+        badge: "Thread 04 · Discrete Geometry, Complexity & Coding Theory",
+        color: "#15803D",
+        title: "math0 Hub (incentre-lattices, After the 722, gfq-codes, gf2m-circuits)",
+        desc: "Proves exact Q(√2) and 16,240-term Bernstein certificates for CaB₆ crystal packing (ρ_max ≈ 0.746865 > Kepler fcc), formalizes Lean 4.34.1 sub-n log n DFT transfer bounds (δ = 0.0012331685), and extends into cortical visual perception (mind.html) and human proportions (vitruvian3d)."
+      },
+      bio: {
+        badge: "Thread 05 · Translational Oncology, Immunology & Physiology",
+        color: "#BE123C",
+        title: "Biomedical Hubs (project-asma, virtual-human, nhanes-bioimpedance)",
+        desc: "Enforces Gate 0 local-only live data execution and frozen 13/8 validation contracts in platinum-refractory HGSOC proteomics, isolates CDR2L/HLA-II immunogenicity protocols, and builds deterministic physiological compartment models."
+      },
+      formal: {
+        badge: "Thread 06 · Verified Systems Software & Cellular AI Safety",
+        color: "#0369A1",
+        title: "Proven-Commons & Companion ML Weft",
+        desc: "Applies Lean 4 proofs and multi-million-input differential fuzzing to critical parsers (tar, redis, sqlite) under strict Bar Item 1 human spec sign-off, paired with C2 Frobenius-norm homeostasis gates (‖W' - W₀‖_F ≤ R) bounding post-deployment neural drift."
+      }
+    };
+
+    const pipelineData = {
+      discover: {
+        badge: "Gate I · Hypothesis & Candidate Generation",
+        title: "AI Agents Propose Freely Across High-Dimensional Search Spaces",
+        summary: "Cheap, tireless agent harnesses explore vast combinatorial, algebraic, or archival datasets where most candidate proposals are expected to fail. Discovery is strictly decoupled from claim acceptance.",
+        instruments: [
+          { name: "Auto-research-agent", desc: "macOS harness dispatching Codex and Claude Code onto standardized /auto-research repositories." },
+          { name: "autofoundry", desc: "Multi-cloud GPU runner across RunPod, Vast.ai, PRIME Intellect, and Lambda reporting best, mean, and worst runs." },
+          { name: "Exo / Exo OS & IR-Taxonomy", desc: "Aska Digital's persistent-memory agent runtime governed by Executable, Proactive, Learner, and Orchestrating Hub lanes." }
+        ],
+        guardrail: "Empirical Guardrail: In an Oct 30, 2026 H200 GPU benchmark, 14 agent-generated kernels passed numerical checks but 0 achieved calibrated speedup goals—proving why proposal generation cannot self-certify."
+      },
+      enclose: {
+        badge: "Gate II · Deterministic Mathematical & Empirical Checkers",
+        title: "Rigorously Enclose Claims Until Zero Unenclosed Gaps Remain",
+        summary: "Every discipline compiles hypotheses into domain-tailored deterministic verifiers—banning unverified approximations, floating-point drift, or post-hoc data peeking.",
+        instruments: [
+          { name: "Lean 4.34.1 & Verified Bar", desc: "Bans sorry, admit, unsafe, extern, implemented_by, and custom axioms; compiles exact proved code." },
+          { name: "Interval, Ball & Bernstein Algebra", desc: "Outward-rounded Krawczyk intervals, Arb ball arithmetic (point-charges), and 16,240 exact Bernstein coefficients (incentre-lattices)." },
+          { name: "Physical Inversions & Gate 0", desc: "798,769 inverted light curves measuring empirical false-alarm rates (exoplanets) and synthetic-only CI isolation (project-asma)." }
+        ],
+        guardrail: "Formal Rule: Every repository ships automated verification suites (make verify) with must-fail negative controls and SHA-256 commitments."
+      },
+      verify: {
+        badge: "Gate III · Zero-Shared-Code Cross-Checks & Human Sign-Off",
+        title: "Independently Verify Specifications and Sign Human Accountability",
+        summary: "Secondary verifiers sharing zero implementation code re-check certificates, differential oracles test real-world semantics, and a named human researcher signs responsibility on GitHub.",
+        instruments: [
+          { name: "Zero-Shared-Code Dual Verifiers", desc: "certify.py vs verify_arb.py in point-charges; Brouwer-Zimmermann vs MacWilliams dual checker in gfq-codes." },
+          { name: "Differential Oracle Campaigns", desc: "Multi-million-input fuzzing comparing Lean 4 Proven-Commons parsers against C, Go, OpenSSL, SQLite, and Redis." },
+          { name: "Non-Author Human Spec Review", desc: "Bar Item 1 requires an independent Spec Lead to verify that formal theorem statements match real-world intent before using the label 'verified'." }
+        ],
+        guardrail: "Human Primacy (Charter 0.2): AI agents never sign claims; every accepted Ledger milestone or repository release carries named human provenance."
+      }
+    };
+
+    const auditLogData = [
+      {
+        date: "Oct 6, 2026",
+        target: "After the 722 (722 → 719)",
+        status: "3 Withdrawn",
+        note: "Day-one formal audits of OpenAI's 722 machine-written math manuscripts caught a sign error, tracking 3 immediate withdrawals."
+      },
+      {
+        date: "Oct 19, 2026",
+        target: "incentre-lattices (#38–#42, PR #91)",
+        status: "Prose Stripped",
+        note: "An 'exact Q(√2) all-pairs check' cited in prose was missing from git with an unnamed AI referee; PR #91 stripped it from evidentiary claims even though SymPy confirmed the math."
+      },
+      {
+        date: "Oct 24, 2026",
+        target: "Proven-Commons/tar Pilot",
+        status: "Downgraded",
+        note: "Issued directive 'Do not call it verified' after auditing that Lean proofs proved a narrower string property than full destination-folder path confinement."
+      }
+    ];
+
+    const reposData = [
+      {
+        id: "f0-hub",
+        name: "Foundation-0/f0 & f0#50 (Fable)",
+        hub: "core",
+        hubLabel: "f0 Core Nexus",
+        threads: ["core", "gravity", "physics0", "astr0", "math0", "bio", "formal"],
+        bridge: true,
+        status: "Deployed / Active",
+        badgeClass: "badge-proven",
+        question: "How do we coordinate 343 human-AI scientific milestones, scout overlooked datasets (deep-fields), and weave F1–F8 into a single entry point?",
+        verifier: "Python staging gates (gate.py, check_site.py), golden parser regressions, corruption probes, and Charter 0.2 human sign-off.",
+        connections: "Central convergence knot uniting gravity, physics0, astr0, math0, project-asma, and Proven-Commons."
+      },
+      {
+        id: "gravity-repo",
+        name: "Foundation-0/gravity & f0#10 (Witness Map)",
+        hub: "gravity",
+        hubLabel: "gravity & Quantum",
+        threads: ["gravity", "physics0", "astr0"],
+        bridge: true,
+        status: "Public Repo / Open Thread",
+        badgeClass: "badge-active",
+        question: "What is the fundamental nature of gravity, where does quantum turn classical ('Witness Map'), and does a black hole shape wave dark matter?",
+        verifier: "Python gravitational modeling (gravity); coupled theoretically to RAR/superfluid crossovers (g_b,x = 0.029 a₀), JWST z ≈ 15 Jeans bounds, and Lean mechanics invariants.",
+        connections: "Weaves fundamental gravitational theory into physics0 orbital enclosures and astr0 galactic/astrometric tests (gaia-dr4)."
+      },
+      {
+        id: "point-charges",
+        name: "physics0 / point-charges",
+        hub: "physics0",
+        hubLabel: "physics0",
+        threads: ["physics0", "math0"],
+        bridge: false,
+        status: "Certified Exact (N=4..6)",
+        badgeClass: "badge-proven",
+        question: "How many zero-field equilibrium points can N positive point charges generate in 3D space (disproving Maxwell's 1873 (n-1)² conjecture)?",
+        verifier: "Outward-rounded interval bisection + Krawczyk test (certify.py) cross-checked by zero-shared-code Arb ball arithmetic (verify_arb.py) + 4 corruption break tests.",
+        connections: "Establishes exact Morse topological saddle invariants ((n-1) + 2s₁) across electrostatic potential landscapes."
+      },
+      {
+        id: "orbits-equilibria",
+        name: "physics0 / certified-orbits & relative-equilibria",
+        hub: "physics0",
+        hubLabel: "physics0",
+        threads: ["physics0", "gravity", "astr0"],
+        bridge: true,
+        status: "Active Enclosures",
+        badgeClass: "badge-verified",
+        question: "Which N-body celestial configurations and choreographies admit mathematically guaranteed, artifact-free orbital trajectories?",
+        verifier: "Validated interval and ball-arithmetic ODE enclosures separating true gravitational dynamics from floating-point integration drift.",
+        connections: "Supplies rigorous dynamical verification tools for gravity and astr0 celestial mechanics."
+      },
+      {
+        id: "rigid-fractals",
+        name: "physics0 / rigid-realizations, fractals & wwssn-microseisms",
+        hub: "physics0",
+        hubLabel: "physics0 & Earth",
+        threads: ["physics0", "math0", "astr0"],
+        bridge: true,
+        status: "Seed → Active",
+        badgeClass: "badge-active",
+        question: "How do bar-joint rigidity matrices, cross-scale fractal geometries, and pre-digital WWSSN seismograph microseisms behave under formal analysis?",
+        verifier: "Algebraic rigidity matrices, interactive browser explorers, and archival geophysical digitization pipelines.",
+        connections: "rigid-realizations bridges math0 & physics0; fractals bridges physics0 & astr0."
+      },
+      {
+        id: "exoplanets",
+        name: "astr0 / exoplanets & exoplanets-frontier",
+        hub: "astr0",
+        hubLabel: "astr0",
+        threads: ["astr0"],
+        bridge: false,
+        status: "665 Candidates / Out-of-Sample",
+        badgeClass: "badge-verified",
+        question: "Can sub-single-sector exoplanet transits be reliably recovered across 4,039,203 TESS stars and verified out-of-sample on Sectors 106–107?",
+        verifier: "17 LEO-Vetter checks, per-sector pixel centroids, 798,769 upside-down inverted light curves, and 45,781 pre-committed transit windows.",
+        connections: "Operationalizes pre-registered empirical falsification across wide-field TESS photometry."
+      },
+      {
+        id: "plates-gaia",
+        name: "astr0 / plate-eclipses, plate-novae & gaia-dr4",
+        hub: "astr0",
+        hubLabel: "astr0",
+        threads: ["astr0", "gravity"],
+        bridge: true,
+        status: "Pilot / Prep Pipelines",
+        badgeClass: "badge-active",
+        question: "What uncatalogued eclipsing binaries, pre-nova eruptions, and precision astrometric anomalies hide in century-old glass plates and Gaia DR4?",
+        verifier: "Automated historical plate photometry with known-variable positive controls and synthetic stellar spectra ML.",
+        connections: "Provides century-baseline time-domain and astrometric tests relevant to astr0 and gravity halo kinematics."
+      },
+      {
+        id: "incentre-lattices",
+        name: "math0 / incentre-lattices & vitruvian3d",
+        hub: "math0",
+        hubLabel: "math0 & Cross-Scale",
+        threads: ["math0", "physics0", "bio"],
+        bridge: true,
+        status: "PROVEN & VERIFIED (v3)",
+        badgeClass: "badge-proven",
+        question: "How does a single n-D angle-bisector construction unify CaB₆ crystal packing, continuum elasticity, continuous fcc folding, and human visual skeleton perception?",
+        verifier: "Symbolic Q(√2) proofs, 16,240 exact non-negative Bernstein polynomial coefficients, cross-version Python verifiers, and psychophysical test specs.",
+        connections: "Bridges math0 discrete geometry, physics0 solid mechanics/crystallography, visual neuroscience (mind.html), and human anatomy (vitruvian3d)."
+      },
+      {
+        id: "after-722",
+        name: "math0 / After the 722 & fourier-transform-below-nlogn",
+        hub: "math0",
+        hubLabel: "math0",
+        threads: ["math0", "formal"],
+        bridge: true,
+        status: "Lean 4.34.1 Verified",
+        badgeClass: "badge-proven",
+        question: "Can conditional sub-n log n integer-multiplication advances (κ = 0.00167266) transfer formally into unconditional all-length exact DFT bounds?",
+        verifier: "Lean 4.34.1 Reusable Transfer Theorem proving exact DFT complexity O(n (log n)^(1-δ)) at δ = 0.0012331685 with safety gap 10⁻¹⁰.",
+        connections: "Demonstrates functorial transfer of algorithmic witnesses across computational complexity and Lean 4 formal verification."
+      },
+      {
+        id: "gfq-circuits",
+        name: "math0 / gfq-codes, gf2m-circuits & mobius-x1",
+        hub: "math0",
+        hubLabel: "math0",
+        threads: ["math0", "formal"],
+        bridge: false,
+        status: "Dual-Checked / Lean Verified",
+        badgeClass: "badge-verified",
+        question: "What are the exact minimum-distance bounds for GF(q) linear codes and minimum-gate depths for AES GF(2⁸) multiplication?",
+        verifier: "Zero-shared-code Brouwer-Zimmermann vs MacWilliams dual checkers; exhaustive 65,536-pair truth-table checks + 30 Lean proofs (112 gates at depth 6).",
+        connections: "Establishes hardware-level algebraic circuit verification standards."
+      },
+      {
+        id: "project-asma",
+        name: "Bio / project-asma (Pilot 001 & Round 2)",
+        hub: "bio",
+        hubLabel: "Oncology & Immunology",
+        threads: ["bio", "formal"],
+        bridge: true,
+        status: "Gate 0 Enforced",
+        badgeClass: "badge-verified",
+        question: "How can we audit primary platinum-refractory HGSOC proteomics and isolate CDR2L/HLA-II anti-tumor specificity without data leakage or clinical overreach?",
+        verifier: "Gate 0 local-only study data execution vs synthetic-only AWS CI, byte-verified adapters, frozen 13/8 subset contracts, and synthetic identifiability protocols.",
+        connections: "Applies formal software provenance and pre-registered statistical gates to translational cancer immunology."
+      },
+      {
+        id: "virtual-human",
+        name: "Bio / virtual-human & nhanes-bioimpedance",
+        hub: "bio",
+        hubLabel: "Physiology",
+        threads: ["bio", "math0"],
+        bridge: true,
+        status: "Active Workspace",
+        badgeClass: "badge-active",
+        question: "How can human physiological compartments and population bioimpedance cohorts be encoded into deterministic, agent-checkable models?",
+        verifier: "Executable physiological ODE/compartment code, NHANES cohort pipelines, and plain-text calculation receipts (nutrak).",
+        connections: "Links physiological modeling with vitruvian3d geometric proportions and computational verification."
+      },
+      {
+        id: "proven-commons",
+        name: "Formal / Proven-Commons & companion ML Weft",
+        hub: "formal",
+        hubLabel: "Formal Software & AI Safety",
+        threads: ["formal", "math0", "bio"],
+        bridge: true,
+        status: "In Progress (0/36 Verified)",
+        badgeClass: "badge-verified",
+        question: "How do we replace critical C/system parsers (tar, redis, sqlite) with Lean 4 proofs and bound post-deployment neural weight drift?",
+        verifier: "lake comparator --paranoid, multi-million-input differential fuzzing, Bar Item 1 human spec sign-off, and Weft C2 Frobenius-norm gates (‖W' - W₀‖_F ≤ R).",
+        connections: "Supplies the formal verification toolchain shared across math0, bio, and Foundation-0."
+      },
+      {
+        id: "rism-overdue",
+        name: "Humanities & Metascience / rism-anon & overdue-data",
+        hub: "formal",
+        hubLabel: "Musicology & Metascience",
+        threads: ["formal", "core"],
+        bridge: false,
+        status: "Pilot / Human-Gated",
+        badgeClass: "badge-conjecture",
+        question: "Can transposition-invariant melody matching identify anonymous RISM manuscripts, and which promised life-science datasets remain unreleased after >18 months?",
+        verifier: "Algorithmic incipit matching + Verovio visual review (50 manual checks) + mandatory human editor sign-off; registry publication audits.",
+        connections: "Extends reproducible computational auditing to historical musicology and open-science compliance."
+      }
+    ];
+
+    const threadColorMap = {
+      core: { label: "f0 Core", bg: "bg-amber-100 text-amber-950 border-amber-300", hex: "#B45309" },
+      gravity: { label: "gravity", bg: "bg-indigo-100 text-indigo-900 border-indigo-300", hex: "#4338CA" },
+      physics0: { label: "physics0", bg: "bg-teal-100 text-teal-900 border-teal-300", hex: "#0F766E" },
+      astr0: { label: "astr0", bg: "bg-orange-100 text-orange-900 border-orange-300", hex: "#C2410C" },
+      math0: { label: "math0", bg: "bg-emerald-100 text-emerald-900 border-emerald-300", hex: "#15803D" },
+      bio: { label: "bio/asma", bg: "bg-rose-100 text-rose-900 border-rose-300", hex: "#BE123C" },
+      formal: { label: "formal", bg: "bg-sky-100 text-sky-900 border-sky-300", hex: "#0369A1" }
+    };
+
+    const regimeDetails = {
+      deep: {
+        title: "Deep Galactic Phonon Regime (g_b / a₀ = 0.005)",
+        metrics: "g_b ≈ 6.0 × 10⁻¹³ m/s² · RAR Boost g_obs / g_b ≈ 14.65× · g_obs ≈ 8.79 × 10⁻¹² m/s²",
+        text: "Inside cold outer galactic halos where baryonic acceleration drops well below a₀, U(1) Nambu–Goldstone phonons in a coherent superfluid dark matter phase mediate a long-range MOND-like force (g_obs ≈ √(g_b a₀)), amplifying gravitational acceleration above the global cosmic baryon ratio."
+      },
+      crossover: {
+        title: "Exact Cosmic Saturation Crossover (g_b,x / a₀ = [ln(1 - f_b)]² ≈ 0.0289)",
+        metrics: "g_b,x ≈ 3.48 × 10⁻¹² m/s² · RAR Boost = Ω_m / Ω_b = 1 / f_b ≈ 6.393× · g_obs ≈ 2.04 × 10⁻¹¹ m/s²",
+        text: "At g_b,x ≈ 0.029 a₀ (matching the Simple MOND crossover at 0.0290 a₀), unscreened galactic phonon amplification hits the Planck 2018 global matter-to-baryon ceiling (f_b ≈ 0.1564). Beyond or around this boundary, finite superfluid coherence, external-field effects, or thermal normal-phase fractions must take over."
+      },
+      cluster: {
+        title: "Cluster / High-Acceleration Regime (g_b / a₀ = 1.0)",
+        metrics: "g_b ≈ 1.2 × 10⁻¹⁰ m/s² · RAR Boost ≈ 1.58× · Cluster Scale g‡ ≈ 2.02 × 10⁻⁹ m/s²",
+        text: "In massive galaxy clusters, higher velocity dispersions heat the dark sector above its critical temperature into a mixture of coherent superfluid and normal collisionless-like phases—explaining why CLASH clusters and MaNGA BCGs follow a distinct higher acceleration scale g‡ rather than the galactic RAR."
+      }
+    };
+
+    const tierDetails = {
+      all: {
+        title: "Full Catalog: 665 Unconfirmed Planet Candidates Across 651 Stars",
+        stats: "82% on wide-field stars excluded from NASA's multi-sector pipeline · 55% below single-sector S/N = 7.1",
+        text: "Vetted from 4,039,203 TESS stars (Sectors 1–104) using 17 LEO-Vetter tests, per-sector pixel centroids, and 798,769 inverted light curves. Currently undergoing out-of-sample transit verification on Sectors 106–107 in Foundation-0/exoplanets-frontier across 45,781 pre-committed windows."
+      },
+      AM: {
+        title: "Tier A/M — Multi-Planet Systems (44 Candidates)",
+        stats: "Highest astrophysical prior · Multiple periodic transit signals sharing a common host star",
+        text: "Multi-planet architectures dramatically suppress false-positive blend probabilities. Each ephemeris is locked in commit 58c6318 for out-of-sample Sector 106–107 confirmation."
+      },
+      BS: {
+        title: "Tier B/S — Clean Single-Planet Candidates (331 Candidates)",
+        stats: "Largest cohort (49.8% of catalog) · Passes all 17 LEO-Vetter & pixel-centroid isolation checks",
+        text: "Isolated transit signals recovered largely on wide-field TESS FFI stars (including 120 candidates restored after PR #6 fixed a QLP light-curve reader flaw)."
+      },
+      N: {
+        title: "Tier N — Neighbor-Vetted Candidates (177 Candidates)",
+        stats: "Crowded-field targets · Resolved via per-sector difference-image pixel centroid shifts",
+        text: "Targets located near bright Gaia neighbors where centroid vetting constrains the transit source to the target aperture rather than a background eclipsing binary."
+      },
+      L1: {
+        title: "Tier L1 — ML-Classified Low-SNR Candidates (113 Candidates)",
+        stats: "Sub-threshold signals (S/N < 7.1) · Calibrated against 798,769 inverted light curves",
+        text: "Machine-learning scored low-S/N transits whose false-alarm floor is empirically bounded by running the identical search pipeline on upside-down light curves."
+      }
+    };
+
+    const chargeDetails = {
+      4: {
+        title: "N = 4 Charges: 9 Equilibria vs. Maxwell Bound 9 (Ties Bound)",
+        saddles: "3 1-saddles (s₁ = 3) + 6 2-saddles (s₂ = 6) = 9 total · Morse Check: (4 - 1) + 2(3) = 9",
+        text: "For four unit charges at the vertices of a regular tetrahedron, Arb ball arithmetic certifies exactly 9 non-degenerate equilibria—matching Maxwell's (4 - 1)² = 9 bound."
+      },
+      5: {
+        title: "N = 5 Charges: 24 Equilibria vs. Maxwell Bound 16 (Disproved by +8)",
+        saddles: "10 1-saddles (s₁ = 10) + 14 2-saddles (s₂ = 14) = 24 total · Morse Check: (5 - 1) + 2(10) = 24",
+        text: "Building on Arathoon, Ball & Kvalheim (July 2026), Foundation-0 certifies 24 non-degenerate equilibria for a triangular bipyramid configuration, exceeding Maxwell's conjecture of 16."
+      },
+      6: {
+        title: "N = 6 Charges: 29 Equilibria vs. Maxwell Bound 25 (Disproved by +4)",
+        saddles: "12 1-saddles (s₁ = 12) + 17 2-saddles (s₂ = 17) = 29 total · Morse Check: (6 - 1) + 2(12) = 29",
+        text: "Placing a tiny rational charge q = 2⁻⁴⁴ directly onto the symmetric central 1-saddle at (1,1,1) of the 5-charge bipyramid shatters 1 equilibrium into a three-fold ring of 6 alternating saddles (24 - 1 + 6 = 29)."
+      },
+      7: {
+        title: "N = 7 Charges: ≥44 Equilibria vs. Maxwell Bound 36 (Disproved by ≥+8)",
+        saddles: "Multi-cluster construction · Linear equilibrium scaling (~20 per 2 added charges)",
+        text: "Because multi-cluster perturbations add equilibria linearly while (n - 1)² grows quadratically, counterexamples continue beating Maxwell's bound through N = 7."
+      },
+      8: {
+        title: "N = 8 Charges: 49 Equilibria vs. Maxwell Bound 49 (Ties Bound)",
+        saddles: "Quadratic (n - 1)² = 49 catches up to linear cluster constructions",
+        text: "At N = 8, known certified constructions reach 49 equilibria, tying Maxwell's (8 - 1)² = 49 prediction."
+      },
+      9: {
+        title: "N = 9 Charges: 64 Equilibria vs. Maxwell Bound 64 (Ties Bound)",
+        saddles: "Quadratic (n - 1)² = 64 matches certified multi-cluster count",
+        text: "At N = 9, certified constructions reach 64 equilibria, matching (9 - 1)² = 64 before quadratic growth overtakes linear cluster additions for N ≥ 10."
+      }
+    };
+
+    let activeLoomThread = 'all';
+    let loomHitTargets = [];
+
+    function updateLoomInspector(key) {
+      activeLoomThread = key;
+      const info = loomThreadInfo[key] || loomThreadInfo.all;
+      const inspector = document.getElementById('loom-inspector');
+      inspector.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="font-mono-code text-[11px] font-semibold uppercase tracking-wider" style="color: ${info.color};">${info.badge}</span>
+          <span class="font-mono-code text-[11px] text-stone-400">Interactive Convergence Loom</span>
+        </div>
+        <div class="font-semibold text-sm text-stone-900 mt-1">${info.title}</div>
+        <p class="text-stone-700 mt-1">${info.desc}</p>
+      `;
+
+      document.querySelectorAll('.loom-pill').forEach(btn => {
+        const isSelected = btn.dataset.thread === key;
+        if (key === 'all' && btn.dataset.thread === 'all') {
+          btn.className = 'loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-stone-900 text-white transition';
+        } else if (isSelected) {
+          btn.className = 'loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code bg-stone-900 text-white transition shadow-sm';
+        } else {
+          const map = {
+            all: 'bg-stone-100 text-stone-700 hover:bg-stone-200',
+            gravity: 'bg-indigo-50 text-indigo-900 border border-indigo-200 hover:bg-indigo-100',
+            physics0: 'bg-teal-50 text-teal-900 border border-teal-200 hover:bg-teal-100',
+            astr0: 'bg-orange-50 text-orange-900 border border-orange-200 hover:bg-orange-100',
+            math0: 'bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100',
+            bio: 'bg-rose-50 text-rose-900 border border-rose-200 hover:bg-rose-100',
+            formal: 'bg-sky-50 text-sky-900 border border-sky-200 hover:bg-sky-100'
+          };
+          btn.className = `loom-pill px-2.5 py-1 rounded-full text-xs font-mono-code transition ${map[btn.dataset.thread]}`;
+        }
+      });
+    }
+
+    function initConvergenceLoom() {
+      const canvas = document.getElementById('convergenceCanvas');
+      const ctx = canvas.getContext('2d');
+      let phase = 0;
+
+      const strands = [
+        { key: 'gravity', label: 'gravity & f0#10', sub: 'RAR / Witness Map', color: '#4338CA', yFrac: 0.14 },
+        { key: 'physics0', label: 'physics0', sub: 'Arb / Orbits / Saddles', color: '#0F766E', yFrac: 0.285 },
+        { key: 'astr0', label: 'astr0', sub: '4.04M Stars / TESS', color: '#C2410C', yFrac: 0.43 },
+        { key: 'math0', label: 'math0', sub: 'CaB₆ / Lean DFT', color: '#15803D', yFrac: 0.575 },
+        { key: 'bio', label: 'bio & asma', sub: 'Gate 0 / CDR2L / Cells', color: '#BE123C', yFrac: 0.72 },
+        { key: 'formal', label: 'formal & weft', sub: 'Lean 4 / C2 Drift Gate', color: '#0369A1', yFrac: 0.865 }
+      ];
+
+      function evalCubicBezier(p0, p1, p2, p3, t) {
+        const mt = 1 - t;
+        return mt * mt * mt * p0 + 3 * mt * mt * t * p1 + 3 * mt * t * t * p2 + t * t * t * p3;
+      }
+
+      function renderFrame() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        if (canvas.width !== Math.floor(rect.width * dpr) || canvas.height !== Math.floor(rect.height * dpr)) {
+          canvas.width = Math.floor(rect.width * dpr);
+          canvas.height = Math.floor(rect.height * dpr);
+        }
+        ctx.save();
+        ctx.scale(dpr, dpr);
+
+        const w = rect.width;
+        const h = rect.height;
+        ctx.clearRect(0, 0, w, h);
+
+        loomHitTargets = [];
+
+        const leftX = w < 560 ? 84 : 138;
+        const rightX = w - (w < 560 ? 88 : 136);
+        const nexusY = h * 0.50;
+
+        const gates = [
+          { x: leftX + (rightX - leftX) * 0.28, label: 'GATE I: DISCOVER' },
+          { x: leftX + (rightX - leftX) * 0.54, label: 'GATE II: ENCLOSE' },
+          { x: leftX + (rightX - leftX) * 0.78, label: 'GATE III: VERIFY' }
+        ];
+
+        gates.forEach(g => {
+          ctx.save();
+          ctx.strokeStyle = 'rgba(120, 113, 108, 0.22)';
+          ctx.setLineDash([4, 4]);
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(g.x, 24);
+          ctx.lineTo(g.x, h - 18);
+          ctx.stroke();
+
+          ctx.fillStyle = '#78716C';
+          ctx.font = '600 9.5px "JetBrains Mono", monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText(g.label, g.x, 15);
+          ctx.restore();
+        });
+
+        const strandPaths = strands.map((s, idx) => {
+          const y0 = h * s.yFrac;
+          const weaveOffset = Math.sin(phase * 0.8 + idx * 1.1) * 6;
+          const cp1x = leftX + (rightX - leftX) * 0.38;
+          const cp1y = y0 + weaveOffset;
+          const cp2x = leftX + (rightX - leftX) * 0.72;
+          const cp2y = nexusY + (y0 - nexusY) * 0.26 - weaveOffset;
+          return { ...s, x0: leftX, y0, cp1x, cp1y, cp2x, cp2y, x3: rightX, y3: nexusY, idx };
+        });
+
+        const bridges = [
+          { a: 0, b: 2, t: 0.44, label: 'f0#10 Witness', threads: ['gravity', 'astr0'] },
+          { a: 1, b: 3, t: 0.52, label: 'CaB₆ & Rigidity', threads: ['physics0', 'math0'] },
+          { a: 3, b: 4, t: 0.60, label: 'Mind / Vitruvian', threads: ['math0', 'bio'] },
+          { a: 3, b: 5, t: 0.40, label: 'Lean 4 DFT', threads: ['math0', 'formal'] },
+          { a: 4, b: 5, t: 0.68, label: 'Gate 0 / Weft', threads: ['bio', 'formal'] }
+        ];
+
+        bridges.forEach(br => {
+          const sa = strandPaths[br.a];
+          const sb = strandPaths[br.b];
+          const ax = evalCubicBezier(sa.x0, sa.cp1x, sa.cp2x, sa.x3, br.t);
+          const ay = evalCubicBezier(sa.y0, sa.cp1y, sa.cp2y, sa.y3, br.t);
+          const bx = evalCubicBezier(sb.x0, sb.cp1x, sb.cp2x, sb.x3, br.t);
+          const by = evalCubicBezier(sb.y0, sb.cp1y, sb.cp2y, sb.y3, br.t);
+
+          const highlighted = activeLoomThread === 'all' || br.threads.includes(activeLoomThread);
+          ctx.save();
+          ctx.strokeStyle = highlighted ? 'rgba(180, 83, 9, 0.42)' : 'rgba(168, 162, 158, 0.15)';
+          ctx.lineWidth = highlighted ? 1.6 : 1;
+          ctx.setLineDash([2, 3]);
+          ctx.beginPath();
+          ctx.moveTo(ax, ay);
+          ctx.lineTo(bx, by);
+          ctx.stroke();
+
+          const mx = (ax + bx) / 2;
+          const my = (ay + by) / 2;
+          ctx.fillStyle = highlighted ? '#B45309' : '#D6D3D1';
+          ctx.beginPath();
+          ctx.arc(mx, my, highlighted ? 3.5 : 2.2, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (w >= 640 && highlighted) {
+            ctx.fillStyle = '#78350F';
+            ctx.font = '500 9px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(br.label, mx, my - 6);
+          }
+          ctx.restore();
+        });
+
+        strandPaths.forEach(sp => {
+          const isFocus = activeLoomThread === 'all' || activeLoomThread === sp.key;
+          ctx.save();
+          ctx.strokeStyle = sp.color;
+          ctx.globalAlpha = isFocus ? 0.88 : 0.16;
+          ctx.lineWidth = activeLoomThread === sp.key ? 3.6 : 2.3;
+          ctx.beginPath();
+          ctx.moveTo(sp.x0, sp.y0);
+          ctx.bezierCurveTo(sp.cp1x, sp.cp1y, sp.cp2x, sp.cp2y, sp.x3, sp.y3);
+          ctx.stroke();
+
+          if (isFocus) {
+            const pulseT = ((phase * 0.22 + sp.idx * 0.17) % 1);
+            const px = evalCubicBezier(sp.x0, sp.cp1x, sp.cp2x, sp.x3, pulseT);
+            const py = evalCubicBezier(sp.y0, sp.cp1y, sp.cp2y, sp.y3, pulseT);
+            ctx.fillStyle = sp.color;
+            ctx.beginPath();
+            ctx.arc(px, py, 3.8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          const pillW = w < 560 ? 74 : 122;
+          const pillH = 26;
+          const pillX = 8;
+          const pillY = sp.y0 - pillH / 2;
+
+          ctx.globalAlpha = isFocus ? 1 : 0.45;
+          ctx.fillStyle = activeLoomThread === sp.key ? sp.color : '#FFFFFF';
+          ctx.strokeStyle = sp.color;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(pillX, pillY, pillW, pillH, 7);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = activeLoomThread === sp.key ? '#FFFFFF' : '#18181B';
+          ctx.font = '600 10px "JetBrains Mono", monospace';
+          ctx.textAlign = 'left';
+          ctx.fillText(sp.label, pillX + 8, sp.y0 + 3.5);
+
+          loomHitTargets.push({ x: pillX, y: pillY, w: pillW, h: pillH, key: sp.key });
+          ctx.restore();
+        });
+
+        const nexusW = w < 560 ? 76 : 118;
+        const nexusH = 54;
+        const nexusBoxX = rightX + 6;
+        const nexusBoxY = nexusY - nexusH / 2;
+
+        ctx.save();
+        ctx.fillStyle = '#18181B';
+        ctx.strokeStyle = '#B45309';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(nexusBoxX, nexusBoxY, nexusW, nexusH, 10);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#FDE68A';
+        ctx.font = '700 10.5px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('f0#50 FABLE', nexusBoxX + nexusW / 2, nexusY - 4);
+        ctx.fillStyle = '#E7E5E4';
+        ctx.font = '400 9px "Inter", sans-serif';
+        ctx.fillText('F1–F8 Synthesis', nexusBoxX + nexusW / 2, nexusY + 11);
+
+        loomHitTargets.push({ x: nexusBoxX, y: nexusBoxY, w: nexusW, h: nexusH, key: 'all' });
+        ctx.restore();
+
+        ctx.restore();
+        phase += 0.025;
+        requestAnimationFrame(renderFrame);
+      }
+
+      canvas.addEventListener('click', e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        for (const t of loomHitTargets) {
+          if (mx >= t.x && mx <= t.x + t.w && my >= t.y && my <= t.y + t.h) {
+            updateLoomInspector(t.key);
+            return;
+          }
+        }
+      });
+
+      requestAnimationFrame(renderFrame);
+    }
+
+    function wrapLabel(str, maxLen = 16) {
+      if (str.length <= maxLen) return str;
+      const words = str.split(' ');
+      const lines = [];
+      let current = '';
+      for (const w of words) {
+        if ((current + ' ' + w).trim().length <= maxLen) {
+          current = (current + ' ' + w).trim();
+        } else {
+          if (current) lines.push(current);
+          current = w;
+        }
+      }
+      if (current) lines.push(current);
+      return lines;
+    }
+
+    function renderPipelineStage(stageKey) {
+      const data = pipelineData[stageKey];
+      const container = document.getElementById('pipeline-detail');
+      const itemsHtml = data.instruments.map(inst => `
+        <div class="p-3 rounded-lg bg-white border border-stone-200">
+          <div class="font-mono-code text-xs font-semibold text-stone-900">${inst.name}</div>
+          <div class="text-xs text-stone-600 mt-1">${inst.desc}</div>
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="space-y-1">
+          <div class="text-xs font-mono-code text-teal-800 font-semibold">${data.badge}</div>
+          <h4 class="text-base font-semibold text-stone-900">${data.title}</h4>
+          <p class="text-xs text-stone-700 leading-relaxed">${data.summary}</p>
+        </div>
+        <div class="grid grid-cols-1 gap-2.5">${itemsHtml}</div>
+        <div class="p-3 rounded-lg bg-amber-50/80 border border-amber-200 text-xs text-amber-950">
+          ${data.guardrail}
+        </div>
+      `;
+
+      document.querySelectorAll('.pipeline-tab').forEach(btn => {
+        const active = btn.dataset.stage === stageKey;
+        btn.className = active
+          ? 'pipeline-tab text-left p-3.5 rounded-xl border-2 border-stone-900 bg-stone-900 text-white transition'
+          : 'pipeline-tab text-left p-3.5 rounded-xl border border-stone-200 bg-stone-50 text-stone-800 hover:bg-stone-100 transition';
+      });
+    }
+
+    function renderAuditLog() {
+      const container = document.getElementById('audit-log-list');
+      container.innerHTML = auditLogData.map(item => `
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-stone-200 space-y-1">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-mono-code text-xs font-semibold text-stone-900">${item.target}</span>
+            <span class="font-mono-code text-[11px] px-2 py-0.5 rounded bg-amber-100 text-amber-900">${item.status}</span>
+          </div>
+          <div class="text-[11px] font-mono-code text-stone-500">${item.date}</div>
+          <p class="text-xs text-stone-700 leading-relaxed">${item.note}</p>
+        </div>
+      `).join('');
+    }
+
+    let selectedRepoId = 'f0-hub';
+
+    function renderRepoInspector(repoId) {
+      selectedRepoId = repoId;
+      const repo = reposData.find(r => r.id === repoId) || reposData[0];
+      const inspector = document.getElementById('repo-inspector');
+
+      const threadBadges = repo.threads.map(tKey => {
+        const info = threadColorMap[tKey];
+        return `<span class="text-[11px] font-mono-code px-2 py-0.5 rounded-full border ${info.bg}">● ${info.label}</span>`;
+      }).join('');
+
+      inspector.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-mono-code text-stone-500">${repo.hubLabel}</span>
+          <span class="text-xs font-mono-code px-2.5 py-0.5 rounded-full ${repo.badgeClass}">${repo.status}</span>
+        </div>
+        <h4 class="text-base font-semibold text-stone-900">${repo.name}</h4>
+        <div class="space-y-1.5">
+          <div class="text-[10px] font-mono-code uppercase tracking-wider text-stone-500">Woven Disciplinary Threads</div>
+          <div class="flex flex-wrap gap-1.5">${threadBadges}</div>
+        </div>
+        <div class="space-y-3 text-xs leading-relaxed pt-1">
+          <div>
+            <div class="font-mono-code font-semibold text-stone-800 uppercase text-[11px]">Primary Scientific Question</div>
+            <p class="text-stone-700 mt-0.5">${repo.question}</p>
+          </div>
+          <div>
+            <div class="font-mono-code font-semibold text-stone-800 uppercase text-[11px]">Verification &amp; Enclosure Mechanism</div>
+            <p class="text-stone-700 mt-0.5">${repo.verifier}</p>
+          </div>
+          <div>
+            <div class="font-mono-code font-semibold text-stone-800 uppercase text-[11px]">Cross-Program Connections</div>
+            <p class="text-stone-700 mt-0.5">${repo.connections}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRepoList() {
+      const activeHub = document.querySelector('.hub-filter-btn.bg-stone-900')?.dataset.hub || 'all';
+      const bridgeOnly = document.getElementById('bridge-only-toggle').checked;
+      const query = document.getElementById('repo-search').value.trim().toLowerCase();
+
+      const filtered = reposData.filter(r => {
+        if (activeHub !== 'all' && r.hub !== activeHub && !r.threads.includes(activeHub)) return false;
+        if (bridgeOnly && !r.bridge) return false;
+        if (query) {
+          const hay = (r.name + ' ' + r.question + ' ' + r.verifier + ' ' + r.hubLabel).toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+
+      const container = document.getElementById('repo-list-container');
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="p-6 text-center text-xs text-stone-500 border border-dashed border-stone-300 rounded-xl">No repositories match the current filter combination.</div>`;
+        return;
+      }
+
+      if (!filtered.some(r => r.id === selectedRepoId)) {
+        selectedRepoId = filtered[0].id;
+      }
+
+      container.innerHTML = filtered.map(r => {
+        const isSelected = r.id === selectedRepoId;
+        const dotsHtml = r.threads.map(tk => `<span class="inline-block w-2 h-2 rounded-full" style="background-color: ${threadColorMap[tk].hex};"></span>`).join('');
+        return `
+          <button type="button" data-repo-id="${r.id}" class="repo-row w-full text-left p-3.5 rounded-xl border transition ${isSelected ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-200 bg-white hover:bg-stone-50 text-stone-900'}">
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono-code text-xs font-semibold truncate">${r.name}</span>
+              <span class="text-[11px] font-mono-code px-2 py-0.5 rounded-full shrink-0 ${isSelected ? 'bg-white/15 text-white' : r.badgeClass}">${r.status}</span>
+            </div>
+            <div class="mt-1.5 flex items-center justify-between gap-2 text-[11px] ${isSelected ? 'text-stone-300' : 'text-stone-500'}">
+              <div class="flex items-center gap-2">
+                <span>${r.hubLabel}</span>
+                ${r.bridge ? '<span>· ⇄ Cross-Hub Knot</span>' : ''}
+              </div>
+              <div class="flex items-center gap-1" title="Woven disciplinary threads">${dotsHtml}</div>
+            </div>
+          </button>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.repo-row').forEach(btn => {
+        btn.addEventListener('click', () => {
+          renderRepoInspector(btn.dataset.repoId);
+          renderRepoList();
+        });
+      });
+
+      renderRepoInspector(selectedRepoId);
+    }
+
+    let accelChartInstance = null;
+    let exoChartInstance = null;
+    let chargeChartInstance = null;
+    let packingChartInstance = null;
+
+    function initAccelerationChart() {
+      const ctx = document.getElementById('accelerationChart').getContext('2d');
+      const xVals = [0.002, 0.005, 0.01, 0.02, 0.0289, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0];
+      const labels = xVals.map(v => v === 0.0289 ? '0.029 a₀' : v + ' a₀');
+      const rarBoost = xVals.map(x => Number((1 / (1 - Math.exp(-Math.sqrt(x)))).toFixed(3)));
+      const cosmicCeiling = xVals.map(() => 6.393);
+
+      accelChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Galactic RAR Boost (g_obs / g_b)',
+              data: rarBoost,
+              borderColor: '#4338CA',
+              backgroundColor: 'rgba(67, 56, 202, 0.10)',
+              borderWidth: 2.5,
+              pointRadius: xVals.map(v => v === 0.0289 ? 6 : 3),
+              pointBackgroundColor: xVals.map(v => v === 0.0289 ? '#C2410C' : '#4338CA'),
+              tension: 0.3,
+              fill: true
+            },
+            {
+              label: 'Planck 2018 Cosmic Ceiling (Ω_m / Ω_b = 6.393)',
+              data: cosmicCeiling,
+              borderColor: '#C2410C',
+              borderDash: [6, 4],
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'top', labels: { font: { size: 11, family: 'Inter' }, boxWidth: 14 } },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}×`
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Normalized Baryonic Acceleration (g_b / a₀)', font: { size: 11 } },
+              ticks: { font: { size: 10 } }
+            },
+            y: {
+              title: { display: true, text: 'Gravitational Amplification (g_obs / g_b)', font: { size: 11 } },
+              min: 0,
+              max: 24,
+              ticks: { font: { size: 10 } }
+            }
+          }
+        }
+      });
+    }
+
+    function updateRegimeReadout(key) {
+      const d = regimeDetails[key];
+      document.getElementById('regime-readout').innerHTML = `
+        <div class="font-semibold text-stone-900">${d.title}</div>
+        <div class="font-mono-code text-[11px] text-indigo-800 mt-0.5">${d.metrics}</div>
+        <p class="mt-1.5 text-stone-700">${d.text}</p>
+      `;
+      document.querySelectorAll('.regime-btn').forEach(btn => {
+        const active = btn.dataset.regime === key;
+        btn.className = active
+          ? 'regime-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-900 text-white transition'
+          : 'regime-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition';
+      });
+    }
+
+    function initExoplanetsChart() {
+      const ctx = document.getElementById('exoplanetsChart').getContext('2d');
+      const rawLabels = [
+        'Tier B/S Clean Single',
+        'Tier N Neighbor-Vetted',
+        'Tier L1 ML Low-SNR',
+        'Tier A/M Multi-Planet'
+      ];
+      exoChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: rawLabels.map(l => wrapLabel(l, 18)),
+          datasets: [{
+            data: [331, 177, 113, 44],
+            backgroundColor: ['#C2410C', '#4338CA', '#B45309', '#18181B'],
+            borderColor: '#FFFFFF',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '58%',
+          plugins: {
+            legend: { position: 'right', labels: { font: { size: 11, family: 'Inter' }, boxWidth: 12 } },
+            tooltip: {
+              callbacks: {
+                label: ctx => {
+                  const val = ctx.parsed;
+                  const pct = ((val / 665) * 100).toFixed(1);
+                  return ` ${val} candidates (${pct}%)`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateTierReadout(key) {
+      const d = tierDetails[key];
+      document.getElementById('tier-readout').innerHTML = `
+        <div class="font-semibold text-stone-900">${d.title}</div>
+        <div class="font-mono-code text-[11px] text-orange-800 mt-0.5">${d.stats}</div>
+        <p class="mt-1.5 text-stone-700">${d.text}</p>
+      `;
+      document.querySelectorAll('.tier-btn').forEach(btn => {
+        const active = btn.dataset.tier === key;
+        btn.className = active
+          ? 'tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-900 text-white transition'
+          : 'tier-btn px-2.5 py-1.5 rounded-lg text-xs font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition';
+      });
+    }
+
+    function initPointChargesChart() {
+      const ctx = document.getElementById('pointChargesChart').getContext('2d');
+      chargeChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['N = 4', 'N = 5', 'N = 6', 'N = 7', 'N = 8', 'N = 9'],
+          datasets: [
+            {
+              label: 'Foundation-0 Certified / Found Equilibria',
+              data: [9, 24, 29, 44, 49, 64],
+              backgroundColor: '#0F766E',
+              borderRadius: 6
+            },
+            {
+              label: "Maxwell's 1873 Bound (n - 1)²",
+              data: [9, 16, 25, 36, 49, 64],
+              backgroundColor: '#D6D3D1',
+              borderRadius: 6
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { font: { size: 11, family: 'Inter' }, boxWidth: 14 } }
+          },
+          scales: {
+            x: { ticks: { font: { size: 11 } } },
+            y: {
+              title: { display: true, text: 'Non-Degenerate Zero-Field Points', font: { size: 11 } },
+              beginAtZero: true,
+              max: 72,
+              ticks: { font: { size: 10 } }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChargeReadout(nVal) {
+      const d = chargeDetails[nVal];
+      document.getElementById('charge-readout').innerHTML = `
+        <div class="font-semibold text-stone-900">${d.title}</div>
+        <div class="font-mono-code text-[11px] text-teal-800 mt-0.5">${d.saddles}</div>
+        <p class="mt-1.5 text-stone-700">${d.text}</p>
+      `;
+      document.querySelectorAll('.charge-n-btn').forEach(btn => {
+        const active = Number(btn.dataset.n) === Number(nVal);
+        btn.className = active
+          ? 'charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-900 text-white transition'
+          : 'charge-n-btn px-3 py-1.5 rounded-lg text-xs font-mono-code font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 transition';
+      });
+    }
+
+    function calcCaB6Density(gamma) {
+      const gStar = Math.SQRT2 - 1;
+      if (gamma <= gStar) {
+        return (Math.PI / 6) * (6 + Math.pow(gamma, 3)) / Math.pow(1 + gamma, 3) * 4.828427;
+      }
+      return (Math.PI / 6) * (1 + 6 * Math.pow(gamma, 3)) / (8 * Math.pow(gamma, 3));
+    }
+
+    function initPackingChart() {
+      const ctx = document.getElementById('packingChart').getContext('2d');
+      const gammas = [];
+      for (let g = 0.385; g <= 0.4351; g += 0.0025) {
+        gammas.push(Number(g.toFixed(4)));
+      }
+      const densities = gammas.map(g => Number(calcCaB6Density(g).toFixed(5)));
+      const kepler = gammas.map(() => Number((Math.PI / Math.sqrt(18)).toFixed(5)));
+
+      packingChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: gammas.map(g => g.toFixed(3)),
+          datasets: [
+            {
+              label: 'CaB₆ Two-Size Packing Density ρ(γ)',
+              data: densities,
+              borderColor: '#15803D',
+              backgroundColor: 'rgba(21, 128, 61, 0.12)',
+              borderWidth: 2.5,
+              pointRadius: 2,
+              tension: 0.2,
+              fill: true
+            },
+            {
+              label: 'Kepler Equal-Sphere fcc Limit (0.74048)',
+              data: kepler,
+              borderColor: '#B45309',
+              borderDash: [5, 4],
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { font: { size: 11, family: 'Inter' }, boxWidth: 14 } }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Sphere Radius Ratio γ = r_B / r_Ca', font: { size: 11 } },
+              ticks: { font: { size: 10 }, maxTicksLimit: 8 }
+            },
+            y: {
+              title: { display: true, text: 'Volume Packing Fraction ρ', font: { size: 11 } },
+              min: 0.70,
+              max: 0.755,
+              ticks: { font: { size: 10 } }
+            }
+          }
+        }
+      });
+    }
+
+    function updateGammaReadout(gamma) {
+      const g = Number(gamma);
+      document.getElementById('gamma-value').textContent = g.toFixed(4);
+      const rho = calcCaB6Density(g);
+      const beatsKepler = g > 0.41023 && g < 0.41591;
+      const isPeak = Math.abs(g - 0.4142) < 0.0004;
+
+      document.getElementById('gamma-readout').innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-1">
+          <span class="font-semibold text-stone-900">Packing Fraction ρ(γ) = ${rho.toFixed(6)}</span>
+          <span class="font-mono-code text-[11px] px-2 py-0.5 rounded ${beatsKepler ? 'bg-emerald-100 text-emerald-900' : 'bg-stone-200 text-stone-700'}">
+            ${beatsKepler ? 'Surpasses Kepler fcc (0.740480)' : 'Below Kepler fcc (0.740480)'}
+          </span>
+        </div>
+        <p class="mt-1.5 text-stone-700">
+          ${isPeak
+            ? 'Exact geometric optimum γ* = √2 - 1 ≈ 0.414214 where every Ca and B sphere touches simultaneously, reaching ρ_max = (π/6)(30√2 - 41) ≈ 0.746865.'
+            : 'CaB₆ hard-sphere packing beats Kepler’s equal-sphere fcc density within the exact analytical interval 0.41023 < γ < 0.41591.'}
+        </p>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateLoomInspector('all');
+      initConvergenceLoom();
+      document.querySelectorAll('.loom-pill').forEach(btn => {
+        btn.addEventListener('click', () => updateLoomInspector(btn.dataset.thread));
+      });
+
+      const auditToggle = document.getElementById('toggle-audit-note');
+      const auditPanel = document.getElementById('audit-note-panel');
+      const auditChevron = document.getElementById('audit-note-chevron');
+      auditToggle.addEventListener('click', () => {
+        const isHidden = auditPanel.classList.contains('hidden');
+        auditPanel.classList.toggle('hidden');
+        auditChevron.textContent = isHidden ? '▲' : '▼';
+      });
+
+      renderPipelineStage('discover');
+      document.querySelectorAll('.pipeline-tab').forEach(btn => {
+        btn.addEventListener('click', () => renderPipelineStage(btn.dataset.stage));
+      });
+
+      renderAuditLog();
+
+      const baseHubStyles = {
+        all: 'bg-stone-100 text-stone-700 hover:bg-stone-200',
+        core: 'bg-stone-100 text-stone-700 hover:bg-stone-200',
+        gravity: 'bg-indigo-50 text-indigo-900 hover:bg-indigo-100',
+        physics0: 'bg-teal-50 text-teal-900 hover:bg-teal-100',
+        astr0: 'bg-orange-50 text-orange-900 hover:bg-orange-100',
+        math0: 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100',
+        bio: 'bg-rose-50 text-rose-900 hover:bg-rose-100',
+        formal: 'bg-sky-50 text-sky-900 hover:bg-sky-100'
+      };
+
+      document.querySelectorAll('.hub-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.hub-filter-btn').forEach(b => {
+            b.className = `hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition ${baseHubStyles[b.dataset.hub]}`;
+          });
+          btn.className = 'hub-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-900 text-white transition';
+          renderRepoList();
+        });
+      });
+      document.getElementById('bridge-only-toggle').addEventListener('change', renderRepoList);
+      document.getElementById('repo-search').addEventListener('input', renderRepoList);
+      renderRepoList();
+
+      initAccelerationChart();
+      updateRegimeReadout('crossover');
+      document.querySelectorAll('.regime-btn').forEach(btn => {
+        btn.addEventListener('click', () => updateRegimeReadout(btn.dataset.regime));
+      });
+
+      initExoplanetsChart();
+      updateTierReadout('all');
+      document.querySelectorAll('.tier-btn').forEach(btn => {
+        btn.addEventListener('click', () => updateTierReadout(btn.dataset.tier));
+      });
+
+      initPointChargesChart();
+      updateChargeReadout(6);
+      document.querySelectorAll('.charge-n-btn').forEach(btn => {
+        btn.addEventListener('click', () => updateChargeReadout(btn.dataset.n));
+      });
+
+      initPackingChart();
+      updateGammaReadout(0.4142);
+      document.getElementById('gamma-slider').addEventListener('input', e => {
+        updateGammaReadout(e.target.value);
+      });
+    });
+  </script>
+</body>
+</html>
