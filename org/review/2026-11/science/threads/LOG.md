@@ -44,6 +44,14 @@ Every result that came back was then re-run by the reviewer. For the results mar
 | 13 | Central configurations back: 20, 42 and 67 classes. |
 | 14 | Notes written, draft PR 58 opened, findings posted to the matching issues. |
 | 15 | Second round: full reports captured, a durable archive made, and four statistical studies started (see `convergences.md`). |
+| 16 | The square law noticed in the factored polynomials, proved, and used: 238 recurrences. |
+| 17 | 12-vertex graph: 3,904 of 6,180 certified. The light-particle reading of the surviving gravity residual examined and written up with its tests. |
+| 18 | The wall picture of balance points written down, with two predictions. The nine-charge one checked the same hour. |
+| 19 | What was learned returned to the source repositories as draft pull requests and issues (see `SYMBIOSIS.md`). |
+| 20 | Three open paths taken up: four charges above 9, three charges above 4, faster growth with more charges. |
+| 21 | Four charges with 11 balance points found twice. A worker solved for a chosen gradient, Hessian and cubic part near the regular tetrahedron. The reviewer derived a closed form for every configuration with a flat point and unfolded one. |
+| 22 | Both certified by two exact programs. The reviewer wrote a third program for a lower bound, then a five-decimal certificate. |
+| 23 | The flat family surveyed for 13: every route through a flat point stops at 11. |
 
 ## 4. Dead ends and corrections
 
@@ -57,6 +65,10 @@ These are kept because each one changed what was done next.
 - **A census that missed a class.** For 10 equal masses, about 1.1 million random starts never found the regular decagon. A search started near the regular polygon found it. A census that has stopped finding new classes is evidence, not proof.
 - **A search that cannot be replayed.** One solver setting was changed during the 11-vertex push. The certificate stands alone, but the path to it cannot be rerun step for step.
 - **Workers could not write report files.** Their reports came back as messages. They are kept in full under `reports/`.
+- **A solver that rejected every sample.** The first all-roots solver for the cubic model marked 600,000 samples incomplete. For a harmonic cubic the x², y² and z² coefficients of the three equations are linearly dependent, so the standard monomial basis fails. A fixed change of coordinates removed it.
+- **A wall tracer with too large a first step.** On the 11-point configurations the first tracer reported a wall from a charge to itself. Its first step was larger than the inner cluster of balance points. A tracer that scales its step to the nearest balance point replaced it.
+- **False balance points near a flat point.** Newton's method converges slowly to a degenerate point, and unfinished iterates were counted as separate points. The index test caught it. The count now excludes a small ball around the flat point.
+- **A needle that random search could not hit.** The 11-point region survives changes of about one part in a million. No random four-charge search would find it. It was found by solving for it.
 
 ## 5. What was not done
 

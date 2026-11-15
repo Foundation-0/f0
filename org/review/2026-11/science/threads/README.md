@@ -6,27 +6,40 @@ Marks: **[F]** a fact read from a repository or produced by a run, **[I]** an in
 
 ## The short version
 
-Six threads produced results that hold under separate code. The gravity thread produced clear failures and one survivor. Two threads ended without a decision, and each names what would decide it. One confirmed known lists and corrected three table entries.
+Seven threads produced results that hold under separate code. The largest is four point charges with 11 balance points, above Maxwell's bound of 9. The gravity thread produced clear failures and one survivor. Two threads ended without a decision, and each names what would decide it. One confirmed known lists and corrected three table entries.
+
+Later threads followed what the first ones turned up. They are in the second table. `convergences.md` indexes the patterns found across threads, and `SYMBIOSIS.md` lists what was returned to each source repository.
 
 | Thread | Outcome | Note |
 |---|---|---|
+| Four point charges | 11 balance points, above Maxwell's bound of 9. Three configurations, each proved by two exact programs and a third lower-bound proof. **VERIFIED** | `four-charges-eleven.md` |
 | 11-vertex rigid graph | All 2,288 realizations can be real. New growth bound 2.4116 per vertex, above the published 2.3780. **VERIFIED** | `l2288.md` |
 | 10-vertex rigid graph | The complex count of 880 is confirmed by three implementations, so "all 880 are real" is complete. **VERIFIED** | `rigid-realizations.md` |
 | Point charges | The counts 4, 9, 24, 29 and 44 now have a proof by separate code. New exact counts: 49 for eight charges and 64 for nine. **VERIFIED** | `point-charges.md` |
 | Code tables | One standard bound improves at least 2,418 entries of the reference tables for GF(7), GF(8) and GF(9). **VERIFIED** | `codes.md` |
-| Recurrences | 211 recurrences that the OEIS lists as empirical are proved, 200 of them new. **VERIFIED** for 46, REPRODUCED for the rest | `recurrences.md` |
+| Recurrences | 238 recurrences that the OEIS lists as empirical are proved, 227 of them new. A theorem explains all of them: one defect squares the recurrence. **VERIFIED** for 46, REPRODUCED for the rest | `recurrences.md`, `square-law.md` |
 | Lattice elasticity and the fold | The theorem holds for dimensions 2 to 9 and the fold to the densest packing is confirmed. One wording error found. **VERIFIED** | `incentre-lattices.md` |
 | Gravity threshold | The zero-parameter version and the falling threshold fail against published data. A weaker large-scale residual survives. | `gravity.md` |
 | Acceleration scale and expansion | **Undecided.** The one fit possible leans against, and mass errors can reverse it. | `acceleration-evolution.md` |
 | Central configurations | At least 20, 42 and 67 classes proved to exist for 8, 9 and 10 equal masses, matching published numerical lists. Three table entries corrected. Completeness not proved. **REPRODUCED** | `central-configurations.md` |
-| The 880 engine on the open Maxwell cases | No count above the bound for three or four charges. A second four-charge family with exactly 9 is certified. | `maxwell-push.md` |
+| The 880 engine on the open Maxwell cases | The engine found no count above the bound for three or four charges. A second four-charge family with exactly 9 is certified. The four-charge case fell later to a different method. | `maxwell-push.md` |
+
+Threads that followed from the first ones:
+
+| Thread | Outcome | Note |
+|---|---|---|
+| 12-vertex rigid graph | 3,904 of 6,180 realizations real, certified. The graph has no triangle, so it cannot raise the growth bound. | `l2288.md` |
+| Realizations near equal edge lengths | The real share is far higher near equal lengths. All-real directions exist for 8, 9 and 10 vertices. Numerical. | `unit-point.md` |
+| Walls between charges | Each index-2 balance point is a wall between two charges. Maxwell's bound is the count for one wall per pair. Two predictions made from this held. | `relational-geometry.md` |
+| A light particle for the surviving residual | One fermion of 9 to 21 eV fits galaxies, groups and clusters. Its weakest point is the count of light species at recombination. A conjecture with stated tests. | `neutrino-like.md`, `fabric.md` |
 
 ## What is new and holds
 
-1. **A rigid graph on 11 vertices with every realization real.** [F] 2,288 of 2,288, certified in exact arithmetic and checked by a third program written for this review. [I] It raises the best known growth rate for real realizations from 2.3780 to 2.4116 per vertex. A survey from February 2025 still quotes the older figure.
-2. **Exact counts for eight and nine point charges.** [F] 49 and 64, each equal to Maxwell's bound. No explicit configuration or exact count for these was found in print.
-3. **Thousands of sharper entries in the standard code tables.** [F] Every one has an exact certificate that three checkers accept. The method is old. What is new is running it across the tables.
-4. **200 more proved recurrences.** [F] None of the empirical recurrences tested was false.
+1. **Four charges with 11 balance points.** [F] Maxwell's bound for four charges is 9. Three configurations are certified, one of them with coordinates of five decimals. [I] It was found by looking where the problem is most degenerate: the centre of a regular tetrahedron of equal charges is a balance point of multiplicity 11. The July 2026 counterexample starts at five charges.
+2. **A rigid graph on 11 vertices with every realization real.** [F] 2,288 of 2,288, certified in exact arithmetic and checked by a third program written for this review. [I] It raises the best known growth rate for real realizations from 2.3780 to 2.4116 per vertex. A survey from February 2025 still quotes the older figure.
+3. **Exact counts for eight and nine point charges.** [F] 49 and 64, each equal to Maxwell's bound. No explicit configuration or exact count for these was found in print.
+4. **Thousands of sharper entries in the standard code tables.** [F] Every one has an exact certificate that three checkers accept. The method is old. What is new is running it across the tables.
+5. **227 more proved recurrences, and the law behind them.** [F] None of the empirical recurrences tested was false. [F] The recurrence for grids with one marked pair is the square of the recurrence for grids with none, and this is now a theorem.
 
 Novelty in every case means "no earlier report found" after a stated search. It is not a priority claim.
 
@@ -48,7 +61,9 @@ A failed prediction that was stated in advance is a result. The repository wrote
 
 [I] "How many of the complex solutions can be made real?" is the question behind the rigid graphs and behind Maxwell's conjecture. For the rigid graphs the answer is now "all of them" at 10 and 11 vertices. The local model in the five-charge counterexample has 21 complex solutions, all real.
 
-[F] So the engine that made the rigid graphs real was run on the open three- and four-charge cases. It found nothing above the bound. [I] For three charges it showed why: the nearby complex solutions belong to systems with a negative charge. For four charges a tenth balance point is close and blocked, which marks where to look.
+[F] So the engine that made the rigid graphs real was run on the open three- and four-charge cases. It found nothing above the bound. [I] For three charges it showed why: the nearby complex solutions belong to systems with a negative charge. For four charges a tenth balance point was close and blocked.
+
+[F] The four-charge case then fell to the same idea used differently. At the centre of a regular tetrahedron 11 solutions coincide, and a small move of the charges makes all 11 real and distinct. The rigid graph with every realization real sits beside the point where all edge lengths are equal. Both records sit next to the most degenerate arrangement.
 
 ### 3. Three repositories are one programme
 
@@ -58,7 +73,7 @@ A failed prediction that was stated in advance is a result. The repository wrote
 
 ### 4. Striking counts sat in narrow windows
 
-[I] Maxwell's bound is beaten only for 5, 6 and 7 charges with what is known. The four speeds near 185 km/s met in a range, 200 to 280 km/s, where the data table held no system. In both cases the test was to look outside the window: larger numbers of charges, and systems in the gap.
+[I] With the constructions known before this pass, Maxwell's bound was beaten only for 5, 6 and 7 charges. Four charges now join them. The four speeds near 185 km/s met in a range, 200 to 280 km/s, where the data table held no system. In both cases the test was to look outside the window: larger numbers of charges, and systems in the gap.
 
 ### 5. One set of galaxies speaks to two ideas
 
@@ -72,18 +87,17 @@ A failed prediction that was stated in advance is a result. The repository wrote
 
 ## On the larger aim
 
-[I] Nothing here is a step toward a single physical theory. What holds is exact mathematics. In the physics threads the pass removed two claims that later work should not build on, and left one residual that existing proposals already try to explain.
+[I] Nothing here is a step toward a single physical theory. What holds is exact mathematics. One of those results shows that the bound Maxwell proposed in 1873 already fails at four charges. In the physics threads the pass removed two claims that later work should not build on, and left one residual that existing proposals already try to explain.
 
 [I] The way forward that this pass supports is narrow. Predict the same quantity the data holds. Write the test down before running it. Fill the gap in the data before reading meaning into a coincidence across it.
 
 ## What to do next, in order
 
-1. Have someone outside the organisation check the 2,288 certificate, then write to the authors of the published bound.
-2. Send the code-table improvements to the table's maintainer. A draft message is ready.
-3. Fix the `assert` fault in the point-charge verifier and add the eight- and nine-charge certificates.
-4. Tell the authors of the July paper about the exact counts for 6 to 9 charges.
-5. Correct the "every shear modulus" wording in incentre-lattices.
-6. In gravity, retire the zero-parameter claim and the falling threshold, and rebuild the table from published values.
-7. Offer the recurrence proofs to the OEIS after a person has read the argument.
+1. Have someone outside the organisation check the four-charge certificate. It is four charges and twelve coordinates of five decimals, and the eleven points are listed. Then write to the authors of the July paper.
+2. Have someone outside the organisation check the 2,288 certificate, then write to the authors of the published bound.
+3. Send the code-table improvements to the table's maintainer. A draft message is ready.
+4. Review the draft pull requests listed in `SYMBIOSIS.md`. They carry the verifier fixes, the new certificates and the corrected wording.
+5. In gravity, retire the zero-parameter claim and the falling threshold, and rebuild the table from published values.
+6. Offer the recurrence proofs and the square law to the OEIS after a person has read the argument.
 
-Items that would change a label on a merged claim or a published record are for the owners to decide. This folder changes no research repository.
+Items that would change a label on a merged claim or a published record are for the owners to decide. This folder changes no research repository. The draft pull requests in `SYMBIOSIS.md` do, and none is merged.

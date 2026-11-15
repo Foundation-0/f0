@@ -6,9 +6,33 @@ Follow-up to `point-charges.md`, `maxwell-push.md` and `relational-geometry.md`,
 
 [F] Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1. Maxwell's bound for four charges is 9.
 
-[F] Two configurations were built, by two different methods and two separately written sets of programs. For each one, two exact programs prove the count is exactly 11, and a third program proves it is at least 11.
+[F] Two configurations were built, by two different methods and two separately written sets of programs. For each one, two exact programs prove the count is exactly 11, and a third program proves it is at least 11. A third configuration, short enough to type by hand, passes the same three programs.
 
 Status: VERIFIED in the sense this review uses, meaning separately written programs accept it. Nobody outside the project has checked it.
+
+## A short certificate
+
+[F] The flat-route configuration was made sturdier and then rounded to five decimal places. It still has exactly 11 balance points, by all three programs. File: `checks/four/verify/n4_eleven_short.json`.
+
+| Charge | x | y | z |
+|---|---|---|---|
+| 0.26712 | -0.35180 | -0.27373 | -0.20165 |
+| 0.28010 | -0.05642 | 0.44608 | -0.21436 |
+| 1 | -0.00274 | 0.00705 | 0.84585 |
+| 0.26274 | 0.40862 | -0.17404 | -0.19749 |
+
+The 11 balance points, to five decimals, with their index:
+
+```
+(-0.00021, +0.00022, +0.00155)  2      (-0.00540, +0.00212, -0.00514)  2
+(+0.00014, -0.00055, -0.00251)  1      (+0.00583, -0.00243, +0.00455)  1
+(+0.00041, -0.00328, -0.00342)  2      (+0.01945, -0.00805, +0.01529)  2
+(+0.00395, +0.00287, -0.00454)  2      (-0.01747, -0.01312, +0.01561)  2
+(-0.00487, -0.00360, +0.00427)  1      (-0.00307, +0.02304, +0.01606)  2
+(-0.00088, +0.00615, +0.00431)  1
+```
+
+Anyone can test a listed point with a few lines of code: the field there is zero to the digits shown, and the signs of the three Hessian eigenvalues give the index. Rounding to four decimals leaves 9 and to three leaves 5.
 
 ## The two configurations
 
@@ -46,13 +70,15 @@ Status: VERIFIED in the sense this review uses, meaning separately written progr
 
 [F] Both configurations are needles. `checks/four/verify/width.py` multiplies every coordinate and charge by a random factor and counts again, numerically.
 
-| Relative change | Flat route, 12 trials | Jet route, 12 trials |
-|---|---|---|
-| 1e-8 | 11 in all 12 | 11 in 1 |
-| 1e-7 | 11 in all 12 | 11 in 2 |
-| 1e-6 | 11 in 7 | 11 in none |
-| 1e-5 | 11 in 2 | 11 in none |
-| 1e-4 and above | 11 in none | 11 in none |
+| Relative change | Short certificate, 12 trials | Flat route, 12 trials | Jet route, 12 trials |
+|---|---|---|---|
+| 1e-8 | 11 in all 12 | 11 in all 12 | 11 in 1 |
+| 1e-7 | 11 in all 12 | 11 in all 12 | 11 in 2 |
+| 1e-6 | 11 in all 12 | 11 in 7 | 11 in none |
+| 1e-5 | 11 in 8 | 11 in 2 | 11 in none |
+| 1e-4 and above | 11 in none | 11 in none | 11 in none |
+
+[F] The short certificate comes from the flat-route configuration by two climbs, `fatten.py` and `fatten2.py`. They move the sites and charges so that the smallest Hessian eigenvalue among the 11 points grows. It grew fourfold and then stopped, so this needle is about ten times wider and no more.
 
 [I] This is why random search never found it. In the repository's sample of 25,108 random four-charge configurations, 25,054 have the least possible count of 3.
 
@@ -119,19 +145,34 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 
 ## Not verified
 
-- Nothing here shows that 11 is the largest count for four charges.
+- Nothing here shows that 11 is the largest count for four charges. The surveys of the flat family are numerical.
 - The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine.
 - That the regular tetrahedron has only one balance point is numerical.
 - The degree argument is a sketch. The certified counts do not depend on it.
 - The wall traces and the width table are numerical.
 - The published papers were read from their abstracts and cached texts. No author was contacted.
 
+## Is 13 within reach of the same method?
+
+[F] Not through a flat point, as far as the surveys go. Three cases cover the flat family.
+
+| Flat configuration | Multiplicity of the flat point | Other balance points | Most the method can give |
+|---|---|---|---|
+| general, 1,134 random samples | 8 | exactly 3 in every sample | 11 |
+| two equal pairs of charges, 50 samples along the family | 10 | exactly 1 in every sample | 11 |
+| regular tetrahedron | 11 | none | 11 |
+
+- [F] The general case is `survey_flat.py`. Another 136 samples were dropped because the count failed the index test, which false points near the flat point cause.
+- [F] In the family with two equal pairs the cubic is degenerate: its critical points fill a pair of lines through the flat point. The fourth-order term along those lines never vanishes (`c2v_family.py`), so the multiplicity stays at 10. `c2v_others.py` counts the one other point.
+- [F] `disc_scan.py` scanned 300,000 flat configurations for degenerate cubics. The deepest degeneracy it found is this family and the regular tetrahedron.
+
+[I] So every route through a flat point stops at 11. The three cases reach the same number in three different ways, which suggests 11 is a real ceiling for this kind of construction. It says nothing about configurations with no flat point nearby.
+
 ## Open
 
-1. A flat configuration with five or more other balance points would give 13 by the same unfolding. `survey_flat.py` counts them across the flat family.
-2. Flat points whose cubic is itself degenerate have multiplicity above 8.
-3. A sturdier example, one that survives changes of 1e-3, would be easier for others to check.
-4. For more charges, one flat point is worth 8 balance points where a plain one is worth 1. Whether that raises the growth per charge is untested.
+1. Whether any four-charge configuration has 13. A degenerate point of another kind, a long chain along a curve, is not excluded by anything here.
+2. A proof that a flat configuration always has exactly 3 other balance points.
+3. For more charges, one flat point is worth 8 balance points where a plain one is worth 1. Whether that raises the growth per charge is untested.
 
 ## Rerun
 
@@ -140,6 +181,7 @@ From `checks/four/`, with python-flint and NumPy installed. The first two comman
 ```
 python3 -O ../charges/indep_count.py verify/n4_eleven_flat.json out.json
 python3 verify_arb.py verify/n4_eleven_flat.repo.json
+python3 -O verify/lower_bound_check.py verify/n4_eleven_short.json 11
 python3 -O verify/lower_bound_check.py verify/n4_eleven_flat.json 11
 python3 -O verify/lower_bound_check.py jet-route/n4_eleven_b12.json 11
 python3 flat-route/flat_param.py
@@ -147,9 +189,10 @@ python3 flat-route/cubic_scan2.py 1 200000 0.05
 python3 flat-route/realise.py flat-route/cubic_scan2_hits_1_0.05.json 4
 ```
 
-Saved outputs sit beside each program. SHA-256 of the three certificates:
+Saved outputs sit beside each program. SHA-256 of the four certificates:
 
 ```
+34e396e663da58854a34a869a520ef77354f3957e2e43255d8b51dc3e7a5800f  verify/n4_eleven_short.json
 2cd7745142e187f545a56881e7ee5a5037651c0b79271b90c9ab16bae1b448d5  verify/n4_eleven_flat.json
 e15e6c97b985a1b7a6d3d3c0de86a62c7fbc9c7c02396828164b6773970fd3c3  jet-route/n4_eleven_b12.json
 e58ab31a00f824d086caafe4d0665b2dd0d98c22205ef932e6b7dd952399c469  jet-route/n4_eleven_a.json
