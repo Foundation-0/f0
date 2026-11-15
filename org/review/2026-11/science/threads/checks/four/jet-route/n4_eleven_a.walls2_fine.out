@@ -1,0 +1,8 @@
+index-2 point at r=2.667e-05: walls to charges 0 and 3 (steps 4369, 5138)
+index-2 point at r=6.614e-05: walls to charges 1 and 2 (steps 4310, 4315)
+index-2 point at r=3.803e-04: walls to charges 3 and 1 (steps 3864, 3840)
+index-2 point at r=4.366e-04: walls to charges 3 and 2 (steps 3830, 3814)
+index-2 point at r=1.069e-02: walls to charges 0 and 3 (steps 3149, 3105)
+index-2 point at r=1.486e-02: walls to charges 0 and 1 (steps 3052, 3023)
+index-2 point at r=1.773e-02: walls to charges 0 and 2 (steps 3013, 2989)
+walls: {(np.int64(0), np.int64(1)): 1, (np.int64(0), np.int64(2)): 1, (np.int64(0), np.int64(3)): 2, (np.int64(1), np.int64(2)): 1, (np.int64(1), np.int64(3)): 1, (np.int64(2), np.int64(3)): 1}

@@ -1,0 +1,3 @@
+controls/ctrl_claim13.json: n=4
+RESULT controls/ctrl_claim13.json: count=11 index1=4 index2=7 m2-m1=3 n-1=3 {'boxes': 36905, 'L1': 429, 'L2': 135, 'T1': 948, 'T2': 30560, 'Z': 220, 'newton_tries': 4245, 'max_level': 23, 'seconds': 20.7}
+MISMATCH: file claims 13, independent count is 11

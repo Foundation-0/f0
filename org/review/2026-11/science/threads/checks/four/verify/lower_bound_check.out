@@ -1,0 +1,9 @@
+../jet-route/n4_eleven_a.json
+PROVED: at least 11 non-degenerate balance points; index 2: 7, index 1: 4; index-2 minus index-1 = 3, charges minus one = 3
+OK
+../jet-route/n4_eleven_b12.json
+PROVED: at least 11 non-degenerate balance points; index 2: 7, index 1: 4; index-2 minus index-1 = 3, charges minus one = 3
+OK
+n4_eleven_flat.json
+PROVED: at least 11 non-degenerate balance points; index 2: 7, index 1: 4; index-2 minus index-1 = 3, charges minus one = 3
+OK
