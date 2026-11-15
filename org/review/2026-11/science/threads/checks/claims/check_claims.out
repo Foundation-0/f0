@@ -25,4 +25,9 @@ ok    unit-point.md: "and 2,284 at 0.0001"
 ok    unit-point.md: "880 of 880 at all 6 eps values tested"
 ok    point-charges.md: "49"
 ok    point-charges.md: "64"
-27 of 27 claims hold
+ok    square-law.md: "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |"
+ok    square-law.md: "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |"
+ok    square-law.md: "**VERIFIED** for the 46 entries that `checks/oeis/spot_proof.py` prove"
+ok    recurrences.md: "**VERIFIED** for the 46 entries that `spot_proof.py` proves again."
+ok    recurrences.md: "**VERIFIED** for the 46 entries that `spot_proof.py` proves again."
+32 of 32 claims hold

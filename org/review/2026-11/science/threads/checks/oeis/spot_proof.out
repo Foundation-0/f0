@@ -1,4 +1,3 @@
-unparsed name: A268635 Number of n_X_4 0..2 arrays with some element plus some horizontally or vertically adjacent neighbor totalling two exactly once.
 46 entries chosen, one per (neighbour set, alphabet, mode) among those with at most 260 row states
 A268622 | n X 2 0..2 arrays with some element plus some horizontally or vertically adjacent nei | PROVED for all n >= 4 (machine dimension 18, 57 consecutive zero residuals, 23 OEIS terms matched, order 2)
 A268633 | n X 2 0..2 arrays with some element plus some horizontally or vertically adjacent nei | PROVED for all n >= 4 (machine dimension 18, 57 consecutive zero residuals, 23 OEIS terms matched, order 2)

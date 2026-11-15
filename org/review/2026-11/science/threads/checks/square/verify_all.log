@@ -214,7 +214,8 @@ PASS A269761 {'ok': True, 'start': 4, 'N': 4, 'D': 1, 's': 0, 'backend': 'dense'
 PASS A269762 {'ok': True, 'start': 6, 'N': 6, 'D': 2, 's': 0, 'backend': 'dense', 'seconds': 0.0, 'primes': (1, 3), 'note': 'recurrence proved for all n >= start'}
 PASS A269763 {'ok': True, 'start': 8, 'N': 8, 'D': 3, 's': 0, 'backend': 'dense', 'seconds': 0.03, 'primes': (1, 4), 'note': 'recurrence proved for all n >= start'}
 PASS A269764 {'ok': True, 'start': 16, 'N': 16, 'D': 7, 's': 0, 'backend': 'dense', 'seconds': 3.0, 'primes': (3, 10), 'note': 'recurrence proved for all n >= start'}
-PASS A269765 {'ok': True, 'start': 28, 'N': 28, 'D': 13, 's': 0, 'backend': 'tensor', 'seconds': 12.27, 'primes': (6, 19), 'note': 'recurrence proved for all n >= start'}
+PASS A269765 {'ok': True, 'start': 28, 'N': 28, 'D': 13, 's': 0, 'backend': 'dense', 'seconds': 93.85, 'primes': (6, 19), 'note': 'recurrence proved for all n >= start'}
+PASS A269766 {'ok': True, 'start': 66, 'N': 66, 'D': 32, 's': 0, 'backend': 'tensor', 'seconds': 414.82, 'primes': (16, 52), 'note': 'recurrence proved for all n >= start'}
 PASS A269822 {'ok': True, 'start': 3, 'N': 3, 'D': 1, 's': 0, 'backend': 'dense', 'seconds': 0.0, 'primes': (1, 1), 'note': 'recurrence proved for all n >= start'}
 PASS A269824 {'ok': True, 'start': 20, 'N': 20, 'D': 9, 's': 0, 'backend': 'dense', 'seconds': 0.0, 'primes': (2, 5), 'note': 'recurrence proved for all n >= start'}
 PASS A269825 {'ok': True, 'start': 50, 'N': 50, 'D': 24, 's': 0, 'backend': 'dense', 'seconds': 0.05, 'primes': (6, 16), 'note': 'recurrence proved for all n >= start'}
@@ -234,4 +235,4 @@ PASS A270053 {'ok': True, 'start': 6, 'N': 6, 'D': 2, 's': 0, 'backend': 'dense'
 PASS A270054 {'ok': True, 'start': 8, 'N': 8, 'D': 3, 's': 0, 'backend': 'dense', 'seconds': 0.01, 'primes': (1, 4), 'note': 'recurrence proved for all n >= start'}
 PASS A270055 {'ok': True, 'start': 16, 'N': 16, 'D': 7, 's': 0, 'backend': 'dense', 'seconds': 0.39, 'primes': (3, 8), 'note': 'recurrence proved for all n >= start'}
 PASS A270056 {'ok': True, 'start': 28, 'N': 28, 'D': 13, 's': 0, 'backend': 'dense', 'seconds': 12.23, 'primes': (5, 16), 'note': 'recurrence proved for all n >= start'}
-PASS A270057 {'ok': True, 'start': 66, 'N': 66, 'D': 32, 's': 0, 'backend': 'tensor', 'seconds': 97.41, 'primes': (13, 43), 'note': 'recurrence proved for all n >= start'}
+PASS A270057 {'ok': True, 'start': 66, 'N': 66, 'D': 32, 's': 0, 'backend': 'dense', 'seconds': 492.72, 'primes': (13, 43), 'note': 'recurrence proved for all n >= start'}

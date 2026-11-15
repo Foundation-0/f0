@@ -11,7 +11,7 @@ for f in sorted(glob.glob(S0 + 'A*.json')):
     c = json.load(open(f)); M = Machine(c['name'])
     if M.R > 700: continue
     P = M.row_perm()
-    assert (M.A.T == M.A[np.ix_(P, P)]).all() and (M.B1.T == M.B1[np.ix_(P, P)]).all(), f
+    if not ((M.A.T == M.A[np.ix_(P, P)]).all() and (M.B1.T == M.B1[np.ix_(P, P)]).all()): raise SystemExit("symmetry fails: " + f)
     nsym += 1
     if M.R > 60: continue
     sp = M.sp; ex = exact_counts(sp['k'], sp['q'], sp['kinds'], sp['total'], 1, 9)
@@ -27,6 +27,6 @@ for f in sorted(glob.glob(S0 + 'A*.json')):
             e += sum(Lp[p] @ B1 @ Rp[n - 2 - p] for p in range(n - 1))
             e += dvec @ Rp[n - 2] + Lp[n - 2] @ cvec
         if n >= 3: e += sum(Lp[p] @ C @ D @ Rp[n - 3 - p] for p in range(n - 2))
-        assert e == ex[n - 1][1], (f, n, e, ex[n - 1][1])
+        if e != ex[n - 1][1]: raise SystemExit("decomposition fails: %r" % ((f, n, e, ex[n - 1][1]),))
     ndec += 1
 print("symmetry A^T = P A P and B1^T = P B1 P holds for", nsym, "certificates (Omega0 <= 700 rows); decomposition of e(n) verified exactly for n=1..9 on", ndec)

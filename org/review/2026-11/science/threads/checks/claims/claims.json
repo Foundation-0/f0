@@ -295,5 +295,52 @@
    "file": "checks/charges/out/n9.log",
    "contains": "count=64 index1=28 index2=36"
   }
+ },
+ {
+  "note": "square-law.md",
+  "text": "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |",
+  "test": {
+   "kind": "count",
+   "file": "checks/square/verify_all.log",
+   "pattern": "PASS",
+   "equals": 238
+  }
+ },
+ {
+  "note": "square-law.md",
+  "text": "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |",
+  "test": {
+   "kind": "files",
+   "glob": "checks/square/proofs/A*.json",
+   "equals": 238
+  }
+ },
+ {
+  "note": "square-law.md",
+  "text": "**VERIFIED** for the 46 entries that `checks/oeis/spot_proof.py` proves again",
+  "test": {
+   "kind": "line",
+   "file": "checks/oeis/spot_proof.out",
+   "contains": "46 entries chosen"
+  }
+ },
+ {
+  "note": "recurrences.md",
+  "text": "**VERIFIED** for the 46 entries that `spot_proof.py` proves again.",
+  "test": {
+   "kind": "count",
+   "file": "checks/oeis/spot_proof.out",
+   "pattern": "PROVED for all n >=",
+   "equals": 46
+  }
+ },
+ {
+  "note": "recurrences.md",
+  "text": "**VERIFIED** for the 46 entries that `spot_proof.py` proves again.",
+  "test": {
+   "kind": "line",
+   "file": "checks/oeis/spot_proof.out",
+   "contains": "failures: 0"
+  }
  }
 ]

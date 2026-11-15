@@ -1,5 +1,5 @@
 """Corrupt one input at a time; the verifier must raise Reject every time and must still accept the clean certificate.
-Run as `python test_corrupt.py` and `python -O test_corrupt.py` (asserts are stripped under -O: the verifier uses none)."""
+Run as `python test_corrupt.py` and `python -O test_corrupt.py` (no bare assert is used, so both runs behave the same)."""
 import json, copy, sys
 sys.path.insert(0, '.')
 from verify import verify, Reject, is_prime
