@@ -342,5 +342,53 @@
    "file": "checks/oeis/spot_proof.out",
    "contains": "failures: 0"
   }
+ },
+ {
+  "note": "README.md",
+  "text": "lists the 22 checking programs. None has a bare `assert`, all can stop with an error, and 15 have a corruption test saved here",
+  "test": {
+   "kind": "line",
+   "file": "checks/claims/checkers.md",
+   "contains": "22 programs. 22 have no bare assert, 22 can stop with an error, 15 have a corruption test saved in this folder."
+  }
+ },
+ {
+  "note": "relational-geometry.md",
+  "text": "five pairs have 2 each, the three large pairs among them",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "number of walls shared by a pair: 1 walls: 4 pairs, 2 walls: 5 pairs"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "In eight certified configurations of 3 to 9 charges",
+  "test": {
+   "kind": "count",
+   "file": "checks/geometry/wall_graph.out",
+   "pattern": "index-2 points =",
+   "equals": 8
+  }
+ },
+ {
+  "note": "central-configurations.md",
+  "text": "In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.",
+  "test": {
+   "kind": "count",
+   "file": "checks/cc/corrupt_tests.out",
+   "pattern": "REJECT:",
+   "equals": 14
+  }
+ },
+ {
+  "note": "central-configurations.md",
+  "text": "In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.",
+  "test": {
+   "kind": "count",
+   "file": "checks/cc/corrupt_tests.out",
+   "pattern": "FAIL: Krawczyk inclusion fails",
+   "equals": 1
+  }
  }
 ]

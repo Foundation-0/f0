@@ -19,7 +19,7 @@ In each, the configurations with the most solutions were found the same way: sta
 
 For positive charges the potential rises without limit at each charge. Follow the field uphill from any point and you arrive at a charge. So space divides into one basin per charge.
 
-- Each balance point of index 2 is one wall between two basins. Its two uphill branches end at the two charges it separates.
+- Each balance point of index 2 is one wall between two basins. Its two uphill branches end at the two charges it separates. In the traces for seven and nine charges, two walls each run from a tiny charge back to the same charge. The loop count still matches there.
 - So the walls form a network: the charges are the points and the walls are the links.
 - [P] The Morse relation says index-2 points minus index-1 points equals n - 1. In the network that reads: the number of independent loops equals the number of index-1 points.
 - The total count is twice the number of walls, minus n - 1.
@@ -31,7 +31,7 @@ For positive charges the potential rises without limit at each charge. Follow th
 | triangle | 3 | 3 | 3 of 3 | none | 1, 1 |
 | triangle and centre | 4 | 6 | 6 of 6 | none | 3, 3 |
 | second four-charge family | 4 | 6 | 5 of 6 | one pair has 2 | 3, 3 |
-| five charges, beats the bound | 5 | 14 | 9 of 10 | the three large pairs have 2 each | 10, 10 |
+| five charges, beats the bound | 5 | 14 | 9 of 10 | five pairs have 2 each, the three large pairs among them | 10, 10 |
 | six charges, beats the bound | 6 | 17 | 14 of 15 | the three large pairs have 2 each | 12, 12 |
 | seven charges, beats the bound | 7 | 25 | 17 of 21 | the three large pairs have 3 each | 19, 19 |
 | eight charges, meets the bound | 8 | 28 | 22 of 28 | the three large pairs have 3 each | 21, 21 |

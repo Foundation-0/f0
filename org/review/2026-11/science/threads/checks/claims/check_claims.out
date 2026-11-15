@@ -30,4 +30,9 @@ ok    square-law.md: "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 t
 ok    square-law.md: "**VERIFIED** for the 46 entries that `checks/oeis/spot_proof.py` prove"
 ok    recurrences.md: "**VERIFIED** for the 46 entries that `spot_proof.py` proves again."
 ok    recurrences.md: "**VERIFIED** for the 46 entries that `spot_proof.py` proves again."
-32 of 32 claims hold
+ok    README.md: "lists the 22 checking programs. None has a bare `assert`, all can stop"
+ok    relational-geometry.md: "five pairs have 2 each, the three large pairs among them"
+ok    convergences.md: "In eight certified configurations of 3 to 9 charges"
+ok    central-configurations.md: "In `corrupt_tests.out` that is 14 rejection lines for the first progra"
+ok    central-configurations.md: "In `corrupt_tests.out` that is 14 rejection lines for the first progra"
+37 of 37 claims hold

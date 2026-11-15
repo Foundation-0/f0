@@ -6,7 +6,7 @@ Marks: **[F]** fact, **[I]** inference.
 
 ## 1. Starting point
 
-- [F] The science pass (draft PRs 51 to 57) ended with `new-ground.md`, a list of eleven threads.
+- [F] The science pass (pull requests 51 to 57) ended with `new-ground.md`, a list of eleven threads.
 - [F] A reviewer requested changes on all seven drafts. The fixes were made first and pushed as one new commit per branch. Two review points were not applied, with the evidence given in the PR bodies.
 - [F] From that review on, no seat, model or tool name appears in any text or commit message.
 
@@ -64,7 +64,7 @@ Every result that came back was then re-run by the reviewer. For the results mar
 These are kept because each one changed what was done next.
 
 - **A false signal in the first gravity test.** [F] Sorted by speed, the eight fastest SPARC spirals sit 0.10 dex above the standard relation, which is what the model predicts. [F] Sorted by baryonic mass the excess is gone. Sorting by speed selects galaxies that are fast for their mass, and the statistic contains the speed. [I] Every later test states which variable it sorts on and which way that biases the answer.
-- **A slope that looked like confirmation.** [F] In the giant-spiral sample the offset rises with speed at 0.553 ± 0.063 per dex, close to what the fitted model predicts. [I] In a sample chosen in a narrow range of mass, any scatter in speed gives a slope near 1. The slope is not evidence.
+- **A slope that looked like confirmation.** [F] In the giant-spiral sample the offset rises with speed at 0.553 ± 0.063 per dex, close to what the fitted model predicts. [I] In a sample chosen in a narrow range of mass, scatter in speed alone gives a positive slope. The slope is not evidence.
 - **A brief that named the wrong repository.** The lattice brief quoted two rod thresholds. Those belong to another repository. The worker reported that the files did not exist at the pinned head, and nothing was built on the error.
 - **Data that could not be fetched.** The first SPARC mirror did not answer and a second address did. The per-galaxy data of the 79-galaxy sample named in the acceleration folder timed out on two servers and was never retrieved. The 100-galaxy table used in its place is an image in the paper and was typed in by hand, then checked by a second reading.
 - **A reported result that needed care.** The code-table scan reported over two thousand improved entries, far more than expected. It was not accepted until every certificate had passed a checker written earlier for a different purpose and table values had been looked up live a second time.

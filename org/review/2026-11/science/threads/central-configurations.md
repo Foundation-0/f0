@@ -19,8 +19,8 @@ Classes are counted up to rotation, scaling, reflection and relabelling.
 | 10 | at least 67 | 12 | 64 and 67 |
 
 - [F] Every class is proved to exist, to be the only solution in its box and to be non-degenerate. The classes are proved different from one another.
-- [F] The Morse index and the exact symmetry group of every class are proved as well.
-- [F] Two programs that share no code accept every certificate, one in ball arithmetic and one in exact rational arithmetic. Both reject 15 kinds of corrupted input, also under `python3 -O`.
+- [F] The symmetry group of every class is proved, and so is the count of positive eigenvalues of the reduced Jacobian. [I] That this count is the Morse index on shape space is the thread's own derivation, written in the report and not checked by machine.
+- [F] Two programs written together, with separate code and the same design, agree on every class: one in ball arithmetic, which rebuilds each certificate from the search output, and one in exact rational arithmetic, which reads it. The exact-rational one rejects 7 kinds of corrupted certificate, plain and under `python3 -O`. The ball-arithmetic one rejects the one kind it can see, a moved centre. In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.
 
 **Completeness is not proved for any of the three.** These are lower bounds. The lists match counts that were already published as numerical results, so this is not a new count.
 
@@ -61,7 +61,7 @@ The repository has an open issue saying to tell the Krakow group about the proje
 ## Rerun
 
 ```
-python3 -I -O checks/cc/verify_rational.py checks/cc/cert_n8.json      # exact rationals, standard library only, a few seconds
+python3 -I -O checks/cc/verify_rational.py checks/cc/cert_n8.json      # exact rationals, needs NumPy for a float preconditioner, a few seconds
 python3 checks/cc/cert_arb.py <census file> out.json                    # needs python-flint
 python3 checks/cc/spot_cc.py checks/cc/cert_n8.json checks/cc/cert_n9.json checks/cc/cert_n10.json
 ```

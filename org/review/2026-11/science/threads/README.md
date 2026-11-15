@@ -1,8 +1,10 @@
 # Threads pulled after the science pass
 
-15 November 2026. The science pass ended with a list of threads worth pulling (`new-ground.md` on draft PR 56). This folder holds what came out when each was pulled as far as it would go in one pass. Each thread has its own note, with the programs and saved outputs under `checks/`.
+15 November 2026. The science pass ended with a list of threads worth pulling (`new-ground.md` on pull request 56). This folder holds what came out when each was pulled as far as it would go in one pass. Each thread has its own note, with the programs and saved outputs under `checks/`.
 
-Marks: **[F]** a fact read from a repository or produced by a run, **[I]** an inference. Verdict words are those of `glossary.md` (draft PR 55).
+Marks: **[F]** a fact read from a repository or produced by a run, **[I]** an inference. Verdict words are those of `glossary.md` on pull request 55, and are restated below so that this folder stands alone.
+
+VERIFIED means a program written apart from the one that produced the result accepts it. REPRODUCED means the programs of one thread agree. A theorem is called proved, with what proves it. Where a count is a proved lower bound, the note says so.
 
 ## The short version
 
@@ -13,8 +15,8 @@ Later threads followed what the first ones turned up. They are in the second tab
 | Thread | Outcome | Note |
 |---|---|---|
 | Four point charges | 11 balance points, above Maxwell's bound of 9. Three configurations, each proved by two exact programs and a third lower-bound proof. **VERIFIED** | `four-charges-eleven.md` |
-| 11-vertex rigid graph | All 2,288 realizations can be real. New growth bound 2.4116 per vertex, above the published 2.3780. **VERIFIED** | `l2288.md` |
-| 10-vertex rigid graph | The complex count of 880 is confirmed by three implementations, so "all 880 are real" is complete. **VERIFIED** | `rigid-realizations.md` |
+| 11-vertex rigid graph | At least 2,288 real realizations at certified lengths, which is the full complex count if a cited continuation argument applies. New growth bound 2.4116 per vertex, above the published 2.3780, which needs only the lower bound. **VERIFIED** | `l2288.md` |
+| 10-vertex rigid graph | The complex count of 880 agrees in three implementations of one published recursion. **REPRODUCED** | `rigid-realizations.md` |
 | Point charges | The counts 4, 9, 24, 29 and 44 now have a proof by separate code. New exact counts: 49 for eight charges and 64 for nine. **VERIFIED** | `point-charges.md` |
 | Code tables | One standard bound improves at least 2,418 entries of the reference tables for GF(7), GF(8) and GF(9). **VERIFIED** | `codes.md` |
 | Recurrences | 238 recurrences that the OEIS lists as empirical are proved, 227 of them new. A theorem explains all of them: one defect squares the recurrence. **VERIFIED** for 46, REPRODUCED for the rest | `recurrences.md`, `square-law.md` |
@@ -33,6 +35,7 @@ Threads that followed from the first ones:
 | Walls between charges | Each index-2 balance point is a wall between two charges. Maxwell's bound is the count for one wall per pair. Two predictions made from this held. | `relational-geometry.md` |
 | Three charges | Still open. Proved with a computer for the equilateral triangle and any charges: at most one minimum, so at most 4 balance points. The question is reduced to whether one curve crosses itself. Every cusp sampled is of the harmless kind. | `three-charges.md` |
 | Growth with the number of charges | Balance points can grow like n^(3/2), where every known construction grows like 10n. A four-step argument with a proof sketch, numerical checks of each step, and proved lower bounds of 26 for 9 charges and 87 near one point for 21. No single record is beaten. | `growth.md` |
+| The review itself | 119 findings counted: no proved result failed, 46 of 68 problems are in prose, and 41 of 42 errors with a direction claim too much. A ledger now checks sentences against data. | `review-meta.md` |
 | Centres flat to high order | An inversion rule ties the Taylor terms at a point to the multipoles of the reflected charges. A harmonic quartic with all 27 critical points real is proved. For the icosahedron's centre 77 of 125 were reached in the model, below the 89 known for twelve charges, so no record. | `flat-centres.md` |
 | A light particle for the surviving residual | One fermion of 9 to 21 eV fits galaxies, groups and clusters. Its weakest point is the count of light species at recombination. A conjecture with stated tests. | `neutrino-like.md`, `fabric.md` |
 
@@ -87,7 +90,9 @@ A failed prediction that was stated in advance is a result. The repository wrote
 
 ### 6. Checkers that pass when they should fail
 
-[F] The repository verifier for the point charges prints VERIFIED on a corrupted certificate when Python runs with `-O`. The science pass found the same fault in the gravity scripts and in vitruvian3d. That is three repositories. Every checker written in this pass raises an error instead of using `assert`, and was run under `-O` against corrupted input.
+[F] The repository verifier for the point charges prints VERIFIED on a corrupted certificate when Python runs with `-O`. The science pass found the same fault in the gravity scripts and in vitruvian3d. That is three repositories.
+
+[F] In this folder, `checks/claims/checkers.md` lists the 22 checking programs. None has a bare `assert`, all can stop with an error, and 15 have a corruption test saved here. Programs that only compute and print, such as counts, scans and traces, are not checkers.
 
 ## On the larger aim
 
@@ -100,7 +105,7 @@ A failed prediction that was stated in advance is a result. The repository wrote
 1. Have someone outside the organisation check the four-charge certificate. It is four charges and twelve coordinates of five decimals, and the eleven points are listed. Then write to the authors of the July paper.
 2. Have someone outside the organisation check the 2,288 certificate, then write to the authors of the published bound.
 3. Send the code-table improvements to the table's maintainer. A draft message is ready.
-4. Review the draft pull requests listed in `SYMBIOSIS.md`. They carry the verifier fixes, the new certificates and the corrected wording.
+4. Review the pull requests listed in `SYMBIOSIS.md`. They carry the verifier fixes, the new certificates and the corrected wording.
 5. In gravity, retire the zero-parameter claim and the falling threshold, and rebuild the table from published values.
 6. Offer the recurrence proofs and the square law to the OEIS after a person has read the argument.
 
