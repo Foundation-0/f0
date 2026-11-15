@@ -10,7 +10,7 @@ S is the working folder of this thread. It is archived outside the repository. P
 
 ## Result
 
-[F] The Laman number (complex realizations up to rotation and translation, reflections counted separately) is 880 for code 4778440734593 and 2288 for code 18120782205838348. Three separate programs agree: my code, the authors' C++ library lnumber (built from source with a patch, see below), and the repository's script.
+[F] The Laman number (complex realizations up to rotation and translation, reflections counted separately) is 880 for code 4778440734593 and 2288 for code 18120782205838348. Three programs agree: my code, the authors' C++ library lnumber (built from source with a patch, see below), and the repository's script. All three implement the same published recursion, so the agreement tests the coding and not the theorem.
 
 [F] So the number of complex realizations of the 10-vertex graph is exactly 880. Together with the repository's existing proof of 880 distinct real realizations, "all realizations are real" follows, under two conditions. First, Theorem 4.7 of the paper must be right for a general edge labeling.
 Second, the repository's lengths must be general enough that no complex solution is missed or double-counted (the repository's own box check shows 880 nonsingular real solutions, so the count of complex solutions for those lengths is at least 880, and the generic count is the upper bound only when the lengths are generic). [I] I did not check that second point. See "Not verified".

@@ -86,4 +86,4 @@ Paths are relative to `org/review/2026-11/science/threads/`. Names that are not 
 | `out_t1_3.txt` | `checks/incentre/state/out_t1_3.txt` |
 | `out_t3_10.txt` | `checks/incentre/state/out_t3_10.txt` |
 | `out_t3_4.txt` | `checks/incentre/state/out_t3_4.txt` |
-| `repro/*.log` | `checks/incentre/state/repro/autoresearch_verify_best.log`, `checks/incentre/state/repro/autoresearch_verify_continuous.log`, `checks/incentre/state/repro/curve_sample.log`, `checks/incentre/state/repro/fold_continuous_independent.log`, `checks/incentre/state/repro/fold_continuous_verify.log`, `checks/incentre/state/repro/rigidity_verify.log` |
+| `repro/*.log` | `checks/incentre/state/repro/autoresearch_verify_best.log`, `checks/incentre/state/repro/autoresearch_verify_continuous.log`, `checks/incentre/state/repro/fold_continuous_independent.log`, `checks/incentre/state/repro/fold_continuous_verify.log`, `checks/incentre/state/repro/rigidity_verify.log` |
