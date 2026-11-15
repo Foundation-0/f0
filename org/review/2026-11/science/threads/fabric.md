@@ -8,13 +8,13 @@ It is written down because the threads began to fit together, and a picture that
 
 | Strand | Where | Status |
 |---|---|---|
-| Galaxies follow one relation with one acceleration scale, up to redshift 2.5 | `gravity.md`, `acceleration-evolution.md` | [F] holds in every sample tested |
-| That scale does not grow with the expansion rate | `acceleration-evolution.md` | [F] the one fit possible leans against growth, not decided |
+| Galaxies follow one relation with one acceleration scale, up to redshift 2.5 | `gravity.md`, `acceleration-evolution.md` | [F] holds for SPARC spirals and for galaxies at redshift 0.6 to 2.5. [I] Not shown for early-type galaxies: their excess depends on the assumed stellar mass function and vanishes for a Salpeter mix |
+| That scale does not grow with the expansion rate | `acceleration-evolution.md` | [I] undecided. The one fit possible leans against growth, and the lean does not survive plausible errors in the masses |
 | Every massive class of system sits above the relation, more so with mass | `gravity.md` | [F] |
 | No threshold speed is needed, and the "four speeds" are about two scales | `gravity.md` | [F] |
-| A light fermion at its packing limit fits cluster cores | `neutrino-like.md` | [F] with published support, for strong corrections |
+| A light fermion at its packing limit fits cluster cores | `neutrino-like.md` | [I] fits only with the strongest corrections, and fails as a per-system predictor. The corrections were chosen on the same clusters. [P] Published work agrees on the packing limit |
 | The share a system holds rises with its depth | `neutrino-like.md` | [F], and a published simulation finds the same |
-| The packing limit lets galaxy halos hold about as much as lensing allows | `neutrino-like.md` | [F] |
+| The packing limit lets galaxy halos hold about as much as lensing allows | `neutrino-like.md` | [I] a computation from the lensing limits, not a measurement |
 | Published simulations with such a particle overproduce rich clusters and large flows | `neutrino-like.md` | [P] |
 
 ## The hypothesis

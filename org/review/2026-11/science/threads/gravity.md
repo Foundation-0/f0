@@ -130,7 +130,15 @@ Weak-lensing mass over baryonic mass at a fixed 100 to 300 kpc, for isolated gal
 
 ## Rerun
 
-Programs and saved outputs are in `checks/gravity/`. `t1`, `t1b` and `t2` read the SPARC tables from `astroweb.case.edu/SPARC/` and the TeX source of arXiv:2109.03828. `t3` to `t6` read the published tables named at the top of each script. `model.py` re-implements the model without importing the repository.
+Programs and saved outputs are in `checks/gravity/`. `model.py` re-implements the model without importing the repository.
+
+From a fresh checkout, run `python3 checks/gravity/fetch_sources.py` once. It downloads the published tables (SPARC, ATLAS3D, the TeX of the papers, the KMOS3D table, the Genzel et al. text) and two scripts of the repository at the commit the review pinned. It checks each file against a recorded sha256. Nothing downloaded is stored in this folder.
+
+Then run `python3 check_all.py` from `checks/`. It re-runs every program of the gravity, acceleration, neutrino and fabric threads in a temporary copy and compares each output byte for byte with the saved file. The last run passed every comparison, with and without `python -O`.
+
+The new programs `g185_independent.py` and `g185_like_for_like.py` give the collapse scale and the 60-system chi-squared grid. They use the repository's data table from the pinned copy.
+
+Saved output, not re-runnable here: the second reading of the typed 100-galaxy table was made on zoomed page images that are not in this folder. Its result is kept in `checks/accel/outputs/xcheck_diff.txt`. The published values marked [P] are read from the papers.
 
 ## Not verified
 

@@ -85,7 +85,7 @@ Note: `gravity.md`.
 
 - [I] Taking the extra mass as a light fermion, the packing limit and the cosmic abundance bound the mass from both sides. One fermion of 9 to 21 eV at 15 to 100% of the thermal abundance fits both. Two of the three numbers behind this come from the same clusters the third is tested on, so the fit is partly by construction.
 - [C] The central case, 11 eV at three quarters, gives a cosmic ratio of dark to baryonic matter of 3.96 and a ratio of 0.50 in a galaxy at 300 kpc. The three quarters is a postulate with no production mechanism.
-- [F] Its weakest point is the count of light species at recombination: 2.28 against a measured 2.99 ± 0.17, about four standard errors away.
+- [I] Its weakest point is the count of light species at recombination: 2.28 against a measured 2.99 ± 0.17, about four standard errors away. The comparison assumes the standard model with cold matter.
 
 Status: a conjecture with stated tests. Notes: `neutrino-like.md`, `fabric.md`.
 

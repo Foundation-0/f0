@@ -1,0 +1,13 @@
+Like-for-like comparison (mass ratio against mass ratio), 60-system subset
+chi2 as a function of the dust-to-baryon ratio D and the threshold sigma_J
+sigma_J  D= 3.0  D= 3.5  D= 4.0  D= 4.5  D= 5.0
+ 120.00    90.0    79.9    83.1    96.4   117.2
+ 150.00    80.1    65.3    63.7    71.9    87.4
+ 170.00    77.9    60.9    57.1    63.0    76.2
+ 185.59    77.9    59.4    54.2    58.5    70.2
+ 200.00    79.6    60.2    54.0    57.4    68.1
+ 220.00    83.3    62.9    55.6    57.9    67.5
+ 250.00    90.5    68.4    59.4    60.0    67.9
+ 300.00   107.8    82.9    70.9    68.5    73.3
+best on this grid: chi2 54.00 at sigma_J=200, D=4.0 (two fitted parameters, N=60)
+claim as stated (D=8.524 fixed, sigma_J=185.59): chi2 256.53 like for like; 60.26 as the scripts compare

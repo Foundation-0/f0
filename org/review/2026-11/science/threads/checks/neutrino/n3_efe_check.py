@@ -3,7 +3,7 @@
 The 1D formula (Famaey & McGaugh 2012):  g_int = nu((gN + gNe)/a0) (gN + gNe) - nu(gNe/a0) gNe,
 where gNe is the NEWTONIAN external field. The physical (true) external field felt by the system is
 g_ext = nu(gNe/a0) gNe.  A physical field of 0.03 a0 corresponds to gNe of about 0.0009 a0, not 0.03 a0.
-The model thread passed 0.01, 0.03, 0.05 a0 as gNe. Those are physical fields of about 0.10, 0.19, 0.25 a0.
+The earlier halo study passed 0.01, 0.03, 0.05 a0 as gNe. Those are physical fields of about 0.10, 0.19, 0.25 a0.
 
 Here the field is given as the PHYSICAL g_ext, converted to gNe, and the cluster analysis is repeated:
 share of systems whose enclosed extra mass does not fall between r2500 and r500, the median and scatter of

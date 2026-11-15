@@ -20,7 +20,8 @@ Classes are counted up to rotation, scaling, reflection and relabelling.
 
 - [F] Every class is proved to exist, to be the only solution in its box and to be non-degenerate. The classes are proved different from one another.
 - [F] The symmetry group of every class is proved, and so is the count of positive eigenvalues of the reduced Jacobian. [I] That this count is the Morse index on shape space is the thread's own derivation, written in the report and not checked by machine.
-- [F] Two programs written together, with separate code and the same design, agree on every class: one in ball arithmetic, which rebuilds each certificate from the search output, and one in exact rational arithmetic, which reads it. The exact-rational one rejects 7 kinds of corrupted certificate, plain and under `python3 -O`. The ball-arithmetic one rejects the one kind it can see, a moved centre. In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.
+- [F] Two programs written together, with separate code and the same design, agree on every class: one in ball arithmetic, which rebuilds each certificate from the search output, and one in exact rational arithmetic, which reads it.
+- [F] The exact-rational one rejects 7 kinds of corrupted certificate, plain and under `python3 -O`. The ball-arithmetic one rejects the one kind it can see, a moved centre. In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.
 
 **Completeness is not proved for any of the three.** These are lower bounds. The lists match counts that were already published as numerical results, so this is not a new count.
 

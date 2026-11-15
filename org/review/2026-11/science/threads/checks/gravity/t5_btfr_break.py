@@ -1,5 +1,5 @@
 """T5: is there a break at the top of the baryonic Tully-Fisher relation (BTFR)? Errors in both variables.
-Data (read-only, cached by the gravity thread): SPARC (Lelli+2016), Di Teodoro+2021 (DT21, Table 1),
+Data (read-only, fetched by fetch_sources.py): SPARC (Lelli+2016), Di Teodoro+2021 (DT21, Table 1),
 Di Teodoro+2023 (DT23, tables tab:sample and tab:dynquant, HI gas), Ogle+2019 (O19, Table 1, H-alpha V_max)."""
 import re, math, pathlib, sys
 import numpy as np

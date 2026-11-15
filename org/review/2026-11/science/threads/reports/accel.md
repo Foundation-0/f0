@@ -162,14 +162,18 @@ All quotes were checked by exact string match in cached text under sources/lit/.
 
 ### Rerun
 ```
-cd S/threads/accel; PY=S/work/pc-venv/bin/python
-$PY -O repro_repo_numbers.py
-$PY -I -O check_transcription.py data/rc100_table3.csv
-$PY rc100_fit.py data/rc100_table3.csv outputs/rc100_fit.json > outputs/rc100_fit.txt   # about 45 min, 1 core
-$PY ubler_bound.py sources/ubler2017_vizier.tsv outputs/ubler_bound.json
-$PY muse_summary.py
-$PY theory_numbers.py
+cd checks
+python3 gravity/fetch_sources.py      # once, for the KMOS3D table
+python3 check_all.py --full           # runs every program below and compares with outputs/
+cd accel
+python3 -O repro_repo_numbers.py
+python3 -I -O check_transcription.py data/rc100_table3.csv
+python3 rc100_fit.py data/rc100_table3.csv outputs/rc100_fit.json > outputs/rc100_fit.txt   # about 6 min, 1 core
+python3 ubler_bound.py ../gravity/sources/from_accel/ubler2017_vizier.tsv outputs/ubler_bound.json
+python3 muse_summary.py
+python3 theory_numbers.py
 ```
+Saved output, not re-runnable here: the second reading of the table (`outputs/xcheck_diff.txt`), made on page images that are not in this folder.
 
 ### Not verified
 - **Transcription:** columns z, dMS and log M* are checked only by the second reading.

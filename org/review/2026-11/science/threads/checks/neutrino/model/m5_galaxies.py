@@ -3,7 +3,7 @@ weak-lensing upper limits at 300 kpc (Mistele+2024 Table 2)."""
 import math, csv, pathlib, numpy as np
 from m_lib import *
 from scipy.optimize import brentq
-U = pathlib.Path(__file__).resolve().parents[2] / "gravity2" / "unified" / "unified_table.csv"
+U = pathlib.Path(__file__).resolve().parents[2] / "gravity" / "unified" / "unified_table.csv"
 rows = list(csv.DictReader(open(U)))
 out = []
 def P(*a): print(*a, flush=True); out.append(" ".join(map(str, a)))
