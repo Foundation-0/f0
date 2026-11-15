@@ -52,9 +52,10 @@ resolutions and legally accountable governance. Proposed starting controls:
   licenses and contributor rights remain in force.
 - Record provenance, AI roles and human review; adopt contribution/licensing terms appropriate to
   each repository. Check third-party data and model terms before promising open redistribution.
-- Map founder-owned businesses and any shared staff, compute, contracts or IP. Where ASKA or another
-  commercial organization overlaps, document separate accounts, cost allocation, fair terms and
-  approval by disinterested people. The existence of a relationship is not itself misconduct.
+- Map founder-owned businesses and any shared staff, compute, contracts or IP. Where any
+  founder-owned or affiliated commercial organization overlaps, document separate accounts, cost
+  allocation, fair terms and approval by disinterested people. The existence of a relationship is
+  not itself misconduct.
 
 The [IRS Form 1023 FAQ](https://www.irs.gov/charities-non-profits/frequently-asked-questions-about-form-1023)
 is a starting point for conflicts and private-benefit review. Canada's federal nonprofit

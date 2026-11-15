@@ -1,6 +1,8 @@
 # Funding pipeline
 
-**Last researched: 19 October 2026.** Availability and terms can change. This is a ranked research
+**Last researched: 19 October 2026. Simons, Code for Science & Society, AI for Math seed grants
+and NumFOCUS rechecked 3 November 2026; the Simons call was re-verified live 14 November 2026.**
+Availability and terms can change. This is a ranked research
 pipeline, not a statement of eligibility, a submitted application, or permission to contact a funder.
 No funder, sponsor or external agent has been contacted for this packet.
 
@@ -10,11 +12,13 @@ No funder, sponsor or external agent has been contacted for this packet.
 |---|---|---|---|
 | 1 | AI for Math Fund seed grants: rolling, up to US$100,000, up to 12 months. | A narrow AI-mathematics verification, benchmark or proof-tool pilot. | Named human lead, approved milestones and budget, applicant/admin arrangement, current terms. |
 | 2 | Sloan Open Source in Science: two-page inquiry route. | Sustainable, reusable scientific software and sound human-AI collaboration. | Confirm legal grantee or sponsor eligibility; document actual users and maintenance need. |
-| 3 | Simons AI-mathematics initiative: announced 15 October; open call forthcoming. | Evaluating AI-assisted results, public standards, tools or community work. | Published call with eligibility, dates and award rules. Do not treat as open yet. |
+| 3 | Simons Targeted Grants to Math+AI Institutes: open call, deadline 1 December 2026, 12:00 ET. | Evaluating AI-assisted results, public standards, tools or community work — only through a partner institute that applies. | A partner institute with a physical space, eligible project fit, and an internal deadline ahead of 1 December. Foundation0 cannot apply directly. |
 | Secondary | Mitacs Accelerate: academic-partner/matching model. | A defined Canadian university research collaboration. | Eligible partners, academic lead and match funding. |
 | Defer | NSF CSSI / general US federal routes. | Possible later research infrastructure work. | A live eligible solicitation and capacity for federal administration. |
 
-All entries were checked on 19 October 2026. Recheck each before preparing a final submission and
+Simons, Code for Science & Society, AI for Math seed grants and NumFOCUS were rechecked on
+3 November 2026 (the Simons call was re-verified live 14 November 2026); all other entries were
+checked on 19 October 2026. Recheck each before preparing a final submission and
 again before submitting. “Rolling” does not mean funds are guaranteed to remain available.
 
 ## 1. AI for Math Fund seed grants
@@ -68,18 +72,26 @@ repositories; the proposed software and maintenance plan; measurable adoption/re
 team and governance; requested project amount and duration; legal grantee/admin route. No amount or
 award expectation is established here. Treat this as restricted project funding unless agreed otherwise.
 
-## 3. Simons: watch for the actual call
+## 3. Simons: open call, partner institute only
 
-Primary source: [15 October 2026 announcement](https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/).
+Primary sources: [Targeted Grants to Math+AI Institutes, 2027 request for applications](https://www.simonsfoundation.org/funding/targeted-grants-to-mathai-institutes-2027/)
+and the [15 October 2026 announcement](https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/).
+Checked 3 November 2026; re-verified live 14 November 2026.
 
 Simons, Anthropic and OpenAI announced US$15 million in combined funding/resources, including an open
 call to support mathematics-community work such as evaluating AI-assisted results, learning tools,
 workshops and shared standards. This fits Foundation0's verification and human-accountability aims.
 
-The announcement does **not** publish application dates, detailed eligibility, award sizes, sponsor
-rules or PI qualifications. Keep this on the watchlist until a real solicitation exists. A qualified
-mathematician collaborator may strengthen a project, but no academic-affiliation requirement should
-be invented. Do not represent the US$15 million as a grant available to Foundation0.
+The call is now open as Targeted Grants to Math+AI Institutes. Applications are due **1 December
+2026, 12:00 ET**, with notification by 31 December 2026. Awards are up to **US$500,000 over two
+years, including 20% indirect costs**, with up to five awards. Applicants must be established
+educational or nonprofit institutes or research centres with a physical space; the call does not
+fund organisations without one or the setting up of an institute.
+
+Foundation0 cannot apply directly. It could take part only through a partner institute that applies,
+with a named Foundation0 lead on the institute's proposal. A qualified mathematician collaborator
+may strengthen a project, but the institute requirement is the funder's, not an invented one.
+Do not represent the US$15 million as a grant available to Foundation0.
 
 ## Fiscal sponsorship is administration, not funding
 
@@ -90,10 +102,13 @@ be invented. Do not represent the US$15 million as a grant available to Foundati
 
 Sources: [CS&S project intake](https://www.codeforsociety.org/become-a-fiscally-sponsored-project),
 [CS&S FAQ](https://www.codeforsociety.org/fsp/faq),
-[NumFOCUS project page](https://numfocus.org/projects-overview). Last checked 19 October 2026.
+[NumFOCUS project page](https://numfocus.org/projects-overview). CS&S and NumFOCUS rechecked
+3 November 2026.
 No acceptance, capacity or country-specific service availability has been confirmed with either.
-The CS&S FAQ returned HTTP 500 in final direct-link validation; the figures above were also checked
-against its search-indexed text. Treat them as a research snapshot and confirm the current agreement,
+The CS&S FAQ now loads (it returned HTTP 500 on 19 October) and confirms the figures above:
+15% of all cash received, a 30-day board review, and an inquiry at least 60 days before joining.
+That timing means CS&S sponsorship cannot be in place before the 1 December Simons deadline.
+Treat them as a research snapshot and confirm the current agreement,
 including any minimum revenue requirement, rather than a live quotation of offered terms.
 
 **Budget conflict to resolve:** a 15% sponsor fee may not fit a grant's 10%-of-total indirect cap.
