@@ -1,8 +1,9 @@
-# Gate 0 packet: the seven decisions
+# Gate 0 packet: the eight decisions
 
-This page puts the seven owner decisions from issue 42 in one
+This page puts the eight owner decisions from issue 42 in one
 place, with the f0 fact each one needs. It proposes nothing new.
-Defaults are the ones issue 42 already states.
+Defaults are the ones issue 42 already states. Decision 8
+arrived with the site work on 2026-11-15.
 
 ## How to answer
 
@@ -18,8 +19,9 @@ f0 fact: f0 already meets most of this since 2026-11-12.
 Active rulesets guard main and release tags with an empty
 bypass list. [F] One piece is missing in both the live ruleset
 and the file in pull request 40: no status check is required.
-Add the `site / check` job for f0, and the matching required
-job per repository, in the same apply run. [I]
+The fix belongs in a ruleset for f0 alone that names its
+`site / check` job. The org-wide file in draft 40 cannot name
+it, because other repositories lack that job. Owner step. [F]
 Agent accounts hold admin today (the posting account for this
 run holds admin on 13 checked repositories). [F] The default
 gives agents Write, never Admin. That change needs an owner.
@@ -68,6 +70,18 @@ f0 fact: f0 already carries Apache-2.0 and GitHub detects it.
 [F] This decision covers gravity, math0, astr0,
 cosmic-denoising, the profile repository and discussi0n.
 Each fix lands in its own repository.
+
+**8. Site pages about outside projects.**
+Three research pages describe work by people who never
+joined: exoplanets (eumemic), integer multiplication
+(Doug Colkitt) and machine mathematics (OpenAI corpus, with
+work by Rohan Arun and Ryan Shea). W1 removes the member
+labels either way. The owners pick what happens to the
+pages: (a) keep them as outside work with Foundation0 part
+marked, (b) move them to a dated archive off the navigation,
+or (c) delete them. The site comment in issue 42 recommends
+(b). W1 leaves their content alone beyond labels until
+this decision lands.
 
 ## Access grants in the same sitting
 

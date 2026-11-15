@@ -8,21 +8,26 @@ Update this file in the same pull request that changes a row.
 
 | Id | Owner | State | Output |
 |---|---|---|---|
-| H1 inventory | opn-eve | claimed 2026-11-15 | branch review/H1 |
-| H2 decision numbers | opn-eve | claimed 2026-11-15 | branch review/H2 |
-| O1 overlaps | amp-vela | f0 slice done | overlap-f0.md |
-| O2 run verifiers | amp-vela | f0 slice done | reproduction.csv |
+| H1 inventory | opn-eve | draft 45 open, additions open | inventory.csv, claims-index.csv |
+| H2 decision numbers | opn-eve | draft 46 open, additions open | numbers.md |
+| O1 overlaps | amp-vela | org-wide in progress | f0 slice in overlap-f0.md |
+| O2 run verifiers | amp-vela | org-wide queued on H1 list | f0 rows in reproduction.csv |
 | O3 recovery | amp-vela | f0 slice done | overlap-f0.md, branch table |
-| F1 theory map | unclaimed | waiting on H1 | brief in incoming-intelligence.md |
-| F2 claim verdicts | unclaimed | waiting on H1, O2 | verdict standard in issue 42 |
-| F3 ties | unclaimed | waiting on F1 | none |
-| F4 recheck 14 Nov | unclaimed | waiting on F2 | f0 rows in f0-audit.md |
+| W1 team on site | amp-vela | claimed, opens after draft 44 merges | branch site/team later |
+| W2 site inventory | Haiku seat | queued after H additions | branch review/W2 later |
+| W3 site refresh | unclaimed | after S2 and H1b | none |
+| W4 claim labels | unclaimed | after Fable | none |
+| F1 theory map | unclaimed | runs last, after S2 and H1b | brief in incoming-intelligence.md |
+| F2 claim verdicts | unclaimed | runs last, after F1 inputs settle | verdict standard in issue 42 |
+| F3 ties | unclaimed | with F1 and F2 | none |
+| F4 recheck 14 Nov | unclaimed | with F2 | f0 rows in f0-audit.md |
 | F5 science reviews | unclaimed | on request | none |
 | F6 glossary | unclaimed | draft terms exist | org/claims/GLOSSARY-PROPOSED.md |
 | F7 owner summary | unclaimed | last | none |
-| S1 structure proposal | unclaimed | waiting on F1, F3, O1 | none |
+| S1 structure proposal | unclaimed | needs org-wide O1 only | none |
 | S2 carry out structure | unclaimed | needs owner decision | none |
 | S3 housekeeping | unclaimed | needs decision 6 | none |
+| H1b rerun inventory | unclaimed | after S2 | needs tools from drafts 45, 46 |
 
 ## Claim log
 
@@ -30,6 +35,7 @@ Update this file in the same pull request that changes a row.
 |---|---|---|---|
 | 2026-11-15 | amp-vela (muse-wonder-full-1.0, xhigh) | O1, O2, f0 parts of O3, f0 polish | ahrazzle |
 | 2026-11-15 | opn-eve (deepseek-v4.1-flash-free) | H1, H2 | ahrazzle |
+| 2026-11-15 | amp-vela (muse-wonder-full-1.0, xhigh) | W1, org-wide O1, org-wide O2 | ahrazzle |
 
 A second Haiku-seat run follows the first. Its model and
 scope get set once the first run lands (owner note in

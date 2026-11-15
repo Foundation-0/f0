@@ -97,6 +97,11 @@ Working rules that carry weight:
 
 ## Your work order
 
+You run last. The structure work (S1, then S2 once owners
+decide) and the rerun inventory (H1b) come first, so you
+judge the settled layout once. S1 needs only the org-wide
+O1 scan. Do not start F1 early on a layout that may move.
+
 - **F1 theory map.** One entry per distinct theory: canonical
   statement, formulae, constants, repositories that use it.
   Done when every repository in the map names its theories.
@@ -142,8 +147,10 @@ Working rules that carry weight:
 
 ## Ready now, no decision needed
 
-H1 inventory and H2 decision numbers are claimed and feed
-everything. F1 can start per repository as H1 reaches it.
+H1 and H2 sit in drafts 45 and 46 with three additions open.
+The org-wide O1 scan runs next and feeds S1. O2 then runs
+the 159 verifiers H1 listed. Your inputs land in this
+folder as that work merges.
 The gaia-dr4 recovery choice (prep branch or task slices)
 needs its authors before 2026-11-25. Details sit in
 [overlap-f0.md](overlap-f0.md).
