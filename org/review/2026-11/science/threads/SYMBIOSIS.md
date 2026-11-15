@@ -7,6 +7,7 @@
 | Repository | Taken | Returned | Link |
 |---|---|---|---|
 | rigid-realizations | the L880 certificate, the counting code, the search method | a certificate for the 11-vertex graph with all 2,288 realizations real, a 12-vertex result, a second count program, a standard-library re-check of L880 | [pull 21](https://github.com/Foundation-0/rigid-realizations/pull/21) |
+| point-charges | the certified counts, the repository verifier, the open four-charge question | three certified four-charge configurations with 11 balance points, a fix for the verifier under `python -O`, certificates for eight and nine charges, a second family with 9, two further checkers | [pull 22](https://github.com/Foundation-0/point-charges/pull/22) |
 | gravity | the threshold model, its certificates, the acceleration-evolution folder | data tests of the 185 km/s claims on 763 systems, a fix for two check modes that passed when they should fail, proposals for six ledger entries | [pull 28](https://github.com/Foundation-0/gravity/pull/28) |
 | gfq-codes | the method of excluding codes by a classical bound | the bound run over every open entry of three reference tables, 1,519 certificates, 2,418 improved entries | [pull 19](https://github.com/Foundation-0/gfq-codes/pull/19) |
 | finite-state-proofs | the zero-vector method and eleven proved recurrences | 238 proved recurrences, the square law with a full proof, two corrections to the method | [pull 5](https://github.com/Foundation-0/finite-state-proofs/pull/5) |
@@ -15,8 +16,6 @@
 | vitruvian3d | the passage certificate and its verifier | a fix so the verifier rejects a corrupted certificate under `python -O`, with a test | [pull 12](https://github.com/Foundation-0/vitruvian3d/pull/12) |
 | physics0 | the index of physics repositories | two rows brought up to date | draft pull request in physics0, numbered as the gfq-codes one |
 | math0 | the index of mathematics repositories | one row brought up to date | [pull 14](https://github.com/Foundation-0/math0/pull/14) |
-
-The point-charges branch is prepared and will be opened with the four-charge result in it. It carries a fix for the repository's verifier under `python -O`, certificates for eight and nine charges, a second four-charge family, a third checker, and the two configurations with 11 balance points from `four-charges-eleven.md`.
 
 ## Returned as issues or comments
 
