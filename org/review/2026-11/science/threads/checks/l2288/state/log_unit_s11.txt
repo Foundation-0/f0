@@ -1,0 +1,8 @@
+0 ok=1144 minsep=2.3e-02 real=1744/2288 * (15s)
+1 ok=1144 minsep=2.0e-02 real=1620/2288 (30s)
+2 ok=1144 minsep=5.2e-02 real=1700/2288 (42s)
+3 ok=1144 minsep=3.8e-02 real=1572/2288 (54s)
+4 ok=1144 minsep=1.7e-02 real=1464/2288 (74s)
+5 ok=1144 minsep=1.6e-02 real=1244/2288 (92s)
+6 ok=-1 minsep=1.7e-02 real=1516/2288 (140s)
+7 ok=1144 minsep=2.4e-02 real=1504/2288 (153s)

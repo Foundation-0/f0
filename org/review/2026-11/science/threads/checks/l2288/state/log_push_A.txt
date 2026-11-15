@@ -1,0 +1,6 @@
+[A] start real 1744/2288, minsep 3.04e-02
+[A] it 1 (7s): real 1744 -> 1916, tr 2.0e-03, minsep 1.3e-02
+[A] it 2 (9s): real 1916 -> 1920, tr 2.6e-03, minsep 7.1e-03
+[A] it 3 (33s): real 1920 -> 1932, tr 3.4e-03, minsep 1.1e-02
+[A] it 4: no step, tr -> 2.2e-03, real 1932
+[A] it 5: no step, tr -> 1.1e-03, real 1932

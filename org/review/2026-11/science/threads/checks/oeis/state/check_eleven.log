@@ -1,0 +1,23 @@
+A268881 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 7 last edit 2019-01-15T16:11:26-05:00
+     Empirical: a(n) = 10*a(n-1) - 31*a(n-2) + 30*a(n-3) - 9*a(n-4).
+A268882 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 7 last edit 2019-01-15T14:41:50-05:00
+     Empirical: a(n) = 16*a(n-1) - 88*a(n-2) + 200*a(n-3) - 208*a(n-4) + 96*a(n-5) - 16*a(n-6) for n>7.
+A268883 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 4 last edit 2016-02-15T11:31:39-05:00
+     Empirical: a(n) = 26*a(n-1) -241*a(n-2) +994*a(n-3) -2060*a(n-4) +2218*a(n-5) -1201*a(n-6) +290*a(n-
+A268884 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 4 last edit 2016-02-15T11:32:21-05:00
+     Empirical: a(n) = 42*a(n-1) -665*a(n-2) +5138*a(n-3) -21972*a(n-4) +55274*a(n-5) -83769*a(n-6) +7620
+A268885 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 4 last edit 2016-02-15T11:33:06-05:00
+     Empirical: a(n) = 68*a(n-1) -1804*a(n-2) +24560*a(n-3) -195400*a(n-4) +974752*a(n-5) -3171360*a(n-6)
+A268989 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 8 last edit 2019-01-17T17:20:39-05:00
+     Empirical: a(n) = 6*a(n-1) - 11*a(n-2) + 6*a(n-3) - a(n-4).
+A268990 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 8 last edit 2019-01-17T17:20:44-05:00
+     Empirical: a(n) = 10*a(n-1) - 31*a(n-2) + 30*a(n-3) - 9*a(n-4).
+A268991 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 8 last edit 2019-01-17T17:20:50-05:00
+     Empirical: a(n) = 16*a(n-1) - 88*a(n-2) + 200*a(n-3) - 208*a(n-4) + 96*a(n-5) - 16*a(n-6) for n>7.
+A268992 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 4 last edit 2016-02-17T07:24:12-05:00
+     Empirical: a(n) = 26*a(n-1) -241*a(n-2) +994*a(n-3) -2060*a(n-4) +2218*a(n-5) -1201*a(n-6) +290*a(n-
+A268993 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 4 last edit 2016-02-17T07:24:59-05:00
+     Empirical: a(n) = 42*a(n-1) -665*a(n-2) +5138*a(n-3) -21972*a(n-4) +55274*a(n-5) -83769*a(n-6) +7620
+A268994 empirical-in-entry=True coefficients==repo=True initial terms==repo=True revision 4 last edit 2016-02-17T07:26:06-05:00
+     Empirical: a(n) = 68*a(n-1) -1804*a(n-2) +24560*a(n-3) -195400*a(n-4) +974752*a(n-5) -3171360*a(n-6)
+ALL ELEVEN STILL EMPIRICAL AND IDENTICAL TO sources.json

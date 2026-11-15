@@ -1,0 +1,14 @@
+[ms303.0] start real 2728/6180, eps 1.89e-03
+[ms303.0] it 1 (9s): real 2728 -> 2736 via LP tr 9.5e-06, eps 1.9e-03, min real d2 1.8e-05
+[ms303.0] it 2 (13s): real 2736 -> 2756 via LP tr 1.4e-04, eps 2.0e-03, min real d2 1.6e-05
+[ms303.0] it 3 (20s): real 2756 -> 2776 via LP tr 6.7e-05, eps 2.0e-03, min real d2 1.3e-05
+[ms303.0] it 4 (25s): real 2776 -> 2792 via LP tr 3.4e-04, eps 1.7e-03, min real d2 1.0e-05
+[ms303.0] it 5 (33s): real 2792 -> 2800 via LP tr 1.3e-04, eps 1.6e-03, min real d2 7.1e-06
+[ms303.0] it 6 (44s): real 2800 -> 2808 via pair LP tr 5.5e-07, eps 1.6e-03, min real d2 2.7e-05
+[ms303.0] it 7 (48s): real 2808 -> 2828 via LP tr 8.2e-04, eps 1.6e-03, min real d2 2.3e-05
+[ms303.0] it 8 (51s): real 2828 -> 2848 via LP tr 7.8e-04, eps 1.5e-03, min real d2 1.3e-04
+[ms303.0] it 9 (59s): real 2848 -> 2856 via LP tr 2.2e-04, eps 1.3e-03, min real d2 4.1e-04
+[ms303.0] it 10 (112s): real 2856 -> 2860 via pair LP tr 7.8e-04, eps 9.5e-04, min real d2 3.0e-04
+[ms303.0] it 11 (209s): no step, tau 2.0e-01, real 2860, pairs 1660, min im2 5.5e-05, max im2 1.2e+10, min real d2 2.2e-04
+[ms303.0] it 12 (339s): no step, tau 8.0e-02, real 2860, pairs 1660, min im2 5.5e-05, max im2 1.2e+10, min real d2 2.2e-04
+[ms303.0] it 13 (438s): no step, tau 3.2e-02, real 2860, pairs 1660, min im2 5.5e-05, max im2 1.2e+10, min real d2 2.2e-04

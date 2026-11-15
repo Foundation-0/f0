@@ -1,0 +1,75 @@
+Collecting lnumber
+  Downloading lnumber-0.20.tar.gz (425 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: lnumber
+  Building wheel for lnumber (pyproject.toml): started
+  Building wheel for lnumber (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for lnumber (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [46 lines of output]
+      /private/var/folders/26/tt22z54s45b9wx307z93pmjw0000gn/T/pip-build-env-c3elzem6/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+      !!
+      
+              ********************************************************************************
+              Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+      
+              By 2027-Feb-18, you need to update your project and remove deprecated calls
+              or your builds will no longer be supported.
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        corresp(dist, value, root_dir)
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.macosx-27.0-arm64-cpython-312/lnumber
+      copying lnumber/__init__.py -> build/lib.macosx-27.0-arm64-cpython-312/lnumber
+      running egg_info
+      writing lnumber.egg-info/PKG-INFO
+      writing dependency_links to lnumber.egg-info/dependency_links.txt
+      writing top-level names to lnumber.egg-info/top_level.txt
+      reading manifest file 'lnumber.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      writing manifest file 'lnumber.egg-info/SOURCES.txt'
+      creating build/lib.macosx-27.0-arm64-cpython-312/bin/win64
+      copying bin/win64/lib_lnumber.dll -> build/lib.macosx-27.0-arm64-cpython-312/bin/win64
+      copying bin/win64/mpir.dll -> build/lib.macosx-27.0-arm64-cpython-312/bin/win64
+      creating build/lib.macosx-27.0-arm64-cpython-312/bin/win32
+      copying bin/win32/lib_lnumber.dll -> build/lib.macosx-27.0-arm64-cpython-312/bin/win32
+      copying bin/win32/mpir.dll -> build/lib.macosx-27.0-arm64-cpython-312/bin/win32
+      creating build/lib.macosx-27.0-arm64-cpython-312/lnumber/inc
+      copying lnumber/inc/laman_number.h -> build/lib.macosx-27.0-arm64-cpython-312/lnumber/inc
+      copying lnumber/inc/lib.h -> build/lib.macosx-27.0-arm64-cpython-312/lnumber/inc
+      copying lnumber/inc/sphere_ln.h -> build/lib.macosx-27.0-arm64-cpython-312/lnumber/inc
+      creating build/lib.macosx-27.0-arm64-cpython-312/lnumber/src
+      copying lnumber/src/laman_number.cpp -> build/lib.macosx-27.0-arm64-cpython-312/lnumber/src
+      copying lnumber/src/lib.cpp -> build/lib.macosx-27.0-arm64-cpython-312/lnumber/src
+      warning: build_py: byte-compiling is disabled, skipping.
+      
+      running build_ext
+      building 'lnumber.lnumber' extension
+      clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -O3 -Wall -Ilnumber/inc -Ilnumber -IS/work/pc-venv/include -I/opt/homebrew/opt/python@3.12/Frameworks/Python.framework/Versions/3.12/include/python3.12 -c lnumber/src/laman_number.cpp -o build/temp.macosx-27.0-arm64-cpython-312/lnumber/src/laman_number.o -std=c++11 -O3 -s -DNDEBUG -DLIBLNUMBER_EXPORTS -flto -fopenmp -m64 -Wall -Wextra -Wno-unknown-pragmas -Wno-sign-compare -fpic
+      clang++: error: unsupported option '-fopenmp'
+      error: Command '['clang++', '-fno-strict-overflow', '-Wsign-compare', '-Wunreachable-code', '-fno-common', '-dynamic', '-DNDEBUG', '-g', '-O3', '-Wall', '-Ilnumber/inc', '-Ilnumber', '-IS/work/pc-venv/include', '-I/opt/homebrew/opt/python@3.12/Frameworks/Python.framework/Versions/3.12/include/python3.12', '-c', 'lnumber/src/laman_number.cpp', '-o', 'build/temp.macosx-27.0-arm64-cpython-312/lnumber/src/laman_number.o', '-std=c++11', '-O3', '-s', '-DNDEBUG', '-DLIBLNUMBER_EXPORTS', '-flto', '-fopenmp', '-m64', '-Wall', '-Wextra', '-Wno-unknown-pragmas', '-Wno-sign-compare', '-fpic']' returned non-zero exit status 1.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for lnumber
+Failed to build lnumber
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: S/work/pc-venv/bin/python3.12 -m pip install --upgrade pip
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> lnumber
+work/pc-venv/bin/pip install lnumber  1.38s user 0.46s system 73% cpu 2.509 total

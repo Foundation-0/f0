@@ -1,0 +1,2 @@
+fold-continuous-fcc: OK (3248 quartics, 16240 exact Bernstein coefficients; 3 controls rejected)
+$P results/fold-continuous-fcc/verify.py  1.48s user 0.04s system 83% cpu 1.834 total

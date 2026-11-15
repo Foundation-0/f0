@@ -1,0 +1,9 @@
+paper max n=6 mine 24 repo 24 repo time 0.0s
+paper max n=7 mine 56 repo 56 repo time 0.0s
+paper max n=8 mine 136 repo 136 repo time 0.1s
+paper max n=9 mine 344 repo 344 repo time 0.2s
+paper max n=10 mine 880 repo 880 repo time 0.9s
+paper max n=11 mine 2288 repo 2288 repo time 4.9s
+code 4778440734593 mine 880 repo 880 repo time 0.8s
+code 18120782205838348 mine 2288 repo 2288 repo time 4.7s
+graphs compared: 80 disagreements: 0

@@ -1,0 +1,40 @@
+[DF1] start real 2280, targets im2 [36.1472998  33.87745128]
+[DF1] (1s) target im2 [11.9848  9.6575], real 2236, eps 6.9e-04
+[DF1] (1s) target im2 [4.0029 2.0856], real 2172, eps 6.4e-04
+[DF1] (2s) target im2 [0.582 0.   ], real 2144, eps 7.1e-04
+[DF1] (3s) target im2 [0.], real 2120, eps 8.2e-04
+[DF1] all targets real, count 2120
+[DF1] start real 2120, eps 8.25e-04
+[DF1] it 1 (0s): real 2120 -> 2128 via LP tr 4.1e-05, eps 7.8e-04, min real d2 2.7e-05
+[DF1] it 2 (1s): real 2128 -> 2136 via LP tr 5.9e-05, eps 7.4e-04, min real d2 1.0e-04
+[DF1] it 6 (4s): real 2136 -> 2148 via LP tr 2.3e-04, eps 3.8e-04, min real d2 2.3e-04
+[DF1] it 9 (7s): real 2148 -> 2160 via LP tr 3.7e-04, eps 8.3e-04, min real d2 1.6e-04
+[DF1] it 10 (7s): real 2160 -> 2164 via LP tr 4.1e-04, eps 7.0e-04, min real d2 1.7e-04
+[DF1] it 11 (9s): real 2164 -> 2188 via LP tr 3.5e-04, eps 5.8e-04, min real d2 1.7e-04
+[DF1] it 12 (19s): no step, tau -> 2.0e-01, real 2188, pairs 25, min im2 2.5e-02, min real d2 1.6e-04
+[DF1] it 14 (22s): real 2188 -> 2192 via LP tr 1.7e-04, eps 4.0e-04, min real d2 3.2e-05
+[DF1] it 15 (25s): real 2192 -> 2220 via LP tr 1.8e-04, eps 2.2e-04, min real d2 1.4e-04
+[DF1] it 16 (27s): real 2220 -> 2236 via LP tr 1.1e-04, eps 1.3e-04, min real d2 5.0e-04
+[DF1] it 17 (29s): real 2236 -> 2240 via LP tr 6.7e-05, eps 9.7e-05, min real d2 4.2e-04
+[DF1] it 18 (33s): real 2240 -> 2244 via LP tr 4.9e-05, eps 6.0e-05, min real d2 2.9e-04
+[DF1] it 20 (43s): real 2244 -> 2256 via LP tr 7.6e-06, eps 4.7e-05, min real d2 1.6e-04
+[DF1] it 21 (57s): real 2256 -> 2268 via pair LP tr 8.5e-08, eps 4.7e-05, min real d2 1.2e-04
+[DF1] it 22 (64s): real 2268 -> 2280 via LP tr 2.4e-06, eps 4.9e-05, min real d2 1.4e-04
+[DF1] it 23 (76s): no step, tau -> 2.0e-01, real 2280, pairs 2, min im2 3.7e-03, min real d2 1.0e-04
+[DF1] it 24 (87s): no step, tau -> 8.0e-02, real 2280, pairs 2, min im2 3.7e-03, min real d2 1.0e-04
+[DF1] it 25 (98s): no step, tau -> 3.2e-02, real 2280, pairs 2, min im2 3.7e-03, min real d2 1.0e-04
+[DF1] it 26 (106s): no step, tau -> 1.3e-02, real 2280, pairs 2, min im2 3.7e-03, min real d2 1.0e-04
+[DF1] it 28 (114s): no step, tau -> 7.7e-03, real 2280, pairs 2, min im2 2.9e-03, min real d2 7.6e-05
+[DF1] it 32 (126s): no step, tau -> 1.0e-02, real 2280, pairs 2, min im2 1.4e-03, min real d2 2.8e-05
+[DF1] it 36 (142s): no step, tau -> 1.4e-02, real 2280, pairs 2, min im2 6.3e-04, min real d2 1.1e-05
+[DF1] it 38 (154s): no step, tau -> 8.4e-03, real 2280, pairs 2, min im2 4.8e-04, min real d2 7.7e-06
+[DF1] it 39 (161s): no step, tau -> 3.4e-03, real 2280, pairs 2, min im2 4.8e-04, min real d2 7.7e-06
+[DF1] it 41 (169s): no step, tau -> 2.0e-03, real 2280, pairs 2, min im2 4.1e-04, min real d2 6.9e-06
+[DF1] it 43 (175s): no step, tau -> 1.2e-03, real 2280, pairs 2, min im2 2.8e-04, min real d2 5.0e-06
+[DF1] it 44 (180s): no step, tau -> 4.8e-04, real 2280, pairs 2, min im2 2.8e-04, min real d2 5.0e-06
+[DF1] it 47 (189s): no step, tau -> 4.4e-04, real 2280, pairs 2, min im2 1.7e-04, min real d2 3.6e-06
+[DF1] it 50 (196s): no step, tau -> 3.9e-04, real 2280, pairs 2, min im2 1.1e-05, min real d2 1.9e-06
+[DF1] it 51 (201s): no step, tau -> 1.6e-04, real 2280, pairs 2, min im2 1.1e-05, min real d2 1.9e-06
+[DF1] it 52 (207s): no step, tau -> 6.3e-05, real 2280, pairs 2, min im2 1.1e-05, min real d2 1.9e-06
+[DF1] stuck
+[DF1] done best 2280 after 207s

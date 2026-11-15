@@ -1,0 +1,109 @@
+269011 T(n,k)=Number of nXk binary arrays with some element plus some horizontally, diagonally or antidiagonally adja
+269012 Number of 2 X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269013 Number of 3 X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269014 Number of 4 X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269015 Number of 5Xn binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269016 Number of 6Xn binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269017 Number of 7Xn binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269018 Primes p of the form 2^k + 2*(-1)^k - 1.
+269019 a(n) = 2^n + 2*(-1)^n - 1.
+269020 a(n) = ceiling(n^(1+1/n)).
+269021 Number of permutations of [2n] containing an increasing subsequence of length n.
+269022 Primes p such that sigma(p)/pi(p) is prime.
+269023 Complement of A269020: numbers not of the form ceiling(n^(1+1/n)).
+269024 a(n) = A269020(n) - n.
+269025 a(n) = Sum_{k = 0..n} 60^k.
+269026 a(1)=1; for n>1, define a sequence {b(m), m >= 1} by b(1)=a(n-1), b(2)=n, and b(m) = A020639(b(m-2)) + A006530
+269027 Parity of the number of 1's in A039724(n).
+269028 a(n) = 40*a(n - 1) - a(n - 2) for n>1, a(0) = 1, a(1) = 1.
+269029 Number of n X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269030 Number of n X 3 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269031 Number of n X 4 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269032 Number of nX5 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269033 Number of nX6 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269034 Number of nX7 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269035 T(n,k)=Number of nXk 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjace
+269036 Number of 2 X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269037 Number of 3 X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269038 Number of 4Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269039 Number of 5Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269040 Number of 6 X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269041 Number of 7Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269042 Number of permutations of [2n] avoiding the pattern 12...n.
+269043 a(n) is the number of distinct values that can be expressed as prime(n+k) + prime(n-k) in at least 2 different
+269044 a(n) = 13*n + 7.
+269045 Indices k such that A006255(k) != A070229(k); that is, the k-th term of R. L. Graham's sequence is not equal t
+269046 Number of n X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269047 Number of n X 3 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269048 Number of n X 4 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269049 Number of nX5 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269050 Number of n X 6 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269051 Number of nX7 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269052 T(n,k)=Number of nXk 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjace
+269053 Number of 2 X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269054 Number of 3 X n 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269055 Number of 4Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269056 Number of 5Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269057 Number of 6Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269058 Number of 7Xn 0..2 arrays with some element plus some horizontally, diagonally or antidiagonally adjacent neig
+269059 Construct a hollow square of 1's of side n and fill its interior with 0's to create a stack of n binary number
+269060 Magic sums of 3 X 3 semimagic squares composed of positive triangular numbers.
+269061 Magic sums of 3 X 3 semimagic squares composed of positive squares.
+269062 Magic sums of 3 X 3 semimagic squares composed of positive triangular numbers and squares.
+269063 Decimal expansion of the second inflection point of 1/Gamma(x) on the interval x=[0,infinity).
+269064 At stage 1, start with a unit equilateral triangle. At each successive stage add 3*(n-1) new triangles around 
+269065 Irregular triangle read by rows: row n lists divisors of n-th composite number.
+269066 Five-digit primes whose first, third, and fifth digits are the same.
+269067 Numerator of the volume of d dimensional symmetric convex cuboid with constraints |x1 + x2 + ... xd| <= 1 and 
+269068 a(n+2) = a(n+1) + L(n+1)*a(n), where L = Lucas number (A000032) and a(0) = a(1) = 1.
+269069 Number of n X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269070 Number of n X 3 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269071 Number of n X 4 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269072 Number of nX5 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269073 Number of nX6 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269074 Number of nX7 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269075 T(n,k)=Number of nXk binary arrays with some element plus some horizontally, diagonally or antidiagonally adja
+269076 Number of 2 X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269077 Number of 3 X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269078 Number of 4 X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269079 Number of 5Xn binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269080 Number of 6Xn binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269081 Number of 7Xn binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269082 Number of n X n binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent 
+269083 Number of n X 2 binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent 
+269084 Number of n X 3 binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent 
+269085 Number of nX4 binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent ne
+269086 Number of nX5 binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent ne
+269087 Number of nX6 binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent ne
+269088 Number of nX7 binary arrays with some element plus some horizontally, vertically or antidiagonally adjacent ne
+269089 T(n,k)=Number of nXk binary arrays with some element plus some horizontally, vertically or antidiagonally adja
+269090 Number of n X n 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269091 Number of n X 2 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269092 Number of n X 3 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269093 Number of nX4 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling t
+269094 Number of nX5 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling t
+269095 Number of nX6 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling t
+269096 Number of nX7 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling t
+269097 T(n,k) = Number of n X k 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor 
+269098 Expansion of (1 + 2*x + 3*x^2 + x^3 + x^5)/(1 - x^3)^2.
+269099 Numbers n with the property that if there is a number j with prime(n+i) + prime(n-i) = j for some i, then ther
+269100 a(n) = 13*n + 11.
+269101 Numbers of circles with the largest possible sum of radii packed inside an ellipse admitting circular solution
+269102 Number of n X n 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269103 Number of n X 2 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269104 Number of n X 3 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269105 Number of nX4 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling t
+269106 Number of n X 5 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269107 Number of nX6 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling t
+269108 Number of n X 7 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor totalling
+269109 T(n,k)=Number of nXk 0..3 arrays with some element plus some horizontally or vertically adjacent neighbor tota
+269110 Numbers of unit circles packed in a triangle of smallest area admitting an equilateral triangle solution.
+269111 a(n) = length of the repeating part of row n of A288097.
+269112 a(n) = (3*(n-1)*n + (-1)^((n-1)*n/2) + 5)/2.
+269113 Number of sequences with 3 copies each of 1,2,...,n avoiding the pattern 12...n.
+269114 Number of sequences with 4 copies each of 1,2,...,n avoiding the pattern 12...n.
+269115 Number of sequences with 5 copies each of 1,2,...,n avoiding the pattern 12...n.
+269116 Number of sequences with 6 copies each of 1,2,...,n avoiding the pattern 12...n.
+269117 Number of sequences with 7 copies each of 1,2,...,n avoiding the pattern 12...n.
+269118 Number of sequences with 8 copies each of 1,2,...,n avoiding the pattern 12...n.
+269119 Number of sequences with 9 copies each of 1,2,...,n avoiding the pattern 12...n.

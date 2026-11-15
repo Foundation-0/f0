@@ -1,0 +1,273 @@
+[ms101.0] start real 1848, eps 1.95e-03
+[ms101.0] it 1 (0s): real 1848 -> 1892 via LP tr 9.7e-05, eps 1.9e-03, min real d2 3.9e-03
+[ms101.0] it 2 (1s): real 1892 -> 1956 via LP tr 1.4e-04, eps 1.9e-03, min real d2 4.5e-03
+[ms101.0] it 3 (1s): real 1956 -> 1984 via LP tr 2.1e-04, eps 2.1e-03, min real d2 4.2e-03
+[ms101.0] it 4 (2s): real 1984 -> 2000 via LP tr 3.5e-04, eps 2.4e-03, min real d2 5.4e-03
+[ms101.0] it 5 (2s): real 2000 -> 2028 via LP tr 6.1e-04, eps 3.0e-03, min real d2 1.3e-05
+[ms101.0] it 6 (3s): real 2028 -> 2040 via LP tr 1.1e-03, eps 3.5e-03, min real d2 8.1e-03
+[ms101.0] it 7 (3s): real 2040 -> 2052 via LP tr 1.8e-03, eps 5.3e-03, min real d2 7.9e-03
+[ms101.0] it 8 (4s): real 2052 -> 2056 via LP tr 2.6e-03, eps 5.9e-03, min real d2 8.2e-03
+[ms101.0] it 9 (4s): real 2056 -> 2068 via LP tr 2.9e-03, eps 4.7e-03, min real d2 8.3e-03
+[ms101.0] it 10 (5s): real 2068 -> 2072 via LP tr 2.4e-03, eps 4.4e-03, min real d2 5.0e-03
+[ms101.0] it 11 (5s): real 2072 -> 2108 via LP tr 2.2e-03, eps 4.8e-03, min real d2 4.9e-03
+[ms101.0] it 13 (6s): real 2108 -> 2120 via LP tr 3.3e-03, eps 6.0e-03, min real d2 3.8e-03
+[ms101.0] it 14 (7s): real 2120 -> 2124 via LP tr 3.0e-03, eps 4.1e-03, min real d2 2.7e-03
+[ms101.0] it 15 (7s): real 2124 -> 2144 via LP tr 2.0e-03, eps 2.7e-03, min real d2 2.4e-03
+[ms101.0] it 16 (8s): real 2144 -> 2156 via LP tr 1.3e-03, eps 2.0e-03, min real d2 1.6e-03
+[ms101.0] it 17 (9s): real 2156 -> 2184 via LP tr 1.0e-03, eps 1.4e-03, min real d2 2.0e-03
+[ms101.0] it 19 (10s): real 2184 -> 2188 via LP tr 6.1e-04, eps 1.1e-03, min real d2 3.3e-04
+[ms101.0] it 23 (12s): real 2188 -> 2192 via LP tr 5.8e-04, eps 1.1e-03, min real d2 5.6e-05
+[ms101.0] it 24 (12s): real 2192 -> 2220 via LP tr 5.5e-04, eps 1.2e-03, min real d2 3.4e-05
+[ms101.0] it 26 (14s): real 2220 -> 2224 via pair LP tr 4.5e-08, eps 1.5e-03, min real d2 5.5e-04
+[ms101.0] it 27 (15s): real 2224 -> 2232 via LP tr 7.4e-04, eps 1.4e-03, min real d2 1.7e-04
+[ms101.0] it 28 (16s): real 2232 -> 2236 via LP tr 6.9e-05, eps 1.4e-03, min real d2 5.2e-04
+[ms101.0] it 31 (19s): real 2236 -> 2248 via LP tr 5.6e-04, eps 6.5e-04, min real d2 2.5e-04
+[ms101.0] it 33 (21s): real 2248 -> 2252 via pair LP tr 3.9e-07, eps 7.7e-04, min real d2 7.3e-05
+[ms101.0] it 34 (30s): no step, tau -> 2.0e-01, real 2252, pairs 9, min im2 2.6e-02, min real d2 8.5e-05
+[ms101.0] it 35 (37s): no step, tau -> 8.0e-02, real 2252, pairs 9, min im2 2.6e-02, min real d2 8.5e-05
+[ms101.0] it 36 (38s): real 2252 -> 2256 via LP tr 6.2e-06, eps 7.8e-04, min real d2 8.5e-05
+[ms101.0] it 38 (40s): real 2256 -> 2260 via LP tr 1.6e-04, eps 7.5e-04, min real d2 4.9e-05
+[ms101.0] it 39 (42s): real 2260 -> 2264 via pair LP tr 4.6e-07, eps 7.5e-04, min real d2 3.4e-05
+[ms101.0] it 40 (49s): no step, tau -> 1.6e-01, real 2264, pairs 6, min im2 4.8e-03, min real d2 4.0e-05
+[ms101.0] it 41 (56s): no step, tau -> 6.5e-02, real 2264, pairs 6, min im2 4.8e-03, min real d2 4.0e-05
+[ms101.0] it 43 (59s): real 2264 -> 2268 via pair LP tr 1.0e-05, eps 7.6e-04, min real d2 3.0e-05
+[ms101.0] it 44 (65s): no step, tau -> 5.8e-02, real 2268, pairs 5, min im2 5.2e-02, min real d2 2.3e-05
+[ms101.0] it 46 (72s): no step, tau -> 3.5e-02, real 2268, pairs 5, min im2 4.4e-02, min real d2 1.6e-05
+[ms101.0] it 47 (77s): no step, tau -> 1.4e-02, real 2268, pairs 5, min im2 4.4e-02, min real d2 1.6e-05
+[ms101.0] it 50 (79s): real 2268 -> 2272 via LP tr 2.4e-05, eps 7.3e-04, min real d2 1.5e-05
+[ms101.0] it 51 (81s): real 2272 -> 2276 via pair LP tr 1.7e-07, eps 7.3e-04, min real d2 1.7e-05
+[ms101.0] it 52 (86s): no step, tau -> 2.8e-02, real 2276, pairs 3, min im2 5.9e-01, min real d2 2.3e-05
+[ms101.0] it 53 (89s): no step, tau -> 1.1e-02, real 2276, pairs 3, min im2 5.9e-01, min real d2 2.3e-05
+[ms101.0] it 54 (93s): no step, tau -> 4.5e-03, real 2276, pairs 3, min im2 5.9e-01, min real d2 2.3e-05
+[ms101.0] it 55 (96s): no step, tau -> 1.8e-03, real 2276, pairs 3, min im2 5.9e-01, min real d2 2.3e-05
+[ms101.0] it 61 (99s): real 2276 -> 2280 via LP tr 9.9e-06, eps 7.3e-04, min real d2 1.6e-05
+[ms101.0] it 63 (104s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 3.2e+01, min real d2 1.2e-05
+[ms101.0] it 69 (115s): no step, tau -> 3.8e-02, real 2280, pairs 2, min im2 2.1e+01, min real d2 6.8e-06
+[ms101.0] it 71 (121s): no step, tau -> 2.3e-02, real 2280, pairs 2, min im2 2.0e+01, min real d2 6.1e-06
+[ms101.0] it 76 (133s): no step, tau -> 4.6e-02, real 2280, pairs 2, min im2 1.7e+01, min real d2 3.9e-06
+[ms101.0] it 77 (137s): no step, tau -> 1.8e-02, real 2280, pairs 2, min im2 1.7e+01, min real d2 3.9e-06
+[ms101.0] it 80 (144s): no step, tau -> 1.6e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 3.2e-06
+[ms101.0] it 82 (149s): no step, tau -> 9.9e-03, real 2280, pairs 2, min im2 1.6e+01, min real d2 3.0e-06
+[ms101.0] it 85 (155s): no step, tau -> 8.9e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 1.7e-06
+[ms101.0] it 88 (161s): no step, tau -> 8.0e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 9.5e-07
+[ms101.0] it 90 (165s): no step, tau -> 4.8e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 7.3e-07
+[ms101.0] it 93 (169s): no step, tau -> 4.3e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 4.2e-07
+[ms101.0] it 99 (180s): no step, tau -> 1.3e-02, real 2280, pairs 2, min im2 1.4e+01, min real d2 7.7e-08
+[ms101.0] it 100 (184s): no step, tau -> 5.3e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 7.7e-08
+[ms101.0] it 101 (189s): no step, tau -> 2.1e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 7.7e-08
+[ms101.0] it 102 (192s): no step, tau -> 8.4e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 7.7e-08
+[ms101.0] it 103 (195s): no step, tau -> 3.4e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 7.7e-08
+[ms101.0] it 107 (200s): no step, tau -> 4.5e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 9.0e-08
+[ms101.0] it 108 (202s): no step, tau -> 1.8e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 9.0e-08
+[ms101.0] it 113 (208s): no step, tau -> 3.7e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 9.9e-08
+[ms101.0] it 115 (211s): no step, tau -> 2.2e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 6.9e-08
+[ms101.0] it 119 (216s): no step, tau -> 3.0e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 8.2e-08
+[ms101.0] it 121 (220s): no step, tau -> 1.8e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 5.7e-08
+[ms101.0] it 124 (224s): no step, tau -> 1.6e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 4.7e-08
+[ms101.0] it 130 (232s): no step, tau -> 4.9e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 3.0e-08
+[ms101.0] it 131 (237s): no step, tau -> 2.0e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 3.0e-08
+[ms101.0] it 133 (244s): no step, tau -> 1.2e-04, real 2280, pairs 2, min im2 1.4e+01, min real d2 2.1e-08
+[ms101.0] done best 2280 after 244s
+[ms101.0] start 1848 -> best 2280
+[ms101.1] start real 1808, eps 1.94e-03
+[ms101.1] it 1 (0s): real 1808 -> 1836 via LP tr 9.7e-05, eps 1.9e-03, min real d2 4.9e-03
+[ms101.1] it 2 (1s): real 1836 -> 1864 via LP tr 1.4e-04, eps 2.1e-03, min real d2 3.7e-03
+[ms101.1] it 3 (1s): real 1864 -> 1872 via LP tr 2.3e-04, eps 1.9e-03, min real d2 3.2e-03
+[ms101.1] it 4 (2s): real 1872 -> 1888 via LP tr 3.2e-04, eps 2.1e-03, min real d2 2.0e-03
+[ms101.1] it 5 (2s): real 1888 -> 1944 via LP tr 5.3e-04, eps 1.6e-03, min real d2 1.7e-03
+[ms101.1] it 7 (4s): real 1944 -> 1980 via LP tr 1.1e-03, eps 1.2e-03, min real d2 4.6e-04
+[ms101.1] it 8 (5s): real 1980 -> 2000 via LP tr 5.8e-04, eps 8.6e-04, min real d2 9.7e-04
+[ms101.1] it 9 (6s): real 2000 -> 2004 via LP tr 4.3e-04, eps 1.1e-03, min real d2 7.9e-03
+[ms101.1] it 10 (7s): real 2004 -> 2012 via LP tr 5.5e-04, eps 1.6e-03, min real d2 9.7e-04
+[ms101.1] it 12 (8s): real 2012 -> 2016 via LP tr 6.0e-04, eps 1.5e-03, min real d2 7.7e-03
+[ms101.1] it 13 (9s): real 2016 -> 2020 via LP tr 7.6e-04, eps 1.9e-03, min real d2 8.4e-03
+[ms101.1] it 15 (10s): real 2020 -> 2028 via LP tr 1.2e-03, eps 1.8e-03, min real d2 5.2e-03
+[ms101.1] it 16 (11s): real 2028 -> 2056 via LP tr 9.0e-04, eps 1.4e-03, min real d2 3.2e-03
+[ms101.1] it 18 (14s): real 2056 -> 2060 via pair LP tr 2.2e-06, eps 1.2e-03, min real d2 1.5e-03
+[ms101.1] it 19 (15s): real 2060 -> 2064 via LP tr 5.8e-04, eps 9.3e-04, min real d2 2.1e-03
+[ms101.1] it 20 (15s): real 2064 -> 2076 via LP tr 4.6e-04, eps 7.0e-04, min real d2 1.4e-03
+[ms101.1] it 21 (16s): real 2076 -> 2080 via LP tr 3.5e-04, eps 5.3e-04, min real d2 9.0e-04
+[ms101.1] it 22 (17s): real 2080 -> 2084 via LP tr 2.6e-04, eps 7.9e-04, min real d2 5.8e-04
+[ms101.1] it 23 (18s): real 2084 -> 2088 via pair LP tr 2.7e-06, eps 7.9e-04, min real d2 4.8e-04
+[ms101.1] it 25 (20s): real 2088 -> 2100 via LP tr 3.2e-04, eps 4.8e-04, min real d2 3.3e-04
+[ms101.1] it 27 (23s): real 2100 -> 2104 via LP tr 2.4e-04, eps 5.3e-04, min real d2 1.5e-04
+[ms101.1] it 28 (23s): real 2104 -> 2112 via LP tr 2.6e-04, eps 6.5e-04, min real d2 1.1e-04
+[ms101.1] it 29 (24s): real 2112 -> 2116 via LP tr 3.2e-04, eps 4.6e-04, min real d2 8.1e-05
+[ms101.1] it 30 (25s): real 2116 -> 2120 via LP tr 2.3e-04, eps 4.2e-04, min real d2 4.0e-05
+[ms101.1] it 32 (26s): real 2120 -> 2156 via LP tr 1.9e-04, eps 2.2e-04, min real d2 1.5e-04
+[ms101.1] it 33 (30s): real 2156 -> 2160 via LP tr 3.3e-05, eps 1.8e-04, min real d2 4.4e-05
+[ms101.1] it 34 (31s): real 2160 -> 2164 via LP tr 9.2e-05, eps 2.8e-04, min real d2 6.4e-05
+[ms101.1] it 35 (31s): real 2164 -> 2172 via LP tr 1.4e-04, eps 1.9e-04, min real d2 4.7e-05
+[ms101.1] it 37 (33s): real 2172 -> 2180 via LP tr 1.4e-04, eps 4.2e-04, min real d2 5.9e-05
+[ms101.1] it 40 (35s): real 2180 -> 2184 via LP tr 1.6e-04, eps 2.9e-04, min real d2 7.3e-05
+[ms101.1] it 42 (38s): real 2184 -> 2188 via LP tr 1.1e-04, eps 1.4e-04, min real d2 1.8e-05
+[ms101.1] it 43 (41s): real 2188 -> 2192 via pair LP tr 1.0e-07, eps 1.4e-04, min real d2 1.5e-04
+[ms101.1] it 45 (47s): real 2192 -> 2196 via LP tr 6.1e-05, eps 6.1e-05, min real d2 1.3e-04
+[ms101.1] it 46 (50s): real 2196 -> 2200 via pair LP tr 1.6e-08, eps 6.1e-05, min real d2 1.3e-04
+[ms101.1] it 47 (51s): real 2200 -> 2204 via LP tr 3.1e-05, eps 3.1e-05, min real d2 1.3e-04
+[ms101.1] it 50 (62s): real 2204 -> 2208 via LP tr 9.9e-07, eps 1.9e-05, min real d2 5.0e-05
+[ms101.1] it 51 (66s): real 2208 -> 2212 via LP tr 9.4e-07, eps 1.8e-05, min real d2 3.6e-05
+[ms101.1] it 52 (71s): real 2212 -> 2216 via pair LP tr 6.8e-08, eps 1.8e-05, min real d2 2.5e-05
+[ms101.1] it 53 (101s): no step, tau -> 2.0e-01, real 2216, pairs 18, min im2 7.8e-02, min real d2 1.8e-05
+[ms101.1] it 54 (127s): no step, tau -> 8.0e-02, real 2216, pairs 18, min im2 7.8e-02, min real d2 1.8e-05
+[ms101.1] it 57 (150s): no step, tau -> 7.2e-02, real 2216, pairs 18, min im2 2.5e-02, min real d2 1.6e-05
+[ms101.1] it 59 (172s): no step, tau -> 4.3e-02, real 2216, pairs 18, min im2 3.6e-03, min real d2 1.2e-05
+[ms101.1] it 60 (174s): real 2216 -> 2232 via LP tr 2.1e-07, eps 1.6e-05, min real d2 1.2e-05
+[ms101.1] it 61 (197s): no step, tau -> 2.6e-02, real 2232, pairs 14, min im2 1.5e-03, min real d2 9.1e-06
+[ms101.1] it 62 (201s): real 2232 -> 2236 via pair LP tr 4.2e-09, eps 1.6e-05, min real d2 9.1e-06
+[ms101.1] it 63 (223s): no step, tau -> 1.6e-02, real 2236, pairs 13, min im2 5.3e-01, min real d2 8.3e-06
+[ms101.1] it 65 (244s): no step, tau -> 9.3e-03, real 2236, pairs 13, min im2 5.3e-01, min real d2 6.0e-06
+[ms101.1] done best 2236 after 244s
+[ms101.1] start 1808 -> best 2236
+[ms101.2] start real 1980, eps 1.93e-03
+[ms101.2] it 1 (0s): real 1980 -> 1996 via LP tr 9.7e-05, eps 2.0e-03, min real d2 1.1e-04
+[ms101.2] it 2 (1s): real 1996 -> 2020 via LP tr 1.5e-04, eps 1.9e-03, min real d2 1.0e-03
+[ms101.2] it 3 (1s): real 2020 -> 2036 via LP tr 2.1e-04, eps 1.7e-03, min real d2 8.2e-04
+[ms101.2] it 5 (4s): real 2036 -> 2068 via LP tr 4.5e-04, eps 1.3e-03, min real d2 3.9e-04
+[ms101.2] it 7 (6s): real 2068 -> 2076 via LP tr 4.2e-04, eps 5.1e-04, min real d2 3.8e-04
+[ms101.2] it 8 (8s): real 2076 -> 2096 via LP tr 2.6e-04, eps 2.6e-04, min real d2 1.7e-04
+[ms101.2] it 9 (8s): real 2096 -> 2100 via LP tr 1.3e-04, eps 2.5e-04, min real d2 9.4e-05
+[ms101.2] it 10 (9s): real 2100 -> 2104 via LP tr 1.3e-04, eps 3.7e-04, min real d2 1.3e-04
+[ms101.2] it 11 (11s): real 2104 -> 2108 via LP tr 1.9e-04, eps 2.5e-04, min real d2 1.7e-04
+[ms101.2] it 12 (12s): real 2108 -> 2112 via LP tr 1.3e-04, eps 1.3e-04, min real d2 1.2e-04
+[ms101.2] it 13 (13s): real 2112 -> 2156 via LP tr 6.3e-05, eps 6.3e-05, min real d2 7.8e-05
+[ms101.2] it 17 (30s): real 2156 -> 2160 via LP tr 6.5e-06, eps 3.7e-05, min real d2 1.4e-05
+[ms101.2] it 18 (58s): no step, tau -> 2.0e-01, real 2160, pairs 32, min im2 1.5e-04, min real d2 1.0e-05
+[ms101.2] it 20 (92s): real 2160 -> 2164 via pair LP tr 2.8e-06, eps 3.9e-05, min real d2 8.8e-06
+[ms101.2] it 21 (112s): real 2164 -> 2172 via pair LP tr 3.6e-08, eps 3.9e-05, min real d2 7.1e-06
+[ms101.2] it 22 (143s): no step, tau -> 2.0e-01, real 2172, pairs 29, min im2 1.2e-02, min real d2 6.7e-06
+[ms101.2] it 23 (178s): no step, tau -> 8.0e-02, real 2172, pairs 29, min im2 1.2e-02, min real d2 6.7e-06
+[ms101.2] it 24 (201s): no step, tau -> 3.2e-02, real 2172, pairs 29, min im2 1.2e-02, min real d2 6.7e-06
+[ms101.2] it 25 (202s): real 2172 -> 2180 via LP tr 1.2e-06, eps 3.9e-05, min real d2 6.7e-06
+[ms101.2] it 27 (230s): no step, tau -> 2.9e-02, real 2180, pairs 27, min im2 9.6e-03, min real d2 9.0e-06
+[ms101.2] it 29 (234s): real 2180 -> 2192 via LP tr 1.7e-06, eps 3.9e-05, min real d2 8.6e-06
+[ms101.2] it 30 (256s): no step, tau -> 2.6e-02, real 2192, pairs 24, min im2 7.2e-03, min real d2 8.4e-06
+[ms101.2] done best 2192 after 256s
+[ms101.2] start 1980 -> best 2192
+[ms101.3] start real 1592, eps 1.96e-03
+[ms101.3] it 1 (0s): real 1592 -> 1632 via LP tr 9.8e-05, eps 1.9e-03, min real d2 1.1e-03
+[ms101.3] it 2 (1s): real 1632 -> 1744 via LP tr 1.4e-04, eps 1.8e-03, min real d2 7.6e-04
+[ms101.3] it 3 (1s): real 1744 -> 1800 via LP tr 2.1e-04, eps 1.8e-03, min real d2 3.9e-03
+[ms101.3] it 4 (2s): real 1800 -> 1828 via LP tr 3.0e-04, eps 1.5e-03, min real d2 5.1e-03
+[ms101.3] it 5 (2s): real 1828 -> 1852 via LP tr 3.8e-04, eps 1.2e-03, min real d2 3.3e-03
+[ms101.3] it 6 (3s): real 1852 -> 1904 via LP tr 4.5e-04, eps 1.6e-03, min real d2 2.8e-03
+[ms101.3] it 7 (4s): real 1904 -> 1916 via LP tr 8.2e-04, eps 1.5e-03, min real d2 2.3e-03
+[ms101.3] it 8 (5s): real 1916 -> 1940 via LP tr 7.3e-04, eps 8.9e-04, min real d2 1.5e-03
+[ms101.3] it 9 (6s): real 1940 -> 1968 via LP tr 4.5e-04, eps 4.5e-04, min real d2 1.6e-03
+[ms101.3] it 10 (6s): real 1968 -> 1976 via LP tr 2.2e-04, eps 3.4e-04, min real d2 2.4e-04
+[ms101.3] it 12 (11s): real 1976 -> 1992 via LP tr 2.6e-05, eps 1.5e-04, min real d2 1.1e-04
+[ms101.3] it 13 (13s): real 1992 -> 2012 via LP tr 7.3e-05, eps 7.3e-05, min real d2 9.2e-05
+[ms101.3] it 15 (21s): real 2012 -> 2016 via LP tr 9.3e-06, eps 5.3e-05, min real d2 2.0e-04
+[ms101.3] it 16 (26s): real 2016 -> 2028 via LP tr 2.6e-06, eps 5.0e-05, min real d2 1.5e-04
+[ms101.3] it 17 (30s): real 2028 -> 2032 via LP tr 2.5e-06, eps 5.3e-05, min real d2 1.0e-04
+[ms101.3] it 18 (38s): real 2032 -> 2036 via pair LP tr 1.3e-08, eps 5.2e-05, min real d2 1.2e-04
+[ms101.3] it 19 (39s): real 2036 -> 2040 via LP tr 2.6e-05, eps 4.8e-05, min real d2 8.9e-05
+[ms101.3] it 20 (46s): real 2040 -> 2056 via pair LP tr 9.3e-08, eps 4.8e-05, min real d2 1.1e-04
+[ms101.3] it 21 (51s): real 2056 -> 2064 via LP tr 2.4e-06, eps 5.0e-05, min real d2 8.1e-05
+[ms101.3] it 22 (56s): real 2064 -> 2068 via pair LP tr 5.4e-07, eps 5.1e-05, min real d2 1.0e-04
+[ms101.3] it 24 (63s): real 2068 -> 2072 via LP tr 2.9e-06, eps 6.1e-05, min real d2 6.3e-05
+[ms101.3] it 25 (67s): real 2072 -> 2080 via LP tr 9.2e-06, eps 7.1e-05, min real d2 5.4e-05
+[ms101.3] it 27 (71s): real 2080 -> 2084 via LP tr 3.6e-06, eps 7.5e-05, min real d2 5.4e-05
+[ms101.3] it 28 (90s): no step, tau -> 2.0e-01, real 2084, pairs 51, min im2 8.2e-02, min real d2 4.9e-05
+[ms101.3] it 31 (100s): real 2084 -> 2088 via LP tr 3.1e-06, eps 6.5e-05, min real d2 2.4e-05
+[ms101.3] it 33 (106s): real 2088 -> 2092 via LP tr 8.3e-06, eps 5.2e-05, min real d2 1.1e-05
+[ms101.3] it 34 (130s): no step, tau -> 2.0e-01, real 2092, pairs 49, min im2 6.9e-02, min real d2 7.0e-06
+[ms101.3] it 36 (162s): no step, tau -> 1.2e-01, real 2092, pairs 49, min im2 5.4e-02, min real d2 4.6e-06
+[ms101.3] it 38 (193s): no step, tau -> 7.2e-02, real 2092, pairs 49, min im2 4.4e-02, min real d2 3.2e-06
+[ms101.3] it 40 (221s): no step, tau -> 4.3e-02, real 2092, pairs 49, min im2 3.5e-02, min real d2 2.2e-06
+[ms101.3] it 43 (250s): no step, tau -> 3.9e-02, real 2092, pairs 49, min im2 2.0e-02, min real d2 1.1e-06
+[ms101.3] done best 2092 after 250s
+[ms101.3] start 1592 -> best 2092
+[ms101.4] start real 1624, eps 1.98e-03
+[ms101.4] it 1 (0s): real 1624 -> 1636 via LP tr 9.9e-05, eps 1.9e-03, min real d2 1.1e-03
+[ms101.4] it 2 (1s): real 1636 -> 1708 via LP tr 1.4e-04, eps 1.8e-03, min real d2 7.8e-04
+[ms101.4] it 3 (1s): real 1708 -> 1792 via LP tr 2.0e-04, eps 1.6e-03, min real d2 5.3e-04
+[ms101.4] it 4 (2s): real 1792 -> 1840 via LP tr 2.6e-04, eps 1.3e-03, min real d2 2.6e-03
+[ms101.4] it 5 (2s): real 1840 -> 1856 via LP tr 3.3e-04, eps 1.6e-03, min real d2 2.6e-03
+[ms101.4] it 6 (3s): real 1856 -> 1884 via LP tr 6.2e-04, eps 1.6e-03, min real d2 2.4e-03
+[ms101.4] it 7 (3s): real 1884 -> 1912 via LP tr 7.8e-04, eps 1.9e-03, min real d2 1.7e-03
+[ms101.4] it 8 (4s): real 1912 -> 1928 via LP tr 9.5e-04, eps 9.5e-04, min real d2 1.4e-03
+[ms101.4] it 9 (5s): real 1928 -> 1936 via LP tr 4.7e-04, eps 4.7e-04, min real d2 1.1e-03
+[ms101.4] it 10 (6s): real 1936 -> 1976 via LP tr 2.4e-04, eps 2.5e-04, min real d2 7.2e-04
+[ms101.4] it 11 (7s): real 1976 -> 2008 via LP tr 1.2e-04, eps 1.2e-04, min real d2 2.1e-04
+[ms101.4] it 12 (8s): real 2008 -> 2024 via LP tr 6.2e-05, eps 1.9e-04, min real d2 1.5e-05
+[ms101.4] it 13 (9s): real 2024 -> 2036 via LP tr 9.3e-05, eps 9.3e-05, min real d2 1.3e-03
+[ms101.4] it 14 (11s): real 2036 -> 2040 via LP tr 4.6e-05, eps 4.6e-05, min real d2 1.1e-03
+[ms101.4] it 15 (13s): real 2040 -> 2068 via LP tr 2.3e-05, eps 2.3e-05, min real d2 6.4e-04
+[ms101.4] it 16 (14s): real 2068 -> 2084 via LP tr 1.2e-05, eps 1.2e-05, min real d2 3.5e-04
+[ms101.4] it 17 (16s): real 2084 -> 2092 via LP tr 5.8e-06, eps 5.9e-06, min real d2 2.2e-04
+[ms101.4] it 18 (19s): real 2092 -> 2096 via LP tr 8.8e-07, eps 5.0e-06, min real d2 1.4e-04
+[ms101.4] it 19 (34s): no step, tau -> 2.0e-01, real 2096, pairs 48, min im2 2.5e-02, min real d2 1.0e-04
+[ms101.4] it 20 (47s): no step, tau -> 8.0e-02, real 2096, pairs 48, min im2 2.5e-02, min real d2 1.0e-04
+[ms101.4] it 21 (59s): no step, tau -> 3.2e-02, real 2096, pairs 48, min im2 2.5e-02, min real d2 1.0e-04
+[ms101.4] it 23 (72s): no step, tau -> 1.9e-02, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] it 24 (84s): no step, tau -> 7.7e-03, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] it 25 (95s): no step, tau -> 3.1e-03, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] it 26 (106s): no step, tau -> 1.2e-03, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] it 27 (118s): no step, tau -> 4.9e-04, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] it 28 (130s): no step, tau -> 2.0e-04, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] it 29 (144s): no step, tau -> 7.9e-05, real 2096, pairs 48, min im2 2.1e-02, min real d2 7.7e-05
+[ms101.4] stuck
+[ms101.4] done best 2096 after 144s
+[ms101.4] start 1624 -> best 2096
+[ms101.5] start real 1680, eps 1.99e-03
+[ms101.5] it 1 (0s): real 1680 -> 1788 via LP tr 9.9e-05, eps 2.0e-03, min real d2 5.3e-05
+[ms101.5] it 2 (1s): real 1788 -> 1796 via LP tr 1.5e-04, eps 2.2e-03, min real d2 6.9e-04
+[ms101.5] it 3 (2s): real 1796 -> 1824 via LP tr 2.4e-04, eps 2.4e-03, min real d2 1.1e-03
+[ms101.5] it 4 (2s): real 1824 -> 1848 via LP tr 4.0e-04, eps 2.8e-03, min real d2 1.7e-03
+[ms101.5] it 5 (3s): real 1848 -> 1864 via LP tr 7.0e-04, eps 3.0e-03, min real d2 1.3e-03
+[ms101.5] it 6 (3s): real 1864 -> 1876 via LP tr 1.1e-03, eps 2.7e-03, min real d2 1.0e-03
+[ms101.5] it 7 (4s): real 1876 -> 1908 via LP tr 1.3e-03, eps 2.5e-03, min real d2 1.7e-03
+[ms101.5] it 8 (4s): real 1908 -> 1928 via LP tr 1.2e-03, eps 2.2e-03, min real d2 1.2e-03
+[ms101.5] it 9 (5s): real 1928 -> 1952 via LP tr 1.1e-03, eps 1.3e-03, min real d2 8.6e-04
+[ms101.5] it 10 (6s): real 1952 -> 1992 via LP tr 6.7e-04, eps 7.2e-04, min real d2 5.4e-04
+[ms101.5] it 11 (7s): real 1992 -> 2004 via LP tr 3.6e-04, eps 5.5e-04, min real d2 2.9e-04
+[ms101.5] it 15 (10s): real 2004 -> 2012 via LP tr 7.2e-04, eps 1.8e-03, min real d2 1.4e-04
+[ms101.5] it 16 (11s): real 2012 -> 2020 via LP tr 9.0e-04, eps 1.8e-03, min real d2 1.1e-04
+[ms101.5] it 17 (11s): real 2020 -> 2044 via LP tr 9.1e-04, eps 1.5e-03, min real d2 1.4e-04
+[ms101.5] it 18 (12s): real 2044 -> 2100 via LP tr 7.7e-04, eps 1.7e-03, min real d2 9.5e-05
+[ms101.5] it 19 (12s): real 2100 -> 2108 via LP tr 8.4e-04, eps 1.7e-03, min real d2 1.1e-04
+[ms101.5] it 20 (13s): real 2108 -> 2132 via LP tr 8.7e-04, eps 1.3e-03, min real d2 1.0e-04
+[ms101.5] it 21 (14s): real 2132 -> 2148 via LP tr 6.6e-04, eps 9.5e-04, min real d2 6.6e-05
+[ms101.5] it 22 (15s): real 2148 -> 2168 via LP tr 4.7e-04, eps 8.5e-04, min real d2 4.9e-05
+[ms101.5] it 24 (17s): real 2168 -> 2180 via LP tr 2.3e-04, eps 2.5e-04, min real d2 2.1e-05
+[ms101.5] it 25 (18s): real 2180 -> 2184 via LP tr 1.3e-04, eps 1.3e-04, min real d2 2.3e-05
+[ms101.5] it 26 (21s): real 2184 -> 2200 via LP tr 6.5e-05, eps 6.5e-05, min real d2 1.2e-05
+[ms101.5] it 27 (22s): real 2200 -> 2204 via LP tr 3.2e-05, eps 9.7e-05, min real d2 5.6e-06
+[ms101.5] it 29 (29s): real 2204 -> 2220 via LP tr 2.2e-05, eps 1.2e-04, min real d2 2.3e-05
+[ms101.5] it 30 (36s): real 2220 -> 2224 via pair LP tr 5.1e-06, eps 1.3e-04, min real d2 3.0e-05
+[ms101.5] it 33 (40s): real 2224 -> 2232 via LP tr 1.4e-04, eps 4.3e-04, min real d2 1.4e-05
+[ms101.5] it 35 (42s): real 2232 -> 2236 via LP tr 1.5e-04, eps 2.2e-04, min real d2 6.7e-06
+[ms101.5] it 39 (45s): real 2236 -> 2240 via LP tr 7.3e-05, eps 1.1e-04, min real d2 1.4e-06
+[ms101.5] it 45 (83s): no step, tau -> 2.0e-01, real 2240, pairs 12, min im2 5.6e-02, min real d2 1.2e-07
+[ms101.5] it 47 (112s): no step, tau -> 1.2e-01, real 2240, pairs 12, min im2 2.6e-02, min real d2 8.0e-08
+[ms101.5] it 48 (141s): no step, tau -> 4.8e-02, real 2240, pairs 12, min im2 2.6e-02, min real d2 8.0e-08
+[ms101.5] it 49 (166s): no step, tau -> 1.9e-02, real 2240, pairs 12, min im2 2.6e-02, min real d2 8.0e-08
+[ms101.5] it 50 (185s): no step, tau -> 7.7e-03, real 2240, pairs 12, min im2 2.6e-02, min real d2 8.0e-08
+[ms101.5] it 51 (202s): no step, tau -> 3.1e-03, real 2240, pairs 12, min im2 2.6e-02, min real d2 8.0e-08
+[ms101.5] it 53 (206s): real 2240 -> 2244 via pair LP tr 6.9e-09, eps 2.8e-05, min real d2 5.7e-08
+[ms101.5] it 54 (224s): no step, tau -> 2.8e-03, real 2244, pairs 11, min im2 1.4e-01, min real d2 4.1e-08
+[ms101.5] it 58 (246s): no step, tau -> 3.7e-03, real 2244, pairs 11, min im2 1.4e-01, min real d2 2.0e-08
+[ms101.5] done best 2244 after 246s
+[ms101.5] start 1680 -> best 2244
+[ms101.6] start real 1720, eps 1.92e-03
+[ms101.6] it 1 (0s): real 1720 -> 1764 via LP tr 9.6e-05, eps 1.9e-03, min real d2 2.4e-03
+[ms101.6] it 2 (1s): real 1764 -> 1812 via LP tr 1.4e-04, eps 1.7e-03, min real d2 9.0e-03
+[ms101.6] it 3 (1s): real 1812 -> 1844 via LP tr 2.0e-04, eps 1.9e-03, min real d2 6.3e-03
+[ms101.6] it 4 (2s): real 1844 -> 1880 via LP tr 3.3e-04, eps 1.6e-03, min real d2 4.8e-03
+[ms101.6] it 5 (2s): real 1880 -> 1884 via LP tr 4.1e-04, eps 1.2e-03, min real d2 3.2e-03
+[ms101.6] it 6 (3s): real 1884 -> 1924 via LP tr 4.6e-04, eps 7.4e-04, min real d2 4.1e-03
+[ms101.6] it 7 (4s): real 1924 -> 1952 via LP tr 3.7e-04, eps 5.1e-04, min real d2 1.9e-03
+[ms101.6] it 8 (5s): real 1952 -> 1960 via LP tr 2.6e-04, eps 4.1e-04, min real d2 1.4e-03
+[ms101.6] it 9 (6s): real 1960 -> 1968 via LP tr 2.0e-04, eps 2.5e-04, min real d2 1.6e-03
+[ms101.6] it 10 (6s): real 1968 -> 1984 via LP tr 1.3e-04, eps 1.5e-04, min real d2 8.5e-04
+[ms101.6] it 11 (7s): real 1984 -> 2004 via LP tr 7.3e-05, eps 1.1e-04, min real d2 4.1e-04
+[ms101.6] it 13 (9s): real 2004 -> 2020 via LP tr 4.3e-05, eps 6.2e-05, min real d2 2.4e-04
+[ms101.6] it 14 (11s): real 2020 -> 2048 via LP tr 9.3e-06, eps 5.3e-05, min real d2 1.4e-04
+[ms101.6] it 15 (13s): real 2048 -> 2064 via LP tr 2.7e-05, eps 3.6e-05, min real d2 9.0e-05
+[ms101.6] it 16 (15s): real 2064 -> 2080 via LP tr 5.3e-06, eps 3.0e-05, min real d2 4.8e-05
+[ms101.6] it 19 (23s): real 2080 -> 2088 via LP tr 3.3e-06, eps 1.9e-05, min real d2 1.5e-05
+[ms101.6] it 21 (31s): real 2088 -> 2092 via LP tr 2.7e-06, eps 1.5e-05, min real d2 7.0e-06
+[ms101.6] it 22 (34s): real 2092 -> 2096 via LP tr 7.7e-07, eps 1.5e-05, min real d2 5.9e-06
+[ms101.6] it 24 (81s): no step, tau -> 2.0e-01, real 2096, pairs 48, min im2 1.0e-02, min real d2 3.2e-06
+[ms101.6] it 25 (98s): no step, tau -> 8.0e-02, real 2096, pairs 48, min im2 1.0e-02, min real d2 3.2e-06

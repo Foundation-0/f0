@@ -1,0 +1,2 @@
+{"distance_polynomials":3248,"distinct_endpoint_cosets":6,"identically_zero_polynomials":18,"positive_coefficients":16126,"zero_coefficients":114}
+$P results/fold-continuous-fcc/independent.py  0.81s user 0.02s system 89% cpu 0.938 total

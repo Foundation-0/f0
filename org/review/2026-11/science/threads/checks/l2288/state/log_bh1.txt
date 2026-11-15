@@ -1,0 +1,57 @@
+[BH1] base 2280
+[BH1.h1] start real 1912, eps 8.34e-04
+[BH1.h1] it 1 (0s): real 1912 -> 1968 via LP tr 4.2e-05, eps 8.7e-04, min real d2 2.7e-03
+[BH1.h1] it 2 (1s): real 1968 -> 1984 via LP tr 6.5e-05, eps 8.1e-04, min real d2 2.4e-03
+[BH1.h1] it 3 (2s): real 1984 -> 2008 via LP tr 9.1e-05, eps 7.2e-04, min real d2 1.9e-03
+[BH1.h1] it 4 (2s): real 2008 -> 2016 via LP tr 1.2e-04, eps 6.0e-04, min real d2 2.1e-03
+[BH1.h1] it 5 (3s): real 2016 -> 2040 via LP tr 1.5e-04, eps 4.5e-04, min real d2 1.5e-03
+[BH1.h1] it 6 (4s): real 2040 -> 2052 via LP tr 1.7e-04, eps 6.1e-04, min real d2 4.8e-04
+[BH1.h1] it 7 (5s): real 2052 -> 2072 via LP tr 3.1e-04, eps 9.2e-04, min real d2 1.1e-03
+[BH1.h1] it 8 (7s): real 2072 -> 2080 via LP tr 4.6e-04, eps 4.6e-04, min real d2 1.3e-03
+[BH1.h1] it 9 (8s): real 2080 -> 2084 via LP tr 2.3e-04, eps 6.9e-04, min real d2 1.1e-03
+[BH1.h1] it 11 (11s): real 2084 -> 2088 via LP tr 1.7e-04, eps 5.2e-04, min real d2 1.2e-03
+[BH1.h1] it 12 (12s): real 2088 -> 2128 via LP tr 2.6e-04, eps 2.7e-04, min real d2 1.0e-03
+[BH1.h1] it 13 (13s): real 2128 -> 2136 via LP tr 1.3e-04, eps 4.0e-04, min real d2 4.9e-04
+[BH1.h1] it 14 (15s): real 2136 -> 2152 via LP tr 2.0e-04, eps 2.0e-04, min real d2 4.0e-04
+[BH1.h1] it 15 (16s): real 2152 -> 2180 via LP tr 1.0e-04, eps 1.0e-04, min real d2 1.9e-04
+[BH1.h1] it 16 (18s): real 2180 -> 2208 via LP tr 5.0e-05, eps 5.0e-05, min real d2 3.0e-04
+[BH1.h1] it 17 (26s): real 2208 -> 2212 via LP tr 2.5e-06, eps 4.9e-05, min real d2 2.2e-04
+[BH1.h1] it 19 (38s): real 2212 -> 2216 via pair LP tr 1.9e-08, eps 4.9e-05, min real d2 1.7e-04
+[BH1.h1] it 20 (39s): real 2216 -> 2224 via LP tr 2.4e-05, eps 3.7e-05, min real d2 1.9e-04
+[BH1.h1] it 21 (44s): real 2224 -> 2228 via pair LP tr 6.9e-09, eps 3.7e-05, min real d2 1.3e-04
+[BH1.h1] it 22 (50s): real 2228 -> 2232 via LP tr 1.9e-06, eps 3.6e-05, min real d2 1.3e-04
+[BH1.h1] it 23 (50s): real 2232 -> 2236 via LP tr 1.8e-05, eps 3.7e-05, min real d2 9.8e-05
+[BH1.h1] it 24 (57s): real 2236 -> 2252 via LP tr 1.9e-06, eps 3.9e-05, min real d2 7.4e-05
+[BH1.h1] it 25 (91s): no step, tau -> 2.0e-01, real 2252, pairs 9, min im2 5.3e-03, min real d2 5.6e-05
+[BH1.h1] done best 2252 after 91s
+[BH1] hop 1 (92s): kicked 1912 -> climbed 2252 (base 2280)
+[BH1.h2] start real 1624, eps 8.71e-04
+[BH1.h2] it 1 (1s): real 1624 -> 1632 via LP tr 4.4e-05, eps 8.3e-04, min real d2 1.1e-03
+[BH1.h2] it 2 (1s): real 1632 -> 1704 via LP tr 6.2e-05, eps 8.5e-04, min real d2 7.7e-04
+[BH1.h2] it 3 (2s): real 1704 -> 1712 via LP tr 9.6e-05, eps 9.1e-04, min real d2 6.0e-04
+[BH1.h2] it 4 (3s): real 1712 -> 1732 via LP tr 1.5e-04, eps 1.1e-03, min real d2 4.2e-04
+[BH1.h2] it 5 (4s): real 1732 -> 1808 via LP tr 2.7e-04, eps 9.9e-04, min real d2 1.9e-03
+[BH1.h2] it 6 (5s): real 1808 -> 1828 via LP tr 3.8e-04, eps 8.2e-04, min real d2 2.4e-03
+[BH1.h2] it 7 (6s): real 1828 -> 1856 via LP tr 4.1e-04, eps 5.8e-04, min real d2 2.7e-03
+[BH1.h2] it 8 (7s): real 1856 -> 1892 via LP tr 2.9e-04, eps 4.6e-04, min real d2 3.8e-03
+[BH1.h2] it 9 (8s): real 1892 -> 1908 via LP tr 2.3e-04, eps 2.8e-04, min real d2 3.7e-03
+[BH1.h2] it 10 (21s): real 1908 -> 1936 via pair LP tr 2.3e-06, eps 2.8e-04, min real d2 3.1e-03
+[BH1.h2] it 11 (25s): real 1936 -> 1956 via LP tr 1.4e-04, eps 1.5e-04, min real d2 2.2e-03
+[BH1.h2] it 12 (25s): real 1956 -> 1968 via LP tr 7.3e-05, eps 2.1e-04, min real d2 9.5e-04
+[BH1.h2] it 13 (40s): no step, tau -> 2.0e-01, real 1968, pairs 80, min im2 3.3e-02, min real d2 7.1e-04
+[BH1.h2] it 14 (54s): no step, tau -> 8.0e-02, real 1968, pairs 80, min im2 3.3e-02, min real d2 7.1e-04
+[BH1.h2] it 15 (64s): no step, tau -> 3.2e-02, real 1968, pairs 80, min im2 3.3e-02, min real d2 7.1e-04
+[BH1.h2] it 16 (71s): no step, tau -> 1.3e-02, real 1968, pairs 80, min im2 3.3e-02, min real d2 7.1e-04
+[BH1.h2] it 17 (77s): no step, tau -> 5.1e-03, real 1968, pairs 80, min im2 3.3e-02, min real d2 7.1e-04
+[BH1.h2] it 19 (84s): no step, tau -> 3.1e-03, real 1968, pairs 80, min im2 3.3e-02, min real d2 5.1e-04
+[BH1.h2] it 24 (94s): no step, tau -> 6.2e-03, real 1968, pairs 80, min im2 3.3e-02, min real d2 1.3e-04
+[BH1.h2] done best 1968 after 94s
+[BH1] hop 2 (188s): kicked 1624 -> climbed 1968 (base 2280)
+[BH1.h3] start real 1924, eps 9.00e-04
+[BH1.h3] it 1 (0s): real 1924 -> 1976 via LP tr 4.5e-05, eps 9.3e-04, min real d2 8.7e-05
+[BH1.h3] it 2 (1s): real 1976 -> 2020 via LP tr 7.0e-05, eps 8.9e-04, min real d2 2.3e-04
+[BH1.h3] it 3 (2s): real 2020 -> 2032 via LP tr 1.0e-04, eps 9.8e-04, min real d2 6.9e-04
+[BH1.h3] it 4 (2s): real 2032 -> 2040 via LP tr 1.7e-04, eps 8.2e-04, min real d2 6.6e-04
+[BH1.h3] it 5 (3s): real 2040 -> 2060 via LP tr 2.1e-04, eps 1.0e-03, min real d2 5.1e-04
+[BH1.h3] it 6 (3s): real 2060 -> 2072 via LP tr 3.8e-04, eps 1.3e-03, min real d2 4.8e-04
+[BH1.h3] it 7 (4s): real 2072 -> 2076 via LP tr 6.6e-04, eps 1.4e-03, min real d2 6.0e-04

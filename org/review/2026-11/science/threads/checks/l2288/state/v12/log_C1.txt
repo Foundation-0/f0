@@ -1,0 +1,10 @@
+[C1] start real 3892/6180, eps 1.80e-05
+[C1] it 1 (27s): no step, tau 2.0e-02, real 3892, pairs 1144, min im2 9.8e-09, max im2 1.7e+12, min real d2 4.4e-09
+[C1] it 2 (50s): no step, tau 8.0e-03, real 3892, pairs 1144, min im2 9.8e-09, max im2 1.7e+12, min real d2 4.4e-09
+[C1] it 4 (79s): no step, tau 4.8e-03, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09
+[C1] it 5 (106s): no step, tau 1.9e-03, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09
+[C1] it 6 (133s): no step, tau 7.7e-04, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09
+[C1] it 7 (152s): no step, tau 3.1e-04, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09
+[C1] it 8 (175s): no step, tau 1.2e-04, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09
+[C1] it 9 (193s): no step, tau 4.9e-05, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09
+[C1] it 10 (213s): no step, tau 2.0e-05, real 3892, pairs 1144, min im2 8.4e-09, max im2 1.1e+12, min real d2 3.2e-09

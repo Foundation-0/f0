@@ -1,0 +1,4 @@
+FINAL n=3 D=2 seed=1: 68 solutions, max residual 1.43e-14, max cond 5.03e+02, min sep 6.03e-01, loops 28, 2.2s
+FINAL n=3 D=2 seed=2: 68 solutions, max residual 1.88e-15, max cond 2.14e+03, min sep 4.82e-01, loops 27, 2.2s
+FINAL n=3 D=2 seed=3: 68 solutions, max residual 1.44e-15, max cond 1.95e+04, min sep 2.54e-01, loops 69, 3.5s
+FINAL n=3 D=2 seed=4: 68 solutions, max residual 1.70e-14, max cond 7.00e+02, min sep 7.94e-01, loops 31, 2.2s

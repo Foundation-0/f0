@@ -1,0 +1,6 @@
+Capco et al. Theorem 4.7 exact combinatorial verification:
+  c_2(K_3)     = 2
+  c_2(K_4 - e) = 4
+  c_2(Prism_6) = 24
+  c_2(L_880)   = 880  (elapsed: 1.047s)
+../../../work/pc-venv/bin/python verify_capco_laman.py  0.94s user 0.03s system 87% cpu 1.109 total

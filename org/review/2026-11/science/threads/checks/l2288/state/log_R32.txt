@@ -1,0 +1,6 @@
+[R32] start real 2272, eps 1.60e-03
+[R32] it 4 (6s): real 2272 -> 2276 via LP tr 2.8e-04, eps 1.4e-03, min real d2 2.8e-05
+[R32] it 6 (10s): real 2276 -> 2280 via LP tr 1.2e-04, eps 1.2e-03, min real d2 4.1e-05
+[R32] it 8 (12s): real 2280 -> 2288 via LP tr 5.9e-04, eps 1.0e-03, min real d2 1.7e-05
+[R32] ALL REAL
+[R32] done best 2288 after 12s

@@ -1,0 +1,7 @@
+# t = 3/4
+n=2: bars/cell=6 C11=1/4 C12=1/4 C44=0 C11/C12=1 C'=(C11-C12)/2=0 nu100=1 rankC=1 q0: zero modes=3 self-stresses=1 | affine A11=11/32 A12=9/32 A44=9/32 | match=True
+n=3: bars/cell=15 C11=2/9 C12=1/18 C44=0 C11/C12=4 C'=(C11-C12)/2=1/12 nu100=1/5 rankC=3 q0: zero modes=6 self-stresses=3 | affine A11=5/16 A12=9/64 A44=9/64 | match=True
+n=4: bars/cell=28 C11=9/64 C12=1/64 C44=0 C11/C12=9 C'=(C11-C12)/2=1/16 nu100=1/11 rankC=4 q0: zero modes=10 self-stresses=6 | affine A11=29/128 A12=9/128 A44=9/128 | match=True
+n=5: bars/cell=45 C11=2/25 C12=1/200 C44=0 C11/C12=16 C'=(C11-C12)/2=3/80 nu100=1/19 rankC=5 q0: zero modes=15 self-stresses=10 | affine A11=19/128 A12=9/256 A44=9/256 | match=True
+n=6: bars/cell=66 C11=25/576 C12=1/576 C44=0 C11/C12=25 C'=(C11-C12)/2=1/48 nu100=1/29 rankC=6 q0: zero modes=21 self-stresses=15 | affine A11=47/512 A12=9/512 A44=9/512 | match=True
+ALL MATCH

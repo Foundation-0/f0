@@ -1,0 +1,4 @@
+H1-only graph n=10: mine 256, 2^(n-2)=256
+minus an edge -> raises ValueError dim G + dim H > |E|+1: Laman number would be infinite/undefined
+plus an edge -> 0
+K4 plus pendant (7 edges, n=5, not Laman): 0

@@ -1,0 +1,5 @@
+configs 500 phys counts {3: 499, 5: 1}
+real-x counts {24: 491, 26: 8, 28: 1}
+mixed-class real-x counts (over all 7 classes x configs) {3: 3491, 5: 9}
+phys 3 n 499 # non-real pairs with all Re t>0: {6: 159, 5: 91, 7: 92, 8: 92, 9: 12, 4: 47, 10: 5, 11: 1} nearest all-positive |Im|^2 min 0.0106 median 1.9834
+phys 5 n 1 # non-real pairs with all Re t>0: {6: 1} nearest all-positive |Im|^2 min 0.8800 median 0.8800

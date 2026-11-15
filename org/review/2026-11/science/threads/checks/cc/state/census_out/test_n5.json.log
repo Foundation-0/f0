@@ -1,0 +1,34 @@
+     0.5s starts=3000 NEW class #1 I=6.6435991745 P=I^1.5=17.12399663
+     0.5s starts=3000 NEW class #2 I=6.2657157856 P=I^1.5=15.68397123
+     0.5s starts=3000 NEW class #3 I=7.4271225198 P=I^1.5=20.24094955
+     0.5s starts=3000 NEW class #4 I=6.2584915829 P=I^1.5=15.65685425
+     0.5s starts=3000 NEW class #5 I=6.1867510950 P=I^1.5=15.38841769
+     0.5s starts=3000 converged=3000 classes=5 last_new_at=3000
+     1.1s starts=6000 converged=6000 classes=5 last_new_at=3000
+     1.7s starts=9000 converged=9000 classes=5 last_new_at=3000
+     2.3s starts=12000 converged=12000 classes=5 last_new_at=3000
+     2.8s starts=15000 converged=15000 classes=5 last_new_at=3000
+     3.3s starts=18000 converged=18000 classes=5 last_new_at=3000
+     3.9s starts=21000 converged=21000 classes=5 last_new_at=3000
+     4.4s starts=24000 converged=24000 classes=5 last_new_at=3000
+     5.0s starts=27000 converged=27000 classes=5 last_new_at=3000
+     5.5s starts=30000 converged=30000 classes=5 last_new_at=3000
+     6.1s starts=33000 converged=33000 classes=5 last_new_at=3000
+     6.7s starts=36000 converged=36000 classes=5 last_new_at=3000
+     7.2s starts=39000 converged=39000 classes=5 last_new_at=3000
+     7.7s starts=42000 converged=42000 classes=5 last_new_at=3000
+     8.2s starts=45000 converged=45000 classes=5 last_new_at=3000
+     8.8s starts=48000 converged=48000 classes=5 last_new_at=3000
+     9.4s starts=51000 converged=51000 classes=5 last_new_at=3000
+     9.9s starts=54000 converged=54000 classes=5 last_new_at=3000
+    10.4s starts=57000 converged=57000 classes=5 last_new_at=3000
+    10.9s starts=60000 converged=60000 classes=5 last_new_at=3000
+    11.4s starts=63000 converged=63000 classes=5 last_new_at=3000
+    12.0s starts=66000 converged=66000 classes=5 last_new_at=3000
+    12.5s starts=69000 converged=69000 classes=5 last_new_at=3000
+    13.0s starts=72000 converged=72000 classes=5 last_new_at=3000
+    13.7s starts=75000 converged=75000 classes=5 last_new_at=3000
+    14.3s starts=78000 converged=78000 classes=5 last_new_at=3000
+    14.7s starts=81000 converged=81000 classes=5 last_new_at=3000
+    15.3s starts=84000 converged=84000 classes=5 last_new_at=3000
+done

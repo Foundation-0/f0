@@ -1,0 +1,20 @@
+=== n7_count43
+exit=2
+RESULT S/threads/charges/corrupt/n7_count43.json: count=44 index1=19 index2=25 m2-m1=6 n-1=6 {'boxes': 128809, 'L1': 1154, 'L2': 768, 'T1': 21773, 'T2': 87966, 'Z': 1047, 'newton_tries': 15604, 'max_level': 27, 'seconds': 67.3}
+MISMATCH: file claims 43, independent count is 44
+=== n5_q5_441
+exit=2
+RESULT S/threads/charges/corrupt/n5_q5_441.json: count=6 index1=1 index2=5 m2-m1=4 n-1=4 {'boxes': 11489, 'L1': 1118, 'L2': 337, 'T1': 3733, 'T2': 4724, 'Z': 141, 'newton_tries': 1249, 'max_level': 11, 'seconds': 2.2}
+MISMATCH: file claims 24, independent count is 6
+=== n6_site_moved
+exit=2
+RESULT S/threads/charges/corrupt/n6_site_moved.json: count=5 index1=0 index2=5 m2-m1=5 n-1=5 {'boxes': 14849, 'L1': 1050, 'L2': 686, 'T1': 7938, 'T2': 3250, 'Z': 69, 'newton_tries': 1686, 'max_level': 26, 'seconds': 4.0}
+MISMATCH: file claims 29, independent count is 5
+=== n5_hints_garbage
+exit=0
+RESULT S/threads/charges/corrupt/n5_hints_garbage.json: count=24 index1=10 index2=14 m2-m1=4 n-1=4 {'boxes': 39617, 'L1': 1154, 'L2': 446, 'T1': 4086, 'T2': 28403, 'Z': 576, 'newton_tries': 4600, 'max_level': 16, 'seconds': 13.4}
+AGREES with claimed count 24
+=== n7_q7_136000
+exit=2
+RESULT S/threads/charges/corrupt/n7_q7_136000.json: count=36 index1=15 index2=21 m2-m1=6 n-1=6 {'boxes': 94633, 'L1': 1154, 'L2': 768, 'T1': 21773, 'T2': 58200, 'Z': 909, 'newton_tries': 11351, 'max_level': 25, 'seconds': 46.8}
+MISMATCH: file claims 44, independent count is 36

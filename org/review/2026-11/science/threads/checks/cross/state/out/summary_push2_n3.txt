@@ -1,0 +1,2 @@
+starts 31 best {4: 31} iters 6953 kicks 222
+min over run of nearest-pair T at count 4: min 0.5102 median 1.7723 max 3.3258

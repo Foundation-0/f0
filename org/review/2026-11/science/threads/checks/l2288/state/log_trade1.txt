@@ -1,0 +1,58 @@
+[TR1] base 2280, eps 7.3e-04, 2 pairs, closest real d2 [1.58094848e-05 2.33230728e-05 4.40122175e-05 4.69596521e-05
+ 4.93328049e-05 1.04161139e-04]
+[TR1] K=1 tr=1.5e-05: after trade 2276, pair im2 [1.53658617e-05 2.78131268e+01 2.97720575e+01]
+[TR1.K1.0.02] start real 2276, eps 7.12e-04
+[TR1.K1.0.02] it 1 (2s): real 2276 -> 2280 via pair LP tr 5.2e-07, eps 7.1e-04, min real d2 1.7e-05
+[TR1.K1.0.02] it 2 (5s): no step, tau -> 3.0e-02, real 2280, pairs 2, min im2 2.8e+01, min real d2 1.6e-05
+[TR1.K1.0.02] it 3 (8s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 2.8e+01, min real d2 1.6e-05
+[TR1.K1.0.02] it 9 (17s): no step, tau -> 3.6e-02, real 2280, pairs 2, min im2 1.9e+01, min real d2 5.9e-06
+[TR1.K1.0.02] it 10 (20s): no step, tau -> 1.5e-02, real 2280, pairs 2, min im2 1.9e+01, min real d2 5.9e-06
+[TR1.K1.0.02] it 14 (26s): no step, tau -> 2.0e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 6.5e-06
+[TR1.K1.0.02] it 17 (32s): no step, tau -> 1.8e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 5.9e-06
+[TR1.K1.0.02] it 20 (38s): no step, tau -> 1.6e-02, real 2280, pairs 2, min im2 1.5e+01, min real d2 4.9e-06
+[TR1.K1.0.02] it 21 (40s): no step, tau -> 6.4e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 4.9e-06
+[TR1.K1.0.02] it 24 (46s): no step, tau -> 5.7e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 4.5e-06
+[TR1.K1.0.02] it 27 (51s): no step, tau -> 5.2e-03, real 2280, pairs 2, min im2 1.5e+01, min real d2 3.9e-06
+[TR1.K1.0.02] it 29 (55s): no step, tau -> 3.1e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 3.6e-06
+[TR1.K1.0.02] it 31 (59s): no step, tau -> 1.9e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 3.0e-06
+[TR1.K1.0.02] done best 2280 after 60s
+[TR1] K=1 tr=1.5e-05: climbed to 2280
+[TR1] K=1 tr=7.3e-05: after trade 2276, pair im2 [7.78646296e-06 2.72078105e+01 2.92419043e+01]
+[TR1.K1.0.1] start real 2276, eps 6.54e-04
+[TR1.K1.0.1] it 1 (1s): real 2276 -> 2280 via pair LP tr 2.5e-07, eps 6.5e-04, min real d2 1.7e-05
+[TR1.K1.0.1] it 2 (5s): no step, tau -> 3.0e-02, real 2280, pairs 2, min im2 2.7e+01, min real d2 1.6e-05
+[TR1.K1.0.1] it 3 (8s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 2.7e+01, min real d2 1.6e-05
+[TR1.K1.0.1] it 5 (12s): no step, tau -> 7.2e-03, real 2280, pairs 2, min im2 2.6e+01, min real d2 1.6e-05
+[TR1.K1.0.1] it 12 (23s): no step, tau -> 3.3e-02, real 2280, pairs 2, min im2 1.7e+01, min real d2 5.1e-06
+[TR1.K1.0.1] it 13 (26s): no step, tau -> 1.3e-02, real 2280, pairs 2, min im2 1.7e+01, min real d2 5.1e-06
+[TR1.K1.0.1] it 19 (36s): no step, tau -> 4.0e-02, real 2280, pairs 2, min im2 1.5e+01, min real d2 3.5e-06
+[TR1.K1.0.1] it 20 (39s): no step, tau -> 1.6e-02, real 2280, pairs 2, min im2 1.5e+01, min real d2 3.5e-06
+[TR1.K1.0.1] it 23 (44s): no step, tau -> 1.4e-02, real 2280, pairs 2, min im2 1.5e+01, min real d2 2.9e-06
+[TR1.K1.0.1] it 25 (49s): no step, tau -> 8.6e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 2.6e-06
+[TR1.K1.0.1] it 27 (53s): no step, tau -> 5.2e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 2.3e-06
+[TR1.K1.0.1] it 29 (59s): no step, tau -> 3.1e-03, real 2280, pairs 2, min im2 1.4e+01, min real d2 1.9e-06
+[TR1.K1.0.1] done best 2280 after 61s
+[TR1] K=1 tr=7.3e-05: climbed to 2280
+[TR1] K=1 tr=2.2e-04: after trade 2276, pair im2 [1.93867013e-04 2.66504965e+01 2.86086819e+01]
+[TR1.K1.0.3] start real 2276, eps 5.94e-04
+[TR1.K1.0.3] it 1 (2s): real 2276 -> 2280 via pair LP tr 2.0e-08, eps 5.9e-04, min real d2 1.6e-05
+[TR1.K1.0.3] it 2 (9s): no step, tau -> 3.0e-02, real 2280, pairs 2, min im2 2.7e+01, min real d2 1.6e-05
+[TR1.K1.0.3] it 3 (13s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 2.7e+01, min real d2 1.6e-05
+[TR1.K1.0.3] it 5 (19s): no step, tau -> 7.2e-03, real 2280, pairs 2, min im2 2.6e+01, min real d2 1.6e-05
+[TR1.K1.0.3] it 12 (34s): no step, tau -> 3.3e-02, real 2280, pairs 2, min im2 1.7e+01, min real d2 4.2e-06
+[TR1.K1.0.3] it 14 (39s): no step, tau -> 2.0e-02, real 2280, pairs 2, min im2 1.7e+01, min real d2 3.8e-06
+[TR1.K1.0.3] it 16 (45s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 3.6e-06
+[TR1.K1.0.3] it 19 (51s): no step, tau -> 1.1e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 3.4e-06
+[TR1.K1.0.3] it 25 (63s): no step, tau -> 3.2e-02, real 2280, pairs 2, min im2 1.4e+01, min real d2 2.0e-07
+[TR1.K1.0.3] done best 2280 after 63s
+[TR1] K=1 tr=2.2e-04: climbed to 2280
+[TR1] K=2 tr=1.5e-05: after trade 2276, pair im2 [1.53658617e-05 2.78131268e+01 2.97720575e+01]
+[TR1.K2.0.02] start real 2276, eps 7.12e-04
+[TR1.K2.0.02] it 1 (2s): real 2276 -> 2280 via pair LP tr 5.2e-07, eps 7.1e-04, min real d2 1.7e-05
+[TR1.K2.0.02] it 2 (6s): no step, tau -> 3.0e-02, real 2280, pairs 2, min im2 2.8e+01, min real d2 1.6e-05
+[TR1.K2.0.02] it 3 (9s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 2.8e+01, min real d2 1.6e-05
+[TR1.K2.0.02] it 9 (17s): no step, tau -> 3.6e-02, real 2280, pairs 2, min im2 1.9e+01, min real d2 5.9e-06
+[TR1.K2.0.02] it 10 (21s): no step, tau -> 1.5e-02, real 2280, pairs 2, min im2 1.9e+01, min real d2 5.9e-06
+[TR1.K2.0.02] it 14 (27s): no step, tau -> 2.0e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 6.5e-06
+[TR1.K2.0.02] it 17 (32s): no step, tau -> 1.8e-02, real 2280, pairs 2, min im2 1.6e+01, min real d2 5.9e-06
+[TR1.K2.0.02] it 20 (38s): no step, tau -> 1.6e-02, real 2280, pairs 2, min im2 1.5e+01, min real d2 4.9e-06

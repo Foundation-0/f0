@@ -1,0 +1,13 @@
+   shifted centre                   rejected OK | FAIL: box 3: inclusion bound 64.00411775003447
+   changed length                   rejected OK | FAIL: box 0: inclusion bound 1512.161808376999
+   duplicate box                    rejected OK | FAIL: boxes 7 and 20 overlap
+   pinned vertex moved              rejected OK | FAIL: pinned edge (3, 10) squared length
+   edge changed                     rejected OK | FAIL: graph code mismatch
+   control (unchanged, 20 boxes)    accepted OK | RESULT: 20 distinct real realizations with v10 above the axis; with mirror images 40 real 
+-O shifted centre                   rejected OK | FAIL: box 3: inclusion bound 64.00411775003447
+-O changed length                   rejected OK | FAIL: box 0: inclusion bound 1512.161808376999
+-O duplicate box                    rejected OK | FAIL: boxes 7 and 20 overlap
+-O pinned vertex moved              rejected OK | FAIL: pinned edge (3, 10) squared length
+-O edge changed                     rejected OK | FAIL: graph code mismatch
+-O control (unchanged, 20 boxes)    accepted OK | RESULT: 20 distinct real realizations with v10 above the axis; with mirror images 40 real 
+ALL CORRUPTION TESTS BEHAVED
