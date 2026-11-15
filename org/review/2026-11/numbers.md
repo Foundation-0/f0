@@ -1,6 +1,8 @@
 # H2 numbers for the decisions
 
-Read on 15 November 2026, as ahrazzle, against the GitHub API and the Zenodo API. Counts cover the 35 public repositories only.
+Read on 15 November 2026 at 01:25 UTC, as ahrazzle, against the GitHub API and the Zenodo API. Counts cover the 35 public repositories only.
+
+The snapshot is taken before this pull request and its H1 sibling existed, so neither branch nor either pull request is counted here. A later read will show two more branches and two more open pull requests. Repeat the method below and expect the numbers to move.
 
 ## The problem, item 5, refreshed
 
