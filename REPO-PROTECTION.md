@@ -149,3 +149,8 @@ commits only the reflog still holds (a clone that fetched before someone force-p
 commits for 30 to 90 days), stashes and uncommitted changes. `--sha256 HASH` also finds a file by its
 hash, in the working tree or anywhere in the object store, for files a `SHA256SUMS` manifest
 certifies but no commit contains.
+
+The scans that produced the findings above are in `scripts/org/scan/` (see its README). They run on
+local mirrors of every repository and report how each commit reached the default branch, merged pull
+requests whose content is missing, lines deleted shortly after another commit added them, files
+rewritten from a stale copy, named units that are gone, and branches whose work never landed.
