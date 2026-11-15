@@ -1,0 +1,13 @@
+repo,commit,check,mode,command,exit_code,output_sha256_16,result,numbers_match
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,site gate,documented,python3 scripts/check_site.py,0,b7bf43e6fbe0687b,pass,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,site gate,optimised,python3 -O scripts/check_site.py,0,,pass on good input,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,site gate,corrupted,"ledger evidence set to bogus-tier then python3 scripts/check_site.py",1,,fails closed,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,feed gate,documented,python3 scripts/gate.py,0,4b3bbb0c2252de2e,pass,"records=348 claimed=348 quarantined=25"
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,feed gate,optimised,python3 -O scripts/gate.py,0,,pass on good input,same counts
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,feed gate,empty,python3 scripts/gate.py --root EMPTY_DIR,1,,fails closed,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,golden parser,documented,python3 tests/run_golden.py,0,ba9141caa4803f7e,pass,4 of 4 cases
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,golden parser,optimised,python3 -O tests/run_golden.py,0,,pass on good input,4 of 4 cases
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,finding regressions,documented,python3 tests/run_regressions.py,0,133e2e693d463c28,pass,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,gate corruptions,documented,python3 tests/run_gate_corruptions.py,0,0484199fd5ab2f67,pass,4 corruptions blocked
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,forum index,documented,python3 tests/run_discussions.py,0,,pass (unhashable: output embeds a random tmpdir),na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,forum index,optimised,python3 -O tests/run_discussions.py,0,,pass on good input,na
