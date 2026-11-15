@@ -331,7 +331,8 @@ def h2_doc():
         "%s %d" % (a, n) for a, n in iss_by_author.most_common()) + ".")
     lines.append("")
     lines.append("The 14 November figure of 164 PRs is now 166, and the account totals moved "
-                 "by two for ahrazzle, which is the two review PRs opened on 15 November. "
+                 "by two for ahrazzle, which is PRs #43 and #44, the review-workspace and "
+                 "polish PRs opened on 15 November. "
                  "The issue count moved from 121 to 122. The per-repository lists are in "
                  "`open-prs.csv` and `open-issues.csv`.")
     lines.append("")

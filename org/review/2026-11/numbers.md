@@ -18,7 +18,7 @@ Open PRs by account: ahrazzle 127, orda-aska 25, zero-aska 6, abu-aska 4, mithra
 
 Open issues by account: zero-aska 72, ahrazzle 24, orda-aska 23, abu-aska 2, mithrax-exo 1.
 
-The 14 November figure of 164 PRs is now 166, and the account totals moved by two for ahrazzle, which is the two review PRs opened on 15 November. The issue count moved from 121 to 122. The per-repository lists are in `open-prs.csv` and `open-issues.csv`.
+The 14 November figure of 164 PRs is now 166, and the account totals moved by two for ahrazzle, which is PRs #43 and #44, the review-workspace and polish PRs opened on 15 November. The issue count moved from 121 to 122. The per-repository lists are in `open-prs.csv` and `open-issues.csv`.
 
 ### Branches
 
