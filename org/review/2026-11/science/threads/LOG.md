@@ -74,6 +74,7 @@ These are kept because each one changed what was done next.
 - **A solver that rejected every sample.** The first all-roots solver for the cubic model marked 600,000 samples incomplete. For a harmonic cubic the x², y² and z² coefficients of the three equations are linearly dependent, so the standard monomial basis fails. A fixed change of coordinates removed it.
 - **A wall tracer with too large a first step.** On the 11-point configurations the first tracer reported a wall from a charge to itself. Its first step was larger than the inner cluster of balance points. A tracer that scales its step to the nearest balance point replaced it.
 - **False balance points near a flat point.** Newton's method converges slowly to a degenerate point, and unfinished iterates were counted as separate points. The index test caught it. The count now excludes a small ball around the flat point.
+- **A check of the reviewer's that was itself wrong.** The first check of the stacked levels used numerical derivatives inside a root finder. At six levels it reported 59 real critical points where the thread had 41. A worker preparing a give-back ran it to the end and reported the mismatch. An exact program then proved 41. The fault was in the check, not in the result.
 - **A needle that random search could not hit.** The 11-point region survives changes of about one part in a million. No random four-charge search would find it. It was found by solving for it.
 
 ## 5. What was not done

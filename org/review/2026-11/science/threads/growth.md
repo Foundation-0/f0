@@ -36,7 +36,8 @@ Status: an argument in four steps with a proof sketch, numerical checks of every
 | S(D) | 6 | 13 | 24 | 41 | 66 | 97 | 136 | 185 |
 
 - [F] The thread finds these exactly for D = 3 to 10 with the levels a factor of 100 apart. With a factor of 33 a few points are lost from D = 7 up.
-- [F] The separate program finds 6, 13 and 24 for D = 3, 4 and 5, each split by scale as predicted.
+- [F] A separate program with exact coefficients, `checks/growth/verify/stack_check.py`, proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7, each split by scale as predicted. It encloses every point in a cube by a ball-arithmetic test. For D = 6 the result is the same with two different normalisations of the levels.
+- [F] An earlier version of that check used numerical derivatives and reported 59 at D = 6. It had counted poorly converged points twice. It is withdrawn, and the exact program replaces it.
 - [I] S(D) grows like D³/6.
 
 **Step 4. Charges.** Start from a point that is flat to order d - 1. Small changes of the charges set the terms of degree 1 to d - 1 to any small values, here the stacked levels of step 3. The balance points near the flat point are then the critical points counted in step 3, once the scale is small enough.
@@ -130,6 +131,7 @@ Two configurations were built with exact rational sites and charges. For each, a
 
 ```
 python3 checks/growth/verify/levels_check.py
+python3 -O checks/growth/verify/stack_check.py 6 maxcoef 200
 python3 -O checks/growth/verify/lower_bound_hp.py checks/growth/thread/configs/demo_d5_n9.json checks/growth/thread/out/demo_d5_n9_pts.npy 26
 python3 -O checks/growth/verify/lower_bound_hp.py checks/growth/thread/configs/demo_d8_n21_s100.json checks/growth/verify/n21_candidates.npy 87
 ```
