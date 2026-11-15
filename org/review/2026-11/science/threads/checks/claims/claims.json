@@ -1,0 +1,299 @@
+[
+ {
+  "note": "four-charges-eleven.md",
+  "text": "Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1.",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_short.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1.",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_flat.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1.",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/jet-route/n4_eleven_b12.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "7 of index 2 and 4 of index 1",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_short.indep.json",
+   "path": [
+    "index2"
+   ],
+   "equals": 7
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "7 of index 2 and 4 of index 1",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_short.indep.json",
+   "path": [
+    "index1"
+   ],
+   "equals": 4
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "| `lower_bound_check.py`, new | at least N | 11 | 11 |",
+  "test": {
+   "kind": "count",
+   "file": "checks/four/verify/lower_bound_check.out",
+   "pattern": "PROVED: at least 11 non-degenerate balance points; index 2: 7, index 1: 4",
+   "equals": 3
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "`lower_bound_check.py` asked to prove 12 stops with an error.",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/lower_bound_check_control.out",
+   "contains": "CheckFailure: proved 11, expected at least 12"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "| 9 | 4 | at least 26 | 17, 9 |",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d5_n9.lower.out",
+   "contains": "PROVED: at least 26 non-degenerate balance points; index 2: 17, index 1: 9"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "| 21 | 7 | at least 87 near the flat point | 47, 40 |",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d8_n21.lower.out",
+   "contains": "PROVED: at least 87 non-degenerate balance points; index 2: 47, index 1: 40"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack6_maxcoef.out",
+   "contains": "PROVED: 41 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack7_maxcoef.out",
+   "contains": "PROVED: 66 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack34_maxcoef.out",
+   "contains": "PROVED: 13 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "| I(p) - 1 | 5 | 7 | 11 | 17 | 25 | 31 | 39 | 49 | 61 | 71 |",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/levels_check.out",
+   "contains": "p = 12: directions found 71; claimed I_p - 1 = 71"
+  }
+ },
+ {
+  "note": "flat-centres.md",
+  "text": "proves 27 real and simple critical points for these coefficients, with 16 of one index and 11 of the other",
+  "test": {
+   "kind": "line",
+   "file": "checks/kflat/verify/quartic27_short.out",
+   "contains": "PROVED: 27 real non-degenerate critical points; det(Hessian) positive at 16, negative at 11"
+  }
+ },
+ {
+  "note": "flat-centres.md",
+  "text": "f = K4/3 - 0.00008 (x + y + z) + 0.0019 (xy + yz + zx) + 3.7 xyz",
+  "test": {
+   "kind": "line",
+   "file": "checks/kflat/verify/quartic27_short.out",
+   "contains": "coefficients a1..a5: ['-1/12500', '19/10000', '37/10', '23/500', '-9/200']"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "Each of 7,343 small boxes carries one of two certificates.",
+  "test": {
+   "kind": "json",
+   "file": "checks/three/out/c3_equi.json",
+   "path": [
+    "nleaves"
+   ],
+   "equals": 7343
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "each shown to have disjoint images (54,941,484) or to lie inside a region already certified (197,271)",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/c3_equi.log",
+   "contains": "RESULT PROVED {'contained': 197271, 'disjoint': 54941484"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "and resolved 400 of 400 sampled pairs",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/verify_pairs_rerun.log",
+   "contains": "\"sampled_nontrivial_pairs\": 400, \"resolved\": 400"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "found none from 250 starts",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/degenerate3_reviewer_order4.out",
+   "contains": "order 4: starts 250, converged solutions 0"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "It found 88 cusps. The fourth derivative is negative at all 88",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/degenerate3_reviewer.out",
+   "contains": "positive 0, negative 88"
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "856 at eps 0.01 and 860 at eps 0.003",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_868.json",
+   "where": {
+    "eps": 0.01
+   },
+   "field": "real_full",
+   "equals": 856,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "856 at eps 0.01 and 860 at eps 0.003",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_868.json",
+   "where": {
+    "eps": 0.003
+   },
+   "field": "real_full",
+   "equals": 860,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "the count is 868 at its own eps of 0.0019 and at the 3 smaller values tested",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_868.json",
+   "where": {
+    "eps": 0.001
+   },
+   "field": "real_full",
+   "equals": 868,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "and 2,284 at 0.0001",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_2288.json",
+   "where": {
+    "eps": 0.0001
+   },
+   "field": "real_full",
+   "equals": 2284,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "880 of 880 at all 6 eps values tested",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_880.json",
+   "where": {
+    "eps": 1e-05
+   },
+   "field": "real_full",
+   "equals": 880,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "point-charges.md",
+  "text": "49",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n8.log",
+   "contains": "count=49 index1=21 index2=28"
+  }
+ },
+ {
+  "note": "point-charges.md",
+  "text": "64",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n9.log",
+   "contains": "count=64 index1=28 index2=36"
+  }
+ }
+]

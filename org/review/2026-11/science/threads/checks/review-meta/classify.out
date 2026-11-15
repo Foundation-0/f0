@@ -1,0 +1,35 @@
+findings in the record: 119; confirmations (OK): 51; problem findings: 68
+by severity: {'MAJOR': 22, 'MINOR': 40, 'BLOCK': 6}
+
+by kind:   (BLOCK, MAJOR, MINOR, all)
+  SCOPE        1   5   8   14
+  NUM          1   1   9   11
+  SC           1   6   3   10
+  CHK          0   2   5    7
+  PROOF        1   1   4    6
+  HYG          0   0   6    6
+  IND          0   4   2    6
+  LABEL        2   1   2    5
+  STAT         0   2   1    3
+
+by layer:   (BLOCK, MAJOR, MINOR, all)
+  note         3  13  20   36
+  packaging    1   6   5   12
+  program      0   2   8   10
+  synthesis    2   1   7   10
+
+by direction:   (BLOCK, MAJOR, MINOR, all)
+  up           5  16  20   41
+  none         1   6  19   26
+  down         0   0   1    1
+
+blocking and major findings: 28; of these in a program: 2, packaging: 7, a note: 16, the synthesis layer: 3
+findings with a direction: 42; claiming more than the evidence: 41; claiming less: 1
+
+kinds by type of pass:
+  math   {'SC': 7, 'NUM': 7, 'PROOF': 6, 'CHK': 5, 'LABEL': 2, 'SCOPE': 10, 'HYG': 3, 'IND': 3}
+  data   {'SC': 1, 'STAT': 3, 'LABEL': 1, 'NUM': 2, 'SCOPE': 1}
+  cross  {'NUM': 2, 'HYG': 3, 'SC': 2, 'LABEL': 2, 'SCOPE': 3, 'IND': 3, 'CHK': 2}
+
+wording defects (LABEL, SCOPE, NUM, IND): thread passes found 27, the label pass found 8, both found 5
+capture-recapture estimate of all such defects (Chapman): 41; found by either: 30; estimated not found: 11
