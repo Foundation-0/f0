@@ -1,0 +1,674 @@
+{
+".github|sweep/agent-research-profile": {
+"head_sha": "47d2386e0db67f141a4a601e9216b098a28300ef",
+"number": 8
+},
+"astr0|aeva/acceleration-evolution-links": {
+"head_sha": "607a11eaa83b2ec7539e0986046c3230406d2b04",
+"number": 4
+},
+"astr0|aeva/galaxy-calibration-data-20261112": {
+"head_sha": "a9a6f0933741fff5e73801f30dfa9fbfb17a3374",
+"number": 7
+},
+"astr0|aeva/publish-convergences-20261112": {
+"head_sha": "b788cc4fd85c8621a89fcd5576e08027a52eeeb2",
+"number": 5
+},
+"astr0|aeva/research-value-assessment-20261112": {
+"head_sha": "b6e0b85070e232fb19cff549c4ea141f28352f0f",
+"number": 6
+},
+"certified-orbits|codex/issue-1-evidence": {
+"head_sha": "a6edc5a51af6fc4d51a6f369f47fd952bf21caf9",
+"number": 9
+},
+"certified-orbits|codex/issue-5-evidence": {
+"head_sha": "ad3db58b21a6507c3b6709d4416b1ea4f5e65a7e",
+"number": 8
+},
+"certified-orbits|draft/issue-2-forge": {
+"head_sha": "d4d12f7c885f4b5c23c951e9daf8d4e310490ce3",
+"number": 10
+},
+"certified-orbits|draft/issue-3-forge": {
+"head_sha": "164d5c9b8a0e8184941fd3ff36b8294b0b5e5d07",
+"number": 11
+},
+"certified-orbits|draft/issue-4-forge": {
+"head_sha": "c65b331ae8a924d39aaef6b13707aed062a09895",
+"number": 12
+},
+"cfrp-strengthening|checker-issue-4": {
+"head_sha": "242bae87aadaba2cf9739705b5eef035d6168157",
+"number": 7
+},
+"cfrp-strengthening|docs-rules-fixes": {
+"head_sha": "ed620112d9974aed0c0dc29a6c51cff16b878be3",
+"number": 17
+},
+"cosmic-denoising|gpt-forge/research-foundation": {
+"head_sha": "33962eda5e2c2b2686cd7cacc348bd2d63f2f702",
+"number": 1
+},
+"covering-min-modulus|codex/issue-2-evidence": {
+"head_sha": "d7f350d43c77a5d9707b5bec2cc6e2254946fa05",
+"number": 7
+},
+"covering-min-modulus|steward/task-1-preparation": {
+"head_sha": "f77a694b311af918895c96da8617d327c65fbbdb",
+"number": 9
+},
+"covering-min-modulus|steward/task-3-preparation": {
+"head_sha": "605fd56c0008d9f4ca57aade7a1e4084befb0214",
+"number": 10
+},
+"covering-min-modulus|steward/task-4-preparation": {
+"head_sha": "34897fe743c1a7b7ffc5d9c2d76c1de3d1c753ad",
+"number": 11
+},
+"covering-min-modulus|steward/task-5-preparation": {
+"head_sha": "e340bf5c13432812020856532ac9088c8e78b1ef",
+"number": 12
+},
+"exoplanets-frontier|aeva/issue5-evidence-boundaries-20261112": {
+"head_sha": "b9657985a433b6b7b4b17baaa26eee1e95ee6759",
+"number": 6
+},
+"exoplanets-frontier|orda-aska-patch-2": {
+"head_sha": "54671cc8be8f8c3c1e2aec950280ae9825182a4a",
+"number": 8
+},
+"f0|aeva/planning-boundary-condition-20261112": {
+"head_sha": "8dd1380d6940b1c74a0bcdf5e0758bc8170d5812",
+"number": 37
+},
+"f0|ccr-00d7e121-kthj40": {
+"head_sha": "9f988637b8342dd79eb4eb10d3c1df47fb846c03",
+"number": 40
+},
+"f0|claude/discord-hub": {
+"head_sha": "7b5d3c75ac34e503a09e674038e51238137dc534",
+"number": 7
+},
+"f0|claude/logo-refine": {
+"head_sha": "0397b84fd95096d822549718e9782209ad4251e2",
+"number": 6
+},
+"f0|claude/sharp-babbage-ecqeb2": {
+"head_sha": "0b2471cc2ed7bf843559b47ee218051a82b4788e",
+"number": 28
+},
+"f0|docs/github-collaboration-guidance": {
+"head_sha": "72ab53d528a55b4aa8acfca2021d503df2c6d147",
+"number": 27
+},
+"f0|docs/single-thread-synthesis": {
+"head_sha": "f20ef734a9bdc4484bf0793e8854f90a1c7468fc",
+"number": 41
+},
+"f0|dot/formalization-funding-roadmap-2026-10-19": {
+"head_sha": "16b44731e0e9cde4b7ef7492ac615b5662163638",
+"number": 20
+},
+"f0|feat/scouting-anchored-conservation-quotients": {
+"head_sha": "66359b21667f457c7e47d57f00dcc3fe5433aff2",
+"number": 39
+},
+"f0|feat/scouting-formal-mcp-verified-bar": {
+"head_sha": "f6d42123287b58e98801e6e5d77b384fcb0099ac",
+"number": 36
+},
+"f0|fix/playwright-ubuntu-runner": {
+"head_sha": "930ca5103a4c5145e93c3238edf05645e92659cd",
+"number": 30
+},
+"f0|mithrax/pages-prerender-at-deploy-677a": {
+"head_sha": "22b6f89dd0453cd056a10de595f53de9fc722fef",
+"number": 35
+},
+"f0|polish/f0-entry": {
+"head_sha": "def130ac5a280b340d933a79aff7f9d9bc748467",
+"number": 44
+},
+"f0|research/witness-map": {
+"head_sha": "d27fe69d5b89aa8ec3ca4fb64d43ba8607d47d53",
+"number": 11
+},
+"f0|review/H1": {
+"head_sha": "2a467d4bab0d88be2c83d7eac28c276317ff8ceb",
+"number": 45
+},
+"f0|review/H2": {
+"head_sha": "13d6ee9771ef01cb9e473568b0784fdb9418d2c2",
+"number": 46
+},
+"f0|review/o1-o2-f0": {
+"head_sha": "9b1149deffa74731c90569740646d6a1bf6ece40",
+"number": 43
+},
+"finite-state-proofs|mithrax/licence-split-9145": {
+"head_sha": "86df0a28218e4612ba575b235b4c7e2152e1e8c6",
+"number": 3
+},
+"formal-claims-audit|aeva/checker-audit-scope-repair-20261112": {
+"head_sha": "e4fd0e1997682b81d4f483ce037d78891a2bada0",
+"number": 17
+},
+"formal-claims-audit|codex/issue-1-evidence": {
+"head_sha": "c1757cd072cb7f102368d0b0b9953e2f44a350b9",
+"number": 11
+},
+"formal-claims-audit|codex/issue-2-evidence": {
+"head_sha": "edd76d0b01a1264825474df1bd2ce7aa85f37ccd",
+"number": 14
+},
+"formal-claims-audit|codex/issue-3-evidence": {
+"head_sha": "788fd6c5544e0dbd1fd270d50dbc90fbdf165589",
+"number": 12
+},
+"formal-claims-audit|codex/issue-4-evidence": {
+"head_sha": "ec979d8d72ff4a6cb167c524574ec6d8444df30d",
+"number": 13
+},
+"formal-claims-audit|codex/issue-6-evidence": {
+"head_sha": "ee996ec1d82ec76e18a6885954ab10578df2ab51",
+"number": 10
+},
+"formal-claims-audit|feat/python-checker-soundness-auditor": {
+"head_sha": "467a580956824e76c193f8ae72d83f0a330ecd3d",
+"number": 16
+},
+"fractals|aeva/acceleration-evolution-links": {
+"head_sha": "9669f5579635c3543f145e8eca86133069ad6f27",
+"number": 51
+},
+"fractals|aeva/publish-convergences-20261112": {
+"head_sha": "fab0bbe390a9e2941149784a3705a44fe2c464be",
+"number": 52
+},
+"fractals|aeva/research-value-assessment-20261112": {
+"head_sha": "94c033260c1031d164e8fa13702c6b962feabb63",
+"number": 53
+},
+"fractals|aeva/witness-decoherence-scope-20261112": {
+"head_sha": "1b4d75e9576855b08e7801cc4b8791b81ff660e8",
+"number": 54
+},
+"fractals|issue-17": {
+"head_sha": "ff05f9bf169bce13143078d347e3bfc54d7154d9",
+"number": 26
+},
+"fractals|issue-18": {
+"head_sha": "578817e655d12b2788c88d320276f9d55c40eea7",
+"number": 35
+},
+"fractals|issue-3": {
+"head_sha": "5217d5f38d1edc61953b447da0301bb63f417b86",
+"number": 12
+},
+"fractals|issue-36": {
+"head_sha": "cf660eed14eed4249be0593ea445aab774c5d221",
+"number": 37
+},
+"fractals|issue-55-mhd-pont-witness": {
+"head_sha": "5bd60bbfd07ebd61e0a6a23c3538540107886fe7",
+"number": 56
+},
+"fractals|note/self-similarity": {
+"head_sha": "6ea63faf690ed749254c2d76b784b465818b33cf",
+"number": 39
+},
+"fractals|study/fractal-landscapes": {
+"head_sha": "cc489c57e28a3c15f5e9c0e964df71ea888f14d6",
+"number": 42
+},
+"fractals|sweep/aesthetics-box-count": {
+"head_sha": "9158aa90929652ee25b9d02302d8f5f1437194e6",
+"number": 43
+},
+"gaia-dr4|steward/task-1-preparation": {
+"head_sha": "8c57b082bbe79bcd5be8dbb23372064f93de6be6",
+"number": 9
+},
+"gaia-dr4|steward/task-2-preparation": {
+"head_sha": "0ccc64e2f6bad3f91a05018100d7fe30d13cca92",
+"number": 10
+},
+"gaia-dr4|steward/task-3-preparation": {
+"head_sha": "b075e244ac95d71a66d7a5231b5373b4747ae504",
+"number": 11
+},
+"gaia-dr4|steward/task-4-preparation": {
+"head_sha": "cb2ab39bef01758414fa48fa12f9d95514beef7c",
+"number": 12
+},
+"gaia-dr4|steward/task-5-preparation": {
+"head_sha": "154c2c9ae5d2e89aaad47a72708abbe29584ed10",
+"number": 13
+},
+"gaia-dr4|steward/task-6-preparation": {
+"head_sha": "c88a67a8f521d162d884c47e93d5a70b346462dc",
+"number": 14
+},
+"gfq-codes|codex/issue-1-evidence": {
+"head_sha": "8123f0584eb77bcef03d79463f6ad503b40b2ac9",
+"number": 9
+},
+"gfq-codes|codex/issue-2-evidence": {
+"head_sha": "b1f32e53104b2c30d3e9aaa18103788b9ee92a68",
+"number": 10
+},
+"gfq-codes|codex/issue-3-evidence": {
+"head_sha": "42863db3cde21407671cf8618dce895c59638419",
+"number": 11
+},
+"gfq-codes|codex/issue-4-evidence": {
+"head_sha": "492234f3a24067cc046ffbec9622e8bf86b4ceb9",
+"number": 14
+},
+"gfq-codes|codex/issue-5-evidence": {
+"head_sha": "d12113e2255274944a30c98f4ed33db88b972ffa",
+"number": 13
+},
+"incentre-lattices|aeva/fixed-angle-fold-20261112": {
+"head_sha": "09bbff34eddd2a8fb110c91dfb57ff0307ed7d6f",
+"number": 100
+},
+"incentre-lattices|audit/cab6-docs": {
+"head_sha": "6986957753879bfad03009732f84534aa968b4c5",
+"number": 66
+},
+"incentre-lattices|audit/cab6-replay-fixes": {
+"head_sha": "556b073f6b23b67c64c69e5b23f86e90b67fabd5",
+"number": 59
+},
+"incentre-lattices|audit/chk-independent-fail-closed": {
+"head_sha": "0e23c1feacdcee37bbbdf37a92af3661a153374b",
+"number": 43
+},
+"incentre-lattices|audit/credit-per-result": {
+"head_sha": "832b2166bdd3fedeefa88ab247aaad6b45e88234",
+"number": 80
+},
+"incentre-lattices|audit/fold-2d-replay-asserts": {
+"head_sha": "0a19e8a3223bedde5a6e09ab143566fe045e78f0",
+"number": 57
+},
+"incentre-lattices|audit/fold-3d-labels": {
+"head_sha": "3fa0998043e756d1214167eb4be29f442546a40e",
+"number": 60
+},
+"incentre-lattices|audit/fold-3d-replay-asserts": {
+"head_sha": "3260f4b40d796e63cfdaaa921cbacf5d923ecb82",
+"number": 58
+},
+"incentre-lattices|audit/fold-continuous-hand-proof": {
+"head_sha": "67fbae480657e72e113b5118c77d5b0f2f866934",
+"number": 45
+},
+"incentre-lattices|audit/fold-cp-docs": {
+"head_sha": "c450be64a3dfa2ac3dabf9742d5b4e315ba80588",
+"number": 63
+},
+"incentre-lattices|audit/fold-cp-driver-controls": {
+"head_sha": "bd962a1c21c3ca568bd0a3275a33a4ff4debe3ff",
+"number": 54
+},
+"incentre-lattices|audit/fold-end-exact-isolating-controls": {
+"head_sha": "69dbbba8c42de0b5a3f8aa6f5d6039730328340d",
+"number": 56
+},
+"incentre-lattices|audit/fold-end-exact-proof-bound": {
+"head_sha": "a26b8c70ebddc5bc85eddb47abebe34e76950252",
+"number": 77
+},
+"incentre-lattices|audit/fold-m1-docs-and-search": {
+"head_sha": "1f5180fb254f4aecff7244035976f6f626fc76dc",
+"number": 62
+},
+"incentre-lattices|audit/fold-m1-replay-asserts": {
+"head_sha": "d2786640585727d2c781ab29d561b8e353bd49f4",
+"number": 55
+},
+"incentre-lattices|audit/makefile-reproducibility-docs": {
+"head_sha": "73edd2e4a45709874f5169dae288ecdeb2b83164",
+"number": 73
+},
+"incentre-lattices|audit/metadata-citation-licence": {
+"head_sha": "23d5283bda75bc1150eb244896190b734cf027fb",
+"number": 68
+},
+"incentre-lattices|audit/radius-ratio-case-coordinates": {
+"head_sha": "d252510dc32ca6d33f30ef37d34099b57a469d87",
+"number": 53
+},
+"incentre-lattices|audit/radius-ratio-claims": {
+"head_sha": "7b728917cfaa0c1e7915fa6b8904a133f1ab4b59",
+"number": 44
+},
+"incentre-lattices|audit/radius-ratio-replay-asserts": {
+"head_sha": "cdc45cfe582000f9becf140482af934690aee3fb",
+"number": 52
+},
+"incentre-lattices|audit/rigidity-nd-controls": {
+"head_sha": "e9411a2ac92bebe804c2dcd2ea4d551716f739e5",
+"number": 51
+},
+"incentre-lattices|audit/rigidity-nd-scope-and-prior-art": {
+"head_sha": "ff3abc5ee0508a746952f788a31b98066ab8c9c7",
+"number": 47
+},
+"incentre-lattices|audit/site-merged-state": {
+"head_sha": "701e450893fc4e942336a6d5ddf26808f6102818",
+"number": 65
+},
+"incentre-lattices|audit/site-ux": {
+"head_sha": "28d4f01e68eb76cc1fb6fea597c65432198e118f",
+"number": 79
+},
+"incentre-lattices|audit/stale-fold-status": {
+"head_sha": "1a0c9cfefbaacb90e3458c8087955eb6e1483e2f",
+"number": 64
+},
+"incentre-lattices|grok/zenodo-json-spec": {
+"head_sha": "e402af65409c5cf6b6cb0bb2a642c14799569cac",
+"number": 98
+},
+"incentre-lattices|steward/issue37-v2-erratum": {
+"head_sha": "8e1a14c43eb61c2566b5ee3d4371aa37b951d913",
+"number": 85
+},
+"incentre-lattices|steward/issue40-release-corrections": {
+"head_sha": "e0e28c3dbbab48e41f1da030d7a70e1dcbf26cd8",
+"number": 88
+},
+"incentre-lattices|steward/issue41-historical-ledger": {
+"head_sha": "f66fdcdf4ccd7a85c3188b8296e754d8e0f8d0bb",
+"number": 89
+},
+"incentre-lattices|steward/issue42-checker-policy": {
+"head_sha": "48002929f6be406bc0643a3110e23823a467c8ca",
+"number": 90
+},
+"lost-eclipses|steward/task-1-preparation": {
+"head_sha": "d27286443c7dc5f6345fec6d90c3bfe6843069fc",
+"number": 9
+},
+"lost-eclipses|steward/task-2-preparation": {
+"head_sha": "aedfc9d418c4c93a4455e301ddc1f7e98bd0aa70",
+"number": 10
+},
+"lost-eclipses|steward/task-3-preparation": {
+"head_sha": "f8859486a40df7c7bf375291cc1ad4ce5b289333",
+"number": 11
+},
+"lost-eclipses|steward/task-4-preparation": {
+"head_sha": "45e163bfd7e77d7d2dec5897e3cf3723c46b805c",
+"number": 12
+},
+"lost-eclipses|steward/task-5-preparation": {
+"head_sha": "344a67443bef9f633ebd9aa71b783a97037879d8",
+"number": 13
+},
+"lost-eclipses|steward/task-6-preparation": {
+"head_sha": "8da33d2fd4069697580299e2795dbdc1685a3efd",
+"number": 14
+},
+"math0|agent/wave1-gfq-checker": {
+"head_sha": "d94ad5d4869abf586d7e97d237c539b504ae5877",
+"number": 3
+},
+"math0|agent/wave2-codetables": {
+"head_sha": "98bdb8727b180f62c0a8e77b8fdcc659e3b0bd38",
+"number": 4
+},
+"math0|claude/math-capabilities-showcase-961iya": {
+"head_sha": "140e4fff5d48610895364a48ea923ec5c8406a4c",
+"number": 1
+},
+"math0|docs/readme-consolidation": {
+"head_sha": "84064cc4aa5d9052d0d8ba01e0ae8bc1082cf649",
+"number": 13
+},
+"math0|feat/sokoban-frontier-quotient-bounds": {
+"head_sha": "3d3198246c4f2ee1fc1079c57cdd936c4f2b34d0",
+"number": 9
+},
+"overdue-data|codex/issue-5-evidence": {
+"head_sha": "228e8c19760a1ca6e1d02b63c070231c6afb4759",
+"number": 8
+},
+"overdue-data|draft/issue-1-forge": {
+"head_sha": "81173aab7c09daeade0d36c67f6780b602382d27",
+"number": 9
+},
+"overdue-data|draft/issue-2-forge": {
+"head_sha": "af7b384cfba1f06b023f11b1d04a258d47fd9b1f",
+"number": 10
+},
+"overdue-data|draft/issue-3-forge": {
+"head_sha": "7207f38684763484dc13d4a20140757f8af03faf",
+"number": 11
+},
+"overdue-data|draft/issue-4-forge": {
+"head_sha": "c98604182e58062e5f1810b14bbce7fa0e2a8b2f",
+"number": 12
+},
+"physics0|aeva/acceleration-evolution-links": {
+"head_sha": "76410c3deebf925f6c51017867dbcef29ff54e8b",
+"number": 15
+},
+"physics0|aeva/publish-convergences-20261112": {
+"head_sha": "3007774b935495335a59f54c5e9b5d5454eab635",
+"number": 16
+},
+"physics0|aeva/research-continuation-results-20261112": {
+"head_sha": "38050799b93c6cdc9cc891d784b586ed12ad0343",
+"number": 18
+},
+"physics0|aeva/research-value-assessment-20261112": {
+"head_sha": "680fe1b3ea65b53bf0231e18db3ee5d89a15b9ac",
+"number": 17
+},
+"physics0|sweep/central-configurations-pilot": {
+"head_sha": "d0f7b790fdd592783dc172cee5d24101e066838c",
+"number": 13
+},
+"plate-eclipses|agent/wave1-dasch-scaleup": {
+"head_sha": "e914f5033247762d47ab10b8a473cbddcda09f19",
+"number": 3
+},
+"plate-eclipses|agent/wave2-dasch-search": {
+"head_sha": "587468e3ad3c03f9534270d61da7e1aa0813bebf",
+"number": 4
+},
+"plate-eclipses|investigate/targeted-scans-20261018": {
+"head_sha": "51d0ff1bfacd395958589e81274759a3d236c723",
+"number": 2
+},
+"plate-novae|steward/task-1-preparation": {
+"head_sha": "4b61963bef3f41465f70c9c9caf3f7f59080fcb4",
+"number": 9
+},
+"plate-novae|steward/task-2-preparation": {
+"head_sha": "a1760fbf2261f7e55cbef28b66f004b5bfc9c82d",
+"number": 10
+},
+"plate-novae|steward/task-3-preparation": {
+"head_sha": "af7b295573bb773205a274a8cf520f1ea83e8989",
+"number": 11
+},
+"plate-novae|steward/task-4-preparation": {
+"head_sha": "b03301cd972bdc198f4d0296f6bf14f8a081fe9f",
+"number": 12
+},
+"plate-novae|steward/task-5-preparation": {
+"head_sha": "9aa139175d9cdfc917e3e862d28ffd7519df818f",
+"number": 13
+},
+"plate-novae|steward/task-6-preparation": {
+"head_sha": "c66de3984f791fe9c7bc9d7380d0d0081028edef",
+"number": 14
+},
+"point-charges|agent/wave2-maxwell-hardening": {
+"head_sha": "555c311632f2b4555d596b464a455f17c5bc3812",
+"number": 14
+},
+"point-charges|codex/issue-12-evidence": {
+"head_sha": "a704e6521d967c72cc344dfc5fb5e903f8c873d0",
+"number": 16
+},
+"point-charges|codex/issue-2-evidence": {
+"head_sha": "0729b4d7e050768b3219432621b3646d9d6bb393",
+"number": 15
+},
+"point-charges|codex/issue-5-evidence": {
+"head_sha": "7a65c96860d97e6185db5f7a23dcc1227f538155",
+"number": 18
+},
+"project-asma|codex/asma-ecosystem-assessment-20261112": {
+"head_sha": "2b2c2e1fa22420da6ca44eafab7dd2d392e8f9e1",
+"number": 77
+},
+"project-asma|codex/asma-measurement-design-20261113": {
+"head_sha": "13d86d80aaf345dc529bacd79b982e8d768746a3",
+"number": 78
+},
+"project-asma|codex/site-latest-research": {
+"head_sha": "eb924f19da15e3787efac378b033038758c4b28a",
+"number": 65
+},
+"project-asma|docs/pilot001-readiness-20261108": {
+"head_sha": "9c1004bea0fa5e3d81569f70379760f123121328",
+"number": 69
+},
+"project-asma|feat/bidirectional-symbiosis-negative-controls": {
+"head_sha": "66c2318055e860336dd39c9541bb73b3af32b406",
+"number": 99
+},
+"project-asma|feat/og-previews": {
+"head_sha": "e91bfd070d8b9fcff98ca88cdc6bee6694b1c232",
+"number": 75
+},
+"project-asma|feat/soko-phase-transition-and-floating-rs-proofs": {
+"head_sha": "56ce188c6cd9da7846dde54d4b3d8a92ec2a9265",
+"number": 97
+},
+"project-asma|feat/soko-weft-discriminators-20261113": {
+"head_sha": "8c21d140b1f2248aab21eced4a323e6b24684b93",
+"number": 86
+},
+"project-asma|feat/subspace-flag-paraneoplastic-proofs": {
+"head_sha": "d109b24ec6e8450c9270f1fae2c78d83faadf8e7",
+"number": 92
+},
+"project-asma|fix/pilot001-real-repetitions-20261108": {
+"head_sha": "362df78e451c78921ee59befaec81b1d73ce2cd3",
+"number": 68
+},
+"project-asma|patch-1": {
+"head_sha": "91eebb5fb72687932ec8114b2b0a4197e734dfa2",
+"number": 96
+},
+"project-asma|patch-2": {
+"head_sha": "a444aad08b42d88ede58bfb0bcd7f101256c5bb6",
+"number": 98
+},
+"project-asma|research/formal-synthesis-scan23848-20261113": {
+"head_sha": "255b039e3c7b20815d41510f3d2633f52dd1c909",
+"number": 100
+},
+"project-asma|vault/2026-11-13-asma-identifiability-bridge": {
+"head_sha": "91f2ea701f027bba120a667bcf2d138d41c7cc56",
+"number": 84
+},
+"project-asma|vault/2026-11-13-soko-asma-unlocks": {
+"head_sha": "3936e64e8af8eca76ee2a27e8e13254e5545e528",
+"number": 91
+},
+"proven-commons|audit/surface-scanner-and-upstream-status": {
+"head_sha": "9ff9c4095abb04ed7cf6eb0c93e57a0410333fc2",
+"number": 9
+},
+"proven-commons|draft/joint-proof-acceptance": {
+"head_sha": "9eaf6906deb47352e0fc05dcf09eb78046a0adce",
+"number": 8
+},
+"relative-equilibria|codex/issue-1-evidence": {
+"head_sha": "85fe86b85f749524e780affb54168ae5e5147de6",
+"number": 10
+},
+"relative-equilibria|codex/issue-2-evidence": {
+"head_sha": "326aa4e3fa14403b50777eeb69ed0a8357a34112",
+"number": 11
+},
+"relative-equilibria|codex/issue-3-evidence": {
+"head_sha": "e5ac95effbeeb6f462c3941e9ebe9be91b0c9204",
+"number": 12
+},
+"relative-equilibria|codex/issue-4-evidence": {
+"head_sha": "0c2f0d853b817a503b668bb79a0f0ed7b7367694",
+"number": 13
+},
+"relative-equilibria|codex/issue-5-evidence": {
+"head_sha": "12990cc2dc4c6c85198c02fd27a4a59d6a8e6f3c",
+"number": 14
+},
+"relative-equilibria|codex/issue-6-evidence": {
+"head_sha": "82bb109f48abbd112bb2e8a6b417f6f57e3e34ec",
+"number": 9
+},
+"rigid-realizations|codex/issue-1-evidence": {
+"head_sha": "71fc6610ebeecbae5184add60d719c18c5346aa8",
+"number": 8
+},
+"rigid-realizations|codex/issue-2-evidence": {
+"head_sha": "f9c782d8ba03561f8842ec7cef505c744ba945c1",
+"number": 9
+},
+"rigid-realizations|codex/issue-3-evidence": {
+"head_sha": "cfee1ab74fd521729a92943cb268a9494b473a89",
+"number": 10
+},
+"rigid-realizations|codex/issue-4-evidence": {
+"head_sha": "c8847c182781ce131f31fd5c27d0ae8301f00721",
+"number": 11
+},
+"rigid-realizations|codex/issue-5-evidence": {
+"head_sha": "14c386f9f604a498f48d4106884e99d427949433",
+"number": 12
+},
+"rism-anon|codex/issue-4-evidence": {
+"head_sha": "ada86a71921a3da36d04bcf8eb3e347f71b762de",
+"number": 7
+},
+"rism-anon|draft/issue-1-forge": {
+"head_sha": "91cca61adae4c32da78e0e6d029c1aa880d262b0",
+"number": 10
+},
+"rism-anon|draft/issue-2-forge": {
+"head_sha": "17481695f72deadf6055c8f397e06722c0e81a97",
+"number": 8
+},
+"rism-anon|draft/issue-3-forge": {
+"head_sha": "032b6aebb3f2c9fd924f1fd51287c6b9ec6ecb08",
+"number": 9
+},
+"st0a|sweep/settings-audit": {
+"head_sha": "a390c27008ded6338f7e3ce78476477332c256c0",
+"number": 8
+},
+"virtual-human|feat/lean4-r19-and-scaffold-crushing-gate": {
+"head_sha": "5b2e18f440ca98f2d1a6e30077b180c912b63c6e",
+"number": 9
+},
+"virtual-human|sync/upstream-vein-flow-20261113": {
+"head_sha": "2091d009c19f090a3e98a2e7fedb03287d16eb69",
+"number": 8
+},
+"wwssn-microseisms|claude/magical-planck-eqc43u": {
+"head_sha": "f7e57a1c230c3348c67a05b3ba6c04aa8fff1c03",
+"number": 13
+}
+}
