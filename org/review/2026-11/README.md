@@ -18,7 +18,7 @@ Nothing here changes a published claim.
    files, and which branches hold work that never landed.
 6. [reproduction.csv](reproduction.csv): every f0 checker, run four
    ways, with exit codes and output hashes.
-7. [gate0-packet.md](gate0-packet.md): the seven owner decisions in
+7. [gate0-packet.md](gate0-packet.md): the eight owner decisions in
    one reply-ready form, with the f0 facts each decision needs.
 
 ## Rules that apply here

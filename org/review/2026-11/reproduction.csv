@@ -7,7 +7,7 @@ f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,feed gate,optimised,python3 -O scrip
 f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,feed gate,empty,python3 scripts/gate.py --root EMPTY_DIR,1,,fails closed,na
 f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,golden parser,documented,python3 tests/run_golden.py,0,ba9141caa4803f7e,pass,4 of 4 cases
 f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,golden parser,optimised,python3 -O tests/run_golden.py,0,,pass on good input,4 of 4 cases
-f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,finding regressions,documented,python3 tests/run_regressions.py,0,614e875cacc0b5bc,pass,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,finding regressions,documented,python3 tests/run_regressions.py,0,133e2e693d463c28,pass,na
 f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,gate corruptions,documented,python3 tests/run_gate_corruptions.py,0,0484199fd5ab2f67,pass,4 corruptions blocked
-f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,forum index,documented,python3 tests/run_discussions.py,0,6dab19da35bd88f8,pass,na
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,forum index,documented,python3 tests/run_discussions.py,0,,pass (unhashable: output embeds a random tmpdir),na
 f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,forum index,optimised,python3 -O tests/run_discussions.py,0,,pass on good input,na

@@ -20,8 +20,8 @@ Heads move, so recheck a head before acting on its row.
 | 27 collaboration guidance | build | none yet | green | overlaps 40 on merge rules |
 | 41 Single Thread essay | idea | changes asked | green | science review (F5) |
 | 39 conservation quotients | idea + build | changes asked | green | science review, adds a workflow |
-| 36 planning field report | idea | changes asked | green | lands before 37 |
-| 37 goal boundary (draft) | idea | approved | green | stacked on 36, retarget |
+| 36 planning field report | idea | changes asked | green | contains the 37 fix |
+| 37 goal boundary (draft) | idea | approved | green | merged into 36's branch 2026-11-15 |
 | 28 tissue scouting report | idea | changes asked | green | science review (F5) |
 | 20 funding roadmap (draft) | idea | changes asked | green | owner call on scope |
 | 11 Witness Map page | record | changes asked | green | tied to issue 10 |
@@ -49,9 +49,8 @@ review. No step here merges by itself: a person merges. [I]
    browser tooling and conflicts with main today, so its author
    rebases first either way. Pick 35 first, then rebase 30 on
    the result and keep only the pinning that still applies.
-3. **Unstack 36 and 37.** Review and land 36. Retarget 37 to
-   main, re-run its preflight, and review the one-file change
-   on its own. Never delete the 36 branch while 37 points at it.
+3. **Unstack 36 and 37 — done.** 37 was folded into 36's branch on
+   2026-11-15 (merge 5079d2c); nothing to retarget.
 4. **Fold 27 into the 40 outcome.** 27 rewrites `MERGE-SOP.md`
    and adds collaboration guidance. Decision 2 rewrites the
    same file. Land one text, not two. The smaller path: close

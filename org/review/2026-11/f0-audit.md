@@ -41,6 +41,9 @@ The same checks fail when they should. [F]
   `tests/run_discussions.py`. [F]
 
 Full rows with output hashes sit in [reproduction.csv](reproduction.csv).
+A hash is sha256 of the command's raw stdout, first 16 hex; stderr is
+excluded. One row carries no hash: the forum-index check prints a random
+tmpdir in its stdout, so its output has no stable hash.
 f0 is a sound pattern for the shared checker in Phase 4 of issue 42. [I]
 
 ## Protection, live state
@@ -67,7 +70,7 @@ an owner to apply it, so this run only records it. [I]
 
 **G2. One workflow still pushes to main.** `prerender.yml`
 commits baked pages and pushes on every data change to main.
-[F] `.github/workflows/prerender.yml:44`
+[F] `.github/workflows/prerender.yml:54`
 The ruleset rejects direct pushes, so that step now fails or
 silently stops updating pages. Pull request 35 moves the baking
 to deploy time and pull request 30 reworks the same workflows.
@@ -104,8 +107,10 @@ preflight, the three lanes and the verdict words exist in issue
 42 alone. The repository has discussion templates but no issue
 template, no pull request template and no CODEOWNERS file. [F]
 `MERGE-SOP.md` predates decision 2: it counts any maintainer
-approval and says nothing about a person reading the change,
-a head-pinned merge, or lanes. [F] `MERGE-SOP.md:14`
+approval and says nothing about a person reading the change
+or lanes. It does pin approval to the current head
+(`MERGE-SOP.md:19,28,39`), so the head rule is not the gap.
+[F] `MERGE-SOP.md:14`
 
 ## Backlog shape
 

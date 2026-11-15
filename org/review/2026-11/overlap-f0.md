@@ -22,10 +22,10 @@ against main. Run 2026-11-15. [F]
 | 7 | 7b5d3c7 | clean | 2 |
 | 6 | 0397b84 | clean | 31 |
 
-Pull request 37 targets the branch of pull request 36, not main.
+Pull request 37 targeted the branch of pull request 36, not main.
 That breaks the no-stacks rule in issue 42. Deleting the base
-branch would close 37. Retarget 37 to main after 36 lands, or
-fold its one file into 36 first. [F] for the base, [I] for the fix.
+branch would close 37. It was folded into 36 first instead: 37
+merged into 36's branch on 2026-11-15, so no retarget is needed.
 
 ## Files touched by more than one open pull request
 
