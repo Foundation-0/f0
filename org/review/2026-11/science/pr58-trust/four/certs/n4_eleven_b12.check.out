@@ -1,0 +1,17 @@
+config ../../threads/checks/four/jet-route/n4_eleven_b12.json sha256 e15e6c97b985a1b7a6d3d3c0de86a62c7fbc9c7c02396828164b6773970fd3c3
+charges 1, 170213348547/200000000000, 172818007371/200000000000, 209598953761/250000000000
+uniqueness boxes: 11, pairwise disjoint
+  box  0 centre (+0.000002, +0.000106, +0.000002) half-width 0.000000746  index 1
+  box  1 centre (-0.000003, -0.000003, -0.000065) half-width 0.000000785  index 2
+  box  2 centre (+0.000030, +0.017728, +0.000039) half-width 0.000035767  index 2
+  box  3 centre (-0.000436, -0.000001, -0.000001) half-width 0.000000860  index 2
+  box  4 centre (+0.000016, +0.000016, +0.000012) half-width 0.000003443  index 2
+  box  5 centre (-0.000001, -0.000380, -0.000001) half-width 0.000000746  index 2
+  box  6 centre (+0.000111, +0.000002, +0.000002) half-width 0.000000781  index 1
+  box  7 centre (-0.000013, -0.000013, -0.000019) half-width 0.000003141  index 1
+  box  8 centre (+0.014855, +0.000025, +0.000040) half-width 0.000029927  index 2
+  box  9 centre (+0.000029, +0.000024, +0.010686) half-width 0.000009845  index 2
+  box 10 centre (+0.000003, +0.000002, +0.000985) half-width 0.000000987  index 1
+tree leaves: hull 136, dominance 155, taylor-newton 2485, taylor-plain 2788, inside a box 12
+PROVED at least 11 balance points (7 of index 2, 4 of index 1)
+PROVED exactly 11 balance points

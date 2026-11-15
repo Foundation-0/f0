@@ -1,0 +1,17 @@
+config short_table.json sha256 e88b3716f6a95c6247a34fa0dca54257644c1073343bac6142651f819b05247a
+charges 3339/12500, 2801/10000, 1, 13137/50000
+uniqueness boxes: 11, pairwise disjoint
+  box  0 centre (-0.000212, +0.000215, +0.001546) half-width 0.000134448  index 2
+  box  1 centre (-0.003071, +0.023037, +0.016059) half-width 0.000167952  index 2
+  box  2 centre (-0.017469, -0.013119, +0.015605) half-width 0.000157845  index 2
+  box  3 centre (+0.000142, -0.000545, -0.002507) half-width 0.000094090  index 1
+  box  4 centre (+0.003948, +0.002874, -0.004543) half-width 0.000089419  index 2
+  box  5 centre (+0.019448, -0.008051, +0.015288) half-width 0.000147956  index 2
+  box  6 centre (+0.000413, -0.003281, -0.003419) half-width 0.000047045  index 2
+  box  7 centre (-0.005401, +0.002115, -0.005136) half-width 0.000108595  index 2
+  box  8 centre (-0.000883, +0.006153, +0.004310) half-width 0.000053455  index 1
+  box  9 centre (+0.005834, -0.002434, +0.004554) half-width 0.000058905  index 1
+  box 10 centre (-0.004868, -0.003599, +0.004266) half-width 0.000053631  index 1
+tree leaves: hull 131, dominance 122, taylor-newton 2403, taylor-plain 724, inside a box 16
+PROVED at least 11 balance points (7 of index 2, 4 of index 1)
+PROVED exactly 11 balance points

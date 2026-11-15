@@ -1,0 +1,17 @@
+config ../../threads/checks/four/verify/n4_eleven_flat.json sha256 2cd7745142e187f545a56881e7ee5a5037651c0b79271b90c9ab16bae1b448d5
+charges 1669492820757/6250000000000, 280104254533/1000000000000, 1, 26274615972673/100000000000000
+uniqueness boxes: 11, pairwise disjoint
+  box  0 centre (-0.000175, -0.000220, +0.000105) half-width 0.000023258  index 2
+  box  1 centre (-0.003300, +0.024819, +0.017228) half-width 0.000226171  index 2
+  box  2 centre (+0.000120, -0.001298, -0.001481) half-width 0.000022924  index 2
+  box  3 centre (-0.018762, -0.014114, +0.016707) half-width 0.000226072  index 2
+  box  4 centre (+0.001167, +0.000881, -0.001732) half-width 0.000025816  index 2
+  box  5 centre (+0.020162, -0.008360, +0.015787) half-width 0.000103274  index 2
+  box  6 centre (+0.001223, -0.000601, +0.000676) half-width 0.000012653  index 1
+  box  7 centre (-0.001502, +0.000566, -0.001763) half-width 0.000028204  index 2
+  box  8 centre (-0.000003, +0.000042, -0.001059) half-width 0.000039190  index 1
+  box  9 centre (-0.000736, -0.000590, +0.000351) half-width 0.000011629  index 1
+  box 10 centre (-0.000357, +0.002217, +0.001212) half-width 0.000021790  index 1
+tree leaves: hull 131, dominance 122, taylor-newton 2719, taylor-plain 804, inside a box 14
+PROVED at least 11 balance points (7 of index 2, 4 of index 1)
+PROVED exactly 11 balance points

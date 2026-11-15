@@ -1,0 +1,30 @@
+Part A: other configurations, count proved by find.py + check.py
+  second family (threads: exactly 9)                                     proved exactly  9  agrees
+  jet route, linear term -1e-10 (threads: 9)                             proved exactly  9  agrees
+  jet route, one charge x 1.000001 (threads: 5)                          proved exactly  5  agrees
+  fat2.json rounded to 4 decimals, as short_cert.py does (threads: 9)    proved exactly  9  agrees
+  fat2.json rounded to 3 decimals, as short_cert.py does (threads: 5)    proved exactly  5  agrees
+  the printed 5-decimal table rounded again to 4 (indep_count.py: 7)     proved exactly  7  agrees
+  a hand-picked tetrahedron, unequal charges (indep_count.py: 5)         proved exactly  5  agrees
+
+Part B: corrupted inputs, each must be rejected
+  clean run proves 11: yes
+  rejected as it should: charge 1 times 1.000001                            (the Krawczyk test fails on box 1)
+  rejected as it should: charge 3 times 0.99999                             (the Krawczyk test fails on box 0)
+  rejected as it should: one coordinate changed by 1e-5                     (the Krawczyk test fails on box 0)
+  rejected as it should: sites listed in reverse order                      (the Krawczyk test fails on box 0)
+  rejected as it should: a negative charge                                  (a charge is not positive)
+  rejected as it should: four coplanar sites                                (the four sites are coplanar)
+  rejected as it should: certificate on another grid                        (certificate made for a different grid)
+  rejected as it should: claim of 13 points                                 (the certificate proves 11, not 13)
+  rejected as it should: claim of 9 points                                  (the certificate proves 11, not 9)
+  rejected as it should: one uniqueness box removed                         (a leaf is not inside its box)
+  rejected as it should: a box listed twice                                 (boxes 0 and 11 overlap)
+  rejected as it should: a box moved off its zero                           (the Krawczyk test fails on box 3)
+  rejected as it should: a Taylor leaf relabelled hull                      (hull test fails on a leaf)
+  rejected as it should: a hull leaf relabelled Taylor                      (Taylor test (Newton) fails on a leaf)
+  rejected as it should: a leaf inside a box relabelled Taylor              (Taylor test (Newton) fails on a leaf)
+  rejected as it should: first split on another axis                        (dominance test fails on a leaf)
+  rejected as it should: tree cut short by one token                        (the tree ends early)
+  rejected as it should: tree with a token added                            (the tree has trailing tokens)
+  rejected as it should: whole root claimed inside one box                  (a leaf is not inside its box)
