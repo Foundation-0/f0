@@ -112,21 +112,41 @@ account's approval counts once a person has read the change and says so in the r
 
 ## How to apply
 
-An organisation owner runs, with the GitHub CLI logged in as themselves:
+An organisation owner runs, with the GitHub CLI logged in as themselves. The organisation rulesets API
+needs the `admin:org` scope, which a default `gh auth login` does not grant:
 
 ```
+gh auth refresh -h github.com -s admin:org
 scripts/org/apply_rulesets.sh            # dry run: prints what it would do
 scripts/org/apply_rulesets.sh --apply    # creates or updates the rulesets
-scripts/org/apply_rulesets.sh --verify   # lists the rules now in force on each default branch
+scripts/org/apply_rulesets.sh --verify   # reports what is in force; exits 1 if anything is wrong
 ```
 
-The script tries organisation-level rulesets first, which also cover repositories created later. If the
-plan doesn't offer them, it adds the same rulesets to each repository one by one. Re-running it updates
-the rulesets rather than duplicating them. Private repositories may need a paid plan for rulesets; the
-script lists any it could not protect. To roll back, set `"enforcement": "disabled"` in the JSON files
-and run `--apply` again.
+The script applies organisation-level rulesets. They also cover repositories created later, and only
+organisation owners can change them, so they hold even against an agent account that still has admin on
+a repository. If the script cannot read the organisation's rulesets, it stops, prints GitHub's answer and
+says whether the login lacks `admin:org`. It never switches to per-repository rulesets by itself.
 
-Then make the account changes in section 2 by hand, in the organisation's People and Settings pages.
+Only if the organisation's plan does not offer organisation rulesets, run it with `--per-repo` to add
+the same rulesets to each repository. Any repository admin can edit or delete those, so make the account
+changes in section 2 first. Private repositories may need a paid plan for rulesets; the script lists any
+it could not protect.
+
+Re-running updates the rulesets rather than duplicating them. To roll back, set `"enforcement":
+"disabled"` in the JSON files and run `--apply` again.
+
+Then make the account changes in section 2 by hand, in the organisation's People and Settings pages,
+and run `--verify`. For the organisation and each repository it prints:
+
+- each organisation ruleset with its target, enforcement and bypass actors;
+- the rules in force on the default branch and whether each comes from an organisation or a
+  repository ruleset;
+- any repository rulesets with their bypass actors;
+- the accounts with admin on the repository that are not organisation owners.
+
+It counts as a problem a ruleset that is not active or has bypass actors, a default branch without an
+organisation-level `pull_request` rule, a rule from a repository ruleset, and an admin who is not an
+owner. It exits 1 if it finds any.
 
 Expect friction for a few days. Agents that push to `main` will get "GH013: Repository rule
 violations"; they need to open a pull request instead. Workflows that push to `main` (for example
@@ -143,7 +163,7 @@ scripts/org/find_lost_local.sh ~/code ~/agent-workspaces      # on each machine 
 
 `find_force_pushes.sh` reads GitHub's record of every force push on every branch, and says which
 overwritten commits are missing from the default branch and whether GitHub still serves them. With
-`--rescue` it creates a `rescue/<date>-<sha>` branch at each such commit so it can't be
+`--rescue` it creates a `rescue/<date>-<full SHA>` branch at each such commit so it can't be
 garbage-collected; restore from there with a pull request.
 
 `find_lost_local.sh` checks every clone under the folders it is given: local branches never pushed,

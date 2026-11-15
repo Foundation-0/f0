@@ -9,7 +9,7 @@
 #   scripts/org/find_force_pushes.sh --since 2026-11-01   # only force pushes on or after this date (UTC)
 #   scripts/org/find_force_pushes.sh --repo gravity       # one repository (repeatable)
 #   scripts/org/find_force_pushes.sh --org NAME           # another organisation (default Foundation-0)
-#   scripts/org/find_force_pushes.sh --rescue             # also create a branch rescue/<date>-<sha> at each
+#   scripts/org/find_force_pushes.sh --rescue             # also create a branch rescue/<date>-<full SHA> at each
 #                                                         # overwritten commit that is still on GitHub and not on
 #                                                         # the default branch, so it can't be garbage-collected
 #   scripts/org/find_force_pushes.sh --help               # this text
@@ -47,7 +47,7 @@ if [ ${#REPOS[@]} -eq 0 ]; then
   while IFS= read -r r; do REPOS+=("$r"); done < <(gh api "orgs/$ORG/repos" --paginate --jq '.[].name')
 fi
 
-found=0; lost_total=0; gone=0; rescued=0
+found=0; lost_total=0; gone=0; rescued=0; pinned=0; rescue_failed=0
 printf 'repo\tref\tpushed_at\tactor\tbefore\tafter\tlost_vs_branch\tlost_vs_default\trecoverable\n'
 for repo in "${REPOS[@]}"; do
   default=$(gh api "repos/$ORG/$repo" --jq .default_branch 2>/dev/null) || { echo "cannot read $repo" >&2; continue; }
@@ -70,11 +70,17 @@ for repo in "${REPOS[@]}"; do
     if [ "$recoverable" = yes ] && [ "$vs_default" != "?" ] && [ "$vs_default" -gt 0 ]; then
       lost_total=$((lost_total + 1))
       if [ "$RESCUE" = 1 ]; then
-        name="rescue/${when:0:10}-${before:0:7}"
-        if gh api -X POST "repos/$ORG/$repo/git/refs" -f ref="refs/heads/$name" -f sha="$before" >/dev/null 2>&1; then
+        # The full SHA in the name: two overwritten commits never share a rescue branch.
+        name="rescue/${when:0:10}-$before"
+        existing=$(gh api "repos/$ORG/$repo/git/ref/heads/$name" --jq .object.sha 2>/dev/null || true)
+        if [ "$existing" = "$before" ]; then
+          echo "already pinned: $repo $before as $name" >&2; pinned=$((pinned + 1))
+        elif [ -n "$existing" ]; then
+          echo "NOT PINNED: $repo $name exists but points at $existing, not $before" >&2; rescue_failed=$((rescue_failed + 1))
+        elif err=$(gh api -X POST "repos/$ORG/$repo/git/refs" -f ref="refs/heads/$name" -f sha="$before" 2>&1 >/dev/null); then
           echo "rescued $repo $before as $name" >&2; rescued=$((rescued + 1))
         else
-          echo "could not create $name in $repo (it may exist already)" >&2
+          echo "NOT PINNED: could not create $name in $repo: $err" >&2; rescue_failed=$((rescue_failed + 1))
         fi
       fi
     fi
@@ -85,5 +91,8 @@ done
   echo "force pushes found: $found"
   echo "overwritten work still on GitHub and not on the default branch: $lost_total"
   echo "overwritten commits GitHub no longer serves: $gone (look in agents' local clones: find_lost_local.sh)"
-  if [ "$RESCUE" = 1 ]; then echo "rescue branches created: $rescued"; fi
+  if [ "$RESCUE" = 1 ]; then
+    echo "rescue branches created: $rescued; already pinned: $pinned; failed: $rescue_failed"
+  fi
 } >&2
+if [ "$rescue_failed" -gt 0 ]; then exit 1; fi
