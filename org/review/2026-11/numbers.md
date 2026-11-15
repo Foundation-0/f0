@@ -11,7 +11,8 @@ The snapshot is taken before this pull request and its H1 sibling existed, so ne
 | open pull requests | 164 across 29 repos | 166 across 29 repos |
 | open PRs opened before 1 November | 115 | 115 |
 | open issues | 121 | 122 across 24 repos |
-| branches not merged into the default branch | 13 | 204 (159 are the head of an open PR, 45 have no open PR) |
+| branch heads not reachable from the default branch | not counted | 204 (159 are the head of an open PR, 45 have no open PR; 7 of the 45 are already on the default branch in content) |
+| Phase 2 branches holding work not on `main` | 13 | 13, all still present |
 
 Open PRs by account: ahrazzle 127, orda-aska 25, zero-aska 6, abu-aska 4, mithrax-exo 4.
 
@@ -21,9 +22,21 @@ The 14 November figure of 164 PRs is now 166, and the account totals moved by tw
 
 ### Branches
 
-204 branch heads are not reachable from the default branch of their repository. 159 of them are the head of an open pull request, so they are not stranded work in the sense of the issue. 45 have no open pull request. 18 of those were touched on or after 1 November. `branches.csv` gives each one, its head, its last author and its state.
+204 branch heads are not reachable from the default branch of their repository. 159 of them are the head of an open pull request, so they are not stranded work in the sense of the issue. 45 have no open pull request. 18 of those were touched on or after 1 November.
 
-The 13 branches named in Phase 2 were checked one by one. All 13 still exist and none is merged into `main`:
+7 of the 45 have their content on the default branch already, so merging them would change nothing. The test is `git merge-tree --write-tree <default> <head>`: it prints the default branch's own tree. `branches.csv` gives each branch, its head, its last author, its state and the `content_on_default` column.
+
+| repository | branch |
+|---|---|
+| cfrp-strengthening | claude/zealous-mendel-s7z7hk |
+| incentre-lattices | fold-dof-wording |
+| incentre-lattices | fold-search-step-bound |
+| project-asma | smith/asma-occurrence-inventory-87 |
+| virtual-human | auto/E-deterministic-subgraph |
+| virtual-human | docs/asma-research-foundation-20261105 |
+| virtual-human | helix/ovarian-parameter-ledger-fe7d |
+
+The 13 branches named in Phase 2 were checked one by one. All 13 still exist, none is merged into `main`, and none of them passes the `content_on_default` test:
 
 | repository | branch | state |
 |---|---|---|
@@ -41,7 +54,7 @@ The 13 branches named in Phase 2 were checked one by one. All 13 still exist and
 | f0 | claude/beautiful-sagan-ssa4lh | present, unmerged |
 | f0 | claude/affectionate-ride-rezj73 | present, unmerged |
 
-gfq-codes `axiom/delsarte-sweep` also still exists and is unmerged. The issue says it landed through #15 to #17 and can be deleted after a check.
+gfq-codes `axiom/delsarte-sweep` also still exists and is unmerged. It fails the `content_on_default` test as well, because `main` has edited the same files since. Its tip differs from `main` in 15 files. The issue says it landed through #15 to #17 and can be deleted after a check.
 
 ## Decision 5: the Zenodo credit line
 
@@ -99,25 +112,33 @@ Licence files GitHub reads as NOASSERTION: `cfrp-strengthening`, `incentre-latti
 
 Detected licences other than Apache-2.0: `exoplanets-frontier` (MIT), `virtual-human` (MIT), `vitruvian3d` (MIT).
 
-Where the repository licence and the `.zenodo.json` licence differ, both are listed in `licences.csv`. Three cases:
-
-- cfrp-strengthening is MIT in the file and MIT in Zenodo.
-- ductricity and thermal-capture are Apache-2.0 with a CC BY 4.0 documentation file and say cc-by-4.0 in Zenodo.
-- nhanes-bioimpedance and point-charges carry an extra `LICENSE-CC-BY-4.0` for text.
+Only ductricity and thermal-capture differ: Apache-2.0 for the code with a CC BY 4.0 file for the documentation, and cc-by-4.0 in Zenodo. nhanes-bioimpedance and point-charges carry an extra `LICENSE-CC-BY-4.0` for text. cfrp-strengthening says MIT in Zenodo and has a licence file that GitHub reads as NOASSERTION. `licences.csv` lists all of them.
 
 ## How to rerun
 
 ```
+bash tools/clone-all.sh          # clones the 35 repositories, writes heads.tsv
 gh search prs --owner Foundation-0 --state open --limit 400 \
-  --json number,createdAt,author,repository,isDraft,title > out/h2/open-prs.json
-gh api 'search/issues?q=is:issue+is:open+org:Foundation-0&per_page=100' --paginate \
-  > out/h2/open-issues.json
-python3 build_h2.py        # writes the five CSVs
-python3 build_branches.py  # adds the open-PR or stranded state to branches.csv
-python3 make_docs.py       # writes numbers.md from those CSVs
+  --json number,createdAt,author,repository,isDraft,title \
+  > tools/sources/open-prs.json
+gh api 'search/issues?q=is:issue+is:open+org:Foundation-0&per_page=100' \
+  --paginate > tools/sources/open-issues-items.json
+python3 tools/build_h2.py        # writes open-prs.csv, open-issues.csv,
+                                 # licences.csv, zenodo-credits.csv
+python3 tools/build_branches.py  # writes branches.csv with open-PR or stranded,
+                                 # and content_on_default
+python3 tools/make_docs.py --h2  # writes this note
 ```
 
-The scripts are not in this folder. They are held by the author and can be attached to the pull request on request.
+The scripts are in `tools/`. The API answers are frozen in `tools/sources/`, taken on 15 November, and the scripts read those, so a rerun needs no network and reproduces the same rows. The clones are needed for `content_on_default`, which runs `git merge-tree` in each repository.
+
+`open-prs.json` and `open-issues-items.json` are the two searches above. `zenodo.json` is `https://zenodo.org/api/records?q=keywords:foundation0&size=25` and `z-<id>.json` is one record each. `unmerged-branches.csv` is the branch list at 01:25 UTC, `pr-heads.json` maps each open pull request to its branch, and `repo-list.json` is `gh repo list` for the 35 repositories.
+
+The one command that fetches is `python3 tools/build_h2.py --live`. It refreshes the branch list for an audit trail and feeds no CSV.
+
+A branch is matched to a pull request by name, not by commit. `f0` `review/o1-o2-f0` gained a commit after the snapshot, so its head no longer matches the recorded one, while the pull request is open and counted.
+
+Two runs produced byte-identical files, and a run under `python3 -O` matched them. One mutation test on a copy of `gaia-dr4`: pointing `origin/main` at the head of `prep/gaia-dr4-tasks` flipped that branch's `content_on_default` from `no` to `yes`, and changed no other row.
 
 The counts move with every PR and issue. They were taken once, on 15 November, and the file lists let a later run be compared.
 
