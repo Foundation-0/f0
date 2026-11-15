@@ -1,8 +1,8 @@
 # F4: re-check of the 14 November findings
 
-Science pass, 15 November 2026. Each finding from issue 42 (The problem, items 3 and 4, and Phase 3) was re-run on fresh clones at the pinned heads in `tools/heads.tsv`. Gravity `main` is `8f96c4b`, which is after the 14 November merges.
+Science pass, 15 November 2026. Each finding from issue 42 (The problem, items 3 and 4, and Phase 3) was re-run on fresh clones at the pinned heads in `org/review/2026-11/tools/heads.tsv` on the H1 branch (draft PR 45). Gravity `main` is `8f96c4b`, which is after the 14 November merges.
 
-Marks: **[F]** a fact read from a repository or a run, **[I]** an inference. "Lead" means the run was done in this pass by the reviewing seat. "Reader" means a reading agent ran it and the lead did not repeat it.
+Marks: **[F]** a fact read from a repository or a run, **[I]** an inference. "Lead" means the run was done in this pass by the lead reviewer. "Reader" means a reading agent ran it and the lead did not repeat it.
 
 ## Result
 
@@ -33,12 +33,12 @@ Marks: **[F]** a fact read from a repository or a run, **[I]** an inference. "Le
 - [F] `gravity@8f96c4b:verify_all.py:384` writes the certificate with no condition. The `--check` flag only changes what is printed afterwards (`:389`).
 - [F] Lead run in a copy: one digit of `results/certificates.json` was changed, then `python3 verify_all.py --check` was run. Exit code 0, and the file was rewritten to its original bytes. The same happens under `python3 -O`.
 - [F] `gravity@8f96c4b:wave10_covariant_jeans_unification.py:320-327` compares with four `assert` lines. Lead run: with `185.59` changed to `195.59` in the stored certificate, the bare run exits 1. Under `python3 -O` the same file prints `CHECK OK (byte-identical)` and exits 0.
-- [I] The same `emit_or_verify` function is copied into the Wave 7 and Wave 9 scripts, so they behave the same way.
+- [F] The `emit_or_verify` function is byte-identical in the Wave 7, Wave 9 and Wave 10 scripts (`wave7...py:227`, `wave9...py:174`, `wave10...py:315`), so the three behave the same way.
 - [F] H1 counts 245 bare asserts in gravity checker files (`checks-census.csv`). That count was not redone here.
 
 ### 3c: tools that pass on nothing
 
-- [F] Reader run: `formal-claims-audit@bacf059` `check_verdicts.py` passes on zero verdict files, bare and under `-O`.
+- [F] Reader run: `formal-claims-audit@bacf059:scripts/check_verdicts.py` passes on zero verdict files, bare and under `-O`.
 
 ### 3e: vitruvian3d
 
@@ -95,9 +95,11 @@ Marks: **[F]** a fact read from a repository or a run, **[I]** an inference. "Le
 ### H1: L880
 
 - [F] `checks/l880_independent.py` uses only the edge list, the 17 rational lengths, the pinned triangle and the 440 box centres. It builds its own preconditioners and uses no code from the repository.
-- [F] Lead run on `rigid-realizations@298926c`: all 440 boxes pass in exact rational arithmetic, the boxes are pairwise disjoint, and three corrupted inputs are rejected under `python3 -O`. Output in `checks/l880_independent.out`.
+- [F] Lead run on `rigid-realizations@298926c`: all 440 boxes pass in exact rational arithmetic, the boxes are pairwise disjoint, and corrupted inputs are rejected under `python3 -O`: one edge length changed, one coordinate of a pinned vertex changed, one edge of the list replaced, one box duplicated, and one centre moved by 2^-12 each exit 1 with a FAIL message. The program raises errors and has no `assert`. Output in `checks/l880_independent.out`.
 
 ## How to rerun
+
+The four check programs are on draft PR 51 (branch `review/F2`), in `org/review/2026-11/science/checks/`. This branch holds only this file. Check out `review/F2`, or copy that directory, and run the commands from `org/review/2026-11/science/`. The clone directories are the pinned heads in `org/review/2026-11/tools/heads.tsv`, which is on the H1 branch (draft PR 45).
 
 ```
 python3 -I checks/l880_independent.py <rigid-realizations>/rigid_realizations_l880_pr_bundle/results/l880-all-880-real/l880_certificate.json
@@ -106,4 +108,4 @@ python3 -I checks/g185_independent.py <gravity>
 lean +leanprover/lean4:v4.35.0 checks/scanner_miss.lean
 ```
 
-The first three need Python 3 with NumPy and SciPy. The clones are the pinned heads in `tools/heads.tsv`.
+The Lean file has no imports, so the `lean` command also runs from any other directory with the file's path. `l880_independent.py` needs NumPy. `delsarte_independent.py` uses only the Python standard library. `g185_independent.py` needs NumPy and SciPy.
