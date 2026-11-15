@@ -6,7 +6,7 @@ Follow-up to `point-charges.md`, `relational-geometry.md` and `flat-centres.md`,
 
 [I] With n positive charges the number of balance points can grow like n^(3/2). Every construction known before this grows like 10n.
 
-Status: an argument in four steps with a proof sketch, numerical checks of every step, and two exact lower bounds in actual charges. It is not a finished proof. No count for any particular number of charges is beaten. On the numbers below this route passes the known constructions only near 160 charges.
+Status: an argument in four steps with a proof sketch, numerical checks of every step, and two exact lower bounds in actual charges. It is not a finished proof. No count for any particular number of charges is beaten. On the numbers below this route passes the known constructions only near 160 charges. That figure assumes the numerically solved flat family of step 1 continues to larger d.
 
 ## The mechanism
 
@@ -42,7 +42,7 @@ Status: an argument in four steps with a proof sketch, numerical checks of every
 
 **Step 4. Charges.** Start from a point that is flat to order d - 1. Small changes of the charges set the terms of degree 1 to d - 1 to any small values, here the stacked levels of step 3. The balance points near the flat point are then the critical points counted in step 3, once the scale is small enough.
 
-[I] With about d²/3 charges and about d³/6 balance points, the count grows like 0.87 n^(3/2).
+[I] With about d²/3 charges and about d³/6 balance points, the count grows like 0.87 n^(3/2). The d²/3 comes from the flat points of step 1, which were solved numerically for d = 4 to 8 and are not proved for any larger d. With designs in their place the exponent is the same and the constant is not known.
 
 ## A proof of step 2 as a lower bound
 
@@ -118,6 +118,7 @@ Two configurations were built with exact rational sites and charges. For each, a
 - The proof of step 2 above is complete only as a lower bound and for a dense set of pairs of forms. For the exact crossed zonal pair, non-degeneracy is numerical, for p up to 14. Nobody else has checked the proof.
 - The scaling argument that carries step 3 into step 4 is standard and is not written out.
 - That changing the charges alone reaches every small set of low-degree terms is argued from the orthogonality of harmonics on a design. It was checked by rank for 6, 9 and 21 charges only.
+- The constant 0.87 and the crossing near 160 charges. Both rest on flat points with about d²/3 charges, found numerically for d = 4 to 8 only.
 - No exact count was completed for either configuration. The lower bounds are proved.
 - No earlier statement of growth faster than linear was found in arXiv:2607.27197, arXiv:2501.05315 or arXiv:2609.09637, or by search. That is not proof that it is new.
 

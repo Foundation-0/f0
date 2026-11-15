@@ -1,8 +1,8 @@
-"""Systems for the neutrino-model tests. Masses and gas fractions from ../../gravity2/t4_systems.json (my parse of
+"""Systems for the neutrino-model tests. Masses and gas fractions from ../../gravity/t4_systems.json (my parse of
 Vikhlinin+06, Sun+09, Lovisari+15, Gonzalez+13 TeX tables); temperatures and published c500 parsed here from the same TeX."""
 import re, json, math, pathlib
 import numpy as np
-H = pathlib.Path(__file__).resolve().parent; G2 = H.parents[1] / "gravity2"
+H = pathlib.Path(__file__).resolve().parent; G2 = H.parents[1] / "gravity"
 SRC = G2 / "sources"
 def num(s):
     s = s.replace("$", "").replace("*", "").replace("(", "").replace(")", "")

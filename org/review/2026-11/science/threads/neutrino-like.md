@@ -45,7 +45,7 @@ The value needed is the one that makes the enclosed extra mass stop falling in 9
 
 ## A halo with no free normalisation
 
-[F] The halo study computed the largest halo a fermion can make: an isothermal Fermi gas at the gas temperature, in each cluster's measured field, with its central occupation at the maximum a thermal relic allows. The particle mass needed for that halo to hold the extra mass is 4.7 to 5.9 eV in the median system and 8 to 17 eV for 95% of systems, depending on the corrections. The hardest systems are cool groups.
+[F] The halo study computed the largest halo a fermion can make: an isothermal Fermi gas at the gas temperature, in each cluster's measured field, with its central occupation at the maximum a thermal relic allows. The particle mass needed for that halo to hold the extra mass is 4.7 to 5.9 eV in the median system and 8 to 17 eV for 95% of systems, depending on the corrections. The hardest systems are cool groups. The hardest of all, the group 3C442A at 1.3 keV, reaches the search ceiling of 100 eV in three of the four correction sets and needs 16 eV with the strongest (`checks/neutrino/model/m3_fermion_halo.out`). So the range of 8 to 17 eV holds only with that system set aside or heavily corrected. [I] Two of the three numbers used below, K_lo and A, come from the same 51 systems that the species is then tested on. So the cluster side is a fit, not a separate test.
 
 [F] The trend with temperature weakens under the halo model (correlation -0.44, against -0.87 for mean densities). It mostly disappears if the fermions in groups are 1.3 times hotter than the measured gas temperature. [I] Cool cores would do that. The factor was not checked against published temperature profiles.
 
@@ -127,6 +127,8 @@ There are two readings.
 ## Rerun
 
 Programs and outputs are in `checks/neutrino/`. The scripts whose names start with `n` are the reviewer's. Those under `model/` are the halo study. Both read `checks/gravity/unified/unified_table.csv` and the published tables named in `model/m_data.py`.
+
+This thread cannot be re-run from this checkout. The published tables sit in a `sources/` folder that is not in it (`checks/STATE-NOTES.md`). `model/m3_fermion_halo.py` also reads `m2_combos.json`, which `model/m2_radial.py` writes from those tables and which is not saved. The saved outputs are the record. The two tables of abundance-equivalent mass and of m and chi above come from `checks/neutrino/n4_window.out`, and no program for it is in the record. The 9 eV end of the window of 9 to 21 eV quoted in `README.md` and `convergences.md` rests on that output alone.
 
 ## Not verified
 

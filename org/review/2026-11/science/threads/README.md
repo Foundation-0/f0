@@ -38,7 +38,7 @@ Threads that followed from the first ones:
 
 ## What is new and holds
 
-1. **Four charges with 11 balance points.** [F] Maxwell's bound for four charges is 9. Three configurations are certified, one of them with coordinates of five decimals. [I] It was found by looking where the problem is most degenerate: the centre of a regular tetrahedron of equal charges is a balance point of multiplicity 11. The July 2026 counterexample starts at five charges.
+1. **Four charges with 11 balance points.** [F] Maxwell's bound for four charges is 9. Three configurations are certified, one of them with coordinates of five decimals. [I] It was found by looking where the problem is most degenerate: the centre of a regular tetrahedron of equal charges is a balance point of multiplicity 11. The July 2026 counterexample starts at five charges. [P] For a related potential with a large exponent, 11 at the regular tetrahedron was noted in 2007, and a 2026 paper reads the degenerate centre as 11 co-located points without realising them. Neither is the Coulomb case (`four-charges-eleven.md`).
 2. **Growth faster than linear.** [I] A point where the potential is flat to high order can be unfolded level by level, and the count of balance points then grows like the number of charges to the power 3/2. [F] Each step is checked numerically, and the pattern is proved as a lower bound in two exact configurations. It is an argument with a proof sketch, not yet a proof.
 3. **A rigid graph on 11 vertices with every realization real.** [F] 2,288 of 2,288, certified in exact arithmetic and checked by a third program written for this review. [I] It raises the best known growth rate for real realizations from 2.3780 to 2.4116 per vertex. A survey from February 2025 still quotes the older figure.
 4. **Exact counts for eight and nine point charges.** [F] 49 and 64, each equal to Maxwell's bound. No explicit configuration or exact count for these was found in print.
@@ -87,7 +87,7 @@ A failed prediction that was stated in advance is a result. The repository wrote
 
 ### 6. Checkers that pass when they should fail
 
-[F] The repository verifier for the point charges prints VERIFIED on a corrupted certificate when Python runs with `-O`. The science pass found the same fault in the gravity scripts and in vitruvian3d. That is three repositories. Every checker written in this pass raises an error instead of using `assert`, and was run under `-O` against corrupted input.
+[F] The repository verifier for the point charges prints VERIFIED on a corrupted certificate when Python runs with `-O`. The science pass found the same fault in the gravity scripts and in vitruvian3d. That is three repositories. The record does not show that every checker written in this pass is safe from it. Nine raise an error on failure and have a saved run under `-O` against corrupted input: `indep_count.py`, `certify.py` for the 2,288 graph, `verify_all.py` and `verify.py` for the recurrences, `verify_rational.py` and `cert_arb.py` for central configurations, `elastic_indep.py`, `verify_arb3.py` and `repro_repo_numbers.py`. Others raise an error but have no such run saved, or the run does not record `-O`. Some only print a verdict, such as `laman_count.py`. The first version of `levels_check.py` printed a mismatch and exited 0. The repository's own `verify_arb.py` was run without `-O`. Each program is listed in `../pr58-trust/CHECKER-AUDIT.md`.
 
 ## On the larger aim
 

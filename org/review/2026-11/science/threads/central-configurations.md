@@ -20,7 +20,7 @@ Classes are counted up to rotation, scaling, reflection and relabelling.
 
 - [F] Every class is proved to exist, to be the only solution in its box and to be non-degenerate. The classes are proved different from one another.
 - [F] The Morse index and the exact symmetry group of every class are proved as well.
-- [F] Two programs that share no code accept every certificate, one in ball arithmetic and one in exact rational arithmetic. Both reject 15 kinds of corrupted input, also under `python3 -O`.
+- [F] Two programs that share no code accept every certificate, one in ball arithmetic and one in exact rational arithmetic. The exact-rational verifier rejects seven kinds of corrupted certificate, with and without `python3 -O`. The ball-arithmetic program was tested on one kind, a moved centre, and rejects it under `-O`. That is 15 run lines in `checks/cc/corrupt_tests.out`, all rejected.
 
 **Completeness is not proved for any of the three.** These are lower bounds. The lists match counts that were already published as numerical results, so this is not a new count.
 

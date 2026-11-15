@@ -35,7 +35,7 @@ The first half holds strongly. The second half is false as stated, and what repl
 
 - [F] For 8, 9 and 10 vertices a directed climb found directions u whose whole ray is all real, at every eps tested from 0.001 down to 0.00001. For 10 vertices there are at least two, 126 degrees apart.
 - [F] The certified 880 point lies on such a ray. Along its direction the count is 880 of 880 at every eps from its own 0.033 down to 0.00001.
-- [F] Along the direction of the published lengths (Bartzos and co-authors) the count is 868 at every eps tested.
+- [F] Along the direction of the published lengths (Bartzos and co-authors) the count is 868 at its own eps of 0.0019 and at every smaller eps tested (0.001, 0.0001 and 0.00001). At larger eps it is lower: 860 at 0.003 and 856 at 0.01 (`checks/unit/certray_868.json`).
 - [F] The all-real cone is open and thin. For 8 vertices, 27 of 30 directions tilted by 0.02 radians stay all real, and 3 of 30 at 0.4. For 10 vertices it is 8 of 20 at 0.02 and none at 0.1.
 - [F] For 11 vertices the certified direction gives 2,288 at eps of 0.001 to 0.01 and 2,284 at 0.0001. Whether a ray exists that is all real all the way in is open.
 

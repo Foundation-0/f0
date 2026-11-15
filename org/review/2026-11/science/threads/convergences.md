@@ -83,7 +83,7 @@ Note: `gravity.md`.
 
 ### 8. One particle scale across galaxy groups and clusters
 
-- [F] Taking the extra mass as a light fermion, the packing limit and the cosmic abundance bound the mass from both sides. One fermion of 9 to 21 eV at 15 to 100% of the thermal abundance fits both.
+- [I] Taking the extra mass as a light fermion, the packing limit and the cosmic abundance bound the mass from both sides. One fermion of 9 to 21 eV at 15 to 100% of the thermal abundance fits both, once one cool group, 3C442A, is set aside or heavily corrected. The 9 eV end rests on `checks/neutrino/n4_window.out`, which has no program in the record.
 - [F] The central case, 11 eV at three quarters, gives a cosmic ratio of dark to baryonic matter of 3.96 and a ratio of 0.50 in a galaxy at 300 kpc.
 - [F] Its weakest point is the count of light species at recombination: 2.28 against a measured 2.99 ± 0.17.
 
@@ -110,7 +110,7 @@ Status: a conjecture with stated tests. Notes: `neutrino-like.md`, `fabric.md`.
 
 ### 12. Verifiers that pass corrupted input
 
-[F] In three repositories, vitruvian3d, point-charges and gravity, a verifier printed success on a corrupted certificate when Python ran with `-O`, because its proof steps were `assert` statements. Each now has a fix on a draft pull request. Every checker written in this pass raises an error and was run under `-O` against corrupted input.
+[F] In three repositories, vitruvian3d, point-charges and gravity, a verifier printed success on a corrupted certificate when Python ran with `-O`, because its proof steps were `assert` statements. Each now has a fix on a draft pull request. Of the checkers written in this pass, nine raise an error and have a saved run under `-O` against corrupted input. Others have no such run saved, or only print a verdict. The list is in `../pr58-trust/CHECKER-AUDIT.md`.
 
 ### 13. Exact identities as built-in tests
 

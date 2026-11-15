@@ -83,7 +83,7 @@ For each entry: take the integer square root g of the listed polynomial, find th
 - [F] An entry the first method abandoned at 158 million transitions takes 1.4 seconds.
 - [F] The verifier was re-run for this review on the 211 entries under `python3 -O`. All pass.
 
-Verdict: the 211 are now **VERIFIED**. Two programs written apart, using different arguments, agree on every starting index, and a third proves 46 of them again. The 27 are **PROVEN** by one method with its own verifier. Four of them were checked only by the prover's own engine, because the verifier's dense form is too large for them.
+Verdict for the 211, as in `README.md`: **VERIFIED** for the 46 that a third program proves again, REPRODUCED for the other 165. Two programs written apart, using different arguments, agree on every starting index. The 27 are proved by one method, the theorem above with its machine check. The first method does not reach them, so no second argument covers them. `README.md` counts them with the REPRODUCED entries. The verifier log `checks/square/verify_all.log` holds 237 passes for 238 proof files. A269766 has no verifier pass, so only the prover checked it. A269765, A269900 and A270057 passed the verifier only through the prover's own engine, because the verifier's dense form is too large for them.
 
 ## How far the law goes
 
@@ -98,7 +98,7 @@ Verdict: the 211 are now **VERIFIED**. Two programs written apart, using differe
 
 ```
 cd checks/square
-python3 verify.py proofs/A2*.json          # all 238; the largest entry alone takes about 8 minutes
+python3 verify.py proofs/A2*.json          # all 238; the saved log has 237, A269766 was not run
 python3 -O test_corrupt.py
 python3 ../converge/oeis_structure.py ../oeis/certs
 ```

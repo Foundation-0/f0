@@ -38,7 +38,7 @@ Rows are added one at a time. A state is the last row together with the number o
 - [F] A brute-force count that shares no code with the machine builder matches the machines and the OEIS data for small n.
 - [F] A third program, written for this review without reading the other two (`checks/oeis/spot_proof.py`), builds its own machine straight from the OEIS wording. It proves 46 of the entries, one from each combination of neighbour kind, alphabet, condition and orientation. All 46 give the same starting index as the certificates.
 
-Verdict: **VERIFIED** for all 211. A later study (`square-law.md`) proved every one of them again by a different argument with separately written code, and the starting index agrees in all 211. The 46 above have a third proof.
+Verdict: **VERIFIED** for the 46 above, which have a third proof. REPRODUCED for the other 165. These are the labels in `README.md`. A later study (`square-law.md`) proved all 211 again by a different argument with separately written code, and the starting index agrees in all 211.
 
 ## Findings on the way
 

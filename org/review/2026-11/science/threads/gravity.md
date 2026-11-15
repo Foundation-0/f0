@@ -132,6 +132,8 @@ Weak-lensing mass over baryonic mass at a fixed 100 to 300 kpc, for isolated gal
 
 Programs and saved outputs are in `checks/gravity/`. `t1`, `t1b` and `t2` read the SPARC tables from `astroweb.case.edu/SPARC/` and the TeX source of arXiv:2109.03828. `t3` to `t6` read the published tables named at the top of each script. `model.py` re-implements the model without importing the repository.
 
+These programs cannot be re-run from this checkout. They read the published tables from a `sources/` folder beside them, and that folder is not in it (`checks/STATE-NOTES.md`). The same holds for `t0_checks.py` and for the table builder in `checks/gravity/unified/`. `SOURCES.md` lists each table with its size and sha256. The saved `.out` files are the record.
+
 ## Not verified
 
 - Stars inside the inner cluster radius come from a prescription, not a measurement.
