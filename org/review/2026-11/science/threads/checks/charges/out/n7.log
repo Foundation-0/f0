@@ -1,0 +1,3 @@
+S/repos/point-charges/certificates/n7-abk-second-pair.json: n=7
+RESULT S/repos/point-charges/certificates/n7-abk-second-pair.json: count=44 index1=19 index2=25 m2-m1=6 n-1=6 {'boxes': 128817, 'L1': 1154, 'L2': 768, 'T1': 21773, 'T2': 87965, 'Z': 1055, 'newton_tries': 15605, 'max_level': 27, 'seconds': 66.7}
+AGREES with claimed count 44

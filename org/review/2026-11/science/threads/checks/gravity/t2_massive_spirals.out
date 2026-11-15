@@ -1,0 +1,43 @@
+SPARC reference (100 <= sigma < 185.59): 46 galaxies, c0 = 0.0327, scatter 0.0514 dex in V
+
+SPARC by speed bin: mean of d - c0 (dex in V)
+  sigma    0.0-  60.0: n= 35 mean -0.0420 sem 0.0118
+  sigma   60.0- 100.0: n= 34 mean +0.0069 sem 0.0083
+  sigma  100.0- 140.0: n= 25 mean -0.0180 sem 0.0080
+  sigma  140.0- 185.6: n= 21 mean +0.0215 sem 0.0120
+  sigma  185.6- 215.0: n=  6 mean +0.0807 sem 0.0206
+  sigma  215.0- 400.0: n=  2 mean +0.0883 sem 0.0055
+
+Di Teodoro et al. 2021: 42 galaxies read from Table 1
+
+== stellar masses with M/L 0.6 as published; gas fraction 0.14 ==
+   bin (sigma)   n   mean d     sem | pred A y=.1 y=.3 | pred B y=.1 y=.3
+ 150.0- 185.6   3  -0.0159  0.0347 |      0.000 0.000 |      0.000 0.000
+ 185.6- 200.0   6  +0.0351  0.0242 |      0.031 0.046 |      0.000 0.000
+ 200.0- 215.0  12  +0.0373  0.0168 |      0.080 0.114 |      0.014 0.022
+ 215.0- 235.0   7  +0.0640  0.0222 |      0.114 0.158 |      0.040 0.059
+ 235.0- 260.0   8  +0.0707  0.0212 |      0.156 0.210 |      0.073 0.104
+ 260.0- 400.0   6  +0.1338  0.0236 |      0.189 0.250 |      0.100 0.140
+all 42: mean d - c0 = +0.0578 +/- 0.0091 (statistical); sample scatter 0.0487
+   chi2 RAR only y=0.1:    73.83 on 42
+   chi2 model A  y=0.1:    42.65 on 42
+   chi2 model A  y=0.3:   116.27 on 42
+   chi2 model B  y=0.1:    18.46 on 42
+   chi2 model B  y=0.3:    16.48 on 42
+   slope of offset vs log sigma: observed +0.553 +/- 0.063; model A +0.922; model B +0.607 (y=0.2); RAR only 0
+
+== stellar masses with M/L 0.5, the SPARC convention; gas fraction 0.14 ==
+   bin (sigma)   n   mean d     sem | pred A y=.1 y=.3 | pred B y=.1 y=.3
+ 150.0- 185.6   3  +0.0039  0.0347 |      0.000 0.000 |      0.000 0.000
+ 185.6- 200.0   6  +0.0549  0.0242 |      0.031 0.046 |      0.000 0.000
+ 200.0- 215.0  12  +0.0571  0.0168 |      0.080 0.114 |      0.014 0.022
+ 215.0- 235.0   7  +0.0838  0.0222 |      0.114 0.158 |      0.040 0.059
+ 235.0- 260.0   8  +0.0905  0.0212 |      0.156 0.210 |      0.073 0.104
+ 260.0- 400.0   6  +0.1536  0.0236 |      0.189 0.250 |      0.100 0.140
+all 42: mean d - c0 = +0.0776 +/- 0.0091 (statistical); sample scatter 0.0487
+   chi2 RAR only y=0.1:   107.43 on 42
+   chi2 model A  y=0.1:    26.06 on 42
+   chi2 model A  y=0.3:    81.03 on 42
+   chi2 model B  y=0.1:    33.05 on 42
+   chi2 model B  y=0.3:    22.70 on 42
+   slope of offset vs log sigma: observed +0.553 +/- 0.063; model A +0.922; model B +0.607 (y=0.2); RAR only 0

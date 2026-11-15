@@ -1,0 +1,14 @@
+==== n = 3
+out/push_n3_rand.json: starts 200, LP iterations 20761, best counts {2: 65, 4: 135}
+out/push_n3_tri.json: starts 20, LP iterations 642, best counts {4: 20}
+out/push2_n3_four.json: starts 31, LP iterations 6953, best counts {4: 31}, kicks 222, min nearest-pair T at the top count 5.10e-01
+out/push2_n3_rand2.json: starts 60, LP iterations 17707, best counts {2: 49, 4: 11}, kicks 88, min nearest-pair T at the top count 3.04e-01
+TOTAL n=3: pushes 311, LP iterations 46063, best-count distribution {2: 114, 4: 197}
+==== n = 4
+out/push_n4_centre.json: starts 10, LP iterations 575, best counts {5: 6, 7: 2, 9: 2}
+out/push_n4_rand.json: starts 40, LP iterations 3128, best counts {3: 4, 5: 22, 7: 13, 9: 1}
+out/push2_n4_a.json: starts 8, LP iterations 960, best counts {7: 2, 9: 6}, kicks 9, min nearest-pair T at the top count 8.24e-03
+out/push2_n4_b.json: starts 6, LP iterations 1500, best counts {9: 6}, kicks 11, min nearest-pair T at the top count 8.24e-03
+out/push2_n4_c.json: starts 6, LP iterations 1405, best counts {7: 4, 9: 2}, kicks 35, min nearest-pair T at the top count 2.30e-04
+out/push2_n4_rand2.json: starts 60, LP iterations 8927, best counts {3: 30, 5: 28, 7: 2}, kicks 107, min nearest-pair T at the top count 1.31e-01
+TOTAL n=4: pushes 130, LP iterations 16495, best-count distribution {3: 34, 5: 56, 7: 23, 9: 17}

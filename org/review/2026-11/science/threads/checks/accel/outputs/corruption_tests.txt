@@ -1,0 +1,4 @@
+corruption 's/,286,57,30,7,8.66/,236,57,30,7,8.66/' -> exit 1; eVc 19 236.0 57.0 SigDM mismatch id 19: -0.162 rows 100 flags 2 
+corruption 's/,6.49,1.48,0.53,0.09/,6.49,1.48,0.35,0.09/' -> exit 1; SigDM mismatch id 47: -0.189 rows 100 flags 1 
+corruption 's/,9.15,0.52,7.61,1.31/,9.15,0.52,4.61,1.31/' -> exit 1; SigDM mismatch id 70: 0.212 rows 100 flags 1 
+repro corruption (dc14 growth changed by 4.6e-12 relative) -> exit 1; dc14 interval_growth         mine=[2.15753918803699088 +/- 3.46e-18]  repo=2.157539188046991  MISMATCH

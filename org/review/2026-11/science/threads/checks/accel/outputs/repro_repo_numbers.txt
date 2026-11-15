@@ -1,0 +1,12 @@
+H_tracking_interval_growth   mine=[1.92069985941007102 +/- 2.89e-18]  repo=1.920699859410071  OK
+dc14 interval_growth         mine=[2.15753918803699088 +/- 3.46e-18]  repo=2.157539188036991  OK
+mond interval_growth         mine=[1.93408134642356241 +/- 2.35e-18]  repo=1.934081346423562  OK
+dc14 endpoint q              mine=[1.17815309515388578 +/- 7.02e-19]  repo=1.178153095153886  OK
+mond endpoint q              mine=[1.01063725748244386 +/- 5.62e-19]  repo=1.010637257482444  OK
+dc14 growth/H                mine=[1.12330886966361487 +/- 4.18e-18]  repo=1.123308869663615  OK
+c*H0/(2 pi) for H0=67.40 km/s/Mpc: 1.04220e-10 m/s^2
+c*H0/(2 pi) for H0=67.36 km/s/Mpc: 1.04158e-10 m/s^2
+c*H0/(2 pi) for H0=70.00 km/s/Mpc: 1.08240e-10 m/s^2
+c*H0/(2 pi) for H0=73.00 km/s/Mpc: 1.12879e-10 m/s^2
+H0 that gives 1.0422e-10: 67.400 km/s/Mpc
+a0=1.20e-10 corresponds to cH0/(2 pi) with H0 = 77.6 km/s/Mpc

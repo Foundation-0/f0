@@ -1,0 +1,17 @@
+galaxies: 153 (Q<=2, inc>=30; V_flat not required here)
+mass thresholds: sigma_J=185.59 -> M_b = 2.980e+11 Msun ; sigma_J=200 -> 4.019e+11 Msun
+          M_b bin (Msun)   n mean resid     sem outer only     sem
+   0.00e+00-   1.00e+09  30    -0.1476  0.0445    -0.1459  0.0451
+   1.00e+09-   1.00e+10  59    -0.0314  0.0202    -0.0279  0.0206
+   1.00e+10-   3.00e+10  12    -0.0691  0.0203    -0.0463  0.0122
+   3.00e+10-   1.00e+11  32    -0.0481  0.0153    -0.0327  0.0183
+   1.00e+11-   2.00e+11  16    +0.0356  0.0241    -0.0023  0.0272
+   2.00e+11-   2.98e+11   4    +0.0069  0.0507    +0.0007  0.0480
+
+Galaxies with M_b >= 2e11 Msun:
+      UGC11455 M_b=2.05e+11 Vflat= 269.4 resid=-0.0595 outer=-0.0219
+       NGC6195 M_b=2.23e+11 Vflat= 251.7 resid=-0.1030 outer=-0.1265
+      UGC02885 M_b=2.55e+11 Vflat= 289.5 resid=+0.0274 outer=0.0087
+      UGC02487 M_b=2.69e+11 Vflat= 332.0 resid=+0.1628 outer=0.1424
+
+scatter of galaxy mean residual below 2e11: 0.1656 dex; mean -0.0542

@@ -1,0 +1,12 @@
+== n4_dup, plain python
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: enclosures 0, 9 overlap
+== n4_dup, python -O
+  completeness: 15379 boxes {'natural': 4503, 'centred': 3042, 'dominance': 100, 'inside': 45} (1.3s)
+VERIFIED n4-triangle-plus-centre: exactly 10 zeros, all non-degenerate; index 1: 3, index 2: 7; m2-m1 = 4 = n-1: False
+== n4_wrong_index, plain python
+           ^^^^^^^^^^^^^^^^^
+AssertionError: index mismatch 2 vs 1
+== n4_wrong_index, python -O
+  completeness: 15379 boxes {'natural': 4503, 'centred': 3042, 'dominance': 100, 'inside': 45} (1.4s)
+VERIFIED n4-triangle-plus-centre: exactly 9 zeros, all non-degenerate; index 1: 3, index 2: 6; m2-m1 = 3 = n-1: True

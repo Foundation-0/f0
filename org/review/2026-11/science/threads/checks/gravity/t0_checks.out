@@ -1,0 +1,7 @@
+ok: threshold mass A = 2.98e11
+ok: threshold mass B = 4.02e11
+ok: sigma_J(z) matches wave10 certificate at z=0.5, 1
+ok: nu decreasing toward 1
+ok: f_trap zero below threshold, 0.75 at 2 sigma_J
+ok: t6 detects a corrupted v_c in Table D1 (run under -O)
+ok: t3 output changes when sigma_e is corrupted (no galaxy left above threshold)
