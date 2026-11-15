@@ -18,7 +18,9 @@ not understand, and `check` fails rather than auditing only the theorems it
 did find. Anonymous `example` blocks are out of scope by design: they are not
 named, so a `sorry` inside one cannot leak into a named theorem's axioms.
 Declaration forms introduced by `syntax` / `macro` are likewise out of scope
-here; the Gate 4 source lint flags those tokens.
+here; the Gate 4 source lint flags those tokens. The `#print axioms` probes
+go before the namespace's closing `end`, because Lean cannot resolve a
+private theorem's name from outside its namespace.
 
 Usage: python3 check_lean.py [path/to/file.lean]
 Needs `lean` on PATH (CI pins toolchain v4.35.0).
@@ -134,6 +136,24 @@ def run_lean(path: str) -> subprocess.CompletedProcess:
         return subprocess.CompletedProcess(args=["lean", path], returncode=127, stdout="", stderr="lean not found on PATH")
 
 
+def _probe_source(source: str, names: List[str]) -> str:
+    """Source with `#print axioms` probes for every theorem in `names`.
+
+    Private theorems only resolve inside their own namespace, so probes
+    appended after the closing `end` get no axiom report for them (and
+    `check` then fails closed on the missing reports). Insert the probes
+    before the last column-0 `end` line instead; if the file has none,
+    append them as before.
+    """
+    probes = "".join(f"#print axioms {NAMESPACE}.{n}\n" for n in names)
+    lines = source.splitlines(keepends=True)
+    for i in range(len(lines) - 1, -1, -1):
+        if re.match(r"^end[ \t]", lines[i]):
+            lines.insert(i, probes)
+            return "".join(lines)
+    return source + "\n" + probes
+
+
 def check(path: str) -> List[str]:
     """Return a list of failures. Empty means the file compiles and uses only standard axioms."""
     with open(path, encoding="utf-8") as fh:
@@ -153,7 +173,7 @@ def check(path: str) -> List[str]:
         return failures
     if not names:
         return ["no theorems found"]
-    probe = source + "\n" + "".join(f"#print axioms {NAMESPACE}.{n}\n" for n in names)
+    probe = _probe_source(source, names)
     with tempfile.TemporaryDirectory() as tmp:
         probe_path = os.path.join(tmp, "Probe.lean")
         with open(probe_path, "w", encoding="utf-8") as fh:

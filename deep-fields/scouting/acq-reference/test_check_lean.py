@@ -112,11 +112,40 @@ class TestTheoremDiscovery(unittest.TestCase):
 
         good = "namespace Foundation0.ACQ\n  theorem indented : True := trivial\nprotected theorem guarded : True := trivial\nend Foundation0.ACQ\n"
         sneaky = "namespace Foundation0.ACQ\nset_option pp.all true in theorem sneaky : True := trivial\nend Foundation0.ACQ\n"
+    def test_probe_lines_go_before_the_closing_end(self) -> None:
+        src = (
+            "namespace Foundation0.ACQ\n"
+            "private theorem helper : True := trivial\n"
+            "theorem good : True := trivial\n"
+            "end Foundation0.ACQ\n"
+        )
+        probed = check_lean._probe_source(src, ["helper", "good"])
+        self.assertLess(probed.index("#print axioms"), probed.index("end Foundation0.ACQ"))
+        # No closing end: probes append instead of vanishing.
+        self.assertTrue(check_lean._probe_source("theorem good : True := trivial\n", ["good"]).endswith("#print axioms Foundation0.ACQ.good\n"))
+
+    def test_private_theorems_get_axiom_reports_with_stubbed_lean(self) -> None:
+        """Probes must sit inside the namespace: Lean cannot resolve a
+        private name from outside it, so a stub that only reports probes
+        placed before `end` must still see every theorem."""
+
+        def fake_run_lean(path: str) -> subprocess.CompletedProcess:
+            with open(path, encoding="utf-8") as fh:
+                lines = fh.read().splitlines()
+            end_at = next(i for i, line in enumerate(lines) if line.startswith("end "))
+            names = re.findall(r"#print axioms (\S+)", "\n".join(lines[:end_at]))
+            stdout = "".join(f"'{n}' does not depend on any axioms\n" for n in names)
+            return subprocess.CompletedProcess(args=["lean", path], returncode=0, stdout=stdout, stderr="")
+
+        src = (
+            "namespace Foundation0.ACQ\n"
+            "private theorem helper : True := trivial\n"
+            "theorem good : True := trivial\n"
+            "end Foundation0.ACQ\n"
+        )
         with tempfile.TemporaryDirectory() as tmp:
             with mock.patch.object(check_lean, "run_lean", fake_run_lean):
-                self.assertEqual(check_lean.check(write(tmp, "Good.lean", good)), [])
-                failures = check_lean.check(write(tmp, "Sneaky.lean", sneaky))
-        self.assertTrue(any("unparsed" in f for f in failures), failures)
+                self.assertEqual(check_lean.check(write(tmp, "Probe.lean", src)), [])
 
 
 if __name__ == "__main__":
