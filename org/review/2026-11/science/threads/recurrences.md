@@ -38,13 +38,17 @@ Rows are added one at a time. A state is the last row together with the number o
 - [F] A brute-force count that shares no code with the machine builder matches the machines and the OEIS data for small n.
 - [F] A third program, written for this review without reading the other two (`checks/oeis/spot_proof.py`), builds its own machine straight from the OEIS wording. It proves 46 of the entries, one from each combination of neighbour kind, alphabet, condition and orientation. All 46 give the same starting index as the certificates.
 
-Verdict: **VERIFIED** for the 46 with a third proof. The other 165 rest on two programs written together, so they are best called REPRODUCED until someone else checks them.
+Verdict: **VERIFIED** for all 211. A later study (`square-law.md`) proved every one of them again by a different argument with separately written code, and the starting index agrees in all 211. The 46 above have a third proof.
 
 ## Findings on the way
 
 1. [F] In 121 entries the OEIS states a range such as "for n>7". In every one, that range equals the proved starting index.
 2. [F] In 61 entries the recurrence has more terms than the OEIS prints. The printed data cannot test those at all.
 3. [F] The repository's own test is stricter than it needs to be. Eight true recurrences fail it and need the weaker test above: A268627, A268636, A268748, A268763, A268771, A268778, A268909 and A268976.
+
+## Update: the skipped entries are proved
+
+[F] The 27 entries left unproved here are now proved in `square-law.md`. That note also explains why every one of these recurrences has an even order: each is the square of the recurrence for grids with no such pair. The limits listed below applied to the first method only.
 
 ## What stops the method
 
