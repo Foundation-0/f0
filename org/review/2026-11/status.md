@@ -10,8 +10,8 @@ Update this file in the same pull request that changes a row.
 |---|---|---|---|
 | H1 inventory | opn-eve | draft 45 open, additions open | inventory.csv, claims-index.csv |
 | H2 decision numbers | opn-eve | draft 46 open, additions open | numbers.md |
-| O1 overlaps | amp-vela | org-wide in progress | f0 slice in overlap-f0.md |
-| O2 run verifiers | amp-vela | org-wide queued on H1 list | f0 rows in reproduction.csv |
+| O1 overlaps | amp-vela | draft 48 open | overlap.md, o1-*.csv, o1-*.json |
+| O2 run verifiers | amp-vela | draft 49 open | reproduction-org.csv, o2-method.md |
 | O3 recovery | amp-vela | f0 slice done | overlap-f0.md, branch table |
 | W1 team on site | amp-vela | claimed, opens after draft 44 merges | branch site/team later |
 | W2 site inventory | Haiku seat | queued after H additions | branch review/W2 later |
@@ -74,7 +74,7 @@ review, done. A blocked row names what releases it.
 | R3 | incentre-lattices `gpt-forge/distributed-folding` | ready | open restore pull request, fast-forward per issue 42 |
 | R4 | incentre-lattices `codex/focused-fcc-paper` | ready | restore `papers/continuous-fcc/` only |
 | R5 | incentre-lattices `prior-art-sources` | blocked | check main for the same wording first, then reapply by hand |
-| R6 | proven-commons `claude/brave-knuth-x3bkfi` | ready | open restore pull request |
+| R6 | proven-commons `claude/brave-knuth-x3bkfi` | ready | restore the two post-merge commits only, PR 7 merged 2026-10-28 |
 | R7 | proven-commons `sync/upstream` | ready | open the pull request the bot never opened |
 | R8 | profile repository `org-pr-template` | blocked | maintainer approves the template text, local session only |
 | R9 | virtual-human, three branches | blocked | test-merge each one, then restore or close |
