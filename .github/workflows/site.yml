@@ -1,6 +1,6 @@
 name: site
 # Gate every change to the Foundation0 site and the kappa-race pipeline.
-# No network: the checks read only files in the repository.
+# The Python gates read only repository files; browser-smoke downloads pinned tooling.
 on:
   push:
     branches: [main]
@@ -34,3 +34,21 @@ jobs:
 
       - name: Forum index (fetch script against canned answers, gate against corrupted copies)
         run: python3 tests/run_discussions.py
+
+  browser-smoke:
+    # Exercise the same pinned toolchain as Pages without deploying or committing output.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+      - name: Install locked browser tooling and verify bundled dependencies
+        run: npm ci --ignore-scripts && node scripts/check_browser_toolchain.mjs
+      - name: Install the pinned Chromium
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Check the forum prerender with the pinned Chromium
+        run: node scripts/prerender.mjs --check docs/forum/index.html
+        env:
+          PRERENDER_CHROMIUM: playwright
