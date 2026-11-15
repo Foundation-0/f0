@@ -33,13 +33,18 @@ You work for the person who sent you here, and that person answers for your work
 Each project's repository has a README with its question and status, and open issues. Most also have an AGENTS.md for
 agents, label their tasks `task`, and label small, well-defined ones `good first issue`.
 
+List checked against the organisation on 15 November 2026: 35 public repositories.
+Field homes for the newer projects are provisional until the structure review in
+[issue 42](https://github.com/Foundation-0/f0/issues/42) settles them.
+
 | Field | Projects |
 |---|---|
-| Mathematics ([math0](https://github.com/Foundation-0/math0)) | [incentre-lattices](https://github.com/Foundation-0/incentre-lattices), [formal-claims-audit](https://github.com/Foundation-0/formal-claims-audit), [covering-min-modulus](https://github.com/Foundation-0/covering-min-modulus), [gfq-codes](https://github.com/Foundation-0/gfq-codes), [rigid-realizations](https://github.com/Foundation-0/rigid-realizations) |
-| Physics and Earth science ([physics0](https://github.com/Foundation-0/physics0)) | [point-charges](https://github.com/Foundation-0/point-charges), [relative-equilibria](https://github.com/Foundation-0/relative-equilibria), [certified-orbits](https://github.com/Foundation-0/certified-orbits), [rigid-realizations](https://github.com/Foundation-0/rigid-realizations), [wwssn-microseisms](https://github.com/Foundation-0/wwssn-microseisms), [fractals](https://github.com/Foundation-0/fractals) |
-| Astronomy ([astr0](https://github.com/Foundation-0/astr0)) | [plate-eclipses](https://github.com/Foundation-0/plate-eclipses), [plate-novae](https://github.com/Foundation-0/plate-novae), [gaia-dr4](https://github.com/Foundation-0/gaia-dr4), [lost-eclipses](https://github.com/Foundation-0/lost-eclipses), [fractals](https://github.com/Foundation-0/fractals) |
-| Life sciences and metascience | [overdue-data](https://github.com/Foundation-0/overdue-data) |
+| Mathematics ([math0](https://github.com/Foundation-0/math0)) | [incentre-lattices](https://github.com/Foundation-0/incentre-lattices), [formal-claims-audit](https://github.com/Foundation-0/formal-claims-audit), [covering-min-modulus](https://github.com/Foundation-0/covering-min-modulus), [gfq-codes](https://github.com/Foundation-0/gfq-codes), [rigid-realizations](https://github.com/Foundation-0/rigid-realizations), [finite-state-proofs](https://github.com/Foundation-0/finite-state-proofs), [proven-commons](https://github.com/Foundation-0/proven-commons) |
+| Physics and Earth science ([physics0](https://github.com/Foundation-0/physics0)) | [gravity](https://github.com/Foundation-0/gravity), [point-charges](https://github.com/Foundation-0/point-charges), [relative-equilibria](https://github.com/Foundation-0/relative-equilibria), [certified-orbits](https://github.com/Foundation-0/certified-orbits), [rigid-realizations](https://github.com/Foundation-0/rigid-realizations), [wwssn-microseisms](https://github.com/Foundation-0/wwssn-microseisms), [fractals](https://github.com/Foundation-0/fractals), [vitruvian3d](https://github.com/Foundation-0/vitruvian3d), [cfrp-strengthening](https://github.com/Foundation-0/cfrp-strengthening), [thermal-capture](https://github.com/Foundation-0/thermal-capture), [ductricity](https://github.com/Foundation-0/ductricity) |
+| Astronomy ([astr0](https://github.com/Foundation-0/astr0)) | [exoplanets-frontier](https://github.com/Foundation-0/exoplanets-frontier), [plate-eclipses](https://github.com/Foundation-0/plate-eclipses), [plate-novae](https://github.com/Foundation-0/plate-novae), [gaia-dr4](https://github.com/Foundation-0/gaia-dr4), [lost-eclipses](https://github.com/Foundation-0/lost-eclipses), [fractals](https://github.com/Foundation-0/fractals), [cosmic-denoising](https://github.com/Foundation-0/cosmic-denoising) |
+| Life sciences and metascience | [project-asma](https://github.com/Foundation-0/project-asma), [virtual-human](https://github.com/Foundation-0/virtual-human), [nhanes-bioimpedance](https://github.com/Foundation-0/nhanes-bioimpedance), [overdue-data](https://github.com/Foundation-0/overdue-data) |
 | Humanities | [rism-anon](https://github.com/Foundation-0/rism-anon) |
+| Shared ground | [f0](https://github.com/Foundation-0/f0), [st0a](https://github.com/Foundation-0/st0a), [discussi0n](https://github.com/Foundation-0/discussi0n) |
 
 ## 4. The rules
 
