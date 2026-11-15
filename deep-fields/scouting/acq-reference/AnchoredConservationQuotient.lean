@@ -31,7 +31,11 @@ private theorem lin_pgl2 (RP CRP CP c : Int) :
     (RP - CRP) + ((CRP - CP) + c) = (RP - CP) + c := by
   omega
 
-theorem pgl2_bleed_isomorphism (p r c : Int) :
+/-- Numerator identity behind the bleed/conversion alias:
+`(1 - c) * (r * p) + c * ((r - 1) * p + 1) = (r - c) * p + c` over `Int`.
+There is no PGL2 action and no isomorphism here; the name states only the
+identity proved. -/
+theorem bleed_conversion_numerator_identity (p r c : Int) :
     (1 - c) * (r * p) + c * ((r - 1) * p + 1) = (r - c) * p + c := by
   have h1 : (1 - c) * (r * p) = r * p - (c * r) * p := by
     calc
@@ -49,10 +53,12 @@ theorem pgl2_bleed_isomorphism (p r c : Int) :
   rw [h1, h2, h3]
   exact lin_pgl2 (r * p) ((c * r) * p) (c * p) c
 
+/-- Adding the same shift to both sides preserves a strict inequality. -/
 theorem within_shard_shift_invariant (sPos sNeg delta : Int) :
     (sPos + delta > sNeg + delta) ↔ (sPos > sNeg) := by
   omega
 
+/-- Two shards with different shifts can reverse an ordering. -/
 theorem cross_shard_shift_inversion :
     ∃ (sPos sNeg deltaPos deltaNeg : Int),
       sPos > sNeg ∧ ¬ (sPos + deltaPos > sNeg + deltaNeg) := by
@@ -65,6 +71,9 @@ inductive AdmissiblePath (h : Nat → Int) : Nat → Int → Prop where
       (hrest : AdmissiblePath h v remCost) :
       AdmissiblePath h u (cost + remCost)
 
+/-- Telescoping over `AdmissiblePath`: `h s ≤ total` when every step is
+admissible and the goal has `h = 0`. The type carries the hypotheses; the
+lemma states nothing about search graphs, quotient maps, or hashing. -/
 theorem quotient_path_lower_bound {h : Nat → Int} {s : Nat} {total : Int}
     (hp : AdmissiblePath h s total) :
     h s ≤ total := by
@@ -77,11 +86,18 @@ inductive ValidExecution : Nat → Nat → Prop where
   | step {b b' k : Nat} (h_pos : 0 < b) (h_monotone : b' < b)
       (h_rest : ValidExecution b' k) : ValidExecution b (k + 1)
 
-theorem strict_ordinal_termination {b k : Nat} (h : ValidExecution b k) : k ≤ b := by
+/-- Descent over `Nat`: a `ValidExecution` of `k` steps from budget `b`
+satisfies `k ≤ b`. No ordinals are involved. The `h_pos` hypothesis of
+`ValidExecution.step` is not used by this proof. -/
+theorem nat_descent_bound {b k : Nat} (h : ValidExecution b k) : k ≤ b := by
   induction h with
   | halt b => exact Nat.zero_le b
   | @step b b' k _ h_mono _ ih => omega
 
+/-- Rearrangement of three factors:
+`(1 - p) * (r * p + (1 - p)) * (1 - c) = ((r - 1) * p + 1) * ((1 - c) * (1 - p))`.
+The model step, the non-zero denominators, and any claim that this isolates
+`c` independently of `r` are outside Lean. -/
 theorem survival_ratio_linearization (p r c : Int) :
     (1 - p) * (r * p + (1 - p)) * (1 - c) =
       ((r - 1) * p + 1) * ((1 - c) * (1 - p)) := by
@@ -103,6 +119,9 @@ def mitosisTriggered
   orthFloor ≤ gradOrth ∧
   gradOrth * mdrDen ≥ mdrNum * gradPar
 
+/-- Holds by definition: `mitosisTriggered` contains `orthFloor ≤ gradOrth` as
+a conjunct, so `gradOrth < orthFloor` rules it out. Says nothing about weft's
+code. -/
 theorem subfloor_dust_never_triggers_mitosis
     (err errFloor gradPar parCeil gradOrth orthFloor mdrNum mdrDen : Int)
     (h_dust : gradOrth < orthFloor) :
@@ -111,6 +130,7 @@ theorem subfloor_dust_never_triggers_mitosis
   rcases h with ⟨_, _, h_floor, _⟩
   omega
 
+/-- Four literal integer inequalities, checked by `decide`. No domain claim. -/
 theorem cross_domain_rational_witnesses :
     (10179 : Int) * 60 > 1 * 563920 ∧
     (9451 : Int) * 700 > 26 * 213325 ∧

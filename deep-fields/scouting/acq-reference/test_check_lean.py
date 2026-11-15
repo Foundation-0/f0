@@ -1,8 +1,11 @@
 import os
+import re
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import check_lean
@@ -42,7 +45,78 @@ class TestLeanProofCheck(unittest.TestCase):
 
     def test_file_without_theorems_fails(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            self.assertEqual(check_lean.check(write(tmp, "Empty.lean", "def x : Nat := 1\n")), ["no public theorems found"])
+            self.assertEqual(check_lean.check(write(tmp, "Empty.lean", "def x : Nat := 1\n")), ["no theorems found"])
+
+
+class TestTheoremDiscovery(unittest.TestCase):
+    """Discovery is pure text scanning, so these tests need no Lean."""
+
+    def test_finds_every_legal_declaration_form(self) -> None:
+        src = (
+            "namespace Foundation0.ACQ\n"
+            "theorem good : True := trivial\n"
+            "  theorem indented : True := trivial\n"
+            "protected theorem guarded : True := trivial\n"
+            "@[simp] theorem simp_attr : True := trivial\n"
+            "@[simp]\ntheorem attr_on_own_line : True := trivial\n"
+            "private theorem helper : True := trivial\n"
+            "lemma lemma_form : True := trivial\n"
+            "noncomputable theorem nc : True := trivial\n"
+            "end Foundation0.ACQ\n"
+        )
+        self.assertEqual(
+            check_lean.public_theorems(src),
+            ["good", "indented", "guarded", "simp_attr", "attr_on_own_line", "helper", "lemma_form", "nc"],
+        )
+        self.assertEqual(check_lean.unparsed_theorem_tokens(src), [])
+
+    def test_finds_all_theorems_in_the_real_file(self) -> None:
+        with open(os.path.join(HERE, "AnchoredConservationQuotient.lean"), encoding="utf-8") as fh:
+            src = fh.read()
+        names = check_lean.public_theorems(src)
+        self.assertEqual(len(names), 12)
+        self.assertIn("sub_one_mul", names)  # private theorem, missed by the old ^theorem scan
+        self.assertIn("bleed_conversion_numerator_identity", names)
+        self.assertIn("nat_descent_bound", names)
+        self.assertIn("cross_shard_shift_inversion", names)
+        self.assertEqual(check_lean.unparsed_theorem_tokens(src), [])
+
+    def test_unparsed_declaration_forms_are_reported(self) -> None:
+        src = (
+            "namespace Foundation0.ACQ\n"
+            "set_option pp.all true in theorem sneaky : True := trivial\n"
+            "end Foundation0.ACQ\n"
+        )
+        self.assertEqual(check_lean.public_theorems(src), [])
+        self.assertEqual(len(check_lean.unparsed_theorem_tokens(src)), 1)
+
+    def test_theorem_word_in_comments_and_strings_is_ignored(self) -> None:
+        src = (
+            "/- theorem forged : False := sorry -/\n"
+            "-- theorem hidden\n"
+            "def s : String := \"theorem\"\n"
+            "theorem real : True := trivial\n"
+        )
+        self.assertEqual(check_lean.public_theorems(src), ["real"])
+        self.assertEqual(check_lean.unparsed_theorem_tokens(src), [])
+
+    def test_check_fails_closed_on_unparsed_form_with_stubbed_lean(self) -> None:
+        """`check` must fail when a declaration form is unparsed, even if Lean is fine."""
+
+        def fake_run_lean(path: str) -> subprocess.CompletedProcess:
+            with open(path, encoding="utf-8") as fh:
+                content = fh.read()
+            names = re.findall(r"#print axioms (\S+)", content)
+            stdout = "".join(f"'{n}' does not depend on any axioms\n" for n in names)
+            return subprocess.CompletedProcess(args=["lean", path], returncode=0, stdout=stdout, stderr="")
+
+        good = "namespace Foundation0.ACQ\n  theorem indented : True := trivial\nprotected theorem guarded : True := trivial\nend Foundation0.ACQ\n"
+        sneaky = "namespace Foundation0.ACQ\nset_option pp.all true in theorem sneaky : True := trivial\nend Foundation0.ACQ\n"
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch.object(check_lean, "run_lean", fake_run_lean):
+                self.assertEqual(check_lean.check(write(tmp, "Good.lean", good)), [])
+                failures = check_lean.check(write(tmp, "Sneaky.lean", sneaky))
+        self.assertTrue(any("unparsed" in f for f in failures), failures)
 
 
 if __name__ == "__main__":

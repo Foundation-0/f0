@@ -2,7 +2,7 @@
 """acq_kernel.py - Zero-dependency reference implementation of the four-gate
 Anchored Conservation Quotient (ACQ) verification architecture.
 
-Unifies:
+Groups by analogy:
   - Gate 1: Channel-bleed deflation against an independent c = 0 control & within-shard mid-rank pooling
   - Gate 2: Step-admissible quotient lower-bound & ordinal budget conservation
   - Gate 3: Survival-ratio affine linearization & division-free regime triggers
@@ -19,7 +19,7 @@ import json
 import os
 import re
 import sys
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Callable, Dict, List, Optional, Sequence, Tuple
 
 
 # Typed-in constants. Neither is derived in this file.
@@ -188,12 +188,22 @@ def verify_quotient_lower_bound(
     h_quotient: Dict[int, int],
     start_state: int,
     goal_states: Sequence[int],
+    successors: Optional[Callable[[int], Sequence[Tuple[int, int]]]] = None,
 ) -> Dict[str, object]:
     """Fail-closed verifier for step-admissible quotient lower bounds.
 
     Raises ValueError on an empty goal set or on any state that appears in an
     edge, as the start, or as a goal without an `h` value. A missing value is an
     input error, not a pass.
+
+    Coverage: the step inequalities are checked only on the supplied edges,
+    and a goal must be reachable from the start over those edges, or the
+    result is not `ok`. When `successors` is given (the true transition
+    function of the graph, mapping each state to its `(next, cost)` pairs),
+    the verifier also checks closure: every transition reachable from the
+    start must appear in `edges`. Without `successors` the returned floor
+    holds only if the supplied edges cover every transition reachable from
+    the start; the certificate therefore calls it a toy floor.
     """
     if not goal_states:
         raise ValueError("Goal set must be non-empty.")
@@ -210,6 +220,44 @@ def verify_quotient_lower_bound(
             raise ValueError(f"Edge ({u}, {v}) uses a state with no h value.")
         if cost < 0 or h_quotient[u] > cost + h_quotient[v]:
             violations.append((u, v, cost, h_quotient[u], h_quotient[v]))
+    if len(violations) == 0:
+        reachable = set()
+        stack = [start_state]
+        while stack:
+            u = stack.pop()
+            if u in reachable:
+                continue
+            reachable.add(u)
+            for (a, b, _c) in edges:
+                if a == u:
+                    stack.append(b)
+        if not (reachable & set(goal_states)):
+            return {
+                "ok": False,
+                "reason": "no goal reachable from start over the supplied edges",
+                "certified_floor": None,
+                "edges_checked": len(edges),
+                "bellman_violations": len(violations),
+            }
+        if successors is not None:
+            edge_set = {(u, v, cost) for u, v, cost in edges}
+            closed_reachable: set = set()
+            stack = [start_state]
+            while stack:
+                u = stack.pop()
+                if u in closed_reachable:
+                    continue
+                closed_reachable.add(u)
+                for v, cost in successors(u):
+                    if (u, v, cost) not in edge_set:
+                        return {
+                            "ok": False,
+                            "reason": f"reachable transition ({u}, {v}, {cost}) missing from supplied edges",
+                            "certified_floor": None,
+                            "edges_checked": len(edges),
+                            "bellman_violations": len(violations),
+                        }
+                    stack.append(v)
     return {
         "ok": len(violations) == 0,
         "certified_floor": h_quotient[start_state] if len(violations) == 0 else None,
@@ -449,10 +497,15 @@ def run_portfolio_suite() -> Dict[str, object]:
     _require(f_z608 > Fraction(9999, 10000), f"z=6.08 trap fraction is {f_z608}")
     _require(f_z0 == 0, f"z=0 trap fraction is {f_z0}")
 
-    # 4. soko: quotient lower bound on a four-state toy graph (not a soko room)
+    # 4. soko: quotient lower bound on a four-state toy graph (not a soko room).
+    # The successor function is the toy graph's complete transition function,
+    # so the verifier checks closure over it; the certificate still calls the
+    # result a toy floor, because the graph is four states, not a soko room.
+    toy_successors = {0: [(1, 1), (2, 2)], 1: [(2, 1)], 2: [(3, 1)], 3: []}
     soko_lb = verify_quotient_lower_bound(
         [(0, 1, 1), (1, 2, 1), (0, 2, 2), (2, 3, 1)],
         {0: 3, 1: 2, 2: 1, 3: 0}, start_state=0, goal_states=[3],
+        successors=lambda u: toy_successors.get(u, []),
     )
     _require(soko_lb["ok"] is True, f"toy quotient check failed: {soko_lb}")
     _require(soko_lb["certified_floor"] == 3, f"toy certified floor is {soko_lb['certified_floor']}")
@@ -475,7 +528,7 @@ def run_portfolio_suite() -> Dict[str, object]:
         "weft_dust_regime": dust_gate["regime"],
         "weft_midrank_restored_auc": str(shift_res["midrank_pooled_auc"]),
         "gravity_cosmic_dawn_trap_fraction": str(f_z608),
-        "soko_certified_floor": soko_lb["certified_floor"],
+        "toy_quotient_floor": soko_lb["certified_floor"],
         "exoplanets_null_deflated_c": str(rec_exo["c"]),
     }
 

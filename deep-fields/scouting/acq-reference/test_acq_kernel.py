@@ -23,7 +23,7 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
         self.assertEqual(cert["project_asma_c25_ceiling"], "10179/563920")
         self.assertEqual(cert["weft_dust_regime"], "OPTIMIZER_STUCK")
         self.assertEqual(cert["weft_midrank_restored_auc"], "1")
-        self.assertEqual(cert["soko_certified_floor"], 3)
+        self.assertEqual(cert["toy_quotient_floor"], 3)
 
     def test_unanchored_pgl2_indistinguishability(self) -> None:
         """Pure selection with bleed 1/2 equals true conversion c = 1/2 at every p."""
@@ -100,6 +100,47 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
         self.assertFalse(bad["ok"])
         self.assertEqual(bad["bellman_violations"], 1)
         self.assertIsNone(bad["certified_floor"])
+
+    def test_empty_edge_list_certifies_nothing(self) -> None:
+        # abu-aska's probe on f0#39: an empty edge list once returned a floor
+        # of 1000. With a successor function the closure check rejects it.
+        empty = acq.verify_quotient_lower_bound(
+            [], {0: 1000, 3: 0}, 0, [3],
+            successors=lambda u: [(3, 1000)] if u == 0 else [],
+        )
+        self.assertFalse(empty["ok"])
+        self.assertIsNone(empty["certified_floor"])
+        # Without a successor function the same call still fails: no goal is
+        # reachable from the start over the supplied edges.
+        self.assertFalse(acq.verify_quotient_lower_bound([], {0: 1000, 3: 0}, 0, [3])["ok"])
+
+    def test_missing_reachable_transition_fails_closure(self) -> None:
+        # Leaving out the cheap (1, 2, 1) edge must fail closed, not pass.
+        succ = {0: [(1, 1), (2, 2)], 1: [(2, 1)], 2: [(3, 1)], 3: []}
+        missing = acq.verify_quotient_lower_bound(
+            [(0, 1, 1), (0, 2, 2), (2, 3, 1)], {0: 3, 1: 2, 2: 1, 3: 0}, 0, [3],
+            successors=lambda u: succ.get(u, []),
+        )
+        self.assertFalse(missing["ok"])
+        self.assertIn("missing from supplied edges", str(missing.get("reason", "")))
+
+    def test_start_with_no_path_to_goal_fails(self) -> None:
+        no_path = acq.verify_quotient_lower_bound(
+            [(0, 1, 1)], {0: 1, 1: 0, 2: 0}, 0, [2],
+            successors=lambda u: [(1, 1)] if u == 0 else [],
+        )
+        self.assertFalse(no_path["ok"])
+        self.assertIsNone(no_path["certified_floor"])
+
+    def test_complete_toy_graph_passes_with_successors(self) -> None:
+        succ = {0: [(1, 1), (2, 2)], 1: [(2, 1)], 2: [(3, 1)], 3: []}
+        good = acq.verify_quotient_lower_bound(
+            [(0, 1, 1), (1, 2, 1), (0, 2, 2), (2, 3, 1)],
+            {0: 3, 1: 2, 2: 1, 3: 0}, 0, [3],
+            successors=lambda u: succ.get(u, []),
+        )
+        self.assertTrue(good["ok"])
+        self.assertEqual(good["certified_floor"], 3)
 
     def test_lean_lint_catches_adversarial_mutations(self) -> None:
         adv_src = (

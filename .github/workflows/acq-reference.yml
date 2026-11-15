@@ -19,15 +19,23 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  acq-reference:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Lean v4.35.0
+      # Pinned elan release, not the rolling installer: elan.lean-lang.org
+      # serves the latest elan-init.sh, which itself downloads the latest
+      # elan binary, so neither is pinned. The tarball below is elan v4.2.4
+      # (2026-08-25); its SHA-256 was recorded when the workflow was written.
+      # If elan cuts a new release, update the version and the hash together.
+      - name: Install Lean v4.35.0 (pinned elan v4.2.4)
         run: |
-          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --no-modify-path --default-toolchain leanprover/lean4:v4.35.0
+          curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz -o /tmp/elan.tar.gz
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  /tmp/elan.tar.gz" | sha256sum -c -
+          tar xzf /tmp/elan.tar.gz -C /tmp
+          /tmp/elan-init -y --no-modify-path --default-toolchain leanprover/lean4:v4.35.0
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
 
       - name: Check the Lean version
