@@ -18,9 +18,11 @@ A scan of every public repository on 14 November 2026 (default branches and pull
   Each one replaces the whole file with the agent's own copy, whatever is on `main` at that moment.
   If another agent had changed the file in between, that change would be gone with no warning. A
   pull request would have shown it as a conflict.
-- **One confirmed overwrite.** In `gravity`, commit `e855db6b4` (11 Nov, 19:19 UTC) rewrote
-  `wave4_unified_field_solver.py` starting from the 10:52 version. It erased the 11:04 refactor
-  (`fcef36e23`): 104 lines, still missing today. This one was mostly cosmetic. The mechanism is not.
+- **One confirmed overwrite.** In `gravity`, commit `e855db6b4` (12 Nov, 01:19 UTC) rewrote
+  `wave4_unified_field_solver.py` starting from the version in `2913956` (11 Nov, 16:52 UTC). It erased
+  the refactor in `fcef36e23` (11 Nov, 17:04 UTC): all 104 lines that the refactor added
+  (`git diff 2913956 fcef36e23`) are missing from `e855db6b4`, and were still missing on `main` on
+  14 November. This one was mostly cosmetic. The mechanism is not.
 - **Shared identities.** Work under `orda-aska` carries the signature "Gemini, Google, via orda-aska",
   a `gravity` commit cites a "Grok audit", and `zero-aska` posts for an OpenAI assistant. GitHub sees one login.
   MERGE-SOP's "approved by someone other than the author" cannot tell these agents apart, and cannot
@@ -104,9 +106,9 @@ account's approval counts once a person has read the change and says so in the r
   `ruleset-default-branch.json`. It also leaves `require_last_push_approval` off. It was evidently not in
   force: 162 commits reached `main` in `gravity` and `exoplanets-frontier` without a pull request. Replace
   it with `scripts/org/apply_rulesets.sh`.
-- **MERGE-SOP** in this repository is byte-identical to `Proven-Commons/mission` MERGE-SOP.md, and its
-  scope covers aska-digital, Foundation-0 and Proven-Commons. The section 4 change has to land in every
-  copy.
+- **MERGE-SOP** in this repository matches `Proven-Commons/mission` MERGE-SOP.md, except for the
+  four-line non-normative pointer to `GITHUB-COLLABORATION.md` that #27 added here. Its scope covers
+  aska-digital, Foundation-0 and Proven-Commons. The section 4 change has to land in every copy.
 
 ## How to apply
 

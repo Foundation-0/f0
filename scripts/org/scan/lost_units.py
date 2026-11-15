@@ -1,9 +1,13 @@
 """Inventory named units (py defs/classes, Lean decls, claim IDs, md headings, whole files) that existed on a
-default branch at some point and are absent everywhere in the repo today. Records who removed them and why."""
+default branch at some point and are absent everywhere in the repo today. Records who removed them and why.
+Usage: lost_units.py MIRRORS OUT.json"""
 import subprocess, os, re, sys, json, collections
+UTC = {**os.environ, "TZ": "UTC"}   # git prints every date in UTC
+if len(sys.argv) != 3 or not os.path.isdir(sys.argv[1]):
+    print(__doc__.strip(), file=sys.stderr); sys.exit(2)
 MIR, OUT = sys.argv[1], sys.argv[2]; EXCL = set(filter(None, os.environ.get("SCAN_EXCLUDE", "").split(",")))
 INTENT=re.compile(r"\b(remov|delet|drop|purg|supersed|replac|renam|refactor|consolidat|withdr|retract|retir|deprecat|clean|dedup|duplicate|revert|move|merge|split|rewrite)", re.I)
-def git(r,*a): return subprocess.run(["git","-C",r,*a],capture_output=True,text=True,errors="replace").stdout
+def git(r,*a): return subprocess.run(["git","-c","core.quotePath=false","-c","log.date=iso-strict-local","-C",r,*a],capture_output=True,text=True,errors="replace",env=UTC).stdout
 def units(path, text):
     u=set()
     if path.endswith(".py"):
@@ -27,7 +31,7 @@ res=[]
 for d in sorted(os.listdir(MIR)):
     if not d.endswith(".git") or d[:-4] in EXCL: continue
     r=d[:-4]; repo=os.path.join(MIR,d)
-    head_files=set(git(repo,"ls-tree","-r","--name-only","HEAD").split())
+    head_files=set(f for f in git(repo,"ls-tree","-r","-z","--name-only","HEAD").split("\0") if f)
     head_units=set()
     for f in head_files:
         if f.endswith((".py",".lean",".md",".json",".csv",".tex")):
@@ -35,7 +39,7 @@ for d in sorted(os.listdir(MIR)):
     last_seen={}   # unit -> (sha,date,author,subject,path)
     removed_by={}  # unit -> (sha,date,author,subject)
     prev=collections.defaultdict(set)
-    chain=git(repo,"log","--first-parent","--reverse","--format=%H%x1f%cI%x1f%an%x1f%s","HEAD").splitlines()
+    chain=git(repo,"log","--first-parent","--reverse","--format=%H%x1f%cd%x1f%an%x1f%s","HEAD").splitlines()
     present=set()
     for row in chain:
         h,cd,an,subj=row.split("\x1f")

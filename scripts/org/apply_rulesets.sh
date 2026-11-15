@@ -8,12 +8,17 @@
 #   scripts/org/apply_rulesets.sh --apply         # create or update the rulesets
 #   scripts/org/apply_rulesets.sh --verify        # show the rules now in force on each default branch
 #   scripts/org/apply_rulesets.sh --org NAME      # another organisation (default Foundation-0)
+#   scripts/org/apply_rulesets.sh --help          # this text
 #
-# It first tries organisation-level rulesets, which cover every repository, including ones created
-# later. If the organisation's plan does not offer them, it falls back to one ruleset per repository.
+# It first checks whether the organisation's plan offers organisation-level rulesets, which cover every
+# repository, including ones created later. If it does not, or a ruleset fails at that level, that
+# ruleset is applied to each repository instead.
 # Re-running is safe: a ruleset with the same name is updated, not duplicated.
 # To roll back, set "enforcement" to "disabled" in the JSON files and run --apply again.
 set -euo pipefail
+
+usage() { awk 'NR > 1 && /^#/ { sub(/^# ?/, ""); print; next } NR > 1 { exit }' "$0"; }
+value() { [ -n "${2:-}" ] || { echo "$1 needs a value" >&2; usage >&2; exit 2; }; }
 
 ORG=Foundation-0
 MODE=dry-run
@@ -21,8 +26,9 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --apply) MODE=apply ;;
     --verify) MODE=verify ;;
-    --org) ORG="$2"; shift ;;
-    *) echo "unknown argument: $1" >&2; exit 2 ;;
+    --org) value "$@"; ORG="$2"; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "unknown argument: $1" >&2; usage >&2; exit 2 ;;
   esac
   shift
 done
@@ -65,30 +71,35 @@ upsert() {
   fi
 }
 
-# 1. Organisation-level rulesets.
-org_ok=1
-for f in "${FILES[@]}"; do
-  if ! upsert "orgs/$ORG" "$f"; then org_ok=0; break; fi
-done
-if [ "$MODE" != apply ] && ! gh api "orgs/$ORG/rulesets" >/dev/null 2>&1; then org_ok=0; fi
-
-if [ "$org_ok" = 1 ]; then
-  if [ "$MODE" = apply ]; then
-    echo "organisation-level rulesets: done. Check with --verify."
-  else
-    echo "dry run: organisation-level rulesets look available. Run with --apply to create them."
+# 1. Organisation-level rulesets, if the organisation's plan offers them. Check that first, so a dry
+#    run prints only the plan it would follow.
+PENDING=("${FILES[@]}")
+if gh api "orgs/$ORG/rulesets" >/dev/null 2>&1; then
+  PENDING=()
+  for f in "${FILES[@]}"; do
+    upsert "orgs/$ORG" "$f" || PENDING+=("$f")
+  done
+  if [ ${#PENDING[@]} -eq 0 ]; then
+    if [ "$MODE" = apply ]; then
+      echo "organisation-level rulesets: done. Check with --verify."
+    else
+      echo "dry run: organisation-level rulesets are available. Run with --apply to create them."
+    fi
+    exit 0
   fi
-  exit 0
+  # Only the rulesets that failed at organisation level go on to each repository.
+  echo "could not apply at organisation level: $(for f in "${PENDING[@]}"; do jq -r .name "$f"; done | paste -sd, -); applying those per repository."
+else
+  echo "organisation-level rulesets not available here; applying per repository."
 fi
 
 # 2. Fallback: one ruleset per repository (repository rulesets take no repository_name condition).
-echo "organisation-level rulesets not available here; applying per repository."
-for f in "${FILES[@]}"; do
+for f in "${PENDING[@]}"; do
   jq 'del(.conditions.repository_name)' "$f" > "$TMP/$(basename "$f")"
 done
 failed=()
 while IFS=$'\t' read -r name branch visibility; do
-  for f in "${FILES[@]}"; do
+  for f in "${PENDING[@]}"; do
     upsert "repos/$ORG/$name" "$TMP/$(basename "$f")" || failed+=("$name ($visibility)")
   done
 done < <(repos)

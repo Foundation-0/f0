@@ -17,7 +17,8 @@ python3 -I scripts/org/scan/lost_units.py       mirrors lost_units.json
 python3 -I scripts/org/scan/unlanded.py         mirrors unlanded.json lists/closed_unmerged.tsv lists/open.tsv
 ```
 
-Each script prints a summary and writes the full result as JSON. The first run on a large organisation
+Each script prints a summary and writes the full result as JSON. Every date they print is UTC.
+Run a script with no arguments to see its usage. The first run on a large organisation
 fetches many file contents on demand, so it is slow. Keep at most two transfers per repository running
 at once.
 

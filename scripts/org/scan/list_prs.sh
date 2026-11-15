@@ -11,14 +11,17 @@
 # queries to stay under the search rate limit. Search returns at most 1,000 results per query.
 set -euo pipefail
 
+usage() { awk 'NR > 1 && /^#/ { sub(/^# ?/, ""); print; next } NR > 1 { exit }' "$0"; }
+value() { [ -n "${2:-}" ] || { echo "$1 needs a value" >&2; usage >&2; exit 2; }; }
+
 ORG="Foundation-0"; DIR="mirrors"; OUT="lists"
 while [ $# -gt 0 ]; do
   case "$1" in
-    --org) ORG="$2"; shift 2 ;;
-    --dir) DIR="$2"; shift 2 ;;
-    --out) OUT="$2"; shift 2 ;;
-    -h|--help) sed -n '2,12p' "$0"; exit 0 ;;
-    *) echo "unknown argument: $1" >&2; exit 2 ;;
+    --org) value "$@"; ORG="$2"; shift 2 ;;
+    --dir) value "$@"; DIR="$2"; shift 2 ;;
+    --out) value "$@"; OUT="$2"; shift 2 ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "unknown argument: $1" >&2; usage >&2; exit 2 ;;
   esac
 done
 mkdir -p "$OUT"

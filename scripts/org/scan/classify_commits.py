@@ -1,8 +1,14 @@
+"""How did each first-parent commit reach the default branch? PR merge, squash or rebase, a pushed PR head,
+a direct API commit, a direct push, or a direct merge.
+Usage: classify_commits.py MIRRORS OUT.json   (MIRRORS: a directory of mirrors from mirror_org.sh)"""
 import subprocess, re, sys, os, json, collections
+UTC = {**os.environ, "TZ": "UTC"}   # git prints every date in UTC
+if len(sys.argv) != 3 or not os.path.isdir(sys.argv[1]):
+    print(__doc__.strip(), file=sys.stderr); sys.exit(2)
 MIR, OUT = sys.argv[1], sys.argv[2]
 EXCL = set(filter(None, os.environ.get("SCAN_EXCLUDE", "").split(",")))
-def git(repo, *a): return subprocess.run(["git","-C",repo,*a],capture_output=True,text=True).stdout
-FMT="%H%x1f%P%x1f%an%x1f%ae%x1f%cn%x1f%aI%x1f%cI%x1f%s"
+def git(repo, *a): return subprocess.run(["git","-c","core.quotePath=false","-c","log.date=iso-strict-local","-C",repo,*a],capture_output=True,text=True,errors="replace",env=UTC).stdout
+FMT="%H%x1f%P%x1f%an%x1f%ae%x1f%cn%x1f%ad%x1f%cd%x1f%s"
 rows=[]
 for d in sorted(os.listdir(MIR)):
     if not d.endswith(".git"): continue
@@ -16,7 +22,7 @@ for d in sorted(os.listdir(MIR)):
     idx=collections.defaultdict(set)
     for l in git(repo,"for-each-ref","--format=%(refname)","refs/pull").splitlines():
         n=int(l.split("/")[2])
-        for c in git(repo,"log","--format=%ae%x1f%aI%x1f%s",l,"--not","HEAD").splitlines():
+        for c in git(repo,"log","--format=%ae%x1f%ad%x1f%s",l,"--not","HEAD").splitlines():
             idx[c].add(n)
     chain=git(repo,"log","--first-parent","--format="+FMT,"HEAD").splitlines()
     for line in chain:
@@ -30,7 +36,7 @@ for d in sorted(os.listdir(MIR)):
         else: kind="direct-api" if cn=="GitHub" else "direct-push"
         files=[]
         if kind.startswith("direct") or kind in("merge-direct","pr-head-pushed"):
-            files=git(repo,"diff-tree","--no-commit-id","--name-only","-r","-m","--first-parent","--root",h).split()
+            files=[f for f in git(repo,"diff-tree","-z","--no-commit-id","--name-only","-r","-m","--first-parent","--root",h).split("\0") if f]
         rows.append(dict(repo=name,sha=h,kind=kind,prs=prs,author=an,email=ae,committer=cn,adate=ad,cdate=cd,subject=subj,nfiles=len(files),files=files[:300]))
 json.dump(rows,open(OUT,"w"))
 K=("pr-merge","pr-squash","pr-rebase","pr-head-pushed","direct-api","direct-push","merge-direct")

@@ -12,6 +12,7 @@
 #   scripts/org/find_force_pushes.sh --rescue             # also create a branch rescue/<date>-<sha> at each
 #                                                         # overwritten commit that is still on GitHub and not on
 #                                                         # the default branch, so it can't be garbage-collected
+#   scripts/org/find_force_pushes.sh --help               # this text
 #
 # Output is tab-separated, one row per force push:
 #   repo  ref  pushed_at  actor  before  after  lost_vs_branch  lost_vs_default  recoverable
@@ -20,17 +21,21 @@
 # recoverable:     yes if GitHub still serves the overwritten commit; no if it is gone.
 set -euo pipefail
 
+usage() { awk 'NR > 1 && /^#/ { sub(/^# ?/, ""); print; next } NR > 1 { exit }' "$0"; }
+value() { [ -n "${2:-}" ] || { echo "$1 needs a value" >&2; usage >&2; exit 2; }; }
+
 ORG=Foundation-0
 SINCE=""
 REPOS=()
 RESCUE=0
 while [ $# -gt 0 ]; do
   case "$1" in
-    --since) SINCE="$2"; shift ;;
-    --repo) REPOS+=("$2"); shift ;;
-    --org) ORG="$2"; shift ;;
+    --since) value "$@"; SINCE="$2"; shift ;;
+    --repo) value "$@"; REPOS+=("$2"); shift ;;
+    --org) value "$@"; ORG="$2"; shift ;;
     --rescue) RESCUE=1 ;;
-    *) echo "unknown argument: $1" >&2; exit 2 ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "unknown argument: $1" >&2; usage >&2; exit 2 ;;
   esac
   shift
 done
@@ -39,7 +44,7 @@ command -v gh >/dev/null || { echo "needs the GitHub CLI (gh)" >&2; exit 1; }
 gh auth status >/dev/null 2>&1 || { echo "log in first: gh auth login" >&2; exit 1; }
 
 if [ ${#REPOS[@]} -eq 0 ]; then
-  mapfile -t REPOS < <(gh api "orgs/$ORG/repos" --paginate --jq '.[].name')
+  while IFS= read -r r; do REPOS+=("$r"); done < <(gh api "orgs/$ORG/repos" --paginate --jq '.[].name')
 fi
 
 found=0; lost_total=0; gone=0; rescued=0

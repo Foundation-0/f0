@@ -1,12 +1,16 @@
 """Two integrity scans over each repo's default branch.
 1. lost-merges: every merged PR's content is still on main (ancestor, squash '(#N)', or patch-equivalent).
 2. clobbers: lines deleted by a first-parent commit that another commit had added < WINDOW hours earlier,
-   excluding lines that reappear in the same commit (moves/reflows)."""
+   excluding lines that reappear in the same commit (moves/reflows).
+Usage: forensics.py MIRRORS MERGED.tsv OUT.json   (MERGED.tsv from list_prs.sh)"""
 import subprocess, sys, os, re, json, collections, datetime as dt
+UTC = {**os.environ, "TZ": "UTC"}   # git prints every date in UTC
+if len(sys.argv) != 4 or not os.path.isdir(sys.argv[1]):
+    print(__doc__.strip(), file=sys.stderr); sys.exit(2)
 MIR, MERGED, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 EXCL = set(filter(None, os.environ.get("SCAN_EXCLUDE", "").split(","))); WINDOW_H = 48
 def git(repo, *a, check=False):
-    p = subprocess.run(["git", "-C", repo, *a], capture_output=True, text=True, errors="replace")
+    p = subprocess.run(["git", "-c", "core.quotePath=false", "-c", "log.date=iso-strict-local", "-C", repo, *a], capture_output=True, text=True, errors="replace", env=UTC)
     return p.stdout
 def ts(s): return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
 merged = collections.defaultdict(list)
@@ -18,7 +22,7 @@ for d in sorted(os.listdir(MIR)):
     name = d[:-4]
     if name in EXCL: continue
     repo = os.path.join(MIR, d)
-    chain = git(repo, "log", "--first-parent", "--format=%H%x1f%P%x1f%an%x1f%cn%x1f%cI%x1f%s", "HEAD").splitlines()
+    chain = git(repo, "log", "--first-parent", "--format=%H%x1f%P%x1f%an%x1f%cn%x1f%cd%x1f%s", "HEAD").splitlines()
     subj_nums = set()
     for line in chain:
         m = re.search(r"\(#(\d+)\)\s*$", line.split("\x1f")[-1]); 
@@ -37,7 +41,7 @@ for d in sorted(os.listdir(MIR)):
         if not plus: continue
         # content check: are the PR's final file versions present on main (maybe later edited)?
         base = git(repo, "merge-base", head, "HEAD").strip()
-        files = git(repo, "diff", "--name-only", base, head).split()
+        files = [f for f in git(repo, "diff", "-z", "--name-only", base, head).split("\0") if f]
         same = sum(1 for f in files if git(repo, "rev-parse", f"{head}:{f}").strip() == git(repo, "rev-parse", f"HEAD:{f}").strip())
         res["lost"].append(dict(repo=name, pr=n, title=title, merged=mdate, author=author, unmatched_commits=len(plus), files=len(files), files_identical_on_main=same))
     # ---- scan 2
@@ -49,7 +53,7 @@ for d in sorted(os.listdir(MIR)):
         diff = git(repo, "diff", "-U0", "--no-color", "-M", p, h)
         cur = None; dels = collections.defaultdict(list); added = set()
         for dl in diff.splitlines():
-            if dl.startswith("--- "): cur = dl[6:] if dl.startswith("--- a/") else None
+            if dl.startswith("--- "): cur = dl[6:].rstrip("\t") if dl.startswith("--- a/") else None
             elif dl.startswith("@@") and cur:
                 m = re.match(r"@@ -(\d+)(?:,(\d+))? ", dl); start = int(m.group(1)); cnt = int(m.group(2) or 1)
                 if cnt: dels[cur].append((start, cnt))
