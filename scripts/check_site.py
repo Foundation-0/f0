@@ -18,6 +18,8 @@
   6  record:   every ledger/#<id> link in pages, scripts and data names a ledger.json id; every key of the
                Ledger page's CREDIT map is a ledger id; founding members' items carry foundation0_note and
                known foundation0_members; Home and the Ledger state the same role-over-time numbers
+  7  marks:    every <symbol id="zero"> (and #zero-sm) copy inlined across the site is byte-identical, so a
+               copy cannot drift again without the gate saying so
 
 Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
   --external also checks every external URL in the pages, page scripts and data files (*.json): any 2xx
@@ -26,6 +28,7 @@ Usage: python3 scripts/check_site.py [--external]   (exit 0 = clean)
   checkout; preconnect and dns-prefetch hints are skipped.
 """
 import datetime
+import glob
 import html.parser
 import json
 import os
@@ -516,6 +519,27 @@ def check_record():
             err('record', f'Home and the Ledger state different role-over-time numbers: {nums(home)} vs {nums(ledg)} (both must use F0.rolePeriods)')
 
 
+# ---------------- 7 mark copies ------------------------------------------------------
+def check_marks():
+    # Every inlined copy of the mark must be byte-identical: a copy drifted twice before (once when the
+    # new mark landed, once when main added the forum page and two og cards), so the gate now catches it.
+    files = sorted(glob.glob(os.path.join(DOCS, '**', '*.html'), recursive=True)
+                   + glob.glob(os.path.join(ROOT, 'scripts', 'og', '**', '*.html'), recursive=True)
+                   + [os.path.join(ROOT, 'story-src', 'build.py')])
+    seen = {}
+    for path in files:
+        with open(path, encoding='utf-8') as f:
+            src = f.read()
+        for m in re.finditer(r'<symbol id="(zero(?:-sm)?)".*?</symbol>', src, re.S):
+            seen.setdefault(m.group(1), {}).setdefault(m.group(0), []).append(os.path.relpath(path, ROOT))
+    if 'zero' not in seen:
+        err('marks', '#zero is not inlined anywhere')
+    for sid, variants in sorted(seen.items()):
+        if len(variants) > 1:
+            where = '; '.join(sorted(v[0] for v in variants.values()))
+            err('marks', f'#{sid} has {len(variants)} different copies: {where}')
+
+
 # ---------------- --external ---------------------------------------------------------
 def fetch_code(u, timeout=20):
     req = urllib.request.Request(u, method='GET', headers={'User-Agent': 'foundation0-linkcheck', 'Accept': 'application/json, text/html;q=0.9, */*;q=0.5'})
@@ -594,6 +618,7 @@ def main():
     urls = set()
     check_pages(urls)
     check_record()
+    check_marks()
     if '--external' in sys.argv:
         led = load('data/ledger.json') or {}
         for m in led.get('milestones', []):

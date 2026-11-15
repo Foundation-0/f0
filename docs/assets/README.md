@@ -8,7 +8,8 @@ Everything a page needs lives in this folder. There is no build step: plain HTML
 | `f0.js` | The runtime, `window.F0` (theme, motion, data, tooltip, canvas, loop, badges, live κ) | foundation builder only |
 | `radiant.js` | The Radiant: the ledger drawn as one radial figure (`F0.Radiant`) | foundation builder only |
 | `home.js` | Home page wiring (data rendering, card figures) | foundation builder only |
-| `favicon.svg`, `og.png` | The incentre mark (a square, its diagonals and the four incircles, r = (√2 − 1) × half-side, from the incentre-lattice research); the 1200×630 share image | foundation builder only |
+| `favicon.svg`, `og.png` | The incentre mark (the four incircles of a square's diagonal triangles, r = (√2 − 1) × half-side, and the middle circle that touches all four; the square and the diagonals are implied, from the incentre-lattice research); the 1200×630 share image | foundation builder only |
+| `brand/` | The mark as standalone SVGs for dark and light grounds: `f0-mark-*` (the mark), `f0-mark-lattice-*` and `f0-mark-lattice-simple-*` (large format), plus `f0-avatar-512.png` | foundation builder only |
 
 Your page's own CSS and JS go in your page's folder (`<page-dir>/page.css`, `<page-dir>/page.js`). If you need something shared, ask for it rather than editing these files.
 
@@ -17,7 +18,7 @@ Your page's own CSS and JS go in your page's folder (`<page-dir>/page.css`, `<pa
 Copy from `docs/index.html`, verbatim, and fix every relative prefix for your depth (`../` one level down, `../../` two):
 
 1. the whole `<head>`: fonts link, the inline theme and motion bootstrap script (it must run before paint), the theme-color metas, `<link rel="icon" href="{rel}assets/favicon.svg">`, `og:image` = `{rel}assets/og.png`, `<link rel="stylesheet" href="{rel}assets/f0.css">`, `<script defer src="{rel}assets/f0.js">`;
-2. the hidden `<svg>` with the `#zero` symbol, the incentre mark (the header and footer marks use it);
+2. the hidden `<svg>` with the `#zero` and `#zero-sm` symbols, the incentre mark (the header and footer marks use the heavier `#zero-sm`);
 3. the skip link, the header (mark `aria-current="page"` on your nav link in both `.nav` and `.menu-panel`), the HUD `<nav class="hud" data-hud>`;
 4. the footer.
 
@@ -38,7 +39,11 @@ Alternate `.sec` and `.sec.alt` for banding. Inner pages open with a `.page-hero
 
 ### The wordmark and the mark
 
-- **Mark** (`#zero`, `favicon.svg`): the founding drawing of the incentre-lattice research. A square, its two diagonals, and the incircle of each of the four triangles; with half-side 1 the radius is √2 − 1, and neighbouring incircles touch. Opposite pairs are gold (`--bio`) and cyan (`--dig`), so every gold circle touches both cyan ones.
+- **Mark** (`#zero`, `favicon.svg`): from the founding drawing of the incentre-lattice research. A square and its diagonals make four triangles; the mark keeps their four incircles (with half-side 1, radius √2 − 1) and the middle circle that touches all four (radius (√2 − 1)²), and marks every centre with a dot. The square and the diagonals are implied: each pair of neighbouring circles touches on a diagonal. Opposite pairs are gold (`--bio`) and cyan (`--dig`), so every gold circle touches both cyan ones; the middle circle and its dot are `--ink-2`.
+  - **Every true circle is an ink edge, not a stroke centre.** Rings are inked inside their circle, so each contact is two edges meeting: gold and cyan touch at one point, neither on top ("without priority").
+  - **Weights** (half-side 40): outer rings 2.2, middle ring 1.1, dots r 1.8. Scale them together; `radiant.js` draws the same proportions on canvas, floored so rings and dots stay at least 1px wide. At 36px and below the pages use `#zero-sm`, the same circles with heavier weights (outer rings 3.3, middle ring 1.65, dots r 2.7), so the outer rings stay at least 1px wide at 26px.
+  - **Small cut** (`favicon.svg`): the same five circles with heavier lines and no dots, on the dark tile; thin lines and dots fall under a pixel at tab size.
+  - **Exports** in `brand/`, each for dark and light grounds: `f0-mark-*` (the mark), `f0-mark-lattice-*` (large format only: an X out to the contact points at ±11.716 = 40(1 − 1/√2), with lines from each inner point at ±4.020 = 23.431·(√2 − 1)² to the centre and to its two contact points. These exports drop the middle ring — there is no r 6.313 ring — and the centre is a dot of r 0.7 in a hole of r 1.556: 1.1-wide strokes 45° apart stop overlapping at (w/2)/sin 22.5° = 1.437, and the hole radius 1.556 = w√2 clears it) and `f0-mark-lattice-simple-*` (the same drawing, kept as an alternative — the two now render identically, and the board picks which one to keep). `f0-avatar-512.png` is safe for a circular crop (GitHub, Discord).
 - **Wordmark**: "Foundation0" in Geist 600 with a dotted zero (`.display .zero::after`): the font's own 0 with the incentre as a dot at the centre of its counter, which also tells 0 from O.
 - **Ordinals**: write 0<sup>th</sup> with `<sup>` in HTML text, and "0ᵗʰ" (U+1D57, U+02B0) where markup is impossible (attributes, titles, JSON shown as text).
 
