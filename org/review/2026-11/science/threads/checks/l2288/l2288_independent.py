@@ -3,7 +3,9 @@ Independent exact check of the claim that the 11-vertex graph L2288 has 2,288 re
 
 Written by the reviewer, from the checker used for the 10-vertex result in the science pass. It uses from the
 certificate ONLY: the edge list, the 19 rational squared edge lengths, the pinned triangle and the 1,144 box
-centres. It shares no code with the two checkers written by the search.
+centres. Its code is separate from certify.py, but it implements the same proof (the same Newton-operator
+template and the same hand-derived constants q and w), so an error in that template would defeat both. The
+different method is certify_arb.py, which uses ball arithmetic.
 
 For each centre it builds its own preconditioner (float inverse of the exact Jacobian, rounded to dyadic
 rationals) and proves in exact rational arithmetic that the box of the stated radius holds exactly one real

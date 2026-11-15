@@ -13,7 +13,7 @@ The repository proves 880 real realizations of a 10-vertex rigid graph. Calling 
 | 10 vertices | 4778440734593 | 880 | 880 | 880 |
 | 11 vertices | 18120782205838348 | 2288 | 2288 | 2288 |
 
-[F] Three implementations agree on both graphs. Verdict for the complex count: **VERIFIED**.
+[F] Three implementations agree on both graphs. All three implement one published recursion, so their agreement tests the coding and not the theorem. Two of the three cannot be re-run from this checkout, because the `lnumber` library and the repository script are not in it. Verdict for the complex count: **REPRODUCED** (the programs of one thread agree).
 
 ## What was done
 
@@ -21,6 +21,7 @@ The repository proves 880 real realizations of a 10-vertex rigid graph. Calling 
 - [F] It reproduces the paper's maximal counts for 6 to 12 vertices: 24, 56, 136, 344, 880, 2288 and 6180. It gives 2^(n-2) for graphs built by the simplest step alone, for 3 to 10 vertices.
 - [F] The authors' C++ library `lnumber` was built from its published source without OpenMP and called on the same graphs. It agrees with our code on 158 random rigid graphs.
 - [F] The repository script (`rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py:209-323`) implements the same recursion with two shortcuts. It agrees with ours on all 80 graphs both computed.
+- [F] Bit order. `checks/laman/laman_count.py` decodes an integer graph code least significant bit first, as `lnumber` does. `checks/l2288/lam.py` and `graph_check.py` read the same integer most significant bit first. They give differently labelled but isomorphic graphs, so counts agree and edge lists differ.
 - [F] The edge list in the 880 certificate is the same graph as the decoded integer code, under the vertex map 0 to 9, 1 to 10, 2 to 8, 3 to 7, 4 to 5, 5 to 6, 6 to 1, 7 to 2, 8 to 3, 9 to 4.
 - [F] The counting convention is the paper's: realizations up to rotation and translation, with a mirror image counted separately. The triangle counts 2.
 
@@ -50,7 +51,7 @@ python3 checks/laman/laman_count.py 4778440734593 18120782205838348
 python3 checks/laman/crosscheck.py             # needs the hand-built lnumber library
 ```
 
-`targets.py` and `crosscheck.py` expect a clone of the repository and the built library at the paths set in their first lines. Saved outputs are the `.log` files beside them.
+Only `laman_count.py` runs standalone. `targets.py` and `crosscheck.py` expect a clone of the repository and the built library at the paths set in their first lines. Saved outputs are the `.log` files beside them.
 
 ## Not verified
 

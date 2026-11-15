@@ -1,6 +1,7 @@
 """Structure of L2288 and its relation to L880 (Henneberg I / II)."""
 import itertools, networkx as nx
 def decode(n, code):
+    # MSB-lexicographic bit order; laman/laman_count.py decodes the same code LSB first (isomorphic graph).
     pairs = list(itertools.combinations(range(1, n+1), 2)); m = len(pairs)
     return [pairs[k] for k in range(m) if (code >> (m-1-k)) & 1]
 E11 = decode(11, 18120782205838348)

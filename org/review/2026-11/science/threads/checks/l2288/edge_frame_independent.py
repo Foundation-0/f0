@@ -5,7 +5,8 @@ solutions and each must have its own box.
 
 Written by the reviewer, from the checker used for the 10-vertex result in the science pass. It uses from the
 certificate ONLY: the edge list, the 19 rational squared edge lengths, the pinned triangle and the 1,144 box
-centres. It shares no code with the two checkers written by the search.
+centres. Its code is separate from the two checkers written by the search, but it follows the same proof
+template as l2288_independent.py, so it is a second arithmetic route, not a different method.
 
 For each centre it builds its own preconditioner (float inverse of the exact Jacobian, rounded to dyadic
 rationals) and proves in exact rational arithmetic that the box of the stated radius holds exactly one real
