@@ -4,6 +4,12 @@ State read 2026-11-15 against main `6ea3a0b`. Lanes follow
 decision 3 in issue 42: build, record, idea. The lane here is a
 routing hint for review, not a verdict on the content. [I]
 
+Coverage: all 13 open pull requests inventoried from the
+GitHub API, each with head, base, merge-tree result and check
+state. Review state for every row in this run: triaged, not
+reviewed. No finding was posted to any pull request here.
+Heads move, so recheck a head before acting on its row.
+
 ## The 13 open pull requests
 
 | PR | Lane | Review | Checks | Blocks on |
