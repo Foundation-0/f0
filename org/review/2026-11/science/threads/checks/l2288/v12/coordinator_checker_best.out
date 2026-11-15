@@ -1,0 +1,2 @@
+graph: 12 vertices, 21 edges, Laman (all vertex subsets checked)
+FAIL: the pinned vertices do not span a triangle of the graph

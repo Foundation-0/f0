@@ -1,0 +1,7 @@
+real 3900 nonreal 2280 too large to be real 588
+ nonreal bounded with im2 < 1e-06 : 120
+ nonreal bounded with im2 < 0.0001 : 244
+ nonreal bounded with im2 < 0.01 : 324
+ nonreal bounded with im2 < 1 : 760
+ nonreal bounded with im2 < 100 : 1688
+ bounded nonreal im2 quantiles [2.02784366e-05 1.49902772e+00 2.82595222e+01]

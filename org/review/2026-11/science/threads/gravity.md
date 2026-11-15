@@ -107,7 +107,7 @@ The extra mass is defined as the mass that must be added to the baryons for the 
 
 - [F] Every massive class sits above the standard relation: early-type galaxies and giant spirals by 0.08 dex, clusters by 0.12 dex at the outer radius and 0.29 at the inner. The excess grows faster than the baryonic mass.
 - [F] No law in one variable describes all classes and both cluster radii.
-- [I] The pattern does not favour a component with a fixed maximum density in phase space. An earlier draft of this note suggested it did. The fit says otherwise.
+- [I] The law in which a particle is packed to its maximum density everywhere does badly. That law is not a fair test of a real halo of fermions, which is packed only in its core. `neutrino-like.md` takes that case up properly.
 - [I] The excess in early-type galaxies depends on the assumed mix of stars and vanishes for a Salpeter mix. The excess in clusters grows if hydrostatic masses are biased low. So the shared trend may be a real component, or two separate systematic effects that happen to point the same way.
 
 ## The four speeds near 185 km/s, with honest ranges

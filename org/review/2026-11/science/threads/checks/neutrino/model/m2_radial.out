@@ -1,0 +1,84 @@
+systems: 51; 95% means at least 49 non-falling
+nominal (no bias, sqrtC 1, no EFE, exp nu, a0 1.2e-10, stars x1.5 in r2500): non-falling 0.00 (grid check), median M_extra(r500)/M_extra(r2500) 0.58, negative at r500: 8
+radial ratio vs kT: log-slope fit on positive ratios: +0.74; median for kT<2: 0.46, kT>=4: 0.86
+
+-- (a1) hydrostatic bias at r500, none at r2500 (true = HSE/(1-b))
+   b500 = 0: non-falling 0.20, median ratio 0.58, negative at r500 8
+   b500 = 0.05: non-falling 0.27, median ratio 0.73, negative at r500 6
+   b500 = 0.1: non-falling 0.39, median ratio 0.96, negative at r500 2
+   b500 = 0.15: non-falling 0.63, median ratio 1.17, negative at r500 1
+   b500 = 0.2: non-falling 0.80, median ratio 1.46, negative at r500 0
+   b500 = 0.25: non-falling 0.94, median ratio 1.70, negative at r500 0
+   b500 = 0.3: non-falling 0.98, median ratio 2.11, negative at r500 0
+   b500 = 0.35: non-falling 1.00, median ratio 2.59, negative at r500 0
+   b500 = 0.4: non-falling 1.00, median ratio 3.22, negative at r500 0
+   b500 = 0.5: non-falling 1.00, median ratio 5.06, negative at r500 0
+   => value giving >= 95% non-falling: 0.3
+
+-- (a2) bias with the simulated radial shape b2500 = 0.64 b500 (Nelson+2014: f_nth 0.128 at 0.17 r200m, 0.200 at 0.37 r200m)
+   value = 0.1: non-falling 0.31, median ratio 0.80, negative at r500 2
+   value = 0.2: non-falling 0.55, median ratio 1.05, negative at r500 0
+   value = 0.3: non-falling 0.78, median ratio 1.33, negative at r500 0
+   value = 0.4: non-falling 0.92, median ratio 1.60, negative at r500 0
+   value = 0.5: non-falling 0.98, median ratio 2.03, negative at r500 0
+   value = 0.6: non-falling 1.00, median ratio 2.62, negative at r500 0
+   value = 0.7: non-falling 1.00, median ratio 3.57, negative at r500 0
+   => value giving >= 95% non-falling: 0.5
+
+-- (a3) bias difference with b2500 = 0.05
+   b500 = 0.1: non-falling 0.37, median ratio 0.84, negative at r500 2
+   b500 = 0.2: non-falling 0.69, median ratio 1.26, negative at r500 0
+   b500 = 0.25: non-falling 0.88, median ratio 1.53, negative at r500 0
+   b500 = 0.3: non-falling 0.94, median ratio 1.84, negative at r500 0
+   b500 = 0.35: non-falling 0.98, median ratio 2.24, negative at r500 0
+   b500 = 0.4: non-falling 1.00, median ratio 2.76, negative at r500 0
+   b500 = 0.5: non-falling 1.00, median ratio 4.47, negative at r500 0
+   => value giving >= 95% non-falling: 0.35
+
+-- (b) clumping: sqrt(C) applied to the r2500-r500 shell gas
+   sqrtC = 1.0: non-falling 0.20, median ratio 0.58, negative at r500 8
+   sqrtC = 1.05: non-falling 0.20, median ratio 0.60, negative at r500 8
+   sqrtC = 1.1: non-falling 0.20, median ratio 0.63, negative at r500 8
+   sqrtC = 1.2: non-falling 0.24, median ratio 0.67, negative at r500 7
+   sqrtC = 1.3: non-falling 0.24, median ratio 0.70, negative at r500 7
+   sqrtC = 1.5: non-falling 0.25, median ratio 0.76, negative at r500 4
+   sqrtC = 2.0: non-falling 0.35, median ratio 0.85, negative at r500 2
+   sqrtC = 3.0: non-falling 0.41, median ratio 0.94, negative at r500 0
+   => value giving >= 95% non-falling: None
+
+-- (c) external field g_e/a0 (1D QUMOND approximation)
+   ge = 0: non-falling 0.20, median ratio 0.58, negative at r500 8
+   ge = 0.01: non-falling 0.82, median ratio 1.28, negative at r500 0
+   ge = 0.02: non-falling 0.88, median ratio 1.42, negative at r500 0
+   ge = 0.03: non-falling 0.92, median ratio 1.51, negative at r500 0
+   ge = 0.05: non-falling 0.96, median ratio 1.63, negative at r500 0
+   ge = 0.1: non-falling 0.96, median ratio 1.77, negative at r500 0
+   ge = 0.2: non-falling 0.98, median ratio 1.88, negative at r500 0
+   ge = 0.3: non-falling 1.00, median ratio 1.93, negative at r500 0
+   ge = 0.5: non-falling 1.00, median ratio 1.98, negative at r500 0
+   => value giving >= 95% non-falling: 0.05
+
+-- (d) interpolating function x a0
+   exp (RAR)  a0=1.0e-10: non-falling 0.24, median ratio 0.70, negative at r500 2
+   exp (RAR)  a0=1.2e-10: non-falling 0.20, median ratio 0.58, negative at r500 8
+   simple     a0=1.0e-10: non-falling 0.24, median ratio 0.71, negative at r500 2
+   simple     a0=1.2e-10: non-falling 0.20, median ratio 0.58, negative at r500 9
+   standard   a0=1.0e-10: non-falling 0.27, median ratio 0.72, negative at r500 1
+   standard   a0=1.2e-10: non-falling 0.20, median ratio 0.61, negative at r500 6
+
+-- (e) stars inside r2500 as k x f_star,500 (capped at all r500 stars)
+   kstar = 1.0: non-falling 0.20, median ratio 0.53, negative at r500 8
+   kstar = 1.5: non-falling 0.20, median ratio 0.58, negative at r500 8
+   kstar = 2.0: non-falling 0.22, median ratio 0.64, negative at r500 8
+   kstar = 2.5: non-falling 0.25, median ratio 0.67, negative at r500 8
+   kstar = 3.0: non-falling 0.25, median ratio 0.67, negative at r500 8
+   kstar = 5.0: non-falling 0.27, median ratio 0.67, negative at r500 8
+   => value giving >= 95% non-falling: None
+   accelerations: median g_b/a0 at r2500 0.050, at r500 0.025; median g_tot/a0 at r500 0.229
+
+-- combinations at published sizes
+   obs-low (X-COP f_nth 6% at r500, ~3% at r2500; sqrtC 1.03; g_e 0.01 a0; stars x1.5): non-falling 0.65 (grid), median ratio 1.37, negative at r500 0
+   simulation (Nelson+14 0.13/0.20; sqrtC 1.10; g_e 0.03 a0; stars x1.6): non-falling 0.96 (grid), median ratio 1.79, negative at r500 0
+   lensing-high (WtG 1-b=0.69 at r500, 0.10 at r2500; sqrtC 1.15; g_e 0.05 a0; stars x1.9): non-falling 1.00 (grid), median ratio 2.61, negative at r500 0
+   lensing-high bias alone: non-falling 0.75 (grid), median ratio 1.69, negative at r500 0
+   LoCuSS-like (X-ray/lensing 0.95 at r500: b500 0.05, b2500 0.02) + simulation clumping/EFE/stars: non-falling 0.90 (grid), median ratio 1.64, negative at r500 0

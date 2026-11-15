@@ -1,0 +1,59 @@
+== task 5: upper bound on fermion mass inside r = (4pi/3) r^3 rho0 (density is highest at the centre), g=2, occupation 1/2 (and x(f32(2)/f32(0)) for occupation 0.88)
+   f32(0) = 0.765, f32(2) = 2.824
+
+   ATLAS3D_Re: n=187, median r 2.1 kpc, sigma 145 km/s; excess M_extra>0 in 140; median M_extra/M_b +0.267; median positive M_extra 4.71e+09 Msun
+     m= 3 eV: bound median 9.19e+04 Msun; share of the positive excess it can supply: median 2.64e-05, max 7.92e-03
+     m= 6 eV: bound median 1.47e+06 Msun; share of the positive excess it can supply: median 4.22e-04, max 1.27e-01
+     m=12 eV: bound median 2.35e+07 Msun; share of the positive excess it can supply: median 6.76e-03, max 1.00e+00
+     m=25 eV: bound median 4.43e+08 Msun; share of the positive excess it can supply: median 1.27e-01, max 1.00e+00
+     remainder as a stellar M/L change: median log(M_tot/M_N-needed) i.e. 0.5 x? -> stellar M/L must rise by median 0.135 dex (Kroupa baseline) or hot gas of M_extra = 0.36 M_b inside R_e
+
+   giant_spirals: n=57, median r 24.5 kpc, sigma 213 km/s; excess M_extra>0 in 45; median M_extra/M_b +0.331; median positive M_extra 8.70e+10 Msun
+     m= 3 eV: bound median 6.30e+08 Msun; share of the positive excess it can supply: median 9.64e-03, max 1.00e+00
+     m= 6 eV: bound median 1.01e+10 Msun; share of the positive excess it can supply: median 1.54e-01, max 1.00e+00
+     m=12 eV: bound median 1.61e+11 Msun; share of the positive excess it can supply: median 1.00e+00, max 1.00e+00
+     m=25 eV: bound median 3.04e+12 Msun; share of the positive excess it can supply: median 1.00e+00, max 1.00e+00
+     remainder: stellar M/L +0.159 dex, or hot/undetected gas 0.44 M_b inside r
+
+   SPARC_outer: n=153, median r 12.4 kpc, sigma 75 km/s; excess M_extra>0 in 50; median M_extra/M_b -0.188; median positive M_extra 2.41e+09 Msun
+     m= 3 eV: bound median 2.77e+06 Msun; share of the positive excess it can supply: median 2.03e-03, max 1.00e+00
+     m= 6 eV: bound median 4.44e+07 Msun; share of the positive excess it can supply: median 3.24e-02, max 1.00e+00
+     m=12 eV: bound median 7.10e+08 Msun; share of the positive excess it can supply: median 5.19e-01, max 1.00e+00
+     m=25 eV: bound median 1.34e+10 Msun; share of the positive excess it can supply: median 1.00e+00, max 1.00e+00
+
+   SPARC_inner: n=152, median r 3.1 kpc, sigma 75 km/s; excess M_extra>0 in 64; median M_extra/M_b -0.090; median positive M_extra 1.10e+09 Msun
+     m= 3 eV: bound median 4.62e+04 Msun; share of the positive excess it can supply: median 1.26e-04, max 7.17e-03
+     m= 6 eV: bound median 7.39e+05 Msun; share of the positive excess it can supply: median 2.01e-03, max 1.15e-01
+     m=12 eV: bound median 1.18e+07 Msun; share of the positive excess it can supply: median 3.22e-02, max 1.00e+00
+     m=25 eV: bound median 2.23e+08 Msun; share of the positive excess it can supply: median 6.06e-01, max 1.00e+00
+
+== task 6: high-z discs (RC100), same bound inside R_e with sigma = V_c/sqrt2
+   m= 3 eV: largest fermion share of M_tot inside R_e: median 4.07e-05, max 1.61e-04  (observed f_DM median 0.29)
+   m= 6 eV: largest fermion share of M_tot inside R_e: median 6.51e-04, max 2.57e-03  (observed f_DM median 0.29)
+   m=12 eV: largest fermion share of M_tot inside R_e: median 1.04e-02, max 4.11e-02  (observed f_DM median 0.29)
+   m=25 eV: largest fermion share of M_tot inside R_e: median 1.96e-01, max 7.75e-01  (observed f_DM median 0.29)
+
+== extra item A: Mistele+2024 (arXiv:2406.09685) Table 2, isolated KiDS lenses, V_flat averaged over 50 < R < 300 kpc
+   bin           logMb   V_flat   M_extra/M_b at 300 kpc: central, 2-sigma upper (V+2err), upper with M_b -0.1 dex | phase-space bound/M_b (m=3,12 eV) | cosmic share m/2.084 (3, 12 eV) | need if g_e=0.01 a0
+   All 10.10   137.3+-11.5    +0.74   +2.22   +3.05   | 8.2e+00 2.1e+03 | 1.44 5.76 | +19.25
+   All 10.66   182.1+-10.8    +0.47   +1.28   +1.87   | 5.3e+00 1.4e+03 | 1.44 5.76 | +9.28
+   All 10.96   204.7+- 8.2    +0.17   +0.58   +0.98   | 3.8e+00 9.6e+02 | 1.44 5.76 | +5.68
+   All 11.29   260.2+- 6.2    +0.39   +0.67   +1.10   | 3.6e+00 9.3e+02 | 1.44 5.76 | +4.44
+   ETG 10.68   197.4+-17.7    +0.92   +2.67   +3.63   | 6.4e+00 1.6e+03 | 1.44 5.76 | +10.74
+   ETG 10.97   211.0+-11.3    +0.28   +0.91   +1.40   | 4.0e+00 1.0e+03 | 1.44 5.76 | +6.00
+   ETG 11.30   266.5+- 6.7    +0.49   +0.80   +1.27   | 3.8e+00 9.7e+02 | 1.44 5.76 | +4.62
+   LTG 10.08   137.4+-11.9    +0.83   +2.45   +3.34   | 8.6e+00 2.2e+03 | 1.44 5.76 | +20.23
+   LTG 10.66   180.1+-13.6    +0.40   +1.44   +2.08   | 5.1e+00 1.3e+03 | 1.44 5.76 | +9.03
+   LTG 10.95   200.5+-11.9    +0.10   +0.71   +1.15   | 3.6e+00 9.3e+02 | 1.44 5.76 | +5.53
+   LTG 11.23   236.1+-15.9    +0.09   +0.79   +1.25   | 3.1e+00 7.9e+02 | 1.44 5.76 | +3.97
+
+   equilibrium halo (occupation 1/2) in a flat-V field Phi = V^2 ln(1+(r/5 kpc)^2)/2, V = 200 km/s: M(<300 kpc)/M_b for M_b = 10^10.96
+     m= 3 eV: M_halo(<300 kpc) = 3.38e+08 Msun = 0.00 M_b
+     m= 6 eV: M_halo(<300 kpc) = 5.41e+09 Msun = 0.06 M_b
+     m=12 eV: M_halo(<300 kpc) = 8.66e+10 Msun = 0.95 M_b
+
+   relic speed: <p> = 3.151 T_nu, T_nu0 = 1.6764e-04 eV -> <v> = 158.4 (1+z) (1 eV/m) km/s
+     m= 3 eV: <v> at z=0,1,2,5,10 = 53, 106, 158, 317, 581 km/s
+     m=12 eV: <v> at z=0,1,2,5,10 = 13, 26, 40, 79, 145 km/s
+   galaxy at 300 kpc, V=200 km/s: crossing time r/V = 1.47 Gyr; escape speed (flat to 1 Mpc) 420 km/s
+   cluster at r500=1.2 Mpc, sigma=1000 km/s: crossing 1.17 Gyr; escape ~ 2897 km/s

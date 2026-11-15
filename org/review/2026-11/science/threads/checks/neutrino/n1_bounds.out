@@ -1,0 +1,18 @@
+systems: 63  with both radii: 51
+phase-space lower limit on m from the mean density inside r2500 [eV], g=2: min 1.56, quartiles 2.30 2.53 2.72, max 2.98 (n=51)
+same, shell between r2500 and r500: min 0.66, quartiles 0.68 0.75 1.01, max 1.02 (n=10)
+same, mean inside r500: min 0.31, quartiles 1.04 1.18 1.25, max 1.35 (n=55)
+abundance: thermal-relic eV held inside r2500: min 1.07, quartiles 2.57 4.72 6.10, max 8.93 (n=51)
+abundance: thermal-relic eV held inside r500: min 0.00, quartiles 1.01 1.50 2.24, max 4.02 (n=55)
+M_extra/M_b inside r500: min 0.00, quartiles 0.49 0.72 1.08, max 1.93 (n=55)
+M_extra(r500)/M_extra(r2500): min 0.00, quartiles 0.49 0.63 0.95, max 2.05 (n=43)
+M_b(r500)/M_b(r2500): min 1.33, quartiles 1.99 2.33 2.70, max 5.92 (n=51)
+r500/r2500: min 1.79, quartiles 2.12 2.22 2.34, max 3.00 (n=51)
+negative extra mass (below the standard relation): inside r2500: 0 ; inside r500: 8
+trend: log mP2500 = 1.53 + -0.42 log sigma (r = -0.94, n = 51)
+trend: log mA500 = -5.91 + 2.16 log sigma (r = +0.61, n = 55)
+trend: log mA2500 = -3.05 + 1.34 log sigma (r = +0.83, n = 51)
+sigma 250-400: n=14  median m_P(r2500) 2.73 eV, max 2.94;  median m_A(r500) -0.13, m_A(r2500) 1.97; median extra ratio r500/r2500 -0.15 vs baryons 2.15
+sigma 400-600: n=24  median m_P(r2500) 2.53 eV, max 2.98;  median m_A(r500) 1.28, m_A(r2500) 4.73; median extra ratio r500/r2500 0.59 vs baryons 2.30
+sigma 600-900: n=7  median m_P(r2500) 2.22 eV, max 2.35;  median m_A(r500) 2.02, m_A(r2500) 5.81; median extra ratio r500/r2500 0.77 vs baryons 2.46
+sigma 900-1400: n=6  median m_P(r2500) 1.68 eV, max 1.87;  median m_A(r500) 3.28, m_A(r2500) 8.13; median extra ratio r500/r2500 1.06 vs baryons 2.52
