@@ -1,0 +1,13 @@
+seed->root res=3.9e-31 eig=['-0.0596', '-0.04', '0.0995'] neg=2 claimed_idx=2 shift=6.5e-6
+seed->root res=2.8e-27 eig=['-0.323', '-0.0229', '0.346'] neg=2 claimed_idx=2 shift=6.1e-6
+seed->root res=3.9e-26 eig=['-0.1', '0.0285', '0.0718'] neg=1 claimed_idx=1 shift=5.4e-6
+seed->root res=9.4e-28 eig=['-0.366', '0.0122', '0.354'] neg=1 claimed_idx=1 shift=8.3e-6
+seed->root res=1.0e-26 eig=['-0.189', '-0.015', '0.204'] neg=2 claimed_idx=2 shift=4.2e-6
+seed->root res=1.2e-30 eig=['-1.14', '-0.0263', '1.16'] neg=2 claimed_idx=2 shift=2.4e-6
+seed->root res=1.6e-26 eig=['-0.278', '-0.0202', '0.298'] neg=2 claimed_idx=2 shift=6.0e-6
+seed->root res=9.0e-30 eig=['-1.17', '-0.0278', '1.2'] neg=2 claimed_idx=2 shift=4.3e-6
+seed->root res=4.7e-30 eig=['-0.345', '0.0116', '0.333'] neg=1 claimed_idx=1 shift=3.5e-6
+seed->root res=3.9e-31 eig=['-1.23', '-0.0292', '1.26'] neg=2 claimed_idx=2 shift=2.6e-6
+seed->root res=4.2e-28 eig=['-0.355', '0.0109', '0.344'] neg=1 claimed_idx=1 shift=5.0e-6
+min pairwise root distance: 0.0029
+charges all positive: True
