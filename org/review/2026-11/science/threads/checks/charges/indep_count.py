@@ -5,7 +5,7 @@ Written for the charges thread without reading certify.py, ia.py or verify_arb.p
 Input: a JSON file with "sites" and "charges" as exact fraction strings. Nothing else in the
 file is used for the proof. (The "count" field, if present, is compared at the end only.)
 
-Proof structure (see REPORT.md for the lemmas written out):
+Proof structure (the lemmas are written out in LEMMAS.md beside this file):
   L1 (far field). If a half-space {u.x <= b} contains every site, then grad V != 0 wherever u.x > b.
       Half-spaces are built from triples of sites and checked in exact rationals.
       The root box is the bounding box of the sites, which contains the closed convex hull.
@@ -532,6 +532,11 @@ def main(argv):
         json.dump(res, open(out, "w"), indent=1)
     claimed = D.get("count")
     if claimed is not None:
+        try:
+            claimed = int(claimed)          # a count stored as text is compared as a number
+        except (TypeError, ValueError):
+            print(f"MISMATCH: the file's count field is not a whole number: {claimed!r}", flush=True)
+            return 2
         if claimed != count:
             print(f"MISMATCH: file claims {claimed}, independent count is {count}", flush=True)
             return 2

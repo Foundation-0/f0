@@ -31,7 +31,7 @@ The program was finished and had produced its counts before the repository's thr
 3. [F] Everywhere else: the box is split into eight until each piece is ruled out by one of two Taylor tests, or lies inside a ball that holds one proven balance point.
 4. [F] Each balance point: a contraction argument on a ball proves that exactly one exists there and that it is not degenerate. The index is read from the sign of one determinant, because the potential is harmonic.
 
-The two derivative bounds the tests rest on, 2/r^3 for second derivatives of 1/r and 6/r^4 for third derivatives, were derived by hand and checked numerically.
+The two derivative bounds the tests rest on, 2/r^3 for second derivatives of 1/r and 6/r^4 for third derivatives, were derived by hand and checked numerically. The derivations, and the proof of each step of the count, are in `checks/charges/LEMMAS.md`.
 
 [F] It differs from the repository's verifiers in the search for points, the test for existence, the far-field and near-charge arguments and the way the index is found. Both use the same ball-arithmetic library. Seven charges take 128,817 boxes here against 394,265 in the repository's verifier.
 
@@ -39,7 +39,7 @@ The two derivative bounds the tests rest on, 2/r^3 for second derivatives of 1/r
 
 ## Negative controls
 
-[F] All run under `python3 -O` and all fail as they should: a claimed count of 43 for seven charges, one changed charge for five and for seven, one moved charge for six. Garbage hint boxes change nothing, because the proof never reads them.
+[F] Four corrupted inputs run under `python3 -O` and are rejected as they should be: a claimed count of 43 for seven charges, one changed charge for five and for seven, one moved charge for six. A fifth, with garbage hint boxes, passes by design, because the proof never reads the hints.
 
 ## A fault in the repository's verifier
 
@@ -81,13 +81,15 @@ python3 -I -O checks/charges/indep_count.py <certificate or config .json> out.js
 python3 checks/charges/growth.py
 ```
 
-Seven charges take about a minute and nine about three. Saved logs are in `checks/charges/out/`.
+Seven charges take about a minute and nine three to four, depending on the machine. Saved logs are in `checks/charges/out/`. The five input certificates of the repository are copied into `checks/charges/certificates/`, and `rerun.sh` runs every count from this folder.
 
 ## Not verified
 
 - The two derivative bounds are proved on paper, not by machine.
 - The argument that joining groups cannot raise the growth rate is written, not formalised.
 - The three- and four-charge open cases were not attacked here (see `maxwell-push.md`).
+- The program has known limits, all of which reject input and none of which accepts a false count. It refuses every configuration whose sites lie in one coordinate plane, including two charges on a line. Coincident sites and other hostile inputs stop it with a raw error. The regular tetrahedron, whose centre is degenerate, makes it run without finishing.
+- `checks/cross/` is a numerical search for three and four charges. It supports no exact count here.
 
 ## Next steps
 

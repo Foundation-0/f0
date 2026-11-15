@@ -5,7 +5,7 @@ For f = 1/|x| at |x| = 1 (the bounds scale as r^-(k+1)):
   ||D^2 f||_2                 = 2
   max_{|v|=1} |D^3 f[v,v,.]|  = 6
   max_{|v|=1} ||D^3 f[v,.,.]||_2 = 6
-The written proofs are in REPORT.md. This script samples random unit vectors and also checks
+The written proofs are in LEMMAS.md beside this file. This script samples random unit vectors and also checks
 the closed-form tensors against finite differences.
 """
 import numpy as np

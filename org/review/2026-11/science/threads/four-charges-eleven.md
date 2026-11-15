@@ -55,7 +55,7 @@ Anyone can test a listed point with a few lines of code: the field there is zero
 | `lower_bound_check.py`, new | at least N | 11 | 11 |
 
 - `indep_count.py` reads only the sites and the charges. It is the third checker from `point-charges.md`.
-- `verify_arb.py` is the repository's own verifier at the pinned head. It was run without `-O`, because at that head its checks are `assert` statements.
+- `verify_arb.py` is the point-charges repository's own verifier. At the pinned head its checks are `assert` statements, so there it was run without `-O`. Its corrected form, from pull request 22 of that repository, is copied into `checks/charges/repo_verifier/` so that this folder holds both exact programs. The copy passes all three configurations under `-O`. The output is `checks/charges/out/repo_verifier_fixed_under_O_on_four.txt`.
 - `lower_bound_check.py` was written for this result without reading the other two. It finds its own candidates, then proves one zero in each small cube with the Krawczyk test in ball arithmetic, and fixes the index from the sign of the determinant.
 
 [F] Controls, all of which fail as they should:
@@ -146,7 +146,8 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 ## Not verified
 
 - Nothing here shows that 11 is the largest count for four charges. The surveys of the flat family are numerical.
-- The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine.
+- The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine. The proofs are written out in `checks/charges/LEMMAS.md`, with the other steps of the count.
+- `indep_count.py` and `lower_bound_check.py` both use the python-flint library for ball arithmetic. A fault in that library would affect both.
 - That the regular tetrahedron has only one balance point is numerical.
 - The degree argument is a sketch. The certified counts do not depend on it.
 - The wall traces and the width table are numerical.
@@ -181,11 +182,11 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 
 ## Rerun
 
-From `checks/four/`, with python-flint and NumPy installed. The first two commands need `indep_count.py` from `checks/charges/` and the repository's `verify_arb.py` at the pinned head.
+From `checks/four/`, with python-flint and NumPy installed. Every program named is in this folder.
 
 ```
 python3 -O ../charges/indep_count.py verify/n4_eleven_flat.json out.json
-python3 verify_arb.py verify/n4_eleven_flat.repo.json
+python3 -O ../charges/repo_verifier/verify_arb.py verify/n4_eleven_flat.repo.json
 python3 -O verify/lower_bound_check.py verify/n4_eleven_short.json 11
 python3 -O verify/lower_bound_check.py verify/n4_eleven_flat.json 11
 python3 -O verify/lower_bound_check.py jet-route/n4_eleven_b12.json 11
