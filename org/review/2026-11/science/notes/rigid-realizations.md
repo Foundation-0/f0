@@ -13,10 +13,10 @@ Pinned head `rigid-realizations@298926c`. Marks: **[F]** fact, **[I]** inference
 - [F] It confirms in rational arithmetic that the pinned triangle has the stated side lengths.
 - [F] For each centre it builds its own preconditioner and proves that the box of radius 2^-26 holds exactly one real solution with an invertible Jacobian. Worst contraction bound 2.5e-4.
 - [F] It confirms the 440 boxes are pairwise disjoint. Smallest separation 0.084 against a box width of 3.0e-8.
-- [F] Changing one length, moving one centre, or duplicating one box each makes it fail, also under `python3 -O`.
+- [F] It raises an error instead of using `assert`, so it behaves the same under `python3 -O`. Run under `-O` on a copy of the certificate, each of these makes it exit 1 with a FAIL message: one edge length changed, one coordinate of a pinned vertex changed, one edge of the list replaced, one box duplicated, and one centre moved by 2^-12. A centre moved by less than the box radius still passes, as the argument allows.
 - [I] Each solution has a mirror image with the third pinned vertex below the axis. A rotation or translation that fixes two distinct points is the identity, so the 880 are distinct.
 
-**What rests on the literature.** [I] That 880 is also the number of complex realizations, so that all of them are real. The repository computes 880 with its own implementation of a published recurrence (Capco and co-authors, 2018). This pass did not write a second implementation.
+**What rests on the repository's own count.** [I] That 880 is also the number of complex realizations, so that all of them are real. The repository computes 880 with its own implementation (`verify_capco_laman.py`) of a published recurrence (Capco and co-authors, 2018). The cited paper's abstract does not state 880. This pass did not write a second implementation.
 
 **Prior work.** [F] Bartzos, Emiris, Legersky and Tsigaridas (arXiv:1811.12800) report 868 real solutions numerically for this graph and verify 860. The edge lengths in the repository's baseline certificate match the ones that paper lists.
 

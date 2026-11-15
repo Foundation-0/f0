@@ -1,8 +1,23 @@
 """
 Builds verdicts.csv from the H1 index files.  One row per in-scope claim or indexed result.
-Usage: python3 -I build_verdicts.py <claims-index.csv> <results-index.csv> <out.csv>
-Every verdict below was set by the reviewing seat.  This script only applies them to the rows,
+Every verdict below was set by the reviewer.  This script only applies them to the rows,
 so the same judgment lands on every copy of the same statement.
+
+The two index files come from the H1 branch (draft PR 45), where they sit at
+org/review/2026-11/claims-index.csv and org/review/2026-11/results-index.csv.
+They are not on this branch.  To rerun, from the root of a clone of Foundation-0/f0:
+
+  git fetch origin review/H1
+  git show origin/review/H1:org/review/2026-11/claims-index.csv > /tmp/claims-index.csv
+  git show origin/review/H1:org/review/2026-11/results-index.csv > /tmp/results-index.csv
+  python3 -I org/review/2026-11/science/checks/build_verdicts.py \
+      /tmp/claims-index.csv /tmp/results-index.csv /tmp/verdicts.csv
+  cmp /tmp/verdicts.csv org/review/2026-11/science/verdicts.csv
+
+Once H1 is merged, read the two files from org/review/2026-11/ on main instead.
+The 128 project-asma rows in the claims index have scope "reference".  They are not judged and
+the script writes no row for them.  The verdicts.csv rows for ties.md, theories.md and
+recheck-1114.md in evidence_link point at files that arrive with draft PRs 53, 52 and 54.
 """
 import csv, sys
 
@@ -31,14 +46,14 @@ GRAVITY = {
       "This number is from Hui and co-authors (2017) and the script gets the same value. The ledger says it is a reproduction, which is right."),
  8: V("The fits regenerate. The four lens counts are not in the cited paper.",
       "Float code. The citation for the counts fails against the paper's text.",
-      "EMPIRICAL-FIT is fair for the fits. The lens-count citation is wrong.", "CONTRADICTED (in part)", "recheck-1114.md",
-      "The four numbers of lenses per bin do not appear in the paper they are cited to, which gives different numbers per bin. Their total does match the paper's counts added up, and the fits themselves reproduce.", owner="yes"),
+      "EMPIRICAL-FIT is fair for the fits, which reproduce. The lens-count citation is wrong.", "CONTRADICTED", "recheck-1114.md",
+      "The fits reproduce. The four numbers of lenses per bin do not appear in the paper they are cited to, which gives different numbers per bin. Their total does match the paper's counts added up.", owner="yes"),
  16: V("True. 2.42 +/- 0.20 is the published value.", "A citation, plus a Lean check of the two inequalities.",
        "Accurate.", "KNOWN", N + "gravity.md",
        "This records a published experiment (Hensen and co-authors, 2015). The ledger says it does not test anything about galaxies."),
  21: V("The fit regenerates from the table in the script.",
-       "The table is typed into the script. 28 rows are computed from a halo model with an assumed baryon fraction, and 10 rows are scaled by a factor with a knee at 180 km/s.",
-       "EMPIRICAL-FIT is defined as a fit to published tables. 38 of 126 rows are not published values.", "OVERSTATED", N + "gravity.md",
+       "The table is typed into the script. 28 rows are computed from a halo model with an assumed baryon fraction, and 10 rows are scaled by a factor with a knee at 180 km/s. One row is set by hand to 1.70.",
+       "EMPIRICAL-FIT is defined as a fit to published tables. 39 of 126 rows are not published values: 38 are computed in the script and one is set by hand.", "OVERSTATED", N + "gravity.md",
        "The curve fit runs as described. Part of the data it is fitted to was produced by a model inside the script, so it is not purely a fit to published measurements.", owner="yes"),
  22: V("The comparison regenerates.", "Same table as C-21. The plateau is carried mostly by the 28 computed rows.",
        "The same limit as C-21.", "OVERSTATED", N + "gravity.md",
@@ -90,9 +105,9 @@ EXO = {
 RR = {
  "L344": V("True and published.", "Bartzos and co-authors (arXiv:1811.12800) state that all embeddings of L344 can be real. No certificate is in the repository.",
            "KNOWN is accurate.", "KNOWN", N + "rigid-realizations.md", "This is a published result and the repository labels it as such. It holds no certificate of its own for it."),
- "L880": V("880 real realizations exist for the stored lengths.", "Independent exact check in this pass, fail-closed and tested on corrupted input. The complex count of 880 is taken from the literature.",
+ "L880": V("880 real realizations exist for the stored lengths.", "Independent exact check in this pass, fail-closed and tested on corrupted input. The complex count of 880 is the repository's own computation from a published recurrence. This pass did not recompute it.",
            "\"Claimed, pending independent verification\" is accurate. This pass supplies one independent verification.", "VERIFIED", "checks/l880_independent.out",
-           "For these bar lengths the framework can be assembled in 880 different ways, which is every way the algebra allows. A separate program written for this review confirms it in exact arithmetic."),
+           "For these bar lengths the framework can be assembled in 880 different ways. A separate program written for this review confirms in exact arithmetic that 880 real ways exist. That 880 is every way the algebra allows rests on the repository's own count of complex ways, which this pass did not recompute."),
  "G160": V("At least 132 real realizations at the published lengths.", "The repository's verifier passes from a fresh clone and rejects a corrupted input (reader run). The value 132 is already reported numerically by Bartzos and co-authors.",
            "Accurate.", "REPRODUCED", N + "rigid-realizations.md", "This certifies a number that a 2021 paper found numerically. The repository's own check passes, and a separate check has not been written yet."),
 }
@@ -108,7 +123,7 @@ def results_row(r):
         return NOT_CLAIM("The table says \"none yet\". The repository holds no verdicts.", "theories.md")
     if repo == "gfq-codes":
         g9 = "gf9" in f
-        return V("True. No such code exists.", "Independent exact check of all 18 certificates in this pass, fail-closed and tested on corrupted input.",
+        return V("True. No such code exists.", "Independent exact check of all 18 certificates (in 15 certificate files) in this pass, fail-closed and tested on corrupted input.",
                  "\"Claimed research result, exact\" is accurate." + (" The GF(9) bound is already in Maruta's table (n_9(4,26) = 32, n_9(4,27) = 33), and the higher dimensions follow by shortening." if g9 else " codetables.de showed the weaker bound on 15 November 2026."),
                  "KNOWN" if g9 else "VERIFIED", "checks/delsarte_independent.out",
                  ("The bound is correct and was checked with a separate program. It is already known from Maruta's tables, so it is a correction to one online table and not a new result." if g9 else

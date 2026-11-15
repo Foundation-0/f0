@@ -3,7 +3,8 @@ Independent exact check of the gfq-codes Delsarte certificates.
 Theorem used (Delsarte 1973): for any code C of length n over an alphabet of size q with
 minimum distance >= d, if f(x) = sum_j a_j K_j(x) has a_0 > 0, a_j >= 0 and f(i) <= 0 for
 i = d..n, then |C| <= f(0)/a_0.  K_j by the three-term recurrence (not the repository's
-binomial sum or generating product).  Integers and Fractions only; failures raise SystemExit.
+binomial sum or generating product).  Integers and Fractions only; failures raise SystemExit, so the check does not depend on assert statements.
+Standard library only.
 Usage: python3 -I delsarte_independent.py <gfq-codes clone>
 """
 import json, sys, glob, os
@@ -37,10 +38,11 @@ def check(c):
     return q, n, k, d, bound, q ** k, max(f(i) for i in range(d, n + 1)), min(i for i in range(n + 1) if f(i) <= 0 and all(f(t) <= 0 for t in range(i, n + 1)))
 
 rows = []
-for p in sorted(glob.glob(os.path.join(sys.argv[1], "results", "*", "certificate.json"))):
+files = sorted(glob.glob(os.path.join(sys.argv[1], "results", "*", "certificate.json")))
+for p in files:
     for c in json.load(open(p))["certificates"]:
         rows.append((c["id"],) + check(c))
-print(f"{len(rows)} certificates pass the independent exact check")
+print(f"{len(rows)} certificates in {len(files)} certificate files pass the independent exact check")
 print("id | q n k | excluded d | size bound (float) | q^k | bound/q^k")
 for r in rows:
     print(f"{r[0]:28s} | {r[1]} {r[2]:2d} {r[3]:2d} | {r[4]:2d} | {float(r[5]):.6g} | {r[6]} | {float(r[5]/r[6]):.4f}")

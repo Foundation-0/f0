@@ -1,6 +1,6 @@
 # Note: gravity
 
-Pinned head `gravity@8f96c4b`. Verdicts are in `verdicts.csv`. Marks: **[F]** fact, **[I]** inference.
+Pinned head `gravity@8f96c4b`. Verdicts are in `verdicts.csv`. Marks: **[F]** fact, **[I]** inference. This note cites `ties.md` (draft PR 53) and `recheck-1114.md` (draft PR 54).
 
 ## What was run
 
@@ -10,8 +10,8 @@ Pinned head `gravity@8f96c4b`. Verdicts are in `verdicts.csv`. Marks: **[F]** fa
 | Waves 1 and 2 | `python3 verify_all.py --check` | exit 0. This mode rewrites the certificate and does not compare it |
 | Lean | `lake build`, then `#print axioms` on all 32 theorems | builds. Standard axioms only |
 | Checksums | all 39 entries of `SHA256SUMS` | all match |
-| Independent recomputation | `checks/g185_independent.py` | output in `checks/g185_independent.out` |
-| Like-for-like fit | see `checks/g185_like_for_like.out` | chi-squared table over both parameters |
+| Independent recomputation | `python3 -I checks/g185_independent.py <gravity>` | output in `checks/g185_independent.out`. Floating point, and it prints numbers instead of rejecting input. Needs NumPy and SciPy |
+| Like-for-like fit | `python3 checks/g185_like_for_like.py <gravity>` | regenerates `checks/g185_like_for_like.out`, a chi-squared table over both parameters. It imports functions from `g185_independent.py` |
 
 ## The strongest case for the 185 km/s claims
 
@@ -25,7 +25,7 @@ Pinned head `gravity@8f96c4b`. Verdicts are in `verdicts.csv`. Marks: **[F]** fa
 1. **"Zero fitted parameters" (C-26).** [F] The prediction is `log10(g_tot / (g_b nu(g_b/a_0)))`, a ratio of accelerations (`wave10...py:233`). The table holds ratios of baryonic mass: `(v_obs/v_MOND)^4` for galaxies (`wave7...py:48`), MOND mass over baryonic mass for the X-ray systems (`:95`), and needed over assumed baryonic acceleration for the lensing clusters (`:119`).
 
    [I] The two ratios agree only when g_b is well above a_0. In this model g_b at 250 kpc stays below half of a_0 for every system in the table. [F] With the stated inputs the like-for-like chi-squared is 256.53 on 60 systems, against 60.26 as compared. With the dark-to-baryon ratio free, the table prefers about 4, not 8.52.
-2. **The data table (C-21, C-22).** [F] 28 rows are computed from cluster masses with a halo model, a concentration relation and a baryon fraction of 0.130 (`wave7...py:101-119`). 10 rows are divided by `0.80 + 1.60 * min(1, max(0, (sigma - 180)/220))` (`:81`). One row is set by hand to 1.70 (`:95`). The four KiDS rows (`:37-40`) do not match Table 2 of the cited paper.
+2. **The data table (C-21, C-22).** [F] 28 rows are computed from cluster masses with a halo model, a concentration relation and a baryon fraction of 0.130 (`wave7...py:101-119`). 10 rows are divided by `0.80 + 1.60 * min(1, max(0, (sigma - 180)/220))` (`:81`). One row is set by hand to 1.70 (`:95`). That is 39 of 126 rows that are not published values: 38 computed and one set by hand. The four KiDS rows (`:37-40`) do not match Table 2 of the cited paper.
 3. **Where the onset sits.** [F] In the 60-system subset the fastest galaxy row is at 201.5 km/s and the slowest group row is at 282.5 km/s. No system lies between. [I] The fitted onset is fixed by the assumed curve shape across that gap.
 4. **Independence of the four speeds (C-27).** See `ties.md`, section 5.
 5. **Lens counts (C-08).** See `recheck-1114.md`, P3c.

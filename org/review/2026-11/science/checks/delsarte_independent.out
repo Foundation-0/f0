@@ -1,4 +1,4 @@
-18 certificates pass the independent exact check
+18 certificates in 15 certificate files pass the independent exact check
 id | q n k | excluded d | size bound (float) | q^k | bound/q^k
 gf7-n74-k10-exclude-d56      | 7 74 10 | 56 | 2.295e+08 | 282475249 | 0.8125
 gf7-n75-k11-exclude-d56      | 7 75 11 | 56 | 1.4381e+09 | 1977326743 | 0.7273

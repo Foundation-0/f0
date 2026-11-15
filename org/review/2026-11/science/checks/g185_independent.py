@@ -3,6 +3,7 @@ Independent recomputation for gravity C-23c, C-26, C-27 (the ~185 km/s scale).
 Written from the formulas stated in CLAIMS.md, not from the repository's functions.
 The only thing imported from the repository is the hard-coded 126-row data table
 (wave7.build_catalog), because that table is the claim's stated input.
+Floating point throughout.  It prints numbers and does not reject inputs.  Needs NumPy and SciPy.
 Usage: python3 -I g185_independent.py <path-to-gravity-clone>
 """
 import math, sys, importlib.util
