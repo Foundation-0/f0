@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "gravity",
+  "file": "wave4_unified_field_solver.py",
+  "sha": "e855db6b4",
+  "date": "2026-11-11T19:19",
+  "author": "Orda",
+  "subject": "fix(wave4): add C-11 fermionic 7/8 factor, g_*S decoupling, z_nr transition, and --check m",
+  "sim_to_replaced": 0.12,
+  "sim_to_older": 0.56,
+  "older": "2913956d8",
+  "older_date": "2026-11-11T10:52",
+  "overwritten_commits": [
+   [
+    "fcef36e23",
+    "2026-11-11T11:04",
+    "Orda",
+    "Refactor wave4_unified_field_solver for clarity"
+   ]
+  ],
+  "clobbered_lines": 104,
+  "still_missing_at_head": 104,
+  "sample": [
+   "\"\"\"Wae-4 SPARC-Gaia Local-Operator No-Go (C-09) & 11-Decade Bogoliubov BVP Solver (C-10, C-11).",
+   "Apache-2.0 / CC-BY-4.0. Written by AI agent (Gemini via orda-aska for Foundation-0); unreviewed by a",
+   "G, HBAR, C = 6.67430e-11, 1.054571817e-34, 299792458.0",
+   "EV_KG = 1.602176634e-19 / (C ** 2)"
+  ]
+ }
+]

@@ -1,0 +1,2824 @@
+[
+ {
+  "repo": ".github",
+  "ref": "branch:org-pr-template",
+  "sha": "27c019340",
+  "date": "2026-10-18",
+  "author": "orda-aska",
+  "files": 1,
+  "lines": 43,
+  "paths": [
+   "pull_request_template.md"
+  ]
+ },
+ {
+  "repo": ".github",
+  "ref": "branch:sweep/agent-research-profile",
+  "sha": "47d2386e0",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 56,
+  "paths": [
+   "profile/README.md"
+  ]
+ },
+ {
+  "repo": "astr0",
+  "ref": "branch:aeva/acceleration-evolution-links",
+  "sha": "607a11eaa",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 91,
+  "paths": [
+   "README.md",
+   "acceleration-evolution.md"
+  ]
+ },
+ {
+  "repo": "astr0",
+  "ref": "branch:aeva/galaxy-calibration-data-20261112",
+  "sha": "a9a6f0933",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 25,
+  "lines": 6553,
+  "paths": [
+   "research/galaxy-calibration/results/kmos-diagnostic.png",
+   "research/galaxy-calibration/results/kmos-diagnostic.pdf",
+   "research/galaxy-calibration/results/kmos-diagnostic.json",
+   "research/galaxy-calibration/kmos_diagnostic.py",
+   "research/galaxy-calibration/independent-review/check.py",
+   "research/galaxy-calibration/RESULTS.md"
+  ]
+ },
+ {
+  "repo": "astr0",
+  "ref": "branch:aeva/publish-convergences-20261112",
+  "sha": "b788cc4fd",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 91,
+  "paths": [
+   "README.md",
+   "notes/convergences-20261112.md"
+  ]
+ },
+ {
+  "repo": "astr0",
+  "ref": "branch:aeva/research-value-assessment-20261112",
+  "sha": "b6e0b8507",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 70,
+  "paths": [
+   "README.md",
+   "research/value-assessment-20261112/README.md"
+  ]
+ },
+ {
+  "repo": "certified-orbits",
+  "ref": "branch:codex/issue-1-evidence",
+  "sha": "a6edc5a51",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 98,
+  "paths": [
+   "notes/catalogue-manifest.json",
+   "tools/catalogue_inventory.py",
+   "notes/data-formats.md"
+  ]
+ },
+ {
+  "repo": "certified-orbits",
+  "ref": "branch:codex/issue-5-evidence",
+  "sha": "ad3db58b2",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 40,
+  "paths": [
+   "notes/issue-5-human-review.md",
+   "notes/issue-5-signoff.json"
+  ]
+ },
+ {
+  "repo": "certified-orbits",
+  "ref": "branch:draft/issue-2-forge",
+  "sha": "d4d12f7c8",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 7,
+  "lines": 585,
+  "paths": [
+   "tools/__pycache__/rational_krawczyk.cpython-314.pyc",
+   "tests/__pycache__/test_rational_krawczyk.cpython-314.pyc",
+   "README.md",
+   "tools/rational_krawczyk.py",
+   "notes/figure-eight-method-check.md",
+   "tests/test_rational_krawczyk.py"
+  ]
+ },
+ {
+  "repo": "certified-orbits",
+  "ref": "branch:draft/issue-3-forge",
+  "sha": "164d5c9b8",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 9,
+  "lines": 818,
+  "paths": [
+   "results/li-liao-3d-first20.json",
+   "tools/__pycache__/select_shortest.cpython-314.pyc",
+   "README.md",
+   "tests/__pycache__/test_select_shortest.cpython-314.pyc",
+   "tools/select_shortest.py",
+   "notes/first20-run-protocol.md"
+  ]
+ },
+ {
+  "repo": "certified-orbits",
+  "ref": "branch:draft/issue-4-forge",
+  "sha": "c65b331ae",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 7,
+  "lines": 485,
+  "paths": [
+   "tools/__pycache__/verifier_preflight.cpython-314.pyc",
+   "tests/__pycache__/test_verifier_preflight.cpython-314.pyc",
+   "README.md",
+   "tools/verifier_preflight.py",
+   "notes/independent-verifier.md",
+   "tests/test_verifier_preflight.py"
+  ]
+ },
+ {
+  "repo": "cfrp-strengthening",
+  "ref": "branch:checker-issue-4",
+  "sha": "242bae87a",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 7,
+  "lines": 1631,
+  "paths": [
+   "tests/test_track1.py",
+   "src/flexure440.py",
+   "tracks/track-1-flexure-example.md",
+   "tracks/track-1/expected.json",
+   "NOTICE",
+   "Makefile"
+  ]
+ },
+ {
+  "repo": "cfrp-strengthening",
+  "ref": "branch:docs-rules-fixes",
+  "sha": "ed620112d",
+  "date": "2026-10-26",
+  "author": "shah",
+  "files": 6,
+  "lines": 347,
+  "paths": [
+   "tracks/track-1-flexure-example.md",
+   "CONTRIBUTING.md",
+   "docs/status.md",
+   "README.md",
+   "docs/review-ledger.md",
+   "tracks/README.md"
+  ]
+ },
+ {
+  "repo": "cosmic-denoising",
+  "ref": "branch:gpt-forge/research-foundation",
+  "sha": "33962eda5",
+  "date": "2026-10-31",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 165,
+  "paths": [
+   "research/01-map.md",
+   "research/02-first-experiment.md",
+   "research/sources.md",
+   "README.md",
+   "CONTRIBUTING.md"
+  ]
+ },
+ {
+  "repo": "covering-min-modulus",
+  "ref": "branch:codex/issue-2-evidence",
+  "sha": "d7f350d43",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 4,
+  "lines": 107,
+  "paths": [
+   "tools/check_coverage_independent.py",
+   "tools/check_coverage.py",
+   "tests/test_coverage.py",
+   "notes/checker-limits.md"
+  ]
+ },
+ {
+  "repo": "covering-min-modulus",
+  "ref": "branch:steward/task-1-preparation",
+  "sha": "f77a694b3",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 50,
+  "paths": [
+   "tools/compare_transcriptions.py",
+   "tests/test_task1.py",
+   "notes/transcription-status.md"
+  ]
+ },
+ {
+  "repo": "covering-min-modulus",
+  "ref": "branch:steward/task-3-preparation",
+  "sha": "605fd56c0",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 42,
+  "paths": [
+   "tools/replay_both.py",
+   "tests/test_task3.py",
+   "results/verification-preparation.md"
+  ]
+ },
+ {
+  "repo": "covering-min-modulus",
+  "ref": "branch:steward/task-4-preparation",
+  "sha": "34897fe74",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 21,
+  "paths": [
+   "notes/methods-40-42.md"
+  ]
+ },
+ {
+  "repo": "covering-min-modulus",
+  "ref": "branch:steward/task-5-preparation",
+  "sha": "e340bf5c1",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 11,
+  "paths": [
+   "operations/verification-report.md"
+  ]
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "ref": "branch:aeva/issue5-evidence-boundaries-20261112",
+  "sha": "b9657985a",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 14,
+  "lines": 667,
+  "paths": [
+   "research/issue5-evidence-audit/audit_snapshot.py",
+   "research/issue5-evidence-audit/synthetic/synthetic_seed_control.py",
+   "research/issue5-evidence-audit/synthetic/synthetic_seed_control.json",
+   "research/issue5-evidence-audit/c07/c07_matched_rows.json",
+   "CLAIMS.md",
+   "research/issue5-evidence-audit/PUBLIC_READY_REVIEW.md"
+  ]
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "ref": "branch:orda-aska-patch-1",
+  "sha": "35a77f752",
+  "date": "2026-11-12",
+  "author": "Orda",
+  "files": 1,
+  "lines": 115,
+  "paths": [
+   "cool_vet.py"
+  ]
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "ref": "branch:orda-aska-patch-2",
+  "sha": "54671cc8b",
+  "date": "2026-11-13",
+  "author": "orda-aska",
+  "files": 23,
+  "lines": 61891,
+  "paths": [
+   "results/figures/cool_TIC444977260.png",
+   "results/figures/cool_TIC468983280.png",
+   "results/figures/cool_TIC435255286.png",
+   "results/figures/cool_TIC117798466.png",
+   "results/figures/cool_TIC118244692.png",
+   "results/figures/cool_TIC257433294.png"
+  ]
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "ref": "closed-PR#7",
+  "sha": "35a77f752",
+  "date": "2026-11-12",
+  "author": "Orda",
+  "files": 1,
+  "lines": 115,
+  "paths": [
+   "cool_vet.py"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:aeva/planning-boundary-condition-20261112",
+  "sha": "8dd1380d6",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 64,
+  "paths": [
+   "deep-fields/scouting/combinatorial-planning-verified-bar.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:ccr-00d7e121-kthj40",
+  "sha": "9f988637b",
+  "date": "2026-11-15",
+  "author": "Claude",
+  "files": 14,
+  "lines": 920,
+  "paths": [
+   "REPO-PROTECTION.md",
+   "scripts/org/find_lost_local.sh",
+   "scripts/org/apply_rulesets.sh",
+   "scripts/org/find_force_pushes.sh",
+   "scripts/org/scan/forensics.py",
+   "scripts/org/scan/lost_units.py"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:claude/affectionate-ride-rezj73",
+  "sha": "d65db1252",
+  "date": "2026-10-27",
+  "author": "Claude",
+  "files": 20,
+  "lines": 2939,
+  "paths": [
+   ".github/forum/gate.py",
+   "scripts/check_site.py",
+   ".github/forum/test_gate.py",
+   "docs/forum/index.html",
+   ".github/forum/board.toml",
+   "FORUM.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:claude/beautiful-sagan-ssa4lh",
+  "sha": "ecd27e7ef",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 15,
+  "lines": 5337,
+  "paths": [
+   "docs/research/exoplanets/index.html",
+   "scripts/check_site.py",
+   "docs/research/integer-multiplication/index.html",
+   "docs/instruments/index.html",
+   "docs/commons/index.html",
+   "docs/research/machine-mathematics/index.html"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:claude/discord-hub",
+  "sha": "7b5d3c75a",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 2,
+  "lines": 290,
+  "paths": [
+   "scripts/discord_setup.py",
+   "HUB.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:claude/logo-refine",
+  "sha": "0397b84fd",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 31,
+  "lines": 15642,
+  "paths": [
+   "docs/assets/og.png",
+   "story-src/build.py",
+   "docs/ledger/index.html",
+   "docs/research/integer-multiplication/live/index.html",
+   "docs/research/exoplanets/index.html",
+   "docs/assets/brand/f0-avatar-512.png"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:claude/sharp-babbage-ecqeb2",
+  "sha": "0b2471cc2",
+  "date": "2026-10-31",
+  "author": "Claude",
+  "files": 15,
+  "lines": 1467,
+  "paths": [
+   "deep-fields/scouting/tissue-electrical/audit.py",
+   "deep-fields/scouting/tissue-electrical/results/rf_three_way.tsv",
+   "deep-fields/scouting/tissue-electrical.md",
+   "deep-fields/README.md",
+   "deep-fields/scouting/tissue-electrical/results/lf_vs_gabriel.tsv",
+   "deep-fields/scouting/tissue-electrical/results/sasaki_transcription.tsv"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:docs/github-collaboration-guidance",
+  "sha": "72ab53d52",
+  "date": "2026-10-30",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 85,
+  "paths": [
+   "MERGE-SOP.md",
+   "GITHUB-COLLABORATION.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:docs/single-thread-synthesis",
+  "sha": "f20ef734a",
+  "date": "2026-11-14",
+  "author": "Orda",
+  "files": 4,
+  "lines": 281,
+  "paths": [
+   "deep-fields/scouting/single-thread/quotient_anchor_kernel.py",
+   "deep-fields/scouting/single-thread/the-single-thread.md",
+   "deep-fields/scouting/single-thread/README.md",
+   "deep-fields/scouting/single-thread/kernel-output.txt"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:dot/formalization-funding-roadmap-2026-10-19",
+  "sha": "16b44731e",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 5,
+  "lines": 604,
+  "paths": [
+   "operations/formalization.md",
+   "operations/funding.md",
+   "README.md",
+   "operations/verification-pilot.md",
+   "operations/README.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:feat/scouting-anchored-conservation-quotients",
+  "sha": "66359b216",
+  "date": "2026-11-13",
+  "author": "ahrazzle",
+  "files": 7,
+  "lines": 1102,
+  "paths": [
+   "deep-fields/scouting/acq-reference/acq_kernel.py",
+   "deep-fields/scouting/acq-reference/test_acq_kernel.py",
+   "deep-fields/scouting/acq-reference/AnchoredConservationQuotient.lean",
+   "deep-fields/scouting/acq-reference/check_lean.py",
+   "deep-fields/scouting/acq-reference/test_check_lean.py",
+   "deep-fields/scouting/anchored-conservation-quotients.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:feat/scouting-formal-mcp-verified-bar",
+  "sha": "f6d421232",
+  "date": "2026-11-12",
+  "author": "Zero",
+  "files": 1,
+  "lines": 41,
+  "paths": [
+   "deep-fields/scouting/combinatorial-planning-verified-bar.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:fix/playwright-ubuntu-runner",
+  "sha": "930ca5103",
+  "date": "2026-11-03",
+  "author": "ahrazzle",
+  "files": 10,
+  "lines": 858,
+  "paths": [
+   "scripts/prerender.mjs",
+   "CONTRIBUTING.md",
+   "scripts/og/shoot.mjs",
+   ".github/workflows/pages.yml",
+   ".github/workflows/prerender.yml",
+   ".github/workflows/site.yml"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:mithrax/pages-prerender-at-deploy-677a",
+  "sha": "22b6f89dd",
+  "date": "2026-11-11",
+  "author": "Cursor Agent",
+  "files": 3,
+  "lines": 485,
+  "paths": [
+   "scripts/prerender.mjs",
+   ".github/workflows/pages.yml",
+   ".github/workflows/update.yml"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:polish/f0-entry",
+  "sha": "def130ac5",
+  "date": "2026-11-14",
+  "author": "ci",
+  "files": 12,
+  "lines": 724,
+  "paths": [
+   "CONTRIBUTING.md",
+   "README.md",
+   "tests/run_site_corruptions.py",
+   "JOIN.md",
+   "AGENTS.md",
+   "org/claims/GLOSSARY-PROPOSED.md"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:research/witness-map",
+  "sha": "d27fe69d5",
+  "date": "2026-10-17",
+  "author": "Aska Digital agentic team",
+  "files": 4,
+  "lines": 617,
+  "paths": [
+   "docs/research/witness-map/index.html",
+   "docs/research/witness-map/page.js",
+   "docs/research/witness-map/physics.js",
+   "docs/research/witness-map/page.css"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:review/H1",
+  "sha": "2a467d4ba",
+  "date": "2026-11-14",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 1281,
+  "paths": [
+   "org/review/2026-11/inventory.csv",
+   "org/review/2026-11/claims-index.csv",
+   "org/review/2026-11/h1-method.md",
+   "org/review/2026-11/checks-census.csv",
+   "org/review/2026-11/coverage.csv"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:review/H2",
+  "sha": "13d6ee977",
+  "date": "2026-11-14",
+  "author": "ahrazzle",
+  "files": 6,
+  "lines": 691,
+  "paths": [
+   "org/review/2026-11/branches.csv",
+   "org/review/2026-11/open-prs.csv",
+   "org/review/2026-11/numbers.md",
+   "org/review/2026-11/open-issues.csv",
+   "org/review/2026-11/zenodo-credits.csv",
+   "org/review/2026-11/licences.csv"
+  ]
+ },
+ {
+  "repo": "f0",
+  "ref": "branch:review/o1-o2-f0",
+  "sha": "9b1149def",
+  "date": "2026-11-14",
+  "author": "ci",
+  "files": 8,
+  "lines": 742,
+  "paths": [
+   "org/review/2026-11/incoming-intelligence.md",
+   "org/review/2026-11/f0-audit.md",
+   "org/review/2026-11/overlap-f0.md",
+   "org/review/2026-11/gate0-packet.md",
+   "org/review/2026-11/status.md",
+   "org/review/2026-11/backlog-f0.md"
+  ]
+ },
+ {
+  "repo": "finite-state-proofs",
+  "ref": "branch:mithrax/licence-split-9145",
+  "sha": "86df0a282",
+  "date": "2026-11-11",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 798,
+  "paths": [
+   "LICENSE-DATA",
+   "LICENSE",
+   "README.md",
+   "NOTICE.md",
+   ".zenodo.json"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:aeva/checker-audit-scope-repair-20261112",
+  "sha": "e4fd0e199",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 17,
+  "lines": 1450,
+  "paths": [
+   "scripts/audit_python_checkers.py",
+   "research/python-audit-review-20261112/scope-results.json",
+   "README.md",
+   "research/python-audit-review-20261112/submitted-auditor.py.txt",
+   "tests/test_audit_python_checkers.py",
+   "research/python-audit-review-20261112/reproduce_scope.py"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:codex/issue-1-evidence",
+  "sha": "c1757cd07",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 137,
+  "paths": [
+   "notes/openai-math-erdos-build.json",
+   "scripts/inventory_erdos.py",
+   "notes/openai-math-erdos-build.md"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:codex/issue-2-evidence",
+  "sha": "edd76d0b0",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 21,
+  "paths": [
+   "scripts/prepare_comparison.py",
+   "notes/statement-comparison.md"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:codex/issue-3-evidence",
+  "sha": "788fd6c55",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 204,
+  "paths": [
+   "notes/family-source-inventory.json",
+   "notes/family-audit-replay.md"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:codex/issue-4-evidence",
+  "sha": "ec979d8d7",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 71,
+  "paths": [
+   "notes/ledger-inventory-pin.json",
+   "notes/ledger-formally-verified.md"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:codex/issue-6-evidence",
+  "sha": "ee996ec1d",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 40,
+  "paths": [
+   "notes/issue-6-human-review.md",
+   "notes/issue-6-signoff.json"
+  ]
+ },
+ {
+  "repo": "formal-claims-audit",
+  "ref": "branch:feat/python-checker-soundness-auditor",
+  "sha": "467a58095",
+  "date": "2026-11-12",
+  "author": "Zero",
+  "files": 2,
+  "lines": 232,
+  "paths": [
+   "scripts/audit_python_checkers.py",
+   "tests/test_audit_python_checkers.py"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:aeva/acceleration-evolution-links",
+  "sha": "9669f5579",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 457,
+  "paths": [
+   "README.md",
+   "notes/acceleration-evolution.md"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:aeva/publish-convergences-20261112",
+  "sha": "fab0bbe39",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 467,
+  "paths": [
+   "README.md",
+   "notes/convergences-20261112.md"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:aeva/research-value-assessment-20261112",
+  "sha": "94c033260",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 443,
+  "paths": [
+   "README.md",
+   "research/value-assessment-20261112/README.md"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:aeva/witness-decoherence-scope-20261112",
+  "sha": "1b4d75e95",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 1334,
+  "paths": [
+   "index.html",
+   "README.md",
+   "witness-map/model.js",
+   "CORRECTIONS.md",
+   "witness-map/interpretation-review-20261112.md"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:issue-17",
+  "sha": "ff05f9bf1",
+  "date": "2026-11-14",
+  "author": "Claude",
+  "files": 6,
+  "lines": 1109,
+  "paths": [
+   "README.md",
+   "cosmic-homogeneity/README.md",
+   "CORRECTIONS.md",
+   "cosmic-homogeneity/homogeneity.js",
+   "tests/cosmic-homogeneity.mjs",
+   "cosmic-homogeneity/table.mjs"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:issue-18",
+  "sha": "578817e65",
+  "date": "2026-11-14",
+  "author": "Claude",
+  "files": 11,
+  "lines": 2223,
+  "paths": [
+   "README.md",
+   "halos/model.js",
+   "halos/README.md",
+   "CORRECTIONS.md",
+   "cosmic-homogeneity/README.md",
+   "halos/table.mjs"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:issue-36",
+  "sha": "cf660eed1",
+  "date": "2026-10-29",
+  "author": "Claude",
+  "files": 6,
+  "lines": 1619,
+  "paths": [
+   "README.md",
+   "orbits/model.js",
+   "orbits/README.md",
+   "orbits/table.mjs",
+   "tests/orbits.mjs",
+   ".github/workflows/test.yml"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:issue-55-mhd-pont-witness",
+  "sha": "5bd60bbfd",
+  "date": "2026-11-13",
+  "author": "Orda",
+  "files": 4,
+  "lines": 273,
+  "paths": [
+   "scripts/pont_witness.py",
+   "tests/test_pont_witness.py",
+   "notes/mhd-intermittency.md",
+   "tests/pont-witness.mjs"
+  ]
+ },
+ {
+  "repo": "fractals",
+  "ref": "branch:sweep/aesthetics-box-count",
+  "sha": "9158aa909",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 93,
+  "paths": [
+   "aesthetics/box_count.py",
+   "aesthetics/README.md"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:prep/gaia-dr4-tasks",
+  "sha": "5a53b3aef",
+  "date": "2026-10-27",
+  "author": "Claude",
+  "files": 138,
+  "lines": 20124,
+  "paths": [
+   "datalink/gaia_datalink.py",
+   "datalink/test_gaia_datalink.py",
+   "tic-to-gaia/snapshots/dr3_reverse_neighbourhood.csv",
+   "tic-to-gaia/ticmap.py",
+   "tic-to-gaia/targets_eumemic.csv",
+   "tic-to-gaia/snapshots/dr2_neighbourhood.csv"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:steward/task-1-preparation",
+  "sha": "8c57b082b",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 4,
+  "lines": 47,
+  "paths": [
+   "tools/map_ids.py",
+   "tests/test_task1.py",
+   "notes/id-map-validation.md",
+   "queries/dr2_neighbourhood.adql"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:steward/task-2-preparation",
+  "sha": "0ccc64e2f",
+  "date": "2026-11-01",
+  "author": "Cursor Agent",
+  "files": 30,
+  "lines": 4386,
+  "paths": [
+   "datalink/gaia_datalink.py",
+   "datalink/test_gaia_datalink.py",
+   "datalink/README.md",
+   "datalink/summarize_timing.py",
+   "datalink/probe.py",
+   "datalink/sources/pool200.txt"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:steward/task-3-preparation",
+  "sha": "b075e244a",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 13,
+  "paths": [
+   "notes/ml-validation-manifest.md"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:steward/task-4-preparation",
+  "sha": "cb2ab39be",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 3,
+  "lines": 24,
+  "paths": [
+   "notes/query-contract.md",
+   "queries/long-period-ebs.adql",
+   "queries/target-ebs.adql"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:steward/task-5-preparation",
+  "sha": "154c2c9ae",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 2,
+  "lines": 16,
+  "paths": [
+   "notes/operator-acceptance.md",
+   "operations/operator-acceptance.csv"
+  ]
+ },
+ {
+  "repo": "gaia-dr4",
+  "ref": "branch:steward/task-6-preparation",
+  "sha": "c88a67a8f",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 11,
+  "paths": [
+   "operations/blend-interface.md"
+  ]
+ },
+ {
+  "repo": "gfq-codes",
+  "ref": "branch:axiom/delsarte-sweep",
+  "sha": "488aeed04",
+  "date": "2026-11-01",
+  "author": "Cursor Agent",
+  "files": 14,
+  "lines": 772,
+  "paths": [
+   "results/gf7-n74-k10-upper-d55/PROOF.md",
+   "results/gf7-n75-k11-upper-d55/PROOF.md",
+   "results/gf9-n31-k4-upper-d25/PROOF.md",
+   "results/gf9-n32-k4-upper-d26/PROOF.md",
+   "results/gf9-n32-k5-upper-d25/PROOF.md",
+   "results/gf9-n33-k5-upper-d26/PROOF.md"
+  ]
+ },
+ {
+  "repo": "gfq-codes",
+  "ref": "branch:codex/issue-1-evidence",
+  "sha": "8123f0584",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 87,
+  "paths": [
+   "tools/minimum_distance.py",
+   "tests/test_minimum_distance.py",
+   "notes/minimum-distance-limits.md"
+  ]
+ },
+ {
+  "repo": "gfq-codes",
+  "ref": "branch:codex/issue-2-evidence",
+  "sha": "b1f32e531",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 82,
+  "paths": [
+   "tools/minimum_distance_independent.py",
+   "tests/test_minimum_distance_independent.py",
+   "notes/independent-distance.md"
+  ]
+ },
+ {
+  "repo": "gfq-codes",
+  "ref": "branch:codex/issue-3-evidence",
+  "sha": "42863db3c",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 27,
+  "paths": [
+   "tools/gap_one_targets.py",
+   "notes/gap-one-input.md"
+  ]
+ },
+ {
+  "repo": "gfq-codes",
+  "ref": "branch:codex/issue-4-evidence",
+  "sha": "492234f3a",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 25,
+  "paths": [
+   "tools/search_quasicyclic.py",
+   "notes/quasicyclic-pilot.md"
+  ]
+ },
+ {
+  "repo": "gfq-codes",
+  "ref": "branch:codex/issue-5-evidence",
+  "sha": "d12113e22",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 38,
+  "paths": [
+   "notes/issue-5-human-review.md",
+   "notes/issue-5-signoff.json"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:aeva/fixed-angle-fold-20261112",
+  "sha": "09bbff34e",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 20,
+  "lines": 18853,
+  "paths": [
+   "research/mechanics/fixed-angle-fold-20261112/evidence.json",
+   "research/mechanics/fixed-angle-fold-20261112/probe.py",
+   "research/mechanics/fixed-angle-fold-20261112/independent-review/independent_check.py",
+   "README.md",
+   "research/mechanics/fixed-angle-fold-20261112/DERIVATION.md",
+   "research/mechanics/fixed-angle-fold-20261112/RESULTS.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/cab6-docs",
+  "sha": "698695775",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 3,
+  "lines": 261,
+  "paths": [
+   "docs/audit.md",
+   "results/cab6-packing/PROOF.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/cab6-replay-fixes",
+  "sha": "556b073f6",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 8,
+  "lines": 608,
+  "paths": [
+   "certificates/selected-results.json",
+   "results/cab6-packing/certificate.json",
+   "results/cab6-packing/verify.py",
+   "results/cab6-packing/cab6_packing.py",
+   "docs/review-ledger.md",
+   "commitment/SHA256SUMS"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/chk-independent-fail-closed",
+  "sha": "0e23c1fea",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 789,
+  "paths": [
+   "results/fold-close-packing/chk_independent.py",
+   "certificates/selected-results.json",
+   "results/fold-m1/certificate.json",
+   "results/fold-close-packing/certificate.json",
+   "docs/review-ledger.md",
+   "commitment/SHA256SUMS"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/credit-per-result",
+  "sha": "832b2166b",
+  "date": "2026-10-20",
+  "author": "Claude",
+  "files": 10,
+  "lines": 1033,
+  "paths": [
+   "results/rigidity-nd/PROOF.md",
+   "results/rigidity-nd/LITERATURE.md",
+   "results/fold-close-packing/PROOF.md",
+   "results/cab6-packing/ATTAINMENT.md",
+   "results/radius-ratio/PROOF.md",
+   "results/cab6-packing/PROOF.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-2d-replay-asserts",
+  "sha": "0a19e8a32",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 624,
+  "paths": [
+   "certificates/selected-results.json",
+   "results/fold-2d/verify.py",
+   "results/fold-2d/certificate.json",
+   "results/fold-2d/PROOF.md",
+   "results/fold-2d/fold2d.py",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-3d-labels",
+  "sha": "3fa099804",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 11,
+  "lines": 1270,
+  "paths": [
+   "motion.html",
+   "open.html",
+   "certificates/selected-results.json",
+   "tools/build_certificates.py",
+   "docs/audit.md",
+   "research/1-mechanics.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-3d-replay-asserts",
+  "sha": "3260f4b40",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 691,
+  "paths": [
+   "certificates/selected-results.json",
+   "results/fold-3d-cubic/fold3d.py",
+   "results/fold-3d-cubic/verify.py",
+   "results/fold-3d-cubic/certificate.json",
+   "results/fold-3d-cubic/PROOF.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-continuous-hand-proof",
+  "sha": "67fbae480",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 5,
+  "lines": 504,
+  "paths": [
+   "docs/audit.md",
+   "results/fold-continuous-fcc/hand_proof_check.py",
+   "results/fold-continuous-fcc/HAND-PROOF.md",
+   "Makefile",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-cp-docs",
+  "sha": "c450be64a",
+  "date": "2026-10-22",
+  "author": "Claude",
+  "files": 9,
+  "lines": 973,
+  "paths": [
+   "open.html",
+   "certificates/selected-results.json",
+   "tools/build_certificates.py",
+   "docs/audit.md",
+   "results/fold-close-packing/PROOF.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-cp-driver-controls",
+  "sha": "bd962a1c2",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 902,
+  "paths": [
+   "results/fold-close-packing/verify.py",
+   "certificates/selected-results.json",
+   "docs/audit.md",
+   "results/fold-close-packing/certificate.json",
+   "results/fold-close-packing/PROOF.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-end-exact-isolating-controls",
+  "sha": "69dbbba8c",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 868,
+  "paths": [
+   "certificates/selected-results.json",
+   "results/fold-m1/certificate.json",
+   "results/fold-end-exact/exact_end.py",
+   "results/fold-end-exact/certificate.json",
+   "results/fold-end-exact/verify.py",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-end-exact-proof-bound",
+  "sha": "a26b8c70e",
+  "date": "2026-10-20",
+  "author": "Claude",
+  "files": 3,
+  "lines": 252,
+  "paths": [
+   "docs/audit.md",
+   "results/fold-end-exact/PROOF.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-m1-docs-and-search",
+  "sha": "1f5180fb2",
+  "date": "2026-10-22",
+  "author": "Claude",
+  "files": 15,
+  "lines": 1919,
+  "paths": [
+   "results/fold-m1/search_fcc_m1.py",
+   "results/fold-m1/search_hcp_m1.py",
+   "open.html",
+   "certificates/selected-results.json",
+   "results/fold-m1/certificate.json",
+   "README.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/fold-m1-replay-asserts",
+  "sha": "d27866405",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 875,
+  "paths": [
+   "certificates/selected-results.json",
+   "results/fold-m1/verify.py",
+   "results/fold-m1/certificate.json",
+   "docs/audit.md",
+   "Makefile",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/makefile-reproducibility-docs",
+  "sha": "73edd2e4a",
+  "date": "2026-10-20",
+  "author": "Claude",
+  "files": 3,
+  "lines": 223,
+  "paths": [
+   "Makefile",
+   "docs/reproducibility.md",
+   ".github/workflows/verify.yml"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/metadata-citation-licence",
+  "sha": "23d5283bd",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 8,
+  "lines": 276,
+  "paths": [
+   "NOTICE",
+   "CITATION.cff",
+   "docs/status.md",
+   "docs/outreach/specialist-query.md",
+   "docs/review-ledger.md",
+   ".zenodo.json"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/radius-ratio-case-coordinates",
+  "sha": "d252510dc",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 7,
+  "lines": 809,
+  "paths": [
+   "results/radius-ratio/certificate.json",
+   "results/radius-ratio/radius_ratio.py",
+   "certificates/selected-results.json",
+   "docs/review-ledger.md",
+   "commitment/SHA256SUMS",
+   "certificates/SHA256SUMS"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/radius-ratio-claims",
+  "sha": "7b728917c",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 9,
+  "lines": 2253,
+  "paths": [
+   "index.html",
+   "deeper.html",
+   "matter.html",
+   "open.html",
+   "research/2-chemistry.md",
+   "mirrors.html"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/radius-ratio-replay-asserts",
+  "sha": "cdc45cfe5",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 10,
+  "lines": 1254,
+  "paths": [
+   "results/radius-ratio/certificate.json",
+   "results/radius-ratio/radius_ratio.py",
+   "certificates/selected-results.json",
+   "results/radius-ratio/verify.py",
+   "docs/audit.md",
+   "results/radius-ratio/PROOF.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/rigidity-nd-controls",
+  "sha": "e9411a2ac",
+  "date": "2026-10-22",
+  "author": "Claude",
+  "files": 8,
+  "lines": 1212,
+  "paths": [
+   "results/rigidity-nd/certificate.json",
+   "results/rigidity-nd/rigidity_nd.py",
+   "certificates/selected-results.json",
+   "results/rigidity-nd/verify.py",
+   "docs/review-ledger.md",
+   "commitment/SHA256SUMS"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/rigidity-nd-scope-and-prior-art",
+  "sha": "ff3abc5ee",
+  "date": "2026-10-22",
+  "author": "Claude",
+  "files": 15,
+  "lines": 2342,
+  "paths": [
+   "index.html",
+   "motion.html",
+   "open.html",
+   "certificates/selected-results.json",
+   "results/rigidity-nd/PROOF.md",
+   "tools/build_certificates.py"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/site-merged-state",
+  "sha": "701e45089",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 7,
+  "lines": 1112,
+  "paths": [
+   "matter.html",
+   "open.html",
+   "fold-continuous.js",
+   "seek.html",
+   "README.md",
+   "research.html"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/site-ux",
+  "sha": "28d4f01e6",
+  "date": "2026-10-22",
+  "author": "Claude",
+  "files": 17,
+  "lines": 4400,
+  "paths": [
+   "lattice.html",
+   "index.html",
+   "deeper.html",
+   "motion.html",
+   "origin.html",
+   "matter.html"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:audit/stale-fold-status",
+  "sha": "1a0c9cfef",
+  "date": "2026-10-19",
+  "author": "Claude",
+  "files": 13,
+  "lines": 1129,
+  "paths": [
+   "certificates/selected-results.json",
+   "tools/build_certificates.py",
+   "seek.html",
+   "README.md",
+   "results/fold-close-packing/PROOF.md",
+   "autoresearch-fold/PRIOR-ART-FOLD.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:codex/focused-fcc-paper",
+  "sha": "94d4e2ffc",
+  "date": "2026-10-12",
+  "author": "Ahraz Arifuddin",
+  "files": 8,
+  "lines": 3121,
+  "paths": [
+   "papers/continuous-fcc/continuous-fcc.pdf",
+   "papers/continuous-fcc/source.tex",
+   "README.md",
+   "CONTRIBUTORS.md",
+   "commitment/README.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:gpt-forge/distributed-folding",
+  "sha": "a350bd697",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 8,
+  "lines": 7876,
+  "paths": [
+   "research/vitruvian/distributed-folding/nonuniform_motion.json",
+   "research/vitruvian/distributed-folding/vitruvian_motion_probe.json",
+   "research/vitruvian/distributed-folding/vitruvian_motion_probe.py",
+   "research/vitruvian/distributed-folding/nonuniform_motion.py",
+   "research/vitruvian/distributed-folding/nonuniform_motion_proof.md",
+   "research/vitruvian/distributed-folding/posture_closure.json"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:grok/zenodo-json-spec",
+  "sha": "e402af654",
+  "date": "2026-11-11",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 25,
+  "paths": [
+   ".zenodo.json"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:prior-art-sources",
+  "sha": "bc8a175f6",
+  "date": "2026-10-12",
+  "author": "Ahraz Arifuddin",
+  "files": 2,
+  "lines": 207,
+  "paths": [
+   "results/fold-close-packing/PROOF.md",
+   "autoresearch-fold/PRIOR-ART-FOLD.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:steward/issue37-v2-erratum",
+  "sha": "8e1a14c43",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 33,
+  "paths": [
+   "papers/errata/v2-review-corrections.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:steward/issue40-release-corrections",
+  "sha": "e0e28c3db",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 23,
+  "paths": [
+   "docs/releases/archive-corrections.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:steward/issue41-historical-ledger",
+  "sha": "f66fdcdf4",
+  "date": "2026-11-01",
+  "author": "Cursor Agent",
+  "files": 4,
+  "lines": 212,
+  "paths": [
+   "docs/historical-review-record.json",
+   ".github/pull_request_template.md",
+   "docs/review-ledger.md",
+   "docs/historical-review-ledger.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "branch:steward/issue42-checker-policy",
+  "sha": "48002929f",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 5,
+  "lines": 244,
+  "paths": [
+   "docs/reproducibility.md",
+   "autoresearch-fold/program.md",
+   ".github/pull_request_template.md",
+   "CONTRIBUTING.md",
+   "docs/checker-history.md"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "closed-PR#99",
+  "sha": "a350bd697",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 8,
+  "lines": 7876,
+  "paths": [
+   "research/vitruvian/distributed-folding/nonuniform_motion.json",
+   "research/vitruvian/distributed-folding/vitruvian_motion_probe.json",
+   "research/vitruvian/distributed-folding/vitruvian_motion_probe.py",
+   "research/vitruvian/distributed-folding/nonuniform_motion.py",
+   "research/vitruvian/distributed-folding/nonuniform_motion_proof.md",
+   "research/vitruvian/distributed-folding/posture_closure.json"
+  ]
+ },
+ {
+  "repo": "incentre-lattices",
+  "ref": "closed-PR#29",
+  "sha": "94d4e2ffc",
+  "date": "2026-10-12",
+  "author": "Ahraz Arifuddin",
+  "files": 8,
+  "lines": 3121,
+  "paths": [
+   "papers/continuous-fcc/continuous-fcc.pdf",
+   "papers/continuous-fcc/source.tex",
+   "README.md",
+   "CONTRIBUTORS.md",
+   "commitment/README.md",
+   "docs/review-ledger.md"
+  ]
+ },
+ {
+  "repo": "lost-eclipses",
+  "ref": "branch:steward/task-1-preparation",
+  "sha": "d27286443",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 11,
+  "paths": [
+   "notes/gcvs-target-export.md"
+  ]
+ },
+ {
+  "repo": "lost-eclipses",
+  "ref": "branch:steward/task-2-preparation",
+  "sha": "aedfc9d41",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 3,
+  "lines": 40,
+  "paths": [
+   "tools/cache_manifest.py",
+   "tests/test_task2.py",
+   "notes/tess-acquisition.md"
+  ]
+ },
+ {
+  "repo": "lost-eclipses",
+  "ref": "branch:steward/task-3-preparation",
+  "sha": "f8859486a",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 3,
+  "lines": 43,
+  "paths": [
+   "tools/fold_depth.py",
+   "tests/test_task3.py",
+   "notes/folding-contract.md"
+  ]
+ },
+ {
+  "repo": "lost-eclipses",
+  "ref": "branch:steward/task-4-preparation",
+  "sha": "45e163bfd",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 2,
+  "lines": 10,
+  "paths": [
+   "protocols/controls.md",
+   "protocols/controls.csv"
+  ]
+ },
+ {
+  "repo": "lost-eclipses",
+  "ref": "branch:steward/task-5-preparation",
+  "sha": "344a67443",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 11,
+  "paths": [
+   "protocols/dasch-followup.md"
+  ]
+ },
+ {
+  "repo": "lost-eclipses",
+  "ref": "branch:steward/task-6-preparation",
+  "sha": "8da33d2fd",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 16,
+  "paths": [
+   "operations/reuse-agreement.md"
+  ]
+ },
+ {
+  "repo": "math0",
+  "ref": "branch:agent/wave1-gfq-checker",
+  "sha": "d94ad5d48",
+  "date": "2026-10-18",
+  "author": "orda-aska",
+  "files": 14,
+  "lines": 1060,
+  "paths": [
+   "gfq/matrix.py",
+   "gfq/distance.py",
+   "gfq/field.py",
+   "tests/test_distance.py",
+   "gfq/cli.py",
+   "gfq/codes.py"
+  ]
+ },
+ {
+  "repo": "math0",
+  "ref": "branch:agent/wave2-codetables",
+  "sha": "98bdb8727",
+  "date": "2026-10-18",
+  "author": "orda-aska",
+  "files": 47,
+  "lines": 19570,
+  "paths": [
+   "results/codetables/results.json",
+   "results/codetables/search.py",
+   "gfq/matrix.py",
+   "gfq/distance.py",
+   "results/codetables/REPORT.md",
+   "gfq/field.py"
+  ]
+ },
+ {
+  "repo": "math0",
+  "ref": "branch:claude/math-capabilities-showcase-961iya",
+  "sha": "140e4fff5",
+  "date": "2026-10-29",
+  "author": "Claude",
+  "files": 656,
+  "lines": 1022851,
+  "paths": [
+   "results/oeis-a124526/paper.pdf",
+   "results/oeis-a393794/paper.pdf",
+   "results/erdos142-erdos-142/paper.pdf",
+   "results/erdos409-erdos-409-parts-i/paper.pdf",
+   "results/oeis-a270668/paper.pdf",
+   "results/oeis-a354571/paper.pdf"
+  ]
+ },
+ {
+  "repo": "math0",
+  "ref": "branch:docs/readme-consolidation",
+  "sha": "84064cc4a",
+  "date": "2026-11-14",
+  "author": "Cursor Agent",
+  "files": 1,
+  "lines": 59,
+  "paths": [
+   "README.md"
+  ]
+ },
+ {
+  "repo": "math0",
+  "ref": "branch:feat/sokoban-frontier-quotient-bounds",
+  "sha": "3d3198246",
+  "date": "2026-11-12",
+  "author": "Zero",
+  "files": 1,
+  "lines": 143,
+  "paths": [
+   "AREAS.md"
+  ]
+ },
+ {
+  "repo": "overdue-data",
+  "ref": "branch:codex/issue-5-evidence",
+  "sha": "228e8c197",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 41,
+  "paths": [
+   "notes/issue-5-human-review.md",
+   "notes/issue-5-signoff.json"
+  ]
+ },
+ {
+  "repo": "overdue-data",
+  "ref": "branch:draft/issue-1-forge",
+  "sha": "81173aab7",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 373,
+  "paths": [
+   "pilot/batch_fulltext.py",
+   "README.md",
+   "notes/census-run.md",
+   ".github/workflows/check.yml",
+   "tests/test_batch.py"
+  ]
+ },
+ {
+  "repo": "overdue-data",
+  "ref": "branch:draft/issue-2-forge",
+  "sha": "af7b384cf",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 303,
+  "paths": [
+   "README.md",
+   "pilot/archive_adapters.py",
+   "notes/extra-archives.md",
+   "tests/test_archive_adapters.py",
+   ".github/workflows/check.yml"
+  ]
+ },
+ {
+  "repo": "overdue-data",
+  "ref": "branch:draft/issue-3-forge",
+  "sha": "7207f3868",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 185,
+  "paths": [
+   "README.md",
+   "notes/archive-reports.md"
+  ]
+ },
+ {
+  "repo": "overdue-data",
+  "ref": "branch:draft/issue-4-forge",
+  "sha": "c98604182",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 5,
+  "lines": 251,
+  "paths": [
+   "README.md",
+   "pilot/blind_review_summary.py",
+   "notes/blind-review.md",
+   ".github/workflows/check.yml",
+   "tests/test_blind_review.py"
+  ]
+ },
+ {
+  "repo": "physics0",
+  "ref": "branch:aeva/acceleration-evolution-links",
+  "sha": "76410c3de",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 79,
+  "paths": [
+   "README.md",
+   "acceleration-evolution.md"
+  ]
+ },
+ {
+  "repo": "physics0",
+  "ref": "branch:aeva/publish-convergences-20261112",
+  "sha": "3007774b9",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 97,
+  "paths": [
+   "README.md",
+   "notes/convergences-20261112.md"
+  ]
+ },
+ {
+  "repo": "physics0",
+  "ref": "branch:aeva/research-continuation-results-20261112",
+  "sha": "38050799b",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 13,
+  "lines": 1286,
+  "paths": [
+   "research/continuation-20261112/gravity-composition-d144448/gravity-composition.patch",
+   "research/continuation-20261112/gravity-composition/gravity-composition.patch",
+   "research/continuation-20261112/gravity-composition-d144448/results.json",
+   "research/continuation-20261112/new-research-sources.json",
+   "research/continuation-20261112/README.md",
+   "research/continuation-20261112/new-research-convergences.md"
+  ]
+ },
+ {
+  "repo": "physics0",
+  "ref": "branch:aeva/research-value-assessment-20261112",
+  "sha": "680fe1b3e",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 69,
+  "paths": [
+   "README.md",
+   "research/value-assessment-20261112/README.md"
+  ]
+ },
+ {
+  "repo": "physics0",
+  "ref": "branch:sweep/central-configurations-pilot",
+  "sha": "d0f7b790f",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 93,
+  "paths": [
+   "pilots/central_configurations.py",
+   "pilots/README.md"
+  ]
+ },
+ {
+  "repo": "plate-eclipses",
+  "ref": "branch:agent/wave1-dasch-scaleup",
+  "sha": "e914f5033",
+  "date": "2026-10-18",
+  "author": "orda-aska",
+  "files": 5,
+  "lines": 950,
+  "paths": [
+   "src/targets_v2.py",
+   "README.md",
+   "GAIA-DR4-READINESS.md",
+   "results/targets_v2.csv",
+   "results/targets_v2.md"
+  ]
+ },
+ {
+  "repo": "plate-eclipses",
+  "ref": "branch:agent/wave2-dasch-search",
+  "sha": "587468e3a",
+  "date": "2026-10-18",
+  "author": "orda-aska",
+  "files": 28,
+  "lines": 3254,
+  "paths": [
+   "results/wave2/nsv_3628.json",
+   "src/targets_v2.py",
+   "results/wave2/su_men.json",
+   "src/wave2_search.py",
+   "results/wave2/j070519_061219_asassn_24fw_control.json",
+   "README.md"
+  ]
+ },
+ {
+  "repo": "plate-eclipses",
+  "ref": "branch:investigate/targeted-scans-20261018",
+  "sha": "51d0ff1bf",
+  "date": "2026-10-18",
+  "author": "mozi",
+  "files": 7,
+  "lines": 318,
+  "paths": [
+   "src/scan_targeted.py",
+   "results/targeted_scans_20261018.txt",
+   "src/secondary21co.py",
+   "src/fetch_targets.py",
+   "src/fold20nq.py",
+   "results/fold_asassn20nq.txt"
+  ]
+ },
+ {
+  "repo": "plate-novae",
+  "ref": "branch:steward/task-1-preparation",
+  "sha": "4b61963be",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 11,
+  "paths": [
+   "protocols/catalogue-export.md"
+  ]
+ },
+ {
+  "repo": "plate-novae",
+  "ref": "branch:steward/task-2-preparation",
+  "sha": "a1760fbf2",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 3,
+  "lines": 40,
+  "paths": [
+   "tools/recovery.py",
+   "tests/test_task2.py",
+   "protocols/recovery.md"
+  ]
+ },
+ {
+  "repo": "plate-novae",
+  "ref": "branch:steward/task-3-preparation",
+  "sha": "af7b29557",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 3,
+  "lines": 34,
+  "paths": [
+   "tests/test_task3.py",
+   "protocols/null-test.md",
+   "tools/null_rates.py"
+  ]
+ },
+ {
+  "repo": "plate-novae",
+  "ref": "branch:steward/task-4-preparation",
+  "sha": "b03301cd9",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 11,
+  "paths": [
+   "protocols/rsoph-1914-review.md"
+  ]
+ },
+ {
+  "repo": "plate-novae",
+  "ref": "branch:steward/task-5-preparation",
+  "sha": "9aa139175",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 13,
+  "paths": [
+   "protocols/full-sweep.md"
+  ]
+ },
+ {
+  "repo": "plate-novae",
+  "ref": "branch:steward/task-6-preparation",
+  "sha": "c66de3984",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 1,
+  "lines": 16,
+  "paths": [
+   "operations/reporting-route.md"
+  ]
+ },
+ {
+  "repo": "point-charges",
+  "ref": "branch:agent/wave2-maxwell-hardening",
+  "sha": "555c31163",
+  "date": "2026-10-18",
+  "author": "orda-aska",
+  "files": 6,
+  "lines": 34130,
+  "paths": [
+   "results/wave2_hardening.json",
+   "explore/n3_inverse_map.py",
+   "explore/wave2_hardening.py",
+   "results/n3_inverse_map.json",
+   "results/n3_inverse_map.md",
+   "results/wave2_hardening.md"
+  ]
+ },
+ {
+  "repo": "point-charges",
+  "ref": "branch:codex/issue-12-evidence",
+  "sha": "a704e6521",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 361,
+  "paths": [
+   "certify.py",
+   "tests/test_bounded_subdivision.py",
+   "results/bounded-scheduler-status.md"
+  ]
+ },
+ {
+  "repo": "point-charges",
+  "ref": "branch:codex/issue-2-evidence",
+  "sha": "0729b4d7e",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 44,
+  "paths": [
+   "notes/issue-2-human-review.md",
+   "notes/issue-2-signoff.json"
+  ]
+ },
+ {
+  "repo": "point-charges",
+  "ref": "branch:codex/issue-5-evidence",
+  "sha": "7a65c9686",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 28,
+  "paths": [
+   "tools/propose_n8.py",
+   "notes/eight-charge-search.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:claude/admiring-cori-0qyybb",
+  "sha": "7584e57a4",
+  "date": "2026-11-06",
+  "author": "Claude",
+  "files": 17,
+  "lines": 5432,
+  "paths": [
+   "registries/sources.json",
+   "registries/paraneoplastic-exposure-results.json",
+   "docs/research/paraneoplastic-exposure-observability.md",
+   "tools/analyze_paraneoplastic_exposure.py",
+   "docs/anti-yo-frontier-2026-11-04.md",
+   "docs/research-handoff-2026-11-04.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:claude/magical-wright-frdz8u",
+  "sha": "e28ce4af1",
+  "date": "2026-10-25",
+  "author": "Claude",
+  "files": 11,
+  "lines": 2195,
+  "paths": [
+   "docs/pilot-001-reconstruction-decisions.md",
+   "docs/pilot-001-independent-progress.md",
+   "tools/reconstruction_contracts.py",
+   "tests/test_reconstruction_contracts.py",
+   "registries/sources.json",
+   "protocols/pilot-001.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:codex/asma-ecosystem-assessment-20261112",
+  "sha": "2b2c2e1fa",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 7,
+  "lines": 2801,
+  "paths": [
+   "registries/sources.json",
+   "docs/ecosystem-research-fit-2026-11-12.md",
+   "README.md",
+   "index.html",
+   "CLAIMS.md",
+   "CONTRIBUTORS.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:codex/asma-measurement-design-20261113",
+  "sha": "13d86d80a",
+  "date": "2026-11-12",
+  "author": "ahrazzle",
+  "files": 15,
+  "lines": 3940,
+  "paths": [
+   "results/compartment-design-2026-11-13/certificate.json",
+   "results/compartment-design-2026-11-13/verify.py",
+   "README.md",
+   "index.html",
+   "CLAIMS.md",
+   "tests/test_compartment_design.py"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:codex/site-latest-research",
+  "sha": "eb924f19d",
+  "date": "2026-11-06",
+  "author": "ahrazzle",
+  "files": 4,
+  "lines": 1039,
+  "paths": [
+   "page.css",
+   "index.html",
+   "docs/site-playground-verification.md",
+   "CONTRIBUTORS.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:docs/pilot001-readiness-20261108",
+  "sha": "9c1004bea",
+  "date": "2026-11-08",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 345,
+  "paths": [
+   "docs/roadmap.md",
+   "docs/pilot-001-pre-run-readiness-2026-11-08.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:feat/compartment-pgl2-c20-proofs",
+  "sha": "cdc6d9356",
+  "date": "2026-11-13",
+  "author": "Orda",
+  "files": 2,
+  "lines": 445,
+  "paths": [
+   "formal/AsmaIdentifiabilityProofs.lean",
+   "results/identifiability_and_c20_certificates.json"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:feat/og-previews",
+  "sha": "e91bfd070",
+  "date": "2026-11-11",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 5564,
+  "paths": [
+   "assets/og.png",
+   "index.html",
+   "404.html"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:feat/soko-phase-transition-and-floating-rs-proofs",
+  "sha": "56ce188c6",
+  "date": "2026-11-13",
+  "author": "Orda",
+  "files": 6,
+  "lines": 1103,
+  "paths": [
+   "formal/FloatingSelectionAndCrushingGate.lean",
+   "tools/verify_soko_asma_unlocks.py",
+   "tests/test_soko_asma_unlocks.py",
+   ".github/workflows/lean.yml",
+   "docs/research/soko-phase-transition-and-floating-rs-proofs.md",
+   "formal/lakefile.toml"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:feat/soko-weft-discriminators-20261113",
+  "sha": "8c21d140b",
+  "date": "2026-11-13",
+  "author": "ahrazzle",
+  "files": 8,
+  "lines": 4514,
+  "paths": [
+   "results/soko-weft-discriminators-20261113/certificate.json",
+   "tools/analyze_soko_weft_discriminators.py",
+   "results/soko-weft-discriminators-20261113/verify.py",
+   "tests/test_soko_weft_discriminators.py",
+   ".gitignore",
+   "results/soko-weft-discriminators-20261113/PROOF.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:fix/attestation-check-pathspec-env",
+  "sha": "183ac3a33",
+  "date": "2026-10-29",
+  "author": "Claude",
+  "files": 3,
+  "lines": 920,
+  "paths": [
+   "docs/pilot-001-source-adapter.md",
+   "tests/test_validate.py",
+   "tools/validate.py"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:fix/pilot001-real-repetitions-20261108",
+  "sha": "362df78e4",
+  "date": "2026-11-08",
+  "author": "ahrazzle",
+  "files": 8,
+  "lines": 2840,
+  "paths": [
+   "tests/test_pilot001_first_run.py",
+   "tools/pilot001_first_run/runner.py",
+   "tools/pilot001_first_run/output_validator.py",
+   "docs/pilot-001-first-run-runbook.md",
+   "tools/run_pilot001_first_run.py",
+   "tools/run_pilot001_reconstruction.R"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:mithrax/pilot001-first-run-runner-3c11",
+  "sha": "94439956c",
+  "date": "2026-11-05",
+  "author": "Cursor Agent",
+  "files": 3,
+  "lines": 410,
+  "paths": [
+   "CLAIMS.md",
+   ".github/workflows/verify.yml",
+   "docs/pilot-001-first-run-runbook.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:research/formal-synthesis-scan23848-20261113",
+  "sha": "255b039e3",
+  "date": "2026-11-13",
+  "author": "Zero",
+  "files": 7,
+  "lines": 1053,
+  "paths": [
+   "tools/analyze_formal_synthesis.py",
+   "results/formal-synthesis-2026-11-13/report.json",
+   "results/formal-synthesis-2026-11-13/verify.py",
+   "tests/test_formal_synthesis.py",
+   "results/formal-synthesis-2026-11-13/PROOF.md",
+   "results/formal-synthesis-2026-11-13/manifest.json"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:smith/pr51-rebase",
+  "sha": "3d4b26a29",
+  "date": "2026-11-05",
+  "author": "Cursor Agent",
+  "files": 1,
+  "lines": 247,
+  "paths": [
+   "index.html"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:vault/2026-11-13-asma-identifiability-bridge",
+  "sha": "91f2ea701",
+  "date": "2026-11-14",
+  "author": "Orda",
+  "files": 7,
+  "lines": 887,
+  "paths": [
+   "interactive/asma_gravity_explorer.html",
+   "results/identifiability-and-c20-2026-11-13/identifiability_and_c20_certificates.json",
+   ".gitignore",
+   "docs/gravity-bridge-identifiability-and-c20-2026-11-13.md",
+   "results/auroc-provenance-20261113/occurrences.json",
+   "results/auroc-provenance-20261113/SHA256SUMS"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "branch:vault/2026-11-13-soko-asma-unlocks",
+  "sha": "3936e64e8",
+  "date": "2026-11-13",
+  "author": "Orda",
+  "files": 8,
+  "lines": 1086,
+  "paths": [
+   "tools/verify_soko_asma_unlocks.py",
+   "results/soko-asma-unlocks-20261113/certificate.json",
+   ".gitignore",
+   "tools/check_sha256_manifests.py",
+   "tests/test_soko_asma_unlocks.py",
+   "results/soko-asma-unlocks-20261113/PROVENANCE.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "closed-PR#83",
+  "sha": "cdc6d9356",
+  "date": "2026-11-13",
+  "author": "Orda",
+  "files": 2,
+  "lines": 445,
+  "paths": [
+   "formal/AsmaIdentifiabilityProofs.lean",
+   "results/identifiability_and_c20_certificates.json"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "closed-PR#73",
+  "sha": "6cb767910",
+  "date": "2026-11-11",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 17808,
+  "paths": [
+   "20261111_FOR-orda-and-all-seats_COMPLETE-turn1-turn2-turn3-project-asma-alphagenome-alphafold-virtual-human.md.docx",
+   "20261111_FROM-gem_FOR-all-seats_project-asma-virtual-human-discovery-round3.md.docx",
+   "Virtual-human-x-Google-bio-ai-discoveries.docx"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "closed-PR#50",
+  "sha": "94439956c",
+  "date": "2026-11-05",
+  "author": "Cursor Agent",
+  "files": 3,
+  "lines": 410,
+  "paths": [
+   "CLAIMS.md",
+   ".github/workflows/verify.yml",
+   "docs/pilot-001-first-run-runbook.md"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "closed-PR#33",
+  "sha": "bb5130004",
+  "date": "2026-11-04",
+  "author": "Cursor Agent",
+  "files": 7,
+  "lines": 641,
+  "paths": [
+   "README.md",
+   "paper/manuscript.md",
+   "CLAIMS.md",
+   "CITATION.cff",
+   "CONTRIBUTORS.md",
+   "NOTICE"
+  ]
+ },
+ {
+  "repo": "project-asma",
+  "ref": "closed-PR#18",
+  "sha": "e28ce4af1",
+  "date": "2026-10-25",
+  "author": "Claude",
+  "files": 11,
+  "lines": 2195,
+  "paths": [
+   "docs/pilot-001-reconstruction-decisions.md",
+   "docs/pilot-001-independent-progress.md",
+   "tools/reconstruction_contracts.py",
+   "tests/test_reconstruction_contracts.py",
+   "registries/sources.json",
+   "protocols/pilot-001.md"
+  ]
+ },
+ {
+  "repo": "proven-commons",
+  "ref": "branch:audit/surface-scanner-and-upstream-status",
+  "sha": "9ff9c4095",
+  "date": "2026-11-11",
+  "author": "Orda",
+  "files": 4,
+  "lines": 532,
+  "paths": [
+   "README.md",
+   "scripts/surface_audit.py",
+   "scripts/test_surface_audit.py",
+   "notes/2026-11-11-bar-reviews-and-http-slice.md"
+  ]
+ },
+ {
+  "repo": "proven-commons",
+  "ref": "branch:claude/brave-knuth-x3bkfi",
+  "sha": "fa8792e2e",
+  "date": "2026-10-28",
+  "author": "Claude",
+  "files": 3,
+  "lines": 1491,
+  "paths": [
+   "scripts/sync.py",
+   "scripts/test_sync.py",
+   "scripts/sync-build.sh"
+  ]
+ },
+ {
+  "repo": "proven-commons",
+  "ref": "branch:draft/joint-proof-acceptance",
+  "sha": "9eaf6906d",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 4,
+  "lines": 401,
+  "paths": [
+   "README.md",
+   "notes/joint-proof-acceptance.md",
+   "scripts/joint-proof-status.py",
+   "scripts/test_joint_proof_status.py"
+  ]
+ },
+ {
+  "repo": "proven-commons",
+  "ref": "branch:sync/upstream",
+  "sha": "92b10939b",
+  "date": "2026-11-14",
+  "author": "github-actions[bot]",
+  "files": 7,
+  "lines": 2715,
+  "paths": [
+   "repos.json",
+   "audit.json",
+   "lake-manifest.json",
+   "README.md",
+   "lakefile.toml",
+   "Anthology.lean"
+  ]
+ },
+ {
+  "repo": "relative-equilibria",
+  "ref": "branch:codex/issue-1-evidence",
+  "sha": "85fe86b85",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 58,
+  "paths": [
+   "tools/reduced_equations.py",
+   "tests/test_reduced_equations.py",
+   "notes/rotation-chart.md"
+  ]
+ },
+ {
+  "repo": "relative-equilibria",
+  "ref": "branch:codex/issue-2-evidence",
+  "sha": "326aa4e3f",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 38,
+  "paths": [
+   "tools/check_krawczyk_algebra.py",
+   "notes/certifier-port.md"
+  ]
+ },
+ {
+  "repo": "relative-equilibria",
+  "ref": "branch:codex/issue-3-evidence",
+  "sha": "e5ac95eff",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 26,
+  "paths": [
+   "tools/vortex_controls.py",
+   "notes/vortex-count-protocol.md"
+  ]
+ },
+ {
+  "repo": "relative-equilibria",
+  "ref": "branch:codex/issue-4-evidence",
+  "sha": "0c2f0d853",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 21,
+  "paths": [
+   "results/timing.md",
+   "tools/time_run.py"
+  ]
+ },
+ {
+  "repo": "relative-equilibria",
+  "ref": "branch:codex/issue-5-evidence",
+  "sha": "12990cc2d",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 13,
+  "paths": [
+   "notes/literature.md"
+  ]
+ },
+ {
+  "repo": "relative-equilibria",
+  "ref": "branch:codex/issue-6-evidence",
+  "sha": "82bb109f4",
+  "date": "2026-10-31",
+  "author": "Orda",
+  "files": 2,
+  "lines": 41,
+  "paths": [
+   "notes/issue-6-human-review.md",
+   "notes/issue-6-signoff.json"
+  ]
+ },
+ {
+  "repo": "rigid-realizations",
+  "ref": "branch:codex/issue-1-evidence",
+  "sha": "71fc6610e",
+  "date": "2026-11-03",
+  "author": "orda-aska",
+  "files": 5,
+  "lines": 318,
+  "paths": [
+   "inputs/l880-published.json",
+   "NOTE.md",
+   "tools/check_planar_boxes.py",
+   "tests/test_planar_boxes.py",
+   "notes/l880-replay-status.md"
+  ]
+ },
+ {
+  "repo": "rigid-realizations",
+  "ref": "branch:codex/issue-2-evidence",
+  "sha": "f9c782d8b",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 26,
+  "paths": [
+   "tools/triage_l880.py",
+   "notes/l880-unresolved.md"
+  ]
+ },
+ {
+  "repo": "rigid-realizations",
+  "ref": "branch:codex/issue-3-evidence",
+  "sha": "cfee1ab74",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 3,
+  "lines": 125,
+  "paths": [
+   "inputs/g160-published.json",
+   "tools/pin_spatial_triangle.py",
+   "notes/g160-source.md"
+  ]
+ },
+ {
+  "repo": "rigid-realizations",
+  "ref": "branch:codex/issue-4-evidence",
+  "sha": "c8847c182",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 21,
+  "paths": [
+   "tools/check_laman_input.py",
+   "notes/large-planar-inputs.md"
+  ]
+ },
+ {
+  "repo": "rigid-realizations",
+  "ref": "branch:codex/issue-5-evidence",
+  "sha": "14c386f9f",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 1,
+  "lines": 15,
+  "paths": [
+   "notes/literature.md"
+  ]
+ },
+ {
+  "repo": "rism-anon",
+  "ref": "branch:codex/issue-4-evidence",
+  "sha": "ada86a719",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 42,
+  "paths": [
+   "notes/issue-4-human-review.md",
+   "notes/issue-4-signoff.json"
+  ]
+ },
+ {
+  "repo": "rism-anon",
+  "ref": "branch:draft/issue-1-forge",
+  "sha": "91cca61ad",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 6,
+  "lines": 378,
+  "paths": [
+   "README.md",
+   "pilot/review_sample.py",
+   "pilot/pilot_pitch_parser.py",
+   "notes/review-sample.md",
+   ".github/workflows/check.yml",
+   "tests/test_review_sample.py"
+  ]
+ },
+ {
+  "repo": "rism-anon",
+  "ref": "branch:draft/issue-2-forge",
+  "sha": "17481695f",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 7,
+  "lines": 581,
+  "paths": [
+   "examples/generated-pair.html",
+   "README.md",
+   "pilot/render_pair.py",
+   "pilot/render-pair.md",
+   "tests/test_render_pair.py",
+   "examples/generated-pair.json"
+  ]
+ },
+ {
+  "repo": "rism-anon",
+  "ref": "branch:draft/issue-3-forge",
+  "sha": "032b6aebb",
+  "date": "2026-10-28",
+  "author": "ahrazzle",
+  "files": 8,
+  "lines": 672,
+  "paths": [
+   "pilot/near_match.py",
+   "README.md",
+   "results/generated-near-control.json",
+   "tests/generated-matching.json",
+   "pilot/near-match.md",
+   "tests/test_near_match.py"
+  ]
+ },
+ {
+  "repo": "st0a",
+  "ref": "branch:sweep/settings-audit",
+  "sha": "a390c2700",
+  "date": "2026-10-27",
+  "author": "ahrazzle",
+  "files": 2,
+  "lines": 73,
+  "paths": [
+   "admin/audit_settings.py",
+   "admin/README.md"
+  ]
+ },
+ {
+  "repo": "virtual-human",
+  "ref": "branch:auto/E-sbml-import",
+  "sha": "05dd3177b",
+  "date": "2026-11-05",
+  "author": "Claude",
+  "files": 2,
+  "lines": 235,
+  "paths": [
+   "README.md",
+   "pyproject.toml"
+  ]
+ },
+ {
+  "repo": "virtual-human",
+  "ref": "branch:claude/admiring-cori-0qyybb",
+  "sha": "94fa800ab",
+  "date": "2026-11-06",
+  "author": "Claude",
+  "files": 17,
+  "lines": 3275,
+  "paths": [
+   "data/clinical/ovarian_hgsoc_parameter_ledger.json",
+   "vh/graph/reactions.py",
+   "scripts/validate_paraneoplastic_exposure.py",
+   "docs/project-asma-integration.md",
+   "docs/research-foundation.md",
+   "docs/graph_formalization.md"
+  ]
+ },
+ {
+  "repo": "virtual-human",
+  "ref": "branch:feat/lean4-r19-and-scaffold-crushing-gate",
+  "sha": "5b2e18f44",
+  "date": "2026-11-13",
+  "author": "Orda",
+  "files": 7,
+  "lines": 582,
+  "paths": [
+   "vh/bridge/scaffold_crushing_gate.py",
+   "formal/FloatingSelectionAndCrushingGate.lean",
+   "tests/test_scaffold_crushing_gate.py",
+   ".github/workflows/lean.yml",
+   "vh/bridge/__init__.py",
+   "formal/lakefile.toml"
+  ]
+ },
+ {
+  "repo": "virtual-human",
+  "ref": "branch:port/asma-verification-tooling-20261113",
+  "sha": "4cfa1caba",
+  "date": "2026-11-13",
+  "author": "ahrazzle",
+  "files": 37,
+  "lines": 20518,
+  "paths": [
+   "docs/img/vein_pressure_profile.png",
+   "docs/img/flow_explained_venous_pressure.png",
+   "docs/img/vein_graph.png",
+   "docs/img/womersley_vs_lumped.png",
+   "docs/img/flow_explained_terms.png",
+   "docs/img/flow_explained_scorecard.png"
+  ]
+ },
+ {
+  "repo": "virtual-human",
+  "ref": "branch:sync/upstream-vein-flow-20261113",
+  "sha": "2091d009c",
+  "date": "2026-11-13",
+  "author": "ahrazzle",
+  "files": 22,
+  "lines": 18672,
+  "paths": [
+   "docs/img/vein_pressure_profile.png",
+   "docs/img/flow_explained_venous_pressure.png",
+   "docs/img/vein_graph.png",
+   "docs/img/womersley_vs_lumped.png",
+   "docs/img/flow_explained_terms.png",
+   "docs/img/flow_explained_scorecard.png"
+  ]
+ },
+ {
+  "repo": "wwssn-microseisms",
+  "ref": "branch:claude/magical-planck-eqc43u",
+  "sha": "f7e57a1c2",
+  "date": "2026-11-01",
+  "author": "Claude",
+  "files": 9,
+  "lines": 662,
+  "paths": [
+   "tests/__pycache__/test_task4.cpython-313.pyc",
+   "tests/__pycache__/test_task1.cpython-313.pyc",
+   "README.md",
+   "tools/correlate.py",
+   "tests/test_task4.py",
+   "tests/test_task1.py"
+  ]
+ }
+]

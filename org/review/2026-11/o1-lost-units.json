@@ -1,0 +1,2306 @@
+[
+ {
+  "repo": "cfrp-strengthening",
+  "unit": "py:def ExampleMatch.check",
+  "path": "tests/test_track1.py",
+  "added_in": [
+   "04012d4b5",
+   "2026-10-25T03:24",
+   "Foundation Zero",
+   "Merge pull request #2 from Foundation-0/track1-checker"
+  ],
+  "removed_in": [
+   "01e518260",
+   "2026-10-25T10:50",
+   "ahrazzle",
+   "Merge pull request #3 from Foundation-0/track1-result"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "file:.github/workflows/discover.yml",
+  "path": ".github/workflows/discover.yml",
+  "added_in": [
+   "72e7b1a73",
+   "2026-11-11T13:20",
+   "Orda",
+   "Use uv virtualenv instead of --system for astronomy dependencies"
+  ],
+  "removed_in": [
+   "73a1f06c8",
+   "2026-11-11T13:26",
+   "Orda",
+   "Remove corrupted workflow file"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "py:def select_uncatalogued_mdwarfs",
+  "path": "mdwarf_hunt.py",
+  "added_in": [
+   "18dbf418d",
+   "2026-11-11T14:47",
+   "Orda",
+   "Add multi-sector transit search for uncatalogued S106-S107 M-dwarfs beyond T=13.5"
+  ],
+  "removed_in": [
+   "d0cedc7ef",
+   "2026-11-11T16:13",
+   "Orda",
+   "Remove prior mdwarf_hunt.py before SAP-norm and spot-veto upgrade [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "py:def search_one_mdwarf",
+  "path": "mdwarf_hunt.py",
+  "added_in": [
+   "18dbf418d",
+   "2026-11-11T14:47",
+   "Orda",
+   "Add multi-sector transit search for uncatalogued S106-S107 M-dwarfs beyond T=13.5"
+  ],
+  "removed_in": [
+   "d0cedc7ef",
+   "2026-11-11T16:13",
+   "Orda",
+   "Remove prior mdwarf_hunt.py before SAP-norm and spot-veto upgrade [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "py:def sel_tgts",
+  "path": "mdwarf_hunt.py",
+  "added_in": [
+   "0207351a3",
+   "2026-11-11T16:15",
+   "Orda",
+   "Add per-sector SAP normalization, spot modulation veto, and TIC 31281821 TPF audit"
+  ],
+  "removed_in": [
+   "fdfe9ca13",
+   "2026-11-11T17:18",
+   "Orda",
+   "Remove 72-target mdwarf_hunt.py before fast 23-target K/M-dwarf pass [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# TESS Sectors 1-107 Verification and Discovery Ledger",
+  "path": "results/DISCOVERIES.md",
+  "added_in": [
+   "56c052ab4",
+   "2026-11-11T21:41",
+   "orda-aska",
+   "Update discovery ledger with deep S106-S107 M-dwarf pass [skip ci]"
+  ],
+  "removed_in": [
+   "5d473fe90",
+   "2026-11-11T23:51",
+   "orda-aska",
+   "Update discovery ledger with deep S106-S107 M-dwarf pass [skip ci]"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# Campaigns",
+  "path": "README.md",
+  "added_in": [
+   "33834e122",
+   "2026-11-11T10:37",
+   "Orda",
+   "Document TESS Sectors 106-107 verification and 8-gate discovery pipeline"
+  ],
+  "removed_in": [
+   "3914c0be4",
+   "2026-11-12T07:03",
+   "Orda",
+   "Delete README.md prior to clean update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# exoplanets-frontier",
+  "path": "README.md",
+  "added_in": [
+   "33834e122",
+   "2026-11-11T10:37",
+   "Orda",
+   "Document TESS Sectors 106-107 verification and 8-gate discovery pipeline"
+  ],
+  "removed_in": [
+   "3914c0be4",
+   "2026-11-12T07:03",
+   "Orda",
+   "Delete README.md prior to clean update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# Usage",
+  "path": "README.md",
+  "added_in": [
+   "33834e122",
+   "2026-11-11T10:37",
+   "Orda",
+   "Document TESS Sectors 106-107 verification and 8-gate discovery pipeline"
+  ],
+  "removed_in": [
+   "3914c0be4",
+   "2026-11-12T07:03",
+   "Orda",
+   "Delete README.md prior to clean update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# Eight-Gate Automated Vetting",
+  "path": "README.md",
+  "added_in": [
+   "33834e122",
+   "2026-11-11T10:37",
+   "Orda",
+   "Document TESS Sectors 106-107 verification and 8-gate discovery pipeline"
+  ],
+  "removed_in": [
+   "3914c0be4",
+   "2026-11-12T07:03",
+   "Orda",
+   "Delete README.md prior to clean update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# `C-02`: Falsification of 19 High-MES M-Dwarf Triggers Under Naive Running-Median",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "662d40fbd",
+   "2026-11-12T06:46",
+   "Orda",
+   "Add CLAIMS.md epistemic claims ledger with falsifiers and status labels [skip ci]"
+  ],
+  "removed_in": [
+   "4282d469b",
+   "2026-11-12T09:45",
+   "Orda",
+   "Delete CLAIMS.md before empirical update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# `C-05`: Multi-Sector WCS + Epoch-Propagated Gaia DR3 Blend Localization of `like",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "662d40fbd",
+   "2026-11-12T06:46",
+   "Orda",
+   "Add CLAIMS.md epistemic claims ledger with falsifiers and status labels [skip ci]"
+  ],
+  "removed_in": [
+   "4282d469b",
+   "2026-11-12T09:45",
+   "Orda",
+   "Delete CLAIMS.md before empirical update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# `C-06`: Harmonic Pre-Whitened Residual Survey of Active M-Dwarfs and Multi-Plane",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "662d40fbd",
+   "2026-11-12T06:46",
+   "Orda",
+   "Add CLAIMS.md epistemic claims ledger with falsifiers and status labels [skip ci]"
+  ],
+  "removed_in": [
+   "4282d469b",
+   "2026-11-12T09:45",
+   "Orda",
+   "Delete CLAIMS.md before empirical update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# `C-03`: Benchmark Recovery of Sub-Earth TOI-540 b (`TIC 200322593`) via Transit-",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "662d40fbd",
+   "2026-11-12T06:46",
+   "Orda",
+   "Add CLAIMS.md epistemic claims ledger with falsifiers and status labels [skip ci]"
+  ],
+  "removed_in": [
+   "4282d469b",
+   "2026-11-12T09:45",
+   "Orda",
+   "Delete CLAIMS.md before empirical update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# `C-04`: Wide-Window (`+-240 min`) 8-Year Ephemeris Refinement and Dynamical TTV ",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "662d40fbd",
+   "2026-11-12T06:46",
+   "Orda",
+   "Add CLAIMS.md epistemic claims ledger with falsifiers and status labels [skip ci]"
+  ],
+  "removed_in": [
+   "4282d469b",
+   "2026-11-12T09:45",
+   "Orda",
+   "Delete CLAIMS.md before empirical update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "py:def run_benchmark_and_null",
+  "path": "converge_io.py",
+  "added_in": [
+   "04250eb3c",
+   "2026-11-12T08:39",
+   "Orda",
+   "Add converge_io.py spanning MAST light-curve fetchers and TOI-540 benchmark runner [skip c"
+  ],
+  "removed_in": [
+   "98b4e46d9",
+   "2026-11-12T12:00",
+   "Orda",
+   "Delete converge_io.py before Cycle 1-8 sector resolver upgrade [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "py:def write_report",
+  "path": "converge.py",
+  "added_in": [
+   "ffa592fd1",
+   "2026-11-12T09:00",
+   "Orda",
+   "Launch Phase 2 convergent TTV, Gaia WCS blend, and de-spotted M-Dwarf engine"
+  ],
+  "removed_in": [
+   "5f3c5088f",
+   "2026-11-12T14:55",
+   "Orda",
+   "Delete converge.py prior to Phase 3 slim runner update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 2. 8-Year S1-S107 Wide-Window (`+-240 min`) Ephemeris & TTV Audit",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "412043e04",
+   "2026-11-12T15:16",
+   "orda-aska",
+   "Capture Phase 2 convergent TTV, Gaia WCS blend, and de-spotted M-dwarf results [skip ci]"
+  ],
+  "removed_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 1. Benchmark & Null Control (`astr0` Rules 2-3)",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "412043e04",
+   "2026-11-12T15:16",
+   "orda-aska",
+   "Capture Phase 2 convergent TTV, Gaia WCS blend, and de-spotted M-dwarf results [skip ci]"
+  ],
+  "removed_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 4. De-Spotted Active M-Dwarf Residual Survey",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "412043e04",
+   "2026-11-12T15:16",
+   "orda-aska",
+   "Capture Phase 2 convergent TTV, Gaia WCS blend, and de-spotted M-dwarf results [skip ci]"
+  ],
+  "removed_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 3. Multi-Sector WCS + Gaia DR3 Sub-Pixel Blend Audit",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "412043e04",
+   "2026-11-12T15:16",
+   "orda-aska",
+   "Capture Phase 2 convergent TTV, Gaia WCS blend, and de-spotted M-dwarf results [skip ci]"
+  ],
+  "removed_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# Phase 2 Convergent Discovery and Technical Resolution Report",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "412043e04",
+   "2026-11-12T15:16",
+   "orda-aska",
+   "Capture Phase 2 convergent TTV, Gaia WCS blend, and de-spotted M-dwarf results [skip ci]"
+  ],
+  "removed_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 2026-11-11: Phase 1 TESS Sectors 1-107 Blind Verification and Multi-Sector Dwarf",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "bea1c7e3d",
+   "2026-11-12T06:51",
+   "Orda",
+   "Add CHANGELOG.md recording Phase 1 and Phase 2 campaign milestones [skip ci]"
+  ],
+  "removed_in": [
+   "bc03ede48",
+   "2026-11-12T19:58",
+   "Orda",
+   "Delete CHANGELOG.md before Phase 3 update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 2026-11-12: Phase 2 Ethos Capture and Convergent Technical Resolution (`Foundati",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "bea1c7e3d",
+   "2026-11-12T06:51",
+   "Orda",
+   "Add CHANGELOG.md recording Phase 1 and Phase 2 campaign milestones [skip ci]"
+  ],
+  "removed_in": [
+   "bc03ede48",
+   "2026-11-12T19:58",
+   "Orda",
+   "Delete CHANGELOG.md before Phase 3 update [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# 1. Top Platinum Solo-Verified & Temperate Candidates",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "removed_in": [
+   "4059fc1e4",
+   "2026-11-13T04:20",
+   "orda-aska",
+   "Purge inverted-control rows and update genuine Gaia DR4 readiness tables [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "exoplanets-frontier",
+  "unit": "md:# Phase 3 Synthesis: 665-Candidate Gaia DR4 Catalog & Cycle 1-8 Ephemerides (1109.",
+  "path": "results/CONVERGENCE_REPORT.md",
+  "added_in": [
+   "926675167",
+   "2026-11-13T01:34",
+   "orda-aska",
+   "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey"
+  ],
+  "removed_in": [
+   "4059fc1e4",
+   "2026-11-13T04:20",
+   "orda-aska",
+   "Purge inverted-control rows and update genuine Gaia DR4 readiness tables [skip ci]"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "f0",
+  "unit": "md:# frontier-math",
+  "path": "README.md",
+  "added_in": [
+   "bdefad85a",
+   "2026-10-11T10:58",
+   "ahrazzle",
+   "frontier-math v1: integer multiplication \u03ba race dashboard (#1)"
+  ],
+  "removed_in": [
+   "093ac0ee7",
+   "2026-10-15T01:26",
+   "ahrazzle",
+   "Foundation0: the new site, with the original archived under legacy-site (#4)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "f0",
+  "unit": "md:# v1: integer multiplication \u03ba race",
+  "path": "README.md",
+  "added_in": [
+   "bdefad85a",
+   "2026-10-11T10:58",
+   "ahrazzle",
+   "frontier-math v1: integer multiplication \u03ba race dashboard (#1)"
+  ],
+  "removed_in": [
+   "093ac0ee7",
+   "2026-10-15T01:26",
+   "ahrazzle",
+   "Foundation0: the new site, with the original archived under legacy-site (#4)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "f0",
+  "unit": "file:.github/DISCUSSION_TEMPLATE/introductions.yml",
+  "path": ".github/DISCUSSION_TEMPLATE/introductions.yml",
+  "added_in": [
+   "9e38fd8d1",
+   "2026-10-19T12:04",
+   "ahrazzle",
+   "Merge pull request #9 from Foundation-0/claude/f0-forum"
+  ],
+  "removed_in": [
+   "6e011b4ee",
+   "2026-10-19T14:44",
+   "ahrazzle",
+   "Merge pull request #15 at request of saga-zero to align with site"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "f0",
+  "unit": "file:docs/commons/ankle-codes.json",
+  "path": "docs/commons/ankle-codes.json",
+  "added_in": [
+   "093ac0ee7",
+   "2026-10-15T01:26",
+   "ahrazzle",
+   "Foundation0: the new site, with the original archived under legacy-site (#4)"
+  ],
+  "removed_in": [
+   "7e28c39ae",
+   "2026-10-19T15:12",
+   "ahrazzle",
+   "Merge pull request #18 from Foundation-0/claude/dazzling-shannon-yi2pt1"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "f0",
+  "unit": "file:docs/commons/img/medcode-demo.jpg",
+  "path": "docs/commons/img/medcode-demo.jpg",
+  "added_in": [
+   "093ac0ee7",
+   "2026-10-15T01:26",
+   "ahrazzle",
+   "Foundation0: the new site, with the original archived under legacy-site (#4)"
+  ],
+  "removed_in": [
+   "7e28c39ae",
+   "2026-10-19T15:12",
+   "ahrazzle",
+   "Merge pull request #18 from Foundation-0/claude/dazzling-shannon-yi2pt1"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "f0",
+  "unit": "file:docs/commons/img/medcode-research.jpg",
+  "path": "docs/commons/img/medcode-research.jpg",
+  "added_in": [
+   "093ac0ee7",
+   "2026-10-15T01:26",
+   "ahrazzle",
+   "Foundation0: the new site, with the original archived under legacy-site (#4)"
+  ],
+  "removed_in": [
+   "7e28c39ae",
+   "2026-10-19T15:12",
+   "ahrazzle",
+   "Merge pull request #18 from Foundation-0/claude/dazzling-shannon-yi2pt1"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "finite-state-proofs",
+  "unit": "md:# finite-state-proofs",
+  "path": "README.md",
+  "added_in": [
+   "3e6feb79d",
+   "2026-10-25T00:19",
+   "ahrazzle",
+   "Initial commit"
+  ],
+  "removed_in": [
+   "e8b9520b7",
+   "2026-10-27T23:46",
+   "ahrazzle",
+   "Merge pull request #1 from Foundation-0/codex/empirical-recurrences"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def check_c09_sparc_gaia_local_operator_nogo",
+  "path": "wave4_unified_field_solver.py",
+  "added_in": [
+   "2913956d8",
+   "2026-11-11T10:52",
+   "Orda",
+   "Add Wave-4 SPARC-Gaia local-operator no-go & 11-decade Bogoliubov BVP solver"
+  ],
+  "removed_in": [
+   "fcef36e23",
+   "2026-11-11T11:04",
+   "Orda",
+   "Refactor wave4_unified_field_solver for clarity"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def check_c10_bogoliubov_and_bose_fermi_dual",
+  "path": "wave4_unified_field_solver.py",
+  "added_in": [
+   "2913956d8",
+   "2026-11-11T10:52",
+   "Orda",
+   "Add Wave-4 SPARC-Gaia local-operator no-go & 11-decade Bogoliubov BVP solver"
+  ],
+  "removed_in": [
+   "fcef36e23",
+   "2026-11-11T11:04",
+   "Orda",
+   "Refactor wave4_unified_field_solver for clarity"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "file:formal/Wave5StochasticForces.lenan",
+  "path": "formal/Wave5StochasticForces.lenan",
+  "added_in": [
+   "6188820e2",
+   "2026-11-11T12:04",
+   "Orda",
+   "Add Lean 4 formal verification for Wave-5 claims C-12, C-14, C-16"
+  ],
+  "removed_in": [
+   "7a5f0131d",
+   "2026-11-11T12:08",
+   "Orda",
+   "Rename formal/Wave5StochasticForces.lenan to formal/Wave5StochasticForces.lean"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def fit_2_scale_flow_kinematic_vs_1mpc_lensing",
+  "path": "wave3_empirical_audit.py",
+  "added_in": [
+   "d58087c2c",
+   "2026-11-11T10:04",
+   "Orda",
+   "wave3_empirical_audit.py: add empirical audit on 2,630 SPARC RAR points and 139,027 KiDS 1"
+  ],
+  "removed_in": [
+   "91301dd54",
+   "2026-11-11T17:31",
+   "Orda",
+   "Refactor wave3 empiricafix(wave3): correct Mistele2024 lens sum to 129,027, unify a0 grid,"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def solve_bvp",
+  "path": "wave4_unified_field_solver.py",
+  "added_in": [
+   "fcef36e23",
+   "2026-11-11T11:04",
+   "Orda",
+   "Refactor wave4_unified_field_solver for clarity"
+  ],
+  "removed_in": [
+   "e855db6b4",
+   "2026-11-11T19:19",
+   "Orda",
+   "fix(wave4): add C-11 fermionic 7/8 factor, g_*S decoupling, z_nr transition, and --check m"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def solve_tridiag",
+  "path": "wave4_unified_field_solver.py",
+  "added_in": [
+   "fcef36e23",
+   "2026-11-11T11:04",
+   "Orda",
+   "Refactor wave4_unified_field_solver for clarity"
+  ],
+  "removed_in": [
+   "e855db6b4",
+   "2026-11-11T19:19",
+   "Orda",
+   "fix(wave4): add C-11 fermionic 7/8 factor, g_*S decoupling, z_nr transition, and --check m"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def check_c09",
+  "path": "wave4_unified_field_solver.py",
+  "added_in": [
+   "fcef36e23",
+   "2026-11-11T11:04",
+   "Orda",
+   "Refactor wave4_unified_field_solver for clarity"
+  ],
+  "removed_in": [
+   "e855db6b4",
+   "2026-11-11T19:19",
+   "Orda",
+   "fix(wave4): add C-11 fermionic 7/8 factor, g_*S decoupling, z_nr transition, and --check m"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "py:def check_c10",
+  "path": "wave4_unified_field_solver.py",
+  "added_in": [
+   "fcef36e23",
+   "2026-11-11T11:04",
+   "Orda",
+   "Refactor wave4_unified_field_solver for clarity"
+  ],
+  "removed_in": [
+   "e855db6b4",
+   "2026-11-11T19:19",
+   "Orda",
+   "fix(wave4): add C-11 fermionic 7/8 factor, g_*S decoupling, z_nr transition, and --check m"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-18: Horizon-Pixel Vortex Percolation (`PROVEN` / `NEW-COMPUTATION`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Claims, Proofs, and Falsification Ledger (`Foundation-0/gravity`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-20: 1/N_fil Centroid Diffusion & Mass Invariance (`PROVEN` / `NEW-COMPUTATION`",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-05: Two-Tier Hybrid Condensate + Normal Dark Sector (`NEW-COMPUTATION` / `CONJ",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-01: Coordinate-Fractal vs. Field-Gradient Dichotomy (`PROVEN` / `VERIFIED`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-08: Empirical Scale-Flow Convergence onto d_s* = 1.00 Across 2,630 SPARC RAR P",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-12: Cross-Scale Generalized Flux-Phase Ladder & Spin-1 vs Spin-2 Dichotomy (`P",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-03: Macro-Quantum \"Gravitational Atom\" Soliton Bound (`VERIFIED`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-16: Bell-CHSH Non-Locality Theorem (`PROVEN` / `VERIFIED`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-22: Cosmic Turnaround Mass-Conservation Supply Cap (`PROVEN` / `NEW-COMPUTATIO",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-02: Spectral Dimension $d_s = 1$ Selection of the $q = 3/2$ Superfluid Action ",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-15: Time-Symmetric Nelson Stochastic Diffusion (`PROVEN` / `VERIFIED`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-17: Batygin (2018) Secular Astrophysical Disk Schr\u00f6dinger Evolution (`PROVEN` ",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-06: Discrete Scale-Invariant Soliton Tower Smoothness Bound (`NEW-COMPUTATION`",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-13: Universal Vacuum-Gap Critical Acceleration Law (`NEW-COMPUTATION` / `CONJE",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-14: Equivalence-Principle Mass-Scaling No-Go Theorem (`PROVEN` / `NEW-COMPUTAT",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-19: Potential-Depth Roton-Dust Unification (`PROVEN` / `NEW-COMPUTATION`)",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-04: Single-Boson 1 Mpc vs. Bullet Cluster Phase-Space Inversion (`PROVEN` / `N",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-21: Stratified Group-to-Cluster Roton-Threshold Refinement (`PROVEN` / `NEW-CO",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# C-07: External-Field Rollover at ~0.83 Mpc & Wide-Binary UV-Crossover Sensitivit",
+  "path": "CLAIMS.md",
+  "added_in": [
+   "b35d98779",
+   "2026-11-11T14:49",
+   "Orda",
+   "Update CLAIMS.md with Wave-7 empirical group-cluster threshold audit (C-21, C-22)"
+  ],
+  "removed_in": [
+   "3f9b49a6f",
+   "2026-11-12T06:56",
+   "Orda",
+   "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Triage on Scientific & Civilizational Significance",
+  "path": "README.md",
+  "added_in": [
+   "52e415f0e",
+   "2026-11-11T13:21",
+   "Orda",
+   "Update README.md with Wave-6 discoveries, METHODS_AND_PLAYBOOK.md, CHANGELOG.md, and C-12."
+  ],
+  "removed_in": [
+   "01530dcc4",
+   "2026-11-12T06:58",
+   "Orda",
+   "Update README.md with honest post-audit framing and Wave-9 index"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave Discoveries Summary (C-01 through C-20)",
+  "path": "README.md",
+  "added_in": [
+   "52e415f0e",
+   "2026-11-11T13:21",
+   "Orda",
+   "Update README.md with Wave-6 discoveries, METHODS_AND_PLAYBOOK.md, CHANGELOG.md, and C-12."
+  ],
+  "removed_in": [
+   "01530dcc4",
+   "2026-11-12T06:58",
+   "Orda",
+   "Update README.md with honest post-audit framing and Wave-9 index"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# gravity",
+  "path": "README.md",
+  "added_in": [
+   "52e415f0e",
+   "2026-11-11T13:21",
+   "Orda",
+   "Update README.md with Wave-6 discoveries, METHODS_AND_PLAYBOOK.md, CHANGELOG.md, and C-12."
+  ],
+  "removed_in": [
+   "01530dcc4",
+   "2026-11-12T06:58",
+   "Orda",
+   "Update README.md with honest post-audit framing and Wave-9 index"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Quickstart (Zero External Dependencies)",
+  "path": "README.md",
+  "added_in": [
+   "52e415f0e",
+   "2026-11-11T13:21",
+   "Orda",
+   "Update README.md with Wave-6 discoveries, METHODS_AND_PLAYBOOK.md, CHANGELOG.md, and C-12."
+  ],
+  "removed_in": [
+   "01530dcc4",
+   "2026-11-12T06:58",
+   "Orda",
+   "Update README.md with honest post-audit framing and Wave-9 index"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Summary of Findings & Epistemic Ledger",
+  "path": "README.md",
+  "added_in": [
+   "52e415f0e",
+   "2026-11-11T13:21",
+   "Orda",
+   "Update README.md with Wave-6 discoveries, METHODS_AND_PLAYBOOK.md, CHANGELOG.md, and C-12."
+  ],
+  "removed_in": [
+   "01530dcc4",
+   "2026-11-12T06:58",
+   "Orda",
+   "Update README.md with honest post-audit framing and Wave-9 index"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Repository Layout",
+  "path": "README.md",
+  "added_in": [
+   "52e415f0e",
+   "2026-11-11T13:21",
+   "Orda",
+   "Update README.md with Wave-6 discoveries, METHODS_AND_PLAYBOOK.md, CHANGELOG.md, and C-12."
+  ],
+  "removed_in": [
+   "01530dcc4",
+   "2026-11-12T06:58",
+   "Orda",
+   "Update README.md with honest post-audit framing and Wave-9 index"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Disclosure & Licensing",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# M-04: Log-Radius Kernel Annihilation + 11-Decade Thomas Relaxation",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# M-01: Technicality Decomposition Loop",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# M-05: Zero-Dependency Canonical SHA-256 Regression Gates",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# M-03: Solid-Angle Jensen Convexity Reduction",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Inter-Agent Methods & Technicality-Decomposition Playbook (M-01..M-05)",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# M-02: Transcendental-Canceling Rational Intervals & Stock Lean 4 `Init` Proofs",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# 3 Ethos Questions",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "eddfe52b5",
+   "2026-11-11T13:17",
+   "Orda",
+   "Add reusable inter-agent methods & technicality-decomposition playbook (M-01..M-05)"
+  ],
+  "removed_in": [
+   "294587a58",
+   "2026-11-12T07:04",
+   "Orda",
+   "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 3: Empirical Rotation Curves & Field Operators",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 1: Initial Bounds & Formulation",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Explicit Collaborator Handoffs",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 5: Forces, Stochastic Diffusion & Invariant Scaling",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 6: Unified Convergence & Final Handoffs",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 4: Early Universe & Effective Degrees of Freedom",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Chronological Waves 1\u20136 Discovery Changelog & C-18..C-20 Handoffs",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Overview",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 2: Phase-Space Density & Exact Rational Proofs",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# 2026-11-11 \u2014 Wave 7: Empirical Multi-Survey Roton-Threshold Audit Across 60\u20131494",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "53c40b6dd",
+   "2026-11-11T15:28",
+   "Orda",
+   "Update CHANGELOG.md with Wave-7 empirical audit and Method M-06"
+  ],
+  "removed_in": [
+   "7a3b9e22a",
+   "2026-11-12T07:12",
+   "Orda",
+   "Reconcile CHANGELOG.md claim IDs across Waves 1-9"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Methodological Notes (`M-01` through `M-07`)",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "7f388db49",
+   "2026-11-12T08:39",
+   "Orda",
+   "Add Wave-10 assumptions, M-08 cross-epoch method, and certificate checksum"
+  ],
+  "removed_in": [
+   "bbe429775",
+   "2026-11-12T08:51",
+   "Orda",
+   "Add Wave-10 assumptions, M-08 cross-epoch method, and certificate checksum"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Methodological Notes (`M-01` through `M-08`)",
+  "path": "METHODS_AND_PLAYBOOK.md",
+  "added_in": [
+   "bbe429775",
+   "2026-11-12T08:51",
+   "Orda",
+   "Add Wave-10 assumptions, M-08 cross-epoch method, and certificate checksum"
+  ],
+  "removed_in": [
+   "ab3e633e2",
+   "2026-11-12T18:02",
+   "Orda",
+   "Wave 11-12: add M-09 & M-10 methods and Wave 11-12 checksums"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 12 -- 2026-11-12: Cosmic-Dawn Compact Quasar Pair `J1602+4228AB` (`Napowawa",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "5fd1b4266",
+   "2026-11-13T01:34",
+   "Orda",
+   "Merge pull request #19 from Foundation-0/orda/gravity-4-acceleration-evolution"
+  ],
+  "removed_in": [
+   "ba1a11c95",
+   "2026-11-14T15:34",
+   "Orda",
+   "Merge pull request #21 from Foundation-0/orda/gravity-13-wave11-12"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# Wave 11 -- 2026-11-12: Machian Horizon Inertia, DESI Turnaround & CPT Pair-Conde",
+  "path": "CHANGELOG.md",
+  "added_in": [
+   "5fd1b4266",
+   "2026-11-13T01:34",
+   "Orda",
+   "Merge pull request #19 from Foundation-0/orda/gravity-4-acceleration-evolution"
+  ],
+  "removed_in": [
+   "ba1a11c95",
+   "2026-11-14T15:34",
+   "Orda",
+   "Merge pull request #21 from Foundation-0/orda/gravity-13-wave11-12"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# 4. Wave 11: Translating Foundational Intuitions (Inertia-Gravity Unity, Zero-Sum",
+  "path": "RESEARCH_NOTEBOOK_AND_REASONING.md",
+  "added_in": [
+   "71664e1da",
+   "2026-11-13T01:21",
+   "Orda",
+   "Merge pull request #10 from Foundation-0/aeva/fix-wave12-chirp-bound-20261112"
+  ],
+  "removed_in": [
+   "ba1a11c95",
+   "2026-11-14T15:34",
+   "Orda",
+   "Merge pull request #21 from Foundation-0/orda/gravity-13-wave11-12"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "gravity",
+  "unit": "md:# 5. Wave 12: Confronting the Newly Discovered `z = 6.08` Quasar Pair `J1602+4228A",
+  "path": "RESEARCH_NOTEBOOK_AND_REASONING.md",
+  "added_in": [
+   "71664e1da",
+   "2026-11-13T01:21",
+   "Orda",
+   "Merge pull request #10 from Foundation-0/aeva/fix-wave12-chirp-bound-20261112"
+  ],
+  "removed_in": [
+   "ba1a11c95",
+   "2026-11-14T15:34",
+   "Orda",
+   "Merge pull request #21 from Foundation-0/orda/gravity-13-wave11-12"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "incentre-lattices",
+  "unit": "py:def TestMustFail.test_overlap_with_good_bars_but_wrong_branch",
+  "path": "autoresearch-fold/test_verify.py",
+  "added_in": [
+   "18dcb6eee",
+   "2026-10-12T08:11",
+   "Ahraz Arifuddin",
+   "Incentre lattice: interactive site, research notes, and fold-density research track"
+  ],
+  "removed_in": [
+   "3d52aa8b1",
+   "2026-10-27T23:49",
+   "ahrazzle",
+   "Locked fold checker: set valid after the end-state analysis; add single-property tests (#5"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "nhanes-bioimpedance",
+  "unit": "md:# Evidence",
+  "path": "results/pilot-2026-10-31/PROOF.md",
+  "added_in": [
+   "26db5d192",
+   "2026-11-03T15:43",
+   "Orda",
+   "Merge pull request #7 from Foundation-0/claude/sharp-babbage-ecqeb2"
+  ],
+  "removed_in": [
+   "b0e8d661d",
+   "2026-11-04T03:48",
+   "Orda",
+   "Merge pull request #10 from Foundation-0/mithrax/pilot-fits-tolerance-verify-0a25"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "physics0",
+  "unit": "md:# 6. Searches in open astronomical data",
+  "path": "AREAS.md",
+  "added_in": [
+   "9129cb0a8",
+   "2026-10-18T17:30",
+   "Razi Orda",
+   "Merge pull request #1 from Foundation-0/claude/relaxed-faraday-qghpbi"
+  ],
+  "removed_in": [
+   "fb3ce4472",
+   "2026-10-18T17:31",
+   "Razi Orda",
+   "Merge pull request #9 from Foundation-0/claude/sleepy-pasteur-k5knht"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "point-charges",
+  "unit": "md:# Maxwell's point-charge problem: certified counts for four, five and six charges",
+  "path": "NOTE.md",
+  "added_in": [
+   "fed1ab453",
+   "2026-10-27T23:49",
+   "ahrazzle",
+   "Merge pull request #9 from Foundation-0/fix/review-nits"
+  ],
+  "removed_in": [
+   "9598c5ee7",
+   "2026-10-27T23:50",
+   "ahrazzle",
+   "Merge pull request #13 from Foundation-0/research/n7-abk"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "project-asma",
+  "unit": "md:# project-asma",
+  "path": "README.md",
+  "added_in": [
+   "0c4b7efee",
+   "2026-10-22T08:49",
+   "ahrazzle",
+   "Initial commit"
+  ],
+  "removed_in": [
+   "f8fdbdc61",
+   "2026-10-22T11:27",
+   "Razi Orda",
+   "Merge pull request #1 from Foundation-0/research/ovarian-scaffold-2026-10-22"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "project-asma",
+  "unit": "md:# The first contribution",
+  "path": "docs/mission.md",
+  "added_in": [
+   "11ee86910",
+   "2026-11-04T09:45",
+   "ahrazzle",
+   "Define Asma's mission and verify the current research runtime (#30)"
+  ],
+  "removed_in": [
+   "48bfbb97a",
+   "2026-11-04T11:04",
+   "Orda",
+   "Widen Asma to open-ended ovarian cancer research; add candidate directions (#35)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "md:# Scope summary (2026-11-04)",
+  "path": "README.md",
+  "added_in": [
+   "ef1e9b43d",
+   "2026-11-05T08:02",
+   "Zero",
+   "Merge pull request #44 from Foundation-0/codex/asma-virtual-human"
+  ],
+  "removed_in": [
+   "e33be48a9",
+   "2026-11-05T10:04",
+   "Orda",
+   "Record Pilot 001 Gate 0 owner decisions (2026-11-05) (#48)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def TestPreflight.test_macos_docker_swap_mock",
+  "path": "tests/test_pilot001_first_run.py",
+  "added_in": [
+   "69424f9ea",
+   "2026-11-05T15:53",
+   "Orda",
+   "Pilot 001 real-mode: allowlisted fetch to tmpfs + hash gate (#54)"
+  ],
+  "removed_in": [
+   "5026273df",
+   "2026-11-05T18:58",
+   "Orda",
+   "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def TestPreflight.test_linux_existing_output_skips_tmutil",
+  "path": "tests/test_pilot001_first_run.py",
+  "added_in": [
+   "69424f9ea",
+   "2026-11-05T15:53",
+   "Orda",
+   "Pilot 001 real-mode: allowlisted fetch to tmpfs + hash gate (#54)"
+  ],
+  "removed_in": [
+   "5026273df",
+   "2026-11-05T18:58",
+   "Orda",
+   "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def TestPreflight.test_linux_ulimit_core_mock",
+  "path": "tests/test_pilot001_first_run.py",
+  "added_in": [
+   "69424f9ea",
+   "2026-11-05T15:53",
+   "Orda",
+   "Pilot 001 real-mode: allowlisted fetch to tmpfs + hash gate (#54)"
+  ],
+  "removed_in": [
+   "5026273df",
+   "2026-11-05T18:58",
+   "Orda",
+   "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:class TestPreflight",
+  "path": "tests/test_pilot001_first_run.py",
+  "added_in": [
+   "69424f9ea",
+   "2026-11-05T15:53",
+   "Orda",
+   "Pilot 001 real-mode: allowlisted fetch to tmpfs + hash gate (#54)"
+  ],
+  "removed_in": [
+   "5026273df",
+   "2026-11-05T18:58",
+   "Orda",
+   "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def TestAttestationAndGates.test_macos_arm64_real_fails_closed_without_ci_or_explicit_record",
+  "path": "tests/test_pilot001_first_run.py",
+  "added_in": [
+   "5026273df",
+   "2026-11-05T18:58",
+   "Orda",
+   "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)"
+  ],
+  "removed_in": [
+   "d7cce6e79",
+   "2026-11-05T21:09",
+   "Orda",
+   "Tighten macOS --real cross-arch gate before first run (#56)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def TestAttestationAndGates.test_macos_arm64_real_requires_equivalence_record",
+  "path": "tests/test_pilot001_first_run.py",
+  "added_in": [
+   "5026273df",
+   "2026-11-05T18:58",
+   "Orda",
+   "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)"
+  ],
+  "removed_in": [
+   "d7cce6e79",
+   "2026-11-05T21:09",
+   "Orda",
+   "Tighten macOS --real cross-arch gate before first run (#56)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def _placements",
+  "path": "tools/plan_exploratory_subset_design.py",
+  "added_in": [
+   "af6cc9b94",
+   "2026-11-06T03:49",
+   "Zero",
+   "Pre-registered exploratory analysis plan for the 13/8 frozen subset (#59) (#61)"
+  ],
+  "removed_in": [
+   "49c27ea97",
+   "2026-11-06T12:39",
+   "Zero",
+   "Make the exploratory subset design record platform-independent and close the plan's execut"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def _solve",
+  "path": "tools/plan_exploratory_subset_design.py",
+  "added_in": [
+   "af6cc9b94",
+   "2026-11-06T03:49",
+   "Zero",
+   "Pre-registered exploratory analysis plan for the 13/8 frozen subset (#59) (#61)"
+  ],
+  "removed_in": [
+   "49c27ea97",
+   "2026-11-06T12:39",
+   "Zero",
+   "Make the exploratory subset design record platform-independent and close the plan's execut"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def matches",
+  "path": "tools/ci_seed_ubuntu_packages.py",
+  "added_in": [
+   "16b3b673b",
+   "2026-11-05T07:24",
+   "Zero",
+   "Merge pull request #43 from Foundation-0/claude/nifty-edison-36n1jb"
+  ],
+  "removed_in": [
+   "39285f33a",
+   "2026-11-11T12:10",
+   "ahrazzle",
+   "Merge pull request #76 from Foundation-0/fix/source-adapter-build"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "project-asma",
+  "unit": "py:def fetch",
+  "path": "tools/ci_seed_ubuntu_packages.py",
+  "added_in": [
+   "16b3b673b",
+   "2026-11-05T07:24",
+   "Zero",
+   "Merge pull request #43 from Foundation-0/claude/nifty-edison-36n1jb"
+  ],
+  "removed_in": [
+   "39285f33a",
+   "2026-11-11T12:10",
+   "ahrazzle",
+   "Merge pull request #76 from Foundation-0/fix/source-adapter-build"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "project-asma",
+  "unit": "md:# Audit coverage (39 VERIFIED rows)",
+  "path": "docs/integrity-layer-2026-11-13.md",
+  "added_in": [
+   "c8844167e",
+   "2026-11-12T22:46",
+   "Zero",
+   "Merge pull request #80 from Foundation-0/research/integrity-layer-20261113"
+  ],
+  "removed_in": [
+   "b8cb3f3b6",
+   "2026-11-12T23:48",
+   "Zero",
+   "ClinicalTrials.gov ovarian cancer landscape v2 certificate (V42) (#81)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "md:# Audit coverage (40 VERIFIED rows)",
+  "path": "docs/integrity-layer-2026-11-13.md",
+  "added_in": [
+   "b8cb3f3b6",
+   "2026-11-12T23:48",
+   "Zero",
+   "ClinicalTrials.gov ovarian cancer landscape v2 certificate (V42) (#81)"
+  ],
+  "removed_in": [
+   "ee89554bb",
+   "2026-11-13T00:25",
+   "Zero",
+   "Reconcile the TCGA-OV 608 and 489 denominators. (#85)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "project-asma",
+  "unit": "md:# Audit coverage (41 VERIFIED rows)",
+  "path": "docs/integrity-layer-2026-11-13.md",
+  "added_in": [
+   "ee89554bb",
+   "2026-11-13T00:25",
+   "Zero",
+   "Reconcile the TCGA-OV 608 and 489 denominators. (#85)"
+  ],
+  "removed_in": [
+   "c9d2ea3b6",
+   "2026-11-13T00:53",
+   "Zero",
+   "Record where the discovery AUROC 0.83 and the sheet value 0.80885 come from. (#89)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "proven-commons",
+  "unit": "md:# Status",
+  "path": "README.md",
+  "added_in": [
+   "162f4f63d",
+   "2026-10-26T15:32",
+   "ahrazzle",
+   "Merge pull request #3 from Foundation-0/claude/vibrant-fermi-kno0h5"
+  ],
+  "removed_in": [
+   "903c1858b",
+   "2026-10-28T00:15",
+   "ahrazzle",
+   "Merge pull request #7 from Foundation-0/claude/brave-knuth-x3bkfi"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "proven-commons",
+  "unit": "md:# Update pins",
+  "path": "README.md",
+  "added_in": [
+   "162f4f63d",
+   "2026-10-26T15:32",
+   "ahrazzle",
+   "Merge pull request #3 from Foundation-0/claude/vibrant-fermi-kno0h5"
+  ],
+  "removed_in": [
+   "903c1858b",
+   "2026-10-28T00:15",
+   "ahrazzle",
+   "Merge pull request #7 from Foundation-0/claude/brave-knuth-x3bkfi"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "proven-commons",
+  "unit": "file:scripts/update-pins.py",
+  "path": "scripts/update-pins.py",
+  "added_in": [
+   "aed6eeb86",
+   "2026-10-27T23:48",
+   "ahrazzle",
+   "Merge pull request #6 from Foundation-0/followup-utf-imports-and-pin-refresh"
+  ],
+  "removed_in": [
+   "903c1858b",
+   "2026-10-28T00:15",
+   "ahrazzle",
+   "Merge pull request #7 from Foundation-0/claude/brave-knuth-x3bkfi"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "proven-commons",
+  "unit": "py:def head_sha",
+  "path": "scripts/update-pins.py",
+  "added_in": [
+   "aed6eeb86",
+   "2026-10-27T23:48",
+   "ahrazzle",
+   "Merge pull request #6 from Foundation-0/followup-utf-imports-and-pin-refresh"
+  ],
+  "removed_in": [
+   "903c1858b",
+   "2026-10-28T00:15",
+   "ahrazzle",
+   "Merge pull request #7 from Foundation-0/claude/brave-knuth-x3bkfi"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "proven-commons",
+  "unit": "py:def replace",
+  "path": "scripts/update-pins.py",
+  "added_in": [
+   "aed6eeb86",
+   "2026-10-27T23:48",
+   "ahrazzle",
+   "Merge pull request #6 from Foundation-0/followup-utf-imports-and-pin-refresh"
+  ],
+  "removed_in": [
+   "903c1858b",
+   "2026-10-28T00:15",
+   "ahrazzle",
+   "Merge pull request #7 from Foundation-0/claude/brave-knuth-x3bkfi"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "rigid-realizations",
+  "unit": "md:# How to contribute",
+  "path": "README.md",
+  "added_in": [
+   "344f9de10",
+   "2026-10-19T21:50",
+   "Claude",
+   "Add the complete scouting reports behind this project"
+  ],
+  "removed_in": [
+   "2ad315b61",
+   "2026-11-11T11:12",
+   "ahrazzle",
+   "Merge pull request #14: certified r2(L880)=880 with fixes and credit"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "rigid-realizations",
+  "unit": "md:# How a result is checked",
+  "path": "README.md",
+  "added_in": [
+   "344f9de10",
+   "2026-10-19T21:50",
+   "Claude",
+   "Add the complete scouting reports behind this project"
+  ],
+  "removed_in": [
+   "2ad315b61",
+   "2026-11-11T11:12",
+   "ahrazzle",
+   "Merge pull request #14: certified r2(L880)=880 with fixes and credit"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "rigid-realizations",
+  "unit": "md:# Who else is working on this",
+  "path": "README.md",
+  "added_in": [
+   "344f9de10",
+   "2026-10-19T21:50",
+   "Claude",
+   "Add the complete scouting reports behind this project"
+  ],
+  "removed_in": [
+   "2ad315b61",
+   "2026-11-11T11:12",
+   "ahrazzle",
+   "Merge pull request #14: certified r2(L880)=880 with fixes and credit"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "virtual-human",
+  "unit": "md:# virtual-human",
+  "path": "README.md",
+  "added_in": [
+   "80b4cc8e6",
+   "2026-11-01T02:35",
+   "rohanarun",
+   "Initial commit"
+  ],
+  "removed_in": [
+   "afb63804e",
+   "2026-11-01T02:50",
+   "Rohan Arun",
+   "v0.1: molecular engine + whole-body engine"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "virtual-human",
+  "unit": "md:# re-run the validation reports",
+  "path": "README.md",
+  "added_in": [
+   "afb63804e",
+   "2026-11-01T02:50",
+   "Rohan Arun",
+   "v0.1: molecular engine + whole-body engine"
+  ],
+  "removed_in": [
+   "8ed16a734",
+   "2026-11-01T04:57",
+   "Rohan Arun",
+   "Graph formalization of the body + explicit-solvent engine (rung 3)"
+  ],
+  "explained": false
+ },
+ {
+  "repo": "virtual-human",
+  "unit": "md:# Partial verification \u2014 \"render part of it to verify it partially\"",
+  "path": "docs/graph_formalization.md",
+  "added_in": [
+   "8ed16a734",
+   "2026-11-01T04:57",
+   "Rohan Arun",
+   "Graph formalization of the body + explicit-solvent engine (rung 3)"
+  ],
+  "removed_in": [
+   "3236b915e",
+   "2026-11-05T08:53",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/auto/E-asma-graph-foundations"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "virtual-human",
+  "unit": "file:docs/img/pbpk_elimination_subgraph.svg",
+  "path": "docs/img/pbpk_elimination_subgraph.svg",
+  "added_in": [
+   "8ed16a734",
+   "2026-11-01T04:57",
+   "Rohan Arun",
+   "Graph formalization of the body + explicit-solvent engine (rung 3)"
+  ],
+  "removed_in": [
+   "3236b915e",
+   "2026-11-05T08:53",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/auto/E-asma-graph-foundations"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "virtual-human",
+  "unit": "file:docs/img/pbpk_graph.png",
+  "path": "docs/img/pbpk_graph.png",
+  "added_in": [
+   "3d75e8e25",
+   "2026-11-01T10:11",
+   "Rohan Arun",
+   "README: feature graph-formalization results and the browser atom viewer"
+  ],
+  "removed_in": [
+   "3236b915e",
+   "2026-11-05T08:53",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/auto/E-asma-graph-foundations"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "virtual-human",
+  "unit": "file:docs/img/pbpk_graph.svg",
+  "path": "docs/img/pbpk_graph.svg",
+  "added_in": [
+   "3d75e8e25",
+   "2026-11-01T10:11",
+   "Rohan Arun",
+   "README: feature graph-formalization results and the browser atom viewer"
+  ],
+  "removed_in": [
+   "3236b915e",
+   "2026-11-05T08:53",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/auto/E-asma-graph-foundations"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "vitruvian3d",
+  "unit": "md:# vitruvian3d",
+  "path": "README.md",
+  "added_in": [
+   "ed8712732",
+   "2026-11-12T17:07",
+   "ahrazzle",
+   "Initial commit"
+  ],
+  "removed_in": [
+   "15a73317e",
+   "2026-11-12T17:15",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/gpt-forge/research-baseline"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "vitruvian3d",
+  "unit": "md:# Continuing the work",
+  "path": "README.md",
+  "added_in": [
+   "15a73317e",
+   "2026-11-12T17:15",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/gpt-forge/research-baseline"
+  ],
+  "removed_in": [
+   "e7445d56b",
+   "2026-11-12T17:57",
+   "Zero",
+   "Merge pull request #8 from Foundation-0/gpt-forge/research-guide"
+  ],
+  "explained": true
+ },
+ {
+  "repo": "vitruvian3d",
+  "unit": "md:# Research record",
+  "path": "README.md",
+  "added_in": [
+   "15a73317e",
+   "2026-11-12T17:15",
+   "Zero",
+   "Merge pull request #1 from Foundation-0/gpt-forge/research-baseline"
+  ],
+  "removed_in": [
+   "e7445d56b",
+   "2026-11-12T17:57",
+   "Zero",
+   "Merge pull request #8 from Foundation-0/gpt-forge/research-guide"
+  ],
+  "explained": true
+ }
+]

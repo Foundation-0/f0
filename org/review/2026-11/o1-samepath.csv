@@ -1,0 +1,22 @@
+path,repos,distinct_blobs,newest_repo,newest_date
+.zenodo.json,certified-orbits cfrp-strengthening covering-min-modulus ductricity finite-state-proofs formal-claims-audit gaia-dr4 gfq-codes incentre-lattices lost-eclipses nhanes-bioimpedance overdue-data plate-novae point-charges project-asma relative-equilibria rigid-realizations rism-anon thermal-capture wwssn-microseisms,20,ductricity,2026-11-11T20:52:43Z
+AREAS.md,astr0 math0 physics0,3,astr0,2026-10-19T21:38:52Z
+CHANGELOG.md,exoplanets-frontier gravity,2,exoplanets-frontier,2026-11-12T19:59:05-06:00
+CLAIMS.md,exoplanets-frontier gravity project-asma,3,project-asma,2026-11-13T00:53:58-06:00
+FORUM.md,.github f0,2,.github,2026-10-26T20:06:22-05:00
+NOTE.md,certified-orbits point-charges relative-equilibria rigid-realizations,4,rigid-realizations,2026-11-11T16:47:05Z
+README.md,astr0 certified-orbits cfrp-strengthening cosmic-denoising covering-min-modulus discussi0n ductricity exoplanets-frontier f0 finite-state-proofs formal-claims-audit fractals gaia-dr4 gfq-codes gravity incentre-lattices lost-eclipses math0 nhanes-bioimpedance overdue-data physics0 plate-eclipses plate-novae point-charges project-asma proven-commons relative-equilibria rigid-realizations rism-anon st0a thermal-capture virtual-human vitruvian3d wwssn-microseisms,34,gravity,2026-11-13T01:31:22-06:00
+SHA256SUMS,finite-state-proofs gravity rigid-realizations,3,gravity,2026-11-14T16:06:14-06:00
+certificates/SHA256SUMS,cfrp-strengthening incentre-lattices nhanes-bioimpedance,3,nhanes-bioimpedance,2026-11-04T02:33:18Z
+commitment/ROOT,cfrp-strengthening incentre-lattices nhanes-bioimpedance,3,incentre-lattices,2026-11-03T13:28:13-06:00
+commitment/SHA256SUMS,cfrp-strengthening incentre-lattices nhanes-bioimpedance,3,nhanes-bioimpedance,2026-11-04T02:33:18Z
+docs/audit.md,cfrp-strengthening incentre-lattices,2,incentre-lattices,2026-10-27T23:51:13-05:00
+docs/review-ledger.md,cfrp-strengthening incentre-lattices,2,incentre-lattices,2026-11-03T13:41:44-06:00
+docs/roadmap.md,project-asma virtual-human,2,project-asma,2026-11-06T03:49:15-06:00
+docs/status.md,cfrp-strengthening incentre-lattices,2,incentre-lattices,2026-10-27T23:46:06-05:00
+notes/reports/README.md,certified-orbits covering-min-modulus formal-claims-audit gaia-dr4 gfq-codes lost-eclipses nhanes-bioimpedance overdue-data plate-novae relative-equilibria rigid-realizations rism-anon wwssn-microseisms,12,nhanes-bioimpedance,2026-10-31T12:47:04Z
+notes/reports/fact-check.md,certified-orbits covering-min-modulus formal-claims-audit gaia-dr4 gfq-codes lost-eclipses nhanes-bioimpedance overdue-data plate-novae relative-equilibria rigid-realizations rism-anon wwssn-microseisms,2,nhanes-bioimpedance,2026-10-31T12:47:04Z
+notes/scouting-2026-10-19.md,certified-orbits covering-min-modulus formal-claims-audit gaia-dr4 lost-eclipses overdue-data plate-novae relative-equilibria rigid-realizations rism-anon wwssn-microseisms,11,lost-eclipses,2026-10-19T21:52:04Z
+results/pilot-2026-10-19.md,overdue-data rism-anon,2,rism-anon,2026-10-19T21:50:57Z
+scripts/check_site.py,f0 fractals,2,f0,2026-10-19T22:12:54Z
+tracks/README.md,cfrp-strengthening incentre-lattices,2,cfrp-strengthening,2026-10-26T12:13:08Z
