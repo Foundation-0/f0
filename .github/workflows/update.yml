@@ -9,6 +9,8 @@ on:
     - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
+# Pushes to main require bypassing branch protection (GH006).
+# If re-enabled, scheduled runs commit locally and then fail on push until this uses a bypass token or opens PRs.
 permissions:
   contents: write
 
