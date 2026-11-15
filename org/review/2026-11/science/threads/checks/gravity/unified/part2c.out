@@ -1,0 +1,6 @@
+nominal          : A free s sigma_J=187 R=7.50 s=0.5; A s=2 (repo form) sigma_J=211 R=3.75 s=2.0; B s=2 sigma_J=177 R=1.46 s=2.0; B free s sigma_J=158 R=2.95 s=0.5 | two-var a=4.17 b=0.41 rms 0.126
+hse x1.2         : A free s sigma_J=201 R=11.13 s=0.5; A s=2 (repo form) sigma_J=238 R=5.94 s=2.0; B s=2 sigma_J=195 R=2.34 s=2.0; B free s sigma_J=176 R=4.72 s=0.5 | two-var a=3.97 b=0.49 rms 0.126
+M* +0.2          : A free s sigma_J=335 R=4.16 s=1.9; A s=2 (repo form) sigma_J=336 R=4.08 s=2.0; B s=2 sigma_J=356 R=1.96 s=2.0; B free s sigma_J=337 R=4.74 s=0.5 | two-var a=4.45 b=0.63 rms 0.159
+M* -0.2          : A free s sigma_J=117 R=6.65 s=0.5; A s=2 (repo form) sigma_J=145 R=3.61 s=2.0; B s=2 sigma_J=95 R=1.51 s=2.0; B free s sigma_J=55 R=2.26 s=0.5 | two-var a=3.91 b=0.38 rms 0.120
+no ATLAS3D       : A free s sigma_J=190 R=7.80 s=0.5; A s=2 (repo form) sigma_J=230 R=4.17 s=2.0; B s=2 sigma_J=188 R=1.55 s=2.0; B free s sigma_J=175 R=3.24 s=0.5 | two-var a=4.35 b=0.34 rms 0.130
+no giant spirals : A free s sigma_J=174 R=7.20 s=0.5; A s=2 (repo form) sigma_J=261 R=4.52 s=2.0; B s=2 sigma_J=320 R=2.32 s=2.0; B free s sigma_J=146 R=2.77 s=0.5 | two-var a=4.18 b=0.43 rms 0.132

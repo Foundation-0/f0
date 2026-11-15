@@ -23,7 +23,7 @@ The repository states the redshift prediction itself: the trapped fraction in a 
 
 | Test | Data | Set A | Set B | Standard relation alone |
 |---|---|---|---|---|
-| Early-type galaxies inside the half-light radius | ATLAS3D, 187 galaxies, 36 above threshold | fails, 9 standard errors | fails, 3.3 to 8 | passes |
+| Early-type galaxies inside the half-light radius | ATLAS3D, 187 galaxies, 36 above threshold | fails, 9 standard errors | fails, 3.4 to 8 | passes |
 | Galaxies at redshift 0.7 to 2.5 | Genzel et al. 2020, 41 galaxies | fails, 0 of 41 | fails if the threshold falls, 2 of 41 | passes |
 | Giant spirals | SPARC with Di Teodoro et al. 2021 and 2023, 179 galaxies | fails | passes | passes |
 | Groups and clusters at two radii | 51 systems | fails | fails unless a mass bias grows outward | not applicable |
@@ -31,9 +31,9 @@ The repository states the redshift prediction itself: the trapped fraction in a 
 
 ### Early-type galaxies
 
-[F] Above the threshold, the measured total mass inside the half-light radius equals the stellar mass for a Salpeter mix of stars, to within 0.05 dex. Set A predicts 0.75 dex more and set B 0.47 dex more.
+[F] Above the threshold, the measured total mass inside the half-light radius equals the stellar mass for a Salpeter mix of stars, to within 0.05 dex, in every bin of velocity dispersion. Set A predicts 0.21 to 0.75 dex more, rising with dispersion. Set B predicts up to 0.46 dex more.
 
-[F] A comparison that does not depend on the assumed star mix uses galaxies at 120 to 186 km/s as the control. The step above the threshold falls short of set A by 0.35 ± 0.04 dex and of set B by 0.11 ± 0.03 dex. For set B above 230 km/s the shortfall is 0.34 ± 0.05 dex.
+[F] A comparison that does not depend on the assumed star mix uses galaxies at 120 to 186 km/s as the control. The step above the threshold falls short of set A by 0.35 ± 0.04 dex and of set B by 0.10 ± 0.03 dex. For set B above 230 km/s the shortfall is 0.34 ± 0.05 dex.
 
 [I] These galaxies were sorted by velocity dispersion, which also enters the mass. That bias pushes the high bins up, toward the model. The failure is therefore conservative.
 
@@ -64,15 +64,65 @@ The repository states the redshift prediction itself: the trapped fraction in a 
 - **Dead:** the zero-parameter version (set A), at galaxy scale and at cluster scale.
 - **Dead:** a threshold that falls with redshift, for either set.
 - **Dead:** extra mass in proportion to the baryons at every radius. Fast galaxies have none inside the half-light radius, and clusters have more at small radii than at large ones.
-- **Survives:** a residual beyond the standard relation that appears on scales of a hundred kiloparsecs and more, in systems above roughly 230 to 345 km/s. Giant spirals show a hint of it in their outer speeds.
+- **Survives:** an excess over the standard relation in every massive class of system, growing with baryonic mass. A threshold form fits the groups and clusters with an onset between 230 and 345 km/s, but across all classes a smooth rise fits as well (next section).
 
 [I] What survives is close to a known result: modified gravity fits galaxies and falls short in groups and clusters (Sanders 2003, Pointecouteau and Silk 2005, Tian et al. 2020).
 
 [I] Proposals that add a component only in deep potentials already exist. They include neutrinos of a few electronvolts, an 11 eV sterile neutrino (Angus 2010), dark baryons in clusters (Milgrom 2008), and an acceleration scale that grows with potential depth (Zhao and Famaey 2012).
 
-[I] The pattern found here, nothing inside galaxies at any speed and something on large scales, is what a component that cannot be packed densely would give. A velocity threshold does not give it. That points at the neutrino-like proposals more than at a threshold law.
+## One law across every class?
 
-[I] The four speeds near 185 km/s are less independent than they look for a second reason. The largest galaxies sit where gas stops cooling within the age of the universe. That is a standard result of galaxy formation (Rees and Ostriker 1977, White and Rees 1978). So the top of the galaxy range and the start of the group range are expected to share a scale.
+A second study put every system into one table: 663 local rows in six classes, from dwarf galaxies to clusters, plus 100 galaxies at high redshift kept apart (`checks/gravity/unified/unified_table.csv`).
+
+The extra mass is defined as the mass that must be added to the baryons for the standard relation to give the measured total. Each law is scored by how well it predicts the total mass, with every class weighted equally. The standard relation alone scores 0.190 dex.
+
+### What the fits say
+
+- [F] A law in the measured velocity scale and the radius fits best: extra mass proportional to sigma^4.2 r^0.4, score 0.126 dex. A separate fit written for this review gives the same exponents, 4.17 and 0.42.
+- [F] Three reference laws do worse: a component packed to a fixed phase-space density (0.170), an isothermal halo (0.161), and extra mass in proportion to the baryons (0.174).
+- [F] Left free, the onset is as gradual as the fit allows. Its position moves from 55 to 356 km/s with the shape assumed and with a shift of 0.2 dex in stellar masses.
+
+### How much of that is forced
+
+[F] The velocity scale is itself a dynamical quantity. At low accelerations the definition of the extra mass gives, identically, baryons plus extra mass equal to 4 sigma^4/(G a0). With no free parameter that identity already reproduces the clusters to 0.05 and 0.10 dex. So the exponent near 4 is partly built in.
+
+[F] Laws that use the baryons alone cannot be circular. The best is extra mass = 10^10.38 (M_b / 1e11 solar masses)^1.36 solar masses, score 0.148 dex. The exponent is 1.36 with a 95% range of 1.32 to 1.39, and it was above 1 in all 300 resamples. Shuffling the velocity scale within each class gives 0.171.
+
+[F] A threshold in baryonic mass with the same number of parameters scores 0.147. The data cannot tell a threshold from a smooth rise.
+
+### Does one class predict another?
+
+| Fitted on | Predicts | Median offset before | After |
+|---|---|---|---|
+| galaxies only | clusters at the inner radius | +0.29 dex | +0.03 dex |
+| galaxies only | clusters at the outer radius | +0.12 dex | -0.23 dex |
+| clusters only | early-type galaxies | +0.08 dex | -0.06 dex |
+| clusters only | ordinary spirals, outer points | -0.05 dex | -0.15 dex |
+
+[F] A law fitted to galaxies alone predicts the inner regions of clusters, three orders of magnitude up in mass, to 0.03 dex. It then overshoots at the outer radius. A law fitted to clusters puts extra mass into ordinary spirals that they do not have.
+
+[F] Applied to the high-redshift galaxies with no refitting, the baryon-only law gives a median offset of -0.04 dex. The standard relation alone gives +0.01.
+
+### What this establishes
+
+- [F] Every massive class sits above the standard relation: early-type galaxies and giant spirals by 0.08 dex, clusters by 0.12 dex at the outer radius and 0.29 at the inner. The excess grows faster than the baryonic mass.
+- [F] No law in one variable describes all classes and both cluster radii.
+- [I] The pattern does not favour a component with a fixed maximum density in phase space. An earlier draft of this note suggested it did. The fit says otherwise.
+- [I] The excess in early-type galaxies depends on the assumed mix of stars and vanishes for a Salpeter mix. The excess in clusters grows if hydrostatic masses are biased low. So the shared trend may be a real component, or two separate systematic effects that happen to point the same way.
+
+## The four speeds near 185 km/s, with honest ranges
+
+| Speed | Repository value | Range from defensible choices |
+|---|---|---|
+| Collapse scale | 185.59 | 141 to 261 km/s |
+| Knee of the galaxy mass function | 175.82 | 152 to 221 km/s |
+| Cooling scale | 178.42 | 89 to 446 km/s |
+| Onset in the data | 180 to 190 | 95 to 356 km/s |
+
+- [F] The chance that four speeds drawn independently between 30 and 1,500 km/s land as close as the repository's values is about 1 in 100,000. With the ranges above it is about 2% (0.4% to 5%). With wider but still defensible ranges it is about 6%.
+- [F] The cooling scale is linear in an overdensity that the script sets to 1,000. The knee speed is a rotation speed and the others are dispersions. As a dispersion it would be 107 to 157 km/s.
+- [I] The four are not independent. The largest galaxies sit where gas stops cooling within the age of the universe, which is a standard result of galaxy formation (Rees and Ostriker 1977, White and Rees 1978). The collapse scale and the cooling scale are both built from the critical density and the Hubble time. There are about two independent scales here, not four.
+
 
 ## The observation that would decide what survives
 

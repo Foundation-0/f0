@@ -21,7 +21,7 @@ for g, a in t15.items():
     if g not in t20 or g not in t1: continue
     logsig, _, _, inc, logMLjam, logVc, qual, _, logRe_as, _, _, _, _, logL = a[:14]
     _, fdm, logMLst, logMLsalp, hb = t20[g]
-    Dmpc = t1[g][7]
+    Dmpc = t1[g][6]   # column 8 (D, Mpc); v1 used [7] = M_K by mistake
     Re_kpc = 10 ** logRe_as / 206265.0 * Dmpc * 1e3
     rows.append((g, 10 ** logsig, 10 ** logVc / np.sqrt(2), qual, logMLjam, logMLsalp, logL, Re_kpc, fdm, hb))
 g, sig, vcs, q, mlj, mls, logL, Re, fdm, hb = map(np.array, zip(*rows))

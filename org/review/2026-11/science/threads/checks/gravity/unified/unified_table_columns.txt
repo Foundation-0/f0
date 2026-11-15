@@ -1,0 +1,16 @@
+unified_table.csv: one row per system and radius (763 rows). Built by build_table.py (nominal: stellar shift 0, hydrostatic x1).
+cls        class: SPARC_outer (last RC point), SPARC_inner (point nearest R_eff[3.6]), giant_spirals (Di Teodoro 2021+2023),
+           ATLAS3D_Re (sphere r=R_e), GC_r2500 / GC_r500 (groups and clusters), highz_RC100 (z 0.6-2.5, separate class, not used in fits)
+name       system name as in the source
+z          redshift (0 for local galaxies)
+r          radius [kpc]
+Mb         enclosed baryonic mass [Msun]. SPARC: V_bar^2 r/G with Y_disk 0.5, Y_bul 0.7, gas x1.33; DT: 0.8 x (M*+gas) [assumed inside 3 R_d];
+           ATLAS3D: Kroupa (M/L)_pop x 0.42 L; clusters: M x (f_gas + f_star); high z: (1 - f_DM) M_tot from the published decomposition
+Mtot       enclosed total dynamical mass [Msun] (V^2 r/G for discs; (M/L)_JAM x 0.42 L for ATLAS3D; hydrostatic for clusters)
+e_logMb, e_logMtot   1-sigma errors in dex (published where available; assumed values listed in NOTES.md)
+sigma      velocity scale [km/s]; definition in sigma_def (V_flat/sqrt2 discs, sigma_e ETGs, sqrt(G M500/2 r500) clusters, V_c(R_e)/sqrt2 high z)
+g_b, g_tot G Mb/r^2 and G Mtot/r^2 [m/s^2]
+deltaA     form A: M_tot/M_b - nu(g_b/a0), a0 = 1.2e-10, nu(y) = 1/(1-exp(-sqrt y))
+M_extraB   form B: g_N solves g_tot = nu(g_N/a0) g_N; M_extra = g_N r^2/G - M_b [Msun] (negative = below the RAR)
+yB         M_extraB / M_b
+sigma_def, src, sel   velocity definition, primary source, and selection variable / assumptions of the class
