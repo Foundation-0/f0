@@ -1,6 +1,6 @@
 # New ground, promising advances, and threads worth pulling
 
-Science pass, 15 November 2026. This ranks the work in the public repositories by how far it goes beyond the published record and how close it is to something others could use. It builds on `verdicts.csv`, `theories.md` and `ties.md`.
+Science pass, 15 November 2026. This ranks the work in the public repositories by how far it goes beyond the published record and how close it is to something others could use. It builds on `verdicts.csv`, `theories.md` and `ties.md`, which are on draft PRs 51, 52 and 53. Paths written `checks/...` and `notes/...` are in `org/review/2026-11/science/` on PR 51.
 
 Marks: **[F]** a fact read from a repository, a run or a source, **[I]** an inference. Literature checks were web searches and page reads on 15 November. A search can miss prior work, so "no earlier report found" is not proof of priority.
 
@@ -14,9 +14,9 @@ Marks: **[F]** a fact read from a repository, a run or a source, **[I]** an infe
 
 ### 1. Every realization of the 10-vertex rigid graph can be real (rigid-realizations)
 
-- [F] The published record for this graph is 860 real realizations verified and 868 found numerically (Bartzos, Emiris, Legersky and Tsigaridas, arXiv:1811.12800). The repository gives bar lengths with 880, which is all of them.
+- [F] The published record for this graph is 860 real realizations verified and 868 found numerically (Bartzos, Emiris, Legersky and Tsigaridas, arXiv:1811.12800). The repository gives bar lengths with 880 real realizations. Its own count of complex realizations is also 880.
 - [F] A separate exact check written for this review confirms the 880 (`checks/l880_independent.py`).
-- [I] If the published complex count of 880 is taken as given, this settles the maximum number of real realizations for 10 vertices. The published growth rate for real realizations, 2.3780 per vertex, comes from 430^(1/7). The same construction with 440 gives 2.3858.
+- [I] If the repository's computed complex count of 880 is taken as given, this settles the maximum number of real realizations for 10 vertices. The published growth rate for real realizations, 2.3780 per vertex, comes from 430^(1/7). The same construction with 440 gives 2.3858.
 - **Who would care.** People who count realizations of rigid graphs, in rigidity theory, computational algebraic geometry and robot kinematics.
 - **Before it goes out.** A second implementation of the complex count. A human read of the paper. A note that the search that found the lengths cannot be replayed from the repository.
 
@@ -79,7 +79,7 @@ Marks: **[F]** a fact read from a repository, a run or a source, **[I]** an infe
 ### 10. Does the acceleration scale follow the expansion rate?
 
 - [F] `gravity/acceleration-evolution` sets out a test of a_0(z) = A E(z)^q and says the fit to raw data has not been done.
-- [F] Reader finding, not re-checked by the lead: over the redshift range of one published survey, a scale that follows the expansion rate grows by a factor of 1.92. The survey's two fitted curves grow by 1.93 and 2.16.
+- [F] Reader finding, not re-checked by the lead: over the redshift range of the 2026 MUSE-DARK III sample (Ciocan and co-authors, 79 galaxies, redshift 0.33 to 1.44, named as the primary source in `gravity/acceleration-evolution/evidence.json`), a scale that follows the expansion rate grows by a factor of 1.92. The survey's two fitted curves grow by 1.93 and 2.16.
 - [I] That agreement is suggestive and no more. Published fits at high redshift are contested, and the comparison uses fitted curves, not data. The protocol in the folder is the right next step.
 
 ### 11. Auditing what a formal proof states
@@ -99,7 +99,7 @@ Marks: **[F]** a fact read from a repository, a run or a source, **[I]** an infe
 | fractals | States that it claims no new result |
 | thermal-capture, ductricity | Essays without a computation |
 
-Not judged in this pass: vitruvian3d, the math0 integer multiplication study, nhanes-bioimpedance, virtual-human and the four small data pilots.
+Not judged in this pass: vitruvian3d, the math0 integer multiplication study, nhanes-bioimpedance, virtual-human and project-asma (128 claim rows in the H1 claims index). Of four small data pilots, plate-novae, overdue-data and rism-anon were not judged, and plate-eclipses was judged in part.
 
 ## What this says about direction
 
