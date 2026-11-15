@@ -90,6 +90,17 @@ Each cause below is traced to how the work was done.
 5. **"Every" is replaced by a list.** A sentence about all checkers now names them.
 6. **Derivations are files.** The three-charge lemmas and the two derivative bounds are written out in the folder.
 
+## Checking the review in return
+
+The review also brought new work, in the exploration note of pull request 60. It was checked the same way it checked this folder.
+
+- [F] Its two programs were re-run. The search for a flat point of three charges and the wall graph of the 11-point configuration give the same output. The seven walls and the doubled pair match the trace in `four-charges-eleven.md`, made with other code.
+- [F] Its proof that three charges have no flat point is correct. This folder reached the same fact by the inversion rule: three reflected charges lie in a plane, and a plane cannot have the same inertia in every direction.
+- [F] Its code-table counts were recomputed from `improved_cells.csv` and `summary.json`: 2,440, 430, 8 and 1 cells improve by one to four steps, and 531 cells of the GF(9) table are improved by the table's own rules.
+- [F] Its first open avenue, one missing verifier run, is done. Its third is answered in `critical-circles.md`.
+
+Saved outputs are in `checks/review-meta/pr60-rerun/`.
+
 ## What this note does not show
 
 - The classification is one reader's. The kinds overlap, and a finding can belong to two.
