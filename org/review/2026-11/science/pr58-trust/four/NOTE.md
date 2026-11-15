@@ -24,6 +24,7 @@
 - **The search is not trusted.** `find.py` uses floating point and mpmath to find candidates and to choose the boxes. It writes a certificate: the uniqueness boxes and a bisection tree. `check.py` re-does every test on every leaf. It computes the root box from the sites itself, so the tree cannot leave a region out. A missed zero makes the search fail to close; it cannot make the checker accept a wrong count.
 - **No constant derived by hand.** The review found that `REPORT.md`, cited for the two derivative bounds of `indep_count.py`, is absent. This checker does not use those bounds. It encloses the third derivatives directly from their formulas. The two other lemmas it needs have proofs of two lines each, written below.
 - **No `assert`.** Every failed check raises `CheckFailed`. All runs here used `python3 -O`.
+- **No float on the way in.** Every coordinate and charge must be a JSON string. An unquoted decimal anywhere in either file is refused, because the JSON reader would turn it into a binary float. Keys may not repeat. Each file is read once and its sha256 is printed from those bytes.
 
 ## The argument
 
@@ -59,6 +60,7 @@ So (Y F(x))_m lies in (Y F(c))_m ± (Σ_j |(Y H(c))_mj| r_j + ½ Σ_jk |Σ_i Y_m
 
 | Configuration | Proved here | Stated in the threads |
 |---|---|---|
+| The short table with charge 3 set to 1.0000339122030782331806124, which is 1.2e-17 past a fold where two balance points merge | exactly 9 | not stated; built by the adversarial review below |
 | The second four-charge family, `charges/configs/n4-second-family.json` | exactly 9 | 9 |
 | Jet route with linear term -1e-10, `four/controls/ctrl_lam1e-10.json` | exactly 9 | 9 |
 | Jet route with one charge times 1.000001, `four/controls/ctrl_charge1.json` | exactly 5 | 5 |
@@ -67,7 +69,15 @@ So (Y F(x))_m lies in (Y F(c))_m ± (Σ_j |(Y H(c))_mj| r_j + ½ Σ_jk |Σ_i Y_m
 | The printed 5-decimal table rounded again to 4 decimals | exactly 7 | not stated; `indep_count.py` also gives 7 |
 | A hand-picked tetrahedron with charges 1, 2, 1.5, 0.7 | exactly 5 | not stated; `indep_count.py` also gives 5 |
 
-[F] **Corrupted inputs.** Nineteen corruptions are each rejected: a charge scaled by 1.000001 or 0.99999, one coordinate moved by 1e-5, the sites reordered, a negative charge, four coplanar sites, a certificate for another grid, claims of 13 and of 9, a uniqueness box removed, a box listed twice, a box moved off its zero, three kinds of relabelled leaf, a split on the wrong axis, a tree cut short, a tree with a token added, and the whole root claimed inside one box.
+[F] **Corrupted inputs.** Twenty-six corruptions are each rejected: a charge scaled by 1.000001 or 0.99999, one coordinate moved by 1e-5, the sites reordered, a negative charge, four coplanar sites, a certificate for another grid, claims of 13 and of 9, a uniqueness box removed, a box listed twice, a box moved off its zero, three kinds of relabelled leaf, a split on the wrong axis, a tree cut short, a tree with a token added, the whole root claimed inside one box, four malformed certificates (a tree ending in a bare token, a token missing its terminator, a tree given as a list, box corners of the wrong shape or type), the fold configuration above written as an unquoted JSON number, and a configuration with a repeated key.
+
+## What an adversarial review found
+
+[F] A separate agent was given `check.py` alone, without this note's reasoning, and asked to make it print PROVED for something false. It confirmed every interval operation against exact fractions on 20,000 random intervals, the derivative formulas against numerical differentiation at 1,800 points, and the four lemmas, the tree replay and the counting argument.
+
+[F] It found one unsound path, in reading the input, not in the mathematics. `json.load` read an unquoted number as a binary float. A configuration written with charge 3 as the unquoted number 1.0000339122030782331806124 sits 1.2e-17 past a fold. Its float sits on the other side. The checker then proved 11 for a configuration whose exact count is 9. The fix refuses unquoted decimals and repeated keys and checks the shape of the certificate first. Both inputs are now controls. The four configurations in the table at the top were always written as quoted strings, so their results do not change. They were re-run with the fixed checker.
+
+[I] This is the reason for the review. The failure was in the step everyone treats as trivial, and only an attacker looking for it found it.
 
 ## A wording point found on the way
 
@@ -76,7 +86,7 @@ So (Y F(x))_m lies in (Y F(c))_m ± (Σ_j |(Y H(c))_mj| r_j + ½ Σ_jk |Σ_i Y_m
 ## Limits
 
 - [I] This is a second program, not a second person. The same family of AI models wrote the threads, the review and this check. Errors of understanding that such models share would not be caught by any of them. A check by a person outside the project is still the step that matters most.
-- [F] The finder and the checker were written by the same author. The checker's soundness does not depend on the finder. A separate adversarial review of `check.py` alone was run; its result is recorded in `../README.md`.
+- [F] The finder and the checker were written by the same author. The checker's soundness does not depend on the finder. The adversarial review above is the only second reading of `check.py` so far.
 - [F] The hull test is written for four sites not in one plane. Other numbers of sites need a general hull, which is not done here.
 - [I] What is proved is a statement about the Coulomb potential 1/r in three dimensions for these exact rationals. That is the setting of Maxwell's problem.
 
@@ -96,7 +106,7 @@ python3 -O controls.py                                                   # about
 SHA-256:
 
 ```
-823b8068aeadd2d03ec87f9637d5efa4c9b2e45ca024b6c664cd4d8ffce203d9  check.py
+b45a541dd4bb99b8ef0afa612c5d33fe9922045e87fbda9b6ddb2cc9bdbdb4da  check.py
 e88b3716f6a95c6247a34fa0dca54257644c1073343bac6142651f819b05247a  short_table.json
 1db96e8c9358e0cc43a408d37f4400f749ea705a9c98f0b28ea8b89ee6226440  certs/short_table.cert.json
 2a17b723383d483458c928c717fa49d12dd742bd3d7ad9477590360ab551bfc8  certs/n4_eleven_flat.cert.json

@@ -75,6 +75,12 @@ def part_a():
              "sites": [["0", "0", "0"], ["1", "0", "0"], ["3/10", "9/10", "0"], ["2/5", "3/10", "4/5"]],
              "charges": ["1", "2", "3/2", "7/10"]}), 5),
     ]
+    try:
+        got, _ = count_of(os.path.join(TMP, "fold_quoted.json"), os.path.join(TMP, "fold_quoted.cert.json"))
+        lines.append("  %-70s proved exactly %2d  %s" % (
+            "short table, charge 3 set 1.2e-17 above a fold (review: 9)", got, "agrees" if got == 9 else "DIFFERS from 9"))
+    except C.CheckFailed as e:
+        lines.append("  fold case not closed (%s)" % e)
     for label, cfg, want in cases:
         cert = os.path.join(TMP, os.path.basename(cfg).replace(".json", ".cert.json"))
         try:
@@ -174,6 +180,17 @@ def part_b():
     with_cert(lambda c: c.__setitem__("tree", c["tree"][:-1]), "tree cut short by one token")
     with_cert(lambda c: c.__setitem__("tree", c["tree"] + "H"), "tree with a token added")
     with_cert(lambda c: c.__setitem__("tree", "K0."), "whole root claimed inside one box")
+    with_cert(lambda c: c.__setitem__("tree", c["tree"] + "D"), "tree ending in a bare D")
+    with_cert(lambda c: c.__setitem__("tree", c["tree"].replace(".", "", 1)), "a K token without its full stop")
+    with_cert(lambda c: c.__setitem__("tree", list(c["tree"])), "tree given as a list")
+    with_cert(lambda c: c["boxes"][0]["lo"].pop(), "a box corner with two coordinates")
+    with_cert(lambda c: c["boxes"][0]["lo"].__setitem__(0, int(c["boxes"][0]["lo"][0])), "a box corner as a bare number")
+    lines.append(expect_fail("an unquoted decimal that a float would move across a fold", lambda: C.check(
+        os.path.join(TMP, "fold_unquoted.json"), os.path.join(TMP, "fold_unquoted.cert.json"), 11)))
+    dup = os.path.join(TMP, "dup_key.json")
+    with open(dup, "w") as fh:
+        fh.write(open(cfg).read().replace('"charges":', '"charges": ["1", "-1", "1", "1"], "charges":', 1))
+    lines.append(expect_fail("a key given twice, a negative charge in the first", lambda: C.check(dup, cert, 11)))
     return lines
 
 

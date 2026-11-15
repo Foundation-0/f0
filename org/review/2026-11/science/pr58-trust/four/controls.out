@@ -1,4 +1,5 @@
 Part A: other configurations, count proved by find.py + check.py
+  short table, charge 3 set 1.2e-17 above a fold (review: 9)             proved exactly  9  agrees
   second family (threads: exactly 9)                                     proved exactly  9  agrees
   jet route, linear term -1e-10 (threads: 9)                             proved exactly  9  agrees
   jet route, one charge x 1.000001 (threads: 5)                          proved exactly  5  agrees
@@ -28,3 +29,10 @@ Part B: corrupted inputs, each must be rejected
   rejected as it should: tree cut short by one token                        (the tree ends early)
   rejected as it should: tree with a token added                            (the tree has trailing tokens)
   rejected as it should: whole root claimed inside one box                  (a leaf is not inside its box)
+  rejected as it should: tree ending in a bare D                            (the tree is not a string of known tokens)
+  rejected as it should: a K token without its full stop                    (the tree is not a string of known tokens)
+  rejected as it should: tree given as a list                               (the tree is not a string of known tokens)
+  rejected as it should: a box corner with two coordinates                  (a box is not two triples)
+  rejected as it should: a box corner as a bare number                      (a box corner is not an integer string)
+  rejected as it should: an unquoted decimal that a float would move across a fold (the unquoted JSON number 1.0000339122030782331806124 would be read as a float)
+  rejected as it should: a key given twice, a negative charge in the first  (a key repeats in a JSON object)

@@ -14,14 +14,19 @@ Coulomb potential V(x) = sum_j q_j / |x - p_j| in three dimensions:
   1. LOWER BOUND. Each box listed in the certificate contains exactly one
      zero of grad V, and that zero is non-degenerate. The boxes are pairwise
      disjoint. So V has at least that many balance points. The index of each
-     (the number of negative eigenvalues of the Hessian) is the sign of the
-     Hessian determinant, because the Hessian has trace zero.
+     (the number of negative eigenvalues of the Hessian) is 2 when the Hessian
+     determinant is positive and 1 when it is negative, because the Hessian has
+     trace zero.
   2. EXACT COUNT. A bisection tree, replayed here from a root box that this
      program computes from the sites itself, covers every place a balance
      point can be. Every leaf is either shown here to hold no zero, or lies
      inside one of the boxes of item 1. So V has exactly that many.
 
 Nothing here uses floating point. Every number is an int or a Fraction.
+Every coordinate and charge must be a JSON string, and an unquoted JSON number
+with a fraction or exponent is refused anywhere: it would pass through a
+binary float on reading. (JSON integers are read exactly.) Keys
+may not repeat. Each file is read once; its sha256 is of those same bytes.
 Every real quantity is enclosed in an interval [lo, hi] of integers scaled by
 2**P, and each operation rounds lo down and hi up. Square roots are bounded
 with math.isqrt. Every failed check raises CheckFailed; there is no assert,
@@ -49,6 +54,7 @@ The four lemmas used (proofs in NOTE.md beside this file):
 
 import hashlib
 import json
+import re
 import sys
 from fractions import Fraction
 from math import isqrt
@@ -163,25 +169,57 @@ def tidx(i, j, k):
 # The configuration.
 # ---------------------------------------------------------------------------
 
+NUMBER = re.compile(r"^[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:/[0-9]+)?$")
+
+
 def parse_number(s):
-    s = str(s).strip()
+    """A decimal or fraction given as a JSON string, read exactly."""
+    require(isinstance(s, str), "a number is not written as a string: %r" % (s,))
+    require(NUMBER.match(s) is not None, "not a plain decimal or fraction: %r" % (s,))
     return Fraction(s)          # Fraction accepts "-0.35180" and "-1759/5000"
 
 
-def load_config(path):
-    with open(path) as fh:
-        cfg = json.load(fh)
+def _no_float(text):
+    raise CheckFailed("the unquoted JSON number %s would be read as a float" % text)
+
+
+def _no_repeats(pairs):
+    keys = [k for k, _ in pairs]
+    require(len(keys) == len(set(keys)), "a key repeats in a JSON object")
+    return dict(pairs)
+
+
+def read_json(path):
+    """Read the file once; return its bytes' sha256 and the parsed object."""
+    with open(path, "rb") as fh:
+        raw = fh.read()
+    try:
+        obj = json.loads(raw.decode("utf-8"), parse_float=_no_float,
+                         parse_constant=_no_float, object_pairs_hook=_no_repeats)
+    except ValueError as e:
+        raise CheckFailed("not valid JSON: %s" % e)
+    return hashlib.sha256(raw).hexdigest(), obj
+
+
+def config_from(cfg):
+    require(isinstance(cfg, dict), "the configuration is not a JSON object")
+    require(isinstance(cfg.get("sites"), list) and isinstance(cfg.get("charges"), list),
+            "the configuration needs lists 'sites' and 'charges'")
+    for p in cfg["sites"]:
+        require(isinstance(p, list) and len(p) == 3, "a site is not a triple")
     sites = [tuple(parse_number(v) for v in p) for p in cfg["sites"]]
     charges = [parse_number(q) for q in cfg["charges"]]
     require(len(sites) == len(charges) and len(sites) >= 1, "sites and charges differ in number")
-    for p in sites:
-        require(len(p) == 3, "a site is not a triple")
     for q in charges:
         require(q > 0, "a charge is not positive")
     for a in range(len(sites)):
         for b in range(a):
             require(sites[a] != sites[b], "two sites coincide")
     return sites, charges
+
+
+def load_config(path):
+    return config_from(read_json(path)[1])
 
 
 class Field:
@@ -482,11 +520,24 @@ def fmt(x, digits=6):
     return "%s%d.%0*d" % (sign, whole, digits, frac)
 
 
+INTEGER = re.compile(r"^-?[0-9]+$")
+TREE = re.compile(r"^(?:[xyzHNI]|D[0-9]|K[0-9]+\.)*$")
+
+
 def check(config_path, cert_path, expected=None):
-    sites, charges = load_config(config_path)
-    with open(cert_path) as fh:
-        cert = json.load(fh)
+    digest, cfg = read_json(config_path)
+    sites, charges = config_from(cfg)
+    cert_digest, cert = read_json(cert_path)
+    require(isinstance(cert, dict), "the certificate is not a JSON object")
     require(cert.get("P") == P, "certificate made for a different grid")
+    require(isinstance(cert.get("boxes"), list), "the certificate has no list of boxes")
+    for b in cert["boxes"]:
+        require(isinstance(b, dict) and isinstance(b.get("lo"), list) and isinstance(b.get("hi"), list)
+                and len(b["lo"]) == 3 and len(b["hi"]) == 3, "a box is not two triples")
+        for v in b["lo"] + b["hi"]:
+            require(isinstance(v, str) and INTEGER.match(v) is not None, "a box corner is not an integer string")
+    require(isinstance(cert.get("tree"), str) and TREE.match(cert["tree"]) is not None,
+            "the tree is not a string of known tokens")
     tests = Tests(sites, charges)
 
     # Item 1: the uniqueness boxes.
@@ -517,7 +568,7 @@ def check(config_path, cert_path, expected=None):
         require(pos < len(tree), "the tree ends early")
         ch = tree[pos]
         pos += 1
-        if ch in "D":
+        if ch == "D":
             k = int(tree[pos])
             pos += 1
             return ch, k
@@ -571,10 +622,12 @@ def check(config_path, cert_path, expected=None):
     if expected is not None:
         require(count == expected, "the certificate proves %d, not %d" % (count, expected))
 
-    digest = hashlib.sha256(open(config_path, "rb").read()).hexdigest()
     lines = []
     lines.append("config %s sha256 %s" % (config_path, digest))
+    lines.append("certificate %s sha256 %s" % (cert_path, cert_digest))
     lines.append("charges %s" % ", ".join(str(q) for q in charges))
+    for j, p in enumerate(sites):
+        lines.append("site %d: (%s)" % (j, ", ".join(str(v) for v in p)))
     lines.append("uniqueness boxes: %d, pairwise disjoint" % count)
     for idx, ((lo, hi), sgn) in enumerate(zip(boxes, signs)):
         c, r = centre_radius(lo, hi)
