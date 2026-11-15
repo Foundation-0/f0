@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Blocking prose gate for anything posted where a human reads it.
 
-This is the copy used for the H1, H2 and W2 preflight. It is the same set of rules;
+This is the copy used for the H1 and H2 preflight. It is the same set of rules;
 the internal-identifier list is trimmed, see IDENTIFIER_PATTERNS below.
 
 Run this BEFORE posting any external text (PR/issue body or comment, review, docs,
