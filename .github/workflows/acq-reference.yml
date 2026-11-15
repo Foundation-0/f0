@@ -1,0 +1,51 @@
+name: acq-reference
+# Run the ACQ reference package under deep-fields/scouting/acq-reference:
+# its unittest suite, its CLI, and the Lean proof check with the pinned toolchain.
+# Separate from `site` because installing Lean needs the network, and `site`
+# reads only files in the repository.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'deep-fields/scouting/acq-reference/**'
+      - '.github/workflows/acq-reference.yml'
+  pull_request:
+    paths:
+      - 'deep-fields/scouting/acq-reference/**'
+      - '.github/workflows/acq-reference.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  acq-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pinned elan release, not the rolling installer: elan.lean-lang.org
+      # serves the latest elan-init.sh, which itself downloads the latest
+      # elan binary, so neither is pinned. The tarball below is elan v4.2.4
+      # (2026-08-25); its SHA-256 was recorded when the workflow was written.
+      # If elan cuts a new release, update the version and the hash together.
+      - name: Install Lean v4.35.0 (pinned elan v4.2.4)
+        run: |
+          curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz -o /tmp/elan.tar.gz
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  /tmp/elan.tar.gz" | sha256sum -c -
+          tar xzf /tmp/elan.tar.gz -C /tmp
+          /tmp/elan-init -y --no-modify-path --default-toolchain leanprover/lean4:v4.35.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Check the Lean version
+        run: lean --version | grep -F "version 4.35.0"
+
+      - name: Unit tests (kernel, planted lint vectors, Lean proof-check tests)
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -I -m unittest discover -s deep-fields/scouting/acq-reference -p 'test_*.py'
+
+      - name: Reference suite (python -O, so a witness check cannot depend on assert)
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -I -O deep-fields/scouting/acq-reference/acq_kernel.py
+
+      - name: Compile the Lean file and check the axioms of every theorem
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -I deep-fields/scouting/acq-reference/check_lean.py
