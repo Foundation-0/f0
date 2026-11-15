@@ -39,6 +39,7 @@ All of these are proved by hand in the thread's notes, `checks/three/NOTES.md`.
 - [F] `scan_shapes.py` traced the fold curve for 2,184 triangle shapes, down to very flat ones. In every shape the minimum region is one piece, the image of its boundary has 3 cusps and does not cross itself.
 - [F] `cusp_scan.py` sampled 4,866 cusps over the whole family. The coefficient that decides the kind of cusp, scaled, is at most -1/3 in all of them. A positive value would mean two minima. The value -1/3 is approached only when one charge is small and near the saddle of the other two.
 - [F] A separate search by the reviewer, `degenerate3_reviewer.py`, solves for cusps directly from 400 random starts with its own reduction to one variable. It found 88 cusps. The fourth derivative is negative at all 88, the harmless kind.
+- [F] The same program, asked for points of fourth order, which would force 6 balance points, found none from 250 starts.
 - [F] **A local lemma.** A small charge near the saddle of the other two has at most one minimum. The proof reduces to counting roots of one equation in one variable. A numerical check on 400 random cases agrees.
 - [F] The limit where two charges collide, modelled as two charges in a uniform field, shows the same simple picture. That model is not proved.
 
@@ -88,5 +89,5 @@ python3 cusp_scan.py 200
 
 - The equilateral result rests on one program for the pair step.
 - The scans of shapes and cusps are numerical.
-- The reviewer re-read the logs and did not re-run the certificate, because the machine was heavily loaded. The reviewer's own search for points of fourth order, which would force 6 balance points, was still running when this note was written.
+- The reviewer re-ran the second program. It again proved the coverage and all 7,343 box certificates, and resolved 400 of 400 sampled pairs, 200 of them beyond the thread's own sample. The reviewer did not re-run the first program or write a third.
 - Whether the equilateral result is new was not checked beyond the three papers named above.
