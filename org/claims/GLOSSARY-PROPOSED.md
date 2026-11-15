@@ -13,13 +13,14 @@ repositories. A reader cannot tell what PROVEN promises.
 One shared set, defined by the evidence each word needs,
 fixes that without judging any single claim here.
 
-## The eight verdict words
+## The nine verdict words
 
-The execution plan in issue 42 defines eight words.
+The execution plan in issue 42 defines eight words. This proposal
+adds a ninth, CLAIMED, for a claim stated but not yet checked here.
 Decision 4 names four of them as the public claim labels:
-CLAIMED, REPRODUCED, VERIFIED, PROVEN. The other four
-(KNOWN, OPEN, OVERSTATED, CONTRADICTED, plus NOT CHECKABLE
-as a state) belong to review records. [I] The split between
+CLAIMED, REPRODUCED, VERIFIED, PROVEN. The other five
+(KNOWN, OPEN, OVERSTATED, CONTRADICTED, NOT CHECKABLE)
+belong to review records. [I] The split between
 public label and review verdict is part of the proposal.
 
 | Word | Meaning | Evidence the word needs |
