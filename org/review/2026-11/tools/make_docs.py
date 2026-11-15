@@ -96,21 +96,30 @@ def h1_doc():
                  "(`D01` to `D09`) from `research/update-d144448-review/CLAIM_MAP.json`. Each "
                  "D row names the claim it reviews in the `xref` column.")
     lines.append("- exoplanets-frontier: 8 claims (`C-01` to `C-08`) from `CLAIMS.md`.")
-    lines.append("- project-asma: 118 claims from `registries/claims-ledger.json`.")
+    lines.append("- project-asma: 128 claims, 118 from `registries/claims-ledger.json` "
+                 "and 10 (`A1` to `A5`, `B1`, `C1` to `C3`) from "
+                 "`docs/cdr2-hla-ii-evidence-map-2026-11-06.md`, found by the scan.")
+    lines.append("- incentre-lattices: 1 claim (`H1`) from `docs/audit.md`, found by "
+                 "the scan.")
+    lines.append("- rigid-realizations: 3 claims (`L344`, `L880`, `G160`) from "
+                 "`README.md`, found by the scan.")
     lines.append("")
-    lines.append("The `scope` column carries the decision: `in` for gravity and "
-                 "exoplanets-frontier, 60 rows in all, and `reference` for project-asma, 118 "
-                 "rows. F2 can filter on the column instead of the repository name.")
+    lines.append("The `scope` column carries the decision: `in` for gravity, "
+                 "exoplanets-frontier, incentre-lattices and rigid-realizations, 64 rows "
+                 "in all, and `reference` for project-asma, 128 rows. F2 can filter on "
+                 "the column instead of the repository name.")
     lines.append("")
     lines.append("The label column repeats the label as written, with Markdown backticks "
                  "removed and nothing else changed. Where a claim carries two labels, both "
-                 "are kept.")
+                 "are kept. The text column keeps the claim wording verbatim, backticks "
+                 "included. Only the label column strips them.")
     lines.append("")
-    lines.append("**32 of the 35 public repositories define no claim ID at all.** They state "
+    lines.append("**30 of the 35 public repositories define no claim ID at all.** They state "
                  "results in a `README.md`, a `PROOF.md`, or named result folders, without "
-                 "IDs to cite. The exceptions are gravity, exoplanets-frontier and "
-                 "project-asma. A scan of every Markdown and JSON file for an ID pattern "
-                 "followed by a label found no other register. The 32:")
+                 "IDs to cite. The exceptions are gravity, exoplanets-frontier, "
+                 "project-asma, incentre-lattices and rigid-realizations. A scan of every "
+                 "Markdown and JSON file for an ID pattern "
+                 "followed by a label found no other register. The 30:")
     lines.append("")
     lines.append(", ".join("`%s`" % r for r in no_ids) + ".")
     lines.append("")
@@ -127,6 +136,8 @@ def h1_doc():
         {"repository": "exoplanets-frontier",
          "labels": "VERIFIED, FALSIFIED, CONJECTURE, KNOWN"},
         {"repository": "project-asma", "labels": "VERIFIED, KNOWN, CONJECTURE"},
+        {"repository": "incentre-lattices", "labels": "CLAIMED"},
+        {"repository": "rigid-realizations", "labels": "KNOWN, CLAIMED"},
     ], ["repository", "labels"]))
     lines.append("")
     lines.append("## Results without a claim ID")
@@ -138,6 +149,11 @@ def h1_doc():
                  "whitespace collapsed. Nothing else changes." %
                  (len(res), len({r["repository"] for r in res}),
                   sum(1 for r in res if r["label"])))
+    lines.append("")
+    lines.append("Two repositories in this index also carry a few claim IDs of their own "
+                 "(incentre-lattices `H1`, rigid-realizations `L344`, `L880`, `G160`). "
+                 "Their stated results are indexed here all the same, since the IDs cover "
+                 "only a handful of rows.")
     lines.append("")
     lines.append("Three sources, all mechanical:")
     lines.append("")
@@ -237,16 +253,17 @@ def h1_doc():
     lines.append("")
     lines.append("Three mutation tests on copies of the clones, each discarded afterwards:")
     lines.append("")
-    lines.append("- Deleting the `gaia-dr4` row from the project table in `astr0/README.md` "
-                 "removed exactly one row, `astr0/R-5`, and left 382")
+    lines.append("- Deleting the `gaia-dr4` row, `astr0/R-4`, from the project table in "
+                 "`astr0/README.md` removed exactly one row (the rows after it renumber, "
+                 "so `R-5` is the ID that vanishes) and left 382")
     lines.append("- Deleting the `C-10` line from `gravity/CLAIMS.md` removed exactly that "
-                 "row, 178 to 177")
+                 "row, 192 to 191")
     lines.append("- Adding one `assert` to `gravity/verify_all.py` raised gravity's count "
                  "from 245 to 246")
     lines.append("")
     lines.append("## Limits")
     lines.append("")
-    lines.append("- The head is a moment. Email-style counts will move as PRs merge.")
+    lines.append("- The head is a moment. Counts will move as PRs merge.")
     lines.append("- The classification is by name and path, not by reading each file, so a "
                  "checker with an unusual name is missed and library code that happens to be "
                  "named `check_*` is included. The lists are in the CSV so the error is "

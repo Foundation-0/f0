@@ -24,7 +24,11 @@ SOURCES = os.path.join(TOOLS, "sources")
 DOCS = [os.path.join(BASE, "h1-method.md"), os.path.join(BASE, "numbers.md")]
 OUT = BASE
 MIRRORS = os.path.join(TOOLS, "mirrors")
-repos = sorted(d for d in os.listdir(MIRRORS) if os.path.isdir(os.path.join(MIRRORS, d)))
+if not os.path.isdir(MIRRORS):
+    print("mirrors/ is missing; run clone-all.sh first", file=sys.stderr)
+    sys.exit(1)
+repos = sorted(d for d in os.listdir(MIRRORS)
+               if os.path.isdir(os.path.join(MIRRORS, d)))
 GENERATED = {"heads.tsv", "repos.tsv", "mirrors/"}
 
 branches = set()

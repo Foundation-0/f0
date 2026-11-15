@@ -322,10 +322,27 @@ def claims_json_ledger(repo, rel, id_field="id", label_field="label", text_field
     return out
 
 
+KNOWN_REGISTER_FILES = {
+    ("gravity", "CLAIMS.md"),
+    ("gravity", "METHODS_AND_PLAYBOOK.md"),
+    ("exoplanets-frontier", "CLAIMS.md"),
+    ("project-asma", "registries/claims-ledger.json"),
+    ("gravity", "research/update-d144448-review/CLAIM_MAP.json"),
+}
+
+LABEL_RE = re.compile(
+    r"(PROVEN|VERIFIED|REPRODUCED|KNOWN|OPEN|OVERSTATED|CONTRADICTED|NOT CHECKABLE|CONJECTURE|CLAIMED|COMPUTED|EMPIRICAL-FIT|FALSIFIED)",
+    re.I,
+)
+ID_RE = re.compile(r"^[A-Z]{1,2}-?\d{1,3}[a-z]?$")
+
+
 def claims_scan_md():
     """Catch ID definitions in other markdown files: a line that starts with the
-    id followed by a separator, and carries a label token on the same line."""
-    labels = r"(PROVEN|VERIFIED|REPRODUCED|KNOWN|OPEN|OVERSTATED|CONTRADICTED|NOT CHECKABLE|CONJECTURE|CLAIMED|COMPUTED|EMPIRICAL-FIT|FALSIFIED)"
+    id followed by a separator, and carries a label token on the same line.
+    Skips the files the known-register readers already cover, and the f0
+    review workspace itself (it quotes claim IDs in its own tables, so
+    scanning it would be circular)."""
     out = []
     repos = [l.split("\t")[0] for l in open(os.path.join(TOOLS, "repos.tsv")) if l.strip()]
     for repo in repos:
@@ -336,7 +353,9 @@ def claims_scan_md():
                 if not fn.endswith(".md"):
                     continue
                 rel = os.path.relpath(os.path.join(root, fn), d)
-                if rel in {"CLAIMS.md"}:
+                if (repo, rel) in KNOWN_REGISTER_FILES:
+                    continue
+                if repo == "f0" and rel.startswith("org/review/"):
                     continue
                 try:
                     lines = read(os.path.join(root, fn))
@@ -351,13 +370,87 @@ def claims_scan_md():
                         continue
                     cid = m.group(1)
                     rest = m.group(2)
-                    lm = re.search(labels, rest, re.I)
+                    lm = LABEL_RE.search(rest)
                     if not lm:
                         continue
                     out.append({
-                        "repository": repo, "claim_id": cid, "file": rel, "line": i,
+                        "repository": repo, "claim_id": cid, "kind": "claim",
+                        "file": rel, "line": i,
                         "label": lm.group(1).upper(),
-                        "text": rest.strip()[:300],
+                        "text": rest.strip()[:300], "xref": "",
+                    })
+    return out
+
+
+def _json_label(value):
+    """A label token found in a JSON value, or "" when there is none."""
+    if isinstance(value, str):
+        m = LABEL_RE.search(value)
+        return m.group(1).upper() if m else ""
+    if isinstance(value, dict):
+        for key in ("status", "label", "verdict"):
+            if isinstance(value.get(key), str):
+                m = LABEL_RE.search(value[key])
+                if m:
+                    return m.group(1).upper()
+        for v in value.values():
+            if isinstance(v, str):
+                m = LABEL_RE.search(v)
+                if m:
+                    return m.group(1).upper()
+    return ""
+
+
+def claims_scan_json():
+    """Catch ID definitions in other JSON files: an object key that is a claim
+    ID whose value carries a label token. Skips the two JSON registers the
+    known-register readers already cover. Line numbers are the first line
+    containing the quoted key (0 when the key is built, not written)."""
+    out = []
+    repos = [l.split("\t")[0] for l in open(os.path.join(TOOLS, "repos.tsv")) if l.strip()]
+    for repo in repos:
+        d = os.path.join(MIRRORS, repo)
+        for root, dirs, filenames in os.walk(d):
+            dirs[:] = [x for x in dirs if x != ".git"]
+            for fn in filenames:
+                if not fn.endswith(".json"):
+                    continue
+                rel = os.path.relpath(os.path.join(root, fn), d)
+                if (repo, rel) in KNOWN_REGISTER_FILES:
+                    continue
+                p = os.path.join(root, fn)
+                try:
+                    with open(p, encoding="utf-8") as fh:
+                        data = json.load(fh)
+                    lines = read(p)
+                except Exception:
+                    continue
+                found = {}
+
+                def walk(node):
+                    if isinstance(node, dict):
+                        for k, v in node.items():
+                            if isinstance(k, str) and ID_RE.match(k):
+                                label = _json_label(v)
+                                if label and k not in found:
+                                    text = v if isinstance(v, str) else json.dumps(v)[:300]
+                                    found[k] = (label, str(text)[:300])
+                            walk(v)
+                    elif isinstance(node, list):
+                        for v in node:
+                            walk(v)
+
+                walk(data)
+                for cid, (label, text) in found.items():
+                    ln = 0
+                    for i, line in enumerate(lines, 1):
+                        if f'"{cid}"' in line:
+                            ln = i
+                            break
+                    out.append({
+                        "repository": repo, "claim_id": cid, "kind": "claim",
+                        "file": rel, "line": ln, "label": label,
+                        "text": text, "xref": "",
                     })
     return out
 
@@ -373,6 +466,11 @@ def build_claims():
         label_field="status", text_field="summary", kind="review-disposition",
         xref_field="claim_ids",
     )
+    known = {(r["repository"], r["claim_id"]) for r in rows}
+    for r in claims_scan_md() + claims_scan_json():
+        if (r["repository"], r["claim_id"]) not in known:
+            rows.append(r)
+            known.add((r["repository"], r["claim_id"]))
     for r in rows:
         r["label"] = " ".join(str(r["label"]).replace("`", "").split())
         r["scope"] = "reference" if r["repository"] == "project-asma" else "in"
