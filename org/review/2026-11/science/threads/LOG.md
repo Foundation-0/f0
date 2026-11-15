@@ -39,25 +39,29 @@ Every result that came back was then re-run by the reviewer. For the results mar
 | 8 | Point charges back: separate proof of the five counts, plus exact 49 and 64. |
 | 9 | Gravity tests and the acceleration fit back. |
 | 10 | Recurrences back: 211 proved. The reviewer re-proved 46 with a separate machine. |
-| 11 | 11-vertex push back: 2,288 of 2,288. The reviewer's exact checker confirmed it. The same worker was sent on to 12 vertices. |
+| 11 | 11-vertex push back: at least 2,288 real realizations, the full complex count. The reviewer's exact checker confirmed it. The same worker was sent on to 12 vertices. |
 | 12 | Maxwell push back: nothing above the bound. The reviewer certified its second four-charge family. |
 | 13 | Central configurations back: 20, 42 and 67 classes. |
 | 14 | Notes written, draft PR 58 opened, findings posted to the matching issues. |
 | 15 | Second round: full reports captured, a durable archive made, and four statistical studies started (see `convergences.md`). |
 | 16 | The square law noticed in the factored polynomials, proved, and used: 238 recurrences. |
 | 17 | 12-vertex graph: 3,904 of 6,180 certified. The light-particle reading of the surviving gravity residual examined and written up with its tests. |
-| 18 | The wall picture of balance points written down, with two predictions. The nine-charge one checked the same hour. |
+| 18 | The wall picture of balance points written down, with two predictions. The nine-charge one was checked next. |
 | 19 | What was learned returned to the source repositories as draft pull requests and issues (see `SYMBIOSIS.md`). |
 | 20 | Three open paths taken up: four charges above 9, three charges above 4, faster growth with more charges. |
 | 21 | Four charges with 11 balance points found twice. A worker solved for a chosen gradient, Hessian and cubic part near the regular tetrahedron. The reviewer derived a closed form for every configuration with a flat point and unfolded one. |
 | 22 | Both certified by two exact programs. The reviewer wrote a third program for a lower bound, then a five-decimal certificate. |
-| 23 | The flat family surveyed for 13: every route through a flat point stops at 11. |
+| 23 | The flat family surveyed for 13: in the numerical surveys every route through a flat point stops at 11. |
 | 24 | The inversion rule written down: Taylor terms at a point are the multipoles of the reflected charges. Regular solids have centres flat to high order. |
-| 25 | Growth thread back: balance points can grow like n^(3/2). The reviewer checked the level counts with a separate program, proved lower bounds of 26 and 87 for the two exact configurations, and wrote a proof of the level count by an index theorem. |
+| 25 | Growth thread back: balance points can grow like n^(3/2). The reviewer checked the level counts with a separate program, proved lower bounds of 26 and 87 for the two exact configurations, and wrote a proof, by an index theorem, of a lower bound for the level count. It holds for pairs of forms near the one used and has not been checked by a second person. |
 | 26 | Push from the 11-point configurations back: nothing above 11 in 180 runs. |
 | 27 | Three-charge thread back: still open. The equilateral triangle is proved for all charges, and every sampled cusp is harmless. |
 | 28 | The four-charge result returned to the point-charges repository with the rest of that give-back. |
 | 29 | Flat-centre thread back: a harmonic quartic with all 27 critical points real, which the reviewer re-proved with two-digit coefficients. The icosahedron's centre reached 77 of 125 in the model, so no record for twelve charges. |
+| 30 | The team reviewed the folder in twelve passes and asked for changes: five blocking items and a list of major ones, all wording or missing files. Every proved result it re-ran reproduced. Its record and an exploration note are in pull request 60. |
+| 31 | The items were fixed in parallel and pushed as they landed: corrected sentences, written derivations and lemmas, missing inputs and a verifier brought into the folder, every recurrence proof verifier-run, the gravity and neutrino programs made re-runnable. |
+| 32 | The findings were counted (`review-meta.md`). A ledger that checks sentences against data files was built, then extended to 193 sentences by an audit of the summary pages, which found 12 more places to correct. |
+| 33 | The review's exploration note was checked in return and one of its open avenues answered (`critical-circles.md`). `framework.md` written. |
 
 ## 4. Dead ends and corrections
 
@@ -71,11 +75,11 @@ These are kept because each one changed what was done next.
 - **A census that missed a class.** For 10 equal masses, about 1.1 million random starts never found the regular decagon. A search started near the regular polygon found it. A census that has stopped finding new classes is evidence, not proof.
 - **A search that cannot be replayed.** One solver setting was changed during the 11-vertex push. The certificate stands alone, but the path to it cannot be rerun step for step.
 - **Workers could not write report files.** Their reports came back as messages. They are kept in full under `reports/`.
-- **A solver that rejected every sample.** The first all-roots solver for the cubic model marked 600,000 samples incomplete. For a harmonic cubic the x², y² and z² coefficients of the three equations are linearly dependent, so the standard monomial basis fails. A fixed change of coordinates removed it.
+- **A solver that rejected every sample.** The first all-roots solver for the cubic model marked every sample incomplete. For a harmonic cubic the x², y² and z² coefficients of the three equations are linearly dependent, so the standard monomial basis fails. A fixed change of coordinates removed it.
 - **A wall tracer with too large a first step.** On the 11-point configurations the first tracer reported a wall from a charge to itself. Its first step was larger than the inner cluster of balance points. A tracer that scales its step to the nearest balance point replaced it.
 - **False balance points near a flat point.** Newton's method converges slowly to a degenerate point, and unfinished iterates were counted as separate points. The index test caught it. The count now excludes a small ball around the flat point.
 - **A check of the reviewer's that was itself wrong.** The first check of the stacked levels used numerical derivatives inside a root finder. At six levels it reported 59 real critical points where the thread had 41. A worker preparing a give-back ran it to the end and reported the mismatch. An exact program then proved 41. The fault was in the check, not in the result.
-- **A needle that random search could not hit.** The 11-point region survives changes of about one part in a million. No random four-charge search would find it. It was found by solving for it.
+- **A needle that random search could not hit.** The 11-point region survives changes of one part in ten million to one in a million, depending on the configuration. No random four-charge search would find it. It was found by solving for it.
 
 ## 5. What was not done
 

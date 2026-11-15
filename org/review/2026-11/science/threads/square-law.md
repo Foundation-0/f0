@@ -8,7 +8,7 @@ The 211 recurrences proved in `recurrences.md` count grids of fixed width in whi
 
 - [F] 209 of the 211 are perfect squares. The other two, A268888 and A268997, are a square times (x + 1). No factor occurs more than twice.
 - [F] In all 88 families where both conditions are proved, "exactly once" and "at most once" have the same polynomial.
-- [F] For all 170 entries small enough to test with a separate machine, the square root g is the minimal recurrence of the count with no such pair at all. In the two exceptions that minimal recurrence is g (x + 1).
+- [F] For 168 of the 170 entries small enough to test with a separate machine, the square root g is the minimal recurrence of the count with no such pair at all. In the two exceptions that minimal recurrence is g (x + 1).
 
 So the recurrence for "one pair" is the square of the recurrence for "no pair". The rest of this note states that as a theorem, proves it, and uses it.
 

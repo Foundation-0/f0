@@ -1,0 +1,7 @@
+graph: 12 vertices, 21 edges, Laman (all vertex subsets checked)
+frame: v1 at origin, v2 on the positive x-axis; pinned edge exact; 20 equations, 20 unknowns
+3904 boxes: each holds exactly one real nonsingular solution (worst contraction bound 1.588e-01, worst inclusion ratio 7.938e-02)
+pairwise disjoint: min centre separation 1.140e-04 against 2r = 2.910e-11
+RESULT: 3904 distinct real nonsingular realizations modulo direct isometries (mirror images are among them)
+graph matches integer code 1514126886600097825 under the vertex map {1: 0, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 7: 6, 8: 7, 9: 8, 10: 9, 11: 10, 12: 11}
+count matches the expected 3904

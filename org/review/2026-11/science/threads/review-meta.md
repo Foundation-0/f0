@@ -73,6 +73,14 @@ Each cause below is traced to how the work was done.
 
 [I] The estimate is rough. The two kinds of pass were not independent, and the classes are the author's. It is still better than assuming the review found everything. The likeliest places are the ones two steps from the data: `README.md`, `convergences.md`, `fabric.md` and the pull-request text.
 
+### The estimate was then tested
+
+[F] After the fixes, the four summary pages were audited sentence by sentence against the data: about 175 sentences with a number, a verdict word or a mark. The audit found 12 more places where the page said more than the files, and about ten sentences with no supporting file in the folder. All are corrected or marked.
+
+[I] Twelve found against eleven predicted is closer than the method deserves. Some of the twelve are one defect carried into several pages, and the audit covered only four pages. What it does show is that the remaining defects were where the count said to look.
+
+[F] One of the twelve was not wording. The folder held no saved output of the three programs accepting the 12-vertex certificate, only a refusal from a program that does not apply to that graph. The three were run again and their outputs saved. All accept.
+
 ## What it implies for the larger aim
 
 [I] The foundation's aim is a single account of many things. That is a synthesis, and synthesis is exactly the layer where this review found the bias. A chain of ten summaries, each a little stronger than the last, turns "undecided" into "established" with no step that looks like an error.
@@ -83,7 +91,7 @@ Each cause below is traced to how the work was done.
 
 ## What was changed because of this
 
-1. **Sentences are now checked against data.** `checks/claims/check_claims.py` reads a ledger of sentences, each with a test on a data file. If a sentence leaves its note, or the data stops supporting it, the program fails. It starts with 27 claims, including the sentence the review found false. It should grow until every number in a headline is in it.
+1. **Sentences are now checked against data.** `checks/claims/check_claims.py` reads a ledger of sentences, each with a test on a data file. If a sentence leaves its note, or the data stops supporting it, the program fails. It started with 27 claims, including the sentence the review found false, and now holds 193.
 2. **The manifest is built from what a commit contains.** It can no longer describe files that are still being edited.
 3. **One rule for verdict words, stated in the folder.** VERIFIED needs a program written apart. REPRODUCED is one thread's programs agreeing. The word for a theorem is "proved", with what proves it.
 4. **Independence is named by kind.** Same proof in separate code. A different method. A different author and toolchain. A note says which.
