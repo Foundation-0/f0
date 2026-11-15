@@ -1,11 +1,14 @@
 /* Witness Map physics: order-of-magnitude, first-principles estimates. No dependencies.
- * Copy of witness-map/model.js in https://github.com/Foundation-0/fractals (c44283e); change it there first.
+ * Copy of witness-map/model.js in https://github.com/Foundation-0/fractals (48b923b); change it there first.
+ * Synced to that commit for the gas and emission kernels; the crowd and gravAtom additions in the
+ * source are not carried over (see CORRECTIONS.md in that repository).
  *
  * For an object of mass m asked to be in two places a gap dx apart:
  *   wave clock     t_wave = m dx^2 / hbar   (time for its wave to spread across the gap)
  *   witness rate   Gamma  = sum over witnesses of (hits per second) x (information per hit)
  *   witness number W      = Gamma x t_wave  (W < 1: the wave wins; W > 1: witnesses win)
- * Information per hit with wavenumber k: 1 - exp(-(k dx)^2 / 3) (Joos & Zeh 1985 long- and short-wavelength limits).
+ * Information per hit with wavenumber k: 1 - exp(-(k dx)^2 / 3) for a scattered photon (Joos & Zeh 1985 long- and
+ * short-wavelength limits); 1 - sin(k dx) / (k dx) for an emitted one (Hackermueller et al. 2004, eq. 5).
  * Black hole horizon (Danielson, Satishchandran & Wald 2022, eqs. 15 and 19), valid for dx << b:
  *   gravity  Gamma = G^6 M^5 m^2 dx^4 / (hbar c^10 b^10);  electric  Gamma = G^3 M^3 q^2 dx^2 / (eps0 hbar c^6 b^6)
  */
@@ -40,8 +43,10 @@
       { type: 'gas', label: 'Hydrogen atoms', n: 1, m: 1.6735e-27, T: 1e4 } ] },
   };
   // a = radius (m). selfHeat keeps the object's own temperature T; others take the surroundings' temperature.
-  // eps scales thermal emission (molecules glow about 100x more weakly than solid grains; calibrated so a
-  // buckyball loses its wave behaviour near 2,500-3,000 K, as in Hackermueller et al. 2004).
+  // eps scales thermal emission. For molecules eps = 0.01 is a fit, not a measured emissivity: it puts the loss of
+  // fringe visibility of heated C70 near the measured 2,500 K (Hackermueller et al. 2004). Measured C70 absorption in
+  // the visible corresponds to eps of about 1, but C70 cannot emit below 1.6 eV, which this model ignores
+  // (Hornberger et al. 2005). Below 2,000 K nothing checks this number. See CORRECTIONS.md.
   const OBJECTS = [
     { id: 'electron', name: 'Electron', m: 9.109e-31, a: 0, charged: true, home: 'uhv', seen: 'two-slit experiments' },
     { id: 'rb', name: 'Rubidium atom', m: 1.443e-25, a: 2.5e-10, noGlow: true, home: 'uhv', seen: 'atom interferometers' },
@@ -65,7 +70,8 @@
     for (const [x, dlx] of XS) { const k = x * k0; const nk = dil * k * k / (Math.PI * Math.PI) / Math.expm1(x); s += nk * f(k) * k * dlx; }
     return s;
   }
-  const info = (k, dx) => -Math.expm1(-k * k * dx * dx / 3);
+  const info = (k, dx) => -Math.expm1(-k * k * dx * dx / 3); // a scattered photon: two random directions (in and out)
+  const info1 = (k, dx) => { const x = k * dx; return x < 1e-3 ? x * x / 6 : 1 - Math.sin(x) / x; }; // an emitted photon: one
   function sigmaScatter(o, k) {
     if (o.dark || o.noScatter) return 0;
     if (o.charged) return C.sigmaT;
@@ -82,13 +88,16 @@
           const vbar = p.type === 'gas' ? Math.sqrt(8 * C.kB * p.T / (Math.PI * p.m)) : p.v;
           const k2 = p.type === 'gas' ? 3 * p.m * C.kB * p.T / (C.hbar * C.hbar) : Math.pow(p.m * p.v / C.hbar, 2);
           const R = p.n * vbar * Math.PI * Math.pow(o.a + C.rGas, 2);
-          const L = R * (4 * Math.PI / 9) * k2; g = R * -Math.expm1(-L * dx * dx / R);
+          // Long-wavelength limit L = n <v q^2> sigma / (3 hbar^2) for isotropic hard-sphere scattering (Schlosshauer
+          // 2019, arXiv:1911.06282, eqs. 67-68). In a thermal gas <v q^2> = (4/3) <v> <q^2>, so L = R (4/9) k2; a
+          // one-speed beam has L = R k2 / 3. (Was R (4 pi / 9) k2, a factor pi too large for gas; see CORRECTIONS.md.)
+          const L = R * (p.type === 'gas' ? 4 / 9 : 1 / 3) * k2; g = R * -Math.expm1(-L * dx * dx / R);
         }
         if (g > 0) parts.push({ label: p.label, rate: g });
       }
       const Tobj = o.noGlow ? 0 : (o.selfHeat ? o.T : (o.a > 0 && !o.charged ? env.Tamb : 0));
-      if (Tobj) { const g = planckIntegral(Tobj, 1, k => C.c * sigmaAbs(o, k) * info(k, dx)); if (g > 0) parts.push({ label: 'Its own heat glow', rate: g }); }
-      if (o.glowL) { const N = o.glowL * o.glowLambda / (C.h * C.c); parts.push({ label: 'Its own starlight', rate: N * info(2 * Math.PI / o.glowLambda, dx) }); }
+      if (Tobj) { const g = planckIntegral(Tobj, 1, k => C.c * sigmaAbs(o, k) * info1(k, dx)); if (g > 0) parts.push({ label: 'Its own heat glow', rate: g }); }
+      if (o.glowL) { const N = o.glowL * o.glowLambda / (C.h * C.c); parts.push({ label: 'Its own starlight', rate: N * info1(2 * Math.PI / o.glowLambda, dx) }); }
     }
     let bhNote = null;
     if (bh) {

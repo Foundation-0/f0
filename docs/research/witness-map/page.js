@@ -85,7 +85,7 @@
     const tip = (x, y) => { if (!window.F0 || !F0.tip) return; const r = last.find(z => z.o.id === o.id); if (r) F0.tip.show(tipHTML(r), x, y); };
     b.addEventListener('mousemove', e => tip(e.clientX, e.clientY));
     b.addEventListener('mouseleave', () => window.F0 && F0.tip && F0.tip.hide());
-    b.addEventListener('focus', () => { const rc = b.getBoundingClientRect(); tip(rc.left + rc.width * 0.6, rc.top); });
+    b.addEventListener('focus', () => { if (!b.matches(':focus-visible')) return; const rc = b.getBoundingClientRect(); tip(rc.left + rc.width * 0.6, rc.top); });
     b.addEventListener('blur', () => window.F0 && F0.tip && F0.tip.hide(true));
     rowsEl.appendChild(b); rowEls[o.id] = b;
   });
