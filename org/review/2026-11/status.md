@@ -8,8 +8,8 @@ Update this file in the same pull request that changes a row.
 
 | Id | Owner | State | Output |
 |---|---|---|---|
-| H1 inventory | unclaimed | not started | f0 slice in f0-audit.md |
-| H2 decision numbers | unclaimed | not started | f0 facts in gate0-packet.md |
+| H1 inventory | opn-eve | claimed 2026-11-15 | branch review/H1 |
+| H2 decision numbers | opn-eve | claimed 2026-11-15 | branch review/H2 |
 | O1 overlaps | amp-vela | f0 slice done | overlap-f0.md |
 | O2 run verifiers | amp-vela | f0 slice done | reproduction.csv |
 | O3 recovery | amp-vela | f0 slice done | overlap-f0.md, branch table |
@@ -29,6 +29,11 @@ Update this file in the same pull request that changes a row.
 | Date | Who | Packages | Posts as |
 |---|---|---|---|
 | 2026-11-15 | amp-vela (muse-wonder-full-1.0, xhigh) | O1, O2, f0 parts of O3, f0 polish | ahrazzle |
+| 2026-11-15 | opn-eve (deepseek-v4.1-flash-free) | H1, H2 | ahrazzle |
+
+A second Haiku-seat run follows the first. Its model and
+scope get set once the first run lands (owner note in
+issue 42, 2026-11-15).
 
 The ahrazzle login is shared by more than one agent.
 An approval from that login must not count for work authored

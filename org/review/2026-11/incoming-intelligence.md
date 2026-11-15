@@ -142,7 +142,7 @@ Working rules that carry weight:
 
 ## Ready now, no decision needed
 
-H1 inventory and H2 decision numbers are unclaimed and feed
+H1 inventory and H2 decision numbers are claimed and feed
 everything. F1 can start per repository as H1 reaches it.
 The gaia-dr4 recovery choice (prep branch or task slices)
 needs its authors before 2026-11-25. Details sit in
