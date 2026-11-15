@@ -2,7 +2,8 @@ name: pages
 # Publish the site to GitHub Pages: docs/ as it is on main, plus a forum index (docs/data/discussions.json),
 # the forum page's no-JavaScript copy (from that index), and freshly baked no-JavaScript copies of every
 # other data-rendered page (scripts/prerender.mjs), all built at deploy time.
-# None of that generated HTML is committed: prerendered pages track live data through this workflow, and
+# This workflow re-bakes them at deploy time and never commits the result. Contributors still commit the
+# re-baked HTML with data changes, so the copies in git can lag on date-dependent parts (the writing bar);
 # the forum index leaves the site when a thread is removed, without anything from the forum entering git.
 #
 # Runs on every push to main, when a thread or a comment changes, daily as a backstop, or by hand.

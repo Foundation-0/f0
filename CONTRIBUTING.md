@@ -55,7 +55,8 @@ with the network to GitHub blocked, and writes what each page's own script rende
 markers. Commit the changed `docs/**/*.html` with the data. It needs Playwright
 (`npm i --no-save playwright@1.56.1 && npx playwright install chromium`; set `PRERENDER_CHROMIUM=playwright`
 to use that browser). `node scripts/prerender.mjs --check` only reports whether any page is out of date.
-On `main`, the `prerender` workflow does the same and commits the result.
+The Pages workflow re-bakes every page at deploy time; the committed copy can lag on date-dependent
+parts such as the writing bar.
 
 After a change to `docs/data/ledger.json`, also refresh the share image, which shows every milestone and their
 count: `node scripts/og/shoot.mjs` writes `docs/assets/og.png` (1200×630) from the ledger. Look at it before you
