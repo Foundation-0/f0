@@ -123,7 +123,7 @@ Two configurations were built with exact rational sites and charges. For each, a
 - The scaling argument that carries step 3 into step 4 is standard and is not written out.
 - That changing the charges alone reaches every small set of low-degree terms is argued from the orthogonality of harmonics on a design. It was checked by rank for 6, 9 and 21 charges only.
 - No exact count was completed for either configuration. The lower bounds are proved.
-- No earlier statement of growth faster than linear was found in arXiv:2607.27197, arXiv:2501.05315 or arXiv:2609.09637, or by search. That is not proof that it is new.
+- No earlier statement of growth faster than linear was found in arXiv:2607.27197, arXiv:2501.05315 or arXiv:2609.09637, or by search. A second search on 15 November 2026 for a superlinear lower bound found only the linear ones: at least n - 1 for general positions, and the published 4 + 20m. That is not proof that the result is new.
 
 ## Next
 

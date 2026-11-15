@@ -139,7 +139,9 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 - [P] A 2022 paper gives nine balance points for four charges in a plane, which meets the bound.
 - [P] arXiv:2501.05315 treats the centre of the regular tetrahedron as degenerate and says only that it splits into three saddles.
 
-[F] Searches on 15 November 2026 found no report of more than 9 for four charges, and none of the multiplicity 11. That is "no earlier report found". It is not proof that the result is new.
+- [P] arXiv:2609.00336 bounds the critical points along a line by 2n - 1. arXiv:2609.03965 treats whether the number of balance points is always finite. Neither gives a count for four charges.
+
+[F] Searches on 15 November 2026, repeated after the team review noted that novelty had not been checked, found no report of more than 9 for four charges, and none of the multiplicity 11. That is "no earlier report found". It is not proof that the result is new. The papers were read from their abstracts, and the two September papers only from search summaries.
 
 [I] If the result holds, four is the smallest number of charges at which Maxwell's bound is known to fail. For three charges the bound is 4 and the proved limit is 6.
 

@@ -119,4 +119,5 @@ They need NumPy, mpmath and python-flint. `polysys.py` is the solver the first r
 - The counts for degrees 5 and 6 rest on the thread's prover alone.
 - That the octahedron and icosahedron have no balance point other than the centre is from random starts.
 - The step from the polynomial model to actual charges was done only for order 2, and in the growth thread for stacked levels.
+- [P] For cubic polynomials in three variables in general, eight real critical points is the known maximum, and the cases that reach it are classified (arXiv:2404.17891). So the cubic with 8 is in known territory. No source was found for harmonic polynomials of higher degree.
 - The thread's literature search found no result on the largest number of real critical points of a harmonic polynomial in three variables that is not homogeneous. For the homogeneous case on the sphere a count of 2(d² - d + 1) is published. That is not proof the quartic is new.
