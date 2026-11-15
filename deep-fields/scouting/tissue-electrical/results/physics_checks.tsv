@@ -1,0 +1,18 @@
+check	value	reference	note
+IT'IS 'Water': static permittivity (sum of ef and deltas)	84.64	78.30 at 25 C, 74.15 at 37 C	equals pure water at 7.9 C (Malmberg & Maryott 1956), but its relaxation time 8.38 ps is that of water at 24.4 C (Liebe et al. 1991)
+Gabriel Cerebrospinal Fluid: max permittivity 10 MHz-1 GHz	108.6	pure water at 37 C: 74.15	above pure water from 10 to 251 MHz
+Gabriel Eye (Vitreous Humor): max permittivity 10 MHz-1 GHz	70.01	pure water at 37 C: 74.15	never above pure water
+Gabriel Bile: max permittivity 10 MHz-1 GHz	119.5	pure water at 37 C: 74.15	above pure water from 10 to 324 MHz
+IT'IS (Peyman) Urine: max permittivity 10 MHz-1 GHz	96.55	pure water at 37 C: 74.15	above pure water from 10 to 178 MHz
+NICT Brain-Cerebrospinal fluid: max permittivity 10 MHz-1 GHz	73.83	pure water at 37 C: 74.15	below pure water
+NICT Eye-Vitreous: max permittivity 10 MHz-1 GHz	168	pure water at 37 C: 74.15	above pure water
+NICT Eye-Anterior humor: max permittivity 10 MHz-1 GHz	127.1	pure water at 37 C: 74.15	above pure water
+NICT Gallbladder bile: max permittivity 10 MHz-1 GHz	154.5	pure water at 37 C: 74.15	above pure water
+Sasaki Cerebrospinal Fluid: permittivity at 1 MHz (fitted data start at 130 MHz)	9111	73.2 at 130 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Dura: permittivity at 1 MHz (fitted data start at 130 MHz)	84.41	60.3 at 130 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Gall Bladder: permittivity at 1 MHz (fitted data start at 12 MHz)	105.2	98.6 at 12 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Gall Bladder Bile: permittivity at 1 MHz (fitted data start at 20 MHz)	135.7	123.4 at 20 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Lung (Deflated): permittivity at 1 MHz (fitted data start at 3.6 MHz)	842.5	443.2 at 3.6 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Stomach: permittivity at 1 MHz (fitted data start at 3 MHz)	1241	782.0 at 3 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Testis: permittivity at 1 MHz (fitted data start at 3.6 MHz)	2683	694.1 at 3.6 MHz	IT'IS documents the alternative set as valid above 1 MHz
+Sasaki Vitreous Humor: permittivity at 1 MHz (fitted data start at 130 MHz)	126.2	67.9 at 130 MHz	IT'IS documents the alternative set as valid above 1 MHz
