@@ -1,0 +1,6 @@
+N galaxies read: 135
+z 0.5-1.2 n= 65 zmed=0.90  median a_max=5.80e-10 (16-84%: 2.30-11.57)  a0_H=2.02e-10  frac(a_max<1.2)=0.06 frac(a_max<a0_H)=0.14
+z 1.2-1.9 n= 24 zmed=1.53  median a_max=3.95e-10 (16-84%: 2.20-9.33)  a0_H=2.89e-10  frac(a_max<1.2)=0.08 frac(a_max<a0_H)=0.21
+z 1.9-2.7 n= 46 zmed=2.23  median a_max=4.05e-10 (16-84%: 1.34-8.82)  a0_H=4.03e-10  frac(a_max<1.2)=0.15 frac(a_max<a0_H)=0.50
+OLS log a_max = -9.171 + -0.52(+-0.22) log E ; scatter 0.36 dex
+same, 10.4<logMb<11.0 (n=77): p = -0.78 +- 0.28

@@ -1,0 +1,7 @@
+id 18 e_logMbar mine 0.11 xcheck 0.17
+id 19 z mine 0.91 xcheck 0.85
+id 63 e_logMbar mine 0.11 xcheck 0.14
+id 84 e_fDM mine 0.17 xcheck 0.13
+id 89 e_Re mine 1.32 xcheck 1.42
+rows 100 100 cells compared 1300 disagreements 5
+Resolution by zoomed reading of the source image (xcheck/r18.png, r63.png, r84b.png, r89b.png): all 5 disagreements resolve to the data/rc100_table3.csv values (18 e_logMbar 0.11; 19 z 0.91; 63 e_logMbar 0.11; 84 e_fDM 0.17; 89 e_Re 1.32). Independent reading agreed on 1295/1300 cells.

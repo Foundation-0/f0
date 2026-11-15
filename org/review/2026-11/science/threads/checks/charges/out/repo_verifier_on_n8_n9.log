@@ -1,0 +1,10 @@
+wrote configs/n8_repo_format.json
+wrote configs/n9_repo_format.json
+configs/n8_repo_format.json
+  49 zero boxes verified (0.1s)
+  completeness: 480647 boxes {'natural': 28442, 'centred': 211271, 'dominance': 351, 'inside': 260} (117.2s)
+VERIFIED n8-c7-plus-centre: exactly 49 zeros, all non-degenerate; index 1: 21, index 2: 28; m2-m1 = 7 = n-1: True
+configs/n9_repo_format.json
+  64 zero boxes verified (0.1s)
+  completeness: 915205 boxes {'natural': 38448, 'centred': 418425, 'dominance': 404, 'inside': 326} (269.7s)
+VERIFIED n9-abk-third-pair: exactly 64 zeros, all non-degenerate; index 1: 28, index 2: 36; m2-m1 = 8 = n-1: True

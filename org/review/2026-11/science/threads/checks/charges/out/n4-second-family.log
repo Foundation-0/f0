@@ -1,0 +1,3 @@
+n4_second.json: n=4
+RESULT n4_second.json: count=9 index1=3 index2=6 m2-m1=3 n-1=3 {'boxes': 23065, 'L1': 376, 'L2': 128, 'T1': 1091, 'T2': 18135, 'Z': 452, 'newton_tries': 2589, 'max_level': 18, 'seconds': 6.5}
+AGREES with claimed count 9

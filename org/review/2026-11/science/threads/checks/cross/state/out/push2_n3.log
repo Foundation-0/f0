@@ -1,0 +1,33 @@
+[n3_four 0] best 4, nearest T at best count 1.772e+00, kicks 8, iters 262, 8s
+[n3_four 1] best 4, nearest T at best count 1.783e+00, kicks 8, iters 130, 5s
+[n3_four 2] best 4, nearest T at best count 5.987e-01, kicks 8, iters 300, 10s
+[n3_four 3] best 4, nearest T at best count 1.772e+00, kicks 8, iters 221, 7s
+[n3_four 4] best 4, nearest T at best count 6.260e-01, kicks 8, iters 300, 10s
+[n3_four 5] best 4, nearest T at best count 1.820e+00, kicks 8, iters 127, 5s
+[n3_four 6] best 4, nearest T at best count 1.771e+00, kicks 8, iters 197, 7s
+[n3_four 7] best 4, nearest T at best count 1.833e+00, kicks 8, iters 179, 6s
+[n3_four 8] best 4, nearest T at best count 6.161e-01, kicks 8, iters 300, 8s
+[n3_four 9] best 4, nearest T at best count 1.774e+00, kicks 8, iters 186, 8s
+[n3_four 10] best 4, nearest T at best count 5.666e-01, kicks 4, iters 300, 9s
+[n3_four 11] best 4, nearest T at best count 1.773e+00, kicks 8, iters 179, 9s
+[n3_four 12] best 4, nearest T at best count 1.771e+00, kicks 8, iters 193, 9s
+[n3_four 13] best 4, nearest T at best count 1.816e+00, kicks 8, iters 128, 7s
+*** [n3_four 14 it 65] physical 2 -> 4
+[n3_four 14] best 4, nearest T at best count 1.830e+00, kicks 8, iters 238, 7s
+[n3_four 15] best 4, nearest T at best count 5.497e-01, kicks 6, iters 300, 8s
+[n3_four 16] best 4, nearest T at best count 1.845e+00, kicks 8, iters 129, 5s
+[n3_four 17] best 4, nearest T at best count 5.102e-01, kicks 8, iters 291, 9s
+[n3_four 18] best 4, nearest T at best count 1.817e+00, kicks 8, iters 124, 5s
+[n3_four 19] best 4, nearest T at best count 1.772e+00, kicks 1, iters 300, 5s
+[n3_four 20] best 4, nearest T at best count 6.236e-01, kicks 8, iters 300, 10s
+[n3_four 21] best 4, nearest T at best count 6.818e-01, kicks 8, iters 236, 8s
+[n3_four 22] best 4, nearest T at best count 2.230e+00, kicks 3, iters 300, 5s
+[n3_four 23] best 4, nearest T at best count 1.794e+00, kicks 8, iters 127, 5s
+[n3_four 24] best 4, nearest T at best count 3.326e+00, kicks 2, iters 300, 4s
+[n3_four 25] best 4, nearest T at best count 1.810e+00, kicks 8, iters 124, 5s
+[n3_four 26] best 4, nearest T at best count 3.326e+00, kicks 8, iters 150, 5s
+[n3_four 27] best 4, nearest T at best count 1.042e+00, kicks 8, iters 300, 10s
+[n3_four 28] best 4, nearest T at best count 5.913e-01, kicks 8, iters 244, 8s
+[n3_four 29] best 4, nearest T at best count 1.779e+00, kicks 8, iters 188, 8s
+[n3_four 30] best 4, nearest T at best count 5.909e-01, kicks 6, iters 300, 8s
+DONE n3_four

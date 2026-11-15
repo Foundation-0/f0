@@ -1,0 +1,11 @@
+name:"some element plus some" pages 12 entries 110 range 268621 270850
+name:"neighbor totalling" Hardin pages 12 entries 110 range 268621 270150
+name:"totalling" name:"no more than once" pages 8 entries 73 range 268621 269295
+name:"totalling" name:"exactly once" name:"0..3" pages 6 entries 55 range 269090 270845
+name:"totalling" name:"exactly once" name:"binary" pages 5 entries 41 range 268760 269017
+name:"totalling" name:"horizontally or vertically" pages 8 entries 75 range 268621 270118
+name:"totalling" name:"antidiagonally or vertically" pages 7 entries 61 range 269136 270150
+name:"totalling" name:"0..2" pages 11 entries 105 range 85203 328268
+name:"totalling" name:"0..4" pages 3 entries 27 range 245865 270846
+name:"totalling" name:"kXn" pages 1 entries 0 range None None
+name:"totalling" name:"4Xn" pages 1 entries 9 range 268889 269292

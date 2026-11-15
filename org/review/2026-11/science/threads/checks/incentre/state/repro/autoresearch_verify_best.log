@@ -1,0 +1,31 @@
+{
+ "valid": true,
+ "reasons": [],
+ "states": 793,
+ "m": 2,
+ "final_density": 0.7404804896930612,
+ "max_density": 0.7404804896930612,
+ "contacts_per_ball_min": 12,
+ "contacts_per_ball_mean": 12.0,
+ "contacts_per_ball_max": 12,
+ "contact_pairs": 288,
+ "contact_degree_histogram": {
+  "12": 48
+ },
+ "end_lattice_lengths": [
+  2.8697557408572036,
+  2.8697557408572036,
+  2.7056316596122048
+ ],
+ "end_lattice_cos_angles": [
+  4.289610691196225e-17,
+  -2.5022729031977982e-17,
+  -0.5000000000000001
+ ],
+ "extra_contacts_beyond_bars": 168,
+ "flex_bars_only": 29,
+ "flex_bars_plus_contacts": 0,
+ "first_order_density_ascent_rate": -2.507763236830124e-16,
+ "first_order_jammed": true
+}
+$P autoresearch-fold/verify.py autoresearch-fold/best/path.npz  3.30s user 0.10s system 98% cpu 3.440 total

@@ -1,0 +1,23 @@
+== cert_arb.py with class 1 centre moved by 2^-12
+FAIL: Krawczyk inclusion fails in coordinate 0
+== corrupt/n8_coord_moved.json
+REJECT: Krawczyk inclusion fails (coordinate 0)
+REJECT: Krawczyk inclusion fails (coordinate 0)
+== corrupt/n8_duplicate_class.json
+REJECT: classes 1 and 21 not proved distinct
+REJECT: classes 1 and 21 not proved distinct
+== corrupt/n8_unique_radius_too_big.json
+REJECT: Krawczyk inclusion fails (coordinate 0)
+REJECT: Krawczyk inclusion fails (coordinate 0)
+== corrupt/n8_wrong_labelled_count.json
+REJECT: labelled count in certificate disagrees
+REJECT: labelled count in certificate disagrees
+== corrupt/n8_wrong_morse_index.json
+REJECT: class 10: Morse index in certificate disagrees
+REJECT: class 10: Morse index in certificate disagrees
+== corrupt/n8_wrong_pinned.json
+REJECT: Krawczyk inclusion fails (coordinate 0)
+REJECT: Krawczyk inclusion fails (coordinate 0)
+== corrupt/n8_wrong_sym_order.json
+REJECT: class 7: symmetry order in certificate disagrees
+REJECT: class 7: symmetry order in certificate disagrees

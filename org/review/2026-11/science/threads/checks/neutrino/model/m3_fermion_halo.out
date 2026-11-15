@@ -1,0 +1,74 @@
+
+== correction set: nominal (no corrections) {}
+   g=2 occupation 0.50: m needed per system: min 2.66, median 4.67, 95th pct 17.38, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.76 -0.10 log kT (r=-0.09)
+   g=4 occupation 0.50: m needed per system: min 2.23, median 3.93, 95th pct 14.61, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.69 -0.10 log kT (r=-0.09)
+   g=2 occupation 0.88: m needed per system: min 1.72, median 2.91, 95th pct 10.66, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.57 -0.12 log kT (r=-0.11)
+   abundance test at r500 (g=2, occupation 1/2): predicted M_h/M_b = min(f m/2.084, cap(m)); score = rms of log(pred/need) over systems with need>0
+     one species, fully thermal (Omega h^2 = m/93.14): best m = 10 eV, rms 1.468 dex, capped by phase space in 6/43 systems, corr(pred,need) +0.05; m within +0.05 dex of best: [6, 7, 8, 10, 11, 12, 15]
+        1:2.86/43/-2.10 1.5:2.31/43/-1.39 2:1.98/41/-0.89 2.5:1.78/40/-0.51 3:1.66/36/-0.19 4:1.56/27/+0.14 5:1.52/18/+0.39 6:1.49/9/+0.51 7:1.48/9/+0.58 8:1.47/7/+0.70 10:1.47/6/+0.80 11:1.47/5/+0.85 12:1.48/4/+0.89 15:1.50/4/+0.99 20:1.55/4/+1.14 25:1.60/3/+1.23 30:1.64/3/+1.31
+     g=4 equivalent / two species (x2): best m = 5 eV, rms 1.581 dex, capped by phase space in 27/43 systems, corr(pred,need) +0.06; m within +0.05 dex of best: [4, 5, 6, 7, 8]
+        1:2.86/43/-2.10 1.5:2.31/43/-1.39 2:1.98/43/-0.89 2.5:1.79/41/-0.51 3:1.67/40/-0.19 4:1.58/35/+0.30 5:1.58/27/+0.53 6:1.60/20/+0.73 7:1.62/11/+0.84 8:1.63/9/+0.94 10:1.65/7/+1.10 11:1.66/6/+1.14 12:1.67/6/+1.18 15:1.71/4/+1.29 20:1.78/4/+1.42 25:1.84/4/+1.53 30:1.89/3/+1.61
+     three species (x3): best m = 4 eV, rms 1.595 dex, capped by phase space in 37/43 systems, corr(pred,need) +0.08; m within +0.05 dex of best: [4, 5]
+        1:2.86/43/-2.10 1.5:2.31/43/-1.39 2:1.98/43/-0.89 2.5:1.79/43/-0.51 3:1.67/41/-0.19 4:1.59/37/+0.31 5:1.61/32/+0.59 6:1.65/24/+0.83 7:1.70/20/+0.98 8:1.73/11/+1.08 10:1.76/9/+1.21 11:1.78/7/+1.30 12:1.80/7/+1.35 15:1.85/5/+1.47 20:1.92/4/+1.59 25:1.98/4/+1.69 30:2.04/4/+1.79
+     half-thermalised (x0.5): best m = 12 eV, rms 1.305 dex, capped by phase space in 4/43 systems, corr(pred,need) +0.05; m within +0.05 dex of best: [8, 10, 11, 12, 15, 20]
+        1:2.86/43/-2.10 1.5:2.31/43/-1.39 2:1.99/40/-0.89 2.5:1.78/35/-0.51 3:1.66/28/-0.35 4:1.53/18/-0.00 5:1.45/9/+0.14 6:1.40/7/+0.26 7:1.36/6/+0.34 8:1.34/6/+0.40 10:1.31/4/+0.51 11:1.31/4/+0.55 12:1.31/4/+0.59 15:1.31/4/+0.71 20:1.34/3/+0.84 25:1.37/2/+0.93 30:1.40/2/+1.01
+   need M_extra/M_b at r500: median 0.58; vs kT slope +1.23; richest (kT>6) median 1.57
+
+== correction set: obs-low {'b2500': 0.03, 'b500': 0.06, 'sqrtC': 1.03, 'ge': 0.01, 'kstar': 1.5}
+   g=2 occupation 0.50: m needed per system: min 2.79, median 5.27, 95th pct 15.81, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.82 -0.19 log kT (r=-0.19)
+   g=4 occupation 0.50: m needed per system: min 2.35, median 4.44, 95th pct 13.29, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.75 -0.19 log kT (r=-0.19)
+   g=2 occupation 0.88: m needed per system: min 1.80, median 3.33, 95th pct 9.70, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.63 -0.20 log kT (r=-0.20)
+   abundance test at r500 (g=2, occupation 1/2): predicted M_h/M_b = min(f m/2.084, cap(m)); score = rms of log(pred/need) over systems with need>0
+     one species, fully thermal (Omega h^2 = m/93.14): best m = 15 eV, rms 0.898 dex, capped by phase space in 4/51 systems, corr(pred,need) +0.02; m within +0.05 dex of best: [10, 11, 12, 15, 20]
+        1:3.06/51/-2.58 1.5:2.42/51/-1.88 2:2.01/49/-1.38 2.5:1.71/48/-0.99 3:1.50/44/-0.67 4:1.24/32/-0.20 5:1.11/24/-0.03 6:1.03/11/+0.09 7:0.98/9/+0.17 8:0.95/9/+0.23 10:0.92/5/+0.35 11:0.90/4/+0.39 12:0.90/4/+0.42 15:0.90/4/+0.52 20:0.93/3/+0.66 25:0.97/2/+0.76 30:1.01/2/+0.84
+     g=4 equivalent / two species (x2): best m = 8 eV, rms 1.058 dex, capped by phase space in 11/51 systems, corr(pred,need) +0.03; m within +0.05 dex of best: [6, 7, 8, 10, 11, 12, 15]
+        1:3.06/51/-2.58 1.5:2.42/51/-1.88 2:2.01/51/-1.38 2.5:1.71/49/-0.99 3:1.50/48/-0.67 4:1.25/41/-0.17 5:1.13/33/+0.19 6:1.08/26/+0.34 7:1.07/14/+0.46 8:1.06/11/+0.53 10:1.06/9/+0.63 11:1.07/7/+0.67 12:1.07/5/+0.73 15:1.10/4/+0.82 20:1.16/4/+0.95 25:1.21/3/+1.06 30:1.27/2/+1.14
+     three species (x3): best m = 6 eV, rms 1.122 dex, capped by phase space in 30/51 systems, corr(pred,need) +0.10; m within +0.05 dex of best: [5, 6, 7, 8, 10]
+        1:3.06/51/-2.58 1.5:2.42/51/-1.88 2:2.01/51/-1.38 2.5:1.71/51/-0.99 3:1.50/49/-0.67 4:1.25/45/-0.17 5:1.15/38/+0.21 6:1.12/30/+0.47 7:1.13/25/+0.58 8:1.14/14/+0.69 10:1.16/9/+0.80 11:1.17/9/+0.85 12:1.19/8/+0.88 15:1.23/4/+1.00 20:1.30/4/+1.12 25:1.37/4/+1.24 30:1.43/3/+1.32
+     half-thermalised (x0.5): best m = 20 eV, rms 0.740 dex, capped by phase space in 2/51 systems, corr(pred,need) +0.03; m within +0.05 dex of best: [15, 20, 25, 30]
+        1:3.06/51/-2.58 1.5:2.42/51/-1.88 2:2.01/48/-1.38 2.5:1.72/42/-0.99 3:1.52/34/-0.67 4:1.27/24/-0.42 5:1.13/11/-0.28 6:1.03/9/-0.20 7:0.96/7/-0.13 8:0.91/4/-0.05 10:0.84/4/+0.04 11:0.81/4/+0.09 12:0.79/4/+0.12 15:0.75/3/+0.24 20:0.74/2/+0.36 25:0.75/2/+0.46 30:0.77/2/+0.54
+   need M_extra/M_b at r500: median 2.01; vs kT slope +0.41; richest (kT>6) median 2.74
+
+== correction set: simulation {'b2500': 0.13, 'b500': 0.2, 'sqrtC': 1.1, 'ge': 0.03, 'kstar': 1.6}
+   g=2 occupation 0.50: m needed per system: min 3.05, median 5.91, 95th pct 14.64, max 100.00 eV [3C442A, kT 1.34]; trend log m = 0.86 -0.21 log kT (r=-0.24)
+   g=4 occupation 0.50: m needed per system: min 2.57, median 4.97, 95th pct 12.31, max 90.72 eV [3C442A, kT 1.34]; trend log m = 0.79 -0.21 log kT (r=-0.24)
+   g=2 occupation 0.88: m needed per system: min 1.97, median 3.78, 95th pct 9.01, max 67.13 eV [3C442A, kT 1.34]; trend log m = 0.67 -0.22 log kT (r=-0.26)
+   abundance test at r500 (g=2, occupation 1/2): predicted M_h/M_b = min(f m/2.084, cap(m)); score = rms of log(pred/need) over systems with need>0
+     one species, fully thermal (Omega h^2 = m/93.14): best m = 15 eV, rms 0.564 dex, capped by phase space in 4/51 systems, corr(pred,need) +0.02; m within +0.05 dex of best: [11, 12, 15, 20]
+        1:3.22/51/-2.94 1.5:2.56/51/-2.24 2:2.10/51/-1.74 2.5:1.77/48/-1.35 3:1.51/45/-1.03 4:1.16/34/-0.53 5:0.96/25/-0.30 6:0.84/14/-0.16 7:0.75/9/-0.09 8:0.70/9/-0.03 10:0.62/4/+0.09 11:0.60/4/+0.13 12:0.58/4/+0.17 15:0.56/4/+0.26 20:0.58/2/+0.39 25:0.62/2/+0.49 30:0.67/1/+0.57
+     g=4 equivalent / two species (x2): best m = 10 eV, rms 0.724 dex, capped by phase space in 9/51 systems, corr(pred,need) +0.02; m within +0.05 dex of best: [8, 10, 11, 12, 15]
+        1:3.22/51/-2.94 1.5:2.56/51/-2.24 2:2.10/51/-1.74 2.5:1.76/51/-1.35 3:1.50/48/-1.03 4:1.15/45/-0.53 5:0.95/34/-0.14 6:0.84/26/+0.08 7:0.78/20/+0.20 8:0.75/11/+0.26 10:0.72/9/+0.37 11:0.73/7/+0.43 12:0.73/4/+0.47 15:0.75/4/+0.57 20:0.81/3/+0.69 25:0.88/2/+0.79 30:0.94/2/+0.87
+     three species (x3): best m = 8 eV, rms 0.812 dex, capped by phase space in 21/51 systems, corr(pred,need) +0.06; m within +0.05 dex of best: [6, 7, 8, 10, 11, 12]
+        1:3.22/51/-2.94 1.5:2.56/51/-2.24 2:2.10/51/-1.74 2.5:1.76/51/-1.35 3:1.50/50/-1.03 4:1.15/47/-0.53 5:0.96/41/-0.14 6:0.86/33/+0.17 7:0.82/26/+0.32 8:0.81/21/+0.43 10:0.82/9/+0.54 11:0.83/9/+0.59 12:0.84/8/+0.63 15:0.89/4/+0.74 20:0.96/4/+0.87 25:1.04/3/+0.97 30:1.10/2/+1.05
+     half-thermalised (x0.5): best m = 25 eV, rms 0.420 dex, capped by phase space in 1/51 systems, corr(pred,need) +0.03; m within +0.05 dex of best: [20, 25, 30]
+        1:3.22/51/-2.94 1.5:2.56/51/-2.24 2:2.11/48/-1.74 2.5:1.78/45/-1.35 3:1.53/37/-1.03 4:1.22/25/-0.70 5:1.03/11/-0.54 6:0.91/9/-0.45 7:0.82/7/-0.37 8:0.75/4/-0.31 10:0.64/4/-0.21 11:0.60/4/-0.17 12:0.56/4/-0.13 15:0.49/2/-0.03 20:0.43/2/+0.09 25:0.42/1/+0.19 30:0.43/1/+0.27
+   need M_extra/M_b at r500: median 3.82; vs kT slope +0.27; richest (kT>6) median 4.48
+
+== correction set: lensing-high {'b2500': 0.1, 'b500': 0.31, 'sqrtC': 1.15, 'ge': 0.05, 'kstar': 1.9}
+   g=2 occupation 0.50: m needed per system: min 2.95, median 5.23, 95th pct 8.01, max 15.56 eV [3C442A, kT 1.34]; trend log m = 0.77 -0.20 log kT (r=-0.44)
+   g=4 occupation 0.50: m needed per system: min 2.48, median 4.39, 95th pct 6.73, max 13.09 eV [3C442A, kT 1.34]; trend log m = 0.70 -0.20 log kT (r=-0.44)
+   g=2 occupation 0.88: m needed per system: min 1.85, median 3.29, 95th pct 4.98, max 9.58 eV [3C442A, kT 1.34]; trend log m = 0.58 -0.22 log kT (r=-0.51)
+   abundance test at r500 (g=2, occupation 1/2): predicted M_h/M_b = min(f m/2.084, cap(m)); score = rms of log(pred/need) over systems with need>0
+     one species, fully thermal (Omega h^2 = m/93.14): best m = 12 eV, rms 0.114 dex, capped by phase space in 1/51 systems, corr(pred,need) +0.03; m within +0.05 dex of best: [10, 11, 12, 15]
+        1:2.86/51/-2.81 1.5:2.17/51/-2.11 2:1.69/49/-1.61 2.5:1.33/46/-1.22 3:1.05/39/-0.91 4:0.69/24/-0.55 5:0.49/9/-0.38 6:0.38/6/-0.30 7:0.29/3/-0.23 8:0.23/1/-0.17 10:0.15/1/-0.07 11:0.12/1/-0.03 12:0.11/1/+0.00 15:0.16/1/+0.10 20:0.27/0/+0.23 25:0.36/0/+0.33 30:0.44/0/+0.41
+     g=4 equivalent / two species (x2): best m = 7 eV, rms 0.230 dex, capped by phase space in 6/51 systems, corr(pred,need) +0.07; m within +0.05 dex of best: [6, 7, 8]
+        1:2.86/51/-2.81 1.5:2.17/51/-2.11 2:1.69/51/-1.61 2.5:1.32/49/-1.22 3:1.03/47/-0.91 4:0.62/32/-0.41 5:0.39/24/-0.15 6:0.27/12/-0.01 7:0.23/6/+0.07 8:0.24/4/+0.13 10:0.28/1/+0.23 11:0.31/1/+0.27 12:0.34/1/+0.31 15:0.43/1/+0.40 20:0.56/1/+0.53 25:0.65/0/+0.63 30:0.73/0/+0.71
+     three species (x3): best m = 6 eV, rms 0.307 dex, capped by phase space in 24/51 systems, corr(pred,need) +0.18; m within +0.05 dex of best: [6, 7]
+        1:2.86/51/-2.81 1.5:2.17/51/-2.11 2:1.69/51/-1.61 2.5:1.32/51/-1.22 3:1.03/49/-0.91 4:0.62/45/-0.41 5:0.39/30/-0.02 6:0.31/24/+0.14 7:0.32/10/+0.24 8:0.36/6/+0.30 10:0.44/3/+0.40 11:0.48/1/+0.44 12:0.51/1/+0.48 15:0.60/1/+0.58 20:0.73/1/+0.70 25:0.83/0/+0.81 30:0.91/0/+0.88
+     half-thermalised (x0.5): best m = 25 eV, rms 0.105 dex, capped by phase space in 0/51 systems, corr(pred,need) +0.00; m within +0.05 dex of best: [20, 25]
+        1:2.86/51/-2.81 1.5:2.17/50/-2.11 2:1.70/46/-1.61 2.5:1.36/34/-1.22 3:1.13/28/-1.00 4:0.86/9/-0.78 5:0.71/4/-0.68 6:0.62/1/-0.60 7:0.55/1/-0.53 8:0.48/1/-0.47 10:0.38/1/-0.38 11:0.33/1/-0.33 12:0.29/1/-0.30 15:0.20/0/-0.19 20:0.11/0/-0.07 25:0.10/0/+0.03 30:0.16/0/+0.11
+   need M_extra/M_b at r500: median 5.63; vs kT slope +0.22; richest (kT>6) median 6.24
+
+== core radius of the phase-space-limited halo (King radius, self-gravity only), g=2, occupation 1/2
+   m= 2 eV kT=1 keV: rho0 = 1.26e+04 Msun/kpc^3, r0 = 1452 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 2 eV kT=3 keV: rho0 = 6.56e+04 Msun/kpc^3, r0 = 1103 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 2 eV kT=8 keV: rho0 = 2.85e+05 Msun/kpc^3, r0 = 863 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 3 eV kT=1 keV: rho0 = 6.39e+04 Msun/kpc^3, r0 = 645 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 3 eV kT=3 keV: rho0 = 3.32e+05 Msun/kpc^3, r0 = 490 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 3 eV kT=8 keV: rho0 = 1.45e+06 Msun/kpc^3, r0 = 384 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 5 eV kT=1 keV: rho0 = 4.93e+05 Msun/kpc^3, r0 = 232 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 5 eV kT=3 keV: rho0 = 2.56e+06 Msun/kpc^3, r0 = 176 kpc   (r0 ~ m^-2 kT^-1/4)
+   m= 5 eV kT=8 keV: rho0 = 1.12e+07 Msun/kpc^3, r0 = 138 kpc   (r0 ~ m^-2 kT^-1/4)
+   m=11 eV kT=1 keV: rho0 = 1.15e+07 Msun/kpc^3, r0 = 48 kpc   (r0 ~ m^-2 kT^-1/4)
+   m=11 eV kT=3 keV: rho0 = 6.00e+07 Msun/kpc^3, r0 = 36 kpc   (r0 ~ m^-2 kT^-1/4)
+   m=11 eV kT=8 keV: rho0 = 2.61e+08 Msun/kpc^3, r0 = 29 kpc   (r0 ~ m^-2 kT^-1/4)

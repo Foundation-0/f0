@@ -1,0 +1,27 @@
+d=3 top=random seed=1: complex finite 8 lost 0 (Bezout 8)
+  it 780: real 8 of 8 complex, index1 4 index2 4
+d=3 top=random seed=1: best real 8 of 8 complex; index1 4 index2 4; 36s
+d=3 top=random seed=2: complex finite 8 lost 0 (Bezout 8)
+  it 23: real 2 of 8 complex, index1 1 index2 1
+  it 35: real 4 of 8 complex, index1 2 index2 2
+  it 124: real 6 of 8 complex, index1 3 index2 3
+  it 1305: real 8 of 8 complex, index1 4 index2 4
+d=3 top=random seed=2: best real 8 of 8 complex; index1 4 index2 4; 31s
+d=5 top=random seed=1: complex finite 64 lost 0 (Bezout 64)
+  it 18: real 14 of 64 complex, index1 7 index2 7
+  it 87: real 16 of 64 complex, index1 8 index2 8
+  it 119: real 18 of 64 complex, index1 9 index2 9
+  it 136: real 20 of 64 complex, index1 10 index2 10
+  it 235: real 22 of 64 complex, index1 11 index2 11
+  it 838: real 24 of 64 complex, index1 12 index2 12
+  it 890: real 26 of 64 complex, index1 13 index2 13
+d=5 top=random seed=1: best real 26 of 64 complex; index1 13 index2 13; 128s
+d=5 top=random seed=2: complex finite 64 lost 0 (Bezout 64)
+  it 21: real 12 of 64 complex, index1 6 index2 6
+  it 44: real 14 of 64 complex, index1 7 index2 7
+  it 117: real 16 of 64 complex, index1 8 index2 8
+  it 118: real 18 of 64 complex, index1 9 index2 9
+  it 258: real 20 of 64 complex, index1 10 index2 10
+  it 282: real 22 of 64 complex, index1 11 index2 11
+  it 1241: real 24 of 64 complex, index1 12 index2 12
+d=5 top=random seed=2: best real 24 of 64 complex; index1 12 index2 12; 107s

@@ -1,0 +1,24 @@
+z     E(z)   dlogV const  H-track  naiveLCDM   dlogM|V H-track
+0.50  1.322   +0.000       +0.030    +0.040       -0.121
+0.90  1.687   +0.000       +0.057    +0.076       -0.227
+1.00  1.790   +0.000       +0.063    +0.084       -0.253
+1.44  2.294   +0.000       +0.090    +0.120       -0.361
+2.00  3.032   +0.000       +0.120    +0.161       -0.482
+2.30  3.465   +0.000       +0.135    +0.180       -0.540
+
+Exponential disc, no bulge. v in km/s. a0 const = 1.2e-10, H-tracking = 1.2e-10 E(z)
+logMb=10.8 Re=5 kpc z=2.2 R= 5.0 kpc: gN/a0=1.83  vNewton=184.2  v(const)=213.9  v(H)=254.4  ratio=1.189
+logMb=10.8 Re=5 kpc z=2.2 R=15.0 kpc: gN/a0=0.39  vNewton=147.1  v(const)=215.9  v(H)=273.1  ratio=1.265
+    asymptotic V_flat: const 178.0  H-tracking 240.3 km/s
+logMb=10.8 Re=5 kpc z=0.9 R= 5.0 kpc: gN/a0=1.83  vNewton=184.2  v(const)=213.9  v(H)=228.9  ratio=1.070
+logMb=10.8 Re=5 kpc z=0.9 R=15.0 kpc: gN/a0=0.39  vNewton=147.1  v(const)=215.9  v(H)=238.1  ratio=1.103
+    asymptotic V_flat: const 178.0  H-tracking 202.9 km/s
+logMb=9.5 Re=3 kpc z=0.9 R= 3.0 kpc: gN/a0=0.26  vNewton= 53.2  v(const)= 84.5  v(H)= 93.8  ratio=1.109
+logMb=9.5 Re=3 kpc z=0.9 R= 9.0 kpc: gN/a0=0.05  vNewton= 42.5  v(const)= 93.3  v(H)=104.9  ratio=1.125
+    asymptotic V_flat: const 84.2  H-tracking 96.0 km/s
+logMb=9.5 Re=3 kpc z=2.2 R= 3.0 kpc: gN/a0=0.26  vNewton= 53.2  v(const)= 84.5  v(H)=108.2  ratio=1.280
+logMb=9.5 Re=3 kpc z=2.2 R= 9.0 kpc: gN/a0=0.05  vNewton= 42.5  v(const)= 93.3  v(H)=122.7  ratio=1.316
+    asymptotic V_flat: const 84.2  H-tracking 113.7 km/s
+logMb=11.2 Re=4 kpc z=2.2 R= 4.0 kpc: gN/a0=7.19  vNewton=326.4  v(const)=338.2  v(H)=371.8  ratio=1.099
+logMb=11.2 Re=4 kpc z=2.2 R=12.0 kpc: gN/a0=1.53  vNewton=260.7  v(const)=309.4  v(H)=371.3  ratio=1.200
+    asymptotic V_flat: const 224.1  H-tracking 302.5 km/s

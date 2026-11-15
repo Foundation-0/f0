@@ -1,0 +1,141 @@
+268870 Number of sequences in {1,...,n}^n with longest increasing subsequence of length three.
+268871 Number of sequences in {1,...,n}^n with longest increasing subsequence of length four.
+268872 Number of sequences in {1,...,n}^n with longest increasing subsequence of length five.
+268873 Number of sequences in {1,...,n}^n with longest increasing subsequence of length six.
+268874 Number of sequences in {1,...,n}^n with longest increasing subsequence of length seven.
+268875 Number of sequences in {1,...,n}^n with longest increasing subsequence of length eight.
+268876 Number of sequences in {1,...,n}^n with longest increasing subsequence of length nine.
+268877 Number of sequences in {1,...,n}^n with longest increasing subsequence of length ten.
+268878 Breadth-first traversal of a binary tree in which the value at the n-th node is equal to ParentNode()*prime(n-
+268879 a(n) is the least prime p=prime(m) such that gcd (prime(m) + 2, prime(m + 1) + 2) = 2*n - 1.
+268880 Number of n X n binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268881 Number of n X 3 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268882 Number of n X 4 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268883 Number of nX5 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268884 Number of nX6 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268885 Number of nX7 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268886 T(n,k)=Number of nXk binary arrays with some element plus some horizontally or antidiagonally adjacent neighbo
+268887 Number of 2 X n binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268888 Number of 3 X n binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268889 Number of 4Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268890 Number of 5Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268891 Number of 6Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268892 Number of 7Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268893 Decimal expansion of the unique positive root of the equation Gamma(x) + Psi(x) = 0.
+268894 Number of Hamiltonian paths in C_n X P_n.
+268895 Decimal expansion of the upper bound of 1/Gamma(x) - x on the unit interval x = [0,1].
+268896 Start at a(0)=1. a(n) = a(n-1)+2 if n == 1,2 (mod 3) and a(n)=a(n-1)+a(n-3) if n == 0 (mod 3).
+268897 Number of n X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268898 Number of n X 2 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268899 Number of n X 3 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268900 Number of n X 4 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268901 Number of n X 5 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268902 Number of n X 6 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268903 Number of nX7 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268904 T(n,k)=Number of nXk 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor 
+268905 Number of 2 X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268906 Number of 3 X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268907 Number of 4Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268908 Number of 5 X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268909 Number of 6Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268910 Number of 7Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268911 Decimal expansion of the integral int_{x=0..1} 1/Gamma(x) dx.
+268912 Magic sums of 3 X 3 semimagic squares composed of consecutive primes.
+268913 Magic sums of 3 X 3 semimagic squares composed of primes.
+268914 Minimum difference between two distinct primes whose sum is 2*prime(n), n>4.
+268915 Numerators of the rational number triangle R(m, a) = - (m^2 - 6*m*a + 6*a^2)/(12*m), m >= 1, a = 1, ..., m.  T
+268916 Denominators of the rational number triangle R(m, a) = -(m^2 - 6*m*a + a^2)/(12*m), m >= 1, a = 1, ..., m.
+268917 Numerators of the rational number triangle R(n, k) = -k*(n-k)*(n - 2*k)/(6*n), n >= 1, k = 1, ..., n. This is 
+268918 Denominators of the rational number triangle R(n, k) = - k*(n - k)*(n - 2*k)/(6*n), n >= 1, k = 1, ..., n.
+268919 Numerators of the rational number triangle R(n, k) = (n^4 - 30*n^2*k^2 + 60*n*k^3 -30*k^4) / (120*n), n >= 1, 
+268920 Denominators of the rational number triangle  R(n, k) = (n^4 - 30*n^2*k^2 + 60*n*k^3 - 30*k^4) / (120*n), n >=
+268921 Irregular triangle read by rows: T(n, k) = Legendre symbol (-k / prime(n)) for k = 0, ..., prime(n)-1, for n >
+268922 One of the two successive approximations up to 5^n for the 5-adic integer sqrt(-4). These are the 1 mod 5 numb
+268923 All odd primes a(n) such that for all odd primes q smaller than a(n) the order of 2 modulo a(n)*q is a proper 
+268924 One of the two successive approximations up to 3^n for the 3-adic integer sqrt(-2). These are the numbers cong
+268925 Record (maximal) gaps between primes of the form 6k + 1.
+268926 Primes 6k + 1 preceding the maximal gaps in A268925.
+268927 Primes 6k + 1 at the end of the maximal gaps in A268925.
+268928 Record (maximal) gaps between primes of the form 6k - 1.
+268929 Primes 6k - 1 preceding the maximal gaps in A268928.
+268930 Primes 6k - 1 at the end of the maximal gaps in A268928.
+268931 Square array: A(i,j) = F(A065091(i),A065091(j)), where F(a,b) is the dyadic function defined in A269158. Array
+268932 Transpose of A268931.
+268933 Permutation of nonnegative integers: a(0) = 0, for n >= 1, a(n) = A268717(1 + A268831(n-1)).
+268934 Permutation of nonnegative integers: a(0) = 0, for n >= 1, a(n) = 1 + A268832(A268718(n)-1).
+268935 a(1)=2, a(2)=3. For n>2 a(n) is the sum of the prime factors (with repetition) of a(n-1) + a(n-2).
+268936 Number of sequences in {1,...,n}^n with longest increasing subsequence of length n-2.
+268937 Number of length-n 0..n arrays with no repeated value unequal to the previous repeated value plus one mod n+1.
+268938 Number of length-n 0..2 arrays with no repeated value unequal to the previous repeated value plus one mod 2+1.
+268939 Number of length-n 0..3 arrays with no repeated value unequal to the previous repeated value plus one mod 3+1.
+268940 Number of length-n 0..4 arrays with no repeated value unequal to the previous repeated value plus one mod 4+1.
+268941 Number of length-n 0..5 arrays with no repeated value unequal to the previous repeated value plus one mod 5+1.
+268942 Number of length-n 0..6 arrays with no repeated value unequal to the previous repeated value plus one mod 6+1.
+268943 Number of length-n 0..7 arrays with no repeated value unequal to the previous repeated value plus one mod 7+1.
+268944 T(n,k)=Number of length-n 0..k arrays with no repeated value unequal to the previous repeated value plus one m
+268945 Number of length-4 0..n arrays with no repeated value unequal to the previous repeated value plus one mod n+1.
+268946 Number of length-5 0..n arrays with no repeated value unequal to the previous repeated value plus one mod n+1.
+268947 Number of length-6 0..n arrays with no repeated value unequal to the previous repeated value plus one mod n+1.
+268948 Number of length-7 0..n arrays with no repeated value unequal to the previous repeated value plus one mod n+1.
+268949 Number of sequences in {1,...,2n}^(2n) with longest increasing subsequence of length n.
+268950 Number of perfectly looping walks containing n pieces from the set described in the links.
+268951 Number of growing tree trajectories (T(1),T(2),...,T(n)), where T(k) is an unlabeled tree on k nodes and T(k) 
+268952 Number of length-n 0..4 arrays with no repeated value equal to the previous repeated value, with new values in
+268953 Number of length-n 0..5 arrays with no repeated value equal to the previous repeated value, with new values in
+268954 Number of length-n 0..6 arrays with no repeated value equal to the previous repeated value, with new values in
+268955 Number of length-n 0..7 arrays with no repeated value equal to the previous repeated value, with new values in
+268956 T(n,k)=Number of length-n 0..k arrays with no repeated value equal to the previous repeated value, with new va
+268957 Number of length-(n+3) 0..n arrays with no repeated value equal to the previous repeated value, with new value
+268958 Number of length-(n+4) 0..n arrays with no repeated value equal to the previous repeated value, with new value
+268959 Number of length-(n+5) 0..n arrays with no repeated value equal to the previous repeated value, with new value
+268960 Number of length-(n+6) 0..n arrays with no repeated value equal to the previous repeated value, with new value
+268961 Number of length-(n+7) 0..n arrays with no repeated value equal to the previous repeated value, with new value
+268962 a(1) = 1 and a(2) = 2; thereafter a(n+1) = floor[sqrt(a(n))] if not already in the sequence; otherwise a(n+1) 
+268963 Primes 4k+1 at the end of the maximal gaps in A084162.
+268964 Number of n X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268965 Number of n X 2 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268966 Number of n X 3 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268967 Number of n X 4 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268968 Number of n X 5 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268969 Number of n X 6 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268970 Number of nX7 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268971 T(n,k)=Number of nXk 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor 
+268972 Number of 2 X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268973 Number of 3 X n 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268974 Number of 4Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268975 Number of 5Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268976 Number of 6Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268977 Number of 7Xn 0..2 arrays with some element plus some horizontally or antidiagonally adjacent neighbor totalli
+268978 Triangle T(n,k) read by rows with 1 <= k <= n: number of entries in the first n rows of Pascal's triangle that
+268979 Decimal expansion of the first negative root of the equation Gamma(x) + Psi(x) = 0, negated.
+268980 Decimal expansion of the second negative root of the equation Gamma(x) + Psi(x) = 0, negated.
+268981 Decimal expansion of the third negative root of the equation Gamma(x) + Psi(x) = 0, negated.
+268982 a(n) is the denominator of Sum_{d|n} sigma(n/d)^d/d, where sigma is A000203.
+268983 Numbers n such that Sum_{d|n} sigma(n/d)^d/d is an integer, where sigma is A000203.
+268984 Record (maximal) gaps between primes of the form 10k + 1.
+268985 Primes 10k + 1 preceding the maximal gaps in A268984.
+268986 Primes 10k + 1 at the end of the maximal gaps in A268984.
+268987 Primes of the form k^(k + 1) + k - 1.
+268988 Number of n X n binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268989 Number of n X 2 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268990 Number of n X 3 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268991 Number of n X 4 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268992 Number of nX5 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268993 Number of nX6 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268994 Number of nX7 binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268995 T(n,k)=Number of nXk binary arrays with some element plus some horizontally or antidiagonally adjacent neighbo
+268996 Number of 2 X n binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268997 Number of 3 X n binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor tot
+268998 Number of 4Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+268999 Number of 5Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+269000 Number of 6Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+269001 Number of 7Xn binary arrays with some element plus some horizontally or antidiagonally adjacent neighbor total
+269002 Indices of records in the integer sums 1/x0 + x2/x1 +...+ x0/xq of A248954.
+269003 Numbers having the same parity of numbers of 1's in bases 2 and -2.
+269004 a(n) is the sum of the prime factors, with repetition, of the sum of all preceding terms, with initial terms a
+269005 Number of n X n binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269006 Number of n X 3 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269007 Number of n X 4 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269008 Number of n X 5 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent 
+269009 Number of nX6 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne
+269010 Number of nX7 binary arrays with some element plus some horizontally, diagonally or antidiagonally adjacent ne

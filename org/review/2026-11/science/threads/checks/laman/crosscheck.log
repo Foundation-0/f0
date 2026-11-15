@@ -1,0 +1,12 @@
+random Laman graphs compared (mine with random ebar, mine ebar=0, lnumber): 158 disagreements: 0
+H1-only graph n=3: mine 2, 2^(n-2)=2
+H1-only graph n=4: mine 4, 2^(n-2)=4
+H1-only graph n=5: mine 8, 2^(n-2)=8
+H1-only graph n=6: mine 16, 2^(n-2)=16
+H1-only graph n=7: mine 32, 2^(n-2)=32
+H1-only graph n=8: mine 64, 2^(n-2)=64
+H1-only graph n=9: mine 128, 2^(n-2)=128
+H1-only graph n=10: mine 256, 2^(n-2)=256
+minus an edge -> raises ValueError dim G + dim H > |E|+1: Laman number would be infinite/undefined
+plus an edge -> 0
+K4 plus pendant (7 edges, n=5, not Laman): 0

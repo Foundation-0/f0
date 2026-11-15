@@ -1,0 +1,11 @@
+*** [n4_a 0 it 77] physical 7 -> 9
+[n4_a 0] best 9, nearest T at best count 1.625e+00, kicks 1, iters 120, 19s
+*** [n4_a 1 it 89] physical 3 -> 5
+[n4_a 1] best 9, nearest T at best count 1.625e+00, kicks 2, iters 120, 21s
+[n4_a 2] best 9, nearest T at best count 8.241e-03, kicks 1, iters 120, 22s
+[n4_a 3] best 7, nearest T at best count 2.472e-02, kicks 0, iters 120, 13s
+[n4_a 4] best 7, nearest T at best count 2.449e-02, kicks 0, iters 120, 13s
+[n4_a 5] best 9, nearest T at best count 1.867e+00, kicks 1, iters 120, 19s
+[n4_a 6] best 9, nearest T at best count 1.859e+00, kicks 1, iters 120, 21s
+[n4_a 7] best 9, nearest T at best count 2.090e+00, kicks 3, iters 120, 26s
+DONE n4_a

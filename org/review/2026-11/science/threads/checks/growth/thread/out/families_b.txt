@@ -1,0 +1,23 @@
+sc-2	n=8	total=17	m1=5	m2=12	M1=True	M2=True	pairs=12	10s
+bcc-2	n=9	total=8	m1=0	m2=8	M1=True	M2=True	pairs=8	20s
+fcc-2	n=14	total=15	m1=1	m2=14	M1=True	M2=True	pairs=14	27s
+sc-3	n=27	total=26	m1=0	m2=26	M1=True	M2=True	pairs=26	58s
+bcc-3	n=35	total=34	m1=0	m2=34	M1=True	M2=True	pairs=34	69s
+fcc-3	n=63	total=62	m1=0	m2=62	M1=True	M2=True	pairs=62	134s
+octa nested ratio=0.3 q=0.01 rotated=False	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	58s
+octa nested ratio=0.3 q=0.01 rotated=True	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	84s
+octa nested ratio=0.3 q=0.0001 rotated=False	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	102s
+octa nested ratio=0.3 q=0.0001 rotated=True	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	87s
+octa nested ratio=0.1 q=0.01 rotated=False	n=12	total=13	m1=1	m2=12	M1=True	M2=True	pairs=12	63s
+octa nested ratio=0.1 q=0.01 rotated=True	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	64s
+octa nested ratio=0.1 q=0.0001 rotated=False	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	47s
+octa nested ratio=0.1 q=0.0001 rotated=True	n=12	total=11	m1=0	m2=11	M1=True	M2=True	pairs=11	58s
+cube nested ratio=0.3 q=0.01 rotated=False	n=16	total=25	m1=5	m2=20	M1=True	M2=True	pairs=20	51s
+cube nested ratio=0.3 q=0.01 rotated=True	n=16	total=25	m1=5	m2=20	M1=True	M2=True	pairs=20	47s
+cube nested ratio=0.3 q=0.0001 rotated=False	n=16	total=25	m1=5	m2=20	M1=True	M2=True	pairs=20	104s
+cube nested ratio=0.3 q=0.0001 rotated=True	n=16	total=25	m1=5	m2=20	M1=True	M2=True	pairs=20	99s
+cube nested ratio=0.1 q=0.01 rotated=False	n=16	total=25	m1=5	m2=20	M1=True	M2=True	pairs=20	76s
+cube nested ratio=0.1 q=0.01 rotated=True	n=16	total=25	m1=5	m2=20	M1=True	M2=True	pairs=20	73s
+cube nested ratio=0.1 q=0.0001 rotated=False	n=16	total=49	m1=17	m2=32	M1=True	M2=True	pairs=32	43s
+cube nested ratio=0.1 q=0.0001 rotated=True	n=16	total=49	m1=17	m2=32	M1=True	M2=True	pairs=32	38s
+ico nested ratio=0.3 q=0.01 rotated=False	n=24	total=25	m1=1	m2=24	M1=True	M2=True	pairs=24	133s

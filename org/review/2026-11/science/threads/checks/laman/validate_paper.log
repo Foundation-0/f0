@@ -1,0 +1,7 @@
+6 edges 9 laman? True code 29327 L = 24 expected 24 OK 0.0s
+7 edges 11 laman? True code 1714767 L = 56 expected 56 OK 0.0s
+8 edges 13 laman? True code 106235230 L = 136 expected 136 OK 0.1s
+9 edges 15 laman? True code 22097893737 L = 344 expected 344 OK 0.5s
+10 edges 17 laman? True code 9502097324865 L = 880 expected 880 OK 2.4s
+11 edges 19 laman? True code 18366593399180321 L = 2288 expected 2288 OK 9.5s
+12 edges 21 laman? True code 1514126886600097825 L = 6180 expected 6180 OK 51.7s

@@ -1,0 +1,14 @@
+out/push_n3_tri.json 20 ok 20 best {4: 20} start {4: 15, 2: 5} stop {'lp_stalled': 20}
+ iterations total 642
+ final nearest-pair T: min 1.7902 median 1.8895 max 1.9718
+ final nearest pair has all Re t>0 in 0 of 20
+ number of negative Re t in final nearest pair {1: 20}
+ max|Im| of final nearest pair: min 0.733
+ params at bound {(): 20}
+out/push_n3_rand.json 200 ok 200 best {4: 135, 2: 65} start {2: 199, 4: 1} stop {'lp_stalled': 111, 'iters': 89}
+ iterations total 20761
+ final nearest-pair T: min 0.0671 median 1.7893 max 1.9681
+ final nearest pair has all Re t>0 in 56 of 200
+ number of negative Re t in final nearest pair {1: 144, 0: 56}
+ max|Im| of final nearest pair: min 0.185
+ params at bound {(): 199, (1,): 1}

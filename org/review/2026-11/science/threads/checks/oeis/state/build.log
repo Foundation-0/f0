@@ -1,0 +1,236 @@
+268622 proved vector_chain D 15 start 4 natural 3 stated 4 brute 6 True 0.0
+268623 proved vector_chain D 36 start 5 natural 5 stated None brute 4 True 0.0
+268624 proved vector_chain D 84 start 8 natural 7 stated 8 brute 3 True 0.0
+268626 proved vector_chain D 432 start 16 natural 15 stated 16 brute 2 True 0.1
+268627 proved scalar_window D 960 start 27 natural 27 stated None brute 1 True 0.7
+268633 proved vector_chain D 15 start 4 natural 3 stated 4 brute 6 True 0.0
+268634 proved vector_chain D 36 start 5 natural 5 stated None brute 4 True 0.0
+268635 proved vector_chain D 84 start 8 natural 7 stated 8 brute 3 True 0.0
+268636 proved scalar_window D 192 start 11 natural 11 stated None brute 2 True 0.0
+268637 proved vector_chain D 432 start 16 natural 15 stated 16 brute 2 True 0.1
+268744 proved vector_chain D 7 start 5 natural 5 stated None brute 11 True 0.6
+268745 proved vector_chain D 12 start 9 natural 9 stated None brute 7 True 0.3
+268746 proved vector_chain D 21 start 11 natural 11 stated None brute 5 True 0.1
+268747 proved vector_chain D 36 start 19 natural 19 stated None brute 4 True 0.1
+268748 proved scalar_window D 62 start 23 natural 23 stated None brute 3 True 0.0
+268749 proved vector_chain D 106 start 43 natural 43 stated None brute 3 True 0.2
+268761 proved vector_chain D 12 start 7 natural 7 stated None brute 7 True 0.3
+268762 proved vector_chain D 21 start 9 natural 9 stated None brute 5 True 0.1
+268763 proved scalar_window D 36 start 13 natural 13 stated None brute 4 True 0.1
+268764 proved vector_chain D 62 start 17 natural 17 stated None brute 3 True 0.0
+268765 proved vector_chain D 106 start 29 natural 29 stated None brute 3 True 0.2
+268768 proved vector_chain D 15 start 6 natural 5 stated 6 brute 6 True 0.0
+268769 proved vector_chain D 36 start 9 natural 7 stated 9 brute 4 True 0.0
+268770 proved vector_chain D 84 start 11 natural 9 stated 11 brute 3 True 0.0
+268771 proved scalar_window D 188 start 15 natural 13 stated 15 brute 2 True 0.0
+268772 proved vector_chain D 412 start 19 natural 17 stated 19 brute 2 True 0.0
+268773 proved vector_chain D 892 start 31 natural 29 stated 31 brute 1 True 0.1
+268775 proved vector_chain D 7 start 5 natural 5 stated None brute 11 True 0.6
+268776 proved vector_chain D 12 start 7 natural 7 stated None brute 7 True 0.3
+268777 proved vector_chain D 21 start 9 natural 9 stated None brute 5 True 0.1
+268778 proved scalar_window D 36 start 13 natural 13 stated None brute 4 True 0.1
+268779 proved vector_chain D 62 start 17 natural 17 stated None brute 3 True 0.0
+268780 proved vector_chain D 106 start 29 natural 29 stated None brute 3 True 0.3
+268783 proved vector_chain D 7 start 7 natural 7 stated None brute 11 True 0.5
+268784 proved vector_chain D 12 start 11 natural 11 stated None brute 7 True 0.2
+268785 proved vector_chain D 21 start 17 natural 17 stated None brute 5 True 0.1
+268786 proved vector_chain D 36 start 27 natural 27 stated None brute 4 True 0.1
+268787 proved vector_chain D 62 start 43 natural 43 stated None brute 3 True 0.0
+268788 proved vector_chain D 106 start 69 natural 69 stated None brute 3 True 0.3
+268792 proved vector_chain D 15 start 8 natural 7 stated 8 brute 6 True 0.0
+268793 proved vector_chain D 36 start 13 natural 11 stated 13 brute 4 True 0.0
+268794 proved vector_chain D 84 start 20 natural 17 stated 20 brute 3 True 0.0
+268795 proved vector_chain D 188 start 30 natural 27 stated 30 brute 2 True 0.0
+268796 proved vector_chain D 412 start 46 natural 43 stated 46 brute 2 True 0.1
+268797 proved vector_chain D 892 start 72 natural 69 stated 72 brute 1 True 0.1
+268803 proved vector_chain D 15 start 8 natural 7 stated 8 brute 6 True 0.0
+268804 proved vector_chain D 36 start 13 natural 11 stated 13 brute 4 True 0.0
+268805 proved vector_chain D 84 start 20 natural 17 stated 20 brute 3 True 0.0
+268806 proved vector_chain D 190 start 30 natural 27 stated 30 brute 2 True 0.0
+268807 proved vector_chain D 422 start 46 natural 43 stated 46 brute 2 True 0.0
+268808 proved vector_chain D 926 start 72 natural 69 stated 72 brute 1 True 0.1
+268881 proved vector_chain D 12 start 5 natural 5 stated None brute 7 True 0.2
+268882 proved vector_chain D 21 start 8 natural 7 stated 8 brute 5 True 0.1
+268883 proved vector_chain D 36 start 10 natural 9 stated 10 brute 4 True 0.1
+268884 proved vector_chain D 62 start 13 natural 11 stated 13 brute 3 True 0.0
+268885 proved vector_chain D 106 start 17 natural 15 stated 17 brute 3 True 0.2
+268887 proved vector_chain D 8 start 7 natural 7 stated None brute 11 True 0.5
+268888 proved vector_chain D 16 start 10 natural 10 stated None brute 7 True 0.2
+268889 proved vector_chain D 32 start 17 natural 17 stated None brute 5 True 0.1
+268890 proved vector_chain D 64 start 27 natural 27 stated None brute 4 True 0.1
+268891 proved vector_chain D 128 start 43 natural 43 stated None brute 3 True 0.0
+268892 proved vector_chain D 256 start 69 natural 69 stated None brute 3 True 0.2
+268898 proved vector_chain D 15 start 3 natural 3 stated None brute 6 True 0.0
+268899 proved vector_chain D 36 start 3 natural 3 stated None brute 4 True 0.0
+268900 proved vector_chain D 84 start 4 natural 3 stated 4 brute 3 True 0.0
+268901 proved vector_chain D 192 start 5 natural 5 stated None brute 2 True 0.0
+268902 proved vector_chain D 432 start 7 natural 7 stated None brute 2 True 0.1
+268903 proved vector_chain D 960 start 9 natural 9 stated None brute 1 True 0.1
+268905 proved vector_chain D 18 start 5 natural 3 stated 5 brute 6 True 0.0
+268906 proved vector_chain D 54 start 7 natural 5 stated 7 brute 4 True 0.0
+268907 proved vector_chain D 162 start 13 natural 7 stated 13 brute 3 True 0.0
+268908 proved vector_chain D 486 start 19 natural 15 stated 19 brute 2 True 0.0
+268909 proved scalar_window D 1458 start 27 natural 19 stated 27 brute 2 True 0.9
+268910 skip cost 4374 208896
+268965 proved vector_chain D 15 start 3 natural 3 stated None brute 6 True 0.0
+268966 proved vector_chain D 36 start 3 natural 3 stated None brute 4 True 0.0
+268967 proved vector_chain D 84 start 4 natural 3 stated 4 brute 3 True 0.0
+268968 proved vector_chain D 192 start 5 natural 5 stated None brute 2 True 0.0
+268969 proved vector_chain D 432 start 7 natural 7 stated None brute 2 True 0.0
+268970 proved vector_chain D 960 start 9 natural 9 stated None brute 1 True 0.1
+268972 proved vector_chain D 18 start 5 natural 3 stated 5 brute 6 True 0.0
+268973 proved vector_chain D 54 start 7 natural 5 stated 7 brute 4 True 0.0
+268974 proved vector_chain D 162 start 13 natural 7 stated 13 brute 3 True 0.0
+268975 proved vector_chain D 486 start 19 natural 15 stated 19 brute 2 True 0.0
+268976 proved scalar_window D 1458 start 27 natural 19 stated 27 brute 2 True 0.9
+268977 skip cost 4374 208896
+268989 proved vector_chain D 7 start 5 natural 5 stated None brute 11 True 0.5
+268990 proved vector_chain D 12 start 5 natural 5 stated None brute 7 True 0.2
+268991 proved vector_chain D 21 start 8 natural 7 stated 8 brute 5 True 0.1
+268992 proved vector_chain D 36 start 10 natural 9 stated 10 brute 4 True 0.1
+268993 proved vector_chain D 62 start 13 natural 11 stated 13 brute 3 True 0.0
+268994 proved vector_chain D 106 start 17 natural 15 stated 17 brute 3 True 0.2
+268996 proved vector_chain D 8 start 7 natural 7 stated None brute 11 True 0.5
+268997 proved vector_chain D 16 start 10 natural 10 stated None brute 7 True 0.3
+268998 proved vector_chain D 32 start 17 natural 17 stated None brute 5 True 0.1
+268999 proved vector_chain D 64 start 27 natural 27 stated None brute 4 True 0.1
+269000 proved vector_chain D 128 start 43 natural 43 stated None brute 3 True 0.0
+269001 proved vector_chain D 256 start 69 natural 69 stated None brute 3 True 0.3
+269006 proved vector_chain D 12 start 7 natural 7 stated None brute 7 True 0.2
+269007 proved vector_chain D 21 start 8 natural 7 stated 8 brute 5 True 0.1
+269008 proved vector_chain D 36 start 13 natural 13 stated None brute 4 True 0.1
+269009 proved vector_chain D 62 start 15 natural 15 stated None brute 3 True 0.0
+269010 proved vector_chain D 106 start 26 natural 25 stated 26 brute 3 True 0.3
+269012 proved vector_chain D 8 start 5 natural 5 stated None brute 11 True 0.6
+269013 proved vector_chain D 16 start 7 natural 7 stated None brute 7 True 0.3
+269014 proved vector_chain D 32 start 9 natural 9 stated None brute 5 True 0.1
+269015 proved vector_chain D 64 start 15 natural 15 stated None brute 4 True 0.1
+269016 proved vector_chain D 128 start 21 natural 21 stated None brute 3 True 0.0
+269017 proved vector_chain D 256 start 33 natural 33 stated None brute 3 True 0.2
+269030 proved vector_chain D 36 start 6 natural 5 stated 6 brute 4 True 0.0
+269031 proved vector_chain D 84 start 6 natural 5 stated 6 brute 3 True 0.0
+269032 proved vector_chain D 192 start 14 natural 13 stated 14 brute 2 True 0.0
+269033 proved vector_chain D 432 start 20 natural 19 stated 20 brute 2 True 0.1
+269034 proved vector_chain D 960 start 40 natural 39 stated 40 brute 1 True 0.1
+269036 proved vector_chain D 18 start 5 natural 5 stated None brute 6 True 0.0
+269037 proved vector_chain D 54 start 9 natural 7 stated 9 brute 4 True 0.0
+269038 proved vector_chain D 150 start 15 natural 13 stated 15 brute 3 True 0.0
+269039 proved vector_chain D 414 start 23 natural 21 stated 23 brute 2 True 0.0
+269040 proved vector_chain D 1122 start 49 natural 47 stated 49 brute 2 True 0.1
+269041 skip cost 3006 34020
+269047 proved vector_chain D 36 start 6 natural 5 stated 6 brute 4 True 0.0
+269048 proved vector_chain D 84 start 6 natural 5 stated 6 brute 3 True 0.0
+269049 proved vector_chain D 192 start 14 natural 13 stated 14 brute 2 True 0.0
+269050 proved vector_chain D 432 start 20 natural 19 stated 20 brute 2 True 0.1
+269051 proved vector_chain D 960 start 40 natural 39 stated 40 brute 1 True 0.1
+269053 proved vector_chain D 18 start 5 natural 5 stated None brute 6 True 0.0
+269054 proved vector_chain D 54 start 9 natural 7 stated 9 brute 4 True 0.0
+269055 proved vector_chain D 156 start 15 natural 13 stated 15 brute 3 True 0.0
+269056 proved vector_chain D 450 start 23 natural 21 stated 23 brute 2 True 0.0
+269057 proved vector_chain D 1290 start 49 natural 47 stated 49 brute 2 True 0.1
+269058 skip cost 3690 34020
+269070 proved vector_chain D 12 start 7 natural 7 stated None brute 7 True 0.2
+269071 proved vector_chain D 21 start 8 natural 7 stated 8 brute 5 True 0.1
+269072 proved vector_chain D 36 start 13 natural 13 stated None brute 4 True 0.1
+269073 proved vector_chain D 62 start 15 natural 15 stated None brute 3 True 0.0
+269074 proved vector_chain D 106 start 26 natural 25 stated 26 brute 3 True 0.2
+269076 proved vector_chain D 8 start 5 natural 5 stated None brute 11 True 0.5
+269077 proved vector_chain D 16 start 7 natural 7 stated None brute 7 True 0.2
+269078 proved vector_chain D 32 start 9 natural 9 stated None brute 5 True 0.1
+269079 proved vector_chain D 64 start 15 natural 15 stated None brute 4 True 0.1
+269083 proved vector_chain D 7 start 7 natural 7 stated None brute 11 True 0.6
+269084 proved vector_chain D 12 start 11 natural 11 stated None brute 7 True 0.2
+269085 proved vector_chain D 21 start 17 natural 17 stated None brute 5 True 0.1
+269086 proved vector_chain D 36 start 27 natural 27 stated None brute 4 True 0.1
+269087 proved vector_chain D 62 start 43 natural 43 stated None brute 3 True 0.0
+269088 proved vector_chain D 106 start 69 natural 69 stated None brute 3 True 0.2
+269091 proved vector_chain D 28 start 4 natural 3 stated 4 brute 5 True 0.1
+269092 proved vector_chain D 96 start 6 natural 5 stated 6 brute 3 True 0.0
+269093 proved vector_chain D 324 start 8 natural 7 stated 8 brute 2 True 0.0
+269094 proved vector_chain D 1080 start 16 natural 15 stated 16 brute 2 True 0.4
+269096 skip cost 11664 10199448
+269103 proved vector_chain D 28 start 4 natural 3 stated 4 brute 5 True 0.1
+269104 proved vector_chain D 96 start 6 natural 5 stated 6 brute 3 True 0.0
+269105 proved vector_chain D 324 start 8 natural 7 stated 8 brute 2 True 0.0
+269106 proved vector_chain D 1080 start 16 natural 15 stated 16 brute 2 True 0.4
+269108 skip cost 11664 10199448
+269137 proved vector_chain D 28 start 6 natural 5 stated 6 brute 5 True 0.1
+269138 proved vector_chain D 96 start 10 natural 9 stated 10 brute 3 True 0.0
+269139 proved vector_chain D 324 start 23 natural 21 stated 23 brute 2 True 0.0
+269140 proved vector_chain D 1080 start 46 natural 43 stated 46 brute 2 True 0.5
+269146 proved vector_chain D 28 start 6 natural 5 stated 6 brute 5 True 0.1
+269147 proved vector_chain D 96 start 10 natural 9 stated 10 brute 3 True 0.0
+269148 proved vector_chain D 324 start 23 natural 21 stated 23 brute 2 True 0.0
+269149 proved vector_chain D 1080 start 46 natural 43 stated 46 brute 2 True 0.4
+269180 proved vector_chain D 28 start 6 natural 5 stated 6 brute 5 True 0.1
+269181 proved vector_chain D 96 start 10 natural 9 stated 10 brute 3 True 0.0
+269182 proved vector_chain D 324 start 18 natural 17 stated 18 brute 2 True 0.0
+269183 proved vector_chain D 1080 start 42 natural 41 stated 42 brute 2 True 0.3
+269188 proved vector_chain D 28 start 6 natural 5 stated 6 brute 5 True 0.1
+269189 proved vector_chain D 96 start 10 natural 9 stated 10 brute 3 True 0.0
+269190 proved vector_chain D 324 start 18 natural 17 stated 18 brute 2 True 0.0
+269191 proved vector_chain D 1080 start 42 natural 41 stated 42 brute 2 True 0.3
+269196 proved vector_chain D 96 start 6 natural 5 stated 6 brute 3 True 0.0
+269197 proved vector_chain D 324 start 8 natural 7 stated 8 brute 2 True 0.0
+269198 proved vector_chain D 1080 start 22 natural 21 stated 22 brute 2 True 0.3
+269199 skip cost 3564 583128
+269202 proved vector_chain D 32 start 5 natural 5 stated None brute 5 True 0.1
+269203 proved vector_chain D 128 start 9 natural 9 stated None brute 3 True 0.0
+269204 proved vector_chain D 512 start 21 natural 21 stated None brute 2 True 0.1
+269205 proved vector_chain D 2048 start 54 natural 53 stated 54 brute 2 True 1.1
+269209 proved vector_chain D 96 start 6 natural 5 stated 6 brute 3 True 0.0
+269210 proved vector_chain D 324 start 8 natural 7 stated 8 brute 2 True 0.0
+269211 proved vector_chain D 1080 start 22 natural 21 stated 22 brute 2 True 0.3
+269212 skip cost 3564 583128
+269215 proved vector_chain D 32 start 5 natural 5 stated None brute 5 True 0.1
+269216 proved vector_chain D 128 start 9 natural 9 stated None brute 3 True 0.0
+269217 proved vector_chain D 512 start 21 natural 21 stated None brute 2 True 0.1
+269218 proved vector_chain D 2048 start 54 natural 53 stated 54 brute 2 True 1.5
+269270 proved vector_chain D 28 start 3 natural 3 stated None brute 5 True 0.0
+269271 proved vector_chain D 96 start 3 natural 3 stated None brute 3 True 0.0
+269272 proved vector_chain D 324 start 4 natural 3 stated 4 brute 2 True 0.0
+269273 proved vector_chain D 1080 start 5 natural 5 stated None brute 2 True 0.3
+269274 skip cost 3564 1622880
+269275 skip cost 11664 12841920
+269277 proved vector_chain D 32 start 5 natural 3 stated 5 brute 5 True 0.1
+269278 proved vector_chain D 128 start 8 natural 5 stated 8 brute 3 True 0.0
+269279 proved vector_chain D 512 start 13 natural 9 stated 13 brute 2 True 0.1
+269280 proved vector_chain D 2048 start 24 natural 19 stated 24 brute 2 True 0.9
+269281 skip cost 8192 4015332
+269284 proved vector_chain D 96 start 3 natural 3 stated None brute 3 True 0.0
+269285 proved vector_chain D 324 start 4 natural 3 stated 4 brute 2 True 0.0
+269286 proved vector_chain D 1080 start 5 natural 5 stated None brute 2 True 0.3
+269287 skip cost 3564 1622880
+269288 skip cost 11664 12841920
+269290 proved vector_chain D 32 start 5 natural 3 stated 5 brute 5 True 0.1
+269291 proved vector_chain D 128 start 8 natural 5 stated 8 brute 3 True 0.0
+269292 proved vector_chain D 512 start 13 natural 9 stated 13 brute 2 True 0.1
+269293 proved vector_chain D 2048 start 24 natural 19 stated 24 brute 2 True 1.0
+269294 skip cost 8192 4015332
+269760 proved vector_chain D 12 start 3 natural 3 stated None brute 8 True 0.1
+269761 proved vector_chain D 66 start 4 natural 3 stated 4 brute 4 True 0.1
+269762 proved vector_chain D 360 start 6 natural 5 stated 6 brute 2 True 0.0
+269763 skip cost 1950 1079820
+269764 skip cost 10500 25957260
+269765 skip rows
+269766 skip rows
+269822 proved vector_chain D 10 start 3 natural 3 stated None brute 9 True 0.1
+269824 proved vector_chain D 200 start 20 natural 19 stated 20 brute 3 True 0.1
+269825 proved vector_chain D 880 start 50 natural 49 stated 50 brute 2 True 0.4
+269882 proved vector_chain D 66 start 6 natural 5 stated 6 brute 4 True 0.1
+269884 proved vector_chain D 1950 start 30 natural 29 stated 30 brute 2 True 1.8
+269895 proved vector_chain D 14 start 3 natural 3 stated None brute 7 True 0.0
+269896 proved vector_chain D 91 start 4 natural 3 stated 4 brute 3 True 0.0
+269897 proved vector_chain D 588 start 6 natural 5 stated 6 brute 2 True 0.1
+269898 skip cost 3780 4507524
+269899 skip cost 24192 158299764
+269900 skip rows
+269932 proved vector_chain D 91 start 8 natural 7 stated 8 brute 3 True 0.2
+269933 proved vector_chain D 588 start 22 natural 21 stated 22 brute 2 True 0.2
+269934 skip cost 3780 2276760
+270052 proved vector_chain D 45 start 4 natural 3 stated 4 brute 4 True 0.0
+270053 proved vector_chain D 200 start 6 natural 5 stated 6 brute 3 True 0.1
+270054 proved vector_chain D 880 start 8 natural 7 stated 8 brute 2 True 0.2
+270055 skip cost 3840 2825680
+270056 skip cost 16640 41743000
+270057 skip rows

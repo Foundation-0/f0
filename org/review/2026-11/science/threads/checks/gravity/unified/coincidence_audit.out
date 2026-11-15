@@ -1,0 +1,53 @@
+== (a) collapse scale sigma_*(z=0) under conventions (repository code for sigma(R); Planck 2018 EH98)
+    141.2 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.78 (low-S8 lensing); M*=M200m; V/sqrt2 (repo)
+    153.1 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.811; M*=M200m; V/sqrt2 (repo)
+    153.3 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.78 (low-S8 lensing); M*=Mvir (Delta_c=103); V/sqrt2 (repo)
+    158.6 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.78 (low-S8 lensing); M*=M200c (repo); Evrard+2008 sigma_DM(M200c)
+    166.2 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.811; M*=Mvir (Delta_c=103); V/sqrt2 (repo)
+    171.1 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.78 (low-S8 lensing); M*=M200c (repo); V/sqrt2 (repo)
+    172.1 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.811; M*=M200c (repo); Evrard+2008 sigma_DM(M200c)
+    185.6 km/s  | delta_c=1.686 (spherical, repo); sigma8=0.811; M*=M200c (repo); V/sqrt2 (repo)
+    199.9 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.78 (low-S8 lensing); M*=M200m; V/sqrt2 (repo)
+    215.3 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.811; M*=M200m; V/sqrt2 (repo)
+    217.0 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.78 (low-S8 lensing); M*=Mvir (Delta_c=103); V/sqrt2 (repo)
+    225.2 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.78 (low-S8 lensing); M*=M200c (repo); Evrard+2008 sigma_DM(M200c)
+    233.7 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.811; M*=Mvir (Delta_c=103); V/sqrt2 (repo)
+    242.3 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.78 (low-S8 lensing); M*=M200c (repo); V/sqrt2 (repo)
+    242.8 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.811; M*=M200c (repo); Evrard+2008 sigma_DM(M200c)
+    261.0 km/s  | sqrt(a) delta_c=1.418 (Sheth-Tormen a=0.707); sigma8=0.811; M*=M200c (repo); V/sqrt2 (repo)
+  range 141 - 261 km/s over 16 convention sets (repo value 185.59)
+
+== (b) (G M_b a0)^(1/4) for the knee of the galaxy mass function
+  log M_b = 10.50: V =  149.8 km/s  (a0 1.0-1.44: 143.1-156.8); V/sqrt2 = 105.9
+  log M_b = 10.66: V =  164.3 km/s  (a0 1.0-1.44: 156.9-171.9); V/sqrt2 = 116.1
+  log M_b = 10.78: V =  176.0 km/s  (a0 1.0-1.44: 168.2-184.2); V/sqrt2 = 124.5
+  log M_b = 10.90: V =  188.6 km/s  (a0 1.0-1.44: 180.2-197.4); V/sqrt2 = 133.4
+  log M_b = 11.00: V =  199.8 km/s  (a0 1.0-1.44: 190.9-209.1); V/sqrt2 = 141.3
+  log M_b = 11.10: V =  211.6 km/s  (a0 1.0-1.44: 202.2-221.5); V/sqrt2 = 149.6
+  knee range adopted: log M_b 10.6-11.1 (stellar knee 10.6-11.0 for Chabrier/Kroupa across surveys, +~0.05 dex gas; a0 = 1.2 +/- 0.24 systematic)
+  -> V range 152-221 km/s.  The repository compares this V (not V/sqrt2) with sigma scales: as a sigma it would be 107-157 km/s
+
+== (c) cooling scale, repository definition: t_ff,brems(T) = t_H at overdensity Delta, sigma = sqrt(kT/(mu m_p))
+  repository setting (Delta=1000, g_ff=1.2, mu=0.60, t_H): 178.42 km/s
+  Delta=  200: t_H ->    35.7 km/s;  free-fall time instead ->     4.0 km/s; g_ff 1.1-1.4, mu 0.59-0.62 -> 32.2-42.0
+  Delta=  500: t_H ->    89.2 km/s;  free-fall time instead ->     6.3 km/s; g_ff 1.1-1.4, mu 0.59-0.62 -> 80.4-105.0
+  Delta= 1000: t_H ->   178.4 km/s;  free-fall time instead ->     8.9 km/s; g_ff 1.1-1.4, mu 0.59-0.62 -> 160.9-209.9
+  Delta= 2500: t_H ->   446.1 km/s;  free-fall time instead ->    14.0 km/s; g_ff 1.1-1.4, mu 0.59-0.62 -> 402.2-524.8
+  sigma scales linearly with Delta for t_H (kT ~ n^2 t^2), so the choice Delta=1000 sets the answer.
+
+== (d) empirical onset from the Part-1/2 unified fit (part2b.out, part2c.out)
+  nominal: 158-211 km/s depending on form (bootstrap 95%: 146-241); stellar masses +0.2 dex: 335-356; -0.2 dex: 55-145; hydrostatic x1.2: 176-238
+  clusters-only r500 fit (../t4_clusters.out): best 230-345, 95% envelope 160-365
+
+== (e) chance coincidence: four scales drawn independently, log-uniform on [30, 1500] km/s
+  repository values [185.0, 185.59, 175.82, 178.42]: spread 0.0235 dex -> P = 1.05e-05
+  same with the empirical onset at the edge of its stated 180-190: spread 0.0337 dex -> P = 3.07e-05
+  repository values but the BTFR speed converted to a 1D dispersion (V/sqrt2 = 124.3): spread 0.174 dex -> P = 3.97e-03
+  honest ranges A: collapse 141-261, knee V 152-221, cooling (Delta 500-2500) 89-446, onset 95-356:
+     spread median 0.289 dex (16-84% 0.175-0.409); P median 0.017 (16-84% 0.004-0.046)
+  honest ranges B: as A but cooling Delta 200-2500 (36-446) and onset 55-365:
+     spread median 0.442 dex (16-84% 0.246-0.660); P median 0.057 (16-84% 0.011-0.166)
+  honest ranges C: as A but knee as a dispersion V/sqrt2 (107-157):
+     spread median 0.343 dex (16-84% 0.223-0.466); P median 0.028 (16-84% 0.008-0.066)
+  three scales only (drop onset, which was fitted near the others): ranges A:
+     spread median 0.214 dex (16-84% 0.104-0.339); P median 0.044 (16-84% 0.011-0.104)

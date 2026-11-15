@@ -1,0 +1,33 @@
+seed residual [3.65030396e-16]
+loop 1: total 4 (+2), path failures 0, 0.0s
+loop 2: total 6 (+2), path failures 0, 0.1s
+loop 3: total 8 (+2), path failures 0, 0.1s
+loop 4: total 16 (+8), path failures 0, 0.1s
+loop 5: total 26 (+10), path failures 0, 0.2s
+loop 6: total 38 (+12), path failures 0, 0.3s
+loop 7: total 56 (+18), path failures 0, 0.3s
+loop 8: total 86 (+30), path failures 0, 0.4s
+loop 9: total 134 (+48), path failures 0, 0.6s
+loop 10: total 208 (+74), path failures 0, 0.9s
+loop 11: total 294 (+86), path failures 0, 1.3s
+loop 12: total 328 (+34), path failures 0, 1.8s
+loop 13: total 374 (+46), path failures 0, 2.5s
+loop 14: total 384 (+10), path failures 0, 3.2s
+loop 15: total 398 (+14), path failures 0, 4.0s
+loop 16: total 420 (+22), path failures 0, 5.0s
+loop 17: total 420 (+0), path failures 0, 5.9s
+loop 18: total 420 (+0), path failures 0, 6.8s
+loop 19: total 420 (+0), path failures 0, 7.6s
+loop 20: total 420 (+0), path failures 0, 8.8s
+loop 21: total 420 (+0), path failures 0, 9.7s
+loop 22: total 420 (+0), path failures 0, 10.6s
+loop 23: total 420 (+0), path failures 0, 11.5s
+loop 24: total 420 (+0), path failures 0, 12.8s
+loop 25: total 420 (+0), path failures 0, 13.9s
+loop 26: total 420 (+0), path failures 0, 15.2s
+loop 27: total 420 (+0), path failures 0, 16.4s
+loop 28: total 420 (+0), path failures 0, 17.5s
+loop 29: total 420 (+0), path failures 0, 18.5s
+loop 30: total 420 (+0), path failures 0, 19.6s
+loop 31: total 420 (+0), path failures 0, 20.7s
+FINAL n=4 D=3 seed=1: 420 solutions, max residual 3.19e-15, max cond 5.61e+04, min sep 2.64e-01, loops 31, 20.9s

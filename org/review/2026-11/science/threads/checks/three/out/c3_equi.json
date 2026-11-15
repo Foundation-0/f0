@@ -1,0 +1,1 @@
+{"shape": [0.5, 0.5, 0.8660254037844385, 0.8660254037844387], "d0": 5, "d1": 8, "kJ": 2, "maxdepth": 6, "ncand": 2645, "nexcl": 1180, "nleaves": 7343, "stats": {"contained": 197271, "disjoint": 54941484, "split_rounds": 0}, "fails": 0, "time": 378.06620812416077}

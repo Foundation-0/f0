@@ -1,0 +1,6 @@
+n=4 D=3: 16384 start paths
+chunk 0: reached end 102, finite good 102, distinct so far 102, s at failure: min 0.846, 11s
+chunk 4096: reached end 57, finite good 57, distinct so far 159, s at failure: min 0.848, 22s
+chunk 8192: reached end 108, finite good 108, distinct so far 267, s at failure: min 0.855, 33s
+chunk 12288: reached end 153, finite good 153, distinct so far 420, s at failure: min 0.870, 43s
+RESULT: total-degree distinct finite solutions 420; monodromy 420; union 420 (TDH adds 0 not in monodromy set)

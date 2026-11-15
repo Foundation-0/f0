@@ -1,0 +1,7 @@
+candidates 2645, excluded boxes 1180 (0.0s)
+phase A depth 0: 2645 boxes, 941 certified (J 204, V3 497, V4 240), 1704 split (4.2s)
+phase A depth 1: 6402 boxes, 6402 certified (J 2811, V3 2413, V4 1178), 0 split (7.9s)
+leaves 7343
+overlapping leaf pairs 122446 (8.0s)
+phase B chunk 1 level 0: pairs 122446, unresolved 57097, stack 0 (8.5s)
+FAIL: 4693 unresolved pairs at level 12

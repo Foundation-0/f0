@@ -1,0 +1,2 @@
+rigidity-nd: OK (n = 2..8; 5 controls rejected)
+OPENBLAS_NUM_THREADS=1 $S/work/pc-venv/bin/python   4.08s user 0.12s system 98% cpu 4.284 total

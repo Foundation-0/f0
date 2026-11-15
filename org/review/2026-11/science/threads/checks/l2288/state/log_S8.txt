@@ -1,0 +1,18 @@
+[S8] scaled x2.0: real 2264
+[S8] scaled x4.0: real 2260
+[S8] scaled x8.0: real 2256
+[S8] start real 2256, eps 5.81e-03
+[S8] it 1 (3s): real 2256 -> 2260 via pair LP tr 3.2e-05, eps 5.8e-03, min real d2 7.0e-05
+[S8] it 4 (5s): real 2260 -> 2272 via LP tr 9.4e-04, eps 5.6e-03, min real d2 3.7e-05
+[S8] it 5 (12s): no step, tau -> 1.0e-01, real 2272, pairs 4, min im2 1.9e-04, min real d2 2.6e-05
+[S8] it 6 (18s): no step, tau -> 4.1e-02, real 2272, pairs 4, min im2 1.9e-04, min real d2 2.6e-05
+[S8] it 7 (24s): no step, tau -> 1.6e-02, real 2272, pairs 4, min im2 1.9e-04, min real d2 2.6e-05
+[S8] it 9 (26s): real 2272 -> 2276 via LP tr 1.4e-04, eps 5.4e-03, min real d2 1.8e-05
+[S8] it 10 (27s): real 2276 -> 2280 via LP tr 2.0e-04, eps 5.6e-03, min real d2 1.6e-05
+[S8] it 14 (37s): no step, tau -> 7.4e-02, real 2280, pairs 2, min im2 2.0e+01, min real d2 1.9e-05
+[S8] it 15 (43s): no step, tau -> 3.0e-02, real 2280, pairs 2, min im2 2.0e+01, min real d2 1.9e-05
+[S8] it 16 (47s): no step, tau -> 1.2e-02, real 2280, pairs 2, min im2 2.0e+01, min real d2 1.9e-05
+[S8] it 17 (50s): no step, tau -> 4.7e-03, real 2280, pairs 2, min im2 2.0e+01, min real d2 1.9e-05
+[S8] it 18 (53s): no step, tau -> 1.9e-03, real 2280, pairs 2, min im2 2.0e+01, min real d2 1.9e-05
+[S8] it 19 (55s): no step, tau -> 7.6e-04, real 2280, pairs 2, min im2 2.0e+01, min real d2 1.9e-05
+[S8] it 27 (64s): no step, tau -> 5.2e-03, real 2280, pairs 2, min im2 1.8e+01, min real d2 5.6e-06

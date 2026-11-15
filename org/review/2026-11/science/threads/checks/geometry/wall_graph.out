@@ -1,0 +1,42 @@
+n3-triangle: n = 3, index-2 points = 3, walls traced = 3, failures = 0
+  pairs of charges that share a wall: 3 of 3 possible; walls from a charge back to itself: 0; connected pieces: 1
+  independent cycles = walls - n + pieces = 1; index-1 points = 1; Maxwell's count needs 3 walls, one per pair
+  number of walls shared by a pair: 1 walls: 3 pairs
+  walls: 0-1 x1, 0-2 x1, 1-2 x1
+n4-triangle-plus-centre: n = 4, index-2 points = 6, walls traced = 6, failures = 0
+  pairs of charges that share a wall: 6 of 6 possible; walls from a charge back to itself: 0; connected pieces: 1
+  independent cycles = walls - n + pieces = 3; index-1 points = 3; Maxwell's count needs 6 walls, one per pair
+  number of walls shared by a pair: 1 walls: 6 pairs
+  walls: 0-1 x1, 0-2 x1, 0-3 x1, 1-2 x1, 1-3 x1, 2-3 x1
+n4-second-family: n = 4, index-2 points = 6, walls traced = 6, failures = 0
+  pairs of charges that share a wall: 5 of 6 possible; walls from a charge back to itself: 0; connected pieces: 1
+  independent cycles = walls - n + pieces = 3; index-1 points = 3; Maxwell's count needs 6 walls, one per pair
+  number of walls shared by a pair: 1 walls: 4 pairs, 2 walls: 1 pairs
+  walls: 0-1 x1, 0-3 x1, 1-2 x1, 1-3 x1, 2-3 x2
+n5-abk-bipyramid: n = 5, index-2 points = 14, walls traced = 14, failures = 0
+  pairs of charges that share a wall: 9 of 10 possible; walls from a charge back to itself: 0; connected pieces: 1
+  independent cycles = walls - n + pieces = 10; index-1 points = 10; Maxwell's count needs 10 walls, one per pair
+  number of walls shared by a pair: 1 walls: 4 pairs, 2 walls: 5 pairs
+  walls: 0-1 x2, 0-2 x2, 0-3 x1, 0-4 x2, 1-2 x2, 1-3 x2, 1-4 x1, 2-3 x1, 2-4 x1
+n6-abk-plus-centre: n = 6, index-2 points = 17, walls traced = 17, failures = 0
+  pairs of charges that share a wall: 14 of 15 possible; walls from a charge back to itself: 0; connected pieces: 1
+  independent cycles = walls - n + pieces = 12; index-1 points = 12; Maxwell's count needs 15 walls, one per pair
+  number of walls shared by a pair: 1 walls: 11 pairs, 2 walls: 3 pairs
+  walls: 0-1 x2, 0-2 x2, 0-3 x1, 0-4 x1, 0-5 x1, 1-2 x2, 1-3 x1, 1-4 x1, 1-5 x1, 2-3 x1, 2-4 x1, 2-5 x1, 3-5 x1, 4-5 x1
+n7-abk-second-pair: n = 7, index-2 points = 25, walls traced = 25, failures = 0
+  pairs of charges that share a wall: 17 of 21 possible; walls from a charge back to itself: 2; connected pieces: 1
+  independent cycles = walls - n + pieces = 19; index-1 points = 19; Maxwell's count needs 21 walls, one per pair
+  number of walls shared by a pair: 1 walls: 14 pairs, 3 walls: 3 pairs
+  walls: 0-1 x3, 0-2 x3, 0-3 x1, 0-4 x1, 0-5 x1, 0-6 x1, 1-2 x3, 1-3 x1, 1-4 x1, 1-5 x1, 1-6 x1, 2-3 x1, 2-4 x1, 2-5 x1, 2-6 x1, 3-5 x1, 4-6 x1, 5-5 x1, 6-6 x1
+n8-c7-plus-centre: n = 8, index-2 points = 28, walls traced = 28, failures = 0
+  pairs of charges that share a wall: 22 of 28 possible; walls from a charge back to itself: 0; connected pieces: 1
+  independent cycles = walls - n + pieces = 21; index-1 points = 21; Maxwell's count needs 28 walls, one per pair
+  number of walls shared by a pair: 1 walls: 19 pairs, 3 walls: 3 pairs
+  charges (index: value): 0: 1, 1: 1, 2: 1, 3: 0.00413, 4: 0.00413, 5: 1.17e-13, 6: 1.17e-13, 7: 1.29e-26
+  walls: 0-1 x3, 0-2 x3, 0-3 x1, 0-4 x1, 0-5 x1, 0-6 x1, 0-7 x1, 1-2 x3, 1-3 x1, 1-4 x1, 1-5 x1, 1-6 x1, 1-7 x1, 2-3 x1, 2-4 x1, 2-5 x1, 2-6 x1, 2-7 x1, 3-5 x1, 4-6 x1, 5-7 x1, 6-7 x1
+n9-abk-third-pair: n = 9, index-2 points = 36, walls traced = 36, failures = 0
+  pairs of charges that share a wall: 25 of 36 possible; walls from a charge back to itself: 2; connected pieces: 1
+  independent cycles = walls - n + pieces = 28; index-1 points = 28; Maxwell's count needs 36 walls, one per pair
+  number of walls shared by a pair: 1 walls: 22 pairs, 4 walls: 3 pairs
+  charges (index: value): 0: 1, 1: 1, 2: 1, 3: 0.00413, 4: 0.00413, 5: 1.17e-13, 6: 1.17e-13, 7: 1.3e-25, 8: 1.3e-25
+  walls: 0-1 x4, 0-2 x4, 0-3 x1, 0-4 x1, 0-5 x1, 0-6 x1, 0-7 x1, 0-8 x1, 1-2 x4, 1-3 x1, 1-4 x1, 1-5 x1, 1-6 x1, 1-7 x1, 1-8 x1, 2-3 x1, 2-4 x1, 2-5 x1, 2-6 x1, 2-7 x1, 2-8 x1, 3-5 x1, 4-6 x1, 5-7 x1, 6-8 x1, 7-7 x1, 8-8 x1

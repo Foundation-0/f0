@@ -1,0 +1,5 @@
+graph: 12 vertices, 21 edges, Laman on all subsets, MSB code 38911368239860318208, LSB code of this labelling 1514126886600097825
+frame: v1 at origin, v2 on positive x-axis; 20 equations in 20 unknowns
+3904 boxes: each holds exactly one real solution with nonsingular Jacobian (worst contraction 1.588e-01, worst inclusion ratio 7.938e-02)
+pairwise disjoint (sorted sweep on coordinate 0; closest checked pair 0.000433 within 2r = 2.910e-11 in that coordinate)
+RESULT: 3904 distinct real realizations modulo direct isometries

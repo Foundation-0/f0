@@ -1,0 +1,10 @@
+[ms202.0] start real 2904/6180, eps 3.71e-03
+[ms202.0] it 1 (7s): real 2904 -> 2916 via LP tr 5.6e-05, eps 3.8e-03, min real d2 6.3e-05
+[ms202.0] it 2 (12s): real 2916 -> 2948 via LP tr 2.8e-04, eps 3.8e-03, min real d2 5.3e-04
+[ms202.0] it 3 (16s): real 2948 -> 2988 via LP tr 4.3e-04, eps 3.4e-03, min real d2 1.2e-03
+[ms202.0] it 4 (27s): real 2988 -> 3000 via LP tr 5.7e-05, eps 3.4e-03, min real d2 3.8e-04
+[ms202.0] it 5 (47s): real 3000 -> 3008 via pair LP tr 4.7e-04, eps 3.0e-03, min real d2 3.3e-04
+[ms202.0] it 6 (53s): real 3008 -> 3020 via LP tr 1.1e-03, eps 3.9e-03, min real d2 8.3e-05
+[ms202.0] it 7 (60s): real 3020 -> 3036 via LP tr 2.0e-03, eps 3.5e-03, min real d2 1.2e-04
+[ms202.0] it 8 (68s): real 3036 -> 3180 via LP tr 1.8e-03, eps 4.8e-03, min real d2 3.4e-04
+[ms202.0] it 9 (192s): no step, tau 2.0e-01, real 3180, pairs 1500, min im2 1.9e-04, max im2 4.4e+08, min real d2 8.4e-04

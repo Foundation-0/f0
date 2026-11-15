@@ -1,0 +1,3 @@
+S/threads/charges/corrupt/n6_site_moved.json: n=6
+RESULT S/threads/charges/corrupt/n6_site_moved.json: count=5 index1=0 index2=5 m2-m1=5 n-1=5 {'boxes': 14849, 'L1': 1050, 'L2': 686, 'T1': 7938, 'T2': 3250, 'Z': 69, 'newton_tries': 1686, 'max_level': 26, 'seconds': 6.2}
+MISMATCH: file claims 29, independent count is 5

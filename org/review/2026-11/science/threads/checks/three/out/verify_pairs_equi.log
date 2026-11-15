@@ -1,0 +1,12 @@
+pairs 20 ok 20 nodes 788
+pairs 40 ok 40 nodes 1652
+pairs 60 ok 60 nodes 2840
+pairs 80 ok 80 nodes 2996
+pairs 100 ok 100 nodes 3448
+pairs 120 ok 120 nodes 8956
+pairs 140 ok 140 nodes 12136
+pairs 160 ok 160 nodes 12444
+pairs 180 ok 180 nodes 13024
+pairs 200 ok 200 nodes 13716
+{"sampled_nontrivial_pairs": 200, "resolved": 200, "nodes": 13716, "trials": 45546}
+PHASE-B SAMPLE ALL RESOLVED

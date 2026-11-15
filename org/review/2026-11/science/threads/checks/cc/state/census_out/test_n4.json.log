@@ -1,0 +1,47 @@
+     0.4s starts=3000 NEW class #1 I=4.0650960798 P=I^1.5=8.19608063
+     0.4s starts=3000 NEW class #2 I=4.0651198188 P=I^1.5=8.19615242
+     0.4s starts=3000 NEW class #3 I=3.8847843918 P=I^1.5=7.65685425
+     0.4s starts=3000 NEW class #4 I=4.5417209894 P=I^1.5=9.67900415
+     0.4s starts=3000 converged=3000 classes=4 last_new_at=3000
+     0.8s starts=6000 converged=6000 classes=4 last_new_at=3000
+     1.2s starts=9000 converged=9000 classes=4 last_new_at=3000
+     1.6s starts=12000 converged=12000 classes=4 last_new_at=3000
+     1.9s starts=15000 converged=15000 classes=4 last_new_at=3000
+     2.2s starts=18000 converged=18000 classes=4 last_new_at=3000
+     2.6s starts=21000 converged=21000 classes=4 last_new_at=3000
+     2.9s starts=24000 converged=24000 classes=4 last_new_at=3000
+     3.2s starts=27000 converged=27000 classes=4 last_new_at=3000
+     3.6s starts=30000 converged=30000 classes=4 last_new_at=3000
+     3.9s starts=33000 converged=33000 classes=4 last_new_at=3000
+     4.2s starts=36000 converged=36000 classes=4 last_new_at=3000
+     4.6s starts=39000 converged=39000 classes=4 last_new_at=3000
+     4.9s starts=42000 converged=42000 classes=4 last_new_at=3000
+     5.3s starts=45000 converged=45000 classes=4 last_new_at=3000
+     5.6s starts=48000 converged=48000 classes=4 last_new_at=3000
+     5.9s starts=51000 converged=51000 classes=4 last_new_at=3000
+     6.3s starts=54000 converged=54000 classes=4 last_new_at=3000
+     6.7s starts=57000 converged=57000 classes=4 last_new_at=3000
+     7.0s starts=60000 converged=60000 classes=4 last_new_at=3000
+     7.3s starts=63000 converged=63000 classes=4 last_new_at=3000
+     7.7s starts=66000 converged=66000 classes=4 last_new_at=3000
+     8.1s starts=69000 converged=69000 classes=4 last_new_at=3000
+     8.4s starts=72000 converged=72000 classes=4 last_new_at=3000
+     8.8s starts=75000 converged=75000 classes=4 last_new_at=3000
+     9.1s starts=78000 converged=78000 classes=4 last_new_at=3000
+     9.5s starts=81000 converged=81000 classes=4 last_new_at=3000
+     9.9s starts=84000 converged=84000 classes=4 last_new_at=3000
+    10.2s starts=87000 converged=87000 classes=4 last_new_at=3000
+    10.6s starts=90000 converged=90000 classes=4 last_new_at=3000
+    11.0s starts=93000 converged=93000 classes=4 last_new_at=3000
+    11.4s starts=96000 converged=96000 classes=4 last_new_at=3000
+    11.7s starts=99000 converged=99000 classes=4 last_new_at=3000
+    12.1s starts=102000 converged=102000 classes=4 last_new_at=3000
+    12.5s starts=105000 converged=105000 classes=4 last_new_at=3000
+    12.9s starts=108000 converged=108000 classes=4 last_new_at=3000
+    13.3s starts=111000 converged=111000 classes=4 last_new_at=3000
+    13.7s starts=114000 converged=114000 classes=4 last_new_at=3000
+    14.1s starts=117000 converged=117000 classes=4 last_new_at=3000
+    14.5s starts=120000 converged=120000 classes=4 last_new_at=3000
+    14.9s starts=123000 converged=123000 classes=4 last_new_at=3000
+    15.3s starts=126000 converged=126000 classes=4 last_new_at=3000
+done

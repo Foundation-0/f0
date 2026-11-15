@@ -1,0 +1,22 @@
+[D] start real 1932, eps 7.28e-05
+[D] it 1 (0s): real 1932 -> 1956 via LP tr 3.6e-06, eps 7.6e-05, min real d2 4.6e-04
+[D] it 2 (1s): real 1956 -> 1968 via LP tr 5.7e-06, eps 7.6e-05, min real d2 8.6e-04
+[D] it 4 (2s): real 1968 -> 1980 via LP tr 1.1e-05, eps 5.6e-05, min real d2 7.1e-04
+[D] it 5 (2s): real 1980 -> 1984 via LP tr 1.4e-05, eps 5.6e-05, min real d2 4.3e-04
+[D] it 6 (5s): real 1984 -> 1992 via LP tr 2.1e-05, eps 6.9e-05, min real d2 3.0e-04
+[D] it 7 (9s): real 1992 -> 2004 via LP tr 1.0e-05, eps 5.9e-05, min real d2 1.2e-04
+[D] it 11 (19s): real 2004 -> 2020 via LP tr 1.6e-06, eps 3.0e-05, min real d2 1.4e-04
+[D] it 12 (22s): real 2020 -> 2032 via LP tr 4.4e-06, eps 3.4e-05, min real d2 1.3e-04
+[D] it 13 (25s): real 2032 -> 2052 via LP tr 1.7e-05, eps 5.1e-05, min real d2 1.0e-04
+[D] it 16 (52s): real 2052 -> 2056 via LP tr 1.7e-05, eps 9.8e-05, min real d2 1.5e-04
+[D] it 17 (81s): real 2056 -> 2064 via LP tr 1.5e-05, eps 8.3e-05, min real d2 1.9e-04
+[D] it 18 (82s): real 2064 -> 2088 via LP tr 4.2e-05, eps 5.9e-05, min real d2 2.3e-04
+[D] it 19 (83s): real 2088 -> 2092 via LP tr 3.0e-05, eps 4.2e-05, min real d2 1.4e-04
+[D] it 20 (88s): real 2092 -> 2100 via LP tr 2.1e-05, eps 2.1e-05, min real d2 1.6e-05
+[D] it 21 (92s): real 2100 -> 2104 via LP tr 3.1e-06, eps 1.8e-05, min real d2 8.9e-06
+[D] it 23 (122s): real 2104 -> 2112 via LP tr 8.4e-07, eps 1.6e-05, min real d2 4.3e-06
+[D] it 24 (143s): no step, tau -> 2.0e-01, real 2112, pairs 44, min im2 2.8e-02, min real d2 3.1e-06
+[D] it 25 (165s): no step, tau -> 8.0e-02, real 2112, pairs 44, min im2 2.8e-02, min real d2 3.1e-06
+[D] it 26 (169s): real 2112 -> 2116 via pair LP tr 7.5e-08, eps 1.6e-05, min real d2 3.1e-06
+[D] it 27 (189s): no step, tau -> 4.8e-02, real 2116, pairs 43, min im2 5.0e-03, min real d2 5.0e-05
+[D] it 28 (192s): real 2116 -> 2120 via LP tr 7.6e-08, eps 1.6e-05, min real d2 5.0e-05

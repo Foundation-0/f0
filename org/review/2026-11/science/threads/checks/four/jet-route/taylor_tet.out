@@ -1,0 +1,16 @@
+0 4*sqrt(3)/3
+1 0
+2 0
+3 20*sqrt(3)*x*y*z/27
+4 -14*sqrt(3)*(x**4 - 3*x**2*y**2 - 3*x**2*z**2 + y**4 - 3*y**2*z**2 + z**4)/243
+5 0
+6 4*sqrt(3)*(2*x**6 - 15*x**4*y**2 - 15*x**4*z**2 - 15*x**2*y**4 + 180*x**2*y**2*z**2 - 15*x**2*z**4 + 2*y**6 - 15*y**4*z**2 - 15*y**2*z**4 + 2*z**6)/729
+harmonic 0 True
+harmonic 1 True
+harmonic 2 True
+harmonic 3 True
+harmonic 4 True
+harmonic 5 True
+harmonic 6 True
+cubic/xyz 20*sqrt(3)/27
+quartic/K4 -14*sqrt(3)/243

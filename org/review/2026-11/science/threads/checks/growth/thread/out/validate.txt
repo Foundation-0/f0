@@ -1,0 +1,7 @@
+n3-triangle.json expect 4 {'n': 3, 'total': 4, 'm1': 1, 'm2': 3, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.29572467415350717, 'walls': 3, 'failed': 0, 'pairs': 3, 'components': 1, 'loops': 1, 'M2': True} 6.0s
+n4-triangle-plus-centre.json expect 9 {'n': 4, 'total': 9, 'm1': 3, 'm2': 6, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.21152485397253804, 'walls': 6, 'failed': 0, 'pairs': 6, 'components': 1, 'loops': 3, 'M2': True} 5.3s
+n5-abk-bipyramid.json expect 24 {'n': 5, 'total': 24, 'm1': 10, 'm2': 14, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.07101560249344266, 'walls': 14, 'failed': 0, 'pairs': 10, 'components': 1, 'loops': 10, 'M2': True} 5.2s
+n6-abk-plus-centre.json expect 29 {'n': 6, 'total': 29, 'm1': 12, 'm2': 17, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.07101560249453465, 'walls': 17, 'failed': 0, 'pairs': 14, 'components': 1, 'loops': 12, 'M2': True} 4.5s
+n7-abk-second-pair.json expect 44 {'n': 7, 'total': 44, 'm1': 19, 'm2': 25, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.07101560249792777, 'walls': 25, 'failed': 0, 'pairs': 17, 'components': 1, 'loops': 19, 'M2': True} 5.8s
+n8.json expect 49 {'n': 8, 'total': 49, 'm1': 21, 'm2': 28, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.07101560249792777, 'walls': 28, 'failed': 0, 'pairs': 22, 'components': 1, 'loops': 21, 'M2': True} 7.7s
+n9.json expect 64 {'n': 9, 'total': 64, 'm1': 28, 'm2': 36, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.05577248710499126, 'walls': 36, 'failed': 0, 'pairs': 23, 'components': 1, 'loops': 28, 'M2': True} 10.4s

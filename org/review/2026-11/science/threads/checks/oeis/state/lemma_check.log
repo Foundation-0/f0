@@ -1,0 +1,2 @@
+residual formula and D-window lemma verified on 300 random integer systems
+tightness example (D=3): [0, 0, 1, 0, 0, 1, 0, 0, 1] -> D-1=2 consecutive zeros are not enough

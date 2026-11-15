@@ -1,0 +1,14 @@
+standard relation alone: 0.1895
+sigma, r (as measured): a=4.17 b=0.41 score 0.1257
+T1 forced law, no free parameter (M_b + M_extra = 4 sigma^4/(G a0)): score 0.3920
+     ATLAS3D_Re     median residual -0.652
+     GC_r2500       median residual -0.095
+     GC_r500        median residual -0.051
+     SPARC_inner    median residual -0.388
+     SPARC_outer    median residual -0.045
+     giant_spirals  median residual -0.206
+correlation of log sigma with log sigma_RAR: 0.969
+T2 sigma_RAR, r (baryons only): a=4.72 b=0.45 score 0.1491
+T3 sigma shuffled within class (30 draws): score median 0.1708, min 0.1694
+T4 M_extra = K M_b^p: p=1.36 score 0.1477
+T4 M_extra = K M_b^p r^b: p=1.56 b=-0.30 score 0.1469

@@ -1,0 +1,77 @@
+{
+ "n": 4,
+ "lambda": "1",
+ "masses": "1",
+ "centre_scale_exp2": 50,
+ "box_radius_exp2": 30,
+ "normalisation": "lambda=1 (scale), centre of mass forced to 0 by the equations, body k on the positive x-axis (y_k=0 not an unknown), equation F_{k,y} dropped (implied when x_k>0)",
+ "coordinate_order": "x_0,y_0,...,x_{n-1},y_{n-1} with y_k removed",
+ "classes": [
+  {
+   "pinned_body": 0,
+   "centre_num": [
+    "1109566274049648",
+    "-1109566274049648",
+    "0",
+    "0",
+    "1109566274049648",
+    "0",
+    "-1109566274049648"
+   ],
+   "I_enclosure": "[3.884784391808793 +/- 8.47e-16]",
+   "P_enclosure": "[7.65685424949238 +/- 2.25e-15]",
+   "morse_index": 0,
+   "sym_order": 8
+  },
+  {
+   "pinned_body": 2,
+   "centre_num": [
+    "-683077475907961",
+    "-1107266217927512",
+    "37064636059141",
+    "0",
+    "1329090315756781",
+    "-683077475907960",
+    "1107266217927512"
+   ],
+   "I_enclosure": "[4.0650960798421 +/- 3.83e-14]",
+   "P_enclosure": "[8.1960806287129 +/- 7.54e-14]",
+   "morse_index": 1,
+   "sym_order": 2
+  },
+  {
+   "pinned_body": 3,
+   "centre_num": [
+    "-655308551895176",
+    "-1135027706516829",
+    "-1",
+    "-1",
+    "-655308551895172",
+    "1135027706516830",
+    "1310617103790350"
+   ],
+   "I_enclosure": "[4.0651198187542 +/- 3.50e-14]",
+   "P_enclosure": "[8.196152422707 +/- 4.30e-13]",
+   "morse_index": 2,
+   "sym_order": 6
+  },
+  {
+   "pinned_body": 2,
+   "centre_num": [
+    "-511585589795215",
+    "0",
+    "511585589795215",
+    "0",
+    "1617695228858726",
+    "-1617695228858726",
+    "0"
+   ],
+   "I_enclosure": "[4.54172098942741 +/- 3.39e-15]",
+   "P_enclosure": "[9.67900415238686 +/- 8.06e-15]",
+   "morse_index": 2,
+   "sym_order": 4
+  }
+ ],
+ "labelled_count": 50,
+ "morse_sum": "1/12"
+}

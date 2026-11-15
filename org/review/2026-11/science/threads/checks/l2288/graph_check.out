@@ -1,0 +1,22 @@
+L2288 edges 19 [(1, 2), (1, 10), (1, 11), (2, 8), (2, 9), (3, 7), (3, 9), (3, 10), (4, 7), (4, 10), (4, 11), (5, 7), (5, 8), (5, 9), (6, 7), (6, 8), (6, 11), (8, 11), (9, 10)]
+L880 edges 17 [(1, 4), (1, 8), (1, 10), (2, 3), (2, 7), (2, 10), (3, 7), (3, 9), (4, 8), (4, 9), (5, 7), (5, 8), (5, 10), (6, 7), (6, 8), (6, 9), (9, 10)]
+deg L2288 {1: 3, 2: 3, 10: 4, 11: 4, 8: 4, 9: 4, 3: 3, 7: 4, 4: 3, 5: 3, 6: 3}
+deg L880 {1: 3, 4: 3, 8: 4, 10: 4, 2: 3, 3: 3, 7: 4, 9: 4, 5: 3, 6: 3}
+L2288 triangles [[10, 9, 3], [11, 8, 6]]
+H2 reductions of L2288 (remove deg-3 v, add non-edge among its nbrs):
+  remove 1 nbrs [2, 10, 11] add (2, 10) -> class 0, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 1 nbrs [2, 10, 11] add (2, 11) -> class 0, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 1 nbrs [2, 10, 11] add (10, 11) -> class 1, deg seq [2, 3, 3, 3, 3, 4, 4, 4, 4, 4]
+  remove 2 nbrs [1, 8, 9] add (1, 8) -> class 0, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 2 nbrs [1, 8, 9] add (1, 9) -> class 0, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 2 nbrs [1, 8, 9] add (8, 9) -> class 1, deg seq [2, 3, 3, 3, 3, 4, 4, 4, 4, 4]
+  remove 3 nbrs [7, 9, 10] add (7, 9) -> class 2, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 3 nbrs [7, 9, 10] add (7, 10) -> class 2, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 4 nbrs [7, 10, 11] add (7, 10) -> class 3, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 4 nbrs [7, 10, 11] add (7, 11) -> class 3, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 4 nbrs [7, 10, 11] add (10, 11) -> class 4, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 5 nbrs [7, 8, 9] add (7, 8) -> class 3, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 5 nbrs [7, 8, 9] add (7, 9) -> class 3, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 5 nbrs [7, 8, 9] add (8, 9) -> class 4, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 6 nbrs [7, 8, 11] add (7, 8) -> class 2, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+  remove 6 nbrs [7, 8, 11] add (7, 11) -> class 2, deg seq [3, 3, 3, 3, 3, 3, 4, 4, 4, 4]

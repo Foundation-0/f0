@@ -1,0 +1,26 @@
+SPARC 122, DT21 42, DT23 15, O19 23
+
+== SPARC+DT21+DT23 (V_flat): N=179
+  single line: slope dlogV/dlogMb = 0.2722 (BTFR index 3.67), intercept at logMb=10.5: 2.222, intrinsic scatter 0.027 dex, -2lnL -496.43
+  best broken line: break at logMb=10.70 (91 galaxies above), slopes 0.259 -> 0.307 (indices 3.86 -> 3.26); -2dlnL vs single line = 6.08 for 2 extra params (break position + slope)
+  profile over break position (-2lnL relative to single line; negative = better): 10.60:-4.8(b2=0.30) 10.65:-5.5(b2=0.30) 10.70:-6.1(b2=0.31) 10.75:-5.6(b2=0.31) 10.80:-5.1(b2=0.31) 10.85:-5.4(b2=0.31) 10.90:-4.6(b2=0.31) 10.95:-4.4(b2=0.31) 11.00:-3.0(b2=0.31) 11.05:-2.3(b2=0.31) 11.10:-2.0(b2=0.31) 11.15:-2.0(b2=0.31) 11.20:-1.1(b2=0.30) 11.25:-1.1(b2=0.30) 11.30:-1.0(b2=0.30) 11.35:-1.7(b2=0.32) 11.40:-1.4(b2=0.32) 11.45:-2.4(b2=0.35) 11.50:-1.5(b2=0.35) 11.55:-1.3(b2=0.35) 11.60:-1.1(b2=0.35) 11.65:-0.3(b2=0.32) 11.70:-1.9(b2=0.45)
+  bootstrap under no-break null (60 sims): -2dlnL 95th pct 6.81, max 10.07; observed 6.08; p ~ 0.08
+
+== SPARC+O19 (Ogle's V_max): N=145
+  single line: slope dlogV/dlogMb = 0.2742 (BTFR index 3.65), intercept at logMb=10.5: 2.223, intrinsic scatter 0.033 dex, -2lnL -388.30
+  best broken line: break at logMb=10.85 (49 galaxies above), slopes 0.257 -> 0.346 (indices 3.89 -> 2.89); -2dlnL vs single line = 12.86 for 2 extra params (break position + slope)
+  profile over break position (-2lnL relative to single line; negative = better): 10.60:-9.7(b2=0.32) 10.65:-11.1(b2=0.33) 10.70:-12.2(b2=0.33) 10.75:-12.0(b2=0.33) 10.80:-11.7(b2=0.34) 10.85:-12.9(b2=0.35) 10.90:-12.1(b2=0.35) 10.95:-12.1(b2=0.35) 11.00:-10.7(b2=0.36) 11.05:-10.0(b2=0.36) 11.10:-9.8(b2=0.36) 11.15:-10.7(b2=0.38) 11.20:-10.0(b2=0.38) 11.25:-9.6(b2=0.38) 11.30:-9.1(b2=0.40) 11.35:-9.3(b2=0.42) 11.40:-8.2(b2=0.42) 11.45:-8.6(b2=0.44) 11.50:-7.0(b2=0.45) 11.55:-7.9(b2=0.50) 11.60:-7.1(b2=0.50) 11.65:-4.8(b2=0.49) 11.70:-3.0(b2=0.52)
+  bootstrap under no-break null (60 sims): -2dlnL 95th pct 6.40, max 9.53; observed 12.86; p ~ 0.00
+
+== SPARC+DT21+DT23+O19 not in DT21: N=202
+  single line: slope dlogV/dlogMb = 0.2777 (BTFR index 3.60), intercept at logMb=10.5: 2.227, intrinsic scatter 0.029 dex, -2lnL -549.15
+  best broken line: break at logMb=10.70 (114 galaxies above), slopes 0.259 -> 0.320 (indices 3.87 -> 3.13); -2dlnL vs single line = 11.21 for 2 extra params (break position + slope)
+  profile over break position (-2lnL relative to single line; negative = better): 10.60:-9.5(b2=0.31) 10.65:-10.4(b2=0.32) 10.70:-11.2(b2=0.32) 10.75:-10.7(b2=0.32) 10.80:-10.0(b2=0.32) 10.85:-10.5(b2=0.33) 10.90:-9.5(b2=0.33) 10.95:-9.1(b2=0.33) 11.00:-7.1(b2=0.33) 11.05:-6.1(b2=0.32) 11.10:-5.5(b2=0.33) 11.15:-5.4(b2=0.33) 11.20:-3.7(b2=0.32) 11.25:-3.7(b2=0.32) 11.30:-4.0(b2=0.33) 11.35:-5.0(b2=0.35) 11.40:-4.3(b2=0.35) 11.45:-6.3(b2=0.38) 11.50:-5.0(b2=0.38) 11.55:-5.6(b2=0.40) 11.60:-5.1(b2=0.40) 11.65:-2.9(b2=0.39) 11.70:-3.7(b2=0.46)
+  bootstrap under no-break null (60 sims): -2dlnL 95th pct 7.35, max 13.27; observed 11.21; p ~ 0.02
+
+== model thresholds in baryonic mass (deep-MOND BTFR mapping): A log M = 11.47, B log M = 11.60
+  RAR-only reference line logV = 0.25 logMb + -0.4201 (fit to logMb 9.5-11.0, slope fixed to 1/4)
+  y=0.1 model A: V at logMb 11.3,11.45,11.5,11.55,11.6,11.65,11.8 = [254, 435, 454, 473, 492, 511, 569]; logMb>11.2 (n=55): obs offset +0.047, model +0.115; chi2 model 166.9 vs RAR line 70.9
+  y=0.1 model B: V at logMb 11.3,11.45,11.5,11.55,11.6,11.65,11.8 = [254, 277, 309, 337, 358, 377, 431]; logMb>11.2 (n=55): obs offset +0.047, model +0.023; chi2 model 47.4 vs RAR line 70.9
+  y=0.3 model A: V at logMb 11.3,11.45,11.5,11.55,11.6,11.65,11.8 = [254, 535, 555, 575, 596, 617, 683]; logMb>11.2 (n=55): obs offset +0.047, model +0.164; chi2 model 390.7 vs RAR line 70.9
+  y=0.3 model B: V at logMb 11.3,11.45,11.5,11.55,11.6,11.65,11.8 = [254, 277, 374, 397, 418, 437, 495]; logMb>11.2 (n=55): obs offset +0.047, model +0.044; chi2 model 55.6 vs RAR line 70.9

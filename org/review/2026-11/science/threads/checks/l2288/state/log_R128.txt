@@ -1,0 +1,12 @@
+[R128] start real 2252, eps 4.10e-03
+[R128] it 1 (1s): real 2252 -> 2264 via LP tr 2.0e-04, eps 3.9e-03, min real d2 2.0e-05
+[R128] it 2 (2s): real 2264 -> 2268 via LP tr 2.9e-04, eps 3.6e-03, min real d2 4.3e-05
+[R128] it 3 (3s): real 2268 -> 2272 via LP tr 4.1e-04, eps 3.3e-03, min real d2 1.7e-04
+[R128] it 4 (9s): no step, tau -> 6.8e-02, real 2272, pairs 4, min im2 7.7e-04, min real d2 2.1e-04
+[R128] it 5 (15s): no step, tau -> 2.7e-02, real 2272, pairs 4, min im2 7.7e-04, min real d2 2.1e-04
+[R128] it 6 (16s): real 2272 -> 2276 via LP tr 8.8e-06, eps 3.3e-03, min real d2 2.1e-04
+[R128] it 7 (17s): real 2276 -> 2280 via LP tr 1.3e-04, eps 3.2e-03, min real d2 3.1e-04
+[R128] it 8 (18s): real 2280 -> 2284 via pair LP tr 7.7e-06, eps 3.2e-03, min real d2 3.0e-04
+[R128] it 12 (25s): real 2284 -> 2288 via LP tr 1.2e-04, eps 4.2e-03, min real d2 2.7e-04
+[R128] ALL REAL
+[R128] done best 2288 after 25s

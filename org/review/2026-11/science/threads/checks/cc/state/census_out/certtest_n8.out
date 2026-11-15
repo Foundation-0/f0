@@ -1,0 +1,24 @@
+class   1: certified. P=U*sqrt(I) in [61.2051019307644 +/- 6.10e-14], Morse index 0 (neg 15), |Sym|=14, Krawczyk ratio 8.55e-07, unique in radius 2^-12
+class   2: certified. P=U*sqrt(I) in [61.667904030485 +/- 4.54e-13], Morse index 1 (neg 14), |Sym|=4, Krawczyk ratio 9.00e-06, unique in radius 2^-14
+class   3: certified. P=U*sqrt(I) in [61.723054344835 +/- 5.24e-13], Morse index 1 (neg 14), |Sym|=4, Krawczyk ratio 4.55e-06, unique in radius 2^-12
+class   4: certified. P=U*sqrt(I) in [62.4107904862604 +/- 8.44e-14], Morse index 2 (neg 13), |Sym|=2, Krawczyk ratio 1.29e-06, unique in radius 2^-12
+class   5: certified. P=U*sqrt(I) in [62.448580920401 +/- 6.11e-13], Morse index 2 (neg 13), |Sym|=2, Krawczyk ratio 3.88e-06, unique in radius 2^-12
+class   6: certified. P=U*sqrt(I) in [62.451936811472 +/- 3.26e-13], Morse index 3 (neg 12), |Sym|=8, Krawczyk ratio 1.13e-05, unique in radius 2^-14
+class   7: certified. P=U*sqrt(I) in [63.180802222600 +/- 7.48e-13], Morse index 2 (neg 13), |Sym|=1, Krawczyk ratio 8.69e-06, unique in radius 2^-14
+class   8: certified. P=U*sqrt(I) in [63.18156621759 +/- 1.98e-12], Morse index 3 (neg 12), |Sym|=2, Krawczyk ratio 2.29e-05, unique in radius 2^-16
+class   9: certified. P=U*sqrt(I) in [63.401536879615 +/- 1.76e-13], Morse index 3 (neg 12), |Sym|=2, Krawczyk ratio 2.64e-06, unique in radius 2^-12
+class  10: certified. P=U*sqrt(I) in [63.466869125536 +/- 6.33e-13], Morse index 3 (neg 12), |Sym|=16, Krawczyk ratio 2.27e-06, unique in radius 2^-12
+class  11: certified. P=U*sqrt(I) in [63.7845145527090 +/- 8.76e-14], Morse index 3 (neg 12), |Sym|=2, Krawczyk ratio 1.76e-06, unique in radius 2^-12
+class  12: certified. P=U*sqrt(I) in [64.3298148760651 +/- 7.37e-14], Morse index 3 (neg 12), |Sym|=2, Krawczyk ratio 1.10e-06, unique in radius 2^-12
+class  13: certified. P=U*sqrt(I) in [65.0508518263646 +/- 6.72e-14], Morse index 4 (neg 11), |Sym|=8, Krawczyk ratio 1.01e-06, unique in radius 2^-12
+class  14: certified. P=U*sqrt(I) in [65.555465585505 +/- 4.18e-13], Morse index 3 (neg 12), |Sym|=2, Krawczyk ratio 1.36e-06, unique in radius 2^-12
+class  15: certified. P=U*sqrt(I) in [66.673405009191 +/- 2.72e-13], Morse index 4 (neg 11), |Sym|=1, Krawczyk ratio 1.62e-06, unique in radius 2^-12
+class  16: certified. P=U*sqrt(I) in [69.0962627169661 +/- 7.45e-14], Morse index 4 (neg 11), |Sym|=4, Krawczyk ratio 6.78e-07, unique in radius 2^-12
+class  17: certified. P=U*sqrt(I) in [69.984398547450 +/- 4.75e-13], Morse index 4 (neg 11), |Sym|=2, Krawczyk ratio 1.24e-06, unique in radius 2^-12
+class  18: certified. P=U*sqrt(I) in [72.086401131490 +/- 3.85e-13], Morse index 5 (neg 10), |Sym|=2, Krawczyk ratio 1.63e-06, unique in radius 2^-12
+class  19: certified. P=U*sqrt(I) in [77.321496832369 +/- 1.76e-13], Morse index 5 (neg 10), |Sym|=2, Krawczyk ratio 1.49e-06, unique in radius 2^-12
+class  20: certified. P=U*sqrt(I) in [88.483509226705 +/- 2.52e-13], Morse index 6 (neg 9), |Sym|=4, Krawczyk ratio 1.31e-06, unique in radius 2^-12
+all 20 classes pairwise distinct (I enclosures disjoint)
+labelled solutions up to rotation (mirror images separate): 676080
+Morse sum  sum (-1)^h 2/s = 1/56;  Euler characteristic target (-1)^n/(n(n-1)) = 1/56;  equal: True
+Morse counts by index (labelled, mod rotation): {0: 5760, 1: 40320, 2: 161280, 3: 216720, 4: 151200, 5: 80640, 6: 20160}

@@ -1,0 +1,1 @@
+CHECK FAILED: overlap: n=(0, -1, 1) v=(0, 1, -1) f=[(4 + 4*sqrt2), (-8 + -8*sqrt2), 0, (-8 + 8*sqrt2), (4 + -4*sqrt2)]

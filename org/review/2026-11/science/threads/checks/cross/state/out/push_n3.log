@@ -1,0 +1,361 @@
+[n3_tri start 0] phys 4->4 (best 4), real 20->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 3.540e+00->1.869e+00, stop lp_stalled, iters 32, at_bound [], 2s
+*** [n3_tri start 1 it 0] physical 2 -> 4
+[n3_tri start 1] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 3.621e-02->1.894e+00, stop lp_stalled, iters 29, at_bound [], 2s
+[n3_tri start 2] phys 4->4 (best 4), real 20->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 3.486e+00->1.825e+00, stop lp_stalled, iters 31, at_bound [], 2s
+[n3_tri start 3] phys 4->4 (best 4), real 20->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 3.444e+00->1.807e+00, stop lp_stalled, iters 35, at_bound [], 2s
+[n3_tri start 4] phys 4->4 (best 4), real 20->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 3.475e+00->1.889e+00, stop lp_stalled, iters 31, at_bound [], 2s
+[n3_tri start 5] phys 4->4 (best 4), real 20->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 3.483e+00->1.888e+00, stop lp_stalled, iters 31, at_bound [], 2s
+[n3_tri start 6] phys 4->4 (best 4), real 20->20 {'+--': 4, '+++': 8, '++-': 4, '+-+': 4}, T 3.431e+00->1.840e+00, stop lp_stalled, iters 29, at_bound [], 2s
+*** [n3_tri start 7 it 0] physical 2 -> 4
+[n3_tri start 7] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 3.725e-02->1.912e+00, stop lp_stalled, iters 31, at_bound [], 2s
+[n3_tri start 8] phys 4->4 (best 4), real 20->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 3.404e+00->1.861e+00, stop lp_stalled, iters 27, at_bound [], 2s
+[n3_tri start 9] phys 4->4 (best 4), real 20->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 3.414e+00->1.966e+00, stop lp_stalled, iters 29, at_bound [], 2s
+[n3_tri start 10] phys 4->4 (best 4), real 20->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 3.345e+00->1.928e+00, stop lp_stalled, iters 29, at_bound [], 2s
+*** [n3_tri start 11 it 0] physical 2 -> 4
+[n3_tri start 11] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 3.861e-02->1.841e+00, stop lp_stalled, iters 31, at_bound [], 2s
+*** [n3_tri start 12 it 9] physical 2 -> 4
+[n3_tri start 12] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 1.424e-02->1.968e+00, stop lp_stalled, iters 38, at_bound [], 2s
+[n3_tri start 13] phys 4->4 (best 4), real 20->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 3.461e+00->1.924e+00, stop lp_stalled, iters 29, at_bound [], 2s
+*** [n3_tri start 14 it 24] physical 2 -> 4
+[n3_tri start 14] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 4.641e-02->1.790e+00, stop lp_stalled, iters 58, at_bound [], 3s
+[n3_tri start 15] phys 4->4 (best 4), real 20->20 {'+--': 4, '++-': 4, '+++': 8, '+-+': 4}, T 3.382e+00->1.882e+00, stop lp_stalled, iters 31, at_bound [], 2s
+[n3_tri start 16] phys 4->4 (best 4), real 20->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 3.427e+00->1.972e+00, stop lp_stalled, iters 29, at_bound [], 2s
+[n3_tri start 17] phys 4->4 (best 4), real 20->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 3.485e+00->1.837e+00, stop lp_stalled, iters 34, at_bound [], 2s
+[n3_tri start 18] phys 4->4 (best 4), real 20->20 {'+-+': 4, '+--': 4, '++-': 4, '+++': 8}, T 3.471e+00->1.935e+00, stop lp_stalled, iters 29, at_bound [], 2s
+[n3_tri start 19] phys 4->4 (best 4), real 20->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 3.413e+00->1.951e+00, stop lp_stalled, iters 29, at_bound [], 2s
+DONE n3_tri: 20 starts, 44s
+*** [n3_rand start 0 it 48] physical 2 -> 4
+[n3_rand start 0] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 1.263e+00->1.808e+00, stop lp_stalled, iters 75, at_bound [], 3s
+[n3_rand start 1] phys 2->2 (best 2), real 16->16 {'+--': 4, '+++': 4, '+-+': 4, '++-': 4}, T 1.215e+00->4.643e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 2 it 36] physical 2 -> 4
+[n3_rand start 2] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+--': 4, '+++': 8}, T 1.697e+00->1.789e+00, stop lp_stalled, iters 83, at_bound [], 4s
+[n3_rand start 3] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '++-': 4, '+--': 4}, T 1.750e+00->6.279e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 4] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 9.786e-01->5.897e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 5] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '+--': 4, '++-': 4}, T 8.750e-01->7.756e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 6 it 3] physical 2 -> 4
+[n3_rand start 6] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '+-+': 4, '++-': 4}, T 4.514e-01->1.773e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 7 it 22] physical 2 -> 4
+[n3_rand start 7] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 8.087e-01->1.803e+00, stop lp_stalled, iters 51, at_bound [], 3s
+*** [n3_rand start 8 it 45] physical 2 -> 4
+[n3_rand start 8] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+--': 4, '+-+': 4}, T 5.005e+00->9.348e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 9 it 60] physical 2 -> 4
+[n3_rand start 9] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+++': 8, '+--': 4}, T 9.928e-01->1.810e+00, stop lp_stalled, iters 87, at_bound [], 4s
+*** [n3_rand start 10 it 21] physical 2 -> 4
+[n3_rand start 10] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 1.220e+00->1.786e+00, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 11 it 12] physical 2 -> 4
+[n3_rand start 11] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+++': 8, '+--': 4}, T 9.363e-01->1.773e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 12 it 31] physical 2 -> 4
+[n3_rand start 12] phys 2->4 (best 4), real 16->20 {'+--': 4, '++-': 4, '+-+': 4, '+++': 8}, T 9.969e-01->1.793e+00, stop lp_stalled, iters 61, at_bound [], 4s
+*** [n3_rand start 13 it 24] physical 2 -> 4
+[n3_rand start 13] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 1.959e+00->1.791e+00, stop lp_stalled, iters 51, at_bound [], 3s
+[n3_rand start 14] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+--': 4, '++-': 4, '+++': 4}, T 2.033e+00->4.533e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 15 it 19] physical 2 -> 4
+[n3_rand start 15] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+++': 8, '+--': 4}, T 1.316e+00->1.772e+00, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 16 it 27] physical 2 -> 4
+[n3_rand start 16] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '++-': 4, '+++': 8}, T 3.480e+00->1.787e+00, stop lp_stalled, iters 70, at_bound [], 4s
+[n3_rand start 17] phys 2->2 (best 2), real 16->16 {'++-': 4, '+--': 4, '+-+': 4, '+++': 4}, T 2.722e+00->1.579e+00, stop iters, iters 150, at_bound [1], 4s
+*** [n3_rand start 18 it 69] physical 2 -> 4
+[n3_rand start 18] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.960e+00->9.700e-01, stop iters, iters 150, at_bound [], 5s
+[n3_rand start 19] phys 2->2 (best 2), real 16->16 {'+--': 4, '+++': 4, '+-+': 4, '++-': 4}, T 2.493e+00->4.626e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 20 it 60] physical 2 -> 4
+[n3_rand start 20] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 1.052e+00->1.795e+00, stop lp_stalled, iters 87, at_bound [], 4s
+*** [n3_rand start 21 it 7] physical 2 -> 4
+[n3_rand start 21] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 6.174e-01->1.774e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 22 it 23] physical 2 -> 4
+[n3_rand start 22] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 5.561e+00->1.833e+00, stop lp_stalled, iters 46, at_bound [], 3s
+*** [n3_rand start 23 it 60] physical 2 -> 4
+[n3_rand start 23] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '++-': 4, '+++': 8}, T 1.456e+00->1.803e+00, stop lp_stalled, iters 87, at_bound [], 4s
+*** [n3_rand start 24 it 84] physical 2 -> 4
+[n3_rand start 24] phys 2->4 (best 4), real 16->20 {'+--': 4, '+-+': 4, '+++': 8, '++-': 4}, T 3.678e-01->1.774e+00, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 25 it 23] physical 2 -> 4
+[n3_rand start 25] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '++-': 4, '+--': 4}, T 1.470e+00->1.798e+00, stop lp_stalled, iters 46, at_bound [], 3s
+*** [n3_rand start 26 it 48] physical 2 -> 4
+[n3_rand start 26] phys 2->4 (best 4), real 16->20 {'+--': 4, '++-': 4, '+++': 8, '+-+': 4}, T 3.262e+00->1.792e+00, stop lp_stalled, iters 83, at_bound [], 4s
+*** [n3_rand start 27 it 60] physical 2 -> 4
+[n3_rand start 27] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 7.673e-01->1.784e+00, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 28 it 12] physical 2 -> 4
+[n3_rand start 28] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 7.786e-01->1.791e+00, stop lp_stalled, iters 76, at_bound [], 5s
+*** [n3_rand start 29 it 36] physical 2 -> 4
+[n3_rand start 29] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 1.475e+00->1.825e+00, stop lp_stalled, iters 58, at_bound [], 3s
+*** [n3_rand start 30 it 72] physical 2 -> 4
+[n3_rand start 30] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.757e+00->1.789e+00, stop lp_stalled, iters 103, at_bound [], 4s
+[n3_rand start 31] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+-+': 4, '+--': 4}, T 7.795e+00->3.833e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 32 it 103] physical 2 -> 4
+[n3_rand start 32] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 7.891e+00->1.772e+00, stop iters, iters 150, at_bound [], 6s
+[n3_rand start 33] phys 2->2 (best 2), real 16->16 {'+++': 4, '++-': 4, '+--': 4, '+-+': 4}, T 8.462e-01->5.579e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 34] phys 2->2 (best 2), real 16->16 {'+-+': 4, '++-': 4, '+--': 4, '+++': 4}, T 1.528e+00->6.651e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 35 it 23] physical 2 -> 4
+[n3_rand start 35] phys 2->4 (best 4), real 16->20 {'+--': 4, '+-+': 4, '++-': 4, '+++': 8}, T 1.303e+00->1.790e+00, stop lp_stalled, iters 55, at_bound [], 3s
+*** [n3_rand start 36 it 36] physical 2 -> 4
+[n3_rand start 36] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.117e+00->1.811e+00, stop lp_stalled, iters 58, at_bound [], 3s
+*** [n3_rand start 37 it 24] physical 2 -> 4
+[n3_rand start 37] phys 2->4 (best 4), real 16->20 {'+--': 4, '+-+': 4, '++-': 4, '+++': 8}, T 1.508e+00->1.773e+00, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 38] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '++-': 4, '+--': 4}, T 5.295e-01->3.097e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 39 it 21] physical 2 -> 4
+[n3_rand start 39] phys 2->4 (best 4), real 16->20 {'+--': 4, '++-': 4, '+-+': 4, '+++': 8}, T 3.676e+00->1.782e+00, stop lp_stalled, iters 112, at_bound [], 6s
+[n3_rand start 40] phys 2->2 (best 2), real 16->16 {'+--': 4, '++-': 4, '+-+': 4, '+++': 4}, T 1.324e+00->6.082e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 41 it 16] physical 2 -> 4
+[n3_rand start 41] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '++-': 4, '+-+': 4}, T 5.556e+00->1.829e+00, stop lp_stalled, iters 47, at_bound [], 3s
+*** [n3_rand start 42 it 60] physical 2 -> 4
+[n3_rand start 42] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '++-': 4, '+-+': 4}, T 1.508e+00->1.862e+00, stop lp_stalled, iters 86, at_bound [], 4s
+*** [n3_rand start 43 it 36] physical 2 -> 4
+[n3_rand start 43] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.986e+00->1.786e+00, stop lp_stalled, iters 70, at_bound [], 4s
+*** [n3_rand start 44 it 103] physical 2 -> 4
+[n3_rand start 44] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 6.424e+00->1.833e+00, stop lp_stalled, iters 127, at_bound [], 4s
+*** [n3_rand start 45 it 2] physical 2 -> 4
+[n3_rand start 45] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 2.583e-01->1.845e+00, stop lp_stalled, iters 29, at_bound [], 2s
+*** [n3_rand start 46 it 72] physical 2 -> 4
+[n3_rand start 46] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 1.993e+00->1.785e+00, stop lp_stalled, iters 115, at_bound [], 4s
+*** [n3_rand start 47 it 36] physical 2 -> 4
+[n3_rand start 47] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 2.056e+00->1.802e+00, stop lp_stalled, iters 64, at_bound [], 3s
+[n3_rand start 48] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 1.257e+00->1.805e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 49 it 93] physical 2 -> 4
+[n3_rand start 49] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 6.248e-01->1.773e+00, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 50] phys 2->2 (best 2), real 16->16 {'+--': 4, '+++': 4, '+-+': 4, '++-': 4}, T 3.799e+00->4.696e-01, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 51] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+-+': 4, '+--': 4}, T 3.945e-01->4.186e-01, stop iters, iters 150, at_bound [], 5s
+[n3_rand start 52] phys 2->2 (best 2), real 16->16 {'+++': 4, '++-': 4, '+-+': 4, '+--': 4}, T 4.709e+00->1.047e+00, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 53] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 1.063e+00->9.997e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 54 it 35] physical 2 -> 4
+[n3_rand start 54] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+--': 4, '+++': 8}, T 5.802e+00->1.824e+00, stop lp_stalled, iters 65, at_bound [], 4s
+*** [n3_rand start 55 it 36] physical 2 -> 4
+[n3_rand start 55] phys 2->4 (best 4), real 16->20 {'+--': 4, '++-': 4, '+-+': 4, '+++': 8}, T 1.789e+00->1.792e+00, stop lp_stalled, iters 70, at_bound [], 4s
+*** [n3_rand start 56 it 21] physical 2 -> 4
+[n3_rand start 56] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 7.799e-01->9.340e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 57 it 24] physical 2 -> 4
+[n3_rand start 57] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.337e+00->1.804e+00, stop lp_stalled, iters 55, at_bound [], 3s
+*** [n3_rand start 58 it 60] physical 2 -> 4
+[n3_rand start 58] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 1.745e+00->1.791e+00, stop lp_stalled, iters 118, at_bound [], 6s
+[n3_rand start 59] phys 2->2 (best 2), real 16->16 {'+++': 4, '+--': 4, '++-': 4, '+-+': 4}, T 1.323e+01->1.556e+00, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 60] phys 2->2 (best 2), real 16->16 {'++-': 4, '+--': 4, '+++': 4, '+-+': 4}, T 1.935e+00->1.606e+00, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 61 it 96] physical 2 -> 4
+[n3_rand start 61] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+--': 4, '+++': 8}, T 5.558e+00->1.886e+00, stop lp_stalled, iters 122, at_bound [], 7s
+[n3_rand start 62] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 2.290e+00->1.653e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 63 it 11] physical 2 -> 4
+[n3_rand start 63] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 1.117e+00->1.788e+00, stop lp_stalled, iters 49, at_bound [], 3s
+*** [n3_rand start 64 it 36] physical 2 -> 4
+[n3_rand start 64] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '++-': 4, '+-+': 4}, T 1.034e+00->1.808e+00, stop lp_stalled, iters 61, at_bound [], 3s
+*** [n3_rand start 65 it 36] physical 2 -> 4
+[n3_rand start 65] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 9.057e-01->1.858e+00, stop lp_stalled, iters 58, at_bound [], 3s
+[n3_rand start 66] phys 2->2 (best 2), real 16->16 {'+-+': 4, '++-': 4, '+--': 4, '+++': 4}, T 1.034e+00->9.810e-01, stop iters, iters 150, at_bound [], 5s
+[n3_rand start 67] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 1.201e+00->9.038e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 68] phys 2->2 (best 2), real 16->16 {'++-': 4, '+-+': 4, '+--': 4, '+++': 4}, T 1.036e+01->4.911e-01, stop iters, iters 150, at_bound [], 7s
+*** [n3_rand start 69 it 48] physical 2 -> 4
+[n3_rand start 69] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '+--': 4, '++-': 4}, T 2.274e+00->1.788e+00, stop iters, iters 150, at_bound [], 6s
+[n3_rand start 70] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+--': 4, '++-': 4, '+++': 4}, T 4.278e-01->4.850e-01, stop iters, iters 150, at_bound [], 6s
+*** [n3_rand start 71 it 7] physical 2 -> 4
+[n3_rand start 71] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 6.349e-01->1.826e+00, stop lp_stalled, iters 34, at_bound [], 2s
+[n3_rand start 72] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '+--': 4, '++-': 4}, T 1.543e+00->1.016e+00, stop iters, iters 150, at_bound [], 6s
+*** [n3_rand start 73 it 48] physical 2 -> 4
+[n3_rand start 73] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 3.454e+00->1.809e+00, stop lp_stalled, iters 82, at_bound [], 4s
+[n3_rand start 74] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '+--': 4, '++-': 4}, T 1.526e+00->1.147e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 75 it 19] physical 2 -> 4
+[n3_rand start 75] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 1.838e+00->1.786e+00, stop lp_stalled, iters 59, at_bound [], 4s
+*** [n3_rand start 76 it 18] physical 2 -> 4
+[n3_rand start 76] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 5.038e+00->1.814e+00, stop lp_stalled, iters 51, at_bound [], 4s
+*** [n3_rand start 77 it 60] physical 2 -> 4
+[n3_rand start 77] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+--': 4, '+++': 8}, T 1.618e+00->1.815e+00, stop lp_stalled, iters 82, at_bound [], 4s
+*** [n3_rand start 78 it 36] physical 2 -> 4
+[n3_rand start 78] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 2.012e+00->1.785e+00, stop lp_stalled, iters 123, at_bound [], 8s
+[n3_rand start 79] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '+++': 4, '++-': 4}, T 1.191e+00->4.279e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 80 it 12] physical 2 -> 4
+[n3_rand start 80] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 1.682e+00->1.791e+00, stop lp_stalled, iters 47, at_bound [], 3s
+*** [n3_rand start 81 it 24] physical 2 -> 4
+[n3_rand start 81] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 9.959e-01->1.824e+00, stop lp_stalled, iters 47, at_bound [], 3s
+[n3_rand start 82] phys 2->2 (best 2), real 16->16 {'+-+': 4, '++-': 4, '+++': 4, '+--': 4}, T 1.090e+00->4.629e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 83 it 60] physical 2 -> 4
+[n3_rand start 83] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 1.654e+00->1.845e+00, stop lp_stalled, iters 87, at_bound [], 3s
+*** [n3_rand start 84 it 48] physical 2 -> 4
+[n3_rand start 84] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 1.375e+00->1.784e+00, stop lp_stalled, iters 83, at_bound [], 4s
+*** [n3_rand start 85 it 31] physical 2 -> 4
+[n3_rand start 85] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 1.763e+00->1.792e+00, stop lp_stalled, iters 59, at_bound [], 3s
+*** [n3_rand start 86 it 31] physical 2 -> 4
+[n3_rand start 86] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 8.845e-01->1.806e+00, stop lp_stalled, iters 55, at_bound [], 3s
+[n3_rand start 87] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+--': 4, '+-+': 4}, T 1.199e+00->5.312e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 88 it 31] physical 2 -> 4
+[n3_rand start 88] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 3.793e+00->1.814e+00, stop lp_stalled, iters 52, at_bound [], 2s
+[n3_rand start 89] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '++-': 4, '+--': 4}, T 9.155e+00->4.471e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 90 it 55] physical 2 -> 4
+[n3_rand start 90] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 1.215e+00->1.806e+00, stop lp_stalled, iters 83, at_bound [], 4s
+[n3_rand start 91] phys 2->2 (best 2), real 16->16 {'++-': 4, '+-+': 4, '+++': 4, '+--': 4}, T 5.824e+00->1.352e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 92 it 45] physical 2 -> 4
+[n3_rand start 92] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '+-+': 4, '++-': 4}, T 1.121e+00->1.810e+00, stop lp_stalled, iters 73, at_bound [], 3s
+*** [n3_rand start 93 it 24] physical 2 -> 4
+[n3_rand start 93] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 1.622e+00->1.786e+00, stop lp_stalled, iters 59, at_bound [], 3s
+[n3_rand start 94] phys 2->2 (best 2), real 16->16 {'+--': 4, '+++': 4, '+-+': 4, '++-': 4}, T 1.058e+00->4.060e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 95 it 36] physical 2 -> 4
+[n3_rand start 95] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.207e+00->1.811e+00, stop lp_stalled, iters 61, at_bound [], 3s
+*** [n3_rand start 96 it 120] physical 2 -> 4
+[n3_rand start 96] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 1.457e+00->1.868e+00, stop lp_stalled, iters 147, at_bound [], 5s
+*** [n3_rand start 97 it 24] physical 2 -> 4
+[n3_rand start 97] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.928e+00->1.802e+00, stop lp_stalled, iters 58, at_bound [], 3s
+*** [n3_rand start 98 it 28] physical 2 -> 4
+[n3_rand start 98] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+--': 4, '+++': 8}, T 1.468e+00->1.844e+00, stop lp_stalled, iters 53, at_bound [], 3s
+*** [n3_rand start 99 it 19] physical 2 -> 4
+[n3_rand start 99] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 8.406e-01->1.948e+00, stop lp_stalled, iters 43, at_bound [], 3s
+[n3_rand start 100] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+--': 4, '++-': 4, '+++': 4}, T 1.036e+00->9.270e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 101] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+--': 4, '+-+': 4}, T 9.556e-01->2.479e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 102] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '++-': 4, '+--': 4}, T 1.240e+00->4.568e-01, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 103] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '++-': 4, '+--': 4}, T 1.766e+00->6.960e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 104 it 36] physical 2 -> 4
+[n3_rand start 104] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.366e+00->1.789e+00, stop lp_stalled, iters 67, at_bound [], 3s
+*** [n3_rand start 105 it 48] physical 2 -> 4
+[n3_rand start 105] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 4.453e+00->1.803e+00, stop lp_stalled, iters 79, at_bound [], 4s
+*** [n3_rand start 106 it 16] physical 2 -> 4
+[n3_rand start 106] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '++-': 4, '+--': 4}, T 9.056e-01->1.811e+00, stop lp_stalled, iters 40, at_bound [], 2s
+*** [n3_rand start 107 it 48] physical 2 -> 4
+[n3_rand start 107] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '+-+': 4, '++-': 4}, T 7.316e+00->1.836e+00, stop lp_stalled, iters 70, at_bound [], 3s
+[n3_rand start 108] phys 2->2 (best 2), real 16->16 {'+--': 4, '++-': 4, '+++': 4, '+-+': 4}, T 3.293e+00->6.301e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 109 it 24] physical 2 -> 4
+[n3_rand start 109] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '+--': 4, '++-': 4}, T 1.172e+00->1.798e+00, stop lp_stalled, iters 63, at_bound [], 4s
+*** [n3_rand start 110 it 31] physical 2 -> 4
+[n3_rand start 110] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 2.552e+00->1.786e+00, stop lp_stalled, iters 73, at_bound [], 3s
+*** [n3_rand start 111 it 31] physical 2 -> 4
+[n3_rand start 111] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+++': 8, '+--': 4}, T 1.828e+00->1.796e+00, stop lp_stalled, iters 61, at_bound [], 3s
+*** [n3_rand start 112 it 19] physical 2 -> 4
+[n3_rand start 112] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 2.980e+00->1.773e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 113 it 19] physical 2 -> 4
+[n3_rand start 113] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 7.854e-01->1.811e+00, stop lp_stalled, iters 51, at_bound [], 3s
+*** [n3_rand start 114 it 7] physical 2 -> 4
+[n3_rand start 114] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 3.902e-01->1.789e+00, stop lp_stalled, iters 35, at_bound [], 3s
+[n3_rand start 115] phys 2->2 (best 2), real 16->16 {'+--': 4, '++-': 4, '+++': 4, '+-+': 4}, T 1.692e+00->9.952e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 116 it 21] physical 2 -> 4
+[n3_rand start 116] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.679e+00->1.809e+00, stop lp_stalled, iters 51, at_bound [], 3s
+[n3_rand start 117] phys 2->2 (best 2), real 16->16 {'++-': 4, '+-+': 4, '+++': 4, '+--': 4}, T 9.482e-01->5.818e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 118 it 12] physical 2 -> 4
+[n3_rand start 118] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+--': 4, '+-+': 4}, T 9.263e-01->1.773e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 119 it 21] physical 2 -> 4
+[n3_rand start 119] phys 2->4 (best 4), real 16->20 {'+--': 4, '++-': 4, '+++': 8, '+-+': 4}, T 9.322e-01->1.787e+00, stop lp_stalled, iters 75, at_bound [], 4s
+*** [n3_rand start 120 it 24] physical 2 -> 4
+[n3_rand start 120] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.455e+00->1.791e+00, stop lp_stalled, iters 61, at_bound [], 4s
+*** [n3_rand start 121 it 48] physical 2 -> 4
+[n3_rand start 121] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 3.214e+00->1.791e+00, stop lp_stalled, iters 76, at_bound [], 4s
+*** [n3_rand start 122 it 48] physical 2 -> 4
+[n3_rand start 122] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '+--': 4, '++-': 4}, T 1.253e+00->1.787e+00, stop lp_stalled, iters 82, at_bound [], 4s
+*** [n3_rand start 123 it 19] physical 2 -> 4
+[n3_rand start 123] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 2.220e+00->1.780e+00, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 124] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+--': 4, '+-+': 4}, T 6.673e-01->4.621e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 125 it 36] physical 2 -> 4
+[n3_rand start 125] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 3.524e+00->1.806e+00, stop lp_stalled, iters 63, at_bound [], 3s
+[n3_rand start 126] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '+++': 4, '++-': 4}, T 3.794e+00->5.390e-01, stop iters, iters 150, at_bound [], 3s
+[n3_rand start 127] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+--': 4, '+-+': 4}, T 2.262e+00->6.586e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 128 it 11] physical 2 -> 4
+[n3_rand start 128] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.484e+00->1.816e+00, stop lp_stalled, iters 40, at_bound [], 3s
+*** [n3_rand start 129 it 35] physical 2 -> 4
+[n3_rand start 129] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '+--': 4, '++-': 4}, T 6.456e+00->1.791e+00, stop lp_stalled, iters 63, at_bound [], 4s
+[n3_rand start 130] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '+--': 4, '++-': 4}, T 8.041e-01->6.131e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 131 it 31] physical 2 -> 4
+[n3_rand start 131] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '++-': 4, '+--': 4}, T 4.150e+00->1.819e+00, stop lp_stalled, iters 59, at_bound [], 3s
+*** [n3_rand start 132 it 33] physical 2 -> 4
+[n3_rand start 132] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 1.314e+01->1.798e+00, stop lp_stalled, iters 64, at_bound [], 3s
+[n3_rand start 133] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 1.534e+00->3.284e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 134 it 36] physical 2 -> 4
+[n3_rand start 134] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 9.965e-01->1.794e+00, stop lp_stalled, iters 61, at_bound [], 3s
+*** [n3_rand start 135 it 35] physical 2 -> 4
+[n3_rand start 135] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 2.894e+00->1.809e+00, stop lp_stalled, iters 59, at_bound [], 3s
+*** [n3_rand start 136 it 36] physical 2 -> 4
+[n3_rand start 136] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 2.800e+00->1.773e+00, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 137] phys 2->2 (best 2), real 16->16 {'++-': 4, '+-+': 4, '+++': 4, '+--': 4}, T 1.186e+00->4.868e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 138 it 43] physical 2 -> 4
+[n3_rand start 138] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 2.435e+00->1.794e+00, stop lp_stalled, iters 71, at_bound [], 7s
+[n3_rand start 139] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+--': 4, '++-': 4, '+++': 4}, T 9.106e-01->4.768e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 140 it 24] physical 2 -> 4
+[n3_rand start 140] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 1.359e+00->1.791e+00, stop lp_stalled, iters 58, at_bound [], 5s
+[n3_rand start 141] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+--': 4, '+++': 4, '++-': 4}, T 3.008e+00->6.849e-01, stop iters, iters 150, at_bound [], 6s
+[n3_rand start 142] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '+--': 4, '++-': 4}, T 1.011e+00->5.070e-01, stop iters, iters 150, at_bound [], 6s
+[n3_rand start 143] phys 2->2 (best 2), real 16->16 {'++-': 4, '+--': 4, '+-+': 4, '+++': 4}, T 6.203e+00->1.383e+00, stop iters, iters 150, at_bound [], 6s
+*** [n3_rand start 144 it 36] physical 2 -> 4
+[n3_rand start 144] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 7.630e-01->1.809e+00, stop lp_stalled, iters 58, at_bound [], 4s
+*** [n3_rand start 145 it 36] physical 2 -> 4
+[n3_rand start 145] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 1.489e+00->1.810e+00, stop lp_stalled, iters 61, at_bound [], 5s
+[n3_rand start 146] phys 4->4 (best 4), real 20->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 2.281e+00->9.430e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 147 it 108] physical 2 -> 4
+[n3_rand start 147] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '++-': 4, '+++': 8}, T 3.717e+00->1.917e+00, stop lp_stalled, iters 133, at_bound [], 5s
+*** [n3_rand start 148 it 22] physical 2 -> 4
+[n3_rand start 148] phys 2->4 (best 4), real 16->20 {'+--': 4, '++-': 4, '+++': 8, '+-+': 4}, T 6.865e-01->1.843e+00, stop lp_stalled, iters 48, at_bound [], 3s
+*** [n3_rand start 149 it 31] physical 2 -> 4
+[n3_rand start 149] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 2.407e+00->1.797e+00, stop lp_stalled, iters 61, at_bound [], 3s
+[n3_rand start 150] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '++-': 4, '+--': 4}, T 1.586e+00->2.358e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 151 it 36] physical 2 -> 4
+[n3_rand start 151] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+--': 4, '+-+': 4}, T 7.005e-01->1.799e+00, stop lp_stalled, iters 64, at_bound [], 5s
+*** [n3_rand start 152 it 48] physical 2 -> 4
+[n3_rand start 152] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+--': 4, '+++': 8}, T 2.539e+00->1.784e+00, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 153 it 36] physical 2 -> 4
+[n3_rand start 153] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 1.371e+00->1.799e+00, stop lp_stalled, iters 67, at_bound [], 4s
+[n3_rand start 154] phys 2->2 (best 2), real 16->16 {'+++': 4, '+-+': 4, '++-': 4, '+--': 4}, T 7.420e-01->7.559e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 155 it 31] physical 2 -> 4
+[n3_rand start 155] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '++-': 4, '+--': 4}, T 2.909e+00->1.818e+00, stop lp_stalled, iters 52, at_bound [], 3s
+*** [n3_rand start 156 it 36] physical 2 -> 4
+[n3_rand start 156] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '+-+': 4, '++-': 4}, T 9.454e-01->1.798e+00, stop lp_stalled, iters 67, at_bound [], 3s
+*** [n3_rand start 157 it 34] physical 2 -> 4
+[n3_rand start 157] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 8.708e-01->1.837e+00, stop lp_stalled, iters 56, at_bound [], 3s
+[n3_rand start 158] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '++-': 4, '+--': 4}, T 6.574e-01->6.174e-01, stop iters, iters 150, at_bound [], 2s
+[n3_rand start 159] phys 2->2 (best 2), real 16->16 {'+++': 4, '+--': 4, '++-': 4, '+-+': 4}, T 3.223e+00->1.686e+00, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 160 it 21] physical 2 -> 4
+[n3_rand start 160] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+--': 4, '+++': 8, '++-': 4}, T 6.232e-01->1.826e+00, stop lp_stalled, iters 43, at_bound [], 3s
+[n3_rand start 161] phys 2->2 (best 2), real 16->16 {'+-+': 4, '++-': 4, '+--': 4, '+++': 4}, T 2.108e+00->1.570e+00, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 162 it 48] physical 2 -> 4
+[n3_rand start 162] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '++-': 4, '+-+': 4}, T 2.093e+00->1.786e+00, stop lp_stalled, iters 107, at_bound [], 5s
+[n3_rand start 163] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 1.014e+00->4.428e-01, stop iters, iters 150, at_bound [], 5s
+[n3_rand start 164] phys 2->2 (best 2), real 16->16 {'+++': 4, '++-': 4, '+-+': 4, '+--': 4}, T 7.212e-01->5.447e-01, stop iters, iters 150, at_bound [], 2s
+*** [n3_rand start 165 it 12] physical 2 -> 4
+[n3_rand start 165] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 1.134e+00->1.792e+00, stop lp_stalled, iters 46, at_bound [], 3s
+*** [n3_rand start 166 it 69] physical 2 -> 4
+[n3_rand start 166] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 1.429e-01->1.785e+00, stop lp_stalled, iters 115, at_bound [], 5s
+*** [n3_rand start 167 it 33] physical 2 -> 4
+[n3_rand start 167] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 6.180e+00->1.812e+00, stop lp_stalled, iters 59, at_bound [], 3s
+*** [n3_rand start 168 it 24] physical 2 -> 4
+[n3_rand start 168] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.010e+00->1.817e+00, stop lp_stalled, iters 50, at_bound [], 3s
+*** [n3_rand start 169 it 48] physical 2 -> 4
+[n3_rand start 169] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.266e+00->1.796e+00, stop lp_stalled, iters 85, at_bound [], 4s
+*** [n3_rand start 170 it 8] physical 2 -> 4
+[n3_rand start 170] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '++-': 4, '+--': 4}, T 1.639e+00->1.810e+00, stop lp_stalled, iters 40, at_bound [], 2s
+*** [n3_rand start 171 it 103] physical 2 -> 4
+[n3_rand start 171] phys 2->4 (best 4), real 16->20 {'+-+': 4, '+++': 8, '+--': 4, '++-': 4}, T 1.760e+00->1.772e+00, stop iters, iters 150, at_bound [], 6s
+*** [n3_rand start 172 it 132] physical 2 -> 4
+[n3_rand start 172] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+--': 4, '+-+': 4}, T 3.275e+00->1.801e+00, stop iters, iters 150, at_bound [], 6s
+[n3_rand start 173] phys 2->2 (best 2), real 16->16 {'++-': 4, '+--': 4, '+++': 4, '+-+': 4}, T 7.478e-01->4.646e-01, stop iters, iters 150, at_bound [], 7s
+[n3_rand start 174] phys 2->2 (best 2), real 16->16 {'+++': 4, '++-': 4, '+-+': 4, '+--': 4}, T 1.391e+00->1.146e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 175 it 2] physical 2 -> 4
+[n3_rand start 175] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 5.170e-01->1.800e+00, stop lp_stalled, iters 34, at_bound [], 4s
+*** [n3_rand start 176 it 23] physical 2 -> 4
+[n3_rand start 176] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 1.710e+00->1.786e+00, stop lp_stalled, iters 58, at_bound [], 5s
+*** [n3_rand start 177 it 36] physical 2 -> 4
+[n3_rand start 177] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 1.457e+00->1.835e+00, stop lp_stalled, iters 63, at_bound [], 3s
+[n3_rand start 178] phys 2->2 (best 2), real 16->16 {'+++': 4, '+--': 4, '++-': 4, '+-+': 4}, T 7.149e-01->4.597e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 179 it 36] physical 2 -> 4
+[n3_rand start 179] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '++-': 4, '+-+': 4}, T 8.461e-01->1.811e+00, stop lp_stalled, iters 62, at_bound [], 3s
+*** [n3_rand start 180 it 24] physical 2 -> 4
+[n3_rand start 180] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+--': 4, '+-+': 4}, T 1.296e+00->1.796e+00, stop lp_stalled, iters 64, at_bound [], 3s
+*** [n3_rand start 181 it 24] physical 2 -> 4
+[n3_rand start 181] phys 2->4 (best 4), real 16->20 {'+-+': 4, '++-': 4, '+++': 8, '+--': 4}, T 5.081e-01->1.786e+00, stop lp_stalled, iters 64, at_bound [], 3s
+[n3_rand start 182] phys 2->2 (best 2), real 16->16 {'+-+': 4, '+++': 4, '++-': 4, '+--': 4}, T 1.353e+00->4.599e-01, stop iters, iters 150, at_bound [], 4s
+*** [n3_rand start 183 it 24] physical 2 -> 4
+[n3_rand start 183] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 2.683e+00->1.789e+00, stop lp_stalled, iters 59, at_bound [], 3s
+*** [n3_rand start 184 it 36] physical 2 -> 4
+[n3_rand start 184] phys 2->4 (best 4), real 16->20 {'+++': 8, '++-': 4, '+-+': 4, '+--': 4}, T 2.198e+00->1.801e+00, stop lp_stalled, iters 59, at_bound [], 3s
+*** [n3_rand start 185 it 15] physical 2 -> 4
+[n3_rand start 185] phys 2->4 (best 4), real 16->20 {'++-': 4, '+++': 8, '+-+': 4, '+--': 4}, T 8.462e-01->1.787e+00, stop lp_stalled, iters 39, at_bound [], 2s
+[n3_rand start 186] phys 2->2 (best 2), real 16->16 {'++-': 4, '+--': 4, '+-+': 4, '+++': 4}, T 1.967e+00->1.395e+00, stop iters, iters 150, at_bound [], 2s
+*** [n3_rand start 187 it 24] physical 2 -> 4
+[n3_rand start 187] phys 2->4 (best 4), real 16->20 {'+++': 8, '+-+': 4, '+--': 4, '++-': 4}, T 4.615e+00->1.802e+00, stop lp_stalled, iters 63, at_bound [], 3s
+*** [n3_rand start 188 it 36] physical 2 -> 4
+[n3_rand start 188] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+++': 8, '+--': 4}, T 1.997e+00->1.802e+00, stop lp_stalled, iters 64, at_bound [], 3s
+*** [n3_rand start 189 it 24] physical 2 -> 4
+[n3_rand start 189] phys 2->4 (best 4), real 16->20 {'++-': 4, '+-+': 4, '+--': 4, '+++': 8}, T 2.368e+00->1.805e+00, stop lp_stalled, iters 58, at_bound [], 3s
+*** [n3_rand start 190 it 1] physical 2 -> 4
+[n3_rand start 190] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+-+': 4, '+++': 8}, T 5.430e-01->9.619e-01, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 191] phys 2->2 (best 2), real 16->16 {'++-': 4, '+++': 4, '+-+': 4, '+--': 4}, T 1.274e+01->4.877e-01, stop iters, iters 150, at_bound [], 5s
+*** [n3_rand start 192 it 21] physical 2 -> 4
+[n3_rand start 192] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 2.902e+00->1.815e+00, stop lp_stalled, iters 49, at_bound [], 3s
+*** [n3_rand start 193 it 15] physical 2 -> 4
+[n3_rand start 193] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 1.194e+00->1.787e+00, stop lp_stalled, iters 61, at_bound [], 3s
+[n3_rand start 194] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '++-': 4, '+++': 4}, T 1.228e+00->4.998e-01, stop iters, iters 150, at_bound [], 4s
+[n3_rand start 195] phys 2->2 (best 2), real 16->16 {'+--': 4, '+-+': 4, '+++': 4, '++-': 4}, T 8.849e-01->6.329e-01, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 196 it 48] physical 2 -> 4
+[n3_rand start 196] phys 2->4 (best 4), real 16->20 {'+--': 4, '+++': 8, '+-+': 4, '++-': 4}, T 4.436e-01->1.860e+00, stop lp_stalled, iters 74, at_bound [], 4s
+*** [n3_rand start 197 it 15] physical 2 -> 4
+[n3_rand start 197] phys 2->4 (best 4), real 16->20 {'+++': 8, '+--': 4, '++-': 4, '+-+': 4}, T 2.533e+00->1.773e+00, stop iters, iters 150, at_bound [], 3s
+*** [n3_rand start 198 it 12] physical 2 -> 4
+[n3_rand start 198] phys 2->4 (best 4), real 16->20 {'++-': 4, '+--': 4, '+++': 8, '+-+': 4}, T 2.965e-01->1.821e+00, stop lp_stalled, iters 43, at_bound [], 3s
+[n3_rand start 199] phys 2->2 (best 2), real 16->16 {'+--': 4, '+++': 4, '+-+': 4, '++-': 4}, T 1.155e+00->2.468e-01, stop iters, iters 150, at_bound [], 3s
+DONE n3_rand: 200 starts, 768s

@@ -1,0 +1,6 @@
+== corrupt shape
+REJECTED: uncovered box (0.216796875, 0.21875, 0.40234375, 0.404296875)
+== corrupt cell
+REJECTED: leaf box not in cell
+== corrupt region
+REJECTED: J det contains 0 for leaf (np.float64(0.33984375), np.float64(0.34375), np.float64(0.34375), np.float64(0.34765625))

@@ -1,0 +1,77 @@
+    29.2s starts=3000 NEW class #1 I=15.8631740981 P=I^1.5=63.18080222
+    29.2s starts=3000 NEW class #2 I=15.7340232971 P=I^1.5=62.41079049
+    29.2s starts=3000 NEW class #3 I=16.9824687091 P=I^1.5=69.98439855
+    29.2s starts=3000 NEW class #4 I=15.9001000464 P=I^1.5=63.40153688
+    29.2s starts=3000 NEW class #5 I=16.4425216890 P=I^1.5=66.67340501
+    29.2s starts=3000 NEW class #6 I=18.1495906860 P=I^1.5=77.32149683
+    29.2s starts=3000 NEW class #7 I=17.3208378532 P=I^1.5=72.08640113
+    29.2s starts=3000 NEW class #8 I=16.8384859382 P=I^1.5=69.09626272
+    29.2s starts=3000 NEW class #9 I=16.2582053306 P=I^1.5=65.55546559
+    29.2s starts=3000 NEW class #10 I=15.7409379788 P=I^1.5=62.45193681
+    29.2s starts=3000 NEW class #11 I=15.9640655749 P=I^1.5=63.78451455
+    29.2s starts=3000 NEW class #12 I=16.1746661433 P=I^1.5=65.05085183
+    29.2s starts=3000 NEW class #13 I=19.8567526299 P=I^1.5=88.48350923
+    29.2s starts=3000 NEW class #14 I=15.7403740747 P=I^1.5=62.44858092
+    29.2s starts=3000 NEW class #15 I=16.0549220412 P=I^1.5=64.32981488
+    29.2s starts=3000 NEW class #16 I=15.6182225115 P=I^1.5=61.72305434
+    29.2s starts=3000 NEW class #17 I=15.6089177419 P=I^1.5=61.66790403
+    29.2s starts=3000 NEW class #18 I=15.5307257358 P=I^1.5=61.20510193
+    29.2s starts=3000 NEW class #19 I=15.9110210322 P=I^1.5=63.46686913
+    29.2s starts=3000 NEW class #20 I=15.8633019783 P=I^1.5=63.18156622
+    29.2s starts=3000 converged=2838 classes=20 last_new_at=3000
+    50.2s starts=6000 converged=5679 classes=20 last_new_at=3000
+    77.9s starts=9000 converged=8518 classes=20 last_new_at=3000
+    98.3s starts=12000 converged=11380 classes=20 last_new_at=3000
+   115.1s starts=15000 converged=14230 classes=20 last_new_at=3000
+   132.7s starts=18000 converged=17080 classes=20 last_new_at=3000
+   149.8s starts=21000 converged=19946 classes=20 last_new_at=3000
+   161.1s starts=24000 converged=22807 classes=20 last_new_at=3000
+   181.9s starts=27000 converged=25675 classes=20 last_new_at=3000
+   198.1s starts=30000 converged=28536 classes=20 last_new_at=3000
+   216.9s starts=33000 converged=31387 classes=20 last_new_at=3000
+   236.3s starts=36000 converged=34258 classes=20 last_new_at=3000
+   249.7s starts=39000 converged=37121 classes=20 last_new_at=3000
+   268.0s starts=42000 converged=39965 classes=20 last_new_at=3000
+   287.5s starts=45000 converged=42827 classes=20 last_new_at=3000
+   303.8s starts=48000 converged=45696 classes=20 last_new_at=3000
+   317.8s starts=51000 converged=48548 classes=20 last_new_at=3000
+   330.6s starts=54000 converged=51426 classes=20 last_new_at=3000
+   342.7s starts=57000 converged=54283 classes=20 last_new_at=3000
+   359.9s starts=60000 converged=57144 classes=20 last_new_at=3000
+   376.6s starts=63000 converged=60019 classes=20 last_new_at=3000
+   389.2s starts=66000 converged=62876 classes=20 last_new_at=3000
+   404.1s starts=69000 converged=65731 classes=20 last_new_at=3000
+   418.3s starts=72000 converged=68579 classes=20 last_new_at=3000
+   430.7s starts=75000 converged=71439 classes=20 last_new_at=3000
+   445.5s starts=78000 converged=74276 classes=20 last_new_at=3000
+   465.8s starts=81000 converged=77133 classes=20 last_new_at=3000
+   481.2s starts=84000 converged=80003 classes=20 last_new_at=3000
+   499.7s starts=87000 converged=82857 classes=20 last_new_at=3000
+   516.6s starts=90000 converged=85725 classes=20 last_new_at=3000
+   531.8s starts=93000 converged=88584 classes=20 last_new_at=3000
+   545.5s starts=96000 converged=91472 classes=20 last_new_at=3000
+   557.9s starts=99000 converged=94331 classes=20 last_new_at=3000
+   572.9s starts=102000 converged=97185 classes=20 last_new_at=3000
+   599.3s starts=105000 converged=100037 classes=20 last_new_at=3000
+   615.9s starts=108000 converged=102891 classes=20 last_new_at=3000
+   628.9s starts=111000 converged=105744 classes=20 last_new_at=3000
+   642.0s starts=114000 converged=108618 classes=20 last_new_at=3000
+   655.7s starts=117000 converged=111468 classes=20 last_new_at=3000
+   669.4s starts=120000 converged=114326 classes=20 last_new_at=3000
+   682.7s starts=123000 converged=117176 classes=20 last_new_at=3000
+   701.5s starts=126000 converged=120037 classes=20 last_new_at=3000
+   717.5s starts=129000 converged=122912 classes=20 last_new_at=3000
+   730.0s starts=132000 converged=125776 classes=20 last_new_at=3000
+   741.9s starts=135000 converged=128632 classes=20 last_new_at=3000
+   753.4s starts=138000 converged=131500 classes=20 last_new_at=3000
+   768.2s starts=141000 converged=134355 classes=20 last_new_at=3000
+   780.0s starts=144000 converged=137223 classes=20 last_new_at=3000
+   796.1s starts=147000 converged=140084 classes=20 last_new_at=3000
+   810.7s starts=150000 converged=142923 classes=20 last_new_at=3000
+   825.4s starts=153000 converged=145770 classes=20 last_new_at=3000
+   837.0s starts=156000 converged=148626 classes=20 last_new_at=3000
+   852.0s starts=159000 converged=151495 classes=20 last_new_at=3000
+   877.0s starts=162000 converged=154367 classes=20 last_new_at=3000
+   891.9s starts=165000 converged=157227 classes=20 last_new_at=3000
+   905.4s starts=168000 converged=160108 classes=20 last_new_at=3000
+done

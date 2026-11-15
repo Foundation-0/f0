@@ -1,0 +1,2 @@
+python -O active: True
+clean certificates accepted: 5 / 5 ; corrupted inputs rejected: 73 / 73

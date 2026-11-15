@@ -1,0 +1,16 @@
+268627 3 7 HV nxk atmost D 960 ord 26 nonzero residual count 0 last nonzero j None first [] terms in data 14
+    Empirical: a(n) = 110*a(n-1) -5243*a(n-2) +144650*a(n-3) -2610593*a(n-4) +33017408*a(n-5) -305811128*a(n-6) +2137462184*a(n-7) -11513372884*a(n-8) +48502300256*a(n-9) -161412354008*a(n-10) +4270446165
+268636 3 5 HV nxk exact D 192 ord 10 nonzero residual count 0 last nonzero j None first [] terms in data 15
+    Empirical: a(n) = 32*a(n-1) -386*a(n-2) +2264*a(n-3) -7265*a(n-4) +13512*a(n-5) -14960*a(n-6) +9872*a(n-7) -3776*a(n-8) +768*a(n-9) -64*a(n-10)
+268748 2 6 HV nxk atmost D 62 ord 22 nonzero residual count 0 last nonzero j None first [] terms in data 16
+    Empirical: a(n) = 16*a(n-1) +60*a(n-2) -1148*a(n-3) -3346*a(n-4) +16272*a(n-5) +36588*a(n-6) -104246*a(n-7) -147989*a(n-8) +349140*a(n-9) +217324*a(n-10) -591448*a(n-11) -19320*a(n-12) +431032*a(n-13)
+268763 2 5 ADHV nxk exact D 36 ord 12 nonzero residual count 0 last nonzero j None first [] terms in data 19
+    Empirical: a(n) = 4*a(n-1) +28*a(n-2) -62*a(n-3) -314*a(n-4) +78*a(n-5) +867*a(n-6) +6*a(n-7) -859*a(n-8) +46*a(n-9) +215*a(n-10) -8*a(n-11) -16*a(n-12)
+268771 3 5 ADHV nxk exact D 188 ord 12 nonzero residual count 2 last nonzero j 1 first [0, 1] terms in data 19
+    Empirical: a(n) = 4*a(n-1) +28*a(n-2) -62*a(n-3) -314*a(n-4) +78*a(n-5) +867*a(n-6) +6*a(n-7) -859*a(n-8) +46*a(n-9) +215*a(n-10) -8*a(n-11) -16*a(n-12) for n>14
+268778 2 5 ADHV nxk atmost D 36 ord 12 nonzero residual count 0 last nonzero j None first [] terms in data 19
+    Empirical: a(n) = 4*a(n-1) +28*a(n-2) -62*a(n-3) -314*a(n-4) +78*a(n-5) +867*a(n-6) +6*a(n-7) -859*a(n-8) +46*a(n-9) +215*a(n-10) -8*a(n-11) -16*a(n-12)
+268909 3 6 AH kxn exact D 1458 ord 18 nonzero residual count 8 last nonzero j 7 first [0, 1, 2] terms in data 15
+    Empirical: a(n) = 60*a(n-1) -1466*a(n-2) +19056*a(n-3) -143515*a(n-4) +608478*a(n-5) -957350*a(n-6) -3924114*a(n-7) +27201539*a(n-8) -68079378*a(n-9) +46537423*a(n-10) +212613240*a(n-11) -785654632*a(
+268976 3 6 AH kxn atmost D 1458 ord 18 nonzero residual count 8 last nonzero j 7 first [0, 1, 2] terms in data 14
+    Empirical: a(n) = 60*a(n-1) -1466*a(n-2) +19056*a(n-3) -143515*a(n-4) +608478*a(n-5) -957350*a(n-6) -3924114*a(n-7) +27201539*a(n-8) -68079378*a(n-9) +46537423*a(n-10) +212613240*a(n-11) -785654632*a(

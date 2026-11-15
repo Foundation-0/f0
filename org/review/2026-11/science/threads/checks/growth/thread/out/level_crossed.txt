@@ -1,0 +1,12 @@
+p=3 crossed zonal: real 5, crossings on RP2 6 (lower bound I-1=5), complex 7, ratio real/complex 0.71, radii 0.5..1.4 2s
+p=4 crossed zonal: real 7, crossings on RP2 8 (lower bound I-1=7), complex 19, ratio real/complex 0.37, radii 1.6..4 2s
+p=5 crossed zonal: real 11, crossings on RP2 12 (lower bound I-1=11), complex 37, ratio real/complex 0.30, radii 0.5..1.6 3s
+p=6 crossed zonal: real 17, crossings on RP2 18 (lower bound I-1=17), complex 61, ratio real/complex 0.28, radii 1.6..6 3s
+p=7 crossed zonal: real 25, crossings on RP2 26 (lower bound I-1=25), complex 91, ratio real/complex 0.27, radii 0.63..2.8 4s
+p=8 crossed zonal: real 31, crossings on RP2 32 (lower bound I-1=31), complex 127, ratio real/complex 0.24, radii 1.3..6.4 6s
+p=9 crossed zonal: real 39, crossings on RP2 40 (lower bound I-1=39), complex 169, ratio real/complex 0.23, radii 0.44..2.5 8s
+p=10 crossed zonal: real 49, crossings on RP2 50 (lower bound I-1=49), complex 217, ratio real/complex 0.23, radii 1.2..7.6 8s
+p=11 crossed zonal: real 61, crossings on RP2 62 (lower bound I-1=61), complex 271, ratio real/complex 0.23, radii 0.49..3.5 9s
+p=12 crossed zonal: real 71, crossings on RP2 72 (lower bound I-1=71), complex 331, ratio real/complex 0.21, radii 1.1..8.1 10s
+p=13 crossed zonal: real 83, crossings on RP2 84 (lower bound I-1=83), complex 397, ratio real/complex 0.21, radii 0.51..4.2 15s
+p=14 crossed zonal: real 97, crossings on RP2 98 (lower bound I-1=97), complex 469, ratio real/complex 0.21, radii 1.2..10 24s

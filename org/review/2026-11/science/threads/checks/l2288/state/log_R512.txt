@@ -1,0 +1,15 @@
+[R512] start real 2244, eps 1.64e-02
+[R512] it 1 (1s): real 2244 -> 2248 via LP tr 8.2e-04, eps 1.6e-02, min real d2 2.8e-05
+[R512] it 2 (2s): real 2248 -> 2260 via LP tr 1.2e-03, eps 1.4e-02, min real d2 1.9e-04
+[R512] it 3 (2s): real 2260 -> 2264 via LP tr 1.6e-03, eps 1.4e-02, min real d2 2.1e-04
+[R512] it 4 (3s): real 2264 -> 2272 via LP tr 2.3e-03, eps 1.2e-02, min real d2 1.6e-04
+[R512] it 5 (9s): no step, tau -> 1.0e-01, real 2272, pairs 4, min im2 4.3e-03, min real d2 2.5e-04
+[R512] it 6 (15s): no step, tau -> 4.1e-02, real 2272, pairs 4, min im2 4.3e-03, min real d2 2.5e-04
+[R512] it 7 (20s): no step, tau -> 1.6e-02, real 2272, pairs 4, min im2 4.3e-03, min real d2 2.5e-04
+[R512] it 9 (21s): real 2272 -> 2280 via LP tr 2.9e-04, eps 1.2e-02, min real d2 2.7e-04
+[R512] it 10 (22s): real 2280 -> 2284 via LP tr 1.3e-04, eps 1.2e-02, min real d2 2.0e-04
+[R512] it 12 (26s): no step, tau -> 3.3e-02, real 2284, pairs 1, min im2 9.0e-02, min real d2 1.4e-04
+[R512] it 13 (28s): no step, tau -> 1.3e-02, real 2284, pairs 1, min im2 9.0e-02, min real d2 1.4e-04
+[R512] it 15 (31s): real 2284 -> 2288 via LP tr 2.4e-05, eps 1.2e-02, min real d2 1.2e-04
+[R512] ALL REAL
+[R512] done best 2288 after 31s

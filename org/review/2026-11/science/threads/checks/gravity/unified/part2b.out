@@ -1,0 +1,42 @@
+== (1) control: sigma_RAR = sqrt(nu(g_b) g_b r/2) at each system's outer radius (no M_tot information)
+   correlation of log sigma_RAR with log sigma: 0.985
+   A_power        sigma    : in-sample 0.139  LOCO 0.150  (per class 0.16 0.22 0.10 0.12 0.16 0.12)
+   A_power        sigma_rar: in-sample 0.144  LOCO 0.156  (per class 0.16 0.22 0.12 0.13 0.17 0.12)
+   A_power        Mb       : in-sample 0.147  LOCO 0.173  (per class 0.16 0.22 0.12 0.13 0.19 0.20)
+   A_threshold    sigma    : in-sample 0.133  LOCO 0.147  (per class 0.15 0.21 0.10 0.14 0.15 0.11)
+   A_threshold    sigma_rar: in-sample 0.142  LOCO 0.161  (per class 0.15 0.21 0.14 0.15 0.17 0.13)
+   A_threshold    Mb       : in-sample 0.143  LOCO 0.164  (per class 0.15 0.21 0.14 0.15 0.17 0.15)
+   B_power        sigma    : in-sample 0.134  LOCO 0.143  (per class 0.15 0.21 0.09 0.17 0.13 0.05)
+   B_power        sigma_rar: in-sample 0.140  LOCO 0.142  (per class 0.15 0.21 0.13 0.14 0.12 0.06)
+   B_power        Mb       : in-sample 0.148  LOCO 0.184  (per class 0.17 0.21 0.12 0.13 0.19 0.25)
+   B_ratio_power  sigma    : in-sample 0.138  LOCO 0.157  (per class 0.16 0.21 0.10 0.12 0.15 0.17)
+   B_ratio_power  sigma_rar: in-sample 0.142  LOCO 0.162  (per class 0.16 0.21 0.12 0.13 0.17 0.17)
+   B_ratio_power  Mb       : in-sample 0.148  LOCO 0.184  (per class 0.17 0.21 0.12 0.13 0.19 0.25)
+   B_threshold    sigma    : in-sample 0.136  LOCO 0.155  (per class 0.15 0.21 0.10 0.13 0.16 0.17)
+   B_threshold    sigma_rar: in-sample 0.144  LOCO 0.169  (per class 0.16 0.21 0.14 0.15 0.19 0.17)
+   B_threshold    Mb       : in-sample 0.147  LOCO 0.173  (per class 0.16 0.21 0.13 0.15 0.19 0.19)
+
+== (2) onset of the sigma law (local sample; bootstrap over systems within classes, 100 replicates)
+   A free s          : sigma_J = 187 km/s (68% 177-196, 95% 174-204); R = 7.50 (68% 6.93-7.91); sharpness s = 0.50 (68% 0.50-0.50); rms 0.133
+   A s=2 (repo form) : sigma_J = 211 km/s (68% 200-234, 95% 193-241); R = 3.75 (68% 3.58-4.17); sharpness s = 2.00 (68% 2.00-2.00); rms 0.135
+   B s=2             : sigma_J = 177 km/s (68% 173-185, 95% 166-195); R = 1.46 (68% 1.37-1.56); sharpness s = 2.00 (68% 2.00-2.00); rms 0.138
+   B free s          : sigma_J = 158 km/s (68% 150-161, 95% 146-165); R = 2.95 (68% 2.77-3.07); sharpness s = 0.50 (68% 0.50-0.50); rms 0.136
+
+== (3) two-variable law M_extra = K (sigma/200 km/s)^a (r/100 kpc)^b  [form B]
+   best: log K = 10.82, a = 4.17 (68% 4.07-4.30; 95% 4.00-4.41), b = 0.41 (68% 0.38-0.45; 95% 0.34-0.47); rms 0.126
+   correlation of a and b across bootstrap: -0.84
+   a=3,b=3 (max phase-space density, packed) : log K = 9.14, rms 0.170 (vs free 0.126); n*Delta(MSE) class-balanced = 0.0132 dex^2
+   a=2,b=1 (isothermal halo)                 : log K = 11.18, rms 0.161 (vs free 0.126); n*Delta(MSE) class-balanced = 0.0101 dex^2
+   M_extra = c M_b                           : c = 0.302, rms 0.174
+   RAR only                                  : rms 0.189
+   a=b=3 normalisation -> fermion mass (Pauli bound F = g m^4/h^3, Maxwellian core, g=2): 1.26 eV  (Tremaine-Gunn F<=g m^4/(2h^3) gives x2^(1/4)=1.50 eV)
+   a=b=3 normalisation -> fermion mass (Pauli bound F = g m^4/h^3, Maxwellian core, g=1): 1.50 eV  (Tremaine-Gunn F<=g m^4/(2h^3) gives x2^(1/4)=1.79 eV)
+
+== (4) high-z class (RC100, Nestor Shachar+2023), laws fitted on the local sample only, no refit
+   RAR only              : residual log M_tot obs-pred median +0.014, rms 0.117; f_DM(R_e) median pred 0.29 vs obs 0.29 (z<1.2: 0.36 vs 0.39; z>=1.2: 0.27 vs 0.27)
+   B_power|sigma         : residual log M_tot obs-pred median -0.046, rms 0.112; f_DM(R_e) median pred 0.38 vs obs 0.29 (z<1.2: 0.43 vs 0.39; z>=1.2: 0.37 vs 0.27)
+   A_threshold|sigma     : residual log M_tot obs-pred median -0.019, rms 0.127; f_DM(R_e) median pred 0.36 vs obs 0.29 (z<1.2: 0.40 vs 0.39; z>=1.2: 0.34 vs 0.27)
+   B_threshold|sigma     : residual log M_tot obs-pred median -0.028, rms 0.115; f_DM(R_e) median pred 0.37 vs obs 0.29 (z<1.2: 0.41 vs 0.39; z>=1.2: 0.35 vs 0.27)
+   A_threshold|Mb        : residual log M_tot obs-pred median +0.014, rms 0.117; f_DM(R_e) median pred 0.29 vs obs 0.29 (z<1.2: 0.36 vs 0.39; z>=1.2: 0.27 vs 0.27)
+   A_threshold|psi       : residual log M_tot obs-pred median +0.014, rms 0.117; f_DM(R_e) median pred 0.29 vs obs 0.29 (z<1.2: 0.36 vs 0.39; z>=1.2: 0.27 vs 0.27)
+   two-variable law      : residual log M_tot obs-pred median -0.051, rms 0.102; f_DM(R_e) median pred 0.37 vs obs 0.29 (z<1.2: 0.43 vs 0.39; z>=1.2: 0.36 vs 0.27)
