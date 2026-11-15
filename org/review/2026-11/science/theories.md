@@ -1,12 +1,14 @@
 # F1: theory map
 
-Science pass, 15 November 2026. This lists the distinct theories, frameworks and results in the 35 public repositories, each with its statement, formulas, constants and the repositories that use it. Every repository was read from a fresh clone at the head in `tools/heads.tsv`.
+Science pass, 15 November 2026. This lists the distinct theories, frameworks and results in the 35 public repositories, each with its statement, formulas, constants and the repositories that use it. Every repository was read from a fresh clone at the head listed in `org/review/2026-11/tools/heads.tsv`, which is on the H1 branch (draft PR 45).
 
-Marks: **[F]** a fact read from a repository or a run, **[I]** an inference. Pins are `repo@sha:path:line`. The column "State" uses the labels in `glossary.md`. Verdicts for each claim are in `verdicts.csv`.
+Marks: **[F]** a fact read from a repository or a run, **[I]** an inference. Pins are `repo@sha:path:line`. The column "State" gives the label from `glossary.md` where one applies, with a short note. The glossary also defines the statuses "not a claim" and "not yet judged". Verdicts for each claim are in `verdicts.csv`. `verdicts.csv`, `notes/` and `checks/` are in `org/review/2026-11/science/` on draft PR 51, and `glossary.md` is on draft PR 55.
 
 ## The short version
 
-The organisation does not hold one theory. It holds 17 separate bodies of work. Three of them carry results that stand up to an independent check today: the 880 real realizations of a rigid graph, 18 exact upper bounds on linear codes, and exact counts of equilibria of point charges.
+The organisation does not hold one theory. It holds 17 separate bodies of work. Two of them carry results that have a check with separate code written for this review: the 880 real realizations of a rigid graph, and 18 exact upper bounds on linear codes (held in 15 certificate files).
+
+A third, the exact counts of equilibria of point charges, is REPRODUCED with the repository's own verifier. Its check with separate code is still to come.
 
 One body, the gravity wave series, is the only candidate for a physical theory. Its own ledger says it is not one. Its central fit does not survive a like-for-like comparison with its own data table unless a second number is fitted.
 
@@ -74,7 +76,7 @@ The first term is the radial acceleration relation of McGaugh and co-authors, a 
 
 ## 2. Acceleration evolution
 
-**Where.** [F] Only `gravity@8f96c4b:acceleration-evolution/`. The issue places this thread in fractals, astr0 and physics0 as well. At their pinned heads those three repositories do not mention it. gravity cites companion notes at commits that are not on their default branches (`STATUS.md`, `research/convergences-20261112/PROVENANCE.md:16-18`).
+**Where.** [F] Only `gravity@8f96c4b:acceleration-evolution/`. The issue places this thread in fractals, astr0 and physics0 as well. At their pinned heads those three repositories do not mention it. gravity cites companion notes at commits that are not on their default branches (`acceleration-evolution/STATUS.md`, `research/convergences-20261112/PROVENANCE.md:16-18`). Those commits are the heads of open pull requests fractals 51, physics0 15 and astr0 4, from the branch `aeva/acceleration-evolution-links`.
 
 **Statement.** [F] `acceleration-evolution/README.md:12`:
 
@@ -90,9 +92,9 @@ q = 0 is a constant scale. q = 1 is a scale that follows the expansion rate. A =
 
 **Where.** `fractals`. [F] `fractals@48b923b:README.md:7`: "exploration, not peer reviewed, no new result claimed."
 
-**Content.** Textbook and literature scalings stated in prose: quantum path dimension 2, the scale of cosmic homogeneity, a turbulence cascade check, a cloud-edge dimension, percolation and Ising exponents. `CORRECTIONS.md` holds items 1 to 20. "Correction 21" exists only in open pull requests.
+**Content.** Textbook and literature scalings stated in prose: quantum path dimension 2, the scale of cosmic homogeneity, a turbulence cascade check, a cloud-edge dimension, percolation and Ising exponents. `CORRECTIONS.md` holds items 1 to 20. Item 21 appears only in the `CORRECTIONS.md` of open pull requests: fractals 26 and 35 add one item numbered 21, and fractals 54 adds a different one.
 
-**Note.** [F] In fractals the symbol a_0 is the Bohr radius of a gravitational atom, not the acceleration of body 1.
+**Note.** [F] In fractals the symbol a₀ is the Bohr radius of a gravitational atom (`fractals@48b923b:README.md:289`, and `a0` in `gravitational-atom/atom.js:6`). In gravity a_0 is the acceleration scale (`gravity@8f96c4b:CLAIMS.md:18`).
 
 ## 4. Incentre lattices
 
@@ -118,7 +120,7 @@ Labelled PROVEN for n at least 3 and VERIFIED for n = 2 to 8. [I] The last formu
 
 **Content.** A passage theorem, a window theorem, rod and volume bounds, and a transport theorem that separates rank two from rank three conduction. None is formalised.
 
-**State.** [F] `replay_all.py` passes its first 22 steps on a fresh clone. `research/passage_verify.py` accepts a corrupted certificate under `python3 -O` (lead run). Reader finding: the rod threshold is written as (sqrt(3) - 1) r in the proof and as "less than half" in three summary files.
+**State.** [F] `replay_all.py` passes its first 22 steps on a fresh clone. `research/passage_verify.py` accepts a corrupted certificate under `python3 -O` (lead run). [F] The proof states two thresholds for the rod radius a. The probe-exclusion threshold for an equal-size probe is a <= (sqrt(3) - 1) r (`research/connectors_proof.md:27`). The simultaneous certificate holds for 0 < a/r < 1/2 (`:57`). The summaries state the certificate bound, for example `README.md:22` and `research/status.md:15`.
 
 ## 6. Real realizations of rigid graphs
 
@@ -128,7 +130,7 @@ Labelled PROVEN for n at least 3 and VERIFIED for n = 2 to 8. [I] The last formu
 
 **Method.** 17 rational bar lengths, one triangle pinned, and 440 small boxes in 14 unknowns. Each box is shown to hold exactly one real solution. Mirror images give the other 440.
 
-**State.** [F] VERIFIED by `checks/l880_independent.py`, which shares no code with the repository. [F] The earlier published figure is 860 certified and 868 numerical (Bartzos, Emiris, Legersky and Tsigaridas, arXiv:1811.12800). [I] The count of 880 complex realizations is taken from the literature and was not recomputed here.
+**State.** [F] VERIFIED by `checks/l880_independent.py`, which shares no code with the repository. [F] The earlier published figure is 860 certified and 868 numerical (Bartzos, Emiris, Legersky and Tsigaridas, arXiv:1811.12800). [I] The count of 880 complex realizations is the repository's own computation from a published recurrence (`rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py`). It was not recomputed here.
 
 **Related rows.** L344 is KNOWN: the same paper says all its embeddings can be real. G160 at least 132 certifies a value that paper already reports numerically.
 
@@ -140,13 +142,13 @@ Labelled PROVEN for n at least 3 and VERIFIED for n = 2 to 8. [I] The last formu
 
 **Prior art as the repository gives it.** A five-charge counterexample with at least 24 equilibria, published in July 2026 by Arathoon, Ball and Kvalheim (`README.md:10`). The repository adds the exact count for that case, a four-charge example that reaches the bound, and the six and seven charge counts.
 
-**State.** [F] REPRODUCED. Lead run of `verify_arb.py` on all five certificates returns the five counts. An independent recomputation with separate code is the next step. The Lean file holds definitions only.
+**State.** [F] REPRODUCED. Lead run of `verify_arb.py` on all five certificates returns the five counts. That is a run of the repository's own verifier. A check with separate code is still to come. The Lean file holds definitions only.
 
 ## 8. Bounds on linear codes
 
 **Where.** `gfq-codes`. `math0` holds the census of open table entries.
 
-**Statement.** 18 statements of the form "no linear code [n, k, d] over GF(q) exists", for q = 7 and q = 9. Each lowers by one the upper bound shown at codetables.de.
+**Statement.** 18 statements, held in 15 certificate files, of the form "no linear code [n, k, d] over GF(q) exists", for q = 7 and q = 9. Each lowers by one the upper bound shown at codetables.de.
 
 **Method.** The Delsarte linear programming bound, with integer coefficients stored in `results/*/certificate.json`.
 
@@ -181,9 +183,9 @@ Labelled PROVEN for n at least 3 and VERIFIED for n = 2 to 8. [I] The last formu
 | overdue-data, rism-anon | Counts from archives. The data is not in the repositories | claimed pilots |
 | lost-eclipses, wwssn-microseisms, gaia-dr4 | none | plans |
 | nhanes-bioimpedance | Survival associations of bioimpedance measures in 13,276 people | not yet judged |
-| virtual-human | Validators on 100 clinical datasets. A second file uses 82 | not yet judged |
+| virtual-human | Validators on 100 clinical datasets (`virtual-human@6b10b45:README.md:70`). `docs/validation_body.md:3` lists 28 IV and 54 oral datasets, which is 82. The two files disagree | not yet judged |
 | cfrp-strengthening | A checker that matches ten printed values of a worked design example | REPRODUCED. The example is not in the repository |
 | thermal-capture, ductricity | Essays with textbook figures | no computation to judge |
 | proven-commons, formal-claims-audit | Tools. formal-claims-audit has no verdicts yet | no mathematical claim |
 
-project-asma is in scope only where another repository depends on it. One dependency was found: a virtual-human validator needs a project-asma checkout (`--asma-root`). Its claims were not judged in this pass.
+project-asma is in scope only where another repository depends on it. Two dependencies were found. The virtual-human script `scripts/validate_asma_interventions.py` needs a project-asma checkout (`--asma-root`). project-asma holds a pinned copy of `vh/graph/core.py` (`project-asma@4817821:NOTICE:70`). Its claims were not judged in this pass. H1's claims index holds 128 project-asma rows, more than any other repository, and verdicts.csv has no row for them.
