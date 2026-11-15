@@ -76,19 +76,21 @@ Not inventoried: figures, site HTML, CSS and JavaScript, CI workflows, licences,
 
 ## Claims index
 
-`claims-index.csv` has 178 rows: 159 claims, 10 method entries and 9 review dispositions.
+`claims-index.csv` has 192 rows: 173 claims, 10 method entries and 9 review dispositions.
 
 - gravity: 33 claims (`C-01` to `C-33`) from `CLAIMS.md`, 10 methods (`M-01` to `M-10`) from `METHODS_AND_PLAYBOOK.md`, and 9 disposition rows (`D01` to `D09`) from `research/update-d144448-review/CLAIM_MAP.json`. Each D row names the claim it reviews in the `xref` column.
 - exoplanets-frontier: 8 claims (`C-01` to `C-08`) from `CLAIMS.md`.
-- project-asma: 118 claims from `registries/claims-ledger.json`.
+- project-asma: 128 claims, 118 from `registries/claims-ledger.json` and 10 (`A1` to `A5`, `B1`, `C1` to `C3`) from `docs/cdr2-hla-ii-evidence-map-2026-11-06.md`, found by the scan.
+- incentre-lattices: 1 claim (`H1`) from `docs/audit.md`, found by the scan.
+- rigid-realizations: 3 claims (`L344`, `L880`, `G160`) from `README.md`, found by the scan.
 
-The `scope` column carries the decision: `in` for gravity and exoplanets-frontier, 60 rows in all, and `reference` for project-asma, 118 rows. F2 can filter on the column instead of the repository name.
+The `scope` column carries the decision: `in` for gravity, exoplanets-frontier, incentre-lattices and rigid-realizations, 64 rows in all, and `reference` for project-asma, 128 rows. F2 can filter on the column instead of the repository name.
 
-The label column repeats the label as written, with Markdown backticks removed and nothing else changed. Where a claim carries two labels, both are kept.
+The label column repeats the label as written, with Markdown backticks removed and nothing else changed. Where a claim carries two labels, both are kept. The text column keeps the claim wording verbatim, backticks included. Only the label column strips them.
 
-**32 of the 35 public repositories define no claim ID at all.** They state results in a `README.md`, a `PROOF.md`, or named result folders, without IDs to cite. The exceptions are gravity, exoplanets-frontier and project-asma. A scan of every Markdown and JSON file for an ID pattern followed by a label found no other register. The 32:
+**30 of the 35 public repositories define no claim ID at all.** They state results in a `README.md`, a `PROOF.md`, or named result folders, without IDs to cite. The exceptions are gravity, exoplanets-frontier, project-asma, incentre-lattices and rigid-realizations. A scan of every Markdown and JSON file for an ID pattern followed by a label found no other register. The 30:
 
-`.github`, `astr0`, `certified-orbits`, `cfrp-strengthening`, `cosmic-denoising`, `covering-min-modulus`, `discussi0n`, `ductricity`, `f0`, `finite-state-proofs`, `formal-claims-audit`, `fractals`, `gaia-dr4`, `gfq-codes`, `incentre-lattices`, `lost-eclipses`, `math0`, `nhanes-bioimpedance`, `overdue-data`, `physics0`, `plate-eclipses`, `plate-novae`, `point-charges`, `proven-commons`, `relative-equilibria`, `rigid-realizations`, `rism-anon`, `st0a`, `thermal-capture`, `virtual-human`, `vitruvian3d`, `wwssn-microseisms`.
+`.github`, `astr0`, `certified-orbits`, `cfrp-strengthening`, `cosmic-denoising`, `covering-min-modulus`, `discussi0n`, `ductricity`, `f0`, `finite-state-proofs`, `formal-claims-audit`, `fractals`, `gaia-dr4`, `gfq-codes`, `lost-eclipses`, `math0`, `nhanes-bioimpedance`, `overdue-data`, `physics0`, `plate-eclipses`, `plate-novae`, `point-charges`, `proven-commons`, `relative-equilibria`, `rism-anon`, `st0a`, `thermal-capture`, `virtual-human`, `vitruvian3d`, `wwssn-microseisms`.
 
 This matters for decision 4 and for F2: a glossary cannot be applied to claims that have no identifier to carry a label. The next section indexes their stated results. The repositories that do use IDs use three different label vocabularies:
 
@@ -97,10 +99,14 @@ This matters for decision 4 and for F2: a glossary cannot be applied to claims t
 | gravity | COMPUTED (known framework or model scan), EMPIRICAL-FIT, KNOWN-LITERATURE-VALUE, CONJECTURE, and PROVEN (ARITHMETIC-LEMMA) on the Lean lemmas |
 | exoplanets-frontier | VERIFIED, FALSIFIED, CONJECTURE, KNOWN |
 | project-asma | VERIFIED, KNOWN, CONJECTURE |
+| incentre-lattices | CLAIMED |
+| rigid-realizations | KNOWN, CLAIMED |
 
 ## Results without a claim ID
 
 `results-index.csv` has 383 rows from 24 repositories. The columns match `claims-index.csv`. The ID is provisional, `<repository>/R-<n>`, numbered in file and line order within each repository. 340 rows carry a label. Labels and text have Markdown emphasis, backticks and heading marks removed and whitespace collapsed. Nothing else changes.
+
+Two repositories in this index also carry a few claim IDs of their own (incentre-lattices `H1`, rigid-realizations `L344`, `L880`, `G160`). Their stated results are indexed here all the same, since the IDs cover only a handful of rows.
 
 Three sources, all mechanical:
 
@@ -162,13 +168,13 @@ Three runs on 15 November produced byte-identical copies of every file here: two
 
 Three mutation tests on copies of the clones, each discarded afterwards:
 
-- Deleting the `gaia-dr4` row from the project table in `astr0/README.md` removed exactly one row, `astr0/R-5`, and left 382
-- Deleting the `C-10` line from `gravity/CLAIMS.md` removed exactly that row, 178 to 177
+- Deleting the `gaia-dr4` row, `astr0/R-4`, from the project table in `astr0/README.md` removed exactly one row (the rows after it renumber, so `R-5` is the ID that vanishes) and left 382
+- Deleting the `C-10` line from `gravity/CLAIMS.md` removed exactly that row, 192 to 191
 - Adding one `assert` to `gravity/verify_all.py` raised gravity's count from 245 to 246
 
 ## Limits
 
-- The head is a moment. Email-style counts will move as PRs merge.
+- The head is a moment. Counts will move as PRs merge.
 - The classification is by name and path, not by reading each file, so a checker with an unusual name is missed and library code that happens to be named `check_*` is included. The lists are in the CSV so the error is visible.
 - No network fetch is involved. The repository clones are the only input, and `heads.tsv` records the commit each file was read at.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """H1b: index the stated results that have no claim ID.
 
-Thirty-two of the 35 public repositories state results without a claim
+Thirty of the 35 public repositories state results without a claim
 identifier. F2 needs one row per stated result, so this reads the mirrors and
 writes results-index.csv with the same columns as claims-index.csv, plus a
 provisional ID of the form <repository>/R-<n>.
@@ -27,6 +27,9 @@ MIRRORS = os.path.join(TOOLS, "mirrors")
 OUT = BASE
 
 # Repositories that already carry claim IDs, or that are reference scope only.
+# incentre-lattices and rigid-realizations carry a few IDs of their own, but
+# their stated results are indexed here all the same; the IDs cover only a
+# handful of rows.
 SKIP = {"gravity", "exoplanets-frontier", "project-asma"}
 
 # Priority order: the first header that matches names the result. "result" and
@@ -40,7 +43,7 @@ TEXT_WORDS = ("evidence", "claim", "statement", "description", "meaning",
 STATUS_WORDS = ("label", "status", "verdict")
 LABEL_TOKENS = ("PROVEN", "VERIFIED", "CONJECTURE", "KNOWN", "COMPUTED",
                 "FALSIFIED", "CLAIMED", "REPRODUCED", "CONFIRMED", "OPEN",
-                "OVERSTATED", "CONTRADICTED", "REPRODUCED")
+                "OVERSTATED", "CONTRADICTED")
 THEOREM_RE = re.compile(
     r"^\s*(?:#{1,6}\s*|[-*+]\s+|\d+\.\s+)?\*{0,2}"
     r"(Theorem|Proposition|Lemma|Conjecture|Result)\b")
