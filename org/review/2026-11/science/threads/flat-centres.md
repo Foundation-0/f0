@@ -1,6 +1,6 @@
 # Thread: centres that are flat to high order
 
-Follow-up to `four-charges-eleven.md`, 15 November 2026. Marks: **[F]** fact from a run, **[P]** a published result, **[I]** inference, **[C]** conjecture. Everything numerical here is uncertified. The thread is still being worked.
+Follow-up to `four-charges-eleven.md`, 15 November 2026. Marks: **[F]** fact from a run, **[P]** a published result, **[I]** inference, **[C]** conjecture. Counts are numerical unless marked proved.
 
 ## The question
 
@@ -38,18 +38,49 @@ For the tetrahedron the cubic is degenerate, which is why the centre gives 11 an
 
 ## How many can be real
 
-This is the whole question, and it is open.
+### A quartic with all 27 real
 
-- [F] Order 2. All 8 can be real. This is proved in effect by the certified four-charge configurations.
-- [F] Order 3, the octahedron. In 4,000 random choices of the lower terms the real count ran from 5 to 13 of 27. A climb that pulls complex pairs toward the real axis reached 17, with 11 of index 2 and 6 of index 1. That fits the local degree of 5.
-- [F] Order 3, two scales. With only a cubic term added, the origin keeps 8 of the 27 and the other 19 sit further out. In three climbs at most 13 of those 19 were real. With 8 more from the inner cluster that points to about 21.
-- [F] Order 5, the icosahedron. The solver used here fails on most samples at 125 roots. The 16 samples it solved had 11 to 15 real. That says nothing yet about the largest count.
+[F] A harmonic polynomial of degree 4 in three variables can have 27 real critical points, the most three cubic equations allow. Write K4 = x⁴ + y⁴ + z⁴ - 3(x²y² + y²z² + z²x²) and take
 
-[I] So the octahedron does not reach its record of 29 by this route, and probably not Maxwell's 25 either. The case that matters is the icosahedron, and it needs a better solver and a structured search. A worker is on it.
+```
+f = K4/3 - 0.00008 (x + y + z) + 0.0019 (xy + yz + zx) + 3.7 xyz
+    + 0.046 [x³ + y³ + z³ - (3/2)(x²y + x²z + y²x + y²z + z²x + z²y)]
+    - 0.045 [x²y + y²z + z²x - xy² - yz² - zx²]
+```
+
+- [F] Every term is harmonic, and the leading term is the octahedron's. The lower terms are unchanged by the turn that sends x to y to z.
+- [F] `checks/kflat/verify/quartic27_check.py`, written for this review, proves 27 real and simple critical points for these coefficients, with 16 of one index and 11 of the other. It finds its own candidates and encloses each in a cube by a ball-arithmetic test. The check that f is harmonic is exact.
+- [F] The thread found the model with nine-digit coefficients and certified it with its own interval prover. The two-digit version above is a rounding of it, and it still passes.
+- [F] The points sit at three distances: 8 within 0.03 of the origin, 3 near 0.09 and 16 between 2.2 and 2.7. The 8 come from the cubic part and the other 19 from the quartic.
+
+So the earlier climbs, which stalled at 17, were stuck. With the cubic that also has all 8 real, both degrees so far reach the full count.
+
+### Higher degree, in the polynomial model
+
+| Degree | Most the equations allow | Real critical points reached | Leading form |
+|---|---|---|---|
+| 3 | 8 | 8, proved | the cubic at a flat point of four charges |
+| 4 | 27 | 27, proved | the octahedron's quartic |
+| 5 | 64 | 52, certified by the thread | free |
+| 6 | 125 | 83, certified by the thread | free |
+| 6 | 125 | 77, certified by the thread | the icosahedron's sextic |
+
+- [F] The counts for degrees 5 and 6 come from the thread's interval prover. The reviewer did not re-prove them.
+- [F] With the icosahedron's leading form, the outer scale gave at most 31 of its 61 points in every family tried. That caps designs built on it near 95.
+- [C] All (d - 1)³ critical points can be real for every degree d. It holds for d = 3 and 4.
+
+### In actual charges
+
+- [F] Twelve charges near an icosahedron were not built. The model count of 77 is below the 89 already known for twelve charges, and the scales in that model differ by factors near 1e-8.
+- [F] At the icosahedron, moving the 12 charges reaches all 35 lower harmonic terms: the map has full rank.
+- [F] At the octahedron it does not. Moving the six charges reaches 14 of the 15 lower terms. The xyz part of the cubic does not move at first order, and the quartic above needs it.
+- [F] A test that carried a 51-point model over to charges in ordinary precision lost points at every scale tried. It needs extended precision.
+
+[I] So neither solid gives a record. The octahedron could give at most 27, below the 29 known for six charges. The icosahedron's own leading form is a poor one. A different twelve-charge configuration with a centre flat to order 5 might do better, since a free sextic already reaches 83.
 
 ## Answered since
 
-[F] `growth.md` answers the general question. A harmonic polynomial of degree d in three variables can have about d³/6 real critical points, by stacking levels at separated scales. That is enough for growth like n^(3/2), which that note argues in four steps and confirms with exact lower bounds for 9 and 21 charges. The icosahedron question below is still open.
+[F] `growth.md` answers the general question. A harmonic polynomial of degree d in three variables can have about d³/6 real critical points, by stacking levels at separated scales. That is enough for growth like n^(3/2), which that note argues in four steps and confirms with exact lower bounds for 9 and 21 charges. A separate construction in that thread, built from exponentials, also gives order d³.
 
 ## Why this could change the growth law
 
@@ -65,11 +96,10 @@ This is the whole question, and it is open.
 
 ## Tests
 
-1. The largest real count for the icosahedral form with lower harmonic terms. A count of 91 or more, realised by 12 charges and certified, would be a new record for twelve charges.
-2. The largest real count for a harmonic quartic, with the octahedral leading form and with a general one.
-3. Lower bounds for M(4), M(5) and M(6), and any argument for an upper bound.
-4. A literature search for critical points of harmonic polynomials in three variables.
-5. For the map from charge moves to lower harmonic terms, a check that it has full rank at the icosahedron.
+1. A twelve-charge configuration, not the icosahedron, whose centre is flat to order 5 and whose leading form lets more than 89 of the 125 be real.
+2. A pair of levels of degrees 5 and 4 with all 37 outer points real. That would give 64 real critical points at degree 5.
+3. An upper bound of any kind below (d - 1)³. None is known here.
+4. Carrying a model with moderate scale ratios over to charges in extended precision.
 
 ## Rerun
 
@@ -79,14 +109,14 @@ python3 checks/kflat/platonic.py
 python3 checks/kflat/kflat_scan.py octahedron 4000 1
 python3 checks/kflat/kflat_climb.py octahedron 12000 4
 python3 checks/kflat/outer_scan.py octahedron 3000 6000 1
+python3 -O checks/kflat/verify/quartic27_check.py -0.00008 0.0019 3.7 0.046 -0.045
 ```
 
-They need NumPy and mpmath. `polysys.py` is the solver they share. Saved output is in `checks/kflat/runs.out`.
+They need NumPy, mpmath and python-flint. `polysys.py` is the solver the first runs share. Saved output is in `checks/kflat/runs.out` and `checks/kflat/verify/`. The thread's programs and its certified models are in `checks/kflat/thread/`.
 
 ## Not verified
 
-- Every count in this note is numerical.
-- The solver was tested only on systems with known roots, up to degree 5.
+- The counts for degrees 5 and 6 rest on the thread's prover alone.
 - That the octahedron and icosahedron have no balance point other than the centre is from random starts.
-- The step from the polynomial model to actual charges was done only for order 2.
-- No literature search was made for this note. The worker's search will be added.
+- The step from the polynomial model to actual charges was done only for order 2, and in the growth thread for stacked levels.
+- The thread's literature search found no result on the largest number of real critical points of a harmonic polynomial in three variables that is not homogeneous. For the homogeneous case on the sphere a count of 2(d² - d + 1) is published. That is not proof the quartic is new.

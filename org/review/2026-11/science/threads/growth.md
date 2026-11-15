@@ -110,7 +110,7 @@ Two configurations were built with exact rational sites and charges. For each, a
 - [F] Equal charges on the regular solids have 3, 5, 17, 11 and 43 balance points once the degenerate centre is split. None has a balance point on a face.
 - [F] A tiny charge placed at a balance point gives new points at the positive critical points of the leading harmonic on the sphere. This is confirmed for the cube, where it adds 20.
 - [F] Small clusters placed at a flat point gave 4 to 7 new balance points per charge, below the 10 of the known constructions.
-- [F] Climbing at random reached 19 of 27 real critical points for a harmonic quartic and 26 of 64 for a quintic. The stacked levels give 13 and 24, so they are not the best for small degree.
+- [F] The stacked levels are not the best for small degree. They give 13 and 24 real critical points at degrees 4 and 5. `flat-centres.md` has a quartic with all 27 real, proved, and a quintic with 52 of 64.
 
 ## Not verified
 
@@ -123,8 +123,8 @@ Two configurations were built with exact rational sites and charges. For each, a
 ## Next
 
 1. Have the proof of step 2 checked, and write out the scaling step and the bound on Legendre zeros in full.
-2. Find the best real count for a harmonic polynomial of each small degree. The stacked levels are a lower bound and random climbs already beat them at degree 4 and 5.
-3. Look for a level pair that fills more of the available solutions without spreading over many scales. That would bring the crossing point down from 160 charges.
+2. Find level pairs that fill more of the available solutions. At degree 4 a pair reaches all 19 outer points where the crossed zonal pair reaches 7. A family of such pairs for every degree would raise the constant from 1/6 toward 1.
+3. Bring the crossing point down from 160 charges. Better level pairs and flat points with fewer charges both help.
 
 ## Rerun
 

@@ -57,6 +57,7 @@ Every result that came back was then re-run by the reviewer. For the results mar
 | 26 | Push from the 11-point configurations back: nothing above 11 in 180 runs. |
 | 27 | Three-charge thread back: still open. The equilateral triangle is proved for all charges, and every sampled cusp is harmless. |
 | 28 | The four-charge result returned to the point-charges repository with the rest of that give-back. |
+| 29 | Flat-centre thread back: a harmonic quartic with all 27 critical points real, which the reviewer re-proved with two-digit coefficients. The icosahedron's centre reached 77 of 125 in the model, so no record for twelve charges. |
 
 ## 4. Dead ends and corrections
 

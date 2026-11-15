@@ -33,7 +33,7 @@ Threads that followed from the first ones:
 | Walls between charges | Each index-2 balance point is a wall between two charges. Maxwell's bound is the count for one wall per pair. Two predictions made from this held. | `relational-geometry.md` |
 | Three charges | Still open. Proved with a computer for the equilateral triangle and any charges: at most one minimum, so at most 4 balance points. The question is reduced to whether one curve crosses itself. Every cusp sampled is of the harmless kind. | `three-charges.md` |
 | Growth with the number of charges | Balance points can grow like n^(3/2), where every known construction grows like 10n. A four-step argument with a proof sketch, numerical checks of each step, and proved lower bounds of 26 for 9 charges and 87 near one point for 21. No single record is beaten. | `growth.md` |
-| Centres flat to high order | By an inversion rule, the centre of twelve equal charges on an icosahedron could give up to 125 balance points, against a record of 89. How many can be real is open and being worked. | `flat-centres.md` |
+| Centres flat to high order | An inversion rule ties the Taylor terms at a point to the multipoles of the reflected charges. A harmonic quartic with all 27 critical points real is proved. For the icosahedron's centre 77 of 125 were reached in the model, below the 89 known for twelve charges, so no record. | `flat-centres.md` |
 | A light particle for the surviving residual | One fermion of 9 to 21 eV fits galaxies, groups and clusters. Its weakest point is the count of light species at recombination. A conjecture with stated tests. | `neutrino-like.md`, `fabric.md` |
 
 ## What is new and holds
