@@ -182,18 +182,33 @@ def check(path: str) -> List[str]:
     if res.returncode != 0:
         return [f"axiom probe exited {res.returncode}: {res.stdout}{res.stderr}"]
     text = res.stdout
+    # Lean prints a private declaration's report under its mangled name
+    # (`_private.<module>.0.<namespace>.<theorem>`), so match reports by
+    # the theorem's short name (the part after the last dot), not by the
+    # full `NAMESPACE.<name>`. Short names are unique in this file; an
+    # ambiguous match fails rather than auditing the wrong theorem.
+    reports: dict = {}
+    for m in re.finditer(
+        r"'([^']+)' (does not depend on any axioms|depends on axioms: \[([^\]]*)\])", text
+    ):
+        short = m.group(1).rsplit(".", 1)[-1]
+        reports.setdefault(short, []).append(m)
     seen = 0
     for n in names:
-        full = f"{NAMESPACE}.{n}"
-        m = re.search(rf"'{re.escape(full)}' (does not depend on any axioms|depends on axioms: \[([^\]]*)\])", text)
-        if not m:
-            failures.append(f"no axiom report for {full}")
+        matches = reports.get(n, [])
+        if len(matches) != 1:
+            failures.append(
+                f"no axiom report for {NAMESPACE}.{n}"
+                if not matches
+                else f"ambiguous axiom report for {NAMESPACE}.{n}"
+            )
             continue
         seen += 1
-        axioms = {a.strip() for a in (m.group(2) or "").split(",") if a.strip()}
+        m = matches[0]
+        axioms = {a.strip() for a in (m.group(3) or "").split(",") if a.strip()}
         extra = axioms - ALLOWED_AXIOMS
         if extra:
-            failures.append(f"{full} depends on {sorted(extra)}")
+            failures.append(f"{NAMESPACE}.{n} depends on {sorted(extra)}")
     if seen != len(names):
         failures.append(f"checked {seen} of {len(names)} theorems")
     return failures

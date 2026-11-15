@@ -147,6 +147,29 @@ class TestTheoremDiscovery(unittest.TestCase):
             with mock.patch.object(check_lean, "run_lean", fake_run_lean):
                 self.assertEqual(check_lean.check(write(tmp, "Probe.lean", src)), [])
 
+    def test_mangled_private_names_match_by_short_name(self) -> None:
+        """Lean prints a private declaration's axiom report under its
+        mangled name (`_private.<module>.0.<namespace>.<theorem>`); the
+        checker must match it by short name, or the four private theorems
+        in the real file fail with 'no axiom report' (CI 43669808000)."""
+
+        def fake_run_lean(path: str) -> subprocess.CompletedProcess:
+            stdout = (
+                "'_private.Probe.0.Foundation0.ACQ.helper' does not depend on any axioms\n"
+                "'Foundation0.ACQ.good' does not depend on any axioms\n"
+            )
+            return subprocess.CompletedProcess(args=["lean", path], returncode=0, stdout=stdout, stderr="")
+
+        src = (
+            "namespace Foundation0.ACQ\n"
+            "private theorem helper : True := trivial\n"
+            "theorem good : True := trivial\n"
+            "end Foundation0.ACQ\n"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch.object(check_lean, "run_lean", fake_run_lean):
+                self.assertEqual(check_lean.check(write(tmp, "Probe.lean", src)), [])
+
 
 if __name__ == "__main__":
     unittest.main()
