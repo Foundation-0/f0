@@ -1,6 +1,6 @@
 # GitHub collaboration: stacks, plans and visual evidence
 
-**Proposed guidance for review.** This document describes GitHub features and a way to use them across our teams. Repository-specific ownership, independent review, current-head approval, required checks, resolved conversations, authorship, and merge rules still apply. It does not change a repository's policy, install software, authorize posts or merges, or enable settings.
+**Guidance only; MERGE-SOP.md governs merges.** This document describes GitHub features and a way to use them across our teams. Repository-specific ownership, independent review, current-head approval, required checks, resolved conversations, authorship, and merge rules still apply. It does not change a repository's policy, install software, authorize posts or merges, or enable settings.
 
 ## Stacked pull requests
 
