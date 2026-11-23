@@ -4,7 +4,8 @@
 acq_kernel.audit_lean4_init_module is a source lint. This script does what a
 lint cannot: it compiles the file with the installed `lean`, then asks Lean
 which axioms every theorem depends on. It fails if compilation fails, if
-no theorem is found, or if any theorem depends on an axiom outside the standard
+no theorem is found, if Lean reports a `sorry` anywhere (even in an anonymous
+`example`), or if any theorem depends on an axiom outside the standard
 three (propext, Classical.choice, Quot.sound). `sorryAx` is therefore caught
 wherever it comes from, including through imports.
 
@@ -163,6 +164,11 @@ def check(path: str) -> List[str]:
     if plain.returncode != 0:
         failures.append(f"lean exited {plain.returncode}: {plain.stdout}{plain.stderr}")
         return failures
+    # `sorry` anywhere, including inside an anonymous `example` that no theorem
+    # depends on, makes Lean exit 0 with a warning. Treat that as a failure.
+    sorry_warnings = re.findall(r"^.*declaration uses .{0,3}sorry.*$", plain.stdout + plain.stderr, re.M)
+    if sorry_warnings:
+        failures.append("Lean reports `sorry`: " + "; ".join(w.strip() for w in sorry_warnings))
     names = public_theorems(source)
     unparsed = unparsed_theorem_tokens(source)
     if unparsed:
@@ -172,7 +178,7 @@ def check(path: str) -> List[str]:
         )
         return failures
     if not names:
-        return ["no theorems found"]
+        return failures + ["no theorems found"]
     probe = _probe_source(source, names)
     with tempfile.TemporaryDirectory() as tmp:
         probe_path = os.path.join(tmp, "Probe.lean")
@@ -180,7 +186,7 @@ def check(path: str) -> List[str]:
             fh.write(probe)
         res = run_lean(probe_path)
     if res.returncode != 0:
-        return [f"axiom probe exited {res.returncode}: {res.stdout}{res.stderr}"]
+        return failures + [f"axiom probe exited {res.returncode}: {res.stdout}{res.stderr}"]
     text = res.stdout
     # Lean prints a private declaration's report under its mangled name
     # (`_private.<module>.0.<namespace>.<theorem>`), so match reports by
@@ -222,7 +228,9 @@ def main(argv: List[str]) -> int:
         for line in failures:
             print(f"LEAN_CHECK_FAILED | {line}", file=sys.stderr)
         return 1
-    print(f"LEAN_CHECK_OK | {len(public_theorems(open(path, encoding='utf-8').read()))} theorems, standard axioms only")
+    with open(path, encoding="utf-8") as fh:
+        count = len(public_theorems(fh.read()))
+    print(f"LEAN_CHECK_OK | {count} theorems, standard axioms only")
     return 0
 
 
