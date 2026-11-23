@@ -183,86 +183,89 @@ def evaluate_shift_quotient_pooling(
 # ---------------------------------------------------------------------------
 # Gate 2: Quotient Homomorphism Conservation & Division-Free Mitosis Gate
 # ---------------------------------------------------------------------------
+MAX_CLOSURE_STATES = 1_000_000
+
+
 def verify_quotient_lower_bound(
     edges: Sequence[Tuple[int, int, int]],
     h_quotient: Dict[int, int],
     start_state: int,
     goal_states: Sequence[int],
-    successors: Optional[Callable[[int], Sequence[Tuple[int, int]]]] = None,
+    successors: Callable[[int], Sequence[Tuple[int, int]]],
+    max_states: int = MAX_CLOSURE_STATES,
 ) -> Dict[str, object]:
     """Fail-closed verifier for step-admissible quotient lower bounds.
 
-    Raises ValueError on an empty goal set or on any state that appears in an
-    edge, as the start, or as a goal without an `h` value. A missing value is an
-    input error, not a pass.
+    `successors` is the graph's own transition function: it maps each state to
+    its `(next_state, cost)` pairs. It is required. The verifier enumerates
+    every state reachable from `start_state` through `successors` and checks
+    that each transition it sees appears in `edges`; only then does it check
+    `h(u) <= cost + h(v)` on those edges. A floor is therefore certified only
+    for the graph `successors` describes, with completeness established by this
+    function's own enumeration and not by the caller's edge list. The result
+    is only as trustworthy as `successors` itself, which this verifier cannot
+    audit against the real system.
 
-    Coverage: the step inequalities are checked only on the supplied edges,
-    and a goal must be reachable from the start over those edges, or the
-    result is not `ok`. When `successors` is given (the true transition
-    function of the graph, mapping each state to its `(next, cost)` pairs),
-    the verifier also checks closure: every transition reachable from the
-    start must appear in `edges`. Without `successors` the returned floor
-    holds only if the supplied edges cover every transition reachable from
-    the start; the certificate therefore calls it a toy floor.
+    Fails closed (`ok` False, `certified_floor` None) when a reachable
+    transition is missing from `edges`, when no goal is reachable from the
+    start, when a step inequality fails, when a goal has `h != 0`, or when the
+    enumeration passes `max_states` (a truncated enumeration is not a closure).
+    Raises ValueError on an empty goal set, on a missing `successors`, or on
+    any state used as an edge endpoint, the start or a goal that has no `h`
+    value. A missing value is an input error, not a pass.
     """
     if not goal_states:
         raise ValueError("Goal set must be non-empty.")
+    if not callable(successors):
+        raise ValueError("A successor function is required: completeness is checked, not assumed.")
     if start_state not in h_quotient:
         raise ValueError(f"Start state {start_state} has no h value.")
     for g in goal_states:
         if g not in h_quotient:
             raise ValueError(f"Goal state {g} has no h value.")
         if h_quotient[g] != 0:
-            return {"ok": False, "reason": f"Goal state {g} has non-zero h={h_quotient[g]}"}
+            return {"ok": False, "certified_floor": None, "reason": f"Goal state {g} has non-zero h={h_quotient[g]}"}
+
+    def refuse(reason: str, violations: int = 0) -> Dict[str, object]:
+        return {
+            "ok": False,
+            "certified_floor": None,
+            "reason": reason,
+            "edges_checked": len(edges),
+            "bellman_violations": violations,
+        }
+
     violations = []
     for u, v, cost in edges:
         if u not in h_quotient or v not in h_quotient:
             raise ValueError(f"Edge ({u}, {v}) uses a state with no h value.")
         if cost < 0 or h_quotient[u] > cost + h_quotient[v]:
             violations.append((u, v, cost, h_quotient[u], h_quotient[v]))
-    if len(violations) == 0:
-        reachable = set()
-        stack = [start_state]
-        while stack:
-            u = stack.pop()
-            if u in reachable:
-                continue
-            reachable.add(u)
-            for (a, b, _c) in edges:
-                if a == u:
-                    stack.append(b)
-        if not (reachable & set(goal_states)):
-            return {
-                "ok": False,
-                "reason": "no goal reachable from start over the supplied edges",
-                "certified_floor": None,
-                "edges_checked": len(edges),
-                "bellman_violations": len(violations),
-            }
-        if successors is not None:
-            edge_set = {(u, v, cost) for u, v, cost in edges}
-            closed_reachable: set = set()
-            stack = [start_state]
-            while stack:
-                u = stack.pop()
-                if u in closed_reachable:
-                    continue
-                closed_reachable.add(u)
-                for v, cost in successors(u):
-                    if (u, v, cost) not in edge_set:
-                        return {
-                            "ok": False,
-                            "reason": f"reachable transition ({u}, {v}, {cost}) missing from supplied edges",
-                            "certified_floor": None,
-                            "edges_checked": len(edges),
-                            "bellman_violations": len(violations),
-                        }
-                    stack.append(v)
+    if violations:
+        return refuse("step inequality violated on a supplied edge", len(violations))
+
+    edge_set = {(u, v, cost) for u, v, cost in edges}
+    reached: set = set()
+    stack = [start_state]
+    while stack:
+        u = stack.pop()
+        if u in reached:
+            continue
+        if len(reached) >= max_states:
+            return refuse(f"enumeration exceeded {max_states} states; closure not established")
+        reached.add(u)
+        for v, cost in successors(u):
+            if (u, v, cost) not in edge_set:
+                return refuse(f"reachable transition ({u}, {v}, {cost}) missing from supplied edges")
+            stack.append(v)
+    if not (reached & set(goal_states)):
+        return refuse("no goal reachable from start")
     return {
-        "ok": len(violations) == 0,
-        "certified_floor": h_quotient[start_state] if len(violations) == 0 else None,
+        "ok": True,
+        "certified_floor": h_quotient[start_state],
         "edges_checked": len(edges),
-        "bellman_violations": len(violations),
+        "bellman_violations": 0,
+        "states_enumerated": len(reached),
     }
 
 
