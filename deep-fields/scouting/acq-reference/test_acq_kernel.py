@@ -96,13 +96,16 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
 
     def test_inadmissible_quotient_edge_rejected(self) -> None:
         # Planted F-11 over-estimating heuristic edge (h(0)=4 > 1 + h(1)=2) must fail closed
-        bad = acq.verify_quotient_lower_bound([(0, 1, 1), (1, 2, 2)], {0: 4, 1: 2, 2: 0}, 0, [2])
+        succ = {0: [(1, 1)], 1: [(2, 2)], 2: []}
+        bad = acq.verify_quotient_lower_bound(
+            [(0, 1, 1), (1, 2, 2)], {0: 4, 1: 2, 2: 0}, 0, [2], successors=lambda u: succ.get(u, [])
+        )
         self.assertFalse(bad["ok"])
         self.assertEqual(bad["bellman_violations"], 1)
         self.assertIsNone(bad["certified_floor"])
 
     def test_empty_edge_list_certifies_nothing(self) -> None:
-        # abu-aska's probe on f0#39: an empty edge list once returned a floor
+        # A reviewer's probe on f0#39: an empty edge list once returned a floor
         # of 1000. With a successor function the closure check rejects it.
         empty = acq.verify_quotient_lower_bound(
             [], {0: 1000, 3: 0}, 0, [3],
@@ -110,9 +113,35 @@ class TestAnchoredConservationQuotient(unittest.TestCase):
         )
         self.assertFalse(empty["ok"])
         self.assertIsNone(empty["certified_floor"])
-        # Without a successor function the same call still fails: no goal is
-        # reachable from the start over the supplied edges.
-        self.assertFalse(acq.verify_quotient_lower_bound([], {0: 1000, 3: 0}, 0, [3])["ok"])
+        # The old call shape with no successor function used to pass when a
+        # cheap edge was left out. It is now an input error, not a floor.
+        with self.assertRaises((ValueError, TypeError)):
+            acq.verify_quotient_lower_bound([], {0: 1000, 3: 0}, 0, [3])
+        with self.assertRaises(ValueError):
+            acq.verify_quotient_lower_bound([], {0: 1000, 3: 0}, 0, [3], successors=None)
+
+    def test_incomplete_edge_list_without_successors_is_refused(self) -> None:
+        # Regression for f0#39: edges (0,1,1), (1,2,1), (2,3,1) with h = 3,2,1,0
+        # omit a cheap 0 -> 3 edge. The old verifier certified a floor of 3
+        # though the true cost is 1. The new one needs the transition function
+        # and rejects the omission.
+        succ = {0: [(1, 1), (3, 1)], 1: [(2, 1)], 2: [(3, 1)], 3: []}
+        res = acq.verify_quotient_lower_bound(
+            [(0, 1, 1), (1, 2, 1), (2, 3, 1)], {0: 3, 1: 2, 2: 1, 3: 0}, 0, [3],
+            successors=lambda u: succ.get(u, []),
+        )
+        self.assertFalse(res["ok"])
+        self.assertIsNone(res["certified_floor"])
+        self.assertIn("missing from supplied edges", res["reason"])
+
+    def test_truncated_enumeration_is_not_a_closure(self) -> None:
+        # An unbounded chain: the closure cannot be established, so refuse.
+        res = acq.verify_quotient_lower_bound(
+            [(0, 1, 1)], {0: 1, 1: 0}, 0, [1],
+            successors=lambda u: [(u + 1, 1)], max_states=10,
+        )
+        self.assertFalse(res["ok"])
+        self.assertIsNone(res["certified_floor"])
 
     def test_missing_reachable_transition_fails_closure(self) -> None:
         # Leaving out the cheap (1, 2, 1) edge must fail closed, not pass.
@@ -226,17 +255,21 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 class TestKernelFailsClosed(unittest.TestCase):
+    @staticmethod
+    def _succ(u):
+        return [(1, 1)] if u == 0 else []
+
     def test_empty_goal_set_raises(self) -> None:
         with self.assertRaises(ValueError):
-            acq.verify_quotient_lower_bound([(0, 1, 1)], {0: 1, 1: 0}, 0, [])
+            acq.verify_quotient_lower_bound([(0, 1, 1)], {0: 1, 1: 0}, 0, [], successors=self._succ)
 
     def test_missing_h_values_raise(self) -> None:
         with self.assertRaises(ValueError):
-            acq.verify_quotient_lower_bound([(0, 9, 1)], {0: 1, 1: 0}, 0, [1])
+            acq.verify_quotient_lower_bound([(0, 9, 1)], {0: 1, 1: 0}, 0, [1], successors=self._succ)
         with self.assertRaises(ValueError):
-            acq.verify_quotient_lower_bound([(0, 1, 1)], {0: 1, 1: 0}, 5, [1])
+            acq.verify_quotient_lower_bound([(0, 1, 1)], {0: 1, 1: 0}, 5, [1], successors=self._succ)
         with self.assertRaises(ValueError):
-            acq.verify_quotient_lower_bound([(0, 1, 1)], {0: 1, 1: 0}, 0, [7])
+            acq.verify_quotient_lower_bound([(0, 1, 1)], {0: 1, 1: 0}, 0, [7], successors=self._succ)
 
     def test_empty_or_degenerate_shards_raise(self) -> None:
         with self.assertRaises(ValueError):

@@ -38,6 +38,31 @@ class TestLeanProofCheck(unittest.TestCase):
             failures = check_lean.check(write(tmp, "Forged.lean", src))
         self.assertTrue(any("bad" in f for f in failures), failures)
 
+    def test_forgeries_in_every_declaration_form_are_caught(self) -> None:
+        # Regression for f0#39: the old discovery found only a column-0
+        # `theorem`, so these forms were never axiom-checked and exited 0.
+        forms = {
+            "indented": "  theorem forged : False := sorryAx False true\n",
+            "protected": "protected theorem forged : False := sorryAx False true\n",
+            "private": "private theorem forged : False := sorryAx False true\n",
+            "attribute prefix": "@[simp] theorem forged : False := sorryAx False true\n",
+            "attribute on own line": "@[simp]\ntheorem forged : False := sorryAx False true\n",
+            "plain sorry": "theorem forged : False := sorry\n",
+            "sorry in anonymous example": "example : False := sorry\n",
+        }
+        for name, decl in forms.items():
+            with self.subTest(form=name):
+                src = ("namespace Foundation0.ACQ\ntheorem good : True := True.intro\n"
+                       + decl + "end Foundation0.ACQ\n")
+                with tempfile.TemporaryDirectory() as tmp:
+                    failures = check_lean.check(write(tmp, "Forged.lean", src))
+                self.assertTrue(failures, "forged declaration passed the proof check")
+
+    def test_unexpected_import_does_not_pass(self) -> None:
+        src = "import Custom.Untrusted\nnamespace Foundation0.ACQ\ntheorem t : True := True.intro\nend Foundation0.ACQ\n"
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertNotEqual(check_lean.check(write(tmp, "Imp.lean", src)), [])
+
     def test_compile_error_is_caught(self) -> None:
         src = "namespace Foundation0.ACQ\ntheorem broken : (1 : Nat) = 2 := by decide\nend Foundation0.ACQ\n"
         with tempfile.TemporaryDirectory() as tmp:
