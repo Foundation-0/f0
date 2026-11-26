@@ -1,21 +1,18 @@
 name: prerender
-# Re-bake the no-JavaScript copy of every data-rendered part of the site (scripts/prerender.mjs) when the
-# data or a page script changes on main, and commit the pages if any copy changed.
-# The script serves docs/ itself and blocks every request outside it, so this job needs no network
-# beyond installing Playwright.
+# PR check: re-bake the no-JavaScript copy of every data-rendered part of the site (scripts/prerender.mjs)
+# and run the site gate on the fresh output. Read-only: it never commits, so a broken page script fails
+# the PR instead of the next Pages deploy. The script serves docs/ itself and blocks every request
+# outside it, so this job needs no network beyond installing Playwright.
 on:
-  push:
-    branches: [main]
-    paths: &prerender-paths
+  pull_request:
+    paths:
       - 'docs/data/**'
       - 'docs/**/*.js'
       - '.github/workflows/prerender.yml'
-  pull_request:
-    paths: *prerender-paths
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: prerender
@@ -42,16 +39,3 @@ jobs:
 
       - name: Site gate (links, page metadata, ledger schema)
         run: python3 scripts/check_site.py
-
-      - name: Commit changed pages
-        if: github.event_name != 'pull_request'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain -- ':(glob)docs/**/*.html')" ]; then
-            git add -- ':(glob)docs/**/*.html'
-            git commit -m "prerender: refresh the no-JavaScript copies from docs/data"
-            git push || (git pull --rebase origin main && git push)
-          else
-            echo "every page already matches the data; nothing to commit"
-          fi
