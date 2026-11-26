@@ -1,0 +1,36 @@
+repository,verifier_files,verifier_py_files,bare_assert_py_in_verifiers,verifier_files_with_bare_assert,bare_assert_other_languages,assert_files,check_mode_files,check_mode_list,write_mode_files,skip_ci_commits,skip_ci_commits_since_2026_11_07,lean_files,lean_sorry,lean_axiom,assert_lines_all_py_context
+f0,3,3,0,0,0,,0,,0,0,0,0,0,0,2
+math0,7,6,44,4,0,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py (6); studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py (3); studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py (30); studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py (5),1,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,0,0,2,0,0,81
+gravity,25,25,245,23,0,formal/verify_exact_rational_proofs.py (8); research/aest-response-gate-20261112/independent-review/adm_check.py (6); research/aest-response-gate-20261112/slow-mode/independent-review/check.py (15); research/aest-response-gate-20261112/slow-mode/probe.py (8); research/convergences-20261112/check.py (11); research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py (7); research/convergences-20261112/probes/issue-5/issue5_checks.py (5); research/convergences-20261112/probes/persistence/persistence_probes.py (9); research/convergences-20261112/probes/relations/correlation_probe.py (7); research/convergences-20261112/probes/robustness/robustness_probes.py (14); research/convergences-20261112/probes/scales/scale_probes.py (4); research/convergences-20261112/probes/unclaimed/constraint_probes.py (15); research/update-d144448-review/implementation/check_docs.py (12); research/value-assessment-20261112/check.py (20); research/value-assessment-20261112/closure/independent_checks.py (7); research/value-assessment-20261112/convergences/probe.py (19); research/value-assessment-20261112/second-review-checks.py (15); research/value-assessment-20261112/wave12/probe.py (3); research/wave11-12-review-20261112/check.py (21); verify_all.py (13); wave3_empirical_audit.py (11); wave7_group_cluster_threshold_audit.py (7); wave9_scale_convergence_audit.py (8),10,research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py; research/convergences-20261112/probes/relations/correlation_probe.py; research/convergences-20261112/probes/robustness/robustness_probes.py; research/cosmic-dawn-20261112/audit.py; research/value-assessment-20261112/convergences/probe.py; research/wave11-12-review-20261112/check.py; verify_all.py; wave3_empirical_audit.py; wave7_group_cluster_threshold_audit.py; wave9_scale_convergence_audit.py,0,0,0,9,0,0,394
+project-asma,44,41,19,1,0,tools/verify_identifiability_and_c20.py (19),7,results/integrity-audit-2026-11-13/verify.py; tools/analyze_validation_capacity.py; tools/audit_cdr2l_source_psm.py; tools/audit_cdr2l_spectrum_locator.py; tools/audit_checkers.py; tools/audit_trial_landscape.py; tools/check_stated_specificity_bounds.py,6,0,0,1,0,0,43
+proven-commons,2,2,0,0,0,,1,scripts/audit.py,0,0,0,2,0,0,0
+fractals,2,1,0,0,0,,0,,0,0,0,0,0,0,0
+virtual-human,10,10,0,0,0,,1,scripts/validate_ovarian_parameter_ledger.py,0,0,0,0,0,0,0
+exoplanets-frontier,3,3,1,1,0,cool_vet.py (1),0,,0,50,50,0,0,0,3
+vitruvian3d,16,16,155,15,0,research/chirality_probe.py (10); research/connectors_verify.py (5); research/passage_verify.py (18); research/passage_window_verify.py (6); research/reviews/passage_audit.py (8); research/rotations/numerics/audit_numeric_stress.py (15); research/rotations/numerics/finite_branch_audit.py (4); research/rotations/numerics/vacancy_stress_verify.py (11); research/transport-conductivity-20261112/check.py (18); research/transport-conductivity-20261112/independent-review/independent_bounds.py (30); research/transport_independent.py (3); research/transport_probe.py (12); research/vacancy_independent.py (8); research/vitruvian_motion_probe.py (5); research/void_probe.py (2),0,,0,0,0,0,0,0,321
+physics0,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+formal-claims-audit,1,1,0,0,0,,0,,0,0,0,0,0,0,0
+astr0,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+incentre-lattices,15,15,9,2,0,research/mechanics/exact_checks.py (2); results/fold-continuous-fcc/hand_proof_check.py (7),0,,0,0,0,1,0,0,15
+cfrp-strengthening,1,1,0,0,0,,0,,1,0,0,0,0,0,0
+nhanes-bioimpedance,5,5,0,0,0,,0,,0,0,0,0,0,0,0
+point-charges,2,2,5,1,0,verify_arb.py (5),0,,0,0,0,1,0,0,12
+thermal-capture,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+ductricity,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+lost-eclipses,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+overdue-data,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+rism-anon,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+gaia-dr4,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+plate-novae,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+wwssn-microseisms,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+covering-min-modulus,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+certified-orbits,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+relative-equilibria,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+rigid-realizations,5,5,4,1,0,rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py (4),0,,0,0,0,0,0,0,7
+gfq-codes,16,16,0,0,0,,0,,0,0,0,0,0,0,0
+finite-state-proofs,2,2,0,0,0,,0,,1,0,0,0,0,0,0
+cosmic-denoising,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+st0a,0,0,0,0,0,,0,,0,0,0,0,0,0,5
+.github,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+discussi0n,0,0,0,0,0,,0,,0,0,0,0,0,0,0
+plate-eclipses,0,0,0,0,0,,0,,0,0,0,0,0,0,0
