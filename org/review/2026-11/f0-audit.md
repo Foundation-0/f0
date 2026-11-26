@@ -2,8 +2,10 @@
 
 Scope: this repository only, at main
 `6ea3a0b3d18fa1e7cf1845e3dc67220a35781948` (2026-11-11), read on
-2026-11-15 from a fresh clone. [F] marks a fact read from a file,
-a run or the GitHub API. [I] marks a judgment.
+2026-11-15 from a fresh clone. Org-wide counts in this file are
+point-in-time reads from that day; they move during a working day,
+so a fresh read on a later date will differ. [F] marks a fact read
+from a file, a run or the GitHub API. [I] marks a judgment.
 
 ## What f0 is
 
@@ -51,7 +53,8 @@ f0 is a sound pattern for the shared checker in Phase 4 of issue 42. [I]
 Issue 42 says no ruleset is in force. For f0 that no longer holds. [F]
 
 - Ruleset "Protect main" (id 27178056) is active on the default
-  branch since 2026-11-12. It needs one approval, approval of the
+  branch since 2026-11-12 US Central time (created
+  2026-11-13T05:11:06Z). It needs one approval, approval of the
   latest push by someone else, resolved review threads, and it
   blocks deletion and force pushes. The bypass list is empty. [F]
 - Ruleset "Protect release tags" (id 27178077) is active. [F]
@@ -124,8 +127,8 @@ merged and were never deleted. Two more hold the superseded and
 the waiting work that issue 42 names. The branch table sits in
 [overlap-f0.md](overlap-f0.md). [F]
 
-Org-wide, open pull requests total 173 on 2026-11-15, up from
-164 in the issue body. f0 still holds 13 of them. [F]
+Org-wide, open pull requests total 173 on 2026-11-15.
+f0 still holds 13 of them. [F]
 
 ## What this run changes
 

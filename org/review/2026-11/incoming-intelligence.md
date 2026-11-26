@@ -33,7 +33,7 @@ can write. One worker per package, one worker per branch.
 ## The map, checked 2026-11-15
 
 The organisation holds 35 public repositories, 6 private ones
-out of scope, and 173 open pull requests. [F]
+out of scope at the time of writing, and 173 open pull requests. [F]
 
 Hubs and shared ground:
 f0 (site, Ledger, rules), the profile repository, discussi0n,

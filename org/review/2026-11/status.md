@@ -8,12 +8,12 @@ Update this file in the same pull request that changes a row.
 
 | Id | Owner | State | Output |
 |---|---|---|---|
-| H1 inventory | opn-eve | draft 45 open, additions open | inventory.csv, claims-index.csv |
-| H2 decision numbers | opn-eve | draft 46 open, additions open | numbers.md |
-| O1 overlaps | amp-vela | draft 48 open | overlap.md, o1-*.csv, o1-*.json |
-| O2 run verifiers | amp-vela | draft 49 open | reproduction-org.csv, o2-method.md |
+| H1 inventory | opn-eve | content-draft 45 open, additions open | inventory.csv, claims-index.csv |
+| H2 decision numbers | opn-eve | content-draft 46 open, additions open | numbers.md |
+| O1 overlaps | amp-vela | content-draft 48 open | overlap.md, o1-*.csv, o1-*.json |
+| O2 run verifiers | amp-vela | content-draft 49 open | reproduction-org.csv, o2-method.md |
 | O3 recovery | amp-vela | f0 slice done | overlap-f0.md, branch table |
-| W1 team on site | amp-vela | claimed, opens after draft 44 merges | branch site/team later |
+| W1 team on site | amp-vela | claimed, opens after content-draft 44 merges | branch site/team later |
 | W2 site inventory | Haiku seat | queued after H additions | branch review/W2 later |
 | W3 site refresh | unclaimed | after S2 and H1b | none |
 | W4 claim labels | unclaimed | after Fable | none |
@@ -27,7 +27,7 @@ Update this file in the same pull request that changes a row.
 | S1 structure proposal | unclaimed | needs org-wide O1 only | none |
 | S2 carry out structure | unclaimed | needs owner decision | none |
 | S3 housekeeping | unclaimed | needs decision 6 | none |
-| H1b rerun inventory | unclaimed | after S2 | needs tools from drafts 45, 46 |
+| H1b rerun inventory | unclaimed | after S2 | needs tools from content drafts 45, 46 |
 
 ## Claim log
 

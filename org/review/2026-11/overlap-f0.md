@@ -81,7 +81,8 @@ This run checked the two most urgent branches from fresh clones
 on 2026-11-15 and opened neither. The reasons differ.
 
 **gaia-dr4 `prep/gaia-dr4-tasks` at `5a53b3a`.** It still merges
-clean with main `0110e1c`: 138 files, 20,036 lines added. [F]
+clean with main `0110e1c`: 138 files added (141 files touched,
+3 deleted), 20,036 lines added. [F]
 But six steward pull requests (9 to 14) are already open in that
 repository. Pull request 10 (`steward/task-2-preparation`)
 shares 25 of its 30 files with the prep branch. [F] Opening the

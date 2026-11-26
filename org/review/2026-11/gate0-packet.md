@@ -15,7 +15,8 @@ its default. Unblock work in the same comment where possible.
 
 **1. Protection on every default branch.**
 Default: adopt pull request 40 and run its apply script.
-f0 fact: f0 already meets most of this since 2026-11-12.
+f0 fact: f0 already meets most of this since 2026-11-12
+(US Central time; rulesets created 2026-11-13T05:11:06Z).
 Active rulesets guard main and release tags with an empty
 bypass list. [F] One piece is missing in both the live ruleset
 and the file in pull request 40: no status check is required.
