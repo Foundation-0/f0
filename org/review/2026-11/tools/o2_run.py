@@ -14,6 +14,10 @@ the -O risk signal beside the optimised run.
 Classes: PASS0, FAILNZ, TIMEOUT, NEEDS-ARGS (exit 2 with argparse),
 DEP-MISSING (ModuleNotFoundError, module recorded), NOT-RUN.
 
+The `command` column records the interpreter and the script path exactly
+as passed (--python, --repos); absolute paths are derived only to execute,
+so the recorded commands replay verbatim on any machine.
+
 Usage:
   python3 o2_run.py --inventory FILE --repos DIR --out FILE \
       [--timeout 120] [--python python3] [--only repo,repo]
@@ -80,8 +84,8 @@ def main():
     ap.add_argument('--python', default=sys.executable)
     ap.add_argument('--only', default='')
     a = ap.parse_args()
-    if '/' in a.python:
-        a.python = os.path.abspath(a.python)
+    py = a.python                       # recorded as invoked
+    py_exec = os.path.abspath(py) if '/' in py else py   # used to execute
     only = set(filter(None, a.only.split(','))) or None
 
     with open(a.inventory, newline='') as f:
@@ -130,17 +134,17 @@ def main():
             continue
 
         for mode, cmd, cwd in (
-                ('documented', [a.python, path], repo),
-                ('optimised', [a.python, '-O', path], repo)):
-            code, secs, out = run(cmd, cwd, a.timeout)
+                ('documented', [py, path], repo),
+                ('optimised', [py, '-O', path], repo)):
+            code, secs, out = run([py_exec] + cmd[1:], cwd, a.timeout)
             dirty = tree_dirty(repo)
             if dirty == 'yes':
                 restore(repo)
             emit(mode, cmd, code, secs, out, dirty)
 
         with tempfile.TemporaryDirectory() as td:
-            cmd = [a.python, os.path.abspath(full)]
-            code, secs, out = run(cmd, td, a.timeout)
+            cmd = [py, full]
+            code, secs, out = run([py_exec, os.path.abspath(full)], td, a.timeout)
             emit('empty-cwd', cmd, code, secs, out)
 
         emit('corrupted', [], 'MANUAL', None, 'per-verifier probe, F2')

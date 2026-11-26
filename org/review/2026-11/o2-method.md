@@ -10,14 +10,27 @@ here judges whether a claim is true. That is F2 work.
 ```
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python numpy scipy sympy pandas matplotlib pyarrow mpmath
-.venv/bin/python tools/o2_run.py --inventory inventory.csv --repos repos --out reproduction-org.csv --timeout 120 --python .venv/bin/python
+.venv/bin/python org/review/2026-11/tools/o2_run.py --inventory inventory.csv --repos repos --out reproduction-org.csv --timeout 120 --python .venv/bin/python
 ```
 
-Clones sit in `repos/<name>` at the H1 pins. The runner is
-`tools/o2_run.py` in this folder. Environment for the
-recorded run: CPython 3.12 venv with the packages above,
-macOS. Verifiers needing astropy, flint, jax, OpenMM,
-PySCF or roadrunner record DEP-MISSING with the module.
+Setup, run from a checkout of this branch with `inventory.csv`
+and `repos/` at its root: copy `inventory.csv` (the H1 verifier
+list) from draft 45, and build `repos/<name>` with draft 45's
+`clone-all.sh` so each clone sits at the head pinned in its
+`h1-method.md`. The runner is `org/review/2026-11/tools/o2_run.py`
+in this folder; it records the interpreter and paths exactly as
+invoked (the `command` column is verbatim) and absolutizes them
+only to execute. The committed `command` column was rewritten
+after the run, on 26 November 2026, from the absolute
+interpreter path the first runner recorded to the as-invoked
+`.venv/bin/python` (and, in empty-cwd rows, the clone-relative
+script path); no row was re-run and no other column changed.
+Environment for the recorded run: CPython 3.12
+venv with the packages above, macOS. Across all modes the CSV
+records DEP-MISSING with the module astropy (3 rows), flint (3)
+or jax (3), plus `vh` (24) and `pilot001_first_run` (6), which
+are the repositories' own packages, not missing third-party
+dependencies.
 
 ## Modes and classes
 
@@ -47,7 +60,9 @@ a per-verifier read, which belongs to F2.
 | NOT-RUN | 5 |
 
 Full rows sit in `reproduction-org.csv`: exit code,
-seconds, output hash, assert count, dirtied flag. [F]
+seconds, output hash, assert count, dirtied flag. [F] An
+empty output hash means the run printed nothing (24 PASS0
+and 3 TIMEOUT rows).
 
 Per repository (PASS0 of total, documented): [F]
 
@@ -76,9 +91,11 @@ gravity wave11-12 check (21), gravity value-assessment
 check (20). The CSV `asserts` column ranks them all.
 Whether each assert guards a claim needs reading. [I]
 
-**29 verifiers write files on a bare run** (43 mode
-rows), mostly gravity research probes and two
-exoplanets-frontier vetters. [F] A check that rewrites
+**28 verifiers write files on a bare run** (43 mode
+rows across all modes; a 29th, gravity wave11-12
+`check.py`, dirties only under `-O`), mostly gravity
+research probes and two exoplanets-frontier vetters. [F]
+A check that rewrites
 its inputs cannot double as a compare step. The
 `dirtied_tree` column names them.
 
@@ -103,7 +120,9 @@ not a shorter leash here.
 - nhanes-bioimpedance pilot verify recomputes values
   that differ from its certificate past the stated
   tolerance in this environment (for example fc_khz p99:
-  got 469.40258675, cert 469.40138875, tol 3e-06). [F]
+  the recorded run got 469.40258675 against cert
+  469.40138875, tol 3e-06; the got value is
+  environment-specific and moved on a rerun). [F]
   Environment or data drift can explain this. F2 to read.
 - exoplanets-frontier `cool_vet.py` fails to parse on
   main, as O1 and issue 42 already record (R2).
