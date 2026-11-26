@@ -21,8 +21,10 @@ calls it.
 The digest covers the six result objects only, exactly as the original file
 hashed them, so the digest is unchanged by this correction
 (`8ff47efe0a8d2885a59af396cf9f001ad41314359d2ccc1a6f0cda85c53ff1a5`).
-The confound control is verified but not hashed. The kernel fails if its
-recomputed receipt differs from `kernel-output.txt` next to this file.
+The confound control is verified but not hashed. The success line computes its
+check and domain counts from the checks that ran; a named domain with no check
+is printed as not exercised. The kernel fails if its recomputed receipt differs
+from `kernel-output.txt` next to this file.
 """
 
 from __future__ import annotations
@@ -42,6 +44,19 @@ class WitnessFailure(RuntimeError):
 def _require(condition: bool, message: str) -> None:
     if not condition:
         raise WitnessFailure(message)
+
+
+# Domains the essay and this docstring name. The receipt line reports which of
+# these the checks actually exercised; a named domain with no check is printed
+# as not exercised, never counted as verified.
+NAMED_DOMAINS = (
+    "Foundation-0/gravity",
+    "Foundation-0/project-asma",
+    "Foundation-0/exoplanets-frontier",
+    "Moissanite-Labs/weft",
+    "ahrazzle/soko",
+    "Proven-Commons",
+)
 
 
 def verify_anchored_mobius_certificate(
@@ -192,7 +207,8 @@ def verify_quotient_conservation_bound(
 
 def run_checks() -> str:
     """Run every check and return the receipt line. Raises WitnessFailure on the first miss."""
-    checks: List[str] = []
+    # (domain, check name); a check is recorded only after its _require calls pass.
+    checks: List[Tuple[str, str]] = []
 
     def obs_y(p: Fraction, r: Fraction, c: Fraction, alpha: Fraction) -> Fraction:
         q = (r * p + c * (1 - p)) / (r * p + (1 - p))
@@ -207,7 +223,7 @@ def run_checks() -> str:
         asma["c_conversion_or_synthesis"] == "1/4" and asma["r_selection_or_snr"] == "11",
         f"project-asma recovery gave c={asma['c_conversion_or_synthesis']}, r={asma['r_selection_or_snr']}",
     )
-    checks.append("project-asma inversion")
+    checks.append(("Foundation-0/project-asma", "project-asma inversion"))
 
     weft = verify_anchored_mobius_certificate(
         "Moissanite-Labs/weft", Fraction(2, 5),
@@ -218,7 +234,7 @@ def run_checks() -> str:
         weft["c_conversion_or_synthesis"] == "0" and weft["r_selection_or_snr"] == "8",
         f"weft recovery gave c={weft['c_conversion_or_synthesis']}, r={weft['r_selection_or_snr']}",
     )
-    checks.append("weft inversion")
+    checks.append(("Moissanite-Labs/weft", "weft inversion"))
 
     shift = verify_shift_quotient_concordance([
         ([Fraction(12, 1), Fraction(11, 1)], [Fraction(9, 1), Fraction(8, 1)]),
@@ -228,7 +244,7 @@ def run_checks() -> str:
         shift["fold_mean_auc"] == "1" and shift["raw_pooled_auc"] == "3/4" and shift["midrank_calibrated_auc"] == "1",
         f"fold-rank concordance gave {shift}",
     )
-    checks.append("fold-rank concordance")
+    checks.append(("Foundation-0/project-asma", "fold-rank concordance"))
 
     sigma_halo_sq = Fraction(177 * 177, 1)
     f_trap_z608 = 1 - Fraction(97, 100) ** 2 / sigma_halo_sq
@@ -237,7 +253,7 @@ def run_checks() -> str:
         f_trap_z608 > Fraction(9999, 10000) and f_trap_z0 == 0,
         f"trapping fractions are {f_trap_z608}, {f_trap_z0}",
     )
-    checks.append("trapping fraction")
+    checks.append(("Foundation-0/gravity", "trapping fraction"))
 
     # Four-node toy graph (not a soko room). The successor function is the
     # toy graph's complete transition function, so closure is checked.
@@ -248,7 +264,7 @@ def run_checks() -> str:
         successors=lambda u: toy_successors.get(u, []),
     )
     _require(soko["certified_lower_bound"] == 3, f"toy bound is {soko['certified_lower_bound']}")
-    checks.append("four-node bound")
+    checks.append(("ahrazzle/soko", "four-node bound"))
 
     exo = verify_anchored_mobius_certificate(
         "Foundation-0/exoplanets-frontier", Fraction(1, 10),
@@ -259,7 +275,7 @@ def run_checks() -> str:
         exo["c_conversion_or_synthesis"] == "0" and exo["r_selection_or_snr"] == "9",
         f"exoplanet recovery gave c={exo['c_conversion_or_synthesis']}, r={exo['r_selection_or_snr']}",
     )
-    checks.append("exoplanet inversion")
+    checks.append(("Foundation-0/exoplanets-frontier", "exoplanet inversion"))
 
     # Negative control for the p = 0 confound: the sample's own p = 0 endpoint
     # (y(0) = 29/80 with alpha = 3/20, c = 1/4) used as the anchor erases the
@@ -274,12 +290,17 @@ def run_checks() -> str:
         confound["c_conversion_or_synthesis"] == "0" and confound["r_selection_or_snr"] == "11",
         f"p = 0 confound gave c={confound['c_conversion_or_synthesis']}, r={confound['r_selection_or_snr']}",
     )
-    checks.append("p = 0 confound control")
+    checks.append(("Foundation-0/project-asma", "p = 0 confound control"))
 
     digest = hashlib.sha256(json.dumps([asma, weft, shift, str(f_trap_z608), soko, exo], sort_keys=True).encode()).hexdigest()
+    # The receipt counts the checks that ran and the domains they exercised; no
+    # count on this line is a literal.
+    n_checks = len(checks)
+    domains = sorted({domain for domain, _name in checks})
+    not_exercised = [name for name in NAMED_DOMAINS if name not in domains]
     return (
-        f"SINGLE_THREAD_KERNEL_OK: {len(checks)}/7 checks passed | 5 domains | "
-        f"Proven-Commons not exercised | SHA-256: {digest}"
+        f"SINGLE_THREAD_KERNEL_OK: {n_checks}/{n_checks} checks passed | {len(domains)} domains | "
+        f"{', '.join(not_exercised)} not exercised | SHA-256: {digest}"
     )
 
 

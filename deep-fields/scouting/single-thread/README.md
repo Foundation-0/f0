@@ -50,6 +50,10 @@ SINGLE_THREAD_KERNEL_OK: 7/7 checks passed | 5 domains | Proven-Commons not exer
 python3 -m unittest discover -s deep-fields/scouting/single-thread -p 'test_*.py'
 ```
 
+The suite includes negative witness-break tests: mutated copies of the kernel (a broken expected constant, a changed
+generator `r`, an invalid anchor `alpha`) must exit non-zero under both `python3` and `python3 -O`, and must not print
+`SINGLE_THREAD_KERNEL_OK`.
+
 ## What the kernel shows, and its limits
 
 - **The essay now quotes the digest this file prints.** The essay originally cited
@@ -74,9 +78,10 @@ python3 -m unittest discover -s deep-fields/scouting/single-thread -p 'test_*.py
 - **The four-node soko bound is a toy.** `verify_quotient_conservation_bound` fails on an empty goal set, on a
   goal unreachable over the supplied edges, and — when given the transition function — on any reachable
   transition missing from the edge list.
-- **Claims in the essay are the author's.** Figures such as hash-collision counts, cut ratios, CI states and
-  certificate commits are quoted from other work and are pending reproduction here. Some links in the essay point
-  to Google Drive files that are not public.
+- **Claims in the essay are the author's, except the corrected figures.** The figures listed under Corrections below
+  come from ahrazzle's review of f0#41, which traced them to the named source ledgers and commits. Every other claim —
+  hash-collision counts, cut ratios, CI states, certificate commits — remains the author's, quoted from other work
+  and pending reproduction here. Some links in the essay point to Google Drive files that are not public.
 
 ## Corrections (2026-11-15, against ahrazzle's review of f0#41)
 
@@ -95,6 +100,9 @@ python3 -m unittest discover -s deep-fields/scouting/single-thread -p 'test_*.py
   exoplanets Sectors 1–107, pre-DR4 Gaia DR3 catalog, DR4 on 2 December 2026 as falsifier.
 - Kernel: asserts replaced with `WitnessFailure` exceptions; every recovered value checked; empty goals,
   unreachable goals and uncovered reachable transitions fail; the `p = 0` confound is a required negative
-  control; the receipt is counted (7/7) and checked against `kernel-output.txt`.
+  control; the receipt counts the checks that ran (7/7, with the check denominator and the domain count
+  computed from the checks, not literals) and is checked against `kernel-output.txt`.
+- `deep-fields/README.md`: the November scouting index names f0#36 and f0#39 as pull requests in plain text
+  instead of relative-linking `scouting/` files that exist only on those pull requests' branches.
 - Disposition: this folder can close in favor of f0#39 once #39's open requests are fixed. That is a
   maintainer call, not made here.

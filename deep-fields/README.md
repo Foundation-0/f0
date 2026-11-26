@@ -29,11 +29,13 @@ repositories. A second pass on 19 October 2026 started twelve of them; see [scou
 **November 2026 scouting notes (pending review).** Three notes landed as pull requests in November 2026 and are
 still under review; none has merged:
 
-- [`scouting/combinatorial-planning-verified-bar.md`](scouting/combinatorial-planning-verified-bar.md) — combinatorial
-  planning and self-auditing formal MCP field report (f0#36, changes requested).
-- [`scouting/anchored-conservation-quotients.md`](scouting/anchored-conservation-quotients.md) and
-  [`scouting/acq-reference/`](scouting/acq-reference/) — anchored conservation quotients monograph and reference
-  package (f0#39, changes requested; carries a `needs decision` label with no recorded decision yet).
+- [f0#36](https://github.com/Foundation-0/f0/pull/36) (changes requested) — combinatorial planning and self-auditing
+  formal MCP field report. Its note would land at `scouting/combinatorial-planning-verified-bar.md`, which exists only
+  on that pull request's branch, so this page names the pull request instead of linking the file.
+- [f0#39](https://github.com/Foundation-0/f0/pull/39) (changes requested; carries a `needs decision` label with no
+  recorded decision yet) — anchored conservation quotients monograph and reference package. Its files would land at
+  `scouting/anchored-conservation-quotients.md` and `scouting/acq-reference/`, which exist only on that pull
+  request's branch, so this page names the pull request instead of linking the files.
 - [`scouting/single-thread/`](scouting/single-thread/) — "The Single Thread" essay and kernel, a synthesis pending
   review (f0#41, changes requested; can close in favor of #39 once #39's open requests are fixed).
 
