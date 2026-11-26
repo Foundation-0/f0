@@ -1,0 +1,104 @@
+tissue	dielectric_params_from	own_params	gabriel_1996_fit	lf_row_shared	sigma_model_10Hz	sigma_model_100Hz	sigma_model_1kHz	ratio_lf_over_model_100Hz	model_outside_lf_range
+Adrenal Gland	Adrenal Gland	True	False	True	0.62	0.62	0.62	0.776	True
+Bile	Bile	True	True	False	1.4	1.4	1.4	1.044	False
+Blood	Blood	True	True	True	0.7	0.7	0.7	0.9464	False
+Blood Vessel Wall	Blood Vessel Wall	True	True	True	0.2506	0.2779	0.3071	0.8348	True
+Bone (Cancellous)	Bone (Cancellous)	True	True	False	0.07556	0.08103	0.08153	0.9929	False
+Bone (Cortical)	Bone (Cortical)	True	True	True	0.02003	0.02006	0.02016	0.3142	True
+Bone Marrow (Red)	Bone Marrow (Red)	True	True	False	0.1005	0.1013	0.1018	6.116	True
+Bone Marrow (Yellow)	Bone Marrow (Yellow)	True	True	False	0.001475	0.002323	0.002766	77.4	True
+Brain	Cerebellum	False	True	False	0.04751	0.109	0.1188	3.436	False
+Brain (Grey Matter)	Brain (Grey Matter)	True	True	True	0.02751	0.08902	0.09881	4.707	False
+Brain (White Matter)	Brain (White Matter)	True	True	True	0.02766	0.05809	0.06258	5.99	True
+Breast Fat	Breast Fat	True	True	False	0.01547	0.02324	0.02419	0.9567	True
+Breast Gland	Thyroid gland	False	True	False	0.5111	0.5221	0.5243	0.7624	True
+Bronchi	Trachea	False	True	False	0.3003	0.3006	0.3009	1.855	True
+Cartilage	Cartilage	True	True	True	0.1611	0.1721	0.1743	4.294	True
+Cerebellum	Cerebellum	True	True	False	0.04751	0.109	0.1188	5.289	True
+Cerebrospinal Fluid	Cerebrospinal Fluid	True	True	True	2	2	2	0.9395	False
+Cervix	Cervix	True	True	False	0.3022	0.4113	0.5233	0.8215	True
+Commissura Anterior	Brain (White Matter)	False	True	True	0.02766	0.05809	0.06258	5.99	True
+Commissura Posterior	Brain (White Matter)	False	True	True	0.02766	0.05809	0.06258	5.99	True
+Connective Tissue	Tendon\Ligament	False	True	False	0.2509	0.3048	0.3827	0.2598	True
+Diaphragm	Muscles	False	True	True	0.202	0.2667	0.3212	1.729	False
+Ductus Deferens	Blood Vessel Wall	False	True	True	0.2506	0.2779	0.3071	0.8348	True
+Dura	Dura	True	True	False	0.5003	0.5006	0.5008	0.1199	True
+Epididymis	Testis	False	True	True	0.4111	0.4221	0.4243	0.8672	True
+Esophagus	Stomach	False	True	True	0.5111	0.5221	0.5243	0.3132	True
+Extracellular Fluids	Cerebrospinal Fluid	False	True	False	2	2	2	1.34	False
+Eye (Aqueous Humor)	Cerebrospinal Fluid	False	True	True	2	2	2	0.9395	False
+Eye (Choroid)	Blood	False	True	True	0.7	0.7	0.7	0.9464	False
+Eye (Ciliary Body)	Muscle	False	True	True	0.202	0.2667	0.3212	1.729	False
+Eye (Cornea)	Eye (Cornea)	True	True	True	0.4111	0.422	0.423	1.469	True
+Eye (Iris)	Muscle	False	True	True	0.202	0.2667	0.3212	1.729	False
+Eye (Lens)	Eye (Lens)	True	True	False	0.2	0.2	0.2	1.727	True
+Eye (Retina)	Brain (Grey Matter)	False	True	True	0.02751	0.08902	0.09881	4.707	False
+Eye (Sclera)	Eye (Sclera)	True	True	True	0.5014	0.5028	0.5048	1.233	True
+Eye (Vitreous Humor)	Eye (Vitrous Humor)	False	True	False	1.5	1.5	1.5	1.443	True
+Eye Lens (Cortex)	Eye Lens (Cortex)	True	True	False	0.3111	0.3222	0.327	1.055	True
+Eye Lens (Nucleus)	Eye (Lens)	False	True	False	0.2	0.2	0.2	0.95	True
+Fat	Fat (Average Infiltrated)	False	True	True	0.03774	0.04064	0.04167	1.91	False
+Fat (Average Infiltrated)	Fat (Average Infiltrated)	True	True	True	0.03774	0.04064	0.04167	1.91	False
+Fat (Not Infiltrated)	Fat (Not Infiltrated)	True	True	True	0.01221	0.02081	0.0224	3.73	True
+Gallbladder	Gallbladder	True	True	True	0.9	0.9	0.9	0.3496	True
+Heart Lumen	Blood	False	True	True	0.7	0.7	0.7	0.9464	False
+Heart Muscle	Heart Muscle	True	True	False	0.05368	0.09357	0.1063	4.119	True
+Hippocampus	Brain (Grey Matter)	False	True	True	0.02751	0.08902	0.09881	4.707	False
+Hypophysis	Thyroid gland	False	True	False	0.5111	0.5221	0.5243	2.014	True
+Hypothalamus	Brain (Grey Matter)	False	True	True	0.02751	0.08902	0.09881	4.707	False
+Intervertebral Disc	Intervertebral Disc	True	False	True	0.83	0.83	0.83	0.8907	False
+Kidney	Kidney	True	True	True	0.05441	0.1022	0.1127	3.343	True
+Kidney (Cortex)	Kidney	False	True	True	0.05441	0.1022	0.1127	3.343	True
+Kidney (Medulla)	Kidney	False	True	True	0.05441	0.1022	0.1127	3.343	True
+Large Intestine	Large Intestine	True	True	True	0.01221	0.1213	0.2323	1.348	True
+Large Intestine Lumen	Muscles	False	True	True	0.202	0.2667	0.3212	1.729	False
+Larynx	Cartilage	False	True	True	0.1611	0.1721	0.1743	4.294	True
+Liver	Liver	True	True	False	0.02771	0.03813	0.04138	4.853	True
+Lung	Lung(Inflated)	False	True	False	0.0389	0.07298	0.07954	1.39	False
+Lung (Deflated)	Lung (Deflated)	True	True	False	0.2028	0.2059	0.2157	0.5396	True
+Lung (Inflated)	Lung (Inflated)	True	True	False	0.0389	0.07298	0.07954	0.7986	True
+Lymphnode	Mesenchymal Lymph Node	False	False	True	0.59	0.59	0.59	0.3738	True
+Mandible	Bone (Cortical)	False	True	True	0.02003	0.02006	0.02016	0.3142	True
+Medulla Oblongata	Cerebellum	False	True	False	0.04751	0.109	0.1188	3.275	True
+Meniscus	Cartilage	False	True	True	0.1611	0.1721	0.1743	4.294	True
+Midbrain	Cerebellum	False	True	False	0.04751	0.109	0.1188	3.21	True
+Mucous Membrane	Muscles	False	True	True	0.202	0.2667	0.3212	1.729	False
+Muscle	Muscles	False	True	True	0.202	0.2667	0.3212	1.729	False
+Nerve	Nerve	True	True	True	0.01713	0.02804	0.02877	12.41	True
+Ovary	Ovary	True	True	True	0.3111	0.3221	0.324	1.136	True
+Pancreas	Thyroid gland	False	True	False	0.5111	0.5221	0.5243	0.2776	True
+Penis	Blood Vessel Wall	False	True	True	0.2506	0.2779	0.3071	0.8348	True
+Pineal Body	Thyroid gland	False	True	True	0.5111	0.5221	0.5243	0.9215	True
+Placenta	Blood	False	True	True	0.7	0.7	0.7	0.9464	False
+Pons	Cerebellum	False	True	False	0.04751	0.109	0.1188	5.122	True
+Prostate	Testis	False	True	True	0.4111	0.4221	0.4243	1.323	True
+Salivary Gland	Salivary Gland	True	False	True	0.67	0.67	0.67	0.8337	False
+SAT (Subcutaneous Fat)	Fat (Average Infiltrated)	False	True	True	0.03774	0.04064	0.04167	1.91	False
+Scalp	Skin	False	True	False	0.0002	0.0002	0.0002001	2197	True
+Seminal vesicle	Testis	False	True	True	0.4111	0.4221	0.4243	1.323	True
+Skin	Skin (Dry)	False	True	False	0.0002	0.0002	0.0002001	741.5	True
+Skull	Bone (Cortical)	False	True	False	0.02003	0.02006	0.02016	0.8902	False
+Skull (Cancellous)	Bone Cancellous	False	True	False	0.07556	0.08103	0.08153	1.231	False
+Skull (Cortical)	Bone (Cortical)	False	True	False	0.02003	0.02006	0.02016	0.3214	True
+Small Intestine	Small Intestine	True	True	True	0.5111	0.5224	0.5324	0.313	True
+Small Intestine Lumen	Muscles	False	True	True	0.202	0.2667	0.3212	1.729	False
+Spinal Cord	Nerve	False	True	False	0.01713	0.02804	0.02877	21.79	True
+Spleen	Spleen	True	True	True	0.0396	0.09566	0.103	2.305	True
+Stomach	Stomach	True	True	True	0.5111	0.5221	0.5243	0.3132	True
+Stomach Lumen	Muscle	False	True	True	0.202	0.2667	0.3212	1.729	False
+Tendon\Ligament	Tendon\Ligament	True	True	False	0.2509	0.3048	0.3827	1.206	True
+Testis	Testis	True	True	True	0.4111	0.4221	0.4243	0.8672	True
+Thalamus	Brain (Grey Matter)	False	True	False	0.02751	0.08902	0.09881	5.336	True
+Thymus	Thymus	True	False	False	0.55	0.55	0.55	0.271	True
+Thyroid Gland	Thyroid gland	True	True	True	0.5111	0.5221	0.5243	0.9215	True
+Tongue	Tongue	True	True	True	0.2611	0.2721	0.2743	1.694	False
+Tooth	Bone (Cortical)	False	True	True	0.02003	0.02006	0.02016	0.3142	True
+Tooth (Dentine)	Bone (Cortical)	False	True	True	0.02003	0.02006	0.02016	0.3142	True
+Tooth (Enamel)	Bone (Cortical)	False	True	True	0.02003	0.02006	0.02016	0.3142	True
+Trachea	Trachea	True	True	False	0.3003	0.3006	0.3009	1.138	True
+Ureter\Urethra	Blood Vessel Wall	False	True	True	0.2506	0.2779	0.3071	0.8348	True
+Urinary Bladder Wall	Urinary Bladder Wall	True	True	True	0.2028	0.2056	0.2076	1.531	False
+Urine	Urine	True	False	False	1.75	1.75	1.75	1.395	False
+Uterus	Uterus	True	True	False	0.2013	0.2901	0.4917	1.347	True
+Vagina	Large Intestine	False	True	True	0.01221	0.1213	0.2323	1.348	True
+Vertebrae	Bone (Cortical)	False	True	True	0.02003	0.02006	0.02016	0.3142	True

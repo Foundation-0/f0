@@ -139,4 +139,7 @@ Each lead builds on something a founding member already does. These are suggesti
   - [life sciences](scouting/life-sciences.md);
   - [physics, Earth science and the humanities](scouting/physics-earth-humanities.md).
 - [`scouting/logan-qc/`](scouting/logan-qc/): scripts for the Logan quality-control pilot (life sciences).
+- [`scouting/tissue-electrical.md`](scouting/tissue-electrical.md): electrical properties of human tissue (31 Oct
+  2026), with a pilot in [`scouting/tissue-electrical/`](scouting/tissue-electrical/) that cross-checks the public
+  tissue dielectric tables (IT'IS, Sasaki 2014, NICT).
 - The DASCH pilot's code and results moved to [plate-eclipses](https://github.com/Foundation-0/plate-eclipses).
