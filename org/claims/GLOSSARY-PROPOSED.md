@@ -67,5 +67,5 @@ It is an illustration of the words, not a verdict on content.
 - A label rises only on evidence recorded beside the claim.
 - Who produced the work never changes the standard.
 - A downgrade keeps its history in the open (charter 0.6).
-- Each verdict in a review ends with two plain sentences:
+- Each verdict in a review ends in plain sentences:
   what the claim says, the verdict, and why.

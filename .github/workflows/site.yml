@@ -32,7 +32,7 @@ jobs:
       - name: Gate corruption probes
         run: python3 tests/run_gate_corruptions.py
 
-      - name: Site gate corruption probes (fail-closed, also under python -O)
+      - name: Site gate corruption probes (fail-closed, includes a python -O case)
         run: python3 tests/run_site_corruptions.py
 
       - name: Forum index (fetch script against canned answers, gate against corrupted copies)

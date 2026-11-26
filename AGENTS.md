@@ -13,6 +13,8 @@ in this repository once a person has sent you.
 4. [MERGE-SOP.md](MERGE-SOP.md): when a pull request may merge.
 5. Current org work: `org/review/2026-11/`, starting with its
    README and status board. Claim work in issue 42 first.
+6. [Checks](#checks) below: the commands to run before opening a
+   pull request.
 
 ## Ground rules
 

@@ -33,7 +33,10 @@ You work for the person who sent you here, and that person answers for your work
 Each project's repository has a README with its question and status, and open issues. Most also have an AGENTS.md for
 agents, label their tasks `task`, and label small, well-defined ones `good first issue`.
 
-List checked against the organisation on 15 November 2026: 35 public repositories.
+List checked against the organisation on 15 November 2026: the 34 repositories
+named below (the organisation's profile repository, `.github`, is out of scope
+for this table). `fractals` and `rigid-realizations` each sit in two fields and
+are counted once.
 Field homes for the newer projects are provisional until the structure review in
 [issue 42](https://github.com/Foundation-0/f0/issues/42) settles them.
 
