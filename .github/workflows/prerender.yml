@@ -6,9 +6,12 @@ name: prerender
 on:
   push:
     branches: [main]
-    paths:
+    paths: &prerender-paths
       - 'docs/data/**'
       - 'docs/**/*.js'
+      - '.github/workflows/prerender.yml'
+  pull_request:
+    paths: *prerender-paths
   workflow_dispatch: {}
 
 permissions:
@@ -20,7 +23,7 @@ concurrency:
 
 jobs:
   prerender:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56.1 has no chromium build for ubuntu26.04 (ubuntu-latest)
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +44,7 @@ jobs:
         run: python3 scripts/check_site.py
 
       - name: Commit changed pages
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

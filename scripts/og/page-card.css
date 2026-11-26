@@ -1,0 +1,188 @@
+/* 1200x630 section share cards. Rendered by scripts/og/shoot-page.mjs with assets/f0.css (dark). */
+html, body {
+  margin: 0;
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+}
+.pc {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  display: grid;
+  grid-template-columns: 580px 620px;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-color: var(--bg);
+}
+.pc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 80% at 78% 48%, rgba(92, 207, 236, .08), transparent 65%);
+  pointer-events: none;
+}
+.pc-bracket {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--dig);
+  border-style: solid;
+  opacity: .85;
+}
+.pc-bracket.tl { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
+.pc-bracket.tr { top: 14px; right: 14px; border-width: 2px 2px 0 0; }
+.pc-bracket.bl { bottom: 14px; left: 14px; border-width: 0 0 2px 2px; }
+.pc-bracket.br { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
+.pc-text {
+  position: relative;
+  z-index: 1;
+  padding: 44px 36px 40px 52px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.pc-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 500 13px/1 var(--f-mono);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.pc-brand svg { width: 28px; height: 28px; flex-shrink: 0; }
+.pc-title {
+  margin: 36px 0 0;
+  font: 600 38px/1.12 var(--f-sans);
+  letter-spacing: -.03em;
+  color: var(--ink);
+  max-width: 11.5em;
+}
+.pc-desc {
+  margin: 18px 0 0;
+  font: 400 17px/1.45 var(--f-serif);
+  color: var(--ink-2);
+  max-width: 28em;
+}
+.pc-pills {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pc-pill {
+  font: 500 11px/1 var(--f-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--dig);
+  border: 1px solid color-mix(in srgb, var(--dig) 55%, transparent);
+  padding: 7px 12px;
+  background: color-mix(in srgb, var(--dig) 6%, transparent);
+}
+.pc-pill.dim {
+  color: var(--ink-3);
+  border-color: var(--line);
+  background: transparent;
+}
+.pc-foot {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pc-foot::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  max-width: 200px;
+}
+.pc-url {
+  font: 500 12px/1 var(--f-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.pc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dig);
+  box-shadow: 0 0 12px var(--dig);
+  flex-shrink: 0;
+}
+.pc-vis {
+  position: relative;
+  z-index: 1;
+  padding: 36px 40px 36px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
+}
+.pc-cap {
+  font: 500 11px/1 var(--f-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: right;
+  margin: 0 8px 12px 0;
+}
+.pc-cap.bot {
+  margin: auto 8px 0 0;
+  text-align: right;
+}
+.pc-art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 0;
+}
+.pc-art svg { display: block; max-height: 340px; }
+.pc-chartbox {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-2) 90%, transparent);
+  padding: 10px 12px 8px;
+  min-width: 120px;
+}
+.pc-chartbox h3 {
+  margin: 0 0 8px;
+  font: 500 10px/1 var(--f-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: center;
+}
+.pc-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 100px;
+  padding: 0 4px;
+}
+.pc-bars span {
+  width: 14px;
+  border-radius: 2px 2px 0 0;
+  background: var(--dig);
+}
+.pc-bars span:nth-child(even) { background: var(--bio); }
+.pc-yaxis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  margin-right: 6px;
+  font: 500 9px/1 var(--f-mono);
+  color: var(--ink-3);
+  text-align: right;
+}
+.pc-barwrap { display: flex; align-items: flex-end; }

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14",
+ "updated": "2026-10-18",
  "milestones": [
   {
    "id": "dendral-structure-elucidation",
@@ -11202,6 +11202,46 @@
    "foundation0": false
   },
   {
+   "id": "maxwell-conjecture-five-charge-counterexample",
+   "date": "2026-07-29",
+   "date_basis": "preprint",
+   "title": "GPT-5.6 Sol's idea disproves Maxwell's 1873 bound on point-charge equilibria",
+   "domain": "physics",
+   "subfield": "mathematical physics (electrostatics)",
+   "summary": "Maxwell asserted that n point charges create at most (n−1)² equilibria, points where the electric field vanishes. Philip Arathoon, Gavin Ball and Matthew Kvalheim give five positive charges, three on a triangle and two small ones on its axis, with at least 24 non-degenerate equilibria, above the bound of 16. OpenAI's GPT-5.6 Sol suggested the construction; the authors verified it.",
+   "before_after": {
+    "metric": "Most equilibria known for five positive charges",
+    "before": "16, conjectured maximum (Maxwell 1873; Gabrielov, Novikov, Shapiro 2007)",
+    "after": "at least 24"
+   },
+   "why_it_matters": "A claim from a classic 1873 physics treatise falls to a construction an AI suggested. The three- and four-charge cases remain open.",
+   "ai_systems": [
+    "GPT-5.6 Sol (OpenAI)"
+   ],
+   "organizations": [
+    "Babson College",
+    "University of Missouri",
+    "University of Maryland, Baltimore County"
+   ],
+   "ai_role": "collaborator",
+   "evidence": "preprint",
+   "contested": false,
+   "contested_note": "",
+   "significance": 3,
+   "sources": [
+    {
+     "label": "Arathoon, Ball, Kvalheim, The Maxwell Conjecture is False (arXiv:2607.27197)",
+     "url": "https://arxiv.org/abs/2607.27197"
+    },
+    {
+     "label": "Philip Arathoon on X: counterexample found by AI (GPT-5.6 Sol)",
+     "url": "https://x.com/philarathoon/status/2082831490560262624"
+    }
+   ],
+   "foundation0": false,
+   "page": "research/maxwell-charges/"
+  },
+  {
    "id": "openai-ten-advances-lean",
    "date": "2026-08-01",
    "date_basis": "announcement",
@@ -12170,7 +12210,7 @@
    "organizations": [
     "OpenAI",
     "integer-mult-bounds community (CrocSwap), run by founding member Doug Colkitt",
-    "rohanarun (founding member; reviewed record, PR #1094)",
+    "Rohan Arun (founding member; reviewed record, PR #1094)",
     "Aska Digital (built the race tracker)"
    ],
    "ai_role": "collaborator",
@@ -12189,7 +12229,7 @@
     }
    ],
    "foundation0": true,
-   "foundation0_note": "Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member rohanarun's PR #1094 was the reviewed κ record on 13–14 Oct 2026; eumemic and Ryan Shea also contribute. Aska Digital built the live tracker that grew into this site.",
+   "foundation0_note": "Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member Rohan Arun's PR #1094 was the reviewed κ record on 13–14 Oct 2026; eumemic and Ryan Shea also contribute. Aska Digital built the live tracker that grew into this site.",
    "foundation0_members": [
     "Mister-Meeseeks",
     "rohanarun",
@@ -12665,11 +12705,11 @@
    "sources": [
     {
      "label": "Proof: explicit continuous motion to fcc",
-     "url": "https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md"
+     "url": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md"
     },
     {
      "label": "Exact certificate (JSON)",
-     "url": "https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json"
+     "url": "https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json"
     },
     {
      "label": "Preprint v2 (Zenodo)",
@@ -12677,7 +12717,7 @@
     },
     {
      "label": "AI search log",
-     "url": "https://github.com/aska-digital/incentre-lattice/blob/main/autoresearch-fold/results.tsv"
+     "url": "https://github.com/Foundation-0/incentre-lattices/blob/main/autoresearch-fold/results.tsv"
     }
    ],
    "foundation0": true,
@@ -12694,7 +12734,7 @@
    "title": "Open AI-assisted notes raise a van der Waerden constant from 1/100000 to 1/9",
    "domain": "mathematics",
    "subfield": "combinatorics / Ramsey theory",
-   "summary": "OpenAI's machine-written preprint showed van der Waerden numbers W_r(k) exceed k^(c·k·⌊log2 r⌋) with c = 1/100000. In a public repository started by rohanarun with Codex and Claude, and extended by Claude-assisted contributors, step-by-step refinements raised c to 1/9, about 11,111 times larger. Exact checks pass; the argument is conditional and unreviewed.",
+   "summary": "OpenAI's machine-written preprint showed van der Waerden numbers W_r(k) exceed k^(c·k·⌊log2 r⌋) with c = 1/100000. In a public repository started by Rohan Arun with Codex and Claude, and extended by Claude-assisted contributors, step-by-step refinements raised c to 1/9, about 11,111 times larger. Exact checks pass; the argument is conditional and unreviewed.",
    "before_after": {
     "metric": "Constant c in W_r(k) > k^(c·k·⌊log2 r⌋)",
     "before": "1/100000 (OpenAI preprint)",
@@ -12710,7 +12750,7 @@
    ],
    "organizations": [
     "OpenAI (source preprint)",
-    "rohanarun (independent)",
+    "Rohan Arun (independent)",
     "independent contributors DaysSky and artuskg"
    ],
    "ai_role": "collaborator",
@@ -12737,11 +12777,57 @@
     }
    ],
    "foundation0": true,
-   "foundation0_note": "Started by founding member rohanarun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.",
+   "foundation0_note": "Started by founding member Rohan Arun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.",
    "foundation0_members": [
     "rohanarun"
    ],
    "page": "research/machine-mathematics/"
+  },
+  {
+   "id": "maxwell-certified-counts-four-five-six",
+   "date": "2026-10-18",
+   "date_basis": "announcement",
+   "title": "Certified counts: four charges reach Maxwell's bound, six charges exceed it",
+   "domain": "physics",
+   "subfield": "mathematical physics (electrostatics)",
+   "summary": "In Foundation0's point-charges repository, Claude used interval arithmetic to certify exact equilibrium counts for explicit point-charge configurations, each re-checked by independent code: 9 for four charges, Maxwell's bound, which a 2026 paper knew no example of reaching beyond three charges; exactly 24 for a five-charge counterexample; and 29 for six charges, above the bound of 25.",
+   "before_after": {
+    "metric": "Most equilibria known for six positive charges",
+    "before": "25, Maxwell's bound (five-charge counterexample plus one far charge)",
+    "after": "29, certified exactly"
+   },
+   "why_it_matters": "Exact, machine-checked counts replace existence arguments, and Maxwell's bound now fails for six charges too. Four charges remain open; no counterexample turned up in extensive searches.",
+   "ai_systems": [
+    "Claude (Anthropic)"
+   ],
+   "organizations": [
+    "Foundation0 (point-charges repository)"
+   ],
+   "ai_role": "originator",
+   "evidence": "claimed",
+   "contested": false,
+   "contested_note": "No person has reviewed it. Every count has a certificate checked by two programs that share no code; novelty was checked by web search only.",
+   "significance": 1,
+   "sources": [
+    {
+     "label": "Foundation-0/point-charges: NOTE.md",
+     "url": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md"
+    },
+    {
+     "label": "Certificates and verifiers (Foundation-0/point-charges)",
+     "url": "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9"
+    },
+    {
+     "label": "Arathoon, Ball, Kvalheim (arXiv:2607.27197): the five-charge construction",
+     "url": "https://arxiv.org/abs/2607.27197"
+    }
+   ],
+   "foundation0": true,
+   "foundation0_note": "Foundation0's own point-charges repository, part of its physics0 hub. Claude (Anthropic) chose the question and did the computation and writing at founding member Ahraz Arifuddin's request; no person has reviewed it yet.",
+   "foundation0_members": [
+    "ahrazzle"
+   ],
+   "page": "research/maxwell-charges/"
   }
  ]
 }

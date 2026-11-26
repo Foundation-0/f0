@@ -18,7 +18,7 @@
  *
  * The Exo egg: the living mark.
  *
- * The orb is built from one drawing (credit: aska-digital/incentre-lattice): a square cut by its X, and in each
+ * The orb is built from one drawing (credit: Foundation-0/incentre-lattices): a square cut by its X, and in each
  * triangle the incentre, the point equally far from all three sides. Lifted to a cube of side 2, the six
  * incentres sit on the axes at K = 2 - sqrt(2) from the centre, and stacked cubes give the truncated cubic
  * honeycomb, where every edge has the same length 2(sqrt(2) - 1). The same rule works in any dimension n:

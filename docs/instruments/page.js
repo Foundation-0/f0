@@ -1102,7 +1102,7 @@
   }
 
   /* ======================================================================
-     05b: rohanarun's record, checked live
+     05b: Rohan Arun's record, checked live
      ====================================================================== */
   function initKappa() {
     var box = $('#ar-live'); if (!box || !F0.kappa) return;
@@ -1113,7 +1113,7 @@
         k.innerHTML = 'Still the maintainer-reviewed record from PR #1094: checked live against <a href="' + esc(r.url) + '">certificates/selected-result.json</a> <span class="chip"><span class="dot live" aria-hidden="true"></span>live &middot; ' + esc(when) + '</span>';
       } else if (r.source === 'live') {
         box.querySelector('.v').textContent = 'κ = ' + r.decimal + ' (PR #' + r.pr + ')';
-        k.innerHTML = 'The reviewed record has moved on since we wrote this: it now comes from PR #' + esc(r.pr) + '. rohanarun&rsquo;s PR #1094 held it on 13&ndash;14 Oct 2026. <span class="chip"><span class="dot live" aria-hidden="true"></span>live &middot; ' + esc(when) + '</span>';
+        k.innerHTML = 'The reviewed record has moved on since we wrote this: it now comes from PR #' + esc(r.pr) + '. Rohan Arun&rsquo;s PR #1094 held it on 13&ndash;14 Oct 2026. <span class="chip"><span class="dot live" aria-hidden="true"></span>live &middot; ' + esc(when) + '</span>';
       } else {
         k.innerHTML = 'Reviewed record at the time of writing (selected 13 Oct 2026). The live check could not be reached. <span class="chip"><span class="dot stale" aria-hidden="true"></span>not live</span>';
       }

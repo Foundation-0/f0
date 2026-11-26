@@ -3,6 +3,7 @@
      - the hero figure: each project's numbers at the three steps (agents propose, checkers verify, people decide)
      - the evidence ladder: where each project's own status line puts it
      - the project cards, each with a small live figure drawn in the browser
+     - the open projects: every Foundation0 project repository (projects.json, kind "repository"), by field
      - every founding member's repositories, with a filter
    Figures start on a still, informative frame and only move on hover, focus or play (and never with motion off). */
 (function () {
@@ -49,10 +50,10 @@
       ],
       /* the index's own wording for each card's numbers (plain words, as on the project page); each keeps its source */
       stats: [
-        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://aska-digital.github.io/incentre-lattice/results/fold-continuous-fcc/certificate.json' },
-        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/fold-continuous-fcc/PROOF.md' },
-        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/aska-digital/incentre-lattice/blob/main/results/rigidity-nd/PROOF.md' },
-        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://aska-digital.github.io/incentre-lattice/autoresearch-fold/results.tsv' }
+        { value: '22.3% → 74.05%', label: 'space filled by the balls along the exact fold, from loose scaffold to the densest possible stacking, π/√18', source: 'results/fold-continuous-fcc/certificate.json; PROOF.md', href: 'https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json' },
+        { value: '16,240', label: 'exact numbers, every one ≥ 0, ruling out a collision anywhere along the fold (3,248 pair tests)', source: 'results/fold-continuous-fcc/PROOF.md', href: 'https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md' },
+        { value: '1/(n^2−n−1)', label: 'how much the framework thins sideways when stretched, in every dimension n ≥ 3 (written proof, reviewed only by AI models)', source: 'results/rigidity-nd/PROOF.md', href: 'https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/PROOF.md' },
+        { value: '~11 min', label: 'for an AI search loop to climb from 46.9% to the 74.05% ceiling, in 5 logged runs', source: 'autoresearch-fold/results.tsv (07:56:10 to 08:06:56)', href: 'https://foundation-0.github.io/incentre-lattices/autoresearch-fold/results.tsv' }
       ] },
     'exoplanets': {
       acc: '--acc-exoplanets', field: 'Astronomy', who: 'eumemic, with Aska',
@@ -73,7 +74,7 @@
       ] },
     'integer-multiplication': {
       acc: '--acc-intmult', field: 'Algorithms', who: 'Doug Colkitt + crowd',
-      credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member rohanarun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
+      credit: '<b>Founding member Doug Colkitt’s race (CrocSwap).</b> Founding member Rohan Arun held the reviewed record on 14 Oct (PR #1094), and eumemic sent 80 pull requests. Aska built the live race tracker that grew into this site, and submitted two small claims that were never reviewed and were soon overtaken.',
       glyph: 'kappa', gk: 'LOG₂ κ · DATED 23 SEP → 13 OCT', gr: 'log₂κ −9.22',
       aria: 'Staircase of the exponent saving kappa on a halvings scale: from 2 to the minus 182 in the machine-written paper dated 23 September to about 2 to the minus 9.22 on 13 October 2026.',
       cap: 'Every reviewed record on a halvings scale, from the machine-written paper’s 2^-182 to 2^-9.22. All of them rest on that unreviewed paper.',
@@ -83,14 +84,14 @@
         ['17', 'reviewed records selected by maintainer Doug Colkitt, 9 to 13 Oct; all conditional on the unreviewed manuscript', 'certificates/selected-result.json history (20 commits, 17 distinct values)']
       ],
       stats: [
-        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member rohanarun', source: 'certificates/selected-result.json @ 0a31ad884' },
+        { live: true, value: '0.001672660197076918', label: 'reviewed κ, conditional, PR #1094 by founding member Rohan Arun', source: 'certificates/selected-result.json @ 0a31ad884' },
         { value: '2^-182 → 2^-9.22', label: 'κ since the machine-written preprint dated 23 Sep 2026 (about 1.03×10^52 times larger)', source: 'upstream/build/sections/00-introduction.tex; log2 of selected κ (computed)' },
         { value: '17', label: 'successive reviewed κ records in 5 days (9–13 Oct)', source: 'git log -- certificates/selected-result.json (20 commits, 17 distinct values)', href: 'https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json' },
         { value: '1,334', label: 'pull requests opened upstream by 13 Oct 2026 (highest #1374)', source: 'git ls-remote origin refs/pull/*/head, 13 Oct 2026, about 23:40 UTC' }
       ] },
     'machine-mathematics': {
       acc: '--acc-mm', field: 'Mathematics', who: 'Members + crowd',
-      credit: '<b>Starts from OpenAI’s 722 machine-written manuscripts.</b> Founding members rohanarun and Ryan Shea took six of its families further within a week, and Doug Colkitt’s race a seventh; eumemic and many others joined in.',
+      credit: '<b>Starts from OpenAI’s 722 machine-written manuscripts.</b> Founding members Rohan Arun and Ryan Shea took six of its families further within a week, and Doug Colkitt’s race a seventh; eumemic and many others joined in.',
       glyph: 'slack', gk: 'TIMES BETTER, LOG SCALE', gr: '',
       aria: 'Six bars on a logarithmic scale, one per refined result, showing how many times better each number became: about 10 to the 79 for the matroid fraction, 10 to the 52 for kappa, 10 to the 10 for the Fourier saving, 11,111 for the van der Waerden constant, 8.7 for the Sidorenko constant and 3.1 for the unit-distance grid.',
       cap: 'How many times better six numbers got in a week, on a log scale. Long bars mean loose first proofs, not important results.',
@@ -98,6 +99,23 @@
         ['722', 'manuscripts written by one OpenAI model, with about three hours of computing per result on average', 'openai/math README @ adc7f12 and fd4aeeb'],
         ['300 / 719', 'top-line results formalized in Lean by OpenAI’s own count on 7 Oct; its catalogue marks them unreviewed', 'openai/math history.md @ fd4aeeb'],
         ['3', 'manuscripts withdrawn by OpenAI on 7 Oct after a sign error; none refereed by people so far', 'openai/math history.md @ fd4aeeb']
+      ] },
+    'maxwell-charges': {
+      acc: '--acc-maxwell', field: 'Physics', who: 'point-charges · Claude, asked by Ahraz Arifuddin',
+      credit: '<b>Foundation0’s own point-charges repository</b>, a project of its physics0 hub. Asked by founding member Ahraz Arifuddin to find new areas for Foundation0, Claude (Anthropic) chose this question and wrote the code, certificates and note in one session. No person has reviewed it yet.',
+      glyph: 'charges', gk: 'SIX CHARGES · DISTANCE ON A LOG SCALE', gr: '29 equilibria',
+      aria: 'The 29 certified equilibria of six charges, seen along the triangle’s axis, with distance from the centre on a log scale from 0.0001 to 1: three clusters near the centre and the triangle’s corners at the rim.',
+      cap: 'Every certified equilibrium of the six-charge configuration, seen down the axis, with distance from the centre on a log scale from 0.0001 to 1 (the rim): the inner clusters are 50 to 5,000 times smaller than the triangle. Filled: 1-saddles; rings: 2-saddles.',
+      loop: [
+        ['24 → 29', 'a tiny charge placed on the symmetric centre of the five-charge counterexample turns one point of balance into six', 'point-charges NOTE.md, Proposition 2'],
+        ['2', 'verifiers that share no code (float intervals; Arb balls and exact fractions) confirm 4, 9, 24 and 29; four corrupted certificates are rejected', 'point-charges verify_arb.py, tests/test_verifier_rejects.py'],
+        ['0', 'people have reviewed it so far; its novelty was checked by web search only', 'point-charges NOTE.md, section 5']
+      ],
+      stats: [
+        { value: '9', label: 'points of balance for four charges: exactly Maxwell’s bound, which a 2026 paper knew no configuration to reach for n > 3', source: 'certificates/n4-triangle-plus-centre.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json' },
+        { value: '24', label: 'exactly, for an explicit five-charge counterexample to Maxwell (bound 16): every point enclosed, none degenerate', source: 'certificates/n5-abk-bipyramid.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json' },
+        { value: '29 > 25', label: 'points of balance for six charges, above Maxwell’s bound for six', source: 'certificates/n6-abk-plus-centre.json', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json' },
+        { value: '2', label: 'verifiers that share no code; both reject four deliberately corrupted certificates', source: 'verify_arb.py · tests/test_verifier_rejects.py', href: 'https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py' }
       ] },
     'mobius-x1': {
       acc: '--acc-mobius', field: 'Circuits', who: 'Swapnil Jain + Aska',
@@ -136,7 +154,7 @@
         { value: '30', label: 'Lean 4 proofs that a circuit computes the right answer (19 multipliers, 11 S-boxes); gate counts and depths are not Lean-checked', source: 'multipliers/lean, sbox/lean and their .out files', href: 'https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean' }
       ] }
   };
-  var ORDER_RESEARCH = ['incentre-lattice', 'exoplanets', 'integer-multiplication', 'machine-mathematics'];
+  var ORDER_RESEARCH = ['incentre-lattice', 'exoplanets', 'integer-multiplication', 'machine-mathematics', 'maxwell-charges'];
   var ORDER_CONTRIB = ['mobius-x1', 'gf2m-circuits'];
   var LOOP_ORDER = ['exoplanets', 'integer-multiplication', 'incentre-lattice', 'machine-mathematics', 'mobius-x1', 'gf2m-circuits'];
   var STATIONS = [['Agents propose', 'dig'], ['Checkers verify', 'chk'], ['People decide and sign', 'bio']];
@@ -229,6 +247,29 @@ var G = {
       var ones = 0; for (var jj = 0; jj <= row; jj++) if ((jj & row) === jj) ones++;
       out('row ' + row + ' · ' + ones + ' odd');
     } },
+    charges: { period: 1600, once: true, draw: function (x, w, h, ph, out) {
+      var acc = tk('--acc-maxwell'), T = top(w), cx = w / 2, cy = (T + h - 6) / 2, Rr = Math.max(10, Math.min((h - 6 - T) / 2, w / 2 - 12)), r0 = Rr * 0.12;
+      var lr = function (r) { return r0 + (Rr - r0) * Math.max(0, Math.min(1, (Math.log(r) / Math.LN10 + 4.2) / 4.2)); };
+      x.strokeStyle = tk('--grid'); x.lineWidth = 1;
+      [1e-4, 1e-3, 1e-2, 1e-1].forEach(function (r) { x.beginPath(); x.arc(cx, cy, lr(r), 0, Math.PI * 2); x.stroke(); });
+      x.strokeStyle = acc; x.beginPath(); x.arc(cx, cy, lr(1), 0, Math.PI * 2); x.stroke(); // the triangle's circumcircle
+      x.fillStyle = tk('--ink-3'); x.font = mono(11); x.textAlign = 'left';
+      x.fillText('1', cx + lr(1) * 0.71 + 3, cy - lr(1) * 0.71 - 2);
+      if (!MAXWELL) { out(''); return; }
+      var c = MAXWELL, prog = ph == null ? 1 : Math.min(1, ph), dig = tk('--mark-dig'), bio = tk('--mark-bio'), bg = tk('--bg-1');
+      c.sites.forEach(function (p, i) {
+        var r = Math.hypot(p[0], p[1]); if (r < 1e-9) { x.fillStyle = tk('--ink'); x.beginPath(); x.arc(cx, cy, 2.5, 0, Math.PI * 2); x.fill(); return; }
+        if (Math.abs(p[2]) > 1e-9) return; // the axial pair sits on the axis, at the centre of this view
+        var a = Math.atan2(p[1], p[0]), rr = lr(r);
+        x.fillStyle = tk('--ink'); x.beginPath(); x.arc(cx + rr * Math.cos(a), cy - rr * Math.sin(a), 4, 0, Math.PI * 2); x.fill();
+      });
+      var eq = c.equilibria.slice().sort(function (a, b) { return Math.hypot(b[0], b[1], b[2]) - Math.hypot(a[0], a[1], a[2]); }), n = Math.max(1, Math.round(prog * eq.length));
+      eq.slice(0, n).forEach(function (e) {
+        var r = Math.hypot(e[0], e[1], e[2]), a = Math.atan2(e[1], e[0]), rr = lr(r), px = cx + rr * Math.cos(a), py = cy - rr * Math.sin(a);
+        if (e[3] === 1) ring(x, px, py, 3, dig, bg); else { x.strokeStyle = bg; x.lineWidth = 3.5; x.beginPath(); x.arc(px, py, 3.4, 0, Math.PI * 2); x.stroke(); x.strokeStyle = bio; x.lineWidth = 1.6; x.beginPath(); x.arc(px, py, 3.4, 0, Math.PI * 2); x.stroke(); }
+      });
+      out(n + ' equilibria · Maxwell: ' + c.maxwell);
+    } },
     gates: { period: 1800, once: true, draw: function (x, w, h, ph, out) {
       var acc = tk('--acc-gf2m'), L0 = 34, R0 = w - 14, T = top(w) + 2, B = h - 22;
       var X = function (d) { return L0 + (R0 - L0) * (d - 5) / 9; }, Y = function (g) { return B - (B - T) * (g - 105) / 14; };
@@ -250,6 +291,8 @@ var G = {
     } }
   };
   var GL = {};
+  var MAXWELL = null; // six-charge configuration from research/maxwell-charges/equilibria.json (written from the point-charges certificates)
+  F0.json(R + 'research/maxwell-charges/equilibria.json').then(function (d) { MAXWELL = (d.configs || []).filter(function (c) { return c.id === 'n6'; })[0] || null; if (GL.charges) GL.charges(); }).catch(function (e) { console.warn('maxwell data:', e); });
   function glyphs(root) {
     $$('canvas[data-glyph]', root).forEach(function (cv) {
       if (cv._f0) return; cv._f0 = true;
@@ -354,14 +397,17 @@ var G = {
   function ladder(PJ) {
     $$('.ri-rung').forEach(function (h) { h.innerHTML = ''; });
     var list = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; });
-    list.forEach(function (p) {
-      var host = $('.ri-rung[data-rung="' + rungOf(p) + '"]'); if (!host) return;
+    /* open projects join the ladder once they claim a result; the two with a card above are already on it */
+    var open = (PJ.projects || []).filter(function (p) { return p.kind === 'repository' && !p.page && repoRung(p); });
+    list.concat(open).forEach(function (p) {
+      var repo = p.kind === 'repository';
+      var host = $('.ri-rung[data-rung="' + (repo ? repoRung(p) : rungOf(p)) + '"]'); if (!host) return;
       var note = P[p.slug] && P[p.slug].rungNote;
       var a = document.createElement('a');
-      a.className = 'ri-chip'; a.href = '#card-' + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
+      a.className = 'ri-chip'; a.href = (repo ? '#repo-' : '#card-') + p.slug; a.style.setProperty('--acc', 'var(' + ((P[p.slug] && P[p.slug].acc) || '--ink-3') + ')');
       a.textContent = p.title;
       a.setAttribute('aria-label', p.title + ': ' + p.status + (note ? '. ' + note : ''));
-      var tip = '<div class="tip-k">' + esc(p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + F0.statusBadges(p.status, { ladder: 1 }) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
+      var tip = '<div class="tip-k">' + esc(repo ? 'Open project' : p.kind === 'contribution' ? 'Aska contributed' : 'Founding member’s research') + '</div><div class="tip-t">' + esc(p.title) + '</div><div class="tip-rows"><div class="tip-row">' + (repo ? repoBadges(p.status) : F0.statusBadges(p.status, { ladder: 1 })) + '</div></div>' + (note ? '<div class="tip-note">' + esc(note) + '</div>' : '');
       a.addEventListener('pointerenter', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointermove', function (e) { F0.tip.show(tip, e.clientX, e.clientY); });
       a.addEventListener('pointerleave', function () { F0.tip.hide(); });
@@ -370,6 +416,52 @@ var G = {
       host.appendChild(a);
     });
     $$('.ri-rung').forEach(function (h) { if (!h.children.length) { h.innerHTML = '<span class="ri-none">none of our projects yet</span>'; } });
+  }
+
+  /* ---------- open projects: every Foundation0 project repository, grouped by field ---------- */
+  /* Statuses are the READMEs' own words. A part that opens with "no" or "not" ("not started", "no new result
+     claimed") is a plain label, never a claim, and a status with no claim gets no evidence rung. */
+  function segClass(seg) { return /^(no|not)\b/i.test(seg) ? { cls: 'n', rung: 0 } : F0.classifyStatus(seg); }
+  function repoBadges(status) {
+    var groups = [];
+    String(status || '').split(/\s+·\s+/).filter(Boolean).forEach(function (seg) {
+      var c = segClass(seg), g = groups[groups.length - 1];
+      if (g && g.cls === c.cls && g.rung === c.rung) g.text.push(seg); else groups.push({ cls: c.cls, rung: c.rung, text: [seg] });
+    });
+    return groups.map(function (g) {
+      var t = g.text.join(' · ');
+      return '<span class="badge ' + g.cls + '">' + (g.rung ? F0.ladderHTML(g.rung) : '') + esc(t.charAt(0).toUpperCase() + t.slice(1)) + '</span>';
+    }).join('');
+  }
+  function repoRung(p) {
+    var r = 0;
+    String(p.status || '').split(/\s+·\s+/).forEach(function (seg) { var c = segClass(seg); if (c.rung && (!r || c.rung < r)) r = c.rung; });
+    return r;
+  }
+  function repoHTML(p) {
+    var L = p.links || [], home = L[0] || {}, sha = /\bat ([0-9a-f]{7,40})$/.exec(p.source || ''), sr = '<span class="sr-only"> for ' + esc(p.title) + '</span>';
+    var links = L.slice(1).map(function (l) { return '<a href="' + esc(l.url) + '">' + esc(l.label) + sr + '</a>'; }).join('') +
+      (p.page ? '<a href="' + esc(rel(p.page)) + '">On Foundation0' + sr + '</a>' : '');
+    return '<li class="ri-repo" id="repo-' + esc(p.slug) + '"><h4><a href="' + esc(home.url) + '">' + esc(p.title) + '</a></h4>' +
+      '<p class="q">' + esc(p.question || '') + '</p>' +
+      '<div class="badges">' + repoBadges(p.status) + '</div>' +
+      '<p class="links">' + links + '</p>' +
+      (p.source ? '<p class="src">Status: ' + (sha && home.url ? '<a href="' + esc(home.url + '/blob/' + sha[1] + '/README.md') + '">' + esc(p.source) + '</a>' : esc(p.source)) + '</p>' : '') + '</li>';
+  }
+  function repos(PJ) {
+    var host = $('#repo-fields'); if (!host) return;
+    var list = (PJ.projects || []).filter(function (p) { return p.kind === 'repository'; });
+    var fields = (PJ.fields || []).slice();
+    list.forEach(function (p) { if (!fields.some(function (f) { return f.name === p.field; })) fields.push({ name: p.field, hub: null }); });
+    host.innerHTML = fields.map(function (f) {
+      var rs = list.filter(function (p) { return p.field === f.name; }); if (!rs.length) return '';
+      var id = 'field-' + String(f.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return '<div class="ri-field"><div class="ri-field-head"><h3 id="' + id + '">' + esc(f.name) + '</h3>' +
+        (f.hub ? '<a class="hub" href="https://github.com/Foundation-0/' + esc(f.hub) + '">Field hub: ' + esc(f.hub) + '</a>' : '<span class="hub">No field hub yet</span>') +
+        '<span class="n">' + rs.length + (rs.length === 1 ? ' project' : ' projects') + '</span></div>' +
+        '<ul class="ri-repos" aria-labelledby="' + id + '">' + rs.map(repoHTML).join('') + '</ul></div>';
+    }).join('');
+    $$('[data-count-repos]').forEach(function (e) { e.textContent = list.length; });
   }
 
   /* ---------- project cards ---------- */
@@ -416,7 +508,7 @@ var G = {
       if (k.source !== 'live' && !(Date.parse(k.at) > Date.parse(SNAP.at))) k = SNAP; // the local feed is older than our snapshot
       var live = k.source === 'live';
       $('[data-k-v]', box).textContent = k.decimal;
-      $('[data-k-k]', box).textContent = 'reviewed κ, conditional' + (k.pr ? ', PR #' + k.pr + (k.pr === 1094 ? ' by founding member rohanarun' : '') : '') + (live ? ', fetched just now' : '');
+      $('[data-k-k]', box).textContent = 'reviewed κ, conditional' + (k.pr ? ', PR #' + k.pr + (k.pr === 1094 ? ' by founding member Rohan Arun' : '') : '') + (live ? ', fetched just now' : '');
       $('[data-k-when]', box).textContent = live ? 'live · ' + utc(k.at) : k.source === 'snapshot' ? 'snapshot · ' + utc(k.at) + ' (live file unreachable)' : 'feed.json · ' + (k.at ? utc(k.at) : '');
       $('.dot', box).className = 'dot ' + (live ? 'live' : 'stale');
       if (k.source === 'feed') $('[data-k-src]', box).href = R + 'feed.json';
@@ -432,7 +524,7 @@ var G = {
     var fam = {}; ((FD && FD.families) || []).forEach(function (f) { fam[f.id] = f; });
     function famTitle(id) { var f = fam[id]; return f ? String(f.title).replace(/\\log\s*/g, ' log ').replace(/<[^>]+>/g, '').replace(/\s{2,}/g, ' ') : ''; }
     var list = MB.members || [];
-    var PAGE_LBL = { 'research/incentre-lattice/': 'Incentre lattice', 'research/exoplanets/': 'Exoplanets', 'research/integer-multiplication/': 'Integer multiplication', 'research/mobius-x1/': 'mobius-x1', 'research/gf2m-circuits/': 'gf2m-circuits', 'instruments/#auto-research': 'Instruments: Auto-research-agent', 'instruments/#autofoundry': 'Instruments: autofoundry' };
+    var PAGE_LBL = { 'research/incentre-lattice/': 'Incentre lattice', 'research/exoplanets/': 'Exoplanets', 'research/integer-multiplication/': 'Integer multiplication', 'research/mobius-x1/': 'mobius-x1', 'research/gf2m-circuits/': 'gf2m-circuits', 'research/maxwell-charges/': 'Maxwell’s point charges', 'instruments/#auto-research': 'Instruments: Auto-research-agent', 'instruments/#autofoundry': 'Instruments: autofoundry' };
     host.innerHTML = list.map(function (m, i) {
       var work = (m.work || []).map(function (w) {
         var bo = /#(\d+)/.exec(w.builds_on || ''), id = bo ? ('00' + bo[1]).slice(-3) : null;
@@ -491,12 +583,14 @@ var G = {
       F0.json(R + 'data/openai-math-families.json').catch(function () { return null; })
     ]).then(function (d) {
       var PJ = d[0], MB = d[1], FD = d[2];
-      var n = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution'; }).length;
+      /* every project on the page once: the cards, and the open projects that have no card */
+      var n = (PJ.projects || []).filter(function (p) { return p.kind === 'research' || p.kind === 'contribution' || (p.kind === 'repository' && !p.page); }).length;
       $$('[data-count-proj]').forEach(function (e) { e.textContent = n; });
       if (PJ.updated) $$('[data-updated]').forEach(function (e) { e.textContent = F0.fmtDate(PJ.updated); });
       loopFig(PJ);
       ladder(PJ);
       cards(PJ, MB, FD);
+      repos(PJ);
       members(MB, FD);
     }).catch(function (e) { console.warn('research data:', e); });
   }

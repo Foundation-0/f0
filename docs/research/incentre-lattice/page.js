@@ -2,7 +2,7 @@
    1 the doodle stepper (SVG)            2 the mirror room (canvas; adapted from incentre-lattice mirrors.html, MIT)
    3 every dimension (SVG)               4 fold without stretching (canvas + SVG; formula from fold-continuous.js, MIT)
    5 the search ladder (SVG; data verbatim from autoresearch-fold/results.tsv)
-   Source project: https://github.com/aska-digital/incentre-lattice (code MIT; text and figures CC BY 4.0,
+   Source project: https://github.com/Foundation-0/incentre-lattices (code MIT; text and figures CC BY 4.0,
    (c) Ahraz Arifuddin, Aska Digital, and contributors). Colours come from tokens via F0.css and redraw on F0.onTheme. */
 (function () {
   'use strict';

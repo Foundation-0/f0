@@ -1,5 +1,6 @@
 /* Home page: wires the Radiant (with its time control), the role chart (with table twin), the evidence strip,
    the founding members (data/members.json), the research cards (data/projects.json, with the live reviewed κ),
+   the open projects line (projects.json entries of kind "repository"),
    the instrument and commons numbers (data/projects.json) and the writing list (data/writing.json).
    The HTML carries a pre-rendered copy of every list, so the page reads without JS; this file re-renders
    each one from its data file. The κ records come from research/integer-multiplication/kappa-history.json; the few
@@ -37,7 +38,7 @@
     });
     Promise.all([mem, proj, fam]).then(function (r) {
       if (r[0]) members(r[0]);
-      if (r[1]) { cards(r[1], r[0], r[2]); bindProjects(r[1]); medcode(r[1]); }
+      if (r[1]) { cards(r[1], r[0], r[2]); openProjects(r[1]); bindProjects(r[1]); }
       glyphs(); liveKappa(r[0]);
     });
     soft(F0.json(WRITING)).then(function (W) { if (W) posts(W); });
@@ -265,6 +266,7 @@
       glyph: 'families', hit: true, gk: 'THE 372 FAMILIES', gr: '', aria: '',
       cap: 'One square per family of OpenAI’s papers.',
       capHTML: '<span class="lg"><i class="sq" style="background:var(--acc-mm)"></i>links a Lean scope document by 7 Oct</span><span class="lg"><i class="sq" style="border:1px solid var(--ink-3)"></i>no such document</span><span class="lg"><i class="sq" style="border:1.5px solid var(--hair)"></i>founding members built on it</span><span class="gdef">Lean is a program that checks proofs step by step; a scope document is a plan for such a check, not a finished one.</span>' },
+    'maxwell-charges': { field: 'Physics', role: 'Our own work', who: 'point-charges · Claude', acc: '--acc-maxwell', fact: 2, factK: 'equilibria for six charges, above Maxwell’s bound of 25 (certified)' },
     'mobius-x1': { field: 'Circuits', role: 'Aska contributed', acc: '--acc-mobius', fact: 1, factK: 'failures in Aska’s full-network check',
       glyph: 'pascal', gk: 'PASCAL MOD 2 · N = 32', gr: 'row 31', aria: 'Pascal’s triangle modulo 2 for 32 inputs, the matrix the transform computes, beside the XOR counts of the naive method (211) and Yates’ method (80).',
       cap: 'The transform’s matrix, computed here. The claimed saving only appears when the input size has billions of digits.' },
@@ -335,6 +337,15 @@
     host.classList.add('bal');
     if (n % 3 === 2) plain.slice(-2).forEach(function (c) { c.classList.add('tail2'); });
     if (n % 2 === 1) plain[n - 1].classList.add('tail1');
+  }
+
+  /* ---------- 03: the open projects, counted from data/projects.json; the Research page lists them by field ---------- */
+  function openProjects(PJ) {
+    var host = $('#home-repos'); if (!host) return;
+    var list = (PJ.projects || []).filter(function (p) { return p.kind === 'repository'; }), fields = [];
+    if (!list.length) { host.hidden = true; return; }
+    list.forEach(function (p) { if (fields.indexOf(p.field) < 0) fields.push(p.field); });
+    host.innerHTML = '<b>Open projects</b> ' + list.length + ' projects, each in its own Foundation0 repository, in ' + fields.length + ' fields. Each states its question and how far it has got, and has open issues to work on. <a href="' + R + 'research/#projects">See them all, by field</a>';
   }
 
   /* ---------- the live reviewed κ (F0.kappa: live file, else feed.json; the newer of that and our snapshot) ---------- */
@@ -647,25 +658,6 @@
       el('text', { x: R0 + 10, y: Y(1070) + 19, text: '5 changes', style: 'fill:var(--ink-3)' }, svg);
     });
   }
-  function medcode(PJ) {
-    var host = $('#medcode-host'); if (!host) return;
-    var parts = [[18, 'verified', '--st-verified', 1], [33, 'unverified', '--st-claimed', 0.55], [16, 'vendor claim only', '--st-preprint', 0.8]], tot = 67; // medcode vendor table, snapshot 2026-10-03
-    var p = PJ && (PJ.projects || []).filter(function (q) { return q.slug === 'medcode'; })[0], s = p && p.stats && p.stats[3];
-    var a = s && /(\d+)\s+of\s+(\d+)/.exec(s.value), b = s && /(\d+)\s+unverified,\s*(\d+)\s+vendor/.exec(s.label);
-    if (a && b) { parts[0][0] = +a[1]; tot = +a[2]; parts[1][0] = +b[1]; parts[2][0] = +b[2]; }
-    var lg = $('#medcode-legend'); if (lg) $$('b', lg).forEach(function (e, i) { if (parts[i]) e.textContent = parts[i][0]; });
-    sized(host, function (W) {
-      var H = 44, svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'gsvg', role: 'img', 'aria-label': 'Evidence behind the vendor table: ' + parts[0][0] + ' of ' + tot + ' tags verified, ' + parts[1][0] + ' unverified, ' + parts[2][0] + ' vendor claims only.' }, host);
-      el('text', { x: 0, y: 11, text: tot + ' EVIDENCE TAGS IN THE VENDOR TABLE', style: 'fill:var(--ink-3)' }, svg);
-      var x = 0;
-      parts.forEach(function (q, i) {
-        var w = W * q[0] / tot - (i < parts.length - 1 ? 2 : 0);
-        el('rect', { x: x, y: 22, width: Math.max(1, w), height: 16, style: 'fill:var(' + q[2] + ')', opacity: q[3] }, svg);
-        x += w + 2;
-      });
-    });
-  }
-
   /* ---------- 06: writing, from data/writing.json (latest four, dated market notes left to the Writing page) ---------- */
   function posts(W) {
     var host = $('#posts-list'); if (!host) return;

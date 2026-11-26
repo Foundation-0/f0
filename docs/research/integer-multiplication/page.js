@@ -45,7 +45,7 @@
      fallback is older than it, and always say which one is shown and when.
      ====================================================================== */
   var SNAP = { decimal: '0.001672660197076918', kappa: '836330098538459/500000000000000000', pr: 1094, at: '2026-10-13T18:45:23Z', source: 'snapshot' };
-  var PR_AUTHOR = { 1094: 'rohanarun' };
+  var PR_AUTHOR = { 1094: 'Rohan Arun' };
   var MEMBERS = {};
   var liveFns = [], LIVE = null;
   function onLive(fn) { if (LIVE) fn(LIVE); else liveFns.push(fn); }
