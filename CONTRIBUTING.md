@@ -69,6 +69,7 @@ and run the script. The full rules are at the top of [`scripts/prerender.mjs`](s
 
 ```
 python3 scripts/check_site.py     # ledger schema, data files, links, page metadata
+python3 tests/run_site_corruptions.py  # the site gate fails on corrupted copies
 python3 scripts/gate.py           # the kappa-race feed
 python3 tests/run_golden.py && python3 tests/run_regressions.py && python3 tests/run_gate_corruptions.py
 python3 tests/run_discussions.py   # the forum index

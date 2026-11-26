@@ -1,0 +1,31 @@
+name: Correction
+description: A wrong date, an overstated claim, a dead link, a missed source.
+title: "Correction: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections keep the public record true. Give the source
+        that settles it. For open discussion first, use the forum
+        in Discussions instead.
+  - type: input
+    id: where
+    attributes:
+      label: Page, file or entry
+      description: Link or path, for example a Ledger entry or a line in docs/data/ledger.json.
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+      description: Quote the current text where you can.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source for the fix
+      description: Primary source first. A link or an exact quote.
+    validations:
+      required: true
