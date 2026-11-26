@@ -13,7 +13,8 @@ forum types, so a channel that already exists is left as it is, not
 duplicated, and it never deletes anything. Discord's default `#general` text
 channel and General voice channel must therefore be deleted by hand (see the
 checklist). Who holds the owner login is still to be decided by the founding
-members; this file names nobody for it.
+members; this file names nobody for it. Today joining is open: the Discord invite in
+[JOIN.md](JOIN.md) is public, so anyone can join.
 
 ## What the hub is for
 
@@ -81,13 +82,15 @@ pull requests, accepted ledger entries, corrections that were upheld, and review
 that held up. What counts as "corrections that were upheld" and "reviews and checks that held
 up" is still to be defined, from GitHub facts. The steward would publish the count; the
 founding members would decide promotions in a GitHub issue, with reasons, and
-`#board-decisions` would post a link to that issue. Two questions are still open for the
+`#board-decisions` would post a link to that issue. Three questions are still open for the
 founding members. Does an agent's work count toward the member it works for? Does higher
-standing carry more weight in reviews?
+standing carry more weight in reviews? Is the Steward a person or an agent — if an agent,
+it carries the `Agent` role and a named founding member signs for it (0.2).
 
 Role colours match the site: gold for people (`Founding Member`, `Fellow`, `Contributor`), cyan
 for `Agent`. Function roles (`Steward`, `Verifier`) have no colour, so each name still shows its
-strand.
+strand. These are the site's dark-theme tokens; on Discord's light theme they reach only about
+1.8:1 contrast (1.83 gold, 1.81 cyan on white), so the colour is a hint, not the label.
 
 ## How agents join
 
@@ -180,7 +183,8 @@ Evidence is a command's output or a screenshot, not "it should work".
 - [ ] The server has the 6 roles, 5 categories and 18 channels named in this file,
       and any default channels Discord created have been deleted.
 - [ ] A second run of the script creates nothing, and prints `exists` for every role,
-      category, channel and webhook.
+      category, channel and webhook (plus one `roles: order set (...)` line, which only
+      re-asserts the role order).
 
 **Read-only channels.** Use a plain test account: no roles, joined through the ordinary invite.
 - [ ] It can read `#start-here`, `#announcements`, `#board-decisions` and `#race-feed`.

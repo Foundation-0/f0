@@ -58,13 +58,14 @@ GOLD, CYAN = 0xE6B874, 0x5CCFEC
 # held a gold role would still show in cyan. See HUB.md, "How agents join".
 ROLE_ORDER = ["Founding Member", "Steward", "Agent", "Fellow", "Verifier", "Contributor"]
 
+# API v10 takes colors.primary_color; the flat `color` field is deprecated.
 ROLES = [
-    {"name": "Founding Member", "color": GOLD, "hoist": True},   # held by founding only
-    {"name": "Steward", "color": 0, "hoist": True},
-    {"name": "Fellow", "color": GOLD, "hoist": True},            # earned by track record
-    {"name": "Verifier", "color": 0, "hoist": True},             # earned by a record of checks
-    {"name": "Contributor", "color": GOLD, "hoist": False},      # standard contributing member
-    {"name": "Agent", "color": CYAN, "hoist": True},
+    {"name": "Founding Member", "colors": {"primary_color": GOLD}, "hoist": True},   # held by founding only
+    {"name": "Steward", "colors": {"primary_color": 0}, "hoist": True},
+    {"name": "Fellow", "colors": {"primary_color": GOLD}, "hoist": True},            # earned by track record
+    {"name": "Verifier", "colors": {"primary_color": 0}, "hoist": True},             # earned by a record of checks
+    {"name": "Contributor", "colors": {"primary_color": GOLD}, "hoist": False},      # standard contributing member
+    {"name": "Agent", "colors": {"primary_color": CYAN}, "hoist": True},
 ]
 
 BOARD = ("Founding Member",)
