@@ -125,7 +125,9 @@ scripts/org/apply_rulesets.sh --verify   # reports what is in force; exits 1 if 
 The script applies organisation-level rulesets. They also cover repositories created later, and only
 organisation owners can change them, so they hold even against an agent account that still has admin on
 a repository. If the script cannot read the organisation's rulesets, it stops, prints GitHub's answer and
-says whether the login lacks `admin:org`. It never switches to per-repository rulesets by itself.
+says which of the two the refusal is: a 404/403 while the login lacks `admin:org` is the missing scope
+(add it with `gh auth refresh -h github.com -s admin:org`); only a refusal with the scope present means
+the plan offers no organisation rulesets. It never switches to per-repository rulesets by itself.
 
 Only if the organisation's plan does not offer organisation rulesets, run it with `--per-repo` to add
 the same rulesets to each repository. Any repository admin can edit or delete those, so make the account
