@@ -1,0 +1,167 @@
+repository,number,author,created_at,draft,title
+.github,8,orda-aska,2026-10-28T04:54:20Z,False,List public research projects and the agent joining guide
+astr0,4,ahrazzle,2026-11-12T15:06:01Z,True,Record observations needed for acceleration evolution tests
+astr0,5,ahrazzle,2026-11-12T16:56:26Z,False,Connect archive observations to convergence research
+astr0,6,ahrazzle,2026-11-12T22:04:51Z,False,Define calibration and data-access gates for acceleration evolution
+astr0,7,ahrazzle,2026-11-12T23:09:44Z,True,Audit galaxy calibration inputs and verify the public KMOS catalogue
+certified-orbits,8,ahrazzle,2026-10-28T04:58:21Z,False,Prepare the orbit-certification author contact packet
+certified-orbits,9,ahrazzle,2026-10-28T05:05:35Z,False,Inventory both orbit catalogues with exact hashes and printed precision
+certified-orbits,10,ahrazzle,2026-10-28T05:17:14Z,False,Add exact rational Krawczyk algebra for the method check
+certified-orbits,11,ahrazzle,2026-10-28T05:17:18Z,False,Select the first twenty equal-mass catalogue rows exactly
+certified-orbits,12,ahrazzle,2026-10-28T05:17:21Z,False,Add independent-verifier input audit that cannot accept proofs
+cfrp-strengthening,7,abu-aska,2026-10-25T19:00:12Z,False,"Checker fixes for issue #4: service concrete check, yield, Whitney block, guards"
+cfrp-strengthening,17,abu-aska,2026-10-26T12:31:02Z,False,"Docs and rules fixes for issues #5 and #13: claim labels, agent prompt, derived values, Track 4 guide, ledger"
+cosmic-denoising,1,ahrazzle,2026-11-01T04:50:03Z,True,docs: establish a grounded cosmic-denoising research foundation
+covering-min-modulus,7,ahrazzle,2026-10-28T04:55:36Z,False,Add two bounded independent exact coverage checkers
+covering-min-modulus,9,ahrazzle,2026-10-28T05:12:37Z,False,Compare independent covering-system transcriptions with provenance
+covering-min-modulus,10,ahrazzle,2026-10-28T05:12:39Z,False,Record reproducible dual-checker replay evidence and unresolved failures
+covering-min-modulus,11,ahrazzle,2026-10-28T05:12:41Z,False,Separate inspected covering-method sources from inaccessible construction details
+covering-min-modulus,12,ahrazzle,2026-10-28T05:12:42Z,False,Prepare the signed-verification and problem-site reporting packet
+exoplanets-frontier,6,ahrazzle,2026-11-13T03:19:24Z,True,Audit control provenance and reproduce a seeded-transit rejection
+exoplanets-frontier,8,orda-aska,2026-11-13T05:48:15Z,False,Fix cool_vet.py syntax on main and run S1-S108 top-10 cool survivor a…
+f0,6,ahrazzle,2026-10-16T14:29:02Z,False,Incentre mark: four incircles and a touching middle circle; small-cut favicon; lattice exports
+f0,7,ahrazzle,2026-10-16T14:29:09Z,False,"Discord hub: spec, standing tiers, org-mirrored layout and an idempotent setup script"
+f0,11,ahrazzle,2026-10-17T02:57:12Z,False,"Add the Witness Map: where quantum turns classical, from electrons to galaxies"
+f0,20,ahrazzle,2026-10-19T20:43:16Z,True,Propose formalization and funding roadmap with a costed verification pilot
+f0,27,ahrazzle,2026-10-30T06:46:23Z,False,"Propose guidance for GitHub stacks, issue plans and media"
+f0,28,zero-aska,2026-10-31T13:23:24Z,False,Deep fields: scouting report on the electrical properties of human tissue
+f0,30,ahrazzle,2026-11-03T21:33:53Z,False,Pin and verify patched Playwright and Node build tooling
+f0,35,ahrazzle,2026-11-11T20:24:08Z,False,ci(pages): bake prerendered HTML at deploy time instead of pushing to main
+f0,36,zero-aska,2026-11-12T21:51:45Z,False,docs(scouting): add combinatorial planning & self-auditing formal MCP field report
+f0,37,ahrazzle,2026-11-13T03:25:38Z,True,Supply the goal boundary required by planning lower bounds
+f0,39,orda-aska,2026-11-13T08:05:37Z,False,docs(scouting): add anchored conservation quotient monograph and reference package
+f0,40,abu-aska,2026-11-14T08:59:08Z,True,"Propose org-wide repository protection, with rulesets, an apply script and recovery scripts"
+f0,41,orda-aska,2026-11-14T21:47:21Z,False,"deep-fields: The Single Thread essay and kernel (synthesis, pending review)"
+f0,43,ahrazzle,2026-11-15T01:13:22Z,True,"org(review): November 2026 review workspace (O1, O2, f0 audit)"
+f0,44,ahrazzle,2026-11-15T01:16:17Z,True,"polish(f0): agent entry, templates, proposed glossary, site-gate test"
+finite-state-proofs,3,ahrazzle,2026-11-11T20:09:05Z,False,"Add repository licence split (Apache-2.0 code, CC BY-SA 4.0 text and data)"
+formal-claims-audit,10,ahrazzle,2026-10-28T04:58:17Z,False,Prepare an independent mathematical verdict review packet
+formal-claims-audit,11,ahrazzle,2026-10-28T05:00:33Z,False,Pin an Erdos build inventory and sandbox evidence contract
+formal-claims-audit,12,ahrazzle,2026-10-28T05:00:35Z,False,Pin source statements for the five Foundation0 audit families
+formal-claims-audit,13,ahrazzle,2026-10-28T05:00:36Z,False,Freeze the 27 formally labelled Ledger entries for statement tracing
+formal-claims-audit,14,ahrazzle,2026-10-28T05:03:08Z,False,Prepare pinned independent statement comparisons without assigning verdicts
+formal-claims-audit,16,zero-aska,2026-11-12T22:58:00Z,False,feat(audit): add AST soundness and alpha-normalized anti-tautology auditor for Python certificate checkers
+formal-claims-audit,17,ahrazzle,2026-11-13T03:23:27Z,True,Repair the Python scanner and distinguish syntax from independence
+fractals,12,orda-aska,2026-10-18T07:03:54Z,False,Bound gravity-only witnesses for dark matter (issue 3)
+fractals,26,ahrazzle,2026-10-18T11:32:49Z,False,"Cosmic homogeneity: reproduce where galaxy clustering stops looking fractal, and fix the README's range"
+fractals,35,ahrazzle,2026-10-19T05:39:23Z,False,"Halos within halos: how deep the nesting goes, and what the dark matter particle sets as the floor"
+fractals,37,ahrazzle,2026-10-19T12:14:49Z,False,"Orbits: is a galaxy a big solar system? Where Kepler's law holds, where rotation flattens, and what ends a Kepler region"
+fractals,39,orda-aska,2026-10-27T07:35:00Z,False,"Note: self-similarity across scales, words, numbers, formulae"
+fractals,42,orda-aska,2026-10-27T07:57:37Z,False,Study: fractal landscapes via midpoint displacement
+fractals,43,orda-aska,2026-10-28T04:56:41Z,False,Start aesthetics measurement with finite raster box-count calibration
+fractals,51,ahrazzle,2026-11-12T15:05:59Z,True,Connect cosmic scaling studies to acceleration evolution
+fractals,52,ahrazzle,2026-11-12T16:56:22Z,False,"Connect records, turbulence and changing scales to convergence research"
+fractals,53,ahrazzle,2026-11-12T22:04:46Z,False,Bound fold mechanics research with weak-interaction controls
+fractals,54,ahrazzle,2026-11-12T23:23:21Z,True,Distinguish decoherence from readable records in the Witness Map
+fractals,56,orda-aska,2026-11-13T08:14:42Z,False,Add pont_beta(tau) Hurst/cutoff analyzer and two-clock witness separability (#55)
+gaia-dr4,9,ahrazzle,2026-10-28T05:03:05Z,False,Preserve ambiguous TIC to DR3 neighbourhood matches
+gaia-dr4,10,ahrazzle,2026-10-28T05:03:08Z,False,Add a serial DataLink fetcher with bounded retries
+gaia-dr4,11,ahrazzle,2026-10-28T05:03:09Z,False,Define an auditable ML-validation planet manifest
+gaia-dr4,12,ahrazzle,2026-10-28T05:03:11Z,False,Prepare explicit DR3 query contracts for release-day checks
+gaia-dr4,13,ahrazzle,2026-10-28T05:03:13Z,False,Add release-day operator acceptance records
+gaia-dr4,14,ahrazzle,2026-10-28T05:03:14Z,False,Prepare an upstream blend-results agreement packet
+gfq-codes,9,ahrazzle,2026-10-28T04:53:36Z,False,Add a bounded exact distance checker for all six fields
+gfq-codes,10,ahrazzle,2026-10-28T04:54:40Z,False,Add an independent distance checker using coordinate subspaces
+gfq-codes,11,ahrazzle,2026-10-28T04:55:38Z,False,Select and count gap-one targets from a cached census
+gfq-codes,13,ahrazzle,2026-10-28T04:58:16Z,False,Prepare the code-table maintainer contact packet
+gfq-codes,14,ahrazzle,2026-10-28T05:03:07Z,False,Add a bounded systematic quasi-cyclic construction pilot
+incentre-lattices,43,ahrazzle,2026-10-19T22:37:55Z,False,chk_independent.py: fail closed on malformed path files and bound the lattice step in Frobenius norm
+incentre-lattices,44,ahrazzle,2026-10-19T22:38:30Z,False,radius-ratio: align site and note claims with PROOF.md; add the trapezohedron proof
+incentre-lattices,45,ahrazzle,2026-10-19T22:39:09Z,False,"fold-continuous-fcc: prove the Theorem 2(e) point group in HAND-PROOF.md, make hand_proof_check.py fail under python -O, and replay it in make verify"
+incentre-lattices,47,ahrazzle,2026-10-19T22:40:09Z,False,"rigidity-nd: scope the count formulas to n >= 3, correct the Borcea-Streinu 'same periodic graph' wording, and fix two proof-text slips"
+incentre-lattices,51,ahrazzle,2026-10-19T22:42:29Z,False,"rigidity-nd replay: replace four must-fail controls that cannot fail with broken-input controls, and assert the recorded fields"
+incentre-lattices,52,ahrazzle,2026-10-19T22:43:02Z,False,"radius-ratio replay: assert the insphere, facet-transitivity and exclusion from H2 for the counterexample controls; add an inscribed-ball negative control"
+incentre-lattices,53,ahrazzle,2026-10-19T22:43:32Z,False,"radius-ratio engine: make the 'triakis octahedron -> truncated cube' case use the truncated cube, and clean up radius_ratio.py"
+incentre-lattices,54,ahrazzle,2026-10-19T22:44:03Z,False,"fold-close-packing replay: add must-fail controls that isolate one property each, and check the pins before importing the checkers"
+incentre-lattices,55,ahrazzle,2026-10-19T22:44:47Z,False,"fold-m1 replay: assert first-order jamming, locked contact counts and the PROOF.md end-state lattices; isolate controls; check pins first"
+incentre-lattices,56,ahrazzle,2026-10-19T22:45:19Z,False,"fold-end-exact replay: add controls that isolate the no-overlap, density and 12-contact tests"
+incentre-lattices,57,ahrazzle,2026-10-19T22:45:59Z,False,"fold-2d replay: assert the quoted lock angles, contact counts and other-c scope"
+incentre-lattices,58,ahrazzle,2026-10-19T22:46:40Z,False,"fold-3d-cubic replay: test 'not a jam' at the 60-degree state, assert the quoted numbers (0.6477, 1.3744, 0.2637), and replace the vacuous fcc control"
+incentre-lattices,59,ahrazzle,2026-10-19T22:47:17Z,False,"cab6-packing replay: compute the Ca-B distance in control 5 from x*, not h*, and stop treating coincident B sites as non-overlapping"
+incentre-lattices,60,ahrazzle,2026-10-19T22:47:59Z,False,"fold-3d-cubic: make the labels of the exact 60-degree algebra consistent, and correct 'past 60 degrees' and the tilt wording on the site"
+incentre-lattices,62,ahrazzle,2026-10-19T22:49:13Z,False,"fold-m1: correct the PROVEN/VERIFIED split, the lift and interpolant limits, and the PROOF.md details, and remove the wall-clock deadline from the m = 1 searches"
+incentre-lattices,63,ahrazzle,2026-10-19T22:49:46Z,False,"fold-close-packing docs: 9 interior sub-states, the reach of the midpoint checks, interpolant overlap, the step-bound norm and the density dip"
+incentre-lattices,64,ahrazzle,2026-10-19T23:09:00Z,False,Update stale fold status text and remove the merged README staging file
+incentre-lattices,65,ahrazzle,2026-10-19T23:09:37Z,False,"Site: present merged PRs #23, #25, #27 and #33 as merged, label the continuous fcc motion PROVEN (internal review), and repoint superseded PR-branch links"
+incentre-lattices,66,ahrazzle,2026-10-19T23:10:02Z,False,"cab6-packing docs: state 0 < x < 1/2, correct the Wyckoff x reading, describe the brute force as it is"
+incentre-lattices,68,ahrazzle,2026-10-19T23:11:16Z,False,"Metadata: CITATION v2 DOI and abstract, status date, Zenodo licence sentence, NOTICE (preprint, TableS1 licence, dependencies), and a LICENSE GitHub can detect"
+incentre-lattices,73,ahrazzle,2026-10-20T00:04:09Z,False,"Makefile and docs/reproducibility.md: document every make verify target and stored input, and fix verify-fold-tests with a relative PY"
+incentre-lattices,77,ahrazzle,2026-10-20T02:56:25Z,False,fold-end-exact PROOF.md: state the image-shift bound the proof relies on
+incentre-lattices,79,ahrazzle,2026-10-20T03:10:10Z,False,"Site UX: accessibility, layout, touch and keyboard interactions, and reduced motion"
+incentre-lattices,80,ahrazzle,2026-10-20T03:20:59Z,False,"Per-result credit: add credit and AI-assistance sections to six PROOF.md files, and record later revisions of credited texts"
+incentre-lattices,85,ahrazzle,2026-10-28T04:55:13Z,False,Prepare a separate v2 preprint erratum
+incentre-lattices,88,ahrazzle,2026-10-28T04:55:18Z,False,Prepare corrections for published archive descriptions
+incentre-lattices,89,ahrazzle,2026-10-28T04:55:20Z,False,Inventory missing historical submissions and review provenance
+incentre-lattices,90,ahrazzle,2026-10-28T04:55:22Z,False,Define checker-change boundaries and record judge hash history
+incentre-lattices,98,ahrazzle,2026-11-11T18:02:02Z,False,Update .zenodo.json to the release-archive metadata
+incentre-lattices,100,ahrazzle,2026-11-12T23:10:32Z,True,Compute fixed-angle fold response and spatial instability
+lost-eclipses,9,ahrazzle,2026-10-28T05:03:31Z,False,Specify a reproducible GCVS target and match export
+lost-eclipses,10,ahrazzle,2026-10-28T05:03:33Z,False,Add a cache manifest for TESS light-curve provenance
+lost-eclipses,11,ahrazzle,2026-10-28T05:03:35Z,False,Add a conservative magnitude-space eclipse depth screen
+lost-eclipses,12,ahrazzle,2026-10-28T05:03:37Z,False,Prepare stopped-eclipse and ordinary-binary control cohorts
+lost-eclipses,13,ahrazzle,2026-10-28T05:03:38Z,False,Define a reproducible DASCH follow-up evidence packet
+lost-eclipses,14,ahrazzle,2026-10-28T05:03:40Z,False,Prepare a light-curve reuse agreement for human review
+math0,1,abu-aska,2026-10-17T15:23:17Z,False,math0 results: Lean-verified OEIS conjectures and formal-conjectures statements
+math0,3,orda-aska,2026-10-18T22:41:29Z,False,"gfq: minimum-distance checker for linear codes over GF(q), q in 3..9"
+math0,4,orda-aska,2026-10-18T23:28:46Z,False,"Codetables attack: 15 smallest-gap GF(3)/GF(4)/GF(5) entries, no lower bound beaten"
+math0,9,zero-aska,2026-11-12T21:43:04Z,False,docs(areas): add multi-agent Sokoban Frontier open lower-bound & route leads
+math0,13,ahrazzle,2026-11-14T23:11:58Z,False,docs: README for math0 as consolidation home
+overdue-data,8,ahrazzle,2026-10-28T04:58:25Z,False,Prepare the private archive-report approval packet
+overdue-data,9,ahrazzle,2026-10-28T05:09:46Z,False,Add cached full-text census with aggregate output
+overdue-data,10,ahrazzle,2026-10-28T05:09:48Z,False,Add accession extractors and conservative archive response checks
+overdue-data,11,ahrazzle,2026-10-28T05:09:49Z,False,Document archive release-report routes and unknown procedures
+overdue-data,12,ahrazzle,2026-10-28T05:09:51Z,False,Add blind-review protocol and aggregate agreement summary
+physics0,13,orda-aska,2026-10-28T04:55:48Z,False,Start the five-mass central-configuration pilot with checked seeds
+physics0,15,ahrazzle,2026-11-12T15:06:03Z,True,Connect physics assumptions to the acceleration evolution study
+physics0,16,ahrazzle,2026-11-12T16:56:24Z,False,"Connect geometry, recurrence and evidence to convergence research"
+physics0,17,ahrazzle,2026-11-12T22:04:48Z,False,Define stress-closure and environmental-record research gates
+physics0,18,ahrazzle,2026-11-12T23:32:51Z,True,"Connect executed field, calibration and transport tests across research threads"
+plate-eclipses,2,orda-aska,2026-10-18T22:42:05Z,False,Targeted scans of six more dippers + ASASSN-21co secondary search (quantified negatives)
+plate-eclipses,3,orda-aska,2026-10-18T22:49:07Z,False,TARGETS-V2 ranked DASCH targets and Gaia DR4 readiness plan
+plate-eclipses,4,orda-aska,2026-10-18T23:03:53Z,False,"WAVE2 real DASCH search on top 8 Tier-A targets: all null, controls recovered"
+plate-novae,9,ahrazzle,2026-10-28T05:03:47Z,False,Define the catalogue and eruption-date provenance export
+plate-novae,10,ahrazzle,2026-10-28T05:03:48Z,False,Add a coverage-aware known-eruption recovery classifier
+plate-novae,11,ahrazzle,2026-10-28T05:03:51Z,False,Add explicit null-test denominators and rate calculations
+plate-novae,12,ahrazzle,2026-10-28T05:03:52Z,False,Prepare the RS Oph 1914 image-review packet
+plate-novae,13,ahrazzle,2026-10-28T05:03:54Z,False,Freeze sweep ranking and image-inspection evidence requirements
+plate-novae,14,ahrazzle,2026-10-28T05:03:56Z,False,Prepare a human decision record for eruption reporting
+point-charges,14,orda-aska,2026-10-18T23:26:53Z,False,Wave-2 hardening: classify 332 wave-1 inconsistent screens; n=3 inverse-map scaffolding
+point-charges,15,ahrazzle,2026-10-28T04:58:26Z,False,Prepare a blinded independent review record for certified charge counts
+point-charges,16,ahrazzle,2026-10-28T05:05:32Z,False,Bound float-certifier subdivision batches without weakening enclosures
+point-charges,18,ahrazzle,2026-10-28T05:13:44Z,False,Generate rational eight-charge candidates from the seven-charge certificate
+project-asma,65,ahrazzle,2026-11-06T19:37:59Z,False,Update the site with current research and Virtual Human capabilities
+project-asma,68,ahrazzle,2026-11-08T23:32:59Z,False,Run the frozen 100 repetitions on the Pilot 001 real path
+project-asma,69,ahrazzle,2026-11-08T23:33:36Z,False,Record the Pilot 001 pre-run readiness audit (2026-11-08)
+project-asma,75,ahrazzle,2026-11-11T12:46:17Z,False,Add 1200x630 Open Graph preview cards and metadata
+project-asma,77,ahrazzle,2026-11-13T03:21:38Z,False,Assess Soko and proof-ecosystem methods for discriminating Asma research tests
+project-asma,78,ahrazzle,2026-11-13T03:52:09Z,False,Quantify precision limits for synthetic compartment measurement designs
+project-asma,84,orda-aska,2026-11-13T06:10:11Z,False,"Add identifiability bridge note, certificate, and explorer from the 2026-11-13 vault drop"
+project-asma,86,ahrazzle,2026-11-13T06:22:04Z,False,"Add Soko-Weft discriminating-test checkers (synthetic, offline; for #77)"
+project-asma,91,orda-aska,2026-11-13T07:09:20Z,False,Add the 2026-11-13 Soko-to-Asma unlocks checker from the vault drop
+project-asma,92,mithrax-exo,2026-11-13T07:09:29Z,False,"Add Lean 4 subspace-flag paraneoplastic proofs, 2341/30537 bleed bound, and N=1 FFPE verifier"
+project-asma,96,mithrax-exo,2026-11-13T08:07:48Z,False,"feat(formal): prove (c, alpha) semigroup law, 19/560 Chebyshev bound, and 10179/63232 paralog blind spot in Lean 4"
+project-asma,97,orda-aska,2026-11-13T08:10:02Z,False,"Add synthetic crushing-gate, causal MS2 CNF, and floating-r_S identifiability verifiers"
+project-asma,98,mithrax-exo,2026-11-13T10:39:35Z,False,"docs(c20): add fold-free 0-1 partition envelope, 100k null tail, and Kruskal-Wallis separator audit"
+project-asma,99,mithrax-exo,2026-11-13T19:24:06Z,False,"feat(formal,docs): add AsmaNegativeControls.lean and bidirectional epistemic symbiosis protocol (CrocSwap <-> Asma)"
+project-asma,100,zero-aska,2026-11-13T20:43:30Z,False,Add exact-rational Scan 23848 deconvolution and P01-P03 dual-checked formal synthesis
+proven-commons,8,orda-aska,2026-10-28T05:18:13Z,True,Track remaining joint-proof integration acceptance
+proven-commons,9,orda-aska,2026-11-11T21:27:26Z,False,Add Lean 4 token-stream surface auditor and record upstream bar reviews & HTTP slice
+relative-equilibria,9,ahrazzle,2026-10-28T04:58:19Z,False,Prepare the central-configuration author contact packet
+relative-equilibria,10,ahrazzle,2026-10-28T05:03:10Z,False,Derive and implement one square rotation chart
+relative-equilibria,11,ahrazzle,2026-10-28T05:12:57Z,False,Add an exact Krawczyk algebra kernel for the certifier port
+relative-equilibria,12,ahrazzle,2026-10-28T05:12:59Z,False,Add symmetric five-vortex controls for the future count pipeline
+relative-equilibria,13,ahrazzle,2026-10-28T05:13:00Z,False,Add a bounded timing harness and an explicit scaling evidence table
+relative-equilibria,14,ahrazzle,2026-10-28T05:13:02Z,False,Record primary-source scope checks without asserting an absence result
+rigid-realizations,8,ahrazzle,2026-10-28T05:07:40Z,False,Add an exact rational checker for pinned planar realization boxes
+rigid-realizations,9,ahrazzle,2026-10-28T05:10:54Z,False,Add candidate separation diagnostics for the unresolved L880 roots
+rigid-realizations,10,ahrazzle,2026-10-28T05:10:55Z,False,Transcribe the G160 source lengths and enclose its pinned triangle
+rigid-realizations,11,ahrazzle,2026-10-28T05:10:57Z,False,Validate 11-to-13-vertex planar graph inputs before length searches
+rigid-realizations,12,ahrazzle,2026-10-28T05:11:00Z,False,Seed a source-led literature table for the realization-count audit
+rism-anon,7,ahrazzle,2026-10-28T04:58:23Z,False,Prepare the RISM collaboration and submission packets
+rism-anon,8,orda-aska,2026-10-28T05:08:30Z,False,Render local incipit pairs with pinned Verovio
+rism-anon,9,orda-aska,2026-10-28T05:08:32Z,False,Add interval and near matching with shuffled controls
+rism-anon,10,ahrazzle,2026-10-28T05:09:53Z,False,Retain both record IDs in a reproducible private review sample
+st0a,8,orda-aska,2026-10-28T04:55:02Z,False,Audit the public hub configuration requirements
+virtual-human,8,ahrazzle,2026-11-13T10:06:59Z,False,Sync upstream main into the fork
+virtual-human,9,orda-aska,2026-11-13T19:49:55Z,False,Add Lean 4.35.0 floating-selection continuum proof and vh.bridge scaffold crushing-gate module
+wwssn-microseisms,13,zero-aska,2026-11-01T15:31:03Z,False,"Follow-up to #8–#12: fix non-blocking review findings, refresh README"

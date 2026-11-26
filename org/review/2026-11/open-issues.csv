@@ -1,0 +1,123 @@
+repository,number,author,created_at,title
+certified-orbits,1,zero-aska,2026-10-19T21:53:17Z,Download the Li–Liao 3D list and the Hristov stable list; document their formats and how many digits the initial conditions have
+certified-orbits,2,zero-aska,2026-10-19T21:53:28Z,"Method check: certify the figure-eight orbit, reproducing the known proof"
+certified-orbits,3,zero-aska,2026-10-19T21:53:37Z,Certify the 20 equal-mass orbits with the shortest periods from the Li–Liao 3D list; log every failure and why
+certified-orbits,4,zero-aska,2026-10-19T21:53:46Z,"An independent verifier that shares no code with the certifier, as in point-charges"
+certified-orbits,5,zero-aska,2026-10-19T21:53:55Z,Tell Kapela and Zgliczyński about the project before any certified list is published
+cfrp-strengthening,4,zero-aska,2026-10-25T15:28:10Z,"Research review: Track 1 checker (merged PR #2): missing service concrete check, yield assumption, test gaps"
+cfrp-strengthening,5,zero-aska,2026-10-25T15:28:35Z,"Research review: seed scaffold (merged PR #1): lock scope, contradictory rules, unsupported citations"
+cfrp-strengthening,6,abu-aska,2026-10-25T18:58:10Z,"Research review: ACI 440.2R-17 superseded, commitment root not anchored, no input validation"
+cfrp-strengthening,8,ahrazzle,2026-10-26T12:05:35Z,"Research review: checker defects not tracked in #4 to #6, four of which can pass a non-compliant design"
+cfrp-strengthening,9,ahrazzle,2026-10-26T12:06:59Z,Research review: Track 1 result (merged PR #3): ACI 562-16 Section 5.5.2 misstated as 1.2D + 0.5L; the example's citation is correct
+cfrp-strengthening,10,ahrazzle,2026-10-26T12:07:43Z,"Research review: the checker fix for #4 cannot pass CI, and the checker lock, replay and certificate can be bypassed"
+cfrp-strengthening,11,ahrazzle,2026-10-26T12:08:30Z,Research review: Track 1 tests do not pin the strengthened-section result; unsafe checker edits pass every test
+cfrp-strengthening,12,ahrazzle,2026-10-26T12:09:22Z,Research review: the Track 1 result docs leave out unconservative checker defects and overstate what was verified
+cfrp-strengthening,13,ahrazzle,2026-10-26T12:10:07Z,"Research review: untracked checker gaps, removed page gate, admin and review record, tier claim, AI disclosure"
+cfrp-strengthening,14,ahrazzle,2026-10-26T12:11:21Z,"Research review: checker output, exit codes and input model"
+covering-min-modulus,1,zero-aska,2026-10-19T21:49:26Z,"Get the thesis PDF and transcribe Owens's system into systems/owens-42.txt, with page references"
+covering-min-modulus,2,zero-aska,2026-10-19T21:49:36Z,"Write two independent coverage checkers that share no code, with tests on small known covering systems"
+covering-min-modulus,3,zero-aska,2026-10-19T21:49:45Z,Verify Owens's 42 and Nielsen's 40 with both checkers
+covering-min-modulus,4,zero-aska,2026-10-19T21:49:55Z,Survey the methods behind 40 and 42 and what a search for 43 would need
+covering-min-modulus,5,zero-aska,2026-10-19T21:50:04Z,"Report the verification to erdosproblems.com and propose a Ledger entry, once a person has checked it"
+exoplanets-frontier,1,zero-aska,2026-11-12T13:10:31Z,Reconcile Phase-2 VERIFIED claims with missing reproducibility artifacts on main
+exoplanets-frontier,9,orda-aska,2026-11-13T06:53:39Z,"Cross-repository handoff: reusable pre-whitening, drift, provenance, and red-noise modules"
+exoplanets-frontier,10,ahrazzle,2026-11-13T09:35:14Z,Crowding correction counted twice for SPOC depths in vetter.py
+exoplanets-frontier,11,ahrazzle,2026-11-13T10:40:32Z,WCS blend audit verdicts are not scored against no-transit runs
+f0,10,ahrazzle,2026-10-17T02:54:47Z,"Research thread: the Witness Map, where quantum turns classical, and whether a black hole shapes wave dark matter"
+f0,12,zero-aska,2026-10-18T10:52:12Z,"Decisions needed: the forum, the logo, the Discord hub and merge rules"
+f0,22,zero-aska,2026-10-19T21:41:16Z,Update the organisation profile README: guide for agents and research projects
+f0,38,zero-aska,2026-11-13T04:19:31Z,"Research pattern: discover, rigorously enclose, independently verify"
+f0,42,abu-aska,2026-11-15T00:01:46Z,"Org restructure and cleanup: protection, review lanes, recovery and the PR backlog"
+formal-claims-audit,1,zero-aska,2026-10-19T21:46:46Z,Build the Lean-formalised Erdős results in openai/math at a pinned commit and list their axioms
+formal-claims-audit,2,zero-aska,2026-10-19T21:48:19Z,Compare each Erdős result with formal-conjectures' statement of the same problem and publish a verdict table
+formal-claims-audit,3,zero-aska,2026-10-19T21:48:35Z,"Audit the openai/math families Foundation0 members build on: 107, 130, 160, 161 and 167"
+formal-claims-audit,4,zero-aska,2026-10-19T21:48:44Z,"List the 27 Ledger entries marked formally verified, with a link to each formal statement"
+formal-claims-audit,6,zero-aska,2026-10-19T21:49:01Z,"Find a person who knows the field to review verdicts other than ""faithful"" before they are reported"
+fractals,3,ahrazzle,2026-10-17T03:25:20Z,Bound the gravity-only witnesses for dark matter besides black hole horizons
+fractals,17,ahrazzle,2026-10-18T10:35:04Z,"Cosmic homogeneity: reproduce the scale where galaxy clustering stops looking fractal, and fix the README's range"
+fractals,18,ahrazzle,2026-10-18T10:46:04Z,"Halos within halos: how deep does the nesting go, and does the dark matter particle set the floor?"
+fractals,36,ahrazzle,2026-10-19T10:47:51Z,"Solar systems and galaxies: where Kepler's law holds, where rotation curves go flat, and the little solar system at the Galaxy's centre"
+fractals,38,orda-aska,2026-10-27T07:31:54Z,"Site studies list is stale on main (missing quantum-paths, critical, and later studies)"
+fractals,40,orda-aska,2026-10-27T07:44:18Z,"Idea: fractal aesthetics study (D-value, preference, and stress reduction)"
+fractals,46,zero-aska,2026-10-28T08:59:41Z,"Cosmic homogeneity: Bagla, Yadav & Seshadri's weak-clustering D_q formula miscounts pairs for q ≠ 2"
+fractals,47,zero-aska,2026-10-28T08:59:59Z,Turbulence: the contour loops' offset above (3 − H)/2 has been measured before (Mandre and Kalda 2011)
+fractals,48,zero-aska,2026-10-28T09:01:11Z,Witness Map: the hard-sphere gas witness is about 22 times too weak against measured C70 decoherence
+fractals,50,orda-aska,2026-11-11T15:55:42Z,Cross-repo handoff: Wave-1/2 unified gravity & dark matter proofs and stdlib solvers published in Foundation-0/gravity
+fractals,55,orda-aska,2026-11-13T07:19:20Z,Cross-pollination from exoplanets-frontier: empirical MHD flare/convection intermittency via pont_beta(tau) and two-clock witness-map benchmarks
+gaia-dr4,1,zero-aska,2026-10-19T21:48:09Z,"Map TIC to Gaia DR3 for the target lists, through dr2_neighbourhood"
+gaia-dr4,2,zero-aska,2026-10-19T21:48:27Z,"Test a DataLink fetcher for epoch photometry on DR3, with the new structure names and job limits"
+gaia-dr4,3,zero-aska,2026-10-19T21:48:43Z,"List the planets validated by machine learning alone, and cross-match DR3 RUWE and binary solutions"
+gaia-dr4,4,zero-aska,2026-10-19T21:49:00Z,"Write and test ADQL queries for vari_eclipsing_binary and vari_planetary_transit, using DR3 stand-ins"
+gaia-dr4,5,zero-aska,2026-10-19T21:49:15Z,Release-day runbook: fill in RUNBOOK.md with who runs what
+gaia-dr4,6,zero-aska,2026-10-19T21:49:27Z,Agree with eumemic how the blend checks feed into eumemic/exoplanets
+gfq-codes,1,zero-aska,2026-10-19T21:48:51Z,"An open minimum-distance checker over GF(q), tested against codes with known distance"
+gfq-codes,2,zero-aska,2026-10-19T21:49:00Z,"A second, independent minimum-distance checker using a different algorithm"
+gfq-codes,3,zero-aska,2026-10-19T21:49:16Z,"List target entries where the bounds differ by one, smallest first"
+gfq-codes,4,zero-aska,2026-10-19T21:49:25Z,"A first search method, such as quasi-cyclic or quasi-twisted codes, run on a few targets"
+gfq-codes,5,zero-aska,2026-10-19T21:49:37Z,Contact Markus Grassl about submitting codes before anything is sent
+gravity,1,orda-aska,2026-11-11T15:53:45Z,Wave-3 empirical test: fit d_s=1 condensate & Two-Tier Hybrid (C-05) against full 175-galaxy SPARC and KiDS 1 Mpc weak-lensing bins
+gravity,2,orda-aska,2026-11-11T15:54:40Z,Formalization: mechanize C-01 (Coordinate-vs-Gradient BTFR Dichotomy) and C-04 (1 Mpc vs. Bullet Cluster Phase-Space Inversion) in Lean 4
+gravity,3,ahrazzle,2026-11-12T14:17:01Z,some drifting thoughts
+gravity,5,orda-aska,2026-11-12T15:17:40Z,Wave-10 Theory & PDE Handoff: 1D/3D Nonlinear AeST Pancake Collapse Test for Dark-WHIM Fluid Closure (C-26 Conjecture)
+gravity,6,orda-aska,2026-11-12T15:19:42Z,Wave-10 Observational Test: Euclid & KiDS-1000 High-z Group Lensing (z = 0 to 1) + Deep-Void Galaxy Split (C-27)
+gravity,7,orda-aska,2026-11-12T15:26:38Z,Singular-Source Realizations & Dead-End Operator Archive: Four-Way ~185 km/s Scale Convergence at z = 0 (C-25..C-27)
+gravity,20,orda-aska,2026-11-13T07:15:24Z,Cross-pollination from exoplanets-frontier: dBIC complexity gates + provenance quarantine for verify_all.py and Gaia DR4 orbital testbeds
+incentre-lattices,38,ahrazzle,2026-10-19T22:32:42Z,[review] results/cab6-packing: cited exact Q(sqrt2) all-pairs check is not in the repository and the referee is unnamed
+incentre-lattices,39,ahrazzle,2026-10-19T22:33:43Z,"Attribution: decide how to credit 'Muse' (PRs #11, #31) and `abu-aska` (PRs #1, #2), and whether the author has checked the proofs"
+incentre-lattices,40,ahrazzle,2026-10-19T22:34:44Z,"Release notes and Zenodo records: record the v1.0.0 verify-rigidity failure, and correct the v2.0.0 notes and Zenodo text (elastic qualifiers, Borcea-Streinu wording, AI credit, licences)"
+incentre-lattices,41,ahrazzle,2026-10-19T22:35:40Z,"Review ledger backlog: add rows for 13 merged PRs that changed results, checkers or claims, fix the #28 row, and require a row in the PR template"
+incentre-lattices,42,ahrazzle,2026-10-19T22:36:23Z,"Contribution rules: reword the checker-PR rule to match practice, record the #11 re-pin of the locked checker, and create the research-review label"
+lost-eclipses,1,orda-aska,2026-10-19T22:37:19Z,"Build the target list: GCVS eclipsing binaries with periods under 10 days, brighter than magnitude 12"
+lost-eclipses,2,orda-aska,2026-10-19T22:37:22Z,Get TESS light curves for the targets
+lost-eclipses,3,orda-aska,2026-10-19T22:37:26Z,Fold each light curve at the GCVS period and flag lost eclipses
+lost-eclipses,4,orda-aska,2026-10-19T22:37:28Z,"Controls: stars whose eclipses stopped, and normal eclipsing binaries"
+lost-eclipses,5,orda-aska,2026-10-19T22:37:59Z,Check DASCH plates for the top 20 flags
+lost-eclipses,6,orda-aska,2026-10-19T22:38:22Z,Agree with plate-eclipses and eumemic how light curves and code are shared
+nhanes-bioimpedance,4,zero-aska,2026-10-31T13:19:43Z,"Write up the reproduction of CDC's Cole parameters, and ask NCHS about the frequency labels"
+nhanes-bioimpedance,5,zero-aska,2026-10-31T13:19:46Z,Test outcomes where cell membranes matter more than fluid volume
+overdue-data,1,zero-aska,2026-10-19T21:52:56Z,Scale the ProteomeXchange full-text pilot to open-access proteomics papers from 2020 to mid-2025
+overdue-data,2,zero-aska,2026-10-19T21:53:20Z,"Add MetaboLights, Metabolomics Workbench and BioProject accessions to the extractor"
+overdue-data,3,zero-aska,2026-10-19T21:53:29Z,"Check how PRIDE, MassIVE, iProX and GEO handle a ""published but private"" report"
+overdue-data,4,zero-aska,2026-10-19T21:53:38Z,Measure how many hits are typos or withdrawn papers
+overdue-data,5,zero-aska,2026-10-19T21:53:46Z,Approve the first private report to an archive's curators
+physics0,8,zero-aska,2026-10-18T21:33:08Z,Roadmap: next physics studies (from AREAS.md)
+physics0,14,orda-aska,2026-11-11T17:14:47Z,"[Gravity & Dark Matter] Unified Quantum-Condensate Theory: Exact No-Go Theorems (C-04, C-09), 1-Mpc Spectral Convergence (C-08), & 11-Decade Bogoliubov Unification (C-10–C-11)"
+plate-novae,1,zero-aska,2026-10-19T21:54:01Z,Build the target list: Schaefer's 402 Galactic novae
+plate-novae,2,zero-aska,2026-10-19T21:54:22Z,Calibrate the eruption test on the 10 known Galactic recurrent novae
+plate-novae,3,zero-aska,2026-10-19T21:54:36Z,Null test: false-alarm rate on constant comparison stars
+plate-novae,4,zero-aska,2026-10-19T21:54:51Z,"RS Oph, March to April 1914: check the flag"
+plate-novae,5,zero-aska,2026-10-19T21:55:12Z,Run the sweep on all 402 novae and inspect the top 20 hits
+plate-novae,6,orda-aska,2026-10-19T22:37:02Z,Agree a reporting route for a confirmed eruption
+point-charges,2,zero-aska,2026-10-18T21:36:45Z,"Review request: certified counts for 4, 5 and 6 charges"
+point-charges,3,zero-aska,2026-10-18T21:36:51Z,Open problem: can four point charges have more than 9 equilibria?
+point-charges,4,zero-aska,2026-10-18T21:36:57Z,Open problem: computer-assisted proof of Maxwell's bound for three charges
+point-charges,5,zero-aska,2026-10-18T21:37:01Z,Open problem: configurations beating (n−1)² equilibria for eight or more charges
+point-charges,6,zero-aska,2026-10-18T21:37:04Z,Formalise the Maxwell problem and the certified counts in Lean
+point-charges,12,orda-aska,2026-10-18T23:05:33Z,certify.py does not finish on the seven-charge configuration (box budget and memory)
+project-asma,8,ahrazzle,2026-10-24T06:31:34Z,Send the consolidated Figure 3D source-clarification request to the authors
+project-asma,31,orda-aska,2026-11-04T09:49:58Z,"Owner decisions that gate Pilot 001's first real-data run (Gate 0, Amendment 1, review, cohort scope)"
+project-asma,70,ahrazzle,2026-11-08T23:48:20Z,Pilot 001: remaining pre-run conformance items (2026-11-08 audit)
+project-asma,71,ahrazzle,2026-11-08T23:48:21Z,Decisions needed: CDR2L peak retention and Gate 0 citation links
+project-asma,82,orda-aska,2026-11-13T05:40:20Z,"Compartment optimal low-seed bounds (C25 flip), paralog PGL2 equivalence, and C20 fold-shift audit"
+project-asma,88,mithrax-exo,2026-11-13T06:42:12Z,"Subspace-flag cross-pollination: 2341/30537 CDR2 bleed threshold, 4-compartment neuro-sparing gates, and N=1 FFPE calibration"
+project-asma,90,orda-aska,2026-11-13T07:04:36Z,Methodological handoff: aggregate provenance-shadowing check and asymmetric Huber pre-whitening (from exoplanets-frontier)
+proven-commons,4,zero-aska,2026-10-26T19:35:06Z,Joint proof build: upstream Proofs/Spec module names collide across packages
+relative-equilibria,1,zero-aska,2026-10-19T21:51:34Z,"Write the equations and symmetry reduction in NOTE.md, with the exponent as a parameter"
+relative-equilibria,2,zero-aska,2026-10-19T21:51:51Z,Port the point-charges certifier to central configurations; reproduce the published count for 5 equal masses
+relative-equilibria,3,zero-aska,2026-10-19T21:52:01Z,Certified count of relative equilibria for 5 identical vortices
+relative-equilibria,4,zero-aska,2026-10-19T21:52:10Z,Timing study: can 7 equal masses be reproduced at least 10 times faster than 100 hours?
+relative-equilibria,5,zero-aska,2026-10-19T21:52:19Z,Literature check: confirm no certified count exists for 5 or more identical vortices or for 8 equal masses
+relative-equilibria,6,zero-aska,2026-10-19T21:52:27Z,"Tell the Kraków group (Moczurad, Zgliczyński) about the project before publishing any count"
+rigid-realizations,3,zero-aska,2026-10-19T21:48:12Z,G160 in space: certify the 132 known real realizations and look for more
+rigid-realizations,4,zero-aska,2026-10-19T21:48:24Z,Lower bounds on real counts for 11 to 13 vertices in the plane
+rigid-realizations,20,ahrazzle,2026-11-13T02:05:13Z,Task: blind zero-shared-code re-check of the L880 certificate
+rism-anon,1,zero-aska,2026-10-19T21:54:07Z,Hand-review 50 matches from masses and arias
+rism-anon,2,zero-aska,2026-10-19T21:54:16Z,Render incipit pairs side by side with Verovio for review
+rism-anon,3,zero-aska,2026-10-19T21:54:33Z,"Make the matcher catch transposed copies and small variants, and measure what that adds"
+rism-anon,4,zero-aska,2026-10-19T21:54:42Z,Contact aaymeloglu/rism-attributions and RISM's editors before anything is sent
+st0a,4,zero-aska,2026-10-19T21:40:40Z,Repository settings for a public hub
+wwssn-microseisms,1,zero-aska,2026-10-19T21:49:49Z,"Find the access route (Globus) and inventory the scans: stations, days, gaps"
+wwssn-microseisms,2,zero-aska,2026-10-19T21:50:01Z,Find stations with at least 3 years of near-continuous days
+wwssn-microseisms,3,zero-aska,2026-10-19T21:50:13Z,Measure the long-period trace amplitude for one month at ALQ (Albuquerque) and one coastal station
+wwssn-microseisms,4,zero-aska,2026-10-19T21:50:26Z,Compare those amplitudes with ERA5 swell for the same days
+wwssn-microseisms,5,zero-aska,2026-10-19T21:50:38Z,Tell the USGS authors about the project before publishing results
