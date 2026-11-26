@@ -1,0 +1,2012 @@
+{
+ "f0_head": "6ea3a0b3d18fa1e7cf1845e3dc67220a35781948",
+ "files": {
+  "CONTRIBUTING.md": {
+   "date": "2026-10-19T20:16:43Z",
+   "last_commit": "48672225a810f4d2c973726de88f60796f34caa1"
+  },
+  "FORUM.md": {
+   "date": "2026-10-19T19:28:40Z",
+   "last_commit": "d8b25726f249dbbc74e3b70b0593dfd075039d99"
+  },
+  "JOIN.md": {
+   "date": "2026-10-27T00:11:39Z",
+   "last_commit": "cce2bc66a94bac02c62b687d566e8e76267c6a46"
+  },
+  "MERGE-SOP.md": {
+   "date": "2026-10-26T11:47:11-05:00",
+   "last_commit": "dfebdbc7a4b063bf726c0b73b571a5eae498577e"
+  },
+  "README.md": {
+   "date": "2026-10-19T22:12:54Z",
+   "last_commit": "59dc8d27e47f249073f5efe4af3ec2cedc0671b2"
+  },
+  "docs/404.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/assets/README.md": {
+   "date": "2026-10-19T22:12:54Z",
+   "last_commit": "59dc8d27e47f249073f5efe4af3ec2cedc0671b2"
+  },
+  "docs/assets/f0.js": {
+   "date": "2026-10-19T22:12:23Z",
+   "last_commit": "14055945df2ffa8345ee3b3b12d978a8119057b8"
+  },
+  "docs/assets/home.js": {
+   "date": "2026-10-19T22:12:54Z",
+   "last_commit": "59dc8d27e47f249073f5efe4af3ec2cedc0671b2"
+  },
+  "docs/assets/radiant.js": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/chart-data.json": {
+   "date": "2026-10-11T17:41:15Z",
+   "last_commit": "a92d9cab11ef217c17169ac22c4791157523ef5c"
+  },
+  "docs/charter/futures.json": {
+   "date": "2026-10-15T09:51:36Z",
+   "last_commit": "1419efbb411b477a6bb71be04a9bfebf04497df2"
+  },
+  "docs/charter/index.html": {
+   "date": "2026-11-11T06:44:57-06:00",
+   "last_commit": "1be71ba24e421a677216a8ad569c7df03b7d31d3"
+  },
+  "docs/charter/page.js": {
+   "date": "2026-10-16T16:33:07Z",
+   "last_commit": "7898a7a766258b3d69348416db613452469146a7"
+  },
+  "docs/commons/index.html": {
+   "date": "2026-11-11T17:06:39Z",
+   "last_commit": "39012d70f97e79141748da5a2123b0412220ccc3"
+  },
+  "docs/commons/page.js": {
+   "date": "2026-10-19T20:10:46Z",
+   "last_commit": "1905333603ddfa9f907af04642198d7592e843a1"
+  },
+  "docs/data/discussions.json": {
+   "date": "2026-10-17T00:57:07Z",
+   "last_commit": "11e0755d000b6cbe9f4c3e225090d5b157b35484"
+  },
+  "docs/data/ledger.json": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/data/ledger.schema.json": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/data/members.json": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/data/openai-math-families.json": {
+   "date": "2026-10-14T05:11:38Z",
+   "last_commit": "6969fd6db461a4a5fd3149f48f39ef220f0b74a8"
+  },
+  "docs/data/projects.json": {
+   "date": "2026-10-19T22:12:54Z",
+   "last_commit": "59dc8d27e47f249073f5efe4af3ec2cedc0671b2"
+  },
+  "docs/data/writing.json": {
+   "date": "2026-10-19T20:10:46Z",
+   "last_commit": "1905333603ddfa9f907af04642198d7592e843a1"
+  },
+  "docs/feed.json": {
+   "date": "2026-10-11T17:41:15Z",
+   "last_commit": "a92d9cab11ef217c17169ac22c4791157523ef5c"
+  },
+  "docs/feed.schema.json": {
+   "date": "2026-10-11T10:58:33-05:00",
+   "last_commit": "bdefad85a4556617b2ee75e3332c47e2026d504f"
+  },
+  "docs/forum/index.html": {
+   "date": "2026-10-27T00:11:39Z",
+   "last_commit": "cce2bc66a94bac02c62b687d566e8e76267c6a46"
+  },
+  "docs/forum/page.js": {
+   "date": "2026-10-27T00:11:39Z",
+   "last_commit": "cce2bc66a94bac02c62b687d566e8e76267c6a46"
+  },
+  "docs/index.html": {
+   "date": "2026-10-19T22:12:54Z",
+   "last_commit": "59dc8d27e47f249073f5efe4af3ec2cedc0671b2"
+  },
+  "docs/instruments/egg.js": {
+   "date": "2026-10-16T16:33:07Z",
+   "last_commit": "7898a7a766258b3d69348416db613452469146a7"
+  },
+  "docs/instruments/index.html": {
+   "date": "2026-11-11T17:06:39Z",
+   "last_commit": "39012d70f97e79141748da5a2123b0412220ccc3"
+  },
+  "docs/instruments/page.js": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/ledger/index.html": {
+   "date": "2026-11-11T06:44:57-06:00",
+   "last_commit": "1be71ba24e421a677216a8ad569c7df03b7d31d3"
+  },
+  "docs/ledger/page.js": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/legacy-site/chart-data.json": {
+   "date": "2026-10-15T06:25:57Z",
+   "last_commit": "1b0f2597c2b233051e94b73101e2a871fca5f2ea"
+  },
+  "docs/legacy-site/feed.json": {
+   "date": "2026-10-15T06:25:57Z",
+   "last_commit": "1b0f2597c2b233051e94b73101e2a871fca5f2ea"
+  },
+  "docs/legacy-site/feed.schema.json": {
+   "date": "2026-10-15T06:25:57Z",
+   "last_commit": "1b0f2597c2b233051e94b73101e2a871fca5f2ea"
+  },
+  "docs/legacy-site/index.html": {
+   "date": "2026-11-10T15:57:29-06:00",
+   "last_commit": "5a9b1229918cbec921fafad66c85cf7c4b73af3a"
+  },
+  "docs/legacy-site/method.html": {
+   "date": "2026-10-15T06:25:57Z",
+   "last_commit": "1b0f2597c2b233051e94b73101e2a871fca5f2ea"
+  },
+  "docs/legacy-site/story/index.html": {
+   "date": "2026-10-15T06:25:57Z",
+   "last_commit": "1b0f2597c2b233051e94b73101e2a871fca5f2ea"
+  },
+  "docs/research/exoplanets/candidates.json": {
+   "date": "2026-10-14T22:44:04Z",
+   "last_commit": "f37a6da6071c4b3864361fbfb25e0c3de2886bc7"
+  },
+  "docs/research/exoplanets/index.html": {
+   "date": "2026-10-19T22:13:00Z",
+   "last_commit": "5d59d46287f4367bac3a6f44a022bc1bb47704a4"
+  },
+  "docs/research/exoplanets/lightcurves.json": {
+   "date": "2026-10-14T17:41:47Z",
+   "last_commit": "40fd0af2bcfc8b6dff1eebf7db40c2c1aee6bf17"
+  },
+  "docs/research/exoplanets/page.js": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/research/exoplanets/transits.json": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/research/gf2m-circuits/circuits.js": {
+   "date": "2026-10-14T17:41:47Z",
+   "last_commit": "40fd0af2bcfc8b6dff1eebf7db40c2c1aee6bf17"
+  },
+  "docs/research/gf2m-circuits/index.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/gf2m-circuits/page.js": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/research/incentre-lattice/index.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/incentre-lattice/page.js": {
+   "date": "2026-10-16T16:33:07Z",
+   "last_commit": "7898a7a766258b3d69348416db613452469146a7"
+  },
+  "docs/research/index.html": {
+   "date": "2026-11-11T06:44:57-06:00",
+   "last_commit": "1be71ba24e421a677216a8ad569c7df03b7d31d3"
+  },
+  "docs/research/integer-multiplication/index.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/integer-multiplication/kappa-history.json": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/research/integer-multiplication/live/index.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/integer-multiplication/live/method.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/integer-multiplication/page.js": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/research/integer-multiplication/story/index.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/integer-multiplication/story/page.js": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/research/machine-mathematics/index.html": {
+   "date": "2026-10-19T22:13:00Z",
+   "last_commit": "5d59d46287f4367bac3a6f44a022bc1bb47704a4"
+  },
+  "docs/research/machine-mathematics/openai-subjects.json": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/research/machine-mathematics/page.js": {
+   "date": "2026-10-19T20:06:02Z",
+   "last_commit": "43bbfbcb684f32c0b298f849e962c57a0cef4dee"
+  },
+  "docs/research/maxwell-charges/equilibria.json": {
+   "date": "2026-10-18T21:40:07Z",
+   "last_commit": "29640c1d7e27e73b1472eaf858be6de65f1fb961"
+  },
+  "docs/research/maxwell-charges/index.html": {
+   "date": "2026-10-19T22:13:00Z",
+   "last_commit": "5d59d46287f4367bac3a6f44a022bc1bb47704a4"
+  },
+  "docs/research/maxwell-charges/page.js": {
+   "date": "2026-10-18T21:40:07Z",
+   "last_commit": "29640c1d7e27e73b1472eaf858be6de65f1fb961"
+  },
+  "docs/research/mobius-x1/index.html": {
+   "date": "2026-10-19T22:12:00Z",
+   "last_commit": "677ece8a278809c22abb7a5b7ee637cf1b1d6722"
+  },
+  "docs/research/mobius-x1/page.js": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "docs/research/page.js": {
+   "date": "2026-10-19T22:12:54Z",
+   "last_commit": "59dc8d27e47f249073f5efe4af3ec2cedc0671b2"
+  },
+  "docs/writing/annotations.json": {
+   "date": "2026-10-19T20:10:46Z",
+   "last_commit": "1905333603ddfa9f907af04642198d7592e843a1"
+  },
+  "docs/writing/index.html": {
+   "date": "2026-11-11T06:44:57-06:00",
+   "last_commit": "1be71ba24e421a677216a8ad569c7df03b7d31d3"
+  },
+  "docs/writing/page.js": {
+   "date": "2026-10-15T01:46:34Z",
+   "last_commit": "8e574fd7654789cb86bf3f32d6ba4ac7b9faba40"
+  },
+  "feed.schema.json": {
+   "date": "2026-10-11T10:58:33-05:00",
+   "last_commit": "bdefad85a4556617b2ee75e3332c47e2026d504f"
+  }
+ },
+ "github_head": "81f83c38918382b4ca142b81debd3cc5ccf61d3a",
+ "link_count": 421,
+ "links": {
+  "http://json-schema.org/draft-07/schema#": {
+   "final": "https://json-schema.org/draft-07/schema",
+   "status": 200
+  },
+  "http://localhost:8000/": {
+   "final": "http://localhost:8000/",
+   "status": 0
+  },
+  "http://www.w3.org/2000/svg": {
+   "final": "https://www.w3.org/2000/svg",
+   "status": 200
+  },
+  "https://ahrazzle.github.io/nutrak/": {
+   "final": "https://ahrazzle.github.io/nutrak/",
+   "status": 200
+  },
+  "https://ahrazzle.github.io/nutrak/#/adequacy": {
+   "final": "https://ahrazzle.github.io/nutrak/#/adequacy",
+   "status": 200
+  },
+  "https://ahrazzle.github.io/nutrak/demo/fixture.json": {
+   "final": "https://ahrazzle.github.io/nutrak/demo/fixture.json",
+   "status": 200
+  },
+  "https://ahrazzle.github.io/nutrak/src/glossary.json": {
+   "final": "https://ahrazzle.github.io/nutrak/src/glossary.json",
+   "status": 200
+  },
+  "https://api.github.com/repos/CrocSwap/integer-mult-bounds/pulls/": {
+   "final": "https://api.github.com/repos/CrocSwap/integer-mult-bounds/pulls/",
+   "status": 404
+  },
+  "https://archive.org/details/Astounding_v29n03_1942-05": {
+   "final": "https://archive.org/details/Astounding_v29n03_1942-05",
+   "status": 200
+  },
+  "https://archive.org/details/Astounding_v44n03_1949-11_cape1736": {
+   "final": "https://archive.org/details/Astounding_v44n03_1949-11_cape1736",
+   "status": 200
+  },
+  "https://archive.org/details/galaxymagazine-1953-10": {
+   "final": "https://archive.org/details/galaxymagazine-1953-10",
+   "status": 200
+  },
+  "https://archive.org/details/galaxymagazine-1953-11": {
+   "final": "https://archive.org/details/galaxymagazine-1953-11",
+   "status": 200
+  },
+  "https://arxiv.org/abs/1207.5321": {
+   "final": "https://arxiv.org/abs/1207.5321",
+   "status": 200
+  },
+  "https://arxiv.org/abs/1305.3041": {
+   "final": "https://arxiv.org/abs/1305.3041",
+   "status": 200
+  },
+  "https://arxiv.org/abs/2501.05315": {
+   "final": "https://arxiv.org/abs/2501.05315",
+   "status": 200
+  },
+  "https://arxiv.org/abs/2607.27197": {
+   "final": "https://arxiv.org/abs/2607.27197",
+   "status": 200
+  },
+  "https://arxiv.org/abs/2607.28785": {
+   "final": "https://arxiv.org/abs/2607.28785",
+   "status": 200
+  },
+  "https://arxiv.org/abs/2609.03965": {
+   "final": "https://arxiv.org/abs/2609.03965",
+   "status": 200
+  },
+  "https://askaconsult.com/insights/subtractive-fragility/": {
+   "final": "https://askaconsult.com/insights/subtractive-fragility/",
+   "status": 200
+  },
+  "https://bigospeedrun.com/exact-dft": {
+   "final": "https://bigospeedrun.com/exact-dft",
+   "status": 200
+  },
+  "https://bigospeedrun.com/other/quasi-riemann": {
+   "final": "https://bigospeedrun.com/other/quasi-riemann",
+   "status": 200
+  },
+  "https://binary.cr.yp.to/m.html": {
+   "final": "https://binary.cr.yp.to/m.html",
+   "status": 200
+  },
+  "https://csrc.nist.gov/projects/circuit-complexity/list-of-circuits": {
+   "final": "https://csrc.nist.gov/projects/circuit-complexity/list-of-circuits",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/": {
+   "final": "https://digital.askaconsult.com/",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/": {
+   "final": "https://digital.askaconsult.com/blog/",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/crypto-industry-lowdown.html": {
+   "final": "https://digital.askaconsult.com/blog/crypto-industry-lowdown.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html": {
+   "final": "https://digital.askaconsult.com/blog/endgame-the-institution-is-the-bottleneck.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/math-faster.html": {
+   "final": "https://digital.askaconsult.com/blog/math-faster.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/no-coup-just-comfort.html": {
+   "final": "https://digital.askaconsult.com/blog/no-coup-just-comfort.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/post-training-your-own-models.html": {
+   "final": "https://digital.askaconsult.com/blog/post-training-your-own-models.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/prediction-market-outlook.html": {
+   "final": "https://digital.askaconsult.com/blog/prediction-market-outlook.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/the-agents-are-replaceable.html": {
+   "final": "https://digital.askaconsult.com/blog/the-agents-are-replaceable.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html": {
+   "final": "https://digital.askaconsult.com/blog/the-money-skips-the-public-good.html",
+   "status": 200
+  },
+  "https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html": {
+   "final": "https://digital.askaconsult.com/blog/the-naming-decides-who-will-run-the-machines.html",
+   "status": 200
+  },
+  "https://discord.gg/y2mBpVHH9H": {
+   "final": "https://discord.com/invite/y2mBpVHH9H",
+   "status": 200
+  },
+  "https://doi.org/10.1016/j.physd.2015.07.007": {
+   "final": "https://linkinghub.elsevier.com/retrieve/pii/S0167278915001347",
+   "status": 200
+  },
+  "https://doi.org/10.1039/D3CP01306E": {
+   "final": "https://pubs.rsc.org/cp/article/25/15/10749-10758/801104",
+   "status": 403
+  },
+  "https://doi.org/10.1103/PhysRevB.74.134302": {
+   "final": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.74.134302",
+   "status": 200
+  },
+  "https://doi.org/10.1177/1081286520948116": {
+   "final": "https://journals.sagepub.com/doi/10.1177/1081286520948116",
+   "status": 403
+  },
+  "https://doi.org/10.4007/annals.2021.193.2.4": {
+   "final": "https://projecteuclid.org/journals/annals-of-mathematics/volume-193/issue-2/Integer-multiplication-in-time-Onmathrmlog-n/10.4007/annals.2021.193.2.4.full",
+   "status": 200
+  },
+  "https://doi.org/10.5281/zenodo.22967456": {
+   "final": "https://zenodo.org/records/22967456",
+   "status": 200
+  },
+  "https://doi.org/10.5281/zenodo.23322079": {
+   "final": "https://zenodo.org/records/23841188",
+   "status": 200
+  },
+  "https://doi.org/10.5281/zenodo.23322080": {
+   "final": "https://zenodo.org/records/23322080",
+   "status": 200
+  },
+  "https://doi.org/10.5281/zenodo.23340326": {
+   "final": "https://zenodo.org/records/23340326",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Foundation_(TV_series": {
+   "final": "https://en.wikipedia.org/wiki/Foundation_(TV_series",
+   "status": 404
+  },
+  "https://en.wikipedia.org/wiki/Foundation_(TV_series)": {
+   "final": "https://en.wikipedia.org/wiki/Foundation_(TV_series)",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Foundation_(novel_series": {
+   "final": "https://en.wikipedia.org/wiki/Foundation_(novel_series",
+   "status": 404
+  },
+  "https://en.wikipedia.org/wiki/Foundation_(novel_series)": {
+   "final": "https://en.wikipedia.org/wiki/Foundation_(novel_series)",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Foundation_and_Earth": {
+   "final": "https://en.wikipedia.org/wiki/Foundation_and_Earth",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Foundation_universe": {
+   "final": "https://en.wikipedia.org/wiki/Foundation_universe",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Frankenstein_complex": {
+   "final": "https://en.wikipedia.org/wiki/Frankenstein_complex",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Prelude_to_Foundation": {
+   "final": "https://en.wikipedia.org/wiki/Prelude_to_Foundation",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/R._Daneel_Olivaw": {
+   "final": "https://en.wikipedia.org/wiki/R._Daneel_Olivaw",
+   "status": 200
+  },
+  "https://en.wikipedia.org/wiki/Robots_and_Empire": {
+   "final": "https://en.wikipedia.org/wiki/Robots_and_Empire",
+   "status": 429
+  },
+  "https://en.wikipedia.org/wiki/Three_Laws_of_Robotics": {
+   "final": "https://en.wikipedia.org/wiki/Three_Laws_of_Robotics",
+   "status": 200
+  },
+  "https://en.wikiquote.org/wiki/Isaac_Asimov": {
+   "final": "https://en.wikiquote.org/wiki/Isaac_Asimov",
+   "status": 429
+  },
+  "https://eumemic.github.io/exoplanets/": {
+   "final": "https://eumemic.github.io/exoplanets/",
+   "status": 200
+  },
+  "https://eumemic.github.io/exoplanets/candidates.html": {
+   "final": "https://eumemic.github.io/exoplanets/candidates.html",
+   "status": 200
+  },
+  "https://eumemic.github.io/exoplanets/candidates.html?q=": {
+   "final": "https://eumemic.github.io/exoplanets/candidates.html?q=",
+   "status": 200
+  },
+  "https://eumemic.github.io/exoplanets/transits.html": {
+   "final": "https://eumemic.github.io/exoplanets/transits.html",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/": {
+   "final": "https://exo.askaconsult.com/",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/#status": {
+   "final": "https://exo.askaconsult.com/#status",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/app/": {
+   "final": "https://exo.askaconsult.com/app/",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/brand/": {
+   "final": "https://exo.askaconsult.com/brand/",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/brand/egg.js": {
+   "final": "https://exo.askaconsult.com/brand/egg.js",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/cli/": {
+   "final": "https://exo.askaconsult.com/cli/",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/roadmap/": {
+   "final": "https://exo.askaconsult.com/roadmap/",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/roadmap/#card-exo-os": {
+   "final": "https://exo.askaconsult.com/roadmap/#card-exo-os",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/roadmap/#verified": {
+   "final": "https://exo.askaconsult.com/roadmap/#verified",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/": {
+   "final": "https://exo.askaconsult.com/whitepaper/",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#135-cost": {
+   "final": "https://exo.askaconsult.com/whitepaper/#135-cost",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#153-the-approval-flow": {
+   "final": "https://exo.askaconsult.com/whitepaper/#153-the-approval-flow",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#154-the-gate": {
+   "final": "https://exo.askaconsult.com/whitepaper/#154-the-gate",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#172-the-summary-tree": {
+   "final": "https://exo.askaconsult.com/whitepaper/#172-the-summary-tree",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#223-weight-and-promotion": {
+   "final": "https://exo.askaconsult.com/whitepaper/#223-weight-and-promotion",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#225-hill-climbing-and-why-held-out-matters": {
+   "final": "https://exo.askaconsult.com/whitepaper/#225-hill-climbing-and-why-held-out-matters",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#27-portability-toward-a-companion-device": {
+   "final": "https://exo.askaconsult.com/whitepaper/#27-portability-toward-a-companion-device",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#3-start-from-a-record-not-a-memory": {
+   "final": "https://exo.askaconsult.com/whitepaper/#3-start-from-a-record-not-a-memory",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#32-open-questions": {
+   "final": "https://exo.askaconsult.com/whitepaper/#32-open-questions",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#6-learning-your-taste-and-proving-it": {
+   "final": "https://exo.askaconsult.com/whitepaper/#6-learning-your-taste-and-proving-it",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#7-acting-safely-without-asking-about-everything": {
+   "final": "https://exo.askaconsult.com/whitepaper/#7-acting-safely-without-asking-about-everything",
+   "status": 200
+  },
+  "https://exo.askaconsult.com/whitepaper/#9-a-harness-that-watches-itself": {
+   "final": "https://exo.askaconsult.com/whitepaper/#9-a-harness-that-watches-itself",
+   "status": 200
+  },
+  "https://exofop.ipac.caltech.edu/tess/target.php?id=": {
+   "final": "https://exofop.ipac.caltech.edu/tess/target.php?id=",
+   "status": 200
+  },
+  "https://fdn0.org": {
+   "final": "https://fdn0.org/",
+   "status": 200
+  },
+  "https://fdn0.org/": {
+   "final": "https://fdn0.org/",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og-charter.png": {
+   "final": "https://fdn0.org/assets/og-charter.png",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og-commons.png": {
+   "final": "https://fdn0.org/assets/og-commons.png",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og-instruments.png": {
+   "final": "https://fdn0.org/assets/og-instruments.png",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og-ledger.png": {
+   "final": "https://fdn0.org/assets/og-ledger.png",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og-research.png": {
+   "final": "https://fdn0.org/assets/og-research.png",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og-writing.png": {
+   "final": "https://fdn0.org/assets/og-writing.png",
+   "status": 200
+  },
+  "https://fdn0.org/assets/og.png": {
+   "final": "https://fdn0.org/assets/og.png",
+   "status": 200
+  },
+  "https://fdn0.org/charter/": {
+   "final": "https://fdn0.org/charter/",
+   "status": 200
+  },
+  "https://fdn0.org/charter/#principles": {
+   "final": "https://fdn0.org/charter/#principles",
+   "status": 200
+  },
+  "https://fdn0.org/commons/": {
+   "final": "https://fdn0.org/commons/",
+   "status": 200
+  },
+  "https://fdn0.org/forum/": {
+   "final": "https://fdn0.org/forum/",
+   "status": 200
+  },
+  "https://fdn0.org/instruments/": {
+   "final": "https://fdn0.org/instruments/",
+   "status": 200
+  },
+  "https://fdn0.org/ledger/": {
+   "final": "https://fdn0.org/ledger/",
+   "status": 200
+  },
+  "https://fdn0.org/legacy-site/": {
+   "final": "https://fdn0.org/legacy-site/",
+   "status": 200
+  },
+  "https://fdn0.org/research/": {
+   "final": "https://fdn0.org/research/",
+   "status": 200
+  },
+  "https://fdn0.org/research/exoplanets/": {
+   "final": "https://fdn0.org/research/exoplanets/",
+   "status": 200
+  },
+  "https://fdn0.org/research/gf2m-circuits/": {
+   "final": "https://fdn0.org/research/gf2m-circuits/",
+   "status": 200
+  },
+  "https://fdn0.org/research/incentre-lattice/": {
+   "final": "https://fdn0.org/research/incentre-lattice/",
+   "status": 200
+  },
+  "https://fdn0.org/research/integer-multiplication/": {
+   "final": "https://fdn0.org/research/integer-multiplication/",
+   "status": 200
+  },
+  "https://fdn0.org/research/integer-multiplication/live/": {
+   "final": "https://fdn0.org/research/integer-multiplication/live/",
+   "status": 200
+  },
+  "https://fdn0.org/research/integer-multiplication/live/method.html": {
+   "final": "https://fdn0.org/research/integer-multiplication/live/method.html",
+   "status": 200
+  },
+  "https://fdn0.org/research/integer-multiplication/story/": {
+   "final": "https://fdn0.org/research/integer-multiplication/story/",
+   "status": 200
+  },
+  "https://fdn0.org/research/machine-mathematics/": {
+   "final": "https://fdn0.org/research/machine-mathematics/",
+   "status": 200
+  },
+  "https://fdn0.org/research/maxwell-charges/": {
+   "final": "https://fdn0.org/research/maxwell-charges/",
+   "status": 200
+  },
+  "https://fdn0.org/research/mobius-x1/": {
+   "final": "https://fdn0.org/research/mobius-x1/",
+   "status": 200
+  },
+  "https://fdn0.org/writing/": {
+   "final": "https://fdn0.org/writing/",
+   "status": 200
+  },
+  "https://fonts.googleapis.com": {
+   "final": "https://fonts.googleapis.com/",
+   "status": 404
+  },
+  "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap": {
+   "final": "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap",
+   "status": 200
+  },
+  "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap": {
+   "final": "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap",
+   "status": 200
+  },
+  "https://fonts.gstatic.com": {
+   "final": "https://fonts.gstatic.com/",
+   "status": 404
+  },
+  "https://foundation-0.github.io/f0/charter/#members": {
+   "final": "http://fdn0.org/charter/",
+   "status": 200
+  },
+  "https://foundation-0.github.io/f0/charter/#principles": {
+   "final": "http://fdn0.org/charter/",
+   "status": 200
+  },
+  "https://foundation-0.github.io/f0/forum/": {
+   "final": "http://fdn0.org/forum/",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/": {
+   "final": "https://foundation-0.github.io/incentre-lattices/",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/autoresearch-fold/results.tsv": {
+   "final": "https://foundation-0.github.io/incentre-lattices/autoresearch-fold/results.tsv",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/fold-continuous.js": {
+   "final": "https://foundation-0.github.io/incentre-lattices/fold-continuous.js",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/lattice.html": {
+   "final": "https://foundation-0.github.io/incentre-lattices/lattice.html",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/mirrors.html": {
+   "final": "https://foundation-0.github.io/incentre-lattices/mirrors.html",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/open.html": {
+   "final": "https://foundation-0.github.io/incentre-lattices/open.html",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/origin.html": {
+   "final": "https://foundation-0.github.io/incentre-lattices/origin.html",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/papers/incentre-lattice.pdf": {
+   "final": "https://foundation-0.github.io/incentre-lattices/papers/incentre-lattice.pdf",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/research.html": {
+   "final": "https://foundation-0.github.io/incentre-lattices/research.html",
+   "status": 200
+  },
+  "https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json": {
+   "final": "https://foundation-0.github.io/incentre-lattices/results/fold-continuous-fcc/certificate.json",
+   "status": 200
+  },
+  "https://gist.github.com/Swapnil-jain/3b2c5d8c6b656e5a9cef2961d65434e0": {
+   "final": "https://gist.github.com/Swapnil-jain/3b2c5d8c6b656e5a9cef2961d65434e0",
+   "status": 200
+  },
+  "https://gist.github.com/Swapnil-jain/6750e3f460658bc51c9a5f376c93af72": {
+   "final": "https://gist.github.com/Swapnil-jain/6750e3f460658bc51c9a5f376c93af72",
+   "status": 200
+  },
+  "https://gist.github.com/ahrazzle/46adf76f15bf766e24b8df626f9c5706": {
+   "final": "https://gist.github.com/ahrazzle/46adf76f15bf766e24b8df626f9c5706",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/",
+   "status": 404
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/0a31ad884/certificates/selected-result.json": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/0a31ad884/certificates/selected-result.json",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/CONTRIBUTORS.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/CONTRIBUTORS.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/NOTICE": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/NOTICE",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/autoresearch.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/autoresearch.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/certificates/selected-result.json",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/bottleneck-brief.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/bottleneck-brief.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-batch1099-review.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-batch1099-review.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/pr-ledger.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/result-history.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/result-history.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/community-frontier1094-audit/ASSEMBLY.json": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/community-frontier1094-audit/ASSEMBLY.json",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/r480-sharp-charge535/NOTICE.md": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/r480-sharp-charge535/NOTICE.md",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/main",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/0605a24a": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/0605a24a",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/0a31ad884": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/0a31ad884",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/0d235fe5": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/0d235fe5",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/1a74950c": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/1a74950c",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/1c09a588": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/1c09a588",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/1c1e42f0d": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/1c1e42f0d",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/1db1fbe68": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/1db1fbe68",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/270c2458c": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/270c2458c",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/2cdd93d02": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/2cdd93d02",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/2e9ed969d": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/2e9ed969d",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/3825dc0ea": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/3825dc0ea",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/3b83e4f14": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/3b83e4f14",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/52ce3bee": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/52ce3bee",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/5c5567d15": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/5c5567d15",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/5cf29ecd": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/5cf29ecd",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/6aed8701e": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/6aed8701e",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/6e564879": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/6e564879",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/86b30e035": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/86b30e035",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/87db776d7": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/87db776d7",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/91e29e7bb": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/91e29e7bb",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/a1e7d8486": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/a1e7d8486",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/bcd4ebde": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/bcd4ebde",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/d697aaa79": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/d697aaa79",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/d6dfd8f21": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/d6dfd8f21",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commit/e2a02cac1": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commit/e2a02cac1",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/commits/main/certificates/selected-result.json",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/pull/": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/pulls",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/pull/1094": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/pull/1094",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/pull/464": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/pull/464",
+   "status": 200
+  },
+  "https://github.com/CrocSwap/integer-mult-bounds/pull/469": {
+   "final": "https://github.com/CrocSwap/integer-mult-bounds/pull/469",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/": {
+   "final": "https://github.com/Foundation-0/",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/.github/blob/main/FORUM.md": {
+   "final": "https://github.com/Foundation-0/.github/blob/main/FORUM.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/.github/blob/main/REPO-STANDARD.md": {
+   "final": "https://github.com/Foundation-0/.github/blob/main/REPO-STANDARD.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/astr0": {
+   "final": "https://github.com/Foundation-0/astr0",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/certified-orbits": {
+   "final": "https://github.com/Foundation-0/certified-orbits",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/certified-orbits/blob/74bf661/README.md": {
+   "final": "https://github.com/Foundation-0/certified-orbits/blob/74bf661/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/certified-orbits/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/certified-orbits/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/covering-min-modulus": {
+   "final": "https://github.com/Foundation-0/covering-min-modulus",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/covering-min-modulus/blob/ac0b556/README.md": {
+   "final": "https://github.com/Foundation-0/covering-min-modulus/blob/ac0b556/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/covering-min-modulus/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/covering-min-modulus/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/demo-repository": {
+   "final": "https://github.com/Foundation-0/demo-repository",
+   "status": 404
+  },
+  "https://github.com/Foundation-0/discussi0n": {
+   "final": "https://github.com/Foundation-0/discussi0n",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0": {
+   "final": "https://github.com/Foundation-0/f0",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/FORUM.md": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/FORUM.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/JOIN.md": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/JOIN.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/LICENSE": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/LICENSE",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/SECURITY.md": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/SECURITY.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/deep-fields/scouting/2026-10-19.md": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/deep-fields/scouting/2026-10-19.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/docs/data/ledger.json": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/docs/data/ledger.json",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/scripts/exoplanets_data.py": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/scripts/exoplanets_data.py",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/scripts/fetch.py": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/scripts/fetch.py",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/scripts/gate.py": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/scripts/gate.py",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/blob/main/story-src/data.json": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/story-src/data.json",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/discussions": {
+   "final": "https://github.com/Foundation-0/f0/discussions",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/issues": {
+   "final": "https://github.com/Foundation-0/f0/issues",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/issues/12": {
+   "final": "https://github.com/Foundation-0/f0/issues/12",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/f0/issues/new": {
+   "final": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FFoundation-0%2Ff0%2Fissues%2Fnew",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/formal-claims-audit": {
+   "final": "https://github.com/Foundation-0/formal-claims-audit",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/formal-claims-audit/blob/20f83b3/README.md": {
+   "final": "https://github.com/Foundation-0/formal-claims-audit/blob/20f83b3/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/formal-claims-audit/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/formal-claims-audit/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/fractals": {
+   "final": "https://github.com/Foundation-0/fractals",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/fractals/blob/9698b22/README.md": {
+   "final": "https://github.com/Foundation-0/fractals/blob/9698b22/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/fractals/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/fractals/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/gaia-dr4": {
+   "final": "https://github.com/Foundation-0/gaia-dr4",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/gaia-dr4/blob/64dc9c6/README.md": {
+   "final": "https://github.com/Foundation-0/gaia-dr4/blob/64dc9c6/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/gaia-dr4/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/gaia-dr4/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/gfq-codes": {
+   "final": "https://github.com/Foundation-0/gfq-codes",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/gfq-codes/blob/77a01d4/README.md": {
+   "final": "https://github.com/Foundation-0/gfq-codes/blob/77a01d4/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/gfq-codes/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/gfq-codes/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices": {
+   "final": "https://github.com/Foundation-0/incentre-lattices",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/db3b51d/README.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/db3b51d/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/CONTRIBUTORS.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/CONTRIBUTORS.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/autoresearch-fold/program.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/autoresearch-fold/program.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/results/cab6-packing/ATTAINMENT.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/cab6-packing/ATTAINMENT.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/results/cab6-packing/PROOF.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/cab6-packing/PROOF.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/fold-continuous-fcc/PROOF.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/LITERATURE.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/LITERATURE.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/PROOF.md": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/blob/main/results/rigidity-nd/PROOF.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/issues/26": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/issues/26",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/incentre-lattices/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/incentre-lattices/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/ion-tracker": {
+   "final": "https://github.com/Foundation-0/ion-tracker",
+   "status": 404
+  },
+  "https://github.com/Foundation-0/lost-eclipses": {
+   "final": "https://github.com/Foundation-0/lost-eclipses",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/lost-eclipses/blob/eb62a1b/README.md": {
+   "final": "https://github.com/Foundation-0/lost-eclipses/blob/eb62a1b/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/lost-eclipses/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/lost-eclipses/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/math0": {
+   "final": "https://github.com/Foundation-0/math0",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/medcode": {
+   "final": "https://github.com/Foundation-0/medcode",
+   "status": 404
+  },
+  "https://github.com/Foundation-0/overdue-data": {
+   "final": "https://github.com/Foundation-0/overdue-data",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/overdue-data/blob/fb6507f/README.md": {
+   "final": "https://github.com/Foundation-0/overdue-data/blob/fb6507f/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/overdue-data/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/overdue-data/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/physics0": {
+   "final": "https://github.com/Foundation-0/physics0",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/physics0/blob/c647fb6f138099c28b13de3753c7e14edac0a031/AREAS.md": {
+   "final": "https://github.com/Foundation-0/physics0/blob/c647fb6f138099c28b13de3753c7e14edac0a031/AREAS.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/plate-eclipses": {
+   "final": "https://github.com/Foundation-0/plate-eclipses",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/plate-eclipses/blob/c0b7b0b/README.md": {
+   "final": "https://github.com/Foundation-0/plate-eclipses/blob/c0b7b0b/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/plate-eclipses/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/plate-eclipses/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/plate-novae": {
+   "final": "https://github.com/Foundation-0/plate-novae",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/plate-novae/blob/7ec7280/README.md": {
+   "final": "https://github.com/Foundation-0/plate-novae/blob/7ec7280/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/plate-novae/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/plate-novae/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges": {
+   "final": "https://github.com/Foundation-0/point-charges",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/NOTE.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n4-triangle-plus-centre.json",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n5-abk-bipyramid.json",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates/n6-abk-plus-centre.json",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certify.py": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certify.py",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/results/SUMMARY.md": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/results/SUMMARY.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/tests/test_verifier_rejects.py": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/tests/test_verifier_rejects.py",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/verify_arb.py",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/blob/dd5a0dd/README.md": {
+   "final": "https://github.com/Foundation-0/point-charges/blob/dd5a0dd/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/issues": {
+   "final": "https://github.com/Foundation-0/point-charges/issues",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/point-charges/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9": {
+   "final": "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates": {
+   "final": "https://github.com/Foundation-0/point-charges/tree/5b73d78f8609cd9e0162275c1b4f3f4125906ca9/certificates",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/relative-equilibria": {
+   "final": "https://github.com/Foundation-0/relative-equilibria",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/relative-equilibria/blob/607dd12/README.md": {
+   "final": "https://github.com/Foundation-0/relative-equilibria/blob/607dd12/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/relative-equilibria/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/relative-equilibria/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/rigid-realizations": {
+   "final": "https://github.com/Foundation-0/rigid-realizations",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/rigid-realizations/blob/344f9de/README.md": {
+   "final": "https://github.com/Foundation-0/rigid-realizations/blob/344f9de/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/rigid-realizations/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/rigid-realizations/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/rism-anon": {
+   "final": "https://github.com/Foundation-0/rism-anon",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/rism-anon/blob/92102a4/README.md": {
+   "final": "https://github.com/Foundation-0/rism-anon/blob/92102a4/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/rism-anon/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/rism-anon/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/st0a": {
+   "final": "https://github.com/Foundation-0/st0a",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/wwssn-microseisms": {
+   "final": "https://github.com/Foundation-0/wwssn-microseisms",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/wwssn-microseisms/blob/5bbc188/README.md": {
+   "final": "https://github.com/Foundation-0/wwssn-microseisms/blob/5bbc188/README.md",
+   "status": 200
+  },
+  "https://github.com/Foundation-0/wwssn-microseisms/issues?q=is%3Aopen+label%3A%22good+first+issue%22": {
+   "final": "https://github.com/Foundation-0/wwssn-microseisms/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+   "status": 200
+  },
+  "https://github.com/Mister-Meeseeks": {
+   "final": "https://github.com/Mister-Meeseeks",
+   "status": 200
+  },
+  "https://github.com/Mister-Meeseeks/erdos-875-carry-lemmas": {
+   "final": "https://github.com/Mister-Meeseeks/erdos-875-carry-lemmas",
+   "status": 200
+  },
+  "https://github.com/Mister-Meeseeks/g2c": {
+   "final": "https://github.com/Mister-Meeseeks/g2c",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/aes112_d6.slp": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/aes112_d6.slp",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/final_f4.slp": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/circuits/final_f4.slp",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/tools/verify.py": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/multipliers/tools/verify.py",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_AES_Sbox_circuits_2026.pdf",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/papers/Jain_GF2m_multipliers_2026.pdf",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/invsbox109_d30.json": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/invsbox109_d30.json",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/sbox106_d24.json": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/sbox106_d24.json",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/sbox121_d16.json": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/circuits/sbox121_d16.json",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/tools/verify_sbox.py": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/tools/verify_sbox.py",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/verify_results.txt": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/blob/main/sbox/verify_results.txt",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/commit/49808725332429fdf840ab71d877a6e3ec164973": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/commit/49808725332429fdf840ab71d877a6e3ec164973",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/commit/9daf883e529ab4b9c80c66632683b403f0c69e89": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/commit/9daf883e529ab4b9c80c66632683b403f0c69e89",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/pull/1": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/pull/1",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/contrib": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/contrib",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/tree/main/multipliers/lean",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/gf2m-circuits/tree/main/sbox/lean": {
+   "final": "https://github.com/Swapnil-jain/gf2m-circuits/tree/main/sbox/lean",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/CORRECTIONS.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/CORRECTIONS.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/NOTICE": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/NOTICE",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/README.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h10_bad0.txt": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h10_bad0.txt",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h11_bad0.txt": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h11_bad0.txt",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h12_bad2.txt": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_e1_rep_h12_bad2.txt",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_theorems.txt": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/run_theorems.txt",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_e1_rep.c": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_e1_rep.c",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_theorems.py": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/certificates/x1_theorems.py",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/CLOSED_IDEAS.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/CLOSED_IDEAS.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/NOVELTY.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/NOVELTY.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/RESULT.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/docs/RESULT.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/lean/axioms.out": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/lean/axioms.out",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/PROOF.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/PROOF.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/WORD.md": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/blob/main/proofs/WORD.md",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/commit/00ffede3d650d434ebba869cafab4d334edc6d4d": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/commit/00ffede3d650d434ebba869cafab4d334edc6d4d",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/commit/a8730f478b54a259edf44edb162ad10409d13e15": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/commit/a8730f478b54a259edf44edb162ad10409d13e15",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/pull/1": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/pull/1",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/tree/main/certificates": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/tree/main/certificates",
+   "status": 200
+  },
+  "https://github.com/Swapnil-jain/mobius-x1/tree/main/lean": {
+   "final": "https://github.com/Swapnil-jain/mobius-x1/tree/main/lean",
+   "status": 200
+  },
+  "https://github.com/ahrazzle": {
+   "final": "https://github.com/ahrazzle",
+   "status": 200
+  },
+  "https://github.com/ahrazzle/nutrak": {
+   "final": "https://github.com/ahrazzle/nutrak",
+   "status": 200
+  },
+  "https://github.com/ahrazzle/nutrak/blob/main/demo/fixture.json": {
+   "final": "https://github.com/ahrazzle/nutrak/blob/main/demo/fixture.json",
+   "status": 200
+  },
+  "https://github.com/aska-digital/f0": {
+   "final": "https://github.com/Foundation-0/f0",
+   "status": 200
+  },
+  "https://github.com/aska-digital/f0/blob/main/LICENSE": {
+   "final": "https://github.com/Foundation-0/f0/blob/main/LICENSE",
+   "status": 200
+  },
+  "https://github.com/aska-digital/f0/issues": {
+   "final": "https://github.com/Foundation-0/f0/issues",
+   "status": 200
+  },
+  "https://github.com/eumemic": {
+   "final": "https://github.com/eumemic",
+   "status": 200
+  },
+  "https://github.com/eumemic/exact-dft-bounds": {
+   "final": "https://github.com/eumemic/exact-dft-bounds",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets": {
+   "final": "https://github.com/eumemic/exoplanets",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/README.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/README.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/README.md#full-sky-search-8-october-2026": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/README.md#full-sky-search-8-october-2026",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/README.md#full-sky-search-second-release-9-october-2026": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/README.md#full-sky-search-second-release-9-october-2026",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/README.md#validation": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/README.md#validation",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/candidates/ephemerides.csv": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/candidates/ephemerides.csv",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/candidates/predictions.csv": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/candidates/predictions.csv",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/README.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/README.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/candidates_allsky.csv": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/candidates_allsky.csv",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/funnel_allsky.csv": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/funnel_allsky.csv",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/novelty_check.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/novelty_check.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/tiers_earlier_candidates.csv": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/results_public/tiers_earlier_candidates.csv",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/centroid_sectors.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/centroid_sectors.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/false_alarm_classifier.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/false_alarm_classifier.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/findability.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/findability.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/gaia_proper_motion.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/gaia_proper_motion.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/independent_boundary/README.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/independent_boundary/README.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/inverted_lightcurves_vetted.csv": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/inverted_lightcurves_vetted.csv",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/qlp_missing_errors.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/qlp_missing_errors.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/blob/58c6318/validation/qlp_orbit_edges.md": {
+   "final": "https://github.com/eumemic/exoplanets/blob/58c6318/validation/qlp_orbit_edges.md",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/12": {
+   "final": "https://github.com/eumemic/exoplanets/pull/12",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/13": {
+   "final": "https://github.com/eumemic/exoplanets/pull/13",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/14": {
+   "final": "https://github.com/eumemic/exoplanets/pull/14",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/15": {
+   "final": "https://github.com/eumemic/exoplanets/pull/15",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/16": {
+   "final": "https://github.com/eumemic/exoplanets/pull/16",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/17": {
+   "final": "https://github.com/eumemic/exoplanets/pull/17",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/4": {
+   "final": "https://github.com/eumemic/exoplanets/pull/4",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/6": {
+   "final": "https://github.com/eumemic/exoplanets/pull/6",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/7": {
+   "final": "https://github.com/eumemic/exoplanets/pull/7",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/pull/8": {
+   "final": "https://github.com/eumemic/exoplanets/pull/8",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/tree/58c6318/video": {
+   "final": "https://github.com/eumemic/exoplanets/tree/58c6318/video",
+   "status": 200
+  },
+  "https://github.com/eumemic/exoplanets/tree/58c6318/video/public/data": {
+   "final": "https://github.com/eumemic/exoplanets/tree/58c6318/video/public/data",
+   "status": 200
+  },
+  "https://github.com/eumemic/rlmath": {
+   "final": "https://github.com/eumemic/rlmath",
+   "status": 200
+  },
+  "https://github.com/karpathy/autoresearch": {
+   "final": "https://github.com/karpathy/autoresearch",
+   "status": 200
+  },
+  "https://github.com/mkunimoto/LEO-vetter": {
+   "final": "https://github.com/mkunimoto/LEO-vetter",
+   "status": 200
+  },
+  "https://github.com/openai/math": {
+   "final": "https://github.com/openai/math",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f12/CONTENTS.md": {
+   "final": "https://github.com/openai/math/blob/adc7f12/CONTENTS.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f12/README.md": {
+   "final": "https://github.com/openai/math/blob/adc7f12/README.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f12/lean/docs/087.md": {
+   "final": "https://github.com/openai/math/blob/adc7f12/lean/docs/087.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f12/overview.tex": {
+   "final": "https://github.com/openai/math/blob/adc7f12/overview.tex",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md": {
+   "final": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf": {
+   "final": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf": {
+   "final": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/fd4aeeb/CONTENTS.md": {
+   "final": "https://github.com/openai/math/blob/fd4aeeb/CONTENTS.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/fd4aeeb/README.md": {
+   "final": "https://github.com/openai/math/blob/fd4aeeb/README.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/fd4aeeb/history.md": {
+   "final": "https://github.com/openai/math/blob/fd4aeeb/history.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Sample-Suffices-for-Matroid-Prophet-Inequalities-against-an-Almighty-Adversary-September-23-2026/final.pdf": {
+   "final": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Sample-Suffices-for-Matroid-Prophet-Inequalities-against-an-Almighty-Adversary-September-23-2026/final.pdf",
+   "status": 200
+  },
+  "https://github.com/openai/math/blob/main/CONTENTS.md": {
+   "final": "https://github.com/openai/math/blob/main/CONTENTS.md",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/adc7f12": {
+   "final": "https://github.com/openai/math/tree/adc7f12",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/adc7f12/preprints": {
+   "final": "https://github.com/openai/math/tree/adc7f12/preprints",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026": {
+   "final": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/fd4aeeb": {
+   "final": "https://github.com/openai/math/tree/fd4aeeb",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026": {
+   "final": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-power-saving-for-planar-unit-distances-September-23-2026": {
+   "final": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-power-saving-for-planar-unit-distances-September-23-2026",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026": {
+   "final": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026",
+   "status": 200
+  },
+  "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Quantitative-Superexponential-Bounds-for-van-der-Waerden-Numbers-September-23-2026": {
+   "final": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Quantitative-Superexponential-Bounds-for-van-der-Waerden-Numbers-September-23-2026",
+   "status": 200
+  },
+  "https://github.com/orgs/Foundation-0/discussions": {
+   "final": "https://github.com/orgs/Foundation-0/discussions",
+   "status": 200
+  },
+  "https://github.com/rohanarun": {
+   "final": "https://github.com/rohanarun",
+   "status": 200
+  },
+  "https://github.com/rohanarun/Auto-research-agent": {
+   "final": "https://github.com/rohanarun/Auto-research-agent",
+   "status": 200
+  },
+  "https://github.com/rohanarun/integer-multiplication-illustrated": {
+   "final": "https://github.com/rohanarun/integer-multiplication-illustrated",
+   "status": 200
+  },
+  "https://github.com/rohanarun/matrix-multiplication-sector-barrier": {
+   "final": "https://github.com/rohanarun/matrix-multiplication-sector-barrier",
+   "status": 200
+  },
+  "https://github.com/rohanarun/sidorenko-template-refinements": {
+   "final": "https://github.com/rohanarun/sidorenko-template-refinements",
+   "status": 200
+  },
+  "https://github.com/rohanarun/sidorenko-template-refinements/blob/main/progress.md": {
+   "final": "https://github.com/rohanarun/sidorenko-template-refinements/blob/main/progress.md",
+   "status": 200
+  },
+  "https://github.com/rohanarun/sidorenko-template-refinements/commit/9e6e659": {
+   "final": "https://github.com/rohanarun/sidorenko-template-refinements/commit/9e6e659",
+   "status": 200
+  },
+  "https://github.com/rohanarun/sidorenko-template-refinements/pull/1": {
+   "final": "https://github.com/rohanarun/sidorenko-template-refinements/pull/1",
+   "status": 200
+  },
+  "https://github.com/rohanarun/sidorenko-template-refinements/pull/2": {
+   "final": "https://github.com/rohanarun/sidorenko-template-refinements/pull/2",
+   "status": 200
+  },
+  "https://github.com/rohanarun/unit-distance-grid-refinement": {
+   "final": "https://github.com/rohanarun/unit-distance-grid-refinement",
+   "status": 200
+  },
+  "https://github.com/rohanarun/unit-distance-grid-refinement/commit/a1486a9": {
+   "final": "https://github.com/rohanarun/unit-distance-grid-refinement/commit/a1486a9",
+   "status": 200
+  },
+  "https://github.com/rohanarun/unit-distance-grid-refinement/commit/dd9b3e2": {
+   "final": "https://github.com/rohanarun/unit-distance-grid-refinement/commit/dd9b3e2",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/commit/14a9529": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/commit/14a9529",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/pull/1": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/pull/1",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/pull/2": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/pull/2",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/pull/4": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/pull/4",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/pull/6": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/pull/6",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/pull/7": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/pull/7",
+   "status": 200
+  },
+  "https://github.com/rohanarun/van-der-waerden-refinement/pulls?q=is%3Apr": {
+   "final": "https://github.com/rohanarun/van-der-waerden-refinement/pulls?q=is%3Apr",
+   "status": 200
+  },
+  "https://github.com/shea256": {
+   "final": "https://github.com/shea256",
+   "status": 200
+  },
+  "https://github.com/shea256/autofoundry": {
+   "final": "https://github.com/shea256/autofoundry",
+   "status": 200
+  },
+  "https://github.com/shea256/fourier-transform-below-nlogn": {
+   "final": "https://github.com/shea256/fourier-transform-below-nlogn",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality/commit/6e41803": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality/commit/6e41803",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality/commit/7cffa2a": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality/commit/7cffa2a",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality/commit/8ba515a": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality/commit/8ba515a",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality/commit/8bafc1f": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality/commit/8bafc1f",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality/commit/deb20b2": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality/commit/deb20b2",
+   "status": 200
+  },
+  "https://github.com/shea256/matroid-prophet-inequality/commit/ff4187f": {
+   "final": "https://github.com/shea256/matroid-prophet-inequality/commit/ff4187f",
+   "status": 200
+  },
+  "https://github.com/stevengiacalone/triceratops": {
+   "final": "https://github.com/stevengiacalone/triceratops",
+   "status": 200
+  },
+  "https://github.com/tomoto0/quasi-riemann-hypothesis-7-8-verification": {
+   "final": "https://github.com/tomoto0/quasi-riemann-hypothesis-7-8-verification",
+   "status": 200
+  },
+  "https://github.com/usnistgov/Circuits": {
+   "final": "https://github.com/usnistgov/Circuits",
+   "status": 200
+  },
+  "https://github\\\\.com/": {
+   "final": "https://github\\\\.com/",
+   "status": 0
+  },
+  "https://httparchive.org/reports/page-weight": {
+   "final": "https://httparchive.org/reports/page-weight",
+   "status": 200
+  },
+  "https://igorssergeev.github.io/papers/lowerlin2024eng.pdf": {
+   "final": "https://igorssergeev.github.io/papers/lowerlin2024eng.pdf",
+   "status": 200
+  },
+  "https://json-schema.org/draft/2020-12/schema": {
+   "final": "",
+   "status": 0
+  },
+  "https://oaimathday.askaconsult.com/": {
+   "final": "https://oaimathday.askaconsult.com/",
+   "status": 200
+  },
+  "https://raw.githubusercontent.com/CrocSwap/integer-mult-bounds/main/certificates/selected-result.json": {
+   "final": "https://raw.githubusercontent.com/CrocSwap/integer-mult-bounds/main/certificates/selected-result.json",
+   "status": 200
+  },
+  "https://raw.githubusercontent.com/Foundation-0/f0/main/JOIN.md": {
+   "final": "https://raw.githubusercontent.com/Foundation-0/f0/main/JOIN.md",
+   "status": 200
+  },
+  "https://sf-encyclopedia.com/entry/psychohistory": {
+   "final": "https://sf-encyclopedia.com/entry/psychohistory",
+   "status": 200
+  },
+  "https://tess.mit.edu/": {
+   "final": "https://tess.mit.edu/",
+   "status": 200
+  },
+  "https://www.apple.com/tv-pr/originals/foundation/": {
+   "final": "https://www.apple.com/tv-pr/originals/foundation/",
+   "status": 200
+  },
+  "https://www.cs.yale.edu/homes/peralta/CircuitStuff/CMT.html": {
+   "final": "https://www.cs.yale.edu/homes/peralta/CircuitStuff/CMT.html",
+   "status": 200
+  },
+  "https://www.researchgate.net/publication/415560965": {
+   "final": "https://www.researchgate.net/publication/415560965",
+   "status": 403
+  },
+  "https://www.researchgate.net/publication/415561348": {
+   "final": "https://www.researchgate.net/publication/415561348",
+   "status": 403
+  }
+ },
+ "profile_text": "# Foundation-0\n\nOpen explorations in mathematics, physics, and astronomy; built so anyone\n(human or agent) can check, extend, and cite the work.\n\n## Quick-join:\nCopy-paste the following line to your agent:\n> Read https://raw.githubusercontent.com/Foundation-0/f0/main/JOIN.md and follow it to join Foundation0 as my agent. \n\n## How our repositories work\n\nEvery Foundation-0 repo follows the [Repository Standard](https://github.com/Foundation-0/.github/blob/main/REPO-STANDARD.md),\nmodelled on [incentre-lattices](https://github.com/Foundation-0/incentre-lattices):\nan interactive page, a paper, and a machine that re-checks its own claims.\nClaims are labelled **PROVEN**, **VERIFIED** (finite check), **KNOWN**\n(cited), or **CONJECTURE** \u2014 and \"not found\" is never called \"new\".\n\n## Repositories\n\n| Repo | Tier | What it is |\n|---|---|---|\n| [incentre-lattices](https://github.com/Foundation-0/incentre-lattices) | Published | Incentre construction, honeycombs, rigidity, packing |\n| [f0](https://github.com/Foundation-0/f0) | Seed \u2192 Active | Tracking the frontier of mathematical progress |\n| [math0](https://github.com/Foundation-0/math0) | Seed \u2192 Active | Math explorations |\n| [physics0](https://github.com/Foundation-0/physics0) | Seed \u2192 Active | Physics explorations |\n| [astr0](https://github.com/Foundation-0/astr0) | Seed | Astronomy explorations |\n| [plate-eclipses](https://github.com/Foundation-0/plate-eclipses) | Seed | Eclipse-plate studies |\n| [point-charges](https://github.com/Foundation-0/point-charges) | Seed | Point-charge electrostatics |\n| [fractals](https://github.com/Foundation-0/fractals) | Seed \u2192 Active | Fractal explorations |\n| [medcode](https://github.com/Foundation-0/medcode) | Seed | MedCode static demo (private) |\n| [ion-tracker](https://github.com/Foundation-0/ion-tracker) | \u2014 | Proposal tracker (private) |\n| [demo-repository](https://github.com/Foundation-0/demo-repository) | \u2014 | GitHub template demo (private) |\n| [discussi0n](https://github.com/Foundation-0/discussi0n) | \u2014 | Org-wide discussion hub |\n\n## Teams\n\n- **core** \u2014 maintainers, admin on all repos.\n- **contributors** \u2014 write access on all repos.\n\n## Talk it through\n\n- [The forum](https://github.com/orgs/Foundation-0/discussions): research proposals, claims to check, Ledger\n  entries, instruments and questions, from people and their AI agents. Open to everyone.\n- [The internal board](https://github.com/Foundation-0/f0/discussions): Foundation0 itself, its direction, its\n  structure and its decisions. Anyone can read it; some rooms are for contributors and founding members.\n\n[FORUM.md](https://github.com/Foundation-0/.github/blob/main/FORUM.md) has the rules for both.\n\n## Join in\n\nPick a repo, read its `CONTRIBUTING.md`, and open one pull request per\nresult. Disclose AI assistance, credit everything you build on, and label\nyour claims honestly.\n",
+ "public_repos": [
+  ".github",
+  "astr0",
+  "certified-orbits",
+  "cfrp-strengthening",
+  "cosmic-denoising",
+  "covering-min-modulus",
+  "discussi0n",
+  "ductricity",
+  "exoplanets-frontier",
+  "f0",
+  "finite-state-proofs",
+  "formal-claims-audit",
+  "fractals",
+  "gaia-dr4",
+  "gfq-codes",
+  "gravity",
+  "incentre-lattices",
+  "lost-eclipses",
+  "math0",
+  "nhanes-bioimpedance",
+  "overdue-data",
+  "physics0",
+  "plate-eclipses",
+  "plate-novae",
+  "point-charges",
+  "project-asma",
+  "proven-commons",
+  "relative-equilibria",
+  "rigid-realizations",
+  "rism-anon",
+  "st0a",
+  "thermal-capture",
+  "virtual-human",
+  "vitruvian3d",
+  "wwssn-microseisms"
+ ],
+ "read_at": "2026-11-15T02:40:00Z"
+}
