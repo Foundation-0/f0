@@ -5,7 +5,7 @@ name: prerender
 # outside it, so this job needs no network beyond installing Playwright.
 on:
   pull_request:
-    paths: &prerender-paths
+    paths:
       - 'docs/data/**'
       - 'docs/**/*.js'
       - '.github/workflows/prerender.yml'
