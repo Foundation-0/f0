@@ -396,9 +396,10 @@ def h2_doc():
                  "11 November 2026, and each record's description is byte-identical to the "
                  "repository's `.zenodo.json` description. Editing the file alone does not "
                  "change the published record. Each record has to be edited in Zenodo by a "
-                 "person with access to the account. `zenodo-credits.csv` lists every file and "
-                 "every record with the credit text it carries, so the edit can be checked "
-                 "against it.")
+                 "person with access to the account.")
+    lines.append("  `zenodo-credits.csv` lists every `.zenodo.json` file and every published "
+                 "v1.0.0 record, with the credit text each carries, so the edit can be "
+                 "checked against it.")
     lines.append("")
     lines.append(table([{"repository": r["repository"], "doi": r["doi"],
                          "creators": r["creators"]} for r in sorted(
@@ -451,10 +452,10 @@ def h2_doc():
     lines.append("")
     lines.append("```")
     lines.append("bash tools/clone-all.sh          # clones the 35 repositories, writes heads.tsv")
-    lines.append("gh search prs --owner Foundation-0 --state open --limit 400 \\")
+    lines.append("gh search prs is:public --owner Foundation-0 --state open --limit 400 \\")
     lines.append("  --json number,createdAt,author,repository,isDraft,title \\")
     lines.append("  > tools/sources/open-prs.json")
-    lines.append("gh api 'search/issues?q=is:issue+is:open+org:Foundation-0&per_page=100' \\")
+    lines.append("gh api 'search/issues?q=is:issue+is:open+is:public+org:Foundation-0&per_page=100' \\")
     lines.append("  --paginate > tools/sources/open-issues-items.json")
     lines.append("python3 tools/build_h2.py        # writes open-prs.csv, open-issues.csv,")
     lines.append("                                 # licences.csv, zenodo-credits.csv")
@@ -468,11 +469,14 @@ def h2_doc():
                  "and reproduces the same rows. The clones are needed for `content_on_default`, "
                  "which runs `git merge-tree` in each repository.")
     lines.append("")
-    lines.append("`open-prs.json` and `open-issues-items.json` are the two searches above. "
+    lines.append("`open-prs.json` and `open-issues-items.json` are the two searches above, "
+                 "both `is:public`, so the frozen files hold public repositories only and no "
+                 "issue bodies. "
                  "`zenodo.json` is `https://zenodo.org/api/records?q=keywords:foundation0"
                  "&size=25` and `z-<id>.json` is one record each. `unmerged-branches.csv` is "
                  "the branch list at 01:25 UTC, `pr-heads.json` maps each open pull request to "
-                 "its branch, and `repo-list.json` is `gh repo list` for the 35 repositories.")
+                 "its branch, and `repo-list.json` is `gh repo list` for the 35 public "
+                 "repositories.")
     lines.append("")
     lines.append("The one command that fetches is `python3 tools/build_h2.py --live`. It "
                  "refreshes the branch list for an audit trail and feeds no CSV.")

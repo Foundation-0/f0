@@ -63,7 +63,8 @@ The exact line in every place it appears:
 > Researched and verified by different model families across Gemini, Claude, Grok, OpenAI, and Muse
 
 - 20 `.zenodo.json` files exist. 18 carry the line. The two that do not are `incentre-lattices/.zenodo.json` and `project-asma/.zenodo.json`. Both have their own description, and both belong to repositories with no v1.0.0 deposit. The issue body's figure of 18 matches the files that carry the line.
-- 16 published records carry the line. All are version v1.0.0, published 11 November 2026, and each record's description is byte-identical to the repository's `.zenodo.json` description. Editing the file alone does not change the published record. Each record has to be edited in Zenodo by a person with access to the account. `zenodo-credits.csv` lists every file and every record with the credit text it carries, so the edit can be checked against it.
+- 16 published records carry the line. All are version v1.0.0, published 11 November 2026, and each record's description is byte-identical to the repository's `.zenodo.json` description. Editing the file alone does not change the published record. Each record has to be edited in Zenodo by a person with access to the account.
+  `zenodo-credits.csv` lists every `.zenodo.json` file and every published v1.0.0 record, with the credit text each carries, so the edit can be checked against it.
 
 | repository | doi | creators |
 |---|---|---|
@@ -118,10 +119,10 @@ Only ductricity and thermal-capture differ: Apache-2.0 for the code with a CC BY
 
 ```
 bash tools/clone-all.sh          # clones the 35 repositories, writes heads.tsv
-gh search prs --owner Foundation-0 --state open --limit 400 \
+gh search prs is:public --owner Foundation-0 --state open --limit 400 \
   --json number,createdAt,author,repository,isDraft,title \
   > tools/sources/open-prs.json
-gh api 'search/issues?q=is:issue+is:open+org:Foundation-0&per_page=100' \
+gh api 'search/issues?q=is:issue+is:open+is:public+org:Foundation-0&per_page=100' \
   --paginate > tools/sources/open-issues-items.json
 python3 tools/build_h2.py        # writes open-prs.csv, open-issues.csv,
                                  # licences.csv, zenodo-credits.csv
@@ -132,7 +133,7 @@ python3 tools/make_docs.py --h2  # writes this note
 
 The scripts are in `tools/`. The API answers are frozen in `tools/sources/`, taken on 15 November, and the scripts read those, so a rerun needs no network and reproduces the same rows. The clones are needed for `content_on_default`, which runs `git merge-tree` in each repository.
 
-`open-prs.json` and `open-issues-items.json` are the two searches above. `zenodo.json` is `https://zenodo.org/api/records?q=keywords:foundation0&size=25` and `z-<id>.json` is one record each. `unmerged-branches.csv` is the branch list at 01:25 UTC, `pr-heads.json` maps each open pull request to its branch, and `repo-list.json` is `gh repo list` for the 35 repositories.
+`open-prs.json` and `open-issues-items.json` are the two searches above, both `is:public`, so the frozen files hold public repositories only and no issue bodies. `zenodo.json` is `https://zenodo.org/api/records?q=keywords:foundation0&size=25` and `z-<id>.json` is one record each. `unmerged-branches.csv` is the branch list at 01:25 UTC, `pr-heads.json` maps each open pull request to its branch, and `repo-list.json` is `gh repo list` for the 35 public repositories.
 
 The one command that fetches is `python3 tools/build_h2.py --live`. It refreshes the branch list for an audit trail and feeds no CSV.
 
