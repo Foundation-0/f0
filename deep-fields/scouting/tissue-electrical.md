@@ -20,8 +20,8 @@ tumour-treating fields or hyperthermia needs a value for each tissue.
 - **IFAC-CNR** ([tissprop](https://niremf.ifac.cnr.it/tissprop/)): the standard calculator for the Gabriel model, and
   an authorised mirror of the 1996 Gabriel report. Its parameter and data tabs load by script, so the agent did not
   scrape them.
-- **Sasaki, Wake and Watanabe (2014)**, [Radio Science 49:459](https://doi.org/10.1002/2013RS005345), is paywalled;
-  the person who asked for this report supplied a copy. Table 2 is transcribed in the pilot.
+- **Sasaki, Wake and Watanabe (2014)**, [Radio Science 49:459](https://doi.org/10.1002/2013RS005345).
+  Table 2 is transcribed in the pilot from the version of record (corrected 1 May 2015).
 - **NHANES 1999–2004 bioimpedance** (`BIX` files) downloads directly from CDC (4.9 MB for 1999–2000).
 
 ## Headline
@@ -31,26 +31,32 @@ tumour-treating fields or hyperthermia needs a value for each tissue.
    animal tissue, are the default in IT'IS, Sim4Life, the IFAC calculator and most dosimetry. Two newer public sets
    exist: Sasaki's 2014 refits of Gabriel's own data (1 MHz–20 GHz), and NICT's 2023 fits to new measurements
    (1 MHz–100 GHz). The agent found no published tissue-by-tissue cross-check of the three public tables. That is the opening.
-2. **A pilot found one transcription error and one outlier tissue.** The pilot cross-checked the three tables tissue
+2. **A pilot found one transcription error, one outlier tissue and one inconsistent database entry.** The pilot cross-checked the three tables tissue
    by tissue ([`tissue-electrical/`](tissue-electrical/)):
    - The IT'IS "alternative" (Sasaki) dataset gives the **urinary bladder wall the aorta's parameters**, in both the
      ASCII table and the SQLite database Sim4Life imports, since V4.2 (June 2024).
-   - **Gabriel's bladder permittivity is 30–40%** of what NICT measured (128 MHz) and of what its water content
+   - **Gabriel's bladder permittivity is 30–40%** of what NICT's 2023 fit gives (128 MHz) and of what its water content
      predicts (900 MHz).
-   - The IT'IS **"Water"** entry mixes 8 °C and 24 °C parameters.
+   - The IT'IS **"Water"** entry's static permittivity (84.6) is that of water at 7.9 °C while its relaxation time
+     (8.38 ps) is that of water at 24.4 °C; 78.32, the 25 °C static permittivity, looks like it was entered as Δ1.
 
    All three can be checked from public files in seconds.
 3. **Low-frequency conductivity is the weakest number in the field, and the most consequential.** At 100 Hz the
-   Gabriel model is 4–12 times below the measured literature for brain, nerve, liver, heart and cartilage. Gabriel and
-   IT'IS both say so, but low-frequency work still evaluates it there. Skull conductivity in the IT'IS compilation
-   ranges from 0.0032 to 0.114 S/m across studies. Together with head segmentation
+   Gabriel model is more than 3× below the compiled literature mean for 5 of the 8 tissues that have their own
+   Gabriel fit, at least 5 compiled values and their own low-frequency row (liver ×4.9, heart ×4.1, cerebellum ×5.3,
+   red bone marrow ×6.1, yellow bone marrow ×77);
+   for 7 of the 8 it falls outside the compiled min–max range. For the other tissues with their own fit, IT'IS assigns
+   another tissue's low-frequency row verbatim, so no per-tissue claim is made there. Gabriel and
+   IT'IS both say the model is uncertain below 1 MHz, but low-frequency work still evaluates it there. Skull
+   conductivity in the IT'IS compilation varies by a factor of about 35 across studies. Together with head segmentation
    ([Puonti et al. 2020](https://doi.org/10.1016/j.neuroimage.2019.116431)), that spread is a leading source of error
    in EEG source localisation and brain-stimulation dosimetry.
 
 ## 1. The pilot: three tables, checked against each other and against physics
 
 Full results, method and caveats: [`tissue-electrical/README.md`](tissue-electrical/README.md). It runs in about
-2 s with `./fetch.sh && python3 audit.py`.
+2 s with `./fetch.sh && python3 audit.py && git diff --exit-code results/` (the last step fails if the output
+   differs from the committed `results/`).
 
 | # | Check | Result | How anyone re-checks it |
 |---|---|---|---|
@@ -58,7 +64,7 @@ Full results, method and caveats: [`tissue-electrical/README.md`](tissue-electri
 | C | Gabriel vs Sasaki vs NICT at 64 MHz–2.45 GHz, 45 tissue pairs | 19 of 45 pairs agree within 25% at 128 MHz. NICT's conductivity is typically a little lower (median 0.87× Gabriel, IQR 0.76–0.98), which is consistent with measurements at 30–37 °C. **Bladder runs the other way:** εr 73.7 vs 21.9, σ 2.8× higher. Surrogate assignments in IT'IS (thyroid for pancreas, mammary gland, pituitary and pineal; muscle for diaphragm) differ from NICT's direct measurements by up to 2.2× in σ (diaphragm). | Evaluate the three published parameter sets |
 | D | Gabriel εr at 900 MHz against IT'IS water content, 40 tissues | εr ≈ 0.80 × water% − 9.5, rms scatter 8.0. **Bladder is the largest outlier**: 18.9 where 46.6 is expected (−3.4 rms). Nerve is next (−2.5 rms). NICT's bladder (59.7) lies above the trend. | Same |
 | E | Physical bounds | The IT'IS **Water** entry's static permittivity is 84.6 (pure water at 7.9 °C) but its relaxation time is that of water at 24.4 °C; unchanged since V4.0. The Sasaki CSF fit, whose data start at 130 MHz, gives εr 9,111 at 1 MHz, while IT'IS documents the set as valid above 1 MHz. Several fluid fits exceed pure water's permittivity between 10 and 300 MHz. | Malmberg & Maryott (1956); Liebe et al. (1991) |
-| A | Gabriel σ at 100 Hz against the IT'IS low-frequency compilation | More than 3× below for 11 of 22 tissues with their own fit (nerve ×12, white matter ×6, liver ×4.9, grey matter ×4.7). Outside the compiled min–max range for 15. This is a documented limitation, now with numbers per tissue. | Same |
+| A | Gabriel σ at 100 Hz against the IT'IS low-frequency compilation | More than 3× below for 5 of the 8 tissues with their own fit, n ≥ 5 and their own LF row (liver ×4.9, heart ×4.1, cerebellum ×5.3, red bone marrow ×6.1, yellow bone marrow ×77). Outside the compiled min–max range for 7 of the 8. The other 14 otherwise-eligible rows share another tissue's LF row verbatim in IT'IS (nerve = white matter, gallbladder = bladder wall, the fat entries) and are flagged `lf_row_shared` and excluded. This is a documented limitation, now with numbers per tissue. | Same |
 
 **Why bladder matters.** The bladder wall sits next to the uterus, prostate and rectum. Its properties enter
 specific-absorption-rate (SAR) estimates for pelvic MRI, for pregnant-patient and fetal exposure models, and for
@@ -133,12 +139,12 @@ reviewed by a person yet, and nothing has been sent to any maintainer.
     extrapolation.
   - **Skin above 6 GHz:** ICNIRP 2020 Table 10 is internally consistent. NICT's published dermis spectra give 25–27%
     lower conductivity at 60–100 GHz, and a 0.44 mm instead of 0.35 mm penetration depth at 100 GHz.
-  - A draft report to IT'IS (the bladder row and the water entry) waits in Ahraz's mailbox; draft questions for NICT
+  - A report to IT'IS on the bladder row and the water entry has been drafted; a person will send it. Draft questions for NICT
     are in the project.
   - The literature leads (in vivo vs ex vivo, tumour contrast vs water, tool defaults, the 5.37 S/m muscle value)
     are issues there.
   - The intracranial-recordings scoreboard is planned, but needs a CRCNS account in a person's name.
-- **NHANES became a project** ([Foundation-0/nhanes-bioimpedance](https://github.com/Foundation-0/nhanes-bioimpedance)).
+- **NHANES became a project** ([Foundation-0/nhanes-bioimpedance](https://github.com/Foundation-0/nhanes-bioimpedance), public).
   - All 13,276 spectra were refitted, reproducing CDC's Cole parameters (median difference 0.2% for Re, 2.3% for Ri).
   - On a held-out survey cycle, the full spectrum adds almost nothing to a 50 kHz equation for DXA lean mass
     (R² gain 0.000–0.002).

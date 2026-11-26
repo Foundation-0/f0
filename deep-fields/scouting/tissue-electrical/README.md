@@ -17,17 +17,21 @@ cross-checks the three that are public:
 
 | File | What |
 |---|---|
-| `fetch.sh` | Downloads IT'IS V5.0 (two ASCII tables and the SQLite material database) and the NICT parametric-model CSV into `data/` (not committed; neither source's terms allow redistribution). |
+| `fetch.sh` | Downloads IT'IS V5.0 (two ASCII tables and the SQLite material database) and the NICT parametric-model CSV into `data/` (not committed; neither source's terms allow redistribution), then verifies them against the committed `SHA256SUMS` (`sha256sum -c`). |
+| `SHA256SUMS` | Full SHA-256 sums of the two downloads (31 Oct 2026); an upstream change makes `fetch.sh` fail loudly. |
 | `models.py` | The Cole-Cole forms of the three sources, and two references for pure water. |
 | `data_sources.py` | Readers for the IT'IS ASCII exports (one is UTF-16), the NICT CSV and the Sasaki table. |
 | `audit.py` | Five checks; writes `results/*.tsv` and `results/summary.txt`. |
 
 ```
-./fetch.sh && python3 audit.py      # Python 3 with numpy and pandas; about 2 s
+./fetch.sh && python3 audit.py && git diff --exit-code results/   # Python 3 with numpy and pandas; about 2 s
 ```
 
-The files fetched on 31 Oct 2026 had these SHA-256 sums: `itis-v5.0.zip` `531adcee…a063c0`, `nict-model.csv`
-`940b98a6…d219f3` (full sums are printed by `fetch.sh`).
+`audit.py` overwrites `results/`, so the pass/fail step is the last one: it fails if the regenerated output differs
+from the committed files. The raw IT'IS low-frequency and water-content columns are not redistributable, so they are
+not committed: `audit.py` writes them to the gitignored `results/lf_vs_gabriel_raw.tsv` and
+`results/water_content_raw.tsv` from your own fetched copy, and the committed `results/*.tsv` keep derived columns
+only (model values, ratios, flags).
 
 ## What the checks found
 
@@ -47,20 +51,24 @@ Sasaki's) give εr ≈ 19–22 at 128 MHz. NICT's 2023 bladder fit gives 73.7, a
 higher. Across the other 29 tissues with their own fit in all three sources, NICT's conductivity at 128 MHz is a
 median 0.87 times Gabriel's (interquartile range 0.76 to 0.98), so the bladder runs the opposite way to the usual
 offset. Against water content, Gabriel's bladder is also the largest outlier among 40 tissues: εr 18.9 at
-900 MHz, where the trend for 70% water predicts 46.6 (residual −3.4 times the rms scatter). One plausible cause is
+900 MHz, where the water-content trend predicts 46.6 (residual −3.4 times the rms scatter). One plausible cause is
 that a thin bladder wall measured with an open-ended coaxial probe also samples what lies behind it. That is a
 hypothesis; it has not been checked against Gabriel's sample notes.
 
-**E. The IT'IS "Water" entry mixes two temperatures.** It is the same in every database version from 4.0 to 5.0.
+**E. The IT'IS "Water" entry does not match its own relaxation time.** It is the same in every database version from 4.0 to 5.0.
 Its parameters sum to a static permittivity of 84.6, the value
 for pure water at 7.9 °C (Malmberg and Maryott 1956). Its relaxation time, 8.38 ps, is that of water at 24.4 °C
 (Liebe, Hufford and Manabe 1991). A two-term Debye fit at about 25 °C has a static permittivity near 78.3. The sum
 would match if 78.32 were the static permittivity entered as Δ1, rather than the step of the first relaxation.
 
 **A. Gabriel's model is not meant for low frequencies, and the size of the gap is now explicit.** At 100 Hz the
-model's conductivity is more than 3 times below the mean of the IT'IS compilation for 11 of 22 tissues that have
-their own fit and at least 5 compiled values. Examples: nerve ×12, brain white matter ×6, grey matter ×4.7, liver
-×4.9. For 15 of the 22 the model falls outside the compiled minimum–maximum range. Gabriel et al. (1996) and the IT'IS
+model's conductivity is more than 3 times below the mean of the IT'IS compilation for 5 of the 8 tissues that have
+their own fit, at least 5 compiled values and a low-frequency row of their own. Examples: liver ×4.9, heart ×4.1,
+cerebellum ×5.3, red bone marrow ×6.1, yellow bone marrow ×77. For 7 of the 8 the model falls outside the compiled minimum–maximum
+range. The other 14 otherwise-eligible tissues are excluded because IT'IS assigns them another tissue's
+low-frequency row verbatim (same average, SD and n) — nerve and white matter share one row, as do gallbladder and
+bladder wall and the fat entries — so no per-tissue claim is made for them (the pilot flags them `lf_row_shared` in
+`results/lf_vs_gabriel.tsv`). Gabriel et al. (1996) and the IT'IS
 documentation both warn that the model is uncertain below 1 MHz. The point is for low-frequency studies that still
 evaluate it at 50 Hz or 1 kHz.
 

@@ -1,2 +1,5 @@
 data/
 __pycache__/
+# Raw IT'IS columns (not redistributable) regenerated locally from the user's own fetched copy:
+results/lf_vs_gabriel_raw.tsv
+results/water_content_raw.tsv

@@ -7,6 +7,10 @@
   E  physics_checks.tsv         simple physical bounds: pure water, acellular fluids, fitted frequency bands
 
 Writes results/*.tsv and results/summary.txt.
+
+The raw IT'IS lf_* / water_* columns cannot be redistributed (see fetch.sh), so they are written only to the
+gitignored results/lf_vs_gabriel_raw.tsv and results/water_content_raw.tsv, regenerated from the user's own fetched
+copy; the committed results/*.tsv keep derived columns only.
 """
 import re
 import sys
@@ -46,6 +50,18 @@ OTHER_FITS = {"Adrenal Gland", "Intervertebral Disc", "Lymphnode", "Salivary Gla
 
 
 # ---------------------------------------------------------------- A
+# IT'IS assigns several tissues another tissue's low-frequency compilation row verbatim (same average, SD and n):
+# Nerve = Brain (White Matter), Gallbladder = Urinary Bladder Wall, the Fat entries, the *-lumen rows = Muscle, and
+# more. own_params only checks the dielectric source, so those rows are flagged lf_row_shared here and excluded
+# from the summary counts, which therefore cover only tissues with their own LF row.
+def lf_key(r):
+    vals = []
+    for c in ("lf_av", "lf_sd", "lf_n"):
+        v = r.get(c, np.nan)
+        vals.append("nan" if pd.isna(v) else str(v))
+    return tuple(vals)
+
+
 def check_lf(main):
     rows = []
     for _, r in main.iterrows():
@@ -62,16 +78,30 @@ def check_lf(main):
             model_outside_lf_range=bool(s[1] < r.get("lf_min", -np.inf) or s[1] > r.get("lf_max", np.inf)),
         ))
     df = pd.DataFrame(rows)
-    df.to_csv(OUT / "lf_vs_gabriel.tsv", sep="\t", index=False, float_format="%.4g")
-    own = df[df.own_params & df.gabriel_1996_fit & (df.lf_n >= 5)].sort_values("ratio_lf_over_model_100Hz", ascending=False)
-    say("A. Gabriel model at 100 Hz vs IT'IS low-frequency compilation (tissues with their own Gabriel fit, n >= 5)")
+    lf_counts = {}
+    for _, r in main.iterrows():
+        if not pd.isna(r.get("lf_av", np.nan)):
+            lf_counts[lf_key(r)] = lf_counts.get(lf_key(r), 0) + 1
+    df["lf_row_shared"] = [lf_counts.get(lf_key(r), 1) > 1 for _, r in df.iterrows()]
+    df.to_csv(OUT / "lf_vs_gabriel_raw.tsv", sep="\t", index=False, float_format="%.4g")
+    df[["tissue", "dielectric_params_from", "own_params", "gabriel_1996_fit", "lf_row_shared",
+        "sigma_model_10Hz", "sigma_model_100Hz", "sigma_model_1kHz",
+        "ratio_lf_over_model_100Hz", "model_outside_lf_range"]] \
+        .to_csv(OUT / "lf_vs_gabriel.tsv", sep="\t", index=False, float_format="%.4g")
+    own_all = df[df.own_params & df.gabriel_1996_fit & (df.lf_n >= 5)]
+    shared = own_all[own_all.lf_row_shared]
+    own = own_all[~own_all.lf_row_shared].sort_values("ratio_lf_over_model_100Hz", ascending=False)
+    say("A. Gabriel model at 100 Hz vs IT'IS low-frequency compilation "
+        "(own Gabriel fit, n >= 5, LF row not shared with another tissue)")
     for _, r in own.iterrows():
-        say(f"   {r.tissue:24s} model {r.sigma_model_100Hz:7.4f} S/m   compiled {r.lf_av:6.3f} "
-            f"(range {r.lf_min:.3g}-{r.lf_max:.3g}, n={int(r.lf_n)})   ratio {r.ratio_lf_over_model_100Hz:6.1f}"
+        say(f"   {r.tissue:24s} model {r.sigma_model_100Hz:7.4f} S/m   ratio {r.ratio_lf_over_model_100Hz:6.1f}"
             + ("   model outside range" if r.model_outside_lf_range else ""))
     k = own.ratio_lf_over_model_100Hz
     say(f"   {int((k > 3).sum())} of {len(own)} are more than 3x below the compiled mean; "
         f"{int(own.model_outside_lf_range.sum())} fall outside the compiled min-max range.")
+    if len(shared):
+        say(f"   Excluded {len(shared)} of {len(own_all)} otherwise-eligible rows whose IT'IS LF compilation row "
+            f"(average, SD, n) is identical to another tissue's: {', '.join(shared.tissue)}.")
     say()
     return df
 
@@ -199,17 +229,18 @@ def check_water(main, nict):
     d["residual"] = y - d.eps900_trend
     rms = float(np.sqrt(np.mean(d.residual**2)))
     d["residual_over_rms"] = d.residual / rms
-    d[["name", "water_av", "water_n", "eps900", "eps900_trend", "residual", "residual_over_rms"]] \
+    d.sort_values("residual").to_csv(OUT / "water_content_raw.tsv", sep="\t", index=False, float_format="%.4g")
+    d[["name", "eps900", "eps900_trend", "residual", "residual_over_rms"]] \
         .sort_values("residual").to_csv(OUT / "water_content.tsv", sep="\t", index=False, float_format="%.4g")
     say(f"D. Gabriel permittivity at 900 MHz vs IT'IS water content ({len(d)} tissues with their own fit): "
         f"eps = {b[0]:.3f} x water% {b[1]:+.1f}, rms scatter {rms:.1f}")
     for _, r in d.sort_values("residual").head(3).iterrows():
-        say(f"   {r['name']:22s} water {r.water_av:5.1f}% (n={int(r.water_n)})  eps {r.eps900:5.1f}  "
-            f"trend {r.eps900_trend:5.1f}  residual {r.residual:+6.1f} ({r.residual_over_rms:+.1f} rms)")
+        say(f"   {r['name']:22s} eps {r.eps900:5.1f}  trend {r.eps900_trend:5.1f}  "
+            f"residual {r.residual:+6.1f} ({r.residual_over_rms:+.1f} rms)")
     bl = nict.set_index("Tissue").loc["Bladder"]
     e_n = float(M.nict([9e8], bl)[0][0])
     wb = float(d.set_index("name").loc["Urinary Bladder Wall", "water_av"])
-    say(f"   NICT bladder at 900 MHz: eps {e_n:.1f} (trend at {wb:.0f}% water: {np.polyval(b, wb):.1f})")
+    say(f"   NICT bladder at 900 MHz: eps {e_n:.1f} (water-content trend: {np.polyval(b, wb):.1f})")
     say()
     return d
 
