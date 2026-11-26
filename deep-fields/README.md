@@ -26,6 +26,19 @@ hub, which directs Foundation0's effort there:
 Life sciences and the humanities have no hub yet, so their leads stay here. Projects that grow get their own
 repositories. A second pass on 19 October 2026 started twelve of them; see [scouting/2026-10-19.md](scouting/2026-10-19.md).
 
+**November 2026 scouting notes (pending review).** Three notes landed as pull requests in November 2026 and are
+still under review; none has merged:
+
+- [f0#36](https://github.com/Foundation-0/f0/pull/36) (changes requested) — combinatorial planning and self-auditing
+  formal MCP field report. Its note would land at `scouting/combinatorial-planning-verified-bar.md`, which exists only
+  on that pull request's branch, so this page names the pull request instead of linking the file.
+- [f0#39](https://github.com/Foundation-0/f0/pull/39) (changes requested; carries a `needs decision` label with no
+  recorded decision yet) — anchored conservation quotients monograph and reference package. Its files would land at
+  `scouting/anchored-conservation-quotients.md` and `scouting/acq-reference/`, which exist only on that pull
+  request's branch, so this page names the pull request instead of linking the files.
+- [`scouting/single-thread/`](scouting/single-thread/) — "The Single Thread" essay and kernel, a synthesis pending
+  review (f0#41, changes requested; can close in favor of #39 once #39's open requests are fixed).
+
 **Status of this page.** The counts and claims below were checked by the agents on 18 Oct 2026; each links its source.
 They are a starting map, not a survey of record. Check a number before you build on it.
 
