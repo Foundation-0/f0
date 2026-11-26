@@ -35,7 +35,7 @@ if (!SPEC) {
 const OUT = path.resolve(positional[1] || SPEC.out);
 const QUANTIZE = "import sys,io\nfrom PIL import Image\nim=Image.open(io.BytesIO(sys.stdin.buffer.read())).convert('RGB')\n" +
   "im.quantize(colors=256,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.FLOYDSTEINBERG).save(sys.argv[1],optimize=True)";
-const LOCAL_CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
+const LOCAL_CHROME = '/opt/pw-browsers/chromium-1248/chrome-linux/chrome';
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2' };
 
@@ -62,7 +62,7 @@ async function loadPlaywright() {
   for (const t of [process.env.PLAYWRIGHT_MODULE, 'playwright', '/opt/node22/lib/node_modules/playwright/index.mjs'].filter(Boolean)) {
     try { return await import(path.isAbsolute(t) ? pathToFileURL(t).href : t); } catch { /* next */ }
   }
-  throw new Error('Playwright not found: run `npm i --no-save playwright@1.56.1` (or set PLAYWRIGHT_MODULE)');
+  throw new Error('Playwright not found: run `npm ci --ignore-scripts` (or set PLAYWRIGHT_MODULE)');
 }
 function launchOptions() {
   const v = process.env.PRERENDER_CHROMIUM;

@@ -63,8 +63,9 @@ the Asimov estate, his publishers or Apple.
   links), internal links and anchors, page metadata (share links and canonical addresses on https://fdn0.org/),
   no third-party scripts.
 - `scripts/prerender.mjs` writes the no-JavaScript copy of every data-rendered part (lists, cards, counts)
-  into the pages, between `<!--prerender:NAME-->` markers. Run it after changing `docs/data`; the
-  `prerender` workflow runs it on `main`. `scripts/og/` renders the share image `docs/assets/og.png`.
+  into the pages, between `<!--prerender:NAME-->` markers. Run it after changing `docs/data` and commit
+  the re-baked HTML with the data; the Pages workflow re-bakes every page at deploy time.
+  `scripts/og/` renders the share image `docs/assets/og.png`.
 
 ### The integer-multiplication race tracker
 

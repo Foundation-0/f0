@@ -4,8 +4,9 @@
  *
  *     After changing docs/data (or a page script that renders from it), run:
  *         node scripts/prerender.mjs
- *     and commit the changed docs/**\/*.html with the data. CI does the same on main
- *     (.github/workflows/prerender.yml).
+ *     and commit the changed docs/**\/*.html with the data. The Pages deploy re-bakes them at
+ *     deploy time anyway (.github/workflows/pages.yml), so a committed copy can lag on
+ *     date-dependent parts such as the writing bar.
  *
  * Why. Pages draw their lists, cards and counts from docs/data/*.json in the browser. Each such part also
  * ships a static copy inside the HTML, so the page reads without JavaScript (and before the data arrives).
@@ -45,10 +46,10 @@
  *   node scripts/prerender.mjs docs/ledger/index.html   only these pages
  *   node scripts/prerender.mjs --check             render and compare only; exit 1 if any file would change
  *
- * Needs Playwright (npm i --no-save playwright@1.56.1, or PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs)
+ * Needs Playwright (npm ci --ignore-scripts, or PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs)
  * and a Chromium. PRERENDER_CHROMIUM=playwright uses Playwright's own download (npx playwright install
  * chromium; this is what CI sets); PRERENDER_CHROMIUM=/path/to/chrome uses that binary; unset, the script
- * uses /opt/pw-browsers/chromium-1194/chrome-linux/chrome when it exists, else Playwright's own.
+ * uses /opt/pw-browsers/chromium-1248/chrome-linux/chrome when it exists, else Playwright's own.
  */
 import fs from 'node:fs';
 import http from 'node:http';
@@ -57,7 +58,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = path.join(ROOT, 'docs');
-const LOCAL_CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
+const LOCAL_CHROME = '/opt/pw-browsers/chromium-1248/chrome-linux/chrome';
 const VIEWPORT = { width: 1440, height: 900 };
 const TIMEOUT = 30000; // ms per page, for each wait
 const MARK = /<!--(\/?)prerender:([a-z0-9][a-z0-9-]*)-->/g;
@@ -267,7 +268,7 @@ async function loadPlaywright() {
   for (const t of tries) {
     try { return await import(path.isAbsolute(t) ? pathToFileURL(t).href : t); } catch { /* next */ }
   }
-  throw new Error('Playwright not found: run `npm i --no-save playwright@1.56.1` (or set PLAYWRIGHT_MODULE)');
+  throw new Error('Playwright not found: run `npm ci --ignore-scripts` (or set PLAYWRIGHT_MODULE)');
 }
 function launchOptions() {
   const v = process.env.PRERENDER_CHROMIUM;

@@ -1,21 +1,18 @@
 name: prerender
-# Re-bake the no-JavaScript copy of every data-rendered part of the site (scripts/prerender.mjs) when the
-# data or a page script changes on main, and commit the pages if any copy changed.
-# The script serves docs/ itself and blocks every request outside it, so this job needs no network
-# beyond installing Playwright.
+# PR check: re-bake the no-JavaScript copy of every data-rendered part of the site (scripts/prerender.mjs)
+# and run the site gate on the fresh output. Read-only: it never commits, so a broken page script fails
+# the PR instead of the next Pages deploy. The script serves docs/ itself and blocks every request
+# outside it, so this job needs no network beyond installing Playwright.
 on:
-  push:
-    branches: [main]
-    paths: &prerender-paths
+  pull_request:
+    paths:
       - 'docs/data/**'
       - 'docs/**/*.js'
       - '.github/workflows/prerender.yml'
-  pull_request:
-    paths: *prerender-paths
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: prerender
@@ -23,17 +20,18 @@ concurrency:
 
 jobs:
   prerender:
-    runs-on: ubuntu-24.04   # Playwright 1.56.1 has no chromium build for ubuntu26.04 (ubuntu-latest)
+    # Keep the browser dependency installation on a supported, explicit Ubuntu release.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version-file: '.node-version'
 
-      - name: Install Playwright 1.56.1 and its Chromium
-        run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+      - name: Install locked Playwright and its Chromium
+        run: npm ci --ignore-scripts && node scripts/check_browser_toolchain.mjs && npx --no-install playwright install --with-deps chromium
 
       - name: Prerender the data-rendered parts into the HTML
         run: node scripts/prerender.mjs
@@ -42,16 +40,3 @@ jobs:
 
       - name: Site gate (links, page metadata, ledger schema)
         run: python3 scripts/check_site.py
-
-      - name: Commit changed pages
-        if: github.event_name != 'pull_request'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain -- ':(glob)docs/**/*.html')" ]; then
-            git add -- ':(glob)docs/**/*.html'
-            git commit -m "prerender: refresh the no-JavaScript copies from docs/data"
-            git push || (git pull --rebase origin main && git push)
-          else
-            echo "every page already matches the data; nothing to commit"
-          fi
