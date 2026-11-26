@@ -14,7 +14,7 @@ A vanishing Hessian gives a weighted sum of the rank-one matrices u(i) u(i)^T eq
 
 For three charges the gradient condition puts all three directions in one plane through the origin. A sum of rank-one matrices in one plane has rank at most two. A multiple of the identity has rank three. The two conditions cannot both hold.
 
-[F] A numerical search agrees. With the mean radius fixed at 1, the smallest flat residual found over 80 starts is 0.458 for three charges and 8e-14 for four. Program: checks/walls_and_flat.py.
+[F] A numerical search agrees. With the mean radius fixed at 1, the smallest flat residual found over 80 starts is 0.458 for three charges and 1.21e-12 for four (`checks/walls_and_flat.out`). The four-charge figure is at rounding level and moves between runs and machines: a re-run on 26 November gave 2.3e-14. Program: checks/walls_and_flat.py.
 
 [I] This says why the method that settled four charges cannot descend to three. It does not prove Maxwell's bound for three charges. Fold points are still possible, and the three-charge thread reduces the question to folds.
 

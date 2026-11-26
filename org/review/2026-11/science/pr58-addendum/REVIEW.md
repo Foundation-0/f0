@@ -1,8 +1,10 @@
 # Review record for pull request 58
 
+> Frozen record. This file is the audit of pull request 58 as it stood at a61e289 (15 November 2026). It is kept as written and is not updated for later commits on `review/F7-threads`; whether those commits close each item is for the re-review of pull request 58 to record.
+
 15 November 2026. Review of the F7 threads pull request at head cbfa5a6. One later commit, a61e289, arrived during the review. The lead reviewer re-ran its changed programs. Item 3 below is updated for that commit. The other items are unchanged by it.
 
-Verdict: request changes. Five blocking items are listed below. All five are labelling, wording, or missing files. No proved result that was re-run failed to reproduce.
+Verdict: request changes. Five blocking items are listed below. The synthesis in findings.json lists six [BLOCK] entries: review passes 2 and 9 each filed the recurrence-label finding, and this page merges the two into item 2. All five are labelling, wording, or missing files. No proved result that was re-run failed to reproduce.
 
 The complete machine record sits in findings.json beside this file. It holds every finding, evidence line, and open item from twelve review passes, word for word. This page is the readable form of that record.
 

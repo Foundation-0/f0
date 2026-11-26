@@ -67,7 +67,8 @@ for seed,idx in seeds:
     p=refine(seed)
     w,V=np.linalg.eigh(hessU(p))
     neg=int((w<0).sum())
-    assert neg==idx,(seed,neg,idx)
+    if neg!=idx:
+        raise RuntimeError(f"index mismatch at seed {seed}: {neg} negative eigenvalues, expected {idx}")
     if idx==2:
         v=V[:,np.argmax(w)]  # unique positive eigenvalue direction: unstable under +gradU
         a=ascend(p+1e-6*v); b=ascend(p-1e-6*v)
