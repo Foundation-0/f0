@@ -22,13 +22,15 @@ Read on 15 November 2026 as ahrazzle by the first Haiku-seat run. The site is `f
 - **status** (478): a status word in a page, or a `status` field in `projects.json`. The "private preview" rows say that no public repository named Exo or Exo OS exists. "Founding member" rows carry W1's claim that four of the five never joined, marked `[I]` because no repository pin supports it.
 - **repository** (193): every `github.com/owner/name` the site names. The now column says whether it is one of the 35 public repositories read on 15 November, a private repository named in the organisation profile, or a repository outside Foundation-0.
 - **link** (1509): every `href`, `src` and URL in the pages, deduplicated by page and target. Internal targets resolve against the pinned checkout. 760 resolve and none is broken at this head.
-  External targets were checked with `curl -sIL` on 15 November: 424 unique URLs, of which 404 returned 200, 9 returned 404, 4 returned 403, 2 returned 429 and 5 did not answer in time.
+  External targets were checked with `curl -sIL` on 15 November: 421 unique URLs, of which 403 returned 200, 9 returned 404, 4 returned 403, 2 returned 429 and 3 did not answer in time. Scanner junk (template fragments like `${...}`, stray backticks) is skipped and not counted.
   A bare host or API prefix is marked `[I]`, because the page appends a path when it renders.
 - **member** (1): the founding-members wording in the organisation profile.
 
 ## What the inventory says
 
-The four data dates stand as written: ledger 18 October, members and projects 19 October, writing 14 October, forum index 17 October. `docs/feed.json` was generated on 11 October and no newer feed exists at the pinned head. The owner says `update.yml` has been disabled since, so the live tracker serves that feed.
+The four data dates stand as written: ledger 18 October, members and projects 19 October, writing 14 October, forum index 17 October. `docs/feed.json` was generated on 11 October and no newer feed exists at the pinned head.
+
+The pinned page `docs/research/integer-multiplication/live/method.html` (line 126) records that the `update.yml` schedule has not run since 11 October and that the job is switched off in the repository's Actions settings, which a checkout cannot read, so the live tracker serves that feed.
 
 `projects.json` has 28 entries, 16 of kind `repository`. A live read on 15 November finds 35 public repositories, or 34 if `.github` is left out. 19 of the 35 are not listed, or 18 of the 34. W3 adds them.
 

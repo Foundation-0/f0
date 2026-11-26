@@ -283,7 +283,7 @@
   }
  },
  "github_head": "81f83c38918382b4ca142b81debd3cc5ccf61d3a",
- "link_count": 424,
+ "link_count": 421,
  "links": {
   "http://json-schema.org/draft-07/schema#": {
    "final": "https://json-schema.org/draft-07/schema",
@@ -296,10 +296,6 @@
   "http://www.w3.org/2000/svg": {
    "final": "https://www.w3.org/2000/svg",
    "status": 200
-  },
-  "https://`": {
-   "final": "",
-   "status": 0
   },
   "https://ahrazzle.github.io/nutrak/": {
    "final": "https://ahrazzle.github.io/nutrak/",
@@ -975,14 +971,6 @@
   },
   "https://github.com/CrocSwap/integer-mult-bounds/pull/": {
    "final": "https://github.com/CrocSwap/integer-mult-bounds/pulls",
-   "status": 200
-  },
-  "https://github.com/CrocSwap/integer-mult-bounds/pull/${+use.pr": {
-   "final": "",
-   "status": 0
-  },
-  "https://github.com/CrocSwap/integer-mult-bounds/pull/${+use.pr}": {
-   "final": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FCrocSwap%2Finteger-mult-bounds%2Fpull%2Fnew%2F%24%2Buse.pr",
    "status": 200
   },
   "https://github.com/CrocSwap/integer-mult-bounds/pull/1094": {

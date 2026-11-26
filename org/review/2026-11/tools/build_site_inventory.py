@@ -33,6 +33,14 @@ GH_SHA = "81f83c38918382b4ca142b81debd3cc5ccf61d3a"
 W1_NOW = ("W1 (unmerged review package): the four-who-never-joined claim "
           "is W1's reading; no repository pin supports it")
 
+# The site's own record that the update.yml schedule has not run since 11
+# October (the job is switched off in the repository's Actions settings,
+# which a checkout cannot read) lives on this pinned page, lines 124-128.
+# No owner statement is recorded in this repository, so the page is the
+# recorded source for the switched-off claim.
+LIVE_METHOD_PAGE = "docs/research/integer-multiplication/live/method.html"
+LIVE_METHOD_LINE = 126
+
 # Data files whose records are datasets, not site statements: they contribute a
 # date row and a count row, but their thousands of PR URLs are not site links.
 DATASETS = [
@@ -128,17 +136,21 @@ def data_rows(rows, snap):
         for n, line in enumerate(text_lines[:12], 1):
             m = re.search(r'"(updated|generated_at|date|feed_version)"\s*:\s*"([^"]+)"', line)
             if m:
+                ns = now_pin(path)
                 if path == "docs/feed.json":
-                    now = ("No newer feed exists at %s. The owner says update.yml has been "
-                           "disabled since, so the live tracker serves this 11 Oct feed."
-                           % F0_SHA[:7])
-                    note = "Data date and the owner's disable statement; W3 refreshes the feed."
+                    now = ("No newer feed exists at %s. The pinned page %s:%d records "
+                           "that the update.yml schedule has not run since this feed was "
+                           "generated and the job is switched off in the repository's "
+                           "Actions settings, so the live tracker serves this 11 Oct feed."
+                           % (F0_SHA[:7], LIVE_METHOD_PAGE, LIVE_METHOD_LINE))
+                    note = "Data date and the site's switched-off-job record; W3 refreshes the feed."
+                    ns = pin(LIVE_METHOD_PAGE, LIVE_METHOD_LINE)
                 else:
                     now = ("The site still carries this field at %s. The file was last "
                            "committed on %s, so no refresh has landed." % (F0_SHA[:7], last))
                     note = "Data date; W3 refreshes the site data."
                 emit(rows, path, n, "date", snippet(line, m), now,
-                     pin(path, n), now_pin(path), "[F]", note)
+                     pin(path, n), ns, "[F]", note)
                 break
         # count of top-level records
         try:
@@ -162,7 +174,7 @@ def data_rows(rows, snap):
                        "finds 35 public repositories (34 excluding .github), so 19 of the "
                        "35 are not listed here, or 18 of the 34. W3 adds them."
                        % (F0_SHA[:7], "; ".join(counts)))
-                note = "The site comment says 34; that count excludes .github."
+                note = "34 is the 35 public repositories minus .github."
             else:
                 now = "Recomputed from the file at %s: %s." % (F0_SHA[:7], "; ".join(counts))
                 note = "Counts in the site's own data, not a judgment on the content."
@@ -183,7 +195,7 @@ def data_rows(rows, snap):
                     emit(rows, path, n, "status", status,
                          "No public repository named Exo or Exo OS is in the 35 public repositories read on 15 November, and these entries carry no repository URL.",
                          pin(path, n), "Foundation-0/.github@%s:profile/README.md:1" % GH_SHA,
-                         "[F]", "Statuses to check, from the site comment.")
+                         "[F]", "Statuses to check against the repositories.")
 
 
 def page_rows(rows, snap, files):
@@ -210,10 +222,16 @@ def page_rows(rows, snap, files):
                 word = m.group(0)
                 low = word.lower()
                 if low in ("disabled", "enabled", "live tracker"):
-                    now = ("update.yml is disabled, so the live tracker serves the 11 Oct feed."
-                           if low in ("disabled", "live tracker") else
-                           "The forum data still reports enabled: false at 6ea3a0b.")
-                    ns = now_pin(".github/workflows/update.yml")
+                    if low == "enabled":
+                        now = "The forum data still reports enabled: false at 6ea3a0b."
+                        ns = pin("docs/data/discussions.json", 6)
+                    else:
+                        now = ("The pinned page %s:%d records that the update.yml schedule "
+                               "has not run since 11 Oct and the job is switched off in "
+                               "the repository's Actions settings, so the live tracker "
+                               "serves the 11 Oct feed."
+                               % (LIVE_METHOD_PAGE, LIVE_METHOD_LINE))
+                        ns = pin(LIVE_METHOD_PAGE, LIVE_METHOD_LINE)
                 elif low == "founding member":
                     now = "Four of the five named founding members never joined; W1 removes them as members and keeps their names only as credit for their own work."
                     ns = W1_NOW
@@ -278,7 +296,7 @@ def page_rows(rows, snap, files):
             emit(rows, "Foundation-0/.github:profile/README.md", n, "status",
                  snippet(line), "REPO-PROTECTION section 2 gives agents Write only; the owners decide the correction.",
                  src, src, "[F]",
-                 "Flagged in the site comment as a statement an owner must change.")
+                 "A statement an owner must change.")
         if "founding member" in line.lower():
             emit(rows, "Foundation-0/.github:profile/README.md", n, "member",
                  snippet(line), "The four who never joined are removed as members by W1; this profile needs an owner to change it.",
@@ -289,10 +307,21 @@ def page_rows(rows, snap, files):
                      m.group(0), set(), src)
 
 
+def clean_url(target):
+    """Normalize a scanned target and drop scanner junk.
+
+    Template fragments (`${...}`, `{{...}}`) and stray backticks are not
+    URLs; the scanner skips them so they never reach the snapshot or a row.
+    """
+    u = target.strip().rstrip(".,;:")
+    if not u or "${" in u or "{{" in u or u.endswith("`"):
+        return None
+    return u
+
+
 def add_link(rows, snap, path, n, target, seen, src):
-    target = target.strip().rstrip(".,;:")
-    if (not target or target.startswith(("#", "mailto:", "javascript:", "data:"))
-            or "${" in target or "{{" in target or target.endswith("`")):
+    target = clean_url(target)
+    if target is None or target.startswith(("#", "mailto:", "javascript:", "data:")):
         return
     key = (path, target)
     if key in seen:
@@ -361,14 +390,20 @@ def refresh_sources(snap, files):
             if len(line) > 4000:
                 continue
             for m in URL_RE.finditer(line):
-                urls.add(m.group(0).rstrip(".,;:"))
+                u = clean_url(m.group(0))
+                if u:
+                    urls.add(u)
             for m in HREF_RE.finditer(line) if path.endswith(".html") else []:
                 t = m.group(1)
                 if t.startswith("http"):
-                    urls.add(t.rstrip(".,;:"))
+                    u = clean_url(t)
+                    if u:
+                        urls.add(u)
     for line in snap.get("profile_text", "").split("\n"):
         for m in URL_RE.finditer(line):
-            urls.add(m.group(0).rstrip(".,;:"))
+            u = clean_url(m.group(0))
+            if u:
+                urls.add(u)
 
     def one(url):
         # curl uses the machine's CA bundle; urllib does not on this host.
