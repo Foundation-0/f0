@@ -47,6 +47,8 @@ The value needed is the one that makes the enclosed extra mass stop falling in 9
 
 [F] The halo study computed the largest halo a fermion can make: an isothermal Fermi gas at the gas temperature, in each cluster's measured field, with its central occupation at the maximum a thermal relic allows. The particle mass needed for that halo to hold the extra mass is 4.7 to 5.9 eV in the median system and 8 to 17 eV for 95% of systems, depending on the corrections. The hardest systems are cool groups.
 
+[F] The 95% figure hides one system. For the group 3C442A (kT 1.34 keV) no fermion of 100 eV or less, at occupation 1/2, holds its extra mass in three of the four correction sets (nominal, observation-low and simulation). The search stops at 100 eV. Only the lensing-high set brings it to 15.6 eV. So the window of 8 to 17 eV closes for every system only with the strongest corrections. `checks/neutrino/model/m3_fermion_halo.out` gives the maximum for each set.
+
 [F] The trend with temperature weakens under the halo model (correlation -0.44, against -0.87 for mean densities). It mostly disappears if the fermions in groups are 1.3 times hotter than the measured gas temperature. [I] Cool cores would do that. The factor was not checked against published temperature profiles.
 
 [P] This agrees with published work. An 11 eV sterile neutrino reaches its packing limit at the centre of all 30 systems of one study (0906.3322), and well-measured clusters need more than about 10 eV (2405.08557).
@@ -76,6 +78,14 @@ Let the species have mass m and be populated at a fraction chi of the thermal re
 - **Abundance:** chi m equals the abundance-equivalent mass A divided by the share of the cosmic supply the cluster holds.
 
 [I] The first two are the same kind of statement, so a species exists only if K_lo is below K_hi. That holds for the stronger corrections and is marginal for the weaker ones.
+
+[I] This is a construction, not a fit with a test. K_lo is set by requiring the largest halo to hold the extra mass of the same 51 clusters. A is that same extra mass over the baryons, rescaled. The mass m and the fraction chi are then solved from those two numbers. Only K_hi comes from other data, the galaxy lensing. So a species exists whenever K_lo is below K_hi, by construction.
+
+[F] The one test that does not reuse the fitted numbers is the per-system abundance test in `m3_fermion_halo.out`.
+
+It predicts each system's extra mass from the particle mass and compares it with the need. For one fully thermal species the correlation between predicted and needed is +0.05, +0.02, +0.02 and +0.03 for the four correction sets. Across all 16 rows it runs from +0.00 to +0.18. The rms error is 1.47, 0.90, 0.56 and 0.11 dex for those four sets.
+
+[F] As a per-system predictor it fails in every row. The good rms of 0.11 dex for the lensing-high set comes with the packing cap binding in only 1 of 51 systems, so the prediction is close to one constant value. [I] The correction set that makes it work was itself chosen to close the radial mismatch on the same clusters (`n2_bias_scan.py`, `n3_efe_check.py`).
 
 [F] If the richest clusters hold their full share, the solution is chi = (A/K)^(4/3) and m = K (K/A)^(1/3):
 
@@ -126,12 +136,17 @@ There are two readings.
 
 ## Rerun
 
-Programs and outputs are in `checks/neutrino/`. The scripts whose names start with `n` are the reviewer's. Those under `model/` are the halo study. Both read `checks/gravity/unified/unified_table.csv` and the published tables named in `model/m_data.py`.
+Programs and outputs are in `checks/neutrino/`. The scripts whose names start with `n` are the reviewer's. Those under `model/` are the halo study. Both read `checks/gravity/unified/unified_table.csv`. The scripts in `model/` also read cluster tables in `checks/gravity/sources/`.
+
+From a fresh checkout, run `python3 checks/gravity/fetch_sources.py` once. It downloads the published tables and checks each against a recorded sha256. Then run `python3 checks/check_all.py` from `checks/`. It re-runs every program in a temporary copy and compares each output byte for byte with the saved file. That includes `n4_window.out`, `m2_combos.json` (written by `m2_radial.py`) and the halo model.
+
+The program for `n4_window.out` was missing. It was rewritten from the description at the top of the file and reproduces the saved output exactly. The [P] values (published limits and simulations) are read from the papers and are not re-run.
 
 ## Not verified
 
 - The halo study's profiles are simple curves through two radii. Published density models and larger radii were not used.
 - The external field is treated with a one-dimensional formula.
-- The reviewer re-ran the radial and halo programs and they reproduce. The galaxy and group parts were read, not re-run.
+- The radial, halo, galaxy and group programs are all re-run by `checks/check_all.py` and reproduce the saved outputs.
+- The per-system abundance test fails as a predictor (see above), and the correction sets were chosen on the same clusters.
 - Whether a species with the lower cosmic supply of the second reading forms structure acceptably.
 - The factor of three in the packing-limit formula.

@@ -5,8 +5,12 @@ import json, os
 from fractions import Fraction
 import numpy as np
 
-S = "S"
-R = S + "/repos/rigid-realizations/rigid_realizations_l880_pr_bundle/results"
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+# Clone of the rigid-realizations repository (not in this folder). Set RIGID_REPO to its path.
+RIGID_REPO = _os.environ.get("RIGID_REPO", _os.path.join(_HERE, "..", "..", "..", "repos", "rigid-realizations"))
+L2288 = _os.path.join(_HERE, "..", "l2288", "lengths_2288.json")
+R = RIGID_REPO + "/rigid_realizations_l880_pr_bundle/results"
 
 
 def stats(name, lam):
@@ -24,7 +28,7 @@ d = json.load(open(R + "/l880-all-880-real/l880_certificate.json"))
 rows.append(stats("L880 all-880 certificate", [float(Fraction(x)) for x in d["edge_lengths"]]))
 d = json.load(open(R + "/l880-bartzos-868/l880_bartzos868_certificate.json"))
 rows.append(stats("L880 Bartzos et al. published lengths (>=860 Maple, 868 certified)", [float(Fraction(x)) for x in d["edge_lengths"]]))
-d = json.load(open(S + "/threads/l2288/lengths_2288.json"))
+d = json.load(open(L2288))
 rows.append(stats("L2288 all-2288 lengths", [float(Fraction(x)) ** 0.5 for x in d["sq_lengths_exact"]]))
 # reference: typical eps of the far cell (iid U[0.5,1.5])
 rng = np.random.default_rng(0)

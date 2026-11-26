@@ -1,6 +1,8 @@
 """Sanity and corruption checks (explicit raises, so they also run under python -O)."""
 import sys, pathlib, re, subprocess, shutil, tempfile, math
-here = pathlib.Path(__file__).parent; sys.path.insert(0, str(here))
+here = pathlib.Path(__file__).resolve().parent; sys.path.insert(0, str(here))
+if not (here / "sources" / "from_accel").is_dir():
+    raise SystemExit("CHECK FAILED: sources/ is missing. Run python3 fetch_sources.py first.")
 from model import nu, M_threshold, sigJ, ftrap
 def need(c, msg):
     if not c: raise SystemExit("CHECK FAILED: " + msg)

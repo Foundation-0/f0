@@ -5,8 +5,11 @@ with exact integers, compare with the OEIS data terms, then check the recurrence
 n, where D is the dimension of this machine. By Cayley-Hamilton that proves it for every later n."""
 import json, re, sys, itertools, glob, os
 CERTS = sys.argv[1]
+# Entries whose name this program does not parse and that are allowed to be skipped. Any other unparsed entry is an error.
+EXPECTED_SKIPS = {}
 WORDS = {"zero":0,"one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8,"nine":9,"ten":10,"eleven":11,"twelve":12}
 def parse(name):
+    name = re.sub(r"\s+", " ", name.replace("_", " ").strip())   # some names write n_X_4 with underscores
     m = re.match(r"Number of\s+(n|\d+)\s*X\s*(n|\d+)\s+(binary|0\.\.(\d+)) arrays with some element plus some (.+?) adjacent neighbor totalling (\w+) (no more than once|not more than once|exactly once)\.?$", name)
     if not m: return None
     a, b, alpha, top, nb, tot, mode = m.groups()
@@ -61,17 +64,24 @@ def prove(cert):
     zeros = len(res) - (last_bad + 1)
     start_n = (last_bad + 1) + d + off
     if zeros < D: return f"NOT PROVED: only {zeros} consecutive zero residuals, need {D}"
-    claimed = cert.get("proof", {}).get("start_n", cert.get("start_n"))
+    claimed = cert.get("proof", {}).get("min_start")
+    if claimed is None: return "NO CLAIMED START in certificate (proof.min_start missing)"
+    if int(claimed) != start_n: return f"START MISMATCH: this program proves n >= {start_n}, certificate says {claimed}"
     return f"PROVED for all n >= {start_n} (machine dimension {D}, {zeros} consecutive zero residuals, {len(data)} OEIS terms matched, order {d})"
 picked = {}
+unparsed = []
 for p in sorted(glob.glob(os.path.join(CERTS, "A*.json"))):
     c = json.load(open(p)); sp = parse(c["name"])
-    if sp is None: print("unparsed name:", c["oeis_id"], c["name"]); continue
+    if sp is None:
+        print("unparsed name:", c["oeis_id"], c["name"]); unparsed.append(c["oeis_id"]); continue
     if sp["q"] ** sp["k"] > 260: continue
     key = (frozenset(sp["kinds"]), sp["q"], sp["exact"], c["name"].split()[2][0] == "n" or c["name"].split()[2] == "n")
     picked.setdefault(key, c)
 print(f"{len(picked)} entries chosen, one per (neighbour set, alphabet, mode) among those with at most 260 row states")
 bad = 0
+if not picked: print("ERROR: no entry chosen"); sys.exit(1)
+unexpected = [e for e in unparsed if e not in EXPECTED_SKIPS]
+if unexpected: print("ERROR: unparsed entries not listed as expected skips:", ", ".join(unexpected)); bad += len(unexpected)
 for key, c in sorted(picked.items(), key=lambda kv: kv[1]["oeis_id"]):
     r = prove(c); print(c["oeis_id"], "|", c["name"][10:95], "|", r)
     if not r.startswith("PROVED"): bad += 1

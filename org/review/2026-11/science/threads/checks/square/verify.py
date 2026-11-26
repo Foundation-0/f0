@@ -165,7 +165,8 @@ def make_machine(k, q, kinds, t):
     # dense matrices are int8 (nOm^2 bytes each, two of them): use them up to 20000 rows in Omega
     rows = rows_of(k, q); w = inside(rows, kinds, t)
     nOm = int((w <= 1).sum())
-    if nOm <= 20000: return Dense(k, q, kinds, t)
+    limit = int(os.environ.get("SQUARE_DENSE_MAX", "20000"))   # raise to force the dense engine on a big machine
+    if nOm <= limit: return Dense(k, q, kinds, t)
     return Tensor(k, q, kinds, t)
 
 # ------------------------------------------------------------------ the checks

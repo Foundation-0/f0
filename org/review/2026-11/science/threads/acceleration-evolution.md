@@ -53,7 +53,9 @@ Outer rotation speeds, where the baryonic acceleration is below 0.3 a0, for 50 t
 
 ## Rerun
 
-Programs and saved outputs are in `checks/accel/`. The fit takes about 45 minutes on one core. The 100-galaxy table was typed in from an image of the paper's table and checked by a second reading. The two agreed on 1,295 of 1,300 cells, and the five were resolved on enlarged images.
+Programs and saved outputs are in `checks/accel/`. The fit takes about 6 minutes in the check script (the review recorded about 45 minutes on a loaded machine). `python3 checks/check_all.py --full` re-runs it and compares the saved output byte for byte. The KMOS3D bound needs the table that `checks/gravity/fetch_sources.py` downloads.
+
+The 100-galaxy table was typed in from an image of the paper's table and checked by a second reading. The two agreed on 1,295 of 1,300 cells, and the five were resolved on enlarged images. The second reading is saved output, not re-runnable here, because the page images are not in the folder. `check_transcription.py` re-runs the internal consistency check of the table.
 
 ## Not verified
 

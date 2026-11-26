@@ -32,7 +32,7 @@ The 11 balance points, to five decimals, with their index:
 (-0.00088, +0.00615, +0.00431)  1
 ```
 
-Anyone can test a listed point with a few lines of code: the field there is zero to the digits shown, and the signs of the three Hessian eigenvalues give the index. Rounding to four decimals leaves 9 and to three leaves 5.
+Anyone can test a listed point with a few lines of code: the field there is zero to the digits shown, and the signs of the three Hessian eigenvalues give the index. Rounding the unrounded source `flat-route/fat2.json` to four decimals with `verify/short_cert.py` leaves 9, and to three leaves 5. Rounding the printed table again to four decimals leaves 7, because ties such as -0.20165 then round the other way (`../pr58-trust/four/NOTE.md`).
 
 ## The two configurations
 
@@ -53,9 +53,10 @@ Anyone can test a listed point with a few lines of code: the field there is zero
 | `indep_count.py`, run with `-O` | exactly N, by covering the whole region with boxes that hold no zero | 11, from 36,897 boxes | 11, from 33,873 boxes |
 | the repository's `verify_arb.py` | exactly N | VERIFIED 11 | VERIFIED 11 |
 | `lower_bound_check.py`, new | at least N | 11 | 11 |
+| `../pr58-trust/four/check.py`, written later without reading the three above, standard library only, no floating point | exactly N | 11 | 11 |
 
 - `indep_count.py` reads only the sites and the charges. It is the third checker from `point-charges.md`.
-- `verify_arb.py` is the repository's own verifier at the pinned head. It was run without `-O`, because at that head its checks are `assert` statements.
+- `verify_arb.py` is the point-charges repository's own verifier. At the pinned head its checks are `assert` statements, so there it was run without `-O`. Its corrected form, from pull request 22 of that repository, is copied into `checks/charges/repo_verifier/` so that this folder holds both exact programs. The copy passes all three configurations under `-O`. The output is `checks/charges/out/repo_verifier_fixed_under_O_on_four.txt`.
 - `lower_bound_check.py` was written for this result without reading the other two. It finds its own candidates, then proves one zero in each small cube with the Krawczyk test in ball arithmetic, and fixes the index from the sign of the determinant.
 
 [F] Controls, all of which fail as they should:
@@ -88,7 +89,7 @@ Anyone can test a listed point with a few lines of code: the field there is zero
 
 [F] At the centre of a regular tetrahedron of equal charges the potential is 4/√3 + (20√3/27) xyz - (14√3/243) K4 + higher terms, with K4 = x⁴ + y⁴ + z⁴ - 3(x²y² + y²z² + z²x²). The linear and quadratic terms vanish.
 
-[F] That centre is a balance point of multiplicity exactly 11. The dimension count that gives the multiplicity runs 7, 10, 11, 11 and stays there, for the true series and not only for a truncation. `checks/four/jet-route/milnor.py` computes it.
+[F] That centre is a balance point of multiplicity exactly 11. The dimension count that gives the multiplicity runs 7, 10, 11, 11 and stays there, for the true series and not only for a truncation. `checks/four/jet-route/milnor.py` computes it. [F] The germ is Arnold's hyperbolic singularity T(4,4,4): its cubic part is a multiple of xyz and its quartic part is non-zero on each axis, and T(p,q,r) has Milnor number p + q + r - 1 = 11. A Groebner basis computation agrees: 27 critical points of the 4-jet in all, 16 of them simple and away from the centre (`../pr58-trust/four/T444.md`).
 
 [F] Numerically the centre is the only balance point of the regular tetrahedron, from 20,000 starts. So 11 is the most this one point could give, and the question was whether all 11 can be made real at once.
 
@@ -137,16 +138,20 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 - [P] arXiv:2607.27197, 29 July 2026: five charges with at least 24 balance points, and 3 + 2m charges with at least 4 + 20m. It does not treat four charges.
 - [P] arXiv:2607.28785: three positive charges have at most 6.
 - [P] A 2022 paper gives nine balance points for four charges in a plane, which meets the bound.
-- [P] arXiv:2501.05315 treats the centre of the regular tetrahedron as degenerate and says only that it splits into three saddles.
+- [P] arXiv:2501.05315 (Proc. London Math. Soc. 132 (2026) e70163) treats the centre of the regular tetrahedron as degenerate. It reads its local homology as "consistent with three 2-saddles co-located at its center" and also "with one minimum, four 1-saddles, and six 2-saddles co-located at the center", 11 in all, and prefers the second reading. It calls 3 a lower bound for the unfolding and does not realise more. [I] A Coulomb potential has no minimum, so that split cannot occur here; the certified split is 7 and 4 with no minimum.
+- [P] Gabrielov, Novikov and Shapiro, "Mystery of point charges" (Proc. London Math. Soc. 95 (2007); arXiv:math-ph/0409009): "already for a regular tetrahedron the number of effective cells is 11, which is greater than the Maxwell's bound 9. Thus a stronger version of Maxwell's conjecture in R3 fails". That is for their potential with exponent alpha large. The Coulomb potential is alpha = 1/2 in their notation, and their 11 include a minimum.
 
-[F] Searches on 15 November 2026 found no report of more than 9 for four charges, and none of the multiplicity 11. That is "no earlier report found". It is not proof that the result is new.
+- [P] arXiv:2609.00336 bounds the critical points along a line by 2n - 1. arXiv:2609.03965 treats whether the number of balance points is always finite. Neither gives a count for four charges. [P] Its Theorem 1.1 proves the set of balance points finite for any nonzero charges at distinct sites, with at most 2^(N-4)(N-1)(9N² + 9N + 10) of them where the sum of q_i/|x - a_i|³ is non-zero, which for charges of one sign is everywhere, and with no genericity or non-degeneracy assumption. For four charges that is at most 570, the best explicit upper bound found.
 
-[I] If the result holds, four is the smallest number of charges at which Maxwell's bound is known to fail. For three charges the bound is 4 and the proved limit is 6.
+[F] Searches on 15 November 2026, repeated after the team review noted that novelty had not been checked, found no report of more than 9 for four charges with the Coulomb potential. [P] The count 11 at the regular tetrahedron is in print, for a related potential and as a reading of the degenerate centre (the two items above); a later check that read the full texts found both (`../pr58-trust/LITERATURE.md`). None names the multiplicity 11 or the type T(4,4,4). That is "no earlier report found". It is not proof that the result is new. The papers were read from their abstracts, and the two September papers only from search summaries.
+
+[I] If the result holds, four is the smallest number of charges at which Maxwell's bound is known to fail for the Coulomb potential. For three charges the bound is 4 and the proved limit is 6.
 
 ## Not verified
 
 - Nothing here shows that 11 is the largest count for four charges. The surveys of the flat family are numerical.
-- The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine.
+- The two derivative bounds that `indep_count.py` relies on are proved by hand, not by machine. The proofs are written out in `checks/charges/LEMMAS.md`, with the other steps of the count. The later checker in `../pr58-trust/four/` does not use them.
+- `indep_count.py` and `lower_bound_check.py` both use the python-flint library for ball arithmetic. A fault in that library would affect both.
 - That the regular tetrahedron has only one balance point is numerical.
 - The degree argument is a sketch. The certified counts do not depend on it.
 - The wall traces and the width table are numerical.
@@ -181,11 +186,11 @@ The derivation is in the header of `checks/four/flat-route/flat_param.py`. The s
 
 ## Rerun
 
-From `checks/four/`, with python-flint and NumPy installed. The first two commands need `indep_count.py` from `checks/charges/` and the repository's `verify_arb.py` at the pinned head.
+From `checks/four/`, with python-flint and NumPy installed. Every program named is in this folder.
 
 ```
 python3 -O ../charges/indep_count.py verify/n4_eleven_flat.json out.json
-python3 verify_arb.py verify/n4_eleven_flat.repo.json
+python3 -O ../charges/repo_verifier/verify_arb.py verify/n4_eleven_flat.repo.json
 python3 -O verify/lower_bound_check.py verify/n4_eleven_short.json 11
 python3 -O verify/lower_bound_check.py verify/n4_eleven_flat.json 11
 python3 -O verify/lower_bound_check.py jet-route/n4_eleven_b12.json 11

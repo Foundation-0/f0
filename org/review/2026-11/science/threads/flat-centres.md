@@ -32,7 +32,7 @@ So O is flat to order k, meaning every derivative of order 1 to k vanishes, exac
 
 Near a centre that is flat to order k the potential starts with a harmonic form F of degree k + 1. Moving the charges adds harmonic terms of every lower degree. The balance points near the centre are the real critical points of F plus those terms. They solve three equations of degree k, so there are at most k³.
 
-For the tetrahedron the cubic is degenerate, which is why the centre gives 11 and not 8.
+For the tetrahedron the cubic term is xyz, whose gradient vanishes along all three axes. So the cubic alone does not isolate the centre, and the quartic term adds one point along each axis: 8 + 3 = 11.
 
 [I] The row that stands out is the icosahedron. If most of its 125 could be made real, twelve charges would pass the best known count of 89. All 125 would pass Maxwell's bound of 121, which nothing known reaches from 10 charges up.
 
@@ -51,7 +51,7 @@ f = K4/3 - 0.00008 (x + y + z) + 0.0019 (xy + yz + zx) + 3.7 xyz
 - [F] Every term is harmonic, and the leading term is the octahedron's. The lower terms are unchanged by the turn that sends x to y to z.
 - [F] `checks/kflat/verify/quartic27_check.py`, written for this review, proves 27 real and simple critical points for these coefficients, with 16 of one index and 11 of the other. It finds its own candidates and encloses each in a cube by a ball-arithmetic test. The check that f is harmonic is exact.
 - [F] The thread found the model with nine-digit coefficients and certified it with its own interval prover. The two-digit version above is a rounding of it, and it still passes.
-- [F] The points sit at three distances: 8 within 0.03 of the origin, 3 near 0.09 and 16 between 2.2 and 2.7. The 8 come from the cubic part and the other 19 from the quartic.
+- [F] The points sit at three distances: 8 within 0.031 of the origin, 3 near 0.09 and 16 between 2.2 and 2.7. The 8 come from the cubic part and the other 19 from the quartic.
 
 So the earlier climbs, which stalled at 17, were stuck. With the cubic that also has all 8 real, both degrees so far reach the full count.
 
@@ -119,4 +119,5 @@ They need NumPy, mpmath and python-flint. `polysys.py` is the solver the first r
 - The counts for degrees 5 and 6 rest on the thread's prover alone.
 - That the octahedron and icosahedron have no balance point other than the centre is from random starts.
 - The step from the polynomial model to actual charges was done only for order 2, and in the growth thread for stacked levels.
+- [P] For cubic polynomials in three variables in general, eight real critical points is the known maximum, and the cases that reach it are classified (arXiv:2404.17891). So the cubic with 8 is in known territory. No source was found for harmonic polynomials of higher degree.
 - The thread's literature search found no result on the largest number of real critical points of a harmonic polynomial in three variables that is not homogeneous. For the homogeneous case on the sphere a count of 2(d² - d + 1) is published. That is not proof the quartic is new.

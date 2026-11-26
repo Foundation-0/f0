@@ -88,7 +88,7 @@ def contract(v, offsets, q, k, t, J):
     offsets: tuple of d in {-1,0,1}.  Column by column: introduce Y_j, sum out X_{j-1}.
     No residue is ever multiplied by a residue: only sums of at most q entries, so |value| <= q*max|input|."""
     B, C, N = v.shape
-    assert C == J + 1 and N == q**k
+    if not (C == J + 1 and N == q**k): raise ValueError("contract: bad input shape")
     state = v.reshape(B, C, 1, 1, N)                  # (B,C, q^j, X, q^(k-j))
     hasA = -1 in offsets; hasV = 0 in offsets; hasD = 1 in offsets
     for j in range(k):

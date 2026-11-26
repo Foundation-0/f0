@@ -1,0 +1,63 @@
+== Part 1: nonlinear collapse scale at z=0 ==
+  EH98 no-wiggle (the form the claim uses)     R*=3.3483 Mpc  M*=6.240e+12 Msun  V200=262.46  sigma*=185.59 km/s
+  EH98 full, with baryon oscillations          R*=3.3724 Mpc  M*=6.377e+12 Msun  V200=264.36  sigma*=186.93 km/s
+  -- convention sensitivity (no-wiggle shape) --
+    Delta=200 crit (claim)               sigma*= 185.59 km/s  (M*=6.24e+12)
+    Delta=200 mean                       sigma*= 153.10 km/s  (M*=6.24e+12)
+    Delta=500 crit                       sigma*= 216.21 km/s  (M*=6.24e+12)
+    Delta=102 crit (virial, LCDM z=0)    sigma*= 165.89 km/s  (M*=6.24e+12)
+    delta_c=1.676 (LCDM z=0)             sigma*= 187.86 km/s  (M*=6.47e+12)
+    sigma8=0.8051                       sigma*= 182.78 km/s
+    sigma8=0.8111                       sigma*= 185.59 km/s
+    sigma8=0.8171                       sigma*= 188.41 km/s
+    sigma8=0.7600                       sigma*= 162.02 km/s
+    sigma8=0.8300                       sigma*= 194.52 km/s
+    z=0.5: sigma*=114.37 km/s
+    z=1.0: sigma*=69.92 km/s
+    z=3.0: sigma*=11.36 km/s
+    z=5.0: sigma*=2.22 km/s
+== Part 2: the other scales and what they depend on ==
+  Milgrom (G Mb a0)^(1/4): Mb=3e+10 -> 147.85 km/s
+  Milgrom (G Mb a0)^(1/4): Mb=6e+10 -> 175.82 km/s
+  Milgrom (G Mb a0)^(1/4): Mb=1e+11 -> 199.77 km/s
+  cooling scale at Delta=  200:    35.68 km/s   (ratio to Delta: 0.17842)
+  cooling scale at Delta=  500:    89.21 km/s   (ratio to Delta: 0.17842)
+  cooling scale at Delta= 1000:   178.42 km/s   (ratio to Delta: 0.17842)
+  cooling scale at Delta= 2500:   446.06 km/s   (ratio to Delta: 0.17842)
+== Part 3: the 60-system test ==
+  rows: 126 clean: 60 {'Angus2008_Xray': 26, 'Kettula2015_WL': 28, 'Mistele2024_KiDS_WL': 4, 'SPARC_HSB': 2}
+  sigma_J=185.59, dust=8.524: chi2 with R_acc  (what the scripts compare):    60.26  (N=60)
+  sigma_J=185.59, dust=8.524: chi2 with R_mass (what the data table holds):   256.53  (N=60)
+  profile over sigma_J (clean 60):
+   sigJ   chi2[R_acc]  chi2[R_mass]
+   130.00      77.66      343.87
+   150.00      67.66      301.16
+   170.00      62.56      273.12
+   180.00      60.85      261.75
+   185.59      60.26      256.53
+   190.00      60.07      253.18
+   200.00      60.50      247.77
+   220.00      62.76      240.23
+   250.00      67.29      228.87
+   300.00      79.28      213.17
+   350.00     100.17      205.45
+   400.00     128.93      212.27
+   500.00     175.65      210.02
+  model ratios at sigma_J=185.59:
+   sigma  g_tot/a0   R_acc   R_mass
+     200    0.086   1.087   1.175
+     250    0.135   1.349   1.763
+     300    0.194   1.578   2.344
+     400    0.346   1.991   3.471
+     600    0.778   2.721   5.419
+     800    1.383   3.365   6.849
+    1000    2.161   3.944   7.831
+    1300    3.651   4.707   8.730
+  data table, binned median R by sigma (clean 60):
+      60-  150  n= 2  median R= 1.008  cats=['Mistele2024_KiDS_WL']
+     150-  230  n= 4  median R= 1.009  cats=['Mistele2024_KiDS_WL', 'SPARC_HSB']
+     230-  390  n= 4  median R= 2.314  cats=['Angus2008_Xray']
+     390-  600  n=11  median R= 2.778  cats=['Angus2008_Xray', 'Kettula2015_WL']
+     600-  900  n=14  median R= 3.563  cats=['Angus2008_Xray', 'Kettula2015_WL']
+     900- 1200  n=21  median R= 4.555  cats=['Angus2008_Xray', 'Kettula2015_WL']
+    1200- 1500  n= 4  median R= 5.248  cats=['Kettula2015_WL']

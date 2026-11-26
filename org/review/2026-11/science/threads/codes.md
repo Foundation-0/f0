@@ -8,7 +8,7 @@ The repository shows that a standard method, the Delsarte linear programming bou
 
 ## Result
 
-Table values were read from codetables.de on 15 November 2026. An entry "improves" when the method proves that no code exists at the upper distance the table shows.
+Table values were read from codetables.de on 15 November 2026. Those saved pages (`t7.html`, `t8.html`, `t9.html`) are not in this folder. `SOURCES.md` records their size and checksum, and says the exact address was not recorded in the scripts. The address under Rerun is a reconstruction. An entry "improves" when the method proves that no code exists at the upper distance the table shows.
 
 | Field | Open entries tested | Entries improved | Base entries |
 |---|---|---|---|
@@ -16,9 +16,11 @@ Table values were read from codetables.de on 15 November 2026. An entry "improve
 | GF(8), length up to 130 | 7,202 | 1,408 | 62 |
 | GF(9), length up to 130 | 7,265 | 916 | 48 |
 
-A base entry is one the method proves directly. The other improved entries follow from base entries by the standard rules listed below.
+A base entry is one the method proves directly. The other improved entries follow from base entries by the standard rules listed below. `improved_cells.csv` has 2,879 rows because it also keeps 461 GF(9) entries where the table disagrees with its own neighbours. The headline 2,418 (94 + 1,408 + 916) removes those 461.
 
-- [F] Every direct proof is an exact certificate. There are 1,519 certificate entries in all. All 1,519 pass three exact checkers: the two written with the scan, and the checker written earlier for the science pass (`checks/delsarte_independent.py` on draft PR 51).
+- [F] Every direct proof is an exact certificate. There are 1,519 certificate entries in all. All 1,519 pass `verify_certs.py` and `verify_binomial.py` from this folder. A third checker, `delsarte_independent.py`, lives on pull request 51 and is not in this checkout, so only its stored output (`verify_codes.out`) is here.
+- [F] The finder `build_certs.py` filters its output with `verify_certs.py`, so that pass is by construction and not independent. The in-folder check that uses a different formula is `verify_binomial.py`, which sums Krawtchouk terms by the binomial formula. It does not compare the bound size.
+- [F] What can be re-derived from this checkout: the 1,519 certificates. What rests on the saved copy of the reference tables, which is not here: the 2,418 total, the gap counts, every table bound and the 531 GF(9) inconsistent entries.
 - [F] Nine entries chosen at random were looked up live a second time. All nine match the values the scan used.
 - [F] All 18 statements in the repository appear in the scan with the same bounds.
 - [I] The counts are lower limits. The floating-point search returned nothing usable for several thousand entries, and those were not pursued.
@@ -39,7 +41,7 @@ The first and fourth are the repository's two base facts. The other ten are new 
 - [F] Maruta's published tables cover dimension 4 only for these fields. The base entries above have dimension 8 or more.
 - [I] No earlier report of these exclusions was found. The search was about ten web queries. Two papers by Daskalov and co-authors could not be read. So this is "no earlier report found", not a priority claim.
 
-The method is fifty years old. What is new, if anything, is that nobody has run it across these tables and sent in the result.
+The method is the Delsarte linear programming bound (Delsarte, Philips Research Reports Supplement 10, 1973). It is fifty years old. What is new, if anything, is that nobody has run it across these tables and sent in the result.
 
 ## The rules used to extend a base entry
 
@@ -56,7 +58,7 @@ python3 -I -O verify_binomial.py certs/gf7_certs.json
 python3 verify_codes.py <path to delsarte_independent.py> .
 ```
 
-The scan needs NumPy and SciPy. The three checkers need only the standard library. `improved_cells.csv` lists every improved entry and `base_cells.csv` the 122 base entries.
+The scan needs NumPy and SciPy. The two in-folder checkers need only the standard library, and the third (on pull request 51) is not in this folder. `improved_cells.csv` lists every improved entry and `base_cells.csv` the 122 base entries.
 
 ## Not verified
 

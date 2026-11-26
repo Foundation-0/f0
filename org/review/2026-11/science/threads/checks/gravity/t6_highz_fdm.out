@@ -49,6 +49,6 @@ galaxies with obs f_DM >= model A prediction: 0 of 41; >= model B (evolving): 2;
 obs total/baryon inside R_e = 1/(1-f_DM): median 1.33, max 10.00; model A floor 1+R f_trap = 9.3, model B floor 4.9
   -> for model A to hold, M_bar would have to be overestimated by a factor ~ (nu+Rf)/(1/(1-f_DM)); median: 7.2
 
-== Ubler+2017 KMOS3D (V_circ,max, logMbar): offset d = log V - 0.25 log(G Mb a0) relative to SPARC c0 = 0.0327 (gravity thread t2)
+== Ubler+2017 KMOS3D (V_circ,max, logMbar): offset d = log V - 0.25 log(G Mb a0) relative to SPARC c0 = 0.0327 (gravity/t2)
   z 0.6-1.1 (median 0.90, n=65, median V 239): observed offset median +0.138, mean +0.127 +/- 0.011 dex; model A extra offset at y=0.3,1,3: +0.29, +0.36, +0.41; model B: +0.18, +0.23, +0.27
   z 1.9-2.7 (median 2.23, n=46, median V 257): observed offset median +0.099, mean +0.085 +/- 0.014 dex; model A extra offset at y=0.3,1,3: +0.33, +0.40, +0.45; model B: +0.21, +0.27, +0.31
