@@ -1,0 +1,3274 @@
+{
+ "lost": [
+  {
+   "repo": "cfrp-strengthening",
+   "pr": 15,
+   "title": "Checker: audit fixes stacked on #7 (0.60 f'c, substrate gate, sustained live load, validation, every equilibrium, stress-only FRP clamp)",
+   "merged": "2026-10-28T04:48",
+   "author": "ahrazzle",
+   "unmatched_commits": 10,
+   "files": 7,
+   "files_identical_on_main": 0
+  },
+  {
+   "repo": "incentre-lattices",
+   "pr": 28,
+   "title": "Propose an exact continuous cab-to-fcc motion with increasing density",
+   "merged": "2026-10-13T08:42",
+   "author": "ahrazzle",
+   "unmatched_commits": 6,
+   "files": 17,
+   "files_identical_on_main": 6
+  }
+ ],
+ "clobber_commits": [
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "4059fc1e4",
+   "date": "2026-11-13T04:20",
+   "author": "orda-aska",
+   "subject": "Purge inverted-control rows and update genuine Gaia DR4 readiness tables [skip ci]",
+   "lines": 3602,
+   "files": [
+    "results/CONVERGENCE_REPORT.md",
+    "results/convergence_certificates.json",
+    "results/eumemic_gaia_dr4_readiness.csv",
+    "results/platinum_followup_targets.csv"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "fractals",
+   "sha": "e13792cee",
+   "date": "2026-10-18T12:34",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #29 from orda-aska/site/f0-quality",
+   "lines": 312,
+   "files": [
+    "gravitational-atom/index.html",
+    "index.html"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "proven-commons",
+   "sha": "903c1858b",
+   "date": "2026-10-28T00:15",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #7 from Foundation-0/claude/brave-knuth-x3bkfi",
+   "lines": 243,
+   "files": [
+    ".github/workflows/ci.yml",
+    "Anthology.lean",
+    "README.md",
+    "lakefile.toml",
+    "scripts/build-all.sh",
+    "scripts/check-consistency.py",
+    "scripts/update-pins.py"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "f0",
+   "sha": "0c89220aa",
+   "date": "2026-10-15T04:52",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #5 from aska-digital/foundation0-logo",
+   "lines": 214,
+   "files": [
+    "README.md",
+    "docs/404.html",
+    "docs/assets/README.md",
+    "docs/assets/f0.css",
+    "docs/assets/favicon.svg",
+    "docs/assets/radiant.js",
+    "docs/charter/futures.json",
+    "docs/charter/index.html",
+    "docs/commons/index.html",
+    "docs/index.html",
+    "docs/instruments/index.html",
+    "docs/instruments/page.js",
+    "docs/ledger/index.html",
+    "docs/research/exoplanets/index.html",
+    "docs/research/gf2m-circuits/index.html",
+    "docs/research/incentre-lattice/index.html",
+    "docs/research/index.html",
+    "docs/research/integer-multiplication/index.html",
+    "docs/research/integer-multiplication/live/index.html",
+    "docs/research/integer-multiplication/live/method.html",
+    "docs/research/integer-multiplication/story/index.html",
+    "docs/research/machine-mathematics/index.html",
+    "docs/research/mobius-x1/index.html",
+    "docs/writing/index.html",
+    "scripts/og/og.html",
+    "story-src/build.py"
+   ],
+   "nfiles": 26
+  },
+  {
+   "repo": "gravity",
+   "sha": "fcef36e23",
+   "date": "2026-11-11T11:04",
+   "author": "Orda",
+   "subject": "Refactor wave4_unified_field_solver for clarity",
+   "lines": 209,
+   "files": [
+    "wave4_unified_field_solver.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "9533361a3",
+   "date": "2026-10-12T10:39",
+   "author": "Ahraz Arifuddin",
+   "subject": "Name the author and the origin of the drawing; new signature; polish the classic pages",
+   "lines": 169,
+   "files": [
+    "codex.js",
+    "cube-pyramids.html",
+    "cube-six.html",
+    "cube-wedges.html",
+    "deeper.html",
+    "drift.html",
+    "index.html",
+    "lattice.html",
+    "origin.html",
+    "seek.html"
+   ],
+   "nfiles": 10
+  },
+  {
+   "repo": "project-asma",
+   "sha": "a52eeea12",
+   "date": "2026-11-05T11:23",
+   "author": "ahrazzle",
+   "subject": "Build an interactive biology playground and Virtual Human vision site (#52)",
+   "lines": 152,
+   "files": [
+    "404.html",
+    "CLAIMS.md",
+    "index.html",
+    "page.css"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "project-asma",
+   "sha": "49c27ea97",
+   "date": "2026-11-06T12:39",
+   "author": "Zero",
+   "subject": "Make the exploratory subset design record platform-independent and close the plan's executability gaps (#62)",
+   "lines": 141,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md",
+    "protocols/pilot-001-exploratory-subset-plan.md",
+    "registries/pilot-001-exploratory-subset-design.json",
+    "tests/test_exploratory_subset_design.py",
+    "tools/plan_exploratory_subset_design.py"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "926675167",
+   "date": "2026-11-13T01:34",
+   "author": "orda-aska",
+   "subject": "Capture Phase 3 665-candidate Gaia DR4 catalog, S1-S108 ephemerides, and cool-dwarf survey [skip ci]",
+   "lines": 139,
+   "files": [
+    "results/CONVERGENCE_REPORT.md",
+    "results/benchmark_and_null.json",
+    "results/blend_localization.csv",
+    "results/convergence_certificates.json",
+    "results/despotted_mdwarf_audit.csv",
+    "results/sibling_residual_search.csv",
+    "results/ttv_ephemeris_audit.csv",
+    "results/ttv_transit_epochs.csv"
+   ],
+   "nfiles": 8
+  },
+  {
+   "repo": "project-asma",
+   "sha": "abc2444a0",
+   "date": "2026-10-25T04:25",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #19: Integrate the code-audit and reconstruction lines (#5, #7, #10\u2013#12) with review fixes",
+   "lines": 134,
+   "files": [
+    "AGENTS.md",
+    "README.md",
+    "docs/pilot-001-independent-progress.md",
+    "docs/pilot-001-input-resolution.md",
+    "docs/pilot-001-score-verification-result.md",
+    "docs/roadmap.md",
+    "protocols/pilot-001-independent-reconstruction.md",
+    "protocols/pilot-001.md",
+    "registries/README.md",
+    "registries/sources.json",
+    "templates/pilot-001-source-request.md",
+    "tools/audit_published_cohorts.py"
+   ],
+   "nfiles": 12
+  },
+  {
+   "repo": "f0",
+   "sha": "093ac0ee7",
+   "date": "2026-10-15T01:26",
+   "author": "ahrazzle",
+   "subject": "Foundation0: the new site, with the original archived under legacy-site (#4)",
+   "lines": 133,
+   "files": [
+    "docs/story/index.html",
+    "story-src/README.md",
+    "story-src/build.py"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "e36b3798f",
+   "date": "2026-11-12T11:51",
+   "author": "Orda",
+   "subject": "Delete blend_gaia.py before VizieR upgrade [skip ci]",
+   "lines": 132,
+   "files": [
+    "blend_gaia.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "fdfe9ca13",
+   "date": "2026-11-11T17:18",
+   "author": "Orda",
+   "subject": "Remove 72-target mdwarf_hunt.py before fast 23-target K/M-dwarf pass [skip ci]",
+   "lines": 128,
+   "files": [
+    "mdwarf_hunt.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "dd6c941af",
+   "date": "2026-11-12T19:13",
+   "author": "Orda",
+   "subject": "Delete converge_io.py before direct MAST URI optimization [skip ci]",
+   "lines": 115,
+   "files": [
+    "converge_io.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "e855db6b4",
+   "date": "2026-11-11T19:19",
+   "author": "Orda",
+   "subject": "fix(wave4): add C-11 fermionic 7/8 factor, g_*S decoupling, z_nr transition, and --check mode",
+   "lines": 110,
+   "files": [
+    "wave4_unified_field_solver.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "d0cedc7ef",
+   "date": "2026-11-11T16:13",
+   "author": "Orda",
+   "subject": "Remove prior mdwarf_hunt.py before SAP-norm and spot-veto upgrade [skip ci]",
+   "lines": 108,
+   "files": [
+    "mdwarf_hunt.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "38bbf45ee",
+   "date": "2026-10-13T06:27",
+   "author": "ahrazzle",
+   "subject": "Write v2 of the preprint and a specialist outreach draft (#34)",
+   "lines": 105,
+   "files": [
+    "CITATION.cff",
+    "README.md",
+    "docs/status.md",
+    "index.html",
+    "papers/source/figures/make_figures.py",
+    "papers/source/main.tex",
+    "papers/source/refs.bib",
+    "research.html"
+   ],
+   "nfiles": 8
+  },
+  {
+   "repo": "gravity",
+   "sha": "91301dd54",
+   "date": "2026-11-11T17:31",
+   "author": "Orda",
+   "subject": "Refactor wave3 empiricafix(wave3): correct Mistele2024 lens sum to 129,027, unify a0 grid, and document caveatsl audit with improved documentation",
+   "lines": 100,
+   "files": [
+    "wave3_empirical_audit.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "82f91c85b",
+   "date": "2026-10-13T00:23",
+   "author": "ahrazzle",
+   "subject": "Publish the research update and improve site navigation (#30)",
+   "lines": 98,
+   "files": [
+    "README.md",
+    "codex.css",
+    "codex.js",
+    "cube-pyramids.html",
+    "cube-wedges.html",
+    "deeper.html",
+    "index.html",
+    "lattice.html",
+    "motion.html",
+    "open.html",
+    "seek.html"
+   ],
+   "nfiles": 11
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "98b4e46d9",
+   "date": "2026-11-12T12:00",
+   "author": "Orda",
+   "subject": "Delete converge_io.py before Cycle 1-8 sector resolver upgrade [skip ci]",
+   "lines": 89,
+   "files": [
+    "converge_io.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "87f6e33cb",
+   "date": "2026-11-12T11:45",
+   "author": "Orda",
+   "subject": "Delete despot.py before two-pass upgrade [skip ci]",
+   "lines": 85,
+   "files": [
+    "despot.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "5f3c5088f",
+   "date": "2026-11-12T14:55",
+   "author": "Orda",
+   "subject": "Delete converge.py prior to Phase 3 slim runner update [skip ci]",
+   "lines": 80,
+   "files": [
+    "converge.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "3f9b49a6f",
+   "date": "2026-11-12T06:56",
+   "author": "Orda",
+   "subject": "Reconcile CLAIMS.md with Grok audit downgrades and add Wave-9 C-23/C-24",
+   "lines": 76,
+   "files": [
+    "CLAIMS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "2b40d4e88",
+   "date": "2026-11-11T19:12",
+   "author": "Orda",
+   "subject": "fix(wave7): regenerate byte-identical wave7_group_cluster_certificates.json with sha256_canonical",
+   "lines": 70,
+   "files": [
+    "results/wave7_group_cluster_certificates.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "b9325fd1c",
+   "date": "2026-11-13T01:21",
+   "author": "Orda",
+   "subject": "Merge pull request #14 from Foundation-0/aeva/lean-duplicate-proof-repair-20261112",
+   "lines": 69,
+   "files": [
+    "SHA256SUMS",
+    "formal/Wave5StochasticForces.lean",
+    "formal/Wave6Convergence.lean",
+    "formal/Wave7ThresholdAudit.lean"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "5650d4560",
+   "date": "2026-11-12T22:41",
+   "author": "Orda",
+   "subject": "Wire catalog_665.py to purified dr4_core builder [skip ci]",
+   "lines": 65,
+   "files": [
+    "catalog_665.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "97798197f",
+   "date": "2026-11-11T13:54",
+   "author": "Orda",
+   "subject": "Remove prior frontier.py before deep-search upgrade [skip ci]",
+   "lines": 61,
+   "files": [
+    "frontier.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "73a1f06c8",
+   "date": "2026-11-11T13:26",
+   "author": "Orda",
+   "subject": "Remove corrupted workflow file",
+   "lines": 58,
+   "files": [
+    ".github/workflows/discover.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "5a8a7760b",
+   "date": "2026-10-18T07:57",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #30: lensing note: SDP.81's lump is disputed, and how lens black holes are weighed (#28); #27 review follow-ups",
+   "lines": 58,
+   "files": [
+    ".github/workflows/test.yml",
+    "CORRECTIONS.md",
+    "README.md",
+    "notes/bh-lensing.md",
+    "notes/bh-lensing.mjs"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "project-asma",
+   "sha": "01c9119a1",
+   "date": "2026-10-26T19:16",
+   "author": "Zero",
+   "subject": "Merge pull request #16: Source-adapter review follow-ups: direct tests, parse_json, failure categories, attestation gate",
+   "lines": 58,
+   "files": [
+    "R/asma_source.R",
+    "docs/pilot-001-source-adapter.md",
+    "registries/README.md",
+    "tests/test_source_data_adapter.py",
+    "tools/build_source_adapter_runtime.py",
+    "tools/source_data_adapter.py"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "72e7b1a73",
+   "date": "2026-11-11T13:20",
+   "author": "Orda",
+   "subject": "Use uv virtualenv instead of --system for astronomy dependencies",
+   "lines": 55,
+   "files": [
+    ".github/workflows/discover.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "69424f9ea",
+   "date": "2026-11-05T15:53",
+   "author": "Orda",
+   "subject": "Pilot 001 real-mode: allowlisted fetch to tmpfs + hash gate (#54)",
+   "lines": 55,
+   "files": [
+    ".github/workflows/verify.yml",
+    "docs/pilot-001-first-run-runbook.md",
+    "tests/test_pilot001_first_run.py",
+    "tools/pilot001_first_run/output_validator.py",
+    "tools/pilot001_first_run/runner.py",
+    "tools/run_pilot001_reconstruction.R"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "project-asma",
+   "sha": "a8a44d6e6",
+   "date": "2026-10-27T02:39",
+   "author": "aetherean",
+   "subject": "Merge pull request #22: Owner-attestation follow-ups (#16 review): gate study-pinned parsing, add expiry, keep the file out of Git",
+   "lines": 52,
+   "files": [
+    "docs/pilot-001-source-adapter.md",
+    "registries/README.md",
+    "tests/test_source_data_adapter.py",
+    "tools/source_data_adapter.py"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "fractals",
+   "sha": "04097025d",
+   "date": "2026-10-18T07:11",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #27: sources checked against primary records, 35 DOIs added; follow-ups from #22's review",
+   "lines": 50,
+   "files": [
+    ".github/workflows/test.yml",
+    "README.md",
+    "index.html",
+    "notes/bh-lensing.md"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "gravity",
+   "sha": "ba1a11c95",
+   "date": "2026-11-14T15:34",
+   "author": "Orda",
+   "subject": "Merge pull request #21 from Foundation-0/orda/gravity-13-wave11-12",
+   "lines": 48,
+   "files": [
+    "CHANGELOG.md",
+    "CLAIMS.md",
+    "METHODS_AND_PLAYBOOK.md",
+    "RESEARCH_NOTEBOOK_AND_REASONING.md",
+    "SHA256SUMS",
+    "index.html"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "ceb1a3439",
+   "date": "2026-10-12T12:38",
+   "author": "ahrazzle",
+   "subject": "Align site pages and research notes with results/ (fixes #4) (#9)",
+   "lines": 46,
+   "files": [
+    "matter.html",
+    "motion.html",
+    "open.html",
+    "research/1-mechanics.md",
+    "research/2-chemistry.md"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "cfrp-strengthening",
+   "sha": "01e518260",
+   "date": "2026-10-25T10:50",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #3 from Foundation-0/track1-result",
+   "lines": 45,
+   "files": [
+    "README.md",
+    "docs/status.md",
+    "tests/test_track1.py",
+    "tracks/README.md",
+    "tracks/track-1-flexure-example.md",
+    "tracks/track-1/expected.json"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "a3443d999",
+   "date": "2026-11-12T18:00",
+   "author": "Orda",
+   "subject": "Delete converge.yml to raise job timeout to 60 minutes [skip ci]",
+   "lines": 44,
+   "files": [
+    ".github/workflows/converge.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "01530dcc4",
+   "date": "2026-11-12T06:58",
+   "author": "Orda",
+   "subject": "Update README.md with honest post-audit framing and Wave-9 index",
+   "lines": 44,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "3175ed2c8",
+   "date": "2026-10-18T05:56",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #9 from Foundation-0/issue-5",
+   "lines": 43,
+   "files": [
+    "README.md",
+    "index.html",
+    "tests/checks.mjs",
+    "witness-map/model.js"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "cfrp-strengthening",
+   "sha": "5fe12f9ac",
+   "date": "2026-10-26T07:26",
+   "author": "shah",
+   "subject": "Merge pull request #16 from Foundation-0/claude/docs-audit-fixes",
+   "lines": 40,
+   "files": [
+    "NOTICE",
+    "README.md",
+    "docs/audit.md",
+    "results/track-1-flexure/PROOF.md",
+    "tracks/README.md",
+    "tracks/track-1-flexure-example.md"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "gravity",
+   "sha": "7a3b9e22a",
+   "date": "2026-11-12T07:12",
+   "author": "Orda",
+   "subject": "Reconcile CHANGELOG.md claim IDs across Waves 1-9",
+   "lines": 40,
+   "files": [
+    "CHANGELOG.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "294587a58",
+   "date": "2026-11-12T07:04",
+   "author": "Orda",
+   "subject": "Update METHODS_AND_PLAYBOOK.md with explicit parameter assumptions and Wave-9 checksum",
+   "lines": 38,
+   "files": [
+    "METHODS_AND_PLAYBOOK.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "db0a9b89a",
+   "date": "2026-11-11T18:08",
+   "author": "Orda",
+   "subject": "fix(wave3): regenerate byte-identical wave3_empirical_certificates.json",
+   "lines": 34,
+   "files": [
+    "results/wave3_empirical_certificates.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "aea9dd61f",
+   "date": "2026-10-12T14:07",
+   "author": "ahrazzle",
+   "subject": "Audit hygiene: stale docs, site numbers, checker hardening (#11)",
+   "lines": 34,
+   "files": [
+    "README.md",
+    "autoresearch-fold/PRIOR-ART-FOLD.md",
+    "autoresearch-fold/notes.md",
+    "autoresearch-fold/verify.py",
+    "autoresearch-fold/verify.sha256",
+    "certificates/SHA256SUMS",
+    "certificates/selected-results.json",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "docs/reproducibility.md",
+    "docs/status.md",
+    "index.html",
+    "matter.html",
+    "motion.html",
+    "open.html",
+    "results/fold-2d/verify.py",
+    "results/fold-3d-cubic/PROOF.md",
+    "results/fold-close-packing/certificate.json",
+    "results/rigidity-nd/verify.py"
+   ],
+   "nfiles": 19
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "82bfcd870",
+   "date": "2026-11-11T20:23",
+   "author": "orda-aska",
+   "subject": "Update live TESS Sectors 106-107 verification and discovery results [skip ci]",
+   "lines": 33,
+   "files": [
+    "results/DISCOVERIES.md",
+    "results/blind_verification_s106_s107.csv",
+    "results/campaign_summary.json",
+    "results/discovery_triggers_vetted.csv"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "project-asma",
+   "sha": "d7cce6e79",
+   "date": "2026-11-05T21:09",
+   "author": "Orda",
+   "subject": "Tighten macOS --real cross-arch gate before first run (#56)",
+   "lines": 33,
+   "files": [
+    ".github/workflows/verify.yml",
+    "docs/pilot-001-first-run-runbook.md",
+    "tests/fixtures/cross_arch_equivalence_pass.json",
+    "tests/test_pilot001_first_run.py",
+    "tools/pilot001_first_run/cross_arch_equivalence.py",
+    "tools/run_pilot001_first_run.py"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "4282d469b",
+   "date": "2026-11-12T09:45",
+   "author": "Orda",
+   "subject": "Delete CLAIMS.md before empirical update [skip ci]",
+   "lines": 32,
+   "files": [
+    "CLAIMS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "bbe429775",
+   "date": "2026-11-12T08:51",
+   "author": "Orda",
+   "subject": "Add Wave-10 assumptions, M-08 cross-epoch method, and certificate checksum",
+   "lines": 32,
+   "files": [
+    "METHODS_AND_PLAYBOOK.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "2f0f059ed",
+   "date": "2026-11-11T18:11",
+   "author": "Orda",
+   "subject": "fix(wave4): regenerate byte-identical wave4_unified_certificates.json with C-11 7/8 and z_nr fixes",
+   "lines": 29,
+   "files": [
+    "results/wave4_unified_certificates.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "88fc38df6",
+   "date": "2026-10-13T04:01",
+   "author": "ahrazzle",
+   "subject": "Correct cross-polytope family prior art and prepare specialist review (#27)",
+   "lines": 29,
+   "files": [
+    "README.md",
+    "certificates/SHA256SUMS",
+    "certificates/selected-results.json",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "docs/README-additions.md",
+    "index.html",
+    "motion.html",
+    "open.html",
+    "research/1-mechanics.md",
+    "results/rigidity-nd/PROOF.md",
+    "tools/build_certificates.py"
+   ],
+   "nfiles": 12
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "5cf931e2f",
+   "date": "2026-10-12T14:50",
+   "author": "ahrazzle",
+   "subject": "Hash-lock the second checker and the fcc path generator; derive image shifts from the lattice (#19)",
+   "lines": 29,
+   "files": [
+    "Makefile",
+    "certificates/SHA256SUMS",
+    "certificates/selected-results.json",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "results/fold-close-packing/PROOF.md",
+    "results/fold-close-packing/certificate.json",
+    "results/fold-close-packing/chk_independent.py"
+   ],
+   "nfiles": 8
+  },
+  {
+   "repo": "project-asma",
+   "sha": "48bfbb97a",
+   "date": "2026-11-04T11:04",
+   "author": "Orda",
+   "subject": "Widen Asma to open-ended ovarian cancer research; add candidate directions (#35)",
+   "lines": 29,
+   "files": [
+    "README.md",
+    "docs/mission.md",
+    "docs/roadmap.md"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "fractals",
+   "sha": "9733fe00d",
+   "date": "2026-10-18T08:16",
+   "author": "Foundation Zero",
+   "subject": "Lensing note: SDP.81's second reported anomaly (Inoue et al. 2016) (#31)",
+   "lines": 26,
+   "files": [
+    "notes/bh-lensing.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "93bc476a9",
+   "date": "2026-11-11T19:09",
+   "author": "Orda",
+   "subject": "fix(wave5): regenerate byte-identical wave5_forces_stochastic_certificates.json",
+   "lines": 26,
+   "files": [
+    "results/wave5_forces_stochastic_certificates.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "eaf627406",
+   "date": "2026-10-13T04:11",
+   "author": "ahrazzle",
+   "subject": "Propose an exact all-pairs proof of CaB6 packing attainment (#23)",
+   "lines": 26,
+   "files": [
+    "README.md",
+    "certificates/SHA256SUMS",
+    "certificates/selected-results.json",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "docs/README-additions.md",
+    "docs/audit.md",
+    "docs/status.md",
+    "index.html",
+    "matter.html",
+    "open.html",
+    "research.html",
+    "results/cab6-packing/PROOF.md",
+    "tools/build_certificates.py"
+   ],
+   "nfiles": 14
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "e84a128d7",
+   "date": "2026-10-12T09:54",
+   "author": "Ahraz Arifuddin",
+   "subject": "Add verified results, CI, certificates, landing abstract, drift pages and mobile layout",
+   "lines": 26,
+   "files": [
+    ".gitignore",
+    "README.md",
+    "codex.js",
+    "cube-pyramids.html",
+    "cube-six.html",
+    "cube-wedges.html",
+    "deeper.html",
+    "index.html",
+    "lattice.html",
+    "open.html",
+    "tracks/README.md"
+   ],
+   "nfiles": 11
+  },
+  {
+   "repo": "project-asma",
+   "sha": "c9d2ea3b6",
+   "date": "2026-11-13T00:53",
+   "author": "Zero",
+   "subject": "Record where the discovery AUROC 0.83 and the sheet value 0.80885 come from. (#89)",
+   "lines": 26,
+   "files": [
+    "CLAIMS.md",
+    "docs/google-bio-convergence-2026-11-11.md",
+    "docs/integrity-layer-2026-11-13.md",
+    "index.html",
+    "registries/claims-ledger.json",
+    "results/integrity-audit-2026-11-13/audit.json",
+    "tests/test_audit_checkers.py"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "project-asma",
+   "sha": "ee89554bb",
+   "date": "2026-11-13T00:25",
+   "author": "Zero",
+   "subject": "Reconcile the TCGA-OV 608 and 489 denominators. (#85)",
+   "lines": 26,
+   "files": [
+    "CLAIMS.md",
+    "docs/cdr2-cdr2l-evidence-atlas-2026-11-13.md",
+    "docs/integrity-layer-2026-11-13.md",
+    "index.html",
+    "registries/claims-ledger.json",
+    "results/integrity-audit-2026-11-13/audit.json",
+    "tests/test_audit_checkers.py"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "proven-commons",
+   "sha": "162f4f63d",
+   "date": "2026-10-26T15:32",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #3 from Foundation-0/claude/vibrant-fermi-kno0h5",
+   "lines": 25,
+   "files": [
+    "README.md",
+    "scripts/build-all.sh",
+    "scripts/update-pins.py"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "st0a",
+   "sha": "5e8fe82df",
+   "date": "2026-10-19T15:56",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #2 from Foundation-0/claude/dazzling-shannon-yi2pt1",
+   "lines": 25,
+   "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "README.md"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "8ed16a734",
+   "date": "2026-11-01T04:57",
+   "author": "Rohan Arun",
+   "subject": "Graph formalization of the body + explicit-solvent engine (rung 3)",
+   "lines": 24,
+   "files": [
+    "README.md",
+    "push.sh",
+    "pyproject.toml",
+    "scripts/validate_molecular.py",
+    "vh/body/pbpk.py",
+    "vh/molecular/prep.py",
+    "vh/molecular/system.py"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "3914c0be4",
+   "date": "2026-11-12T07:03",
+   "author": "Orda",
+   "subject": "Delete README.md prior to clean update [skip ci]",
+   "lines": 22,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "9e6bb8be5",
+   "date": "2026-10-27T23:47",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #24 from Foundation-0/research/pilot-001-rerun-doc-followups",
+   "lines": 22,
+   "files": [
+    "README.md",
+    "docs/pilot-001-source-adapter.md",
+    "docs/pilot-001-synthetic-validation.md",
+    "docs/roadmap.md",
+    "registries/README.md"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "fractals",
+   "sha": "fb185a1a4",
+   "date": "2026-10-18T06:13",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #22: land #6, #8, #10 and #11 with their conflicts resolved",
+   "lines": 21,
+   "files": [
+    "README.md",
+    "index.html",
+    "witness-map/model.js",
+    "witness-map/table.mjs"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "1e44cf0b6",
+   "date": "2026-10-12T11:20",
+   "author": "Ahraz Arifuddin",
+   "subject": "Retitle: One abstract drawing, a hunch followed, a thread unravelled; new preview card; Zenodo metadata",
+   "lines": 21,
+   "files": [
+    "README.md",
+    "cube-pyramids.html",
+    "cube-six.html",
+    "cube-wedges.html",
+    "deeper.html",
+    "drift.html",
+    "index.html",
+    "lattice.html",
+    "matter.html",
+    "mind.html",
+    "mirrors.html",
+    "motion.html",
+    "open.html",
+    "origin.html",
+    "seek.html",
+    "tools/og/card.html"
+   ],
+   "nfiles": 16
+  },
+  {
+   "repo": "project-asma",
+   "sha": "b8cb3f3b6",
+   "date": "2026-11-12T23:48",
+   "author": "Zero",
+   "subject": "ClinicalTrials.gov ovarian cancer landscape v2 certificate (V42) (#81)",
+   "lines": 21,
+   "files": [
+    "CLAIMS.md",
+    "docs/integrity-layer-2026-11-13.md",
+    "index.html",
+    "registries/claims-ledger.json",
+    "results/integrity-audit-2026-11-13/audit.json",
+    "tests/test_audit_checkers.py"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "vitruvian3d",
+   "sha": "e7445d56b",
+   "date": "2026-11-12T17:57",
+   "author": "Zero",
+   "subject": "Merge pull request #8 from Foundation-0/gpt-forge/research-guide",
+   "lines": 21,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "84d6fa05e",
+   "date": "2026-11-11T19:11",
+   "author": "Orda",
+   "subject": "fix(wave6): regenerate byte-identical wave6_convergence_certificates.json",
+   "lines": 20,
+   "files": [
+    "results/wave6_convergence_certificates.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "cfrp-strengthening",
+   "sha": "04012d4b5",
+   "date": "2026-10-25T03:24",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #2 from Foundation-0/track1-checker",
+   "lines": 18,
+   "files": [
+    "README.md",
+    "docs/status.md",
+    "tracks/README.md",
+    "tracks/track-1-flexure-example.md"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "fractals",
+   "sha": "73382d81f",
+   "date": "2026-10-28T03:26",
+   "author": "Zero",
+   "subject": "Merge pull request #45 from Foundation-0/claude/zealous-ptolemy-fqaarl",
+   "lines": 18,
+   "files": [
+    "critical/README.md",
+    "index.html",
+    "tests/critical.mjs"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "f4e6ef447",
+   "date": "2026-10-12T14:20",
+   "author": "ahrazzle",
+   "subject": "Align site evidence labels with PROOF.md (CaB6 packing, 2D fold uniqueness) (#18)",
+   "lines": 18,
+   "files": [
+    "deeper.html",
+    "docs/audit.md",
+    "index.html",
+    "lattice.html",
+    "matter.html",
+    "motion.html",
+    "open.html",
+    "research/1-mechanics.md"
+   ],
+   "nfiles": 8
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "0609523d5",
+   "date": "2026-10-12T15:05",
+   "author": "ahrazzle",
+   "subject": "radius-ratio: assert the premises and numbers the certificate records; check H1 numerically (#20)",
+   "lines": 17,
+   "files": [
+    "certificates/SHA256SUMS",
+    "certificates/selected-results.json",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "docs/audit.md",
+    "results/radius-ratio/PROOF.md",
+    "results/radius-ratio/certificate.json",
+    "results/radius-ratio/radius_ratio.py",
+    "results/radius-ratio/verify.py"
+   ],
+   "nfiles": 9
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "bc03ede48",
+   "date": "2026-11-12T19:58",
+   "author": "Orda",
+   "subject": "Delete CHANGELOG.md before Phase 3 update [skip ci]",
+   "lines": 15,
+   "files": [
+    "CHANGELOG.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "81aa0673c",
+   "date": "2026-10-12T12:21",
+   "author": "ahrazzle",
+   "subject": "verify-rigidity: relative tolerance, print residuals, pin BLAS threads (#8)",
+   "lines": 15,
+   "files": [
+    "certificates/SHA256SUMS",
+    "certificates/selected-results.json",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "results/rigidity-nd/certificate.json",
+    "results/rigidity-nd/rigidity_nd.py",
+    "results/rigidity-nd/verify.py"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "project-asma",
+   "sha": "ca92e2aab",
+   "date": "2026-10-27T02:00",
+   "author": "Zero",
+   "subject": "Merge pull request #23: Rerun the synthetic and source-adapter validation in the pinned images",
+   "lines": 15,
+   "files": [
+    "docs/pilot-001-source-adapter.md",
+    "docs/pilot-001-synthetic-validation.md",
+    "docs/roadmap.md",
+    "protocols/pilot-001-independent-reconstruction.md",
+    "registries/README.md"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "fractals",
+   "sha": "1fff62003",
+   "date": "2026-10-18T06:27",
+   "author": "Razi Orda",
+   "subject": "Clarify model limits and resolve the README source audit (#24)",
+   "lines": 14,
+   "files": [
+    "README.md",
+    "index.html"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "5026273df",
+   "date": "2026-11-05T18:58",
+   "author": "Orda",
+   "subject": "Pilot 001: native linux/arm64 synthetic + cross-arch equivalence (#55)",
+   "lines": 14,
+   "files": [
+    ".github/workflows/verify.yml",
+    "docs/pilot-001-first-run-runbook.md",
+    "registries/pilot-001-execution-conditions.json",
+    "registries/pilot-001-source-adapter-validation.json",
+    "registries/pilot-001-synthetic-validation.json",
+    "tests/test_pilot001_first_run.py",
+    "tools/run_pilot001_first_run.py"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "0360ce318",
+   "date": "2026-10-12T12:52",
+   "author": "ahrazzle",
+   "subject": "Add prior-art sources from issue 5 and sharpen the fold novelty statement (#7)",
+   "lines": 13,
+   "files": [
+    "README.md",
+    "docs/README-additions.md",
+    "index.html",
+    "open.html",
+    "results/fold-close-packing/PROOF.md",
+    "seek.html"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "project-asma",
+   "sha": "e33be48a9",
+   "date": "2026-11-05T10:04",
+   "author": "Orda",
+   "subject": "Record Pilot 001 Gate 0 owner decisions (2026-11-05) (#48)",
+   "lines": 13,
+   "files": [
+    "CLAIMS.md",
+    "README.md",
+    "docs/roadmap.md"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "project-asma",
+   "sha": "65f0c6af7",
+   "date": "2026-10-26T19:16",
+   "author": "Zero",
+   "subject": "Merge pull request #17: Check fitted model settings against the declaration",
+   "lines": 13,
+   "files": [
+    "R/asma_models.R",
+    "docs/pilot-001-synthetic-validation.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "2f2a36661",
+   "date": "2026-10-26T19:13",
+   "author": "Zero",
+   "subject": "Merge pull request #20: Review follow-ups for merged PRs: golden fold vectors, addendum points, data-use wording",
+   "lines": 13,
+   "files": [
+    "docs/pilot-001-data-use.md",
+    "docs/pilot-001-synthetic-validation.md",
+    "protocols/pilot-001-independent-reconstruction.md",
+    "registries/sources.json"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "5d473fe90",
+   "date": "2026-11-11T23:51",
+   "author": "orda-aska",
+   "subject": "Update discovery ledger with deep S106-S107 M-dwarf pass [skip ci]",
+   "lines": 12,
+   "files": [
+    "results/DISCOVERIES.md",
+    "results/campaign_summary.json"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "484c4c6d0",
+   "date": "2026-10-25T01:46",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #3: Record discovery-score AUROC discrepancy against the published reference",
+   "lines": 12,
+   "files": [
+    "README.md",
+    "docs/roadmap.md",
+    "protocols/pilot-001.md",
+    "templates/pilot-001-source-request.md"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "2e3c268fe",
+   "date": "2026-10-13T03:04",
+   "author": "ahrazzle",
+   "subject": "Include every result certificate and stored fold path in commitments (#25)",
+   "lines": 11,
+   "files": [
+    "Makefile",
+    "certificates/SHA256SUMS",
+    "commitment/README.md",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "tools/build_certificates.py"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "project-asma",
+   "sha": "c8844167e",
+   "date": "2026-11-12T22:46",
+   "author": "Zero",
+   "subject": "Merge pull request #80 from Foundation-0/research/integrity-layer-20261113",
+   "lines": 11,
+   "files": [
+    "CLAIMS.md",
+    "index.html",
+    "tests/test_claim_counts.py"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "project-asma",
+   "sha": "daa7cc9a3",
+   "date": "2026-10-26T19:15",
+   "author": "Zero",
+   "subject": "Merge pull request #15: Propose reconstruction amendment 1 (not adopted; owner decision required)",
+   "lines": 11,
+   "files": [
+    "R/asma_core.R",
+    "R/asma_models.R",
+    "docs/pilot-001-source-adapter.md",
+    "docs/pilot-001-synthetic-validation.md",
+    "protocols/pilot-001-independent-reconstruction.md",
+    "tools/run_source_adapter_fixture.py",
+    "tools/run_synthetic_pipeline.R"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "f0",
+   "sha": "7ecc004eb",
+   "date": "2026-10-11T17:33",
+   "author": "github-actions[bot]",
+   "subject": "data: update 2026-10-11T17:33:18Z",
+   "lines": 10,
+   "files": [
+    "data/records.json",
+    "docs/chart-data.json",
+    "docs/feed.json"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "abeb94b0a",
+   "date": "2026-10-13T03:51",
+   "author": "ahrazzle",
+   "subject": "Propose an exact continuous cab-to-fcc motion with increasing density (#33)",
+   "lines": 10,
+   "files": [
+    "Makefile",
+    "README.md",
+    "certificates/SHA256SUMS",
+    "commitment/ROOT",
+    "commitment/SHA256SUMS",
+    "docs/status.md",
+    "tracks/README.md"
+   ],
+   "nfiles": 7
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "627ec4b44",
+   "date": "2026-10-12T15:17",
+   "author": "shah",
+   "subject": "Fold at m = 1: close packing (hcp and fcc) in the smallest cell (#2)",
+   "lines": 10,
+   "files": [
+    "Makefile",
+    "README.md",
+    "docs/audit.md",
+    "docs/status.md",
+    "results/fold-close-packing/PROOF.md",
+    "tracks/README.md"
+   ],
+   "nfiles": 6
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "3c209bb9d",
+   "date": "2026-10-12T12:48",
+   "author": "ahrazzle",
+   "subject": "fold search: bound stage B by steps, pin BLAS threads, correct reproducibility claims (#10)",
+   "lines": 10,
+   "files": [
+    "autoresearch-fold/PRIOR-ART-FOLD.md",
+    "autoresearch-fold/search.py",
+    "docs/audit.md",
+    "docs/reproducibility.md",
+    "results/fold-close-packing/PROOF.md"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "physics0",
+   "sha": "fb3ce4472",
+   "date": "2026-10-18T17:31",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #9 from Foundation-0/claude/sleepy-pasteur-k5knht",
+   "lines": 10,
+   "files": [
+    "AREAS.md",
+    "README.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "e448af3fc",
+   "date": "2026-10-26T19:17",
+   "author": "Zero",
+   "subject": "Merge pull request #21: Narrow five open Pilot 001 questions; record 64-panel coverage in the validation feature lists",
+   "lines": 10,
+   "files": [
+    "docs/pilot-001-independent-progress.md",
+    "docs/pilot-001-synthetic-validation.md",
+    "protocols/pilot-001-independent-reconstruction.md",
+    "registries/README.md"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "c43ebb609",
+   "date": "2026-10-12T10:46",
+   "author": "Ahraz Arifuddin",
+   "subject": "Keep the origin story on the Drift page only; retitle; stop the subtitle repeating the abstract",
+   "lines": 9,
+   "files": [
+    "README.md",
+    "cube-six.html",
+    "deeper.html",
+    "index.html",
+    "origin.html"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "project-asma",
+   "sha": "fc8fcaaf5",
+   "date": "2026-11-05T13:31",
+   "author": "Zero",
+   "subject": "Show the Gate 0 decisions and treatment-sequence test on the site (#51)",
+   "lines": 9,
+   "files": [
+    "index.html",
+    "page.css"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "aa944ef8e",
+   "date": "2026-11-05T13:56",
+   "author": "Orda",
+   "subject": "Rebase Pilot 001 first-run runner (#50) onto post-#51 main (#53)",
+   "lines": 8,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md",
+    "tools/ci_run_offline_checks.py"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "56c052ab4",
+   "date": "2026-11-11T21:41",
+   "author": "orda-aska",
+   "subject": "Update discovery ledger with deep S106-S107 M-dwarf pass [skip ci]",
+   "lines": 7,
+   "files": [
+    "results/DISCOVERIES.md",
+    "results/campaign_summary.json"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "f0",
+   "sha": "8f44e047f",
+   "date": "2026-10-11T17:01",
+   "author": "github-actions[bot]",
+   "subject": "data: update 2026-10-11T17:01:57Z",
+   "lines": 6,
+   "files": [
+    "data/records.json",
+    "docs/chart-data.json",
+    "docs/feed.json"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "gravity",
+   "sha": "d1444481c",
+   "date": "2026-11-12T19:10",
+   "author": "Orda",
+   "subject": "Wave 12: update 36-file SHA256SUMS manifest across Waves 1-12",
+   "lines": 6,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "70a1204a5",
+   "date": "2026-11-12T15:31",
+   "author": "Orda",
+   "subject": "Wave 12: index Wave 12 solver, Lean target & C-31..C-33 in README.md",
+   "lines": 6,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "af6cc9b94",
+   "date": "2026-11-06T03:49",
+   "author": "Zero",
+   "subject": "Pre-registered exploratory analysis plan for the 13/8 frozen subset (#59) (#61)",
+   "lines": 6,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md",
+    "index.html",
+    "paper/manuscript.md"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "project-asma",
+   "sha": "290af9d05",
+   "date": "2026-11-05T09:44",
+   "author": "ahrazzle",
+   "subject": "Test surgical-removal assumptions behind treatment-sequence models (#47)",
+   "lines": 6,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md",
+    "index.html"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "project-asma",
+   "sha": "7b254cb45",
+   "date": "2026-10-26T09:58",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #14 from Foundation-0/research/pilot-001-panel-names",
+   "lines": 6,
+   "files": [
+    "protocols/pilot-001-independent-reconstruction.md",
+    "registries/README.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "84738bba4",
+   "date": "2026-10-25T01:46",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #4: Recover discovery input linkage and verify matrix integrity and panel coverage",
+   "lines": 6,
+   "files": [
+    "protocols/pilot-001.md",
+    "registries/README.md",
+    "registries/sources.json"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "fractals",
+   "sha": "a5fc94942",
+   "date": "2026-10-18T06:24",
+   "author": "Razi Orda",
+   "subject": "Test gravitational atom scales against the independent model (#23)",
+   "lines": 5,
+   "files": [
+    "tests/bh-lensing.mjs"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "f8030d623",
+   "date": "2026-11-12T09:01",
+   "author": "Orda",
+   "subject": "Update SHA256SUMS across all 30 Wave 1-10 tracked files",
+   "lines": 5,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "e3f4049fa",
+   "date": "2026-11-03T16:28",
+   "author": "Orda",
+   "subject": "Merge pull request #95 from Foundation-0/grk/v3-followups",
+   "lines": 5,
+   "files": [
+    "CITATION.cff",
+    "README.md",
+    "commitment/README.md",
+    "index.html",
+    "papers/source/README.md"
+   ],
+   "nfiles": 5
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "37a2ae74b",
+   "date": "2026-10-13T06:35",
+   "author": "ahrazzle",
+   "subject": "Update Zenodo metadata for v2 (#35)",
+   "lines": 5,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "4d8488eb0",
+   "date": "2026-10-12T11:08",
+   "author": "Ahraz Arifuddin",
+   "subject": "Publish the preprint: PDF and LaTeX source in papers/, linked from the landing page, Ledger, README and CITATION.cff",
+   "lines": 5,
+   "files": [
+    "CITATION.cff",
+    "README.md",
+    "index.html",
+    "open.html"
+   ],
+   "nfiles": 4
+  },
+  {
+   "repo": "project-asma",
+   "sha": "064ec17f5",
+   "date": "2026-11-06T04:04",
+   "author": "ahrazzle",
+   "subject": "Record the recruiting ovarian-cancer trial-landscape snapshot (#60)",
+   "lines": 5,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md",
+    "index.html"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "project-asma",
+   "sha": "03e8067c8",
+   "date": "2026-11-05T10:22",
+   "author": "Orda",
+   "subject": "Analyze Pilot 001 discovery AUROC discrepancy (0.80885 vs printed 0.83) (#49)",
+   "lines": 5,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "3afeb2b9b",
+   "date": "2026-11-05T08:41",
+   "author": "Zero",
+   "subject": "Merge pull request #45 from Foundation-0/codex/asma-graph-contracts",
+   "lines": 5,
+   "files": [
+    ".github/workflows/verify.yml",
+    "CLAIMS.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "vitruvian3d",
+   "sha": "7099f5cb3",
+   "date": "2026-11-12T22:13",
+   "author": "Orda",
+   "subject": "Merge pull request #10 from Foundation-0/gpt-forge/rotating-motifs",
+   "lines": 5,
+   "files": [
+    "README.md",
+    "research/replay_all.py",
+    "research/status.md"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "289240a12",
+   "date": "2026-11-12T17:02",
+   "author": "Orda",
+   "subject": "Delete broken report_v3.py [skip ci]",
+   "lines": 4,
+   "files": [
+    "report_v3.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "f0",
+   "sha": "7e28c39ae",
+   "date": "2026-10-19T15:12",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #18 from Foundation-0/claude/dazzling-shannon-yi2pt1",
+   "lines": 4,
+   "files": [
+    "docs/assets/README.md",
+    "docs/assets/f0.css"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "f0",
+   "sha": "ec1184c1f",
+   "date": "2026-10-11T16:36",
+   "author": "github-actions[bot]",
+   "subject": "data: update 2026-10-11T16:36:08Z",
+   "lines": 4,
+   "files": [
+    "data/records.json",
+    "docs/chart-data.json",
+    "docs/feed.json"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "gravity",
+   "sha": "8f96c4b24",
+   "date": "2026-11-14T16:30",
+   "author": "Orda",
+   "subject": "Merge pull request #27 from Foundation-0/orda/gravity-15-checksum-refresh",
+   "lines": 4,
+   "files": [
+    "SHA256SUMS",
+    "index.html"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "gravity",
+   "sha": "71664e1da",
+   "date": "2026-11-13T01:21",
+   "author": "Orda",
+   "subject": "Merge pull request #10 from Foundation-0/aeva/fix-wave12-chirp-bound-20261112",
+   "lines": 4,
+   "files": [
+    "CLAIMS.md",
+    "formal/Wave12QuasarCollapse.lean"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "gravity",
+   "sha": "f7a5b0434",
+   "date": "2026-11-12T08:24",
+   "author": "Orda",
+   "subject": "Update README.md with Wave-10 solver, Lean target, and reasoning notebook",
+   "lines": 4,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "603e6541a",
+   "date": "2026-10-12T12:29",
+   "author": "shah",
+   "subject": "Add exact closed forms of the hcp and fcc fold end states (m = 2) (#1)",
+   "lines": 4,
+   "files": [
+    "Makefile",
+    "docs/status.md",
+    "tracks/README.md"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "project-asma",
+   "sha": "864b8b983",
+   "date": "2026-11-06T04:17",
+   "author": "Orda",
+   "subject": "Result: CDR2/CDR2L HLA-II source evidence map (2026-11-06) (#57)",
+   "lines": 4,
+   "files": [
+    "CLAIMS.md",
+    "docs/research-continuation.md",
+    "index.html"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "project-asma",
+   "sha": "fba511ac8",
+   "date": "2026-10-25T04:26",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #7: Figure 3D code-audit addendum (neutral importance-column wording)",
+   "lines": 4,
+   "files": [
+    "docs/pilot-001-code-audit-addendum.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": ".github",
+   "sha": "d983cfdfb",
+   "date": "2026-10-18T17:07",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #1 from Foundation-0/standard-ruleset-note",
+   "lines": 3,
+   "files": [
+    "REPO-STANDARD.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "f0",
+   "sha": "9e38fd8d1",
+   "date": "2026-10-19T12:04",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #9 from Foundation-0/claude/f0-forum",
+   "lines": 3,
+   "files": [
+    "docs/research/maxwell-charges/index.html"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "9d9bb0aae",
+   "date": "2026-10-13T03:13",
+   "author": "ahrazzle",
+   "subject": "Rereview hygiene: symmetry counts, stale numbers (#31)",
+   "lines": 3,
+   "files": [
+    "README.md",
+    "autoresearch-fold/notes.md",
+    "docs/README-additions.md"
+   ],
+   "nfiles": 3
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "d16c3e1bd",
+   "date": "2026-10-12T11:00",
+   "author": "Ahraz Arifuddin",
+   "subject": "Sharpen the landing page description",
+   "lines": 3,
+   "files": [
+    "index.html"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "9931c1f07",
+   "date": "2026-11-06T13:20",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #63 from Foundation-0/fix/linux-preflight-fixture-20261106",
+   "lines": 3,
+   "files": [
+    ".github/workflows/verify.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "65f859a18",
+   "date": "2026-11-05T08:51",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #46 from Foundation-0/claude/nifty-edison-36n1jb",
+   "lines": 3,
+   "files": [
+    "index.html"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "87833057b",
+   "date": "2026-11-04T04:21",
+   "author": "Orda",
+   "subject": "Skip git-history hash-checker tests outside a git checkout (#37)",
+   "lines": 3,
+   "files": [
+    "CLAIMS.md",
+    "tools/check_implementation_hashes.py"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "ductricity",
+   "sha": "0a178a012",
+   "date": "2026-11-11T15:04",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #4 from Foundation-0/mithrax/zenodo-cc-by-text-only-6b85",
+   "lines": 2,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "f0",
+   "sha": "a92d9cab1",
+   "date": "2026-10-11T17:41",
+   "author": "github-actions[bot]",
+   "subject": "data: update 2026-10-11T17:41:15Z",
+   "lines": 2,
+   "files": [
+    "docs/chart-data.json",
+    "docs/feed.json"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "f0",
+   "sha": "f96a50a07",
+   "date": "2026-10-11T15:58",
+   "author": "github-actions[bot]",
+   "subject": "data: update 2026-10-11T15:58:53Z",
+   "lines": 2,
+   "files": [
+    "docs/chart-data.json",
+    "docs/feed.json"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "fractals",
+   "sha": "9698b22c8",
+   "date": "2026-10-18T15:38",
+   "author": "Foundation Zero",
+   "subject": "Third study: the critical point, 2D Ising and site percolation against exact results (#32)",
+   "lines": 2,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "55efcff50",
+   "date": "2026-10-18T12:31",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #25 from Foundation-0/issue-16",
+   "lines": 2,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "0b6694772",
+   "date": "2026-10-18T05:56",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #7 from Foundation-0/table-input-check",
+   "lines": 2,
+   "files": [
+    "witness-map/table.mjs"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gfq-codes",
+   "sha": "77a01d404",
+   "date": "2026-10-19T21:50",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 2,
+   "files": [
+    "AGENTS.md",
+    "README.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "gravity",
+   "sha": "ef5814f8b",
+   "date": "2026-11-13T01:39",
+   "author": "Orda",
+   "subject": "Merge pull request #22 from Foundation-0/orda/gravity-readme-index-fix",
+   "lines": 2,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "3605d72bb",
+   "date": "2026-11-13T01:02",
+   "author": "Zero",
+   "subject": "Merge pull request #16 from Foundation-0/fix/pages-js-typos",
+   "lines": 2,
+   "files": [
+    "index.html"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "68954f8b3",
+   "date": "2026-11-12T22:45",
+   "author": "Orda",
+   "subject": "Complete drawRadiant & state initialization in index.html (734 lines)",
+   "lines": 2,
+   "files": [
+    "index.html"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "4741930a7",
+   "date": "2026-11-12T18:48",
+   "author": "Orda",
+   "subject": "Wave 11-12: record Wave 11 (C-28..C-30) and Wave 12 (C-31..C-33) in CHANGELOG.md",
+   "lines": 2,
+   "files": [
+    "CHANGELOG.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "db3b51d0f",
+   "date": "2026-10-13T06:44",
+   "author": "ahrazzle",
+   "subject": "Add the v2 DOI (#36)",
+   "lines": 2,
+   "files": [
+    "README.md",
+    "index.html"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "4ea36935a",
+   "date": "2026-10-12T14:33",
+   "author": "ahrazzle",
+   "subject": "fold-close-packing: qualify the 27 degrees of freedom as the Maxwell count (#21)",
+   "lines": 2,
+   "files": [
+    "autoresearch-fold/PRIOR-ART-FOLD.md",
+    "results/fold-close-packing/PROOF.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "c016283a3",
+   "date": "2026-10-12T11:39",
+   "author": "Ahraz Arifuddin",
+   "subject": "Add Zenodo DOI (10.5281/zenodo.23322079) to README, CITATION.cff and landing page",
+   "lines": 2,
+   "files": [
+    "README.md",
+    "index.html"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "nhanes-bioimpedance",
+   "sha": "b0e8d661d",
+   "date": "2026-11-04T03:48",
+   "author": "Orda",
+   "subject": "Merge pull request #10 from Foundation-0/mithrax/pilot-fits-tolerance-verify-0a25",
+   "lines": 2,
+   "files": [
+    ".github/workflows/verify.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "48178217a",
+   "date": "2026-11-13T01:19",
+   "author": "Zero",
+   "subject": "Refresh AUROC occurrence inventory after PR #87 identifiability tools (#93)",
+   "lines": 2,
+   "files": [
+    "results/auroc-provenance-20261113/SHA256SUMS",
+    "results/auroc-provenance-20261113/occurrences.json"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "003f877e6",
+   "date": "2026-11-12T22:09",
+   "author": "Zero",
+   "subject": "Merge pull request #79 from Foundation-0/research/cdr2-cdr2l-evidence-atlas-20261113",
+   "lines": 2,
+   "files": [
+    "CLAIMS.md",
+    "index.html"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "project-asma",
+   "sha": "c67840e31",
+   "date": "2026-11-04T23:31",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #39 from Foundation-0/codex/asma-frontier-preservation",
+   "lines": 2,
+   "files": [
+    "CLAIMS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "81b6b183a",
+   "date": "2026-10-29T14:32",
+   "author": "Orda",
+   "subject": "Merge pull request #26: Quantify validation limits and add independent-patient evaluation",
+   "lines": 2,
+   "files": [
+    "tests/test_site.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "df85c06a2",
+   "date": "2026-10-25T04:34",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #13: Test per-model probability direction with a planted-signal fixture",
+   "lines": 2,
+   "files": [
+    "docs/pilot-001-synthetic-validation.md",
+    "protocols/pilot-001-independent-reconstruction.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "rigid-realizations",
+   "sha": "298926c5e",
+   "date": "2026-11-11T14:51",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #19 from Foundation-0/mithrax/zenodo-doi-l880-cfbf",
+   "lines": 2,
+   "files": [
+    "rigid_realizations_l880_pr_bundle/SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rigid-realizations",
+   "sha": "344f9de10",
+   "date": "2026-10-19T21:50",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 2,
+   "files": [
+    "AGENTS.md",
+    "README.md"
+   ],
+   "nfiles": 2
+  },
+  {
+   "repo": "thermal-capture",
+   "sha": "5fa678e94",
+   "date": "2026-11-11T15:04",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #4 from Foundation-0/mithrax/zenodo-cc-by-metadata-9534",
+   "lines": 2,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "88bc75a1c",
+   "date": "2026-11-05T10:02",
+   "author": "Zero",
+   "subject": "Keep subgraph node order independent of hash seed (#2)",
+   "lines": 2,
+   "files": [
+    "docs/img/pbpk_elimination_subgraph.mmd"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "vitruvian3d",
+   "sha": "15a73317e",
+   "date": "2026-11-12T17:15",
+   "author": "Zero",
+   "subject": "Merge pull request #1 from Foundation-0/gpt-forge/research-baseline",
+   "lines": 2,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": ".github",
+   "sha": "81f83c389",
+   "date": "2026-10-26T21:00",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #7 from Foundation-0/template-salvage-from-pr2",
+   "lines": 1,
+   "files": [
+    ".github/pull_request_template.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": ".github",
+   "sha": "570bd0e54",
+   "date": "2026-10-19T16:14",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #4 from Foundation-0/quick-join-copy-paste-line-for-users-to-get-their-agents-to-participate-in-f0-efforts",
+   "lines": 1,
+   "files": [
+    "profile/README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "astr0",
+   "sha": "b1c5dd779",
+   "date": "2026-10-18T17:31",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #1 from Foundation-0/claude/sleepy-pasteur-k5knht",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "certified-orbits",
+   "sha": "86223e238",
+   "date": "2026-10-19T21:55",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "certified-orbits",
+   "sha": "74bf661ed",
+   "date": "2026-10-19T21:50",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "cfrp-strengthening",
+   "sha": "3f68cccf1",
+   "date": "2026-11-11T13:41",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #19 from Foundation-0/mithrax/zenodo-followup-652a",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "cfrp-strengthening",
+   "sha": "0e967c900",
+   "date": "2026-10-25T02:50",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #1 from Foundation-0/seed-scaffold",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "covering-min-modulus",
+   "sha": "ac0b55604",
+   "date": "2026-10-19T21:51",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "covering-min-modulus",
+   "sha": "53b9aedd4",
+   "date": "2026-10-19T21:44",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "ductricity",
+   "sha": "fb824f992",
+   "date": "2026-11-11T14:19",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #3 from Foundation-0/mithrax/licence-split-ad51",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "ductricity",
+   "sha": "cb497ff38",
+   "date": "2026-11-03T11:09",
+   "author": "Orda",
+   "subject": "Merge pull request #1 from Foundation-0/feat/project-definition",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "883e28a7c",
+   "date": "2026-11-13T03:05",
+   "author": "orda-aska",
+   "subject": "Capture Issue #5 S1-S108 habitable-zone multi-sector vetting results [skip ci]",
+   "lines": 1,
+   "files": [
+    "results/convergence_certificates.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "07cdeb136",
+   "date": "2026-11-11T14:07",
+   "author": "Orda",
+   "subject": "Fix __file__ typo on line 87 of frontier.py",
+   "lines": 1,
+   "files": [
+    "frontier.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "6c9f064ff",
+   "date": "2026-11-11T14:01",
+   "author": "Orda",
+   "subject": "Fix __file__ typo on line 87 of frontier.py",
+   "lines": 1,
+   "files": [
+    "frontier.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "aed6cde51",
+   "date": "2026-11-11T13:35",
+   "author": "Orda",
+   "subject": "Fix function keyword typo in vetter.py",
+   "lines": 1,
+   "files": [
+    "vetter.py"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "exoplanets-frontier",
+   "sha": "33834e122",
+   "date": "2026-11-11T10:37",
+   "author": "Orda",
+   "subject": "Document TESS Sectors 106-107 verification and 8-gate discovery pipeline",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "f0",
+   "sha": "bdefad85a",
+   "date": "2026-10-11T10:58",
+   "author": "ahrazzle",
+   "subject": "frontier-math v1: integer multiplication \u03ba race dashboard (#1)",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "formal-claims-audit",
+   "sha": "20f83b35c",
+   "date": "2026-10-19T21:51",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "formal-claims-audit",
+   "sha": "751ae8fd3",
+   "date": "2026-10-19T21:44",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "5fa244899",
+   "date": "2026-10-28T00:21",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #44 from Foundation-0/claude/zealous-ptolemy-fqaarl",
+   "lines": 1,
+   "files": [
+    "index.html"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "7f207f536",
+   "date": "2026-10-18T05:56",
+   "author": "Foundation Zero",
+   "subject": "Merge pull request #15 from Foundation-0/issue-14",
+   "lines": 1,
+   "files": [
+    "package.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "a697b4e9c",
+   "date": "2026-10-17T03:26",
+   "author": "Aska Digital agentic team",
+   "subject": "Add the Witness Map as the GitHub Pages site",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "fractals",
+   "sha": "c44283e75",
+   "date": "2026-10-17T03:24",
+   "author": "Aska Digital agentic team",
+   "subject": "Witness Map model, checks, README and corrections",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gaia-dr4",
+   "sha": "64dc9c641",
+   "date": "2026-10-19T21:51",
+   "author": "Claude",
+   "subject": "README: link the complete scouting reports",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gaia-dr4",
+   "sha": "b9b62e2ba",
+   "date": "2026-10-19T21:51",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gaia-dr4",
+   "sha": "3e7bd218c",
+   "date": "2026-10-19T21:46",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gfq-codes",
+   "sha": "0bbd0d6d9",
+   "date": "2026-10-19T21:46",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "b7550b10a",
+   "date": "2026-11-14T16:03",
+   "author": "Orda",
+   "subject": "Merge pull request #26 from Foundation-0/orda/gravity-11-value-assessment",
+   "lines": 1,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "ccd7e828d",
+   "date": "2026-11-14T15:58",
+   "author": "Orda",
+   "subject": "Merge pull request #25 from Foundation-0/orda/gravity-9-cosmic-dawn",
+   "lines": 1,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "975d0287d",
+   "date": "2026-11-14T15:54",
+   "author": "Orda",
+   "subject": "Merge pull request #24 from Foundation-0/orda/gravity-8-convergences",
+   "lines": 1,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "73de1fdf0",
+   "date": "2026-11-14T15:48",
+   "author": "Orda",
+   "subject": "Merge pull request #23 from Foundation-0/orda/gravity-12-aest-gate",
+   "lines": 1,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "5fd1b4266",
+   "date": "2026-11-13T01:34",
+   "author": "Orda",
+   "subject": "Merge pull request #19 from Foundation-0/orda/gravity-4-acceleration-evolution",
+   "lines": 1,
+   "files": [
+    "SHA256SUMS"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "ab3e633e2",
+   "date": "2026-11-12T18:02",
+   "author": "Orda",
+   "subject": "Wave 11-12: add M-09 & M-10 methods and Wave 11-12 checksums",
+   "lines": 1,
+   "files": [
+    "METHODS_AND_PLAYBOOK.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "3f7a5b1db",
+   "date": "2026-11-12T14:55",
+   "author": "Orda",
+   "subject": "Wave 12: register Wave12QuasarCollapse target in lakefile.toml",
+   "lines": 1,
+   "files": [
+    "lakefile.toml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "8f904ba3a",
+   "date": "2026-11-12T11:59",
+   "author": "Orda",
+   "subject": "Wave 11: index Wave 11 solver, Lean target & C-28..C-30 in README.md",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "b803373e9",
+   "date": "2026-11-12T10:40",
+   "author": "Orda",
+   "subject": "Wave 11: register Wave11MachianZeroEnergy target in lakefile.toml",
+   "lines": 1,
+   "files": [
+    "lakefile.toml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "cb0de90ff",
+   "date": "2026-11-12T08:54",
+   "author": "Orda",
+   "subject": "Add Wave-10 entry to CHANGELOG.md",
+   "lines": 1,
+   "files": [
+    "CHANGELOG.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "8988eada0",
+   "date": "2026-11-12T08:22",
+   "author": "Orda",
+   "subject": "Add Wave-10 claims C-25, C-26, and C-27 to CLAIMS.md",
+   "lines": 1,
+   "files": [
+    "CLAIMS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "8717e7748",
+   "date": "2026-11-12T08:07",
+   "author": "Orda",
+   "subject": "Register Wave10JeansDerivation in lakefile.toml",
+   "lines": 1,
+   "files": [
+    "lakefile.toml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "b2c93b0ba",
+   "date": "2026-11-11T17:11",
+   "author": "Orda",
+   "subject": "fix(formal): normalize ASCII syntax and arithmetic-lemma scope in Wave7ThresholdAudit.lean",
+   "lines": 1,
+   "files": [
+    "formal/Wave7ThresholdAudit.lean"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "29b6310fb",
+   "date": "2026-11-11T17:10",
+   "author": "Orda",
+   "subject": "fix(formal): remove unused Int.mul_assoc simp lemma and align C-19 intervals",
+   "lines": 1,
+   "files": [
+    "formal/Wave6Convergence.lean"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "gravity",
+   "sha": "306e1e7fc",
+   "date": "2026-11-11T16:33",
+   "author": "Orda",
+   "subject": "fix(formal): clarify arithmetic-lemma scope in Wave5StochasticForces.lean",
+   "lines": 1,
+   "files": [
+    "formal/Wave5StochasticForces.lean"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "d7ccd3821",
+   "date": "2026-11-03T18:43",
+   "author": "Orda",
+   "subject": "Merge pull request #96 from Foundation-0/grk/zenodo-licence-note",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "19b3c1e6e",
+   "date": "2026-10-28T00:08",
+   "author": "dependabot[bot]",
+   "subject": "Bump actions/setup-python from 5.6.0 to 7.1.0 (#84)",
+   "lines": 1,
+   "files": [
+    ".github/workflows/verify.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "7743aa067",
+   "date": "2026-10-28T00:08",
+   "author": "dependabot[bot]",
+   "subject": "Bump actions/checkout from 4.4.0 to 7.0.1 (#83)",
+   "lines": 1,
+   "files": [
+    ".github/workflows/verify.yml"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "df14ba21b",
+   "date": "2026-10-12T11:44",
+   "author": "Ahraz Arifuddin",
+   "subject": "Link @claude to github.com/claude",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "0df344146",
+   "date": "2026-10-12T11:42",
+   "author": "Ahraz Arifuddin",
+   "subject": "Fix README credit links",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "4cec0fd00",
+   "date": "2026-10-12T10:22",
+   "author": "Ahraz Arifuddin",
+   "subject": "Record the public timestamp of the results commitment",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "incentre-lattices",
+   "sha": "523e6a405",
+   "date": "2026-10-12T08:24",
+   "author": "shah",
+   "subject": "Update README.md",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "lost-eclipses",
+   "sha": "e34673648",
+   "date": "2026-10-19T21:57",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "lost-eclipses",
+   "sha": "eb62a1b28",
+   "date": "2026-10-19T21:52",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "nhanes-bioimpedance",
+   "sha": "efb3395b7",
+   "date": "2026-11-11T13:41",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #12 from Foundation-0/mithrax/zenodo-followup-c03c",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "overdue-data",
+   "sha": "8ac8a9245",
+   "date": "2026-10-19T21:57",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "overdue-data",
+   "sha": "fb6507fbe",
+   "date": "2026-10-19T21:50",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "physics0",
+   "sha": "9129cb0a8",
+   "date": "2026-10-18T17:30",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #1 from Foundation-0/claude/relaxed-faraday-qghpbi",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "plate-eclipses",
+   "sha": "c0b7b0b62",
+   "date": "2026-10-18T17:21",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #1 from Foundation-0/claude/sleepy-pasteur-k5knht",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "plate-novae",
+   "sha": "9183100ec",
+   "date": "2026-11-11T13:41",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #16 from Foundation-0/grok/zenodo-followup",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "plate-novae",
+   "sha": "64a83c6a7",
+   "date": "2026-10-19T21:57",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "plate-novae",
+   "sha": "7ec728096",
+   "date": "2026-10-19T21:52",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "point-charges",
+   "sha": "a2fd159bc",
+   "date": "2026-11-11T13:41",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #20 from Foundation-0/grok/zenodo-followup",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "point-charges",
+   "sha": "dd5a0ddbf",
+   "date": "2026-10-18T17:27",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #1 from Foundation-0/claude/relaxed-faraday-qghpbi",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "4f365cc09",
+   "date": "2026-11-06T13:22",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #64 from Foundation-0/research/cdr2l-sequence-audit-20261106",
+   "lines": 1,
+   "files": [
+    "docs/research-continuation.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "b51d0d510",
+   "date": "2026-11-05T07:34",
+   "author": "Zero",
+   "subject": "Merge pull request #42 from Foundation-0/codex/asma-discovery-round2",
+   "lines": 1,
+   "files": [
+    "CLAIMS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "project-asma",
+   "sha": "f8fdbdc61",
+   "date": "2026-10-22T11:27",
+   "author": "Razi Orda",
+   "subject": "Merge pull request #1 from Foundation-0/research/ovarian-scaffold-2026-10-22",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "proven-commons",
+   "sha": "a4538d107",
+   "date": "2026-10-26T15:29",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #2 from Foundation-0/amp-sai/anthology-draft",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "relative-equilibria",
+   "sha": "5d631bde3",
+   "date": "2026-10-19T21:55",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "relative-equilibria",
+   "sha": "607dd12dd",
+   "date": "2026-10-19T21:50",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rigid-realizations",
+   "sha": "1fafd492e",
+   "date": "2026-11-11T13:41",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #18 from Foundation-0/grok/zenodo-followup",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rigid-realizations",
+   "sha": "ddfe066fd",
+   "date": "2026-11-11T11:54",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #16 from Foundation-0/grok/rr-paper-license",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rigid-realizations",
+   "sha": "8448fc9d2",
+   "date": "2026-10-19T21:46",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rism-anon",
+   "sha": "c345b5b4d",
+   "date": "2026-11-11T13:41",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #12 from Foundation-0/grok/zenodo-followup",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rism-anon",
+   "sha": "63e6f49a8",
+   "date": "2026-10-19T21:57",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "rism-anon",
+   "sha": "92102a402",
+   "date": "2026-10-19T21:50",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "st0a",
+   "sha": "cb2323608",
+   "date": "2026-10-19T15:46",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #1 from Foundation-0/claude/hopeful-ride-xk1nih",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "thermal-capture",
+   "sha": "234383667",
+   "date": "2026-11-11T14:19",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #3 from Foundation-0/mithrax/licence-split-2908",
+   "lines": 1,
+   "files": [
+    ".zenodo.json"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "thermal-capture",
+   "sha": "5fa89da35",
+   "date": "2026-11-03T11:09",
+   "author": "Orda",
+   "subject": "Merge pull request #1 from Foundation-0/feat/research-direction",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "6b10b4587",
+   "date": "2026-11-06T13:20",
+   "author": "ahrazzle",
+   "subject": "Merge pull request #7 from Foundation-0/research/evidence-bindings-20261106",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "2f23ae5e3",
+   "date": "2026-11-05T15:44",
+   "author": "Zero",
+   "subject": "Import SBML reaction networks as verified graphs (Track E) (#4)",
+   "lines": 1,
+   "files": [
+    "docs/graph_formalization.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "3523b2886",
+   "date": "2026-11-05T09:46",
+   "author": "ahrazzle",
+   "subject": "Add conserved reaction networks and explicit intervention experiments (#3)",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "3d75e8e25",
+   "date": "2026-11-01T10:11",
+   "author": "Rohan Arun",
+   "subject": "README: feature graph-formalization results and the browser atom viewer",
+   "lines": 1,
+   "files": [
+    "docs/img/pbpk_graph.svg"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "virtual-human",
+   "sha": "afb63804e",
+   "date": "2026-11-01T02:50",
+   "author": "Rohan Arun",
+   "subject": "v0.1: molecular engine + whole-body engine",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "wwssn-microseisms",
+   "sha": "5bbc1884a",
+   "date": "2026-10-19T21:51",
+   "author": "Claude",
+   "subject": "README: link the complete scouting reports",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "wwssn-microseisms",
+   "sha": "ca6eac744",
+   "date": "2026-10-19T21:51",
+   "author": "Claude",
+   "subject": "Add the complete scouting reports behind this project",
+   "lines": 1,
+   "files": [
+    "AGENTS.md"
+   ],
+   "nfiles": 1
+  },
+  {
+   "repo": "wwssn-microseisms",
+   "sha": "3c470fa3c",
+   "date": "2026-10-19T21:46",
+   "author": "Claude",
+   "subject": "Set up the project: README, guide for agents, research so far, templates",
+   "lines": 1,
+   "files": [
+    "README.md"
+   ],
+   "nfiles": 1
+  }
+ ],
+ "note": "clobbers aggregated per commit from forensics.py line records; rerun scan/forensics.py for line detail"
+}
