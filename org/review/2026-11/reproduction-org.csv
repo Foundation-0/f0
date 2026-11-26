@@ -1,0 +1,627 @@
+repo,commit,path,asserts,mode,command,exit_code,class,detail,seconds,output_sha256_16,dirtied_tree
+cfrp-strengthening,3f68cccf19556574b7652311be1b0dc0daa93144,results/track-1-flexure/verify.py,0,documented,.venv/bin/python results/track-1-flexure/verify.py,0,PASS0,,0.0,22d5f4ee3e6f598c,no
+cfrp-strengthening,3f68cccf19556574b7652311be1b0dc0daa93144,results/track-1-flexure/verify.py,0,optimised,.venv/bin/python -O results/track-1-flexure/verify.py,0,PASS0,,0.1,22d5f4ee3e6f598c,no
+cfrp-strengthening,3f68cccf19556574b7652311be1b0dc0daa93144,results/track-1-flexure/verify.py,0,empty-cwd,.venv/bin/python repos/cfrp-strengthening/results/track-1-flexure/verify.py,0,PASS0,,0.0,22d5f4ee3e6f598c,
+cfrp-strengthening,3f68cccf19556574b7652311be1b0dc0daa93144,results/track-1-flexure/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,cool_vet.py,1,documented,.venv/bin/python cool_vet.py,1,FAILNZ,,0.0,1f5fbd612ea96ab4,no
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,cool_vet.py,1,optimised,.venv/bin/python -O cool_vet.py,1,FAILNZ,,0.0,1f5fbd612ea96ab4,no
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,cool_vet.py,1,empty-cwd,.venv/bin/python repos/exoplanets-frontier/cool_vet.py,1,FAILNZ,,0.0,1f5fbd612ea96ab4,
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,cool_vet.py,1,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,hz_vet.py,0,documented,.venv/bin/python hz_vet.py,1,DEP-MISSING,astropy,6.4,77b79745c8e225cd,yes
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,hz_vet.py,0,optimised,.venv/bin/python -O hz_vet.py,1,DEP-MISSING,astropy,3.1,77b79745c8e225cd,yes
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,hz_vet.py,0,empty-cwd,.venv/bin/python repos/exoplanets-frontier/hz_vet.py,1,DEP-MISSING,astropy,1.1,77b79745c8e225cd,
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,hz_vet.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,vetter.py,0,documented,.venv/bin/python vetter.py,0,PASS0,,1.4,,yes
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,vetter.py,0,optimised,.venv/bin/python -O vetter.py,0,PASS0,,1.5,,yes
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,vetter.py,0,empty-cwd,.venv/bin/python repos/exoplanets-frontier/vetter.py,0,PASS0,,1.0,,
+exoplanets-frontier,3bc0163bc04547628072aa5b281eda282347e3d1,vetter.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/check_site.py,0,documented,.venv/bin/python scripts/check_site.py,0,PASS0,,0.3,b7bf43e6fbe0687b,no
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/check_site.py,0,optimised,.venv/bin/python -O scripts/check_site.py,0,PASS0,,0.3,b7bf43e6fbe0687b,no
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/check_site.py,0,empty-cwd,.venv/bin/python repos/f0/scripts/check_site.py,0,PASS0,,0.3,b7bf43e6fbe0687b,
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/check_site.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/gate.py,0,documented,.venv/bin/python scripts/gate.py,0,PASS0,,0.1,4b3bbb0c2252de2e,no
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/gate.py,0,optimised,.venv/bin/python -O scripts/gate.py,0,PASS0,,0.1,4b3bbb0c2252de2e,no
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/gate.py,0,empty-cwd,.venv/bin/python repos/f0/scripts/gate.py,0,PASS0,,0.1,4b3bbb0c2252de2e,
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,scripts/gate.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,tests/run_gate_corruptions.py,0,documented,.venv/bin/python tests/run_gate_corruptions.py,0,PASS0,,0.8,0484199fd5ab2f67,no
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,tests/run_gate_corruptions.py,0,optimised,.venv/bin/python -O tests/run_gate_corruptions.py,0,PASS0,,0.8,0484199fd5ab2f67,no
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,tests/run_gate_corruptions.py,0,empty-cwd,.venv/bin/python repos/f0/tests/run_gate_corruptions.py,0,PASS0,,0.8,0484199fd5ab2f67,
+f0,6ea3a0b3d18fa1e7cf1845e3dc67220a35781948,tests/run_gate_corruptions.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify.py,0,documented,.venv/bin/python verify.py,0,PASS0,,0.0,abb727f962b79118,no
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify.py,0,optimised,.venv/bin/python -O verify.py,0,PASS0,,0.0,abb727f962b79118,no
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify.py,0,empty-cwd,.venv/bin/python repos/finite-state-proofs/verify.py,0,PASS0,,0.0,abb727f962b79118,
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify_independent.py,0,documented,.venv/bin/python verify_independent.py,0,PASS0,,0.2,28b57b00c3a627b0,no
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify_independent.py,0,optimised,.venv/bin/python -O verify_independent.py,0,PASS0,,0.2,28b57b00c3a627b0,no
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify_independent.py,0,empty-cwd,.venv/bin/python repos/finite-state-proofs/verify_independent.py,0,PASS0,,0.2,28b57b00c3a627b0,
+finite-state-proofs,9eeb3da2cdd6ba6b100ac24d23b32c369c0db8ec,verify_independent.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+formal-claims-audit,bacf05953c10bf5105fa1209a127392d395e2f92,scripts/check_verdicts.py,0,documented,.venv/bin/python scripts/check_verdicts.py,0,PASS0,,0.0,14e479dec756c9d2,no
+formal-claims-audit,bacf05953c10bf5105fa1209a127392d395e2f92,scripts/check_verdicts.py,0,optimised,.venv/bin/python -O scripts/check_verdicts.py,0,PASS0,,0.0,14e479dec756c9d2,no
+formal-claims-audit,bacf05953c10bf5105fa1209a127392d395e2f92,scripts/check_verdicts.py,0,empty-cwd,.venv/bin/python repos/formal-claims-audit/scripts/check_verdicts.py,0,PASS0,,0.0,14e479dec756c9d2,
+formal-claims-audit,bacf05953c10bf5105fa1209a127392d395e2f92,scripts/check_verdicts.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+fractals,48b923bd25dbcfef7fa8e8399d4144592145f0ef,scripts/check_site.py,0,documented,.venv/bin/python scripts/check_site.py,0,PASS0,,0.0,f68d1034c0d5583a,no
+fractals,48b923bd25dbcfef7fa8e8399d4144592145f0ef,scripts/check_site.py,0,optimised,.venv/bin/python -O scripts/check_site.py,0,PASS0,,0.0,f68d1034c0d5583a,no
+fractals,48b923bd25dbcfef7fa8e8399d4144592145f0ef,scripts/check_site.py,0,empty-cwd,.venv/bin/python repos/fractals/scripts/check_site.py,0,PASS0,,0.0,f68d1034c0d5583a,
+fractals,48b923bd25dbcfef7fa8e8399d4144592145f0ef,scripts/check_site.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+fractals,48b923bd25dbcfef7fa8e8399d4144592145f0ef,tests/checks.mjs,,documented,,,NOT-RUN,extension .mjs: no generic runner in O2,,561cae665838a37a,
+fractals,48b923bd25dbcfef7fa8e8399d4144592145f0ef,tests/checks.mjs,,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n74-k10-upper-d55/verify.py,0,documented,.venv/bin/python results/gf7-n74-k10-upper-d55/verify.py,0,PASS0,,0.1,cb600a8c4c3fa5a4,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n74-k10-upper-d55/verify.py,0,optimised,.venv/bin/python -O results/gf7-n74-k10-upper-d55/verify.py,0,PASS0,,0.1,cb600a8c4c3fa5a4,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n74-k10-upper-d55/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf7-n74-k10-upper-d55/verify.py,0,PASS0,,0.1,cb600a8c4c3fa5a4,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n74-k10-upper-d55/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n75-k11-upper-d55/verify.py,0,documented,.venv/bin/python results/gf7-n75-k11-upper-d55/verify.py,0,PASS0,,0.1,ab9fb649839b0d1a,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n75-k11-upper-d55/verify.py,0,optimised,.venv/bin/python -O results/gf7-n75-k11-upper-d55/verify.py,0,PASS0,,0.1,ab9fb649839b0d1a,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n75-k11-upper-d55/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf7-n75-k11-upper-d55/verify.py,0,PASS0,,0.1,ab9fb649839b0d1a,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf7-n75-k11-upper-d55/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n31-k4-upper-d25/verify.py,0,documented,.venv/bin/python results/gf9-n31-k4-upper-d25/verify.py,0,PASS0,,0.1,cbc5e8bbb12a7126,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n31-k4-upper-d25/verify.py,0,optimised,.venv/bin/python -O results/gf9-n31-k4-upper-d25/verify.py,0,PASS0,,0.1,cbc5e8bbb12a7126,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n31-k4-upper-d25/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n31-k4-upper-d25/verify.py,0,PASS0,,0.1,cbc5e8bbb12a7126,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n31-k4-upper-d25/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k4-upper-d26/verify.py,0,documented,.venv/bin/python results/gf9-n32-k4-upper-d26/verify.py,0,PASS0,,0.1,cc1cfc37e9fb851b,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k4-upper-d26/verify.py,0,optimised,.venv/bin/python -O results/gf9-n32-k4-upper-d26/verify.py,0,PASS0,,0.1,cc1cfc37e9fb851b,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k4-upper-d26/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n32-k4-upper-d26/verify.py,0,PASS0,,0.1,cc1cfc37e9fb851b,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k4-upper-d26/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k5-upper-d25/verify.py,0,documented,.venv/bin/python results/gf9-n32-k5-upper-d25/verify.py,0,PASS0,,0.1,3f1585f043a29528,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k5-upper-d25/verify.py,0,optimised,.venv/bin/python -O results/gf9-n32-k5-upper-d25/verify.py,0,PASS0,,0.1,3f1585f043a29528,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k5-upper-d25/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n32-k5-upper-d25/verify.py,0,PASS0,,0.1,3f1585f043a29528,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n32-k5-upper-d25/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k5-upper-d26/verify.py,0,documented,.venv/bin/python results/gf9-n33-k5-upper-d26/verify.py,0,PASS0,,0.1,82eed1a75dfb0f00,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k5-upper-d26/verify.py,0,optimised,.venv/bin/python -O results/gf9-n33-k5-upper-d26/verify.py,0,PASS0,,0.1,82eed1a75dfb0f00,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k5-upper-d26/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n33-k5-upper-d26/verify.py,0,PASS0,,0.1,82eed1a75dfb0f00,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k5-upper-d26/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k6-upper-d25/verify.py,0,documented,.venv/bin/python results/gf9-n33-k6-upper-d25/verify.py,0,PASS0,,0.1,4de025f931217681,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k6-upper-d25/verify.py,0,optimised,.venv/bin/python -O results/gf9-n33-k6-upper-d25/verify.py,0,PASS0,,0.1,4de025f931217681,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k6-upper-d25/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n33-k6-upper-d25/verify.py,0,PASS0,,0.1,4de025f931217681,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n33-k6-upper-d25/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k6-upper-d26/verify.py,0,documented,.venv/bin/python results/gf9-n34-k6-upper-d26/verify.py,0,PASS0,,0.1,cfa5a496b86f5cd4,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k6-upper-d26/verify.py,0,optimised,.venv/bin/python -O results/gf9-n34-k6-upper-d26/verify.py,0,PASS0,,0.1,cfa5a496b86f5cd4,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k6-upper-d26/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n34-k6-upper-d26/verify.py,0,PASS0,,0.1,cfa5a496b86f5cd4,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k6-upper-d26/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k7-upper-d25/verify.py,0,documented,.venv/bin/python results/gf9-n34-k7-upper-d25/verify.py,0,PASS0,,0.1,678eafe31586760d,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k7-upper-d25/verify.py,0,optimised,.venv/bin/python -O results/gf9-n34-k7-upper-d25/verify.py,0,PASS0,,0.1,678eafe31586760d,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k7-upper-d25/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n34-k7-upper-d25/verify.py,0,PASS0,,0.1,678eafe31586760d,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n34-k7-upper-d25/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k7-upper-d26/verify.py,0,documented,.venv/bin/python results/gf9-n35-k7-upper-d26/verify.py,0,PASS0,,0.1,67b5b0d331b165a7,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k7-upper-d26/verify.py,0,optimised,.venv/bin/python -O results/gf9-n35-k7-upper-d26/verify.py,0,PASS0,,0.1,67b5b0d331b165a7,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k7-upper-d26/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n35-k7-upper-d26/verify.py,0,PASS0,,0.1,67b5b0d331b165a7,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k7-upper-d26/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k8-upper-d25/verify.py,0,documented,.venv/bin/python results/gf9-n35-k8-upper-d25/verify.py,0,PASS0,,0.1,3ea7958e7b2f5088,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k8-upper-d25/verify.py,0,optimised,.venv/bin/python -O results/gf9-n35-k8-upper-d25/verify.py,0,PASS0,,0.1,3ea7958e7b2f5088,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k8-upper-d25/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n35-k8-upper-d25/verify.py,0,PASS0,,0.1,3ea7958e7b2f5088,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n35-k8-upper-d25/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k8-upper-d26/verify.py,0,documented,.venv/bin/python results/gf9-n36-k8-upper-d26/verify.py,0,PASS0,,0.1,8c50cab4dd52181c,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k8-upper-d26/verify.py,0,optimised,.venv/bin/python -O results/gf9-n36-k8-upper-d26/verify.py,0,PASS0,,0.1,8c50cab4dd52181c,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k8-upper-d26/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n36-k8-upper-d26/verify.py,0,PASS0,,0.1,8c50cab4dd52181c,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k8-upper-d26/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k9-upper-d25/verify.py,0,documented,.venv/bin/python results/gf9-n36-k9-upper-d25/verify.py,0,PASS0,,0.1,4285cfc02e468326,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k9-upper-d25/verify.py,0,optimised,.venv/bin/python -O results/gf9-n36-k9-upper-d25/verify.py,0,PASS0,,0.1,4285cfc02e468326,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k9-upper-d25/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n36-k9-upper-d25/verify.py,0,PASS0,,0.1,4285cfc02e468326,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n36-k9-upper-d25/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n37-k9-upper-d26/verify.py,0,documented,.venv/bin/python results/gf9-n37-k9-upper-d26/verify.py,0,PASS0,,0.1,9802d67a7b2bd6d9,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n37-k9-upper-d26/verify.py,0,optimised,.venv/bin/python -O results/gf9-n37-k9-upper-d26/verify.py,0,PASS0,,0.1,9802d67a7b2bd6d9,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n37-k9-upper-d26/verify.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/results/gf9-n37-k9-upper-d26/verify.py,0,PASS0,,0.1,9802d67a7b2bd6d9,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,results/gf9-n37-k9-upper-d26/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound.py,0,documented,.venv/bin/python tools/check_bound.py,2,NEEDS-ARGS,,0.0,cd55f359f0b5f928,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound.py,0,optimised,.venv/bin/python -O tools/check_bound.py,2,NEEDS-ARGS,,0.0,cd55f359f0b5f928,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/tools/check_bound.py,2,NEEDS-ARGS,,0.0,cd55f359f0b5f928,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound_independent.py,0,documented,.venv/bin/python tools/check_bound_independent.py,2,NEEDS-ARGS,,0.0,efff5a1024b669b9,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound_independent.py,0,optimised,.venv/bin/python -O tools/check_bound_independent.py,2,NEEDS-ARGS,,0.0,efff5a1024b669b9,no
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound_independent.py,0,empty-cwd,.venv/bin/python repos/gfq-codes/tools/check_bound_independent.py,2,NEEDS-ARGS,,0.0,efff5a1024b669b9,
+gfq-codes,9200a06be239d6cc70ec94ed82f681e75b9bc718,tools/check_bound_independent.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,formal/verify_exact_rational_proofs.py,8,documented,.venv/bin/python formal/verify_exact_rational_proofs.py,0,PASS0,,0.0,d4058a1f4a812849,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,formal/verify_exact_rational_proofs.py,8,optimised,.venv/bin/python -O formal/verify_exact_rational_proofs.py,0,PASS0,,0.0,d4058a1f4a812849,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,formal/verify_exact_rational_proofs.py,8,empty-cwd,.venv/bin/python repos/gravity/formal/verify_exact_rational_proofs.py,0,PASS0,,0.0,d4058a1f4a812849,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,formal/verify_exact_rational_proofs.py,8,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/independent-review/adm_check.py,6,documented,.venv/bin/python research/aest-response-gate-20261112/independent-review/adm_check.py,0,PASS0,,1.4,ab32294e143f463d,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/independent-review/adm_check.py,6,optimised,.venv/bin/python -O research/aest-response-gate-20261112/independent-review/adm_check.py,0,PASS0,,2.6,ab32294e143f463d,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/independent-review/adm_check.py,6,empty-cwd,.venv/bin/python repos/gravity/research/aest-response-gate-20261112/independent-review/adm_check.py,0,PASS0,,1.3,ab32294e143f463d,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/independent-review/adm_check.py,6,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/independent-review/check.py,15,documented,.venv/bin/python research/aest-response-gate-20261112/slow-mode/independent-review/check.py,0,PASS0,,3.2,5105d140b9594edf,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/independent-review/check.py,15,optimised,.venv/bin/python -O research/aest-response-gate-20261112/slow-mode/independent-review/check.py,0,PASS0,,3.0,5105d140b9594edf,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/independent-review/check.py,15,empty-cwd,.venv/bin/python repos/gravity/research/aest-response-gate-20261112/slow-mode/independent-review/check.py,0,PASS0,,3.2,5105d140b9594edf,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/independent-review/check.py,15,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/probe.py,8,documented,.venv/bin/python research/aest-response-gate-20261112/slow-mode/probe.py,0,PASS0,,1.8,fc4b6537991312a2,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/probe.py,8,optimised,.venv/bin/python -O research/aest-response-gate-20261112/slow-mode/probe.py,0,PASS0,,1.8,fc4b6537991312a2,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/probe.py,8,empty-cwd,.venv/bin/python repos/gravity/research/aest-response-gate-20261112/slow-mode/probe.py,0,PASS0,,1.8,fc4b6537991312a2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/aest-response-gate-20261112/slow-mode/probe.py,8,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/check.py,11,documented,.venv/bin/python research/convergences-20261112/check.py,0,PASS0,,2.3,8cf97eb5f44ca0c4,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/check.py,11,optimised,.venv/bin/python -O research/convergences-20261112/check.py,0,PASS0,,2.2,8cf97eb5f44ca0c4,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/check.py,11,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/check.py,0,PASS0,,2.3,8cf97eb5f44ca0c4,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/check.py,11,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,7,documented,.venv/bin/python research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,0,PASS0,,58.0,e7a1cca4e6b611f7,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,7,optimised,.venv/bin/python -O research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,0,PASS0,,58.1,e7a1cca4e6b611f7,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,7,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,0,PASS0,,57.8,e7a1cca4e6b611f7,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/inputs/wave7_group_cluster_threshold_audit.py,7,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/issue-5/issue5_checks.py,5,documented,.venv/bin/python research/convergences-20261112/probes/issue-5/issue5_checks.py,0,PASS0,,0.4,a855df89567518c5,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/issue-5/issue5_checks.py,5,optimised,.venv/bin/python -O research/convergences-20261112/probes/issue-5/issue5_checks.py,0,PASS0,,0.4,a855df89567518c5,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/issue-5/issue5_checks.py,5,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/probes/issue-5/issue5_checks.py,0,PASS0,,0.3,a855df89567518c5,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/issue-5/issue5_checks.py,5,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/persistence/persistence_probes.py,9,documented,.venv/bin/python research/convergences-20261112/probes/persistence/persistence_probes.py,0,PASS0,,0.1,824602a216c397a0,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/persistence/persistence_probes.py,9,optimised,.venv/bin/python -O research/convergences-20261112/probes/persistence/persistence_probes.py,0,PASS0,,0.1,824602a216c397a0,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/persistence/persistence_probes.py,9,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/probes/persistence/persistence_probes.py,0,PASS0,,0.1,824602a216c397a0,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/persistence/persistence_probes.py,9,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/relations/correlation_probe.py,7,documented,.venv/bin/python research/convergences-20261112/probes/relations/correlation_probe.py,0,PASS0,,0.2,4be964d598026d5b,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/relations/correlation_probe.py,7,optimised,.venv/bin/python -O research/convergences-20261112/probes/relations/correlation_probe.py,0,PASS0,,0.1,4be964d598026d5b,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/relations/correlation_probe.py,7,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/probes/relations/correlation_probe.py,0,PASS0,,0.1,4be964d598026d5b,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/relations/correlation_probe.py,7,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/robustness/robustness_probes.py,14,documented,.venv/bin/python research/convergences-20261112/probes/robustness/robustness_probes.py,0,PASS0,,0.1,81171e13f1c25a86,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/robustness/robustness_probes.py,14,optimised,.venv/bin/python -O research/convergences-20261112/probes/robustness/robustness_probes.py,0,PASS0,,0.1,81171e13f1c25a86,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/robustness/robustness_probes.py,14,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/probes/robustness/robustness_probes.py,0,PASS0,,0.1,81171e13f1c25a86,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/robustness/robustness_probes.py,14,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/scales/scale_probes.py,4,documented,.venv/bin/python research/convergences-20261112/probes/scales/scale_probes.py,0,PASS0,,0.5,dc0f27a096f327c3,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/scales/scale_probes.py,4,optimised,.venv/bin/python -O research/convergences-20261112/probes/scales/scale_probes.py,0,PASS0,,0.5,dc0f27a096f327c3,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/scales/scale_probes.py,4,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/probes/scales/scale_probes.py,0,PASS0,,0.5,dc0f27a096f327c3,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/scales/scale_probes.py,4,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/unclaimed/constraint_probes.py,15,documented,.venv/bin/python research/convergences-20261112/probes/unclaimed/constraint_probes.py,0,PASS0,,0.3,557b2323e4913f83,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/unclaimed/constraint_probes.py,15,optimised,.venv/bin/python -O research/convergences-20261112/probes/unclaimed/constraint_probes.py,0,PASS0,,0.3,557b2323e4913f83,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/unclaimed/constraint_probes.py,15,empty-cwd,.venv/bin/python repos/gravity/research/convergences-20261112/probes/unclaimed/constraint_probes.py,0,PASS0,,0.3,557b2323e4913f83,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/convergences-20261112/probes/unclaimed/constraint_probes.py,15,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/cosmic-dawn-20261112/audit.py,0,documented,.venv/bin/python research/cosmic-dawn-20261112/audit.py,0,PASS0,,1.8,,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/cosmic-dawn-20261112/audit.py,0,optimised,.venv/bin/python -O research/cosmic-dawn-20261112/audit.py,0,PASS0,,1.8,,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/cosmic-dawn-20261112/audit.py,0,empty-cwd,.venv/bin/python repos/gravity/research/cosmic-dawn-20261112/audit.py,0,PASS0,,1.8,,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/cosmic-dawn-20261112/audit.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/update-d144448-review/implementation/check_docs.py,12,documented,.venv/bin/python research/update-d144448-review/implementation/check_docs.py,2,NEEDS-ARGS,,0.0,69a7eeba8acd622f,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/update-d144448-review/implementation/check_docs.py,12,optimised,.venv/bin/python -O research/update-d144448-review/implementation/check_docs.py,2,NEEDS-ARGS,,0.0,69a7eeba8acd622f,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/update-d144448-review/implementation/check_docs.py,12,empty-cwd,.venv/bin/python repos/gravity/research/update-d144448-review/implementation/check_docs.py,2,NEEDS-ARGS,,0.0,69a7eeba8acd622f,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/update-d144448-review/implementation/check_docs.py,12,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/check.py,20,documented,.venv/bin/python research/value-assessment-20261112/check.py,0,PASS0,,2.6,f9055539af3b0959,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/check.py,20,optimised,.venv/bin/python -O research/value-assessment-20261112/check.py,0,PASS0,,2.4,f9055539af3b0959,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/check.py,20,empty-cwd,.venv/bin/python repos/gravity/research/value-assessment-20261112/check.py,0,PASS0,,2.4,f9055539af3b0959,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/check.py,20,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/closure/independent_checks.py,7,documented,.venv/bin/python research/value-assessment-20261112/closure/independent_checks.py,0,PASS0,,0.8,42a4b9248abf4fe0,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/closure/independent_checks.py,7,optimised,.venv/bin/python -O research/value-assessment-20261112/closure/independent_checks.py,0,PASS0,,0.8,42a4b9248abf4fe0,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/closure/independent_checks.py,7,empty-cwd,.venv/bin/python repos/gravity/research/value-assessment-20261112/closure/independent_checks.py,0,PASS0,,0.7,42a4b9248abf4fe0,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/closure/independent_checks.py,7,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/convergences/probe.py,19,documented,.venv/bin/python research/value-assessment-20261112/convergences/probe.py,0,PASS0,,0.4,353769465b852625,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/convergences/probe.py,19,optimised,.venv/bin/python -O research/value-assessment-20261112/convergences/probe.py,0,PASS0,,0.4,353769465b852625,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/convergences/probe.py,19,empty-cwd,.venv/bin/python repos/gravity/research/value-assessment-20261112/convergences/probe.py,0,PASS0,,0.4,353769465b852625,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/convergences/probe.py,19,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/observations/probe.py,0,documented,.venv/bin/python research/value-assessment-20261112/observations/probe.py,0,PASS0,,0.7,e3d1ab9bfd64099f,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/observations/probe.py,0,optimised,.venv/bin/python -O research/value-assessment-20261112/observations/probe.py,0,PASS0,,0.7,e3d1ab9bfd64099f,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/observations/probe.py,0,empty-cwd,.venv/bin/python repos/gravity/research/value-assessment-20261112/observations/probe.py,0,PASS0,,0.7,e3d1ab9bfd64099f,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/observations/probe.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/second-review-checks.py,15,documented,.venv/bin/python research/value-assessment-20261112/second-review-checks.py,0,PASS0,,2.1,9dc7eacf36bcbb1a,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/second-review-checks.py,15,optimised,.venv/bin/python -O research/value-assessment-20261112/second-review-checks.py,0,PASS0,,2.0,f0c0a39956707fd4,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/second-review-checks.py,15,empty-cwd,.venv/bin/python repos/gravity/research/value-assessment-20261112/second-review-checks.py,0,PASS0,,2.1,f0c0a39956707fd4,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/second-review-checks.py,15,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/wave12/probe.py,3,documented,.venv/bin/python research/value-assessment-20261112/wave12/probe.py,2,NEEDS-ARGS,,0.4,05724a6519fdbe16,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/wave12/probe.py,3,optimised,.venv/bin/python -O research/value-assessment-20261112/wave12/probe.py,2,NEEDS-ARGS,,0.4,05724a6519fdbe16,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/wave12/probe.py,3,empty-cwd,.venv/bin/python repos/gravity/research/value-assessment-20261112/wave12/probe.py,2,NEEDS-ARGS,,0.4,05724a6519fdbe16,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/value-assessment-20261112/wave12/probe.py,3,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/wave11-12-review-20261112/check.py,21,documented,.venv/bin/python research/wave11-12-review-20261112/check.py,1,FAILNZ,,1.0,9437dbc4890914b3,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/wave11-12-review-20261112/check.py,21,optimised,.venv/bin/python -O research/wave11-12-review-20261112/check.py,0,PASS0,,1.6,1556c79699d0f5c4,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/wave11-12-review-20261112/check.py,21,empty-cwd,.venv/bin/python repos/gravity/research/wave11-12-review-20261112/check.py,1,FAILNZ,,0.6,ef3a780c4d66ea4c,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,research/wave11-12-review-20261112/check.py,21,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,verify_all.py,13,documented,.venv/bin/python verify_all.py,0,PASS0,,0.3,cdae9c683a070774,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,verify_all.py,13,optimised,.venv/bin/python -O verify_all.py,0,PASS0,,0.3,cdae9c683a070774,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,verify_all.py,13,empty-cwd,.venv/bin/python repos/gravity/verify_all.py,0,PASS0,,0.3,cdae9c683a070774,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,verify_all.py,13,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave3_empirical_audit.py,11,documented,.venv/bin/python wave3_empirical_audit.py,0,PASS0,,1.6,a07c8fb1f38b8183,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave3_empirical_audit.py,11,optimised,.venv/bin/python -O wave3_empirical_audit.py,0,PASS0,,1.6,a07c8fb1f38b8183,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave3_empirical_audit.py,11,empty-cwd,.venv/bin/python repos/gravity/wave3_empirical_audit.py,0,PASS0,,1.6,a07c8fb1f38b8183,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave3_empirical_audit.py,11,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave7_group_cluster_threshold_audit.py,7,documented,.venv/bin/python wave7_group_cluster_threshold_audit.py,0,PASS0,,57.7,e7a1cca4e6b611f7,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave7_group_cluster_threshold_audit.py,7,optimised,.venv/bin/python -O wave7_group_cluster_threshold_audit.py,0,PASS0,,58.2,e7a1cca4e6b611f7,no
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave7_group_cluster_threshold_audit.py,7,empty-cwd,.venv/bin/python repos/gravity/wave7_group_cluster_threshold_audit.py,0,PASS0,,58.2,e7a1cca4e6b611f7,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave7_group_cluster_threshold_audit.py,7,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave9_scale_convergence_audit.py,8,documented,.venv/bin/python wave9_scale_convergence_audit.py,0,PASS0,,4.6,d11679076839cc21,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave9_scale_convergence_audit.py,8,optimised,.venv/bin/python -O wave9_scale_convergence_audit.py,0,PASS0,,4.8,d11679076839cc21,yes
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave9_scale_convergence_audit.py,8,empty-cwd,.venv/bin/python repos/gravity/wave9_scale_convergence_audit.py,0,PASS0,,4.5,d11679076839cc21,
+gravity,8f96c4b240f985c3e3e1b81f64c3e91a5534d4f2,wave9_scale_convergence_audit.py,8,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,autoresearch-fold/verify.py,0,documented,.venv/bin/python autoresearch-fold/verify.py,2,NEEDS-ARGS,,0.5,2c59dc13bc7dd1e5,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,autoresearch-fold/verify.py,0,optimised,.venv/bin/python -O autoresearch-fold/verify.py,2,NEEDS-ARGS,,0.4,2c59dc13bc7dd1e5,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,autoresearch-fold/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/autoresearch-fold/verify.py,2,NEEDS-ARGS,,0.4,2c59dc13bc7dd1e5,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,autoresearch-fold/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,research/mechanics/exact_checks.py,2,documented,.venv/bin/python research/mechanics/exact_checks.py,0,PASS0,,0.7,b5e308b751658236,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,research/mechanics/exact_checks.py,2,optimised,.venv/bin/python -O research/mechanics/exact_checks.py,0,PASS0,,0.7,b5e308b751658236,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,research/mechanics/exact_checks.py,2,empty-cwd,.venv/bin/python repos/incentre-lattices/research/mechanics/exact_checks.py,0,PASS0,,0.6,b5e308b751658236,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,research/mechanics/exact_checks.py,2,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/cab6-packing/verify.py,0,documented,.venv/bin/python results/cab6-packing/verify.py,0,PASS0,,1.1,651a1a0010a57756,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/cab6-packing/verify.py,0,optimised,.venv/bin/python -O results/cab6-packing/verify.py,0,PASS0,,1.1,651a1a0010a57756,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/cab6-packing/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/cab6-packing/verify.py,0,PASS0,,1.1,651a1a0010a57756,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/cab6-packing/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-2d/verify.py,0,documented,.venv/bin/python results/fold-2d/verify.py,0,PASS0,,10.6,32c55b6912170b70,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-2d/verify.py,0,optimised,.venv/bin/python -O results/fold-2d/verify.py,0,PASS0,,10.8,32c55b6912170b70,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-2d/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-2d/verify.py,0,PASS0,,10.7,32c55b6912170b70,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-2d/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-3d-cubic/verify.py,0,documented,.venv/bin/python results/fold-3d-cubic/verify.py,0,PASS0,,50.7,77d8004cc0eac166,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-3d-cubic/verify.py,0,optimised,.venv/bin/python -O results/fold-3d-cubic/verify.py,0,PASS0,,50.5,77d8004cc0eac166,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-3d-cubic/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-3d-cubic/verify.py,0,PASS0,,50.0,77d8004cc0eac166,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-3d-cubic/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/chk_independent.py,0,documented,.venv/bin/python results/fold-close-packing/chk_independent.py,1,FAILNZ,,0.1,7883e24d49538ac1,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/chk_independent.py,0,optimised,.venv/bin/python -O results/fold-close-packing/chk_independent.py,1,FAILNZ,,0.1,7883e24d49538ac1,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/chk_independent.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-close-packing/chk_independent.py,1,FAILNZ,,0.1,7883e24d49538ac1,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/chk_independent.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/verify.py,0,documented,.venv/bin/python results/fold-close-packing/verify.py,TIMEOUT,TIMEOUT,,120.0,,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/verify.py,0,optimised,.venv/bin/python -O results/fold-close-packing/verify.py,TIMEOUT,TIMEOUT,,120.0,,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-close-packing/verify.py,TIMEOUT,TIMEOUT,,120.0,,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-close-packing/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/hand_proof_check.py,7,documented,.venv/bin/python results/fold-continuous-fcc/hand_proof_check.py,0,PASS0,,1.3,81044c3dfe3aac35,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/hand_proof_check.py,7,optimised,.venv/bin/python -O results/fold-continuous-fcc/hand_proof_check.py,0,PASS0,,1.1,81044c3dfe3aac35,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/hand_proof_check.py,7,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-continuous-fcc/hand_proof_check.py,0,PASS0,,1.1,81044c3dfe3aac35,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/hand_proof_check.py,7,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/independent.py,0,documented,.venv/bin/python results/fold-continuous-fcc/independent.py,0,PASS0,,0.8,302b15d02e5d450a,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/independent.py,0,optimised,.venv/bin/python -O results/fold-continuous-fcc/independent.py,0,PASS0,,0.8,302b15d02e5d450a,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/independent.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-continuous-fcc/independent.py,0,PASS0,,0.8,302b15d02e5d450a,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/independent.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/verify.py,0,documented,.venv/bin/python results/fold-continuous-fcc/verify.py,0,PASS0,,1.4,7a9ecd5d1e8646e6,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/verify.py,0,optimised,.venv/bin/python -O results/fold-continuous-fcc/verify.py,0,PASS0,,1.3,7a9ecd5d1e8646e6,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-continuous-fcc/verify.py,0,PASS0,,1.4,7a9ecd5d1e8646e6,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-continuous-fcc/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-end-exact/verify.py,0,documented,.venv/bin/python results/fold-end-exact/verify.py,0,PASS0,,12.3,ab08240ccfeca87d,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-end-exact/verify.py,0,optimised,.venv/bin/python -O results/fold-end-exact/verify.py,0,PASS0,,12.0,ab08240ccfeca87d,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-end-exact/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-end-exact/verify.py,0,PASS0,,12.1,ab08240ccfeca87d,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-end-exact/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-m1/verify.py,0,documented,.venv/bin/python results/fold-m1/verify.py,0,PASS0,,2.6,7565e5e0915a597a,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-m1/verify.py,0,optimised,.venv/bin/python -O results/fold-m1/verify.py,0,PASS0,,2.5,7565e5e0915a597a,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-m1/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/fold-m1/verify.py,0,PASS0,,2.5,7565e5e0915a597a,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/fold-m1/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/radius-ratio/verify.py,0,documented,.venv/bin/python results/radius-ratio/verify.py,0,PASS0,,0.6,f2da0ae335c0eb5a,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/radius-ratio/verify.py,0,optimised,.venv/bin/python -O results/radius-ratio/verify.py,0,PASS0,,0.7,f2da0ae335c0eb5a,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/radius-ratio/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/radius-ratio/verify.py,0,PASS0,,0.7,f2da0ae335c0eb5a,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/radius-ratio/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/rigidity-nd/verify.py,0,documented,.venv/bin/python results/rigidity-nd/verify.py,0,PASS0,,4.5,abf97a9853a67838,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/rigidity-nd/verify.py,0,optimised,.venv/bin/python -O results/rigidity-nd/verify.py,0,PASS0,,4.3,abf97a9853a67838,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/rigidity-nd/verify.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/results/rigidity-nd/verify.py,0,PASS0,,4.1,abf97a9853a67838,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,results/rigidity-nd/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,tools/sha256check.py,0,documented,.venv/bin/python tools/sha256check.py,2,NEEDS-ARGS,,0.0,9bd1fde42d4b1236,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,tools/sha256check.py,0,optimised,.venv/bin/python -O tools/sha256check.py,2,NEEDS-ARGS,,0.0,9bd1fde42d4b1236,no
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,tools/sha256check.py,0,empty-cwd,.venv/bin/python repos/incentre-lattices/tools/sha256check.py,2,NEEDS-ARGS,,0.0,9bd1fde42d4b1236,
+incentre-lattices,2d374fff2a59cc9331566733043a4bb25c1040bf,tools/sha256check.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/c11_base_verifier.c,,documented,,,NOT-RUN,extension .c: no generic runner in O2,,d0d6c98c57c01294,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/c11_base_verifier.c,,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,6,documented,.venv/bin/python studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,0,PASS0,,0.1,e10ddd34068077ef,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,6,optimised,.venv/bin/python -O studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,2,NEEDS-ARGS,,0.0,5ec24c154b34690a,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,6,empty-cwd,.venv/bin/python repos/math0/studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,0,PASS0,,0.1,e10ddd34068077ef,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/check_certificate.py,6,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,documented,.venv/bin/python studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,PASS0,,1.3,1ce0ad97bdbd176f,yes
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,optimised,.venv/bin/python -O studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,2,FAILNZ,,0.0,6ee60eb2bfeae7d7,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,empty-cwd,.venv/bin/python repos/math0/studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,PASS0,,0.7,1ce0ad97bdbd176f,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/base-math-convergence/research/conservation-quotient-bounds/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,3,documented,.venv/bin/python studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,0,PASS0,,0.0,09f965633d13e19e,yes
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,3,optimised,.venv/bin/python -O studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,0,PASS0,,0.0,09f965633d13e19e,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,3,empty-cwd,.venv/bin/python repos/math0/studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,0,PASS0,,0.0,09f965633d13e19e,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/independent_check.py,3,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,30,documented,.venv/bin/python studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,0,PASS0,,0.2,3e3ab3f36b9f7935,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,30,optimised,.venv/bin/python -O studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,0,PASS0,,0.2,3e3ab3f36b9f7935,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,30,empty-cwd,.venv/bin/python repos/math0/studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,0,PASS0,,0.2,3e3ab3f36b9f7935,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/cubic-general-frames-and-2adic-obstruction/verify.py,30,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,5,documented,.venv/bin/python studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,0,PASS0,,0.1,304689935e24d0b1,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,5,optimised,.venv/bin/python -O studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,2,NEEDS-ARGS,,0.0,5ec24c154b34690a,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,5,empty-cwd,.venv/bin/python repos/math0/studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,0,PASS0,,0.1,304689935e24d0b1,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/check_spread_scan.py,5,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,0,documented,.venv/bin/python studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,0,PASS0,,0.8,ff95e93342d07ce7,yes
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,0,optimised,.venv/bin/python -O studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,2,FAILNZ,,0.0,6ee60eb2bfeae7d7,no
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,0,empty-cwd,.venv/bin/python repos/math0/studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,0,PASS0,,0.7,ff95e93342d07ce7,
+math0,e649250ca32249affe52873a45d22e8bd5562624,studies/integer-mult/carbon-2026-11-13/frontier7000-spread-scan/research/frontier7000-spread-scan/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,pilot/fits_verify.py,0,documented,.venv/bin/python pilot/fits_verify.py,0,PASS0,,0.6,,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,pilot/fits_verify.py,0,optimised,.venv/bin/python -O pilot/fits_verify.py,0,PASS0,,0.4,,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,pilot/fits_verify.py,0,empty-cwd,.venv/bin/python repos/nhanes-bioimpedance/pilot/fits_verify.py,0,PASS0,,0.4,,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,pilot/fits_verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/cause-specific-mortality/verify.py,0,documented,.venv/bin/python results/cause-specific-mortality/verify.py,1,FAILNZ,,88.2,bffa8b26dd6fbd5b,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/cause-specific-mortality/verify.py,0,optimised,.venv/bin/python -O results/cause-specific-mortality/verify.py,1,FAILNZ,,19.0,5e50e6650e9afc1a,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/cause-specific-mortality/verify.py,0,empty-cwd,.venv/bin/python repos/nhanes-bioimpedance/results/cause-specific-mortality/verify.py,1,FAILNZ,,19.3,5e50e6650e9afc1a,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/cause-specific-mortality/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/outcomes-2026-10-31/verify.py,0,documented,.venv/bin/python results/outcomes-2026-10-31/verify.py,1,FAILNZ,,0.0,89fa9ba3a32a5baa,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/outcomes-2026-10-31/verify.py,0,optimised,.venv/bin/python -O results/outcomes-2026-10-31/verify.py,1,FAILNZ,,0.0,89fa9ba3a32a5baa,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/outcomes-2026-10-31/verify.py,0,empty-cwd,.venv/bin/python repos/nhanes-bioimpedance/results/outcomes-2026-10-31/verify.py,1,FAILNZ,,0.0,89fa9ba3a32a5baa,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/outcomes-2026-10-31/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/pilot-2026-10-31/verify.py,0,documented,.venv/bin/python results/pilot-2026-10-31/verify.py,1,FAILNZ,,59.4,1f67af758a0192fe,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/pilot-2026-10-31/verify.py,0,optimised,.venv/bin/python -O results/pilot-2026-10-31/verify.py,1,FAILNZ,,59.8,1f67af758a0192fe,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/pilot-2026-10-31/verify.py,0,empty-cwd,.venv/bin/python repos/nhanes-bioimpedance/results/pilot-2026-10-31/verify.py,1,FAILNZ,,57.4,1f67af758a0192fe,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,results/pilot-2026-10-31/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,scripts/check_no_participant_data.py,0,documented,.venv/bin/python scripts/check_no_participant_data.py,0,PASS0,,0.1,3d1d30445465a9ca,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,scripts/check_no_participant_data.py,0,optimised,.venv/bin/python -O scripts/check_no_participant_data.py,0,PASS0,,0.1,3d1d30445465a9ca,no
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,scripts/check_no_participant_data.py,0,empty-cwd,.venv/bin/python repos/nhanes-bioimpedance/scripts/check_no_participant_data.py,0,PASS0,,0.1,3d1d30445465a9ca,
+nhanes-bioimpedance,efb3395b70e32ae96779a73454b2333b7e86c4d1,scripts/check_no_participant_data.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,explore/three_scan_check.py,0,documented,.venv/bin/python explore/three_scan_check.py,1,FAILNZ,,0.1,208d11e77947a60e,no
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,explore/three_scan_check.py,0,optimised,.venv/bin/python -O explore/three_scan_check.py,1,FAILNZ,,0.1,208d11e77947a60e,no
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,explore/three_scan_check.py,0,empty-cwd,.venv/bin/python repos/point-charges/explore/three_scan_check.py,1,FAILNZ,,0.1,208d11e77947a60e,
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,explore/three_scan_check.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,verify_arb.py,5,documented,.venv/bin/python verify_arb.py,1,DEP-MISSING,flint,0.0,1bf65ad37291f58a,no
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,verify_arb.py,5,optimised,.venv/bin/python -O verify_arb.py,1,DEP-MISSING,flint,0.0,1bf65ad37291f58a,no
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,verify_arb.py,5,empty-cwd,.venv/bin/python repos/point-charges/verify_arb.py,1,DEP-MISSING,flint,0.0,1bf65ad37291f58a,
+point-charges,a2fd159bccb24d2922a127ad83f28b9f44e2ceba,verify_arb.py,5,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/recompute.py,0,documented,.venv/bin/python results/auroc-provenance-20261113/recompute.py,0,PASS0,,3.8,6227b0e665819503,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/recompute.py,0,optimised,.venv/bin/python -O results/auroc-provenance-20261113/recompute.py,0,PASS0,,3.9,e569b2882639498c,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/recompute.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/auroc-provenance-20261113/recompute.py,0,PASS0,,3.7,96ed8eee9ddc8c4e,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/recompute.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/verify.py,0,documented,.venv/bin/python results/auroc-provenance-20261113/verify.py,0,PASS0,,0.4,39cca3df6e37b1c4,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/verify.py,0,optimised,.venv/bin/python -O results/auroc-provenance-20261113/verify.py,0,PASS0,,0.4,39cca3df6e37b1c4,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/verify.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/auroc-provenance-20261113/verify.py,0,PASS0,,0.4,39cca3df6e37b1c4,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/auroc-provenance-20261113/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,documented,.venv/bin/python results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,PASS0,,0.1,8ed7ddaec8fafb3a,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,optimised,.venv/bin/python -O results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,PASS0,,0.1,8ed7ddaec8fafb3a,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,PASS0,,0.1,8ed7ddaec8fafb3a,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/cdr2-cdr2l-evidence-atlas-2026-11-13/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/integrity-audit-2026-11-13/verify.py,0,documented,.venv/bin/python results/integrity-audit-2026-11-13/verify.py,0,PASS0,,17.9,28cba11cf6a19fcc,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/integrity-audit-2026-11-13/verify.py,0,optimised,.venv/bin/python -O results/integrity-audit-2026-11-13/verify.py,0,PASS0,,15.5,28cba11cf6a19fcc,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/integrity-audit-2026-11-13/verify.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/integrity-audit-2026-11-13/verify.py,0,PASS0,,15.4,28cba11cf6a19fcc,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/integrity-audit-2026-11-13/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,documented,.venv/bin/python results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,PASS0,,0.1,7170f8ae247fcb6c,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,optimised,.venv/bin/python -O results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,PASS0,,0.1,7170f8ae247fcb6c,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,PASS0,,0.1,7170f8ae247fcb6c,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/tcga-ov-cohort-reconciliation-20261113/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-2026-11-05/verify.py,0,documented,.venv/bin/python results/trial-landscape-2026-11-05/verify.py,0,PASS0,,0.1,73b40b6283bed2d5,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-2026-11-05/verify.py,0,optimised,.venv/bin/python -O results/trial-landscape-2026-11-05/verify.py,0,PASS0,,0.1,73b40b6283bed2d5,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-2026-11-05/verify.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/trial-landscape-2026-11-05/verify.py,0,PASS0,,0.1,73b40b6283bed2d5,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-2026-11-05/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-v2-2026-11-13/verify.py,0,documented,.venv/bin/python results/trial-landscape-v2-2026-11-13/verify.py,0,PASS0,,12.2,5a0ae3593502ac25,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-v2-2026-11-13/verify.py,0,optimised,.venv/bin/python -O results/trial-landscape-v2-2026-11-13/verify.py,0,PASS0,,12.1,5a0ae3593502ac25,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-v2-2026-11-13/verify.py,0,empty-cwd,.venv/bin/python repos/project-asma/results/trial-landscape-v2-2026-11-13/verify.py,0,PASS0,,12.1,5a0ae3593502ac25,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,results/trial-landscape-v2-2026-11-13/verify.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/analyze_validation_capacity.py,0,documented,.venv/bin/python tools/analyze_validation_capacity.py,0,PASS0,,0.0,1bab233c91e44257,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/analyze_validation_capacity.py,0,optimised,.venv/bin/python -O tools/analyze_validation_capacity.py,0,PASS0,,0.1,1bab233c91e44257,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/analyze_validation_capacity.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/analyze_validation_capacity.py,0,PASS0,,0.0,1bab233c91e44257,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/analyze_validation_capacity.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_archive.py,0,documented,.venv/bin/python tools/audit_author_archive.py,0,PASS0,,7.8,5c3624e19d4540d7,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_archive.py,0,optimised,.venv/bin/python -O tools/audit_author_archive.py,0,PASS0,,8.4,b1de379082a1ab48,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_archive.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_author_archive.py,0,PASS0,,7.7,34c045175143b9ef,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_archive.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_features.py,0,documented,.venv/bin/python tools/audit_author_features.py,0,PASS0,,6.9,41c884bd58d7b3bf,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_features.py,0,optimised,.venv/bin/python -O tools/audit_author_features.py,0,PASS0,,6.5,9b4eb895821c7b7b,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_features.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_author_features.py,0,PASS0,,7.2,9058734e9d9159be,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_author_features.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_atlas.py,0,documented,.venv/bin/python tools/audit_cdr2l_atlas.py,0,PASS0,,0.1,6929da95810d09cd,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_atlas.py,0,optimised,.venv/bin/python -O tools/audit_cdr2l_atlas.py,0,PASS0,,0.1,6929da95810d09cd,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_atlas.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_cdr2l_atlas.py,0,PASS0,,0.1,6929da95810d09cd,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_atlas.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_sequences.py,0,documented,.venv/bin/python tools/audit_cdr2l_sequences.py,0,PASS0,,0.1,2024d96c97eacebd,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_sequences.py,0,optimised,.venv/bin/python -O tools/audit_cdr2l_sequences.py,0,PASS0,,0.1,2024d96c97eacebd,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_sequences.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_cdr2l_sequences.py,0,PASS0,,0.1,2024d96c97eacebd,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_sequences.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_source_psm.py,0,documented,.venv/bin/python tools/audit_cdr2l_source_psm.py,0,PASS0,,0.1,7b0d9044b5cf6515,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_source_psm.py,0,optimised,.venv/bin/python -O tools/audit_cdr2l_source_psm.py,0,PASS0,,0.1,7b0d9044b5cf6515,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_source_psm.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_cdr2l_source_psm.py,0,PASS0,,0.1,7b0d9044b5cf6515,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_source_psm.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_spectrum_locator.py,0,documented,.venv/bin/python tools/audit_cdr2l_spectrum_locator.py,0,PASS0,,0.1,245e736bc63b5157,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_spectrum_locator.py,0,optimised,.venv/bin/python -O tools/audit_cdr2l_spectrum_locator.py,0,PASS0,,0.1,245e736bc63b5157,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_spectrum_locator.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_cdr2l_spectrum_locator.py,0,PASS0,,0.1,245e736bc63b5157,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_cdr2l_spectrum_locator.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_checkers.py,0,documented,.venv/bin/python tools/audit_checkers.py,0,PASS0,,15.5,056bfee9ff7c6e26,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_checkers.py,0,optimised,.venv/bin/python -O tools/audit_checkers.py,0,PASS0,,15.7,77edacdd1496def7,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_checkers.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_checkers.py,0,PASS0,,15.4,93430e19a0bd0edc,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_checkers.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_matrix_headers.py,0,documented,.venv/bin/python tools/audit_matrix_headers.py,0,PASS0,,7.3,0e842f5dd9c8d21e,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_matrix_headers.py,0,optimised,.venv/bin/python -O tools/audit_matrix_headers.py,0,PASS0,,6.2,9a3fb290872ccd50,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_matrix_headers.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_matrix_headers.py,0,PASS0,,6.1,5ef320a40a901d2c,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_matrix_headers.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_panel_names.py,0,documented,.venv/bin/python tools/audit_panel_names.py,0,PASS0,,0.6,f35f2fc110881066,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_panel_names.py,0,optimised,.venv/bin/python -O tools/audit_panel_names.py,0,PASS0,,0.6,1dee579224332374,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_panel_names.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_panel_names.py,0,PASS0,,0.5,edb194ebcb140665,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_panel_names.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_pdc_metadata.py,0,documented,.venv/bin/python tools/audit_pdc_metadata.py,0,PASS0,,2.3,8da7b80e85326793,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_pdc_metadata.py,0,optimised,.venv/bin/python -O tools/audit_pdc_metadata.py,0,PASS0,,2.3,bc6ea9af3023dffb,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_pdc_metadata.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_pdc_metadata.py,0,PASS0,,2.4,53a1c79468308726,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_pdc_metadata.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_published_cohorts.py,0,documented,.venv/bin/python tools/audit_published_cohorts.py,0,PASS0,,2.9,2f63d304a018152b,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_published_cohorts.py,0,optimised,.venv/bin/python -O tools/audit_published_cohorts.py,0,PASS0,,3.2,b298d632f58bd3ac,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_published_cohorts.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_published_cohorts.py,0,PASS0,,2.8,bbf3d39484f27afc,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_published_cohorts.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_trial_landscape.py,0,documented,.venv/bin/python tools/audit_trial_landscape.py,0,PASS0,,2.1,977247a81cda9a24,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_trial_landscape.py,0,optimised,.venv/bin/python -O tools/audit_trial_landscape.py,0,PASS0,,2.1,6182df88d3a051ea,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_trial_landscape.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_trial_landscape.py,0,PASS0,,2.0,fd301db2101fdccc,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_trial_landscape.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_validation_panel_coverage.py,0,documented,.venv/bin/python tools/audit_validation_panel_coverage.py,0,PASS0,,6.3,e9a14bf1cd2a1ed7,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_validation_panel_coverage.py,0,optimised,.venv/bin/python -O tools/audit_validation_panel_coverage.py,0,PASS0,,7.3,87f98399cd342b2c,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_validation_panel_coverage.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/audit_validation_panel_coverage.py,0,PASS0,,5.9,a5d78103da1caf81,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/audit_validation_panel_coverage.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/cdr2_atlas_recompute.py,0,documented,.venv/bin/python tools/cdr2_atlas_recompute.py,0,PASS0,,0.0,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/cdr2_atlas_recompute.py,0,optimised,.venv/bin/python -O tools/cdr2_atlas_recompute.py,0,PASS0,,0.0,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/cdr2_atlas_recompute.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/cdr2_atlas_recompute.py,0,PASS0,,0.0,,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/cdr2_atlas_recompute.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_identifiability_certificate_v1.py,0,documented,.venv/bin/python tools/check_identifiability_certificate_v1.py,0,PASS0,,1.8,72a7a0d2a22e9dc3,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_identifiability_certificate_v1.py,0,optimised,.venv/bin/python -O tools/check_identifiability_certificate_v1.py,0,PASS0,,1.7,72a7a0d2a22e9dc3,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_identifiability_certificate_v1.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_identifiability_certificate_v1.py,0,PASS0,,1.9,72a7a0d2a22e9dc3,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_identifiability_certificate_v1.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_implementation_hashes.py,0,documented,.venv/bin/python tools/check_implementation_hashes.py,0,PASS0,,0.5,6765695e16fd8490,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_implementation_hashes.py,0,optimised,.venv/bin/python -O tools/check_implementation_hashes.py,0,PASS0,,0.4,6765695e16fd8490,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_implementation_hashes.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_implementation_hashes.py,0,PASS0,,0.3,6765695e16fd8490,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_implementation_hashes.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_panel_name_tokens.R,,documented,,,NOT-RUN,extension .R: no generic runner in O2,,0c194e6f2d22e289,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_panel_name_tokens.R,,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_sha256_manifests.py,0,documented,.venv/bin/python tools/check_sha256_manifests.py,0,PASS0,,0.1,38d8b10ffb2f6750,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_sha256_manifests.py,0,optimised,.venv/bin/python -O tools/check_sha256_manifests.py,0,PASS0,,0.1,38d8b10ffb2f6750,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_sha256_manifests.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_sha256_manifests.py,0,PASS0,,0.1,38d8b10ffb2f6750,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_sha256_manifests.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_site_models.py,0,documented,.venv/bin/python tools/check_site_models.py,0,PASS0,,0.1,8bd5211a2681316c,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_site_models.py,0,optimised,.venv/bin/python -O tools/check_site_models.py,0,PASS0,,0.0,8bd5211a2681316c,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_site_models.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_site_models.py,0,PASS0,,0.0,8bd5211a2681316c,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_site_models.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_source_adapter.R,,documented,,,NOT-RUN,extension .R: no generic runner in O2,,0c194e6f2d22e289,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_source_adapter.R,,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_source_adapter.py,0,documented,.venv/bin/python tools/check_source_adapter.py,1,FAILNZ,,0.1,6c38942c3f791403,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_source_adapter.py,0,optimised,.venv/bin/python -O tools/check_source_adapter.py,1,FAILNZ,,0.1,6c38942c3f791403,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_source_adapter.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_source_adapter.py,1,FAILNZ,,0.1,6c38942c3f791403,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_source_adapter.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_stated_specificity_bounds.py,0,documented,.venv/bin/python tools/check_stated_specificity_bounds.py,0,PASS0,,0.1,a4cc6af179ee3255,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_stated_specificity_bounds.py,0,optimised,.venv/bin/python -O tools/check_stated_specificity_bounds.py,0,PASS0,,0.1,a4cc6af179ee3255,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_stated_specificity_bounds.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_stated_specificity_bounds.py,0,PASS0,,0.1,a4cc6af179ee3255,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_stated_specificity_bounds.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_tracked_study_sources.py,0,documented,.venv/bin/python tools/check_tracked_study_sources.py,0,PASS0,,0.1,3d86a5c90eddb0ac,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_tracked_study_sources.py,0,optimised,.venv/bin/python -O tools/check_tracked_study_sources.py,0,PASS0,,0.1,3d86a5c90eddb0ac,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_tracked_study_sources.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/check_tracked_study_sources.py,0,PASS0,,0.1,3d86a5c90eddb0ac,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/check_tracked_study_sources.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/ci_run_offline_checks.py,0,documented,.venv/bin/python tools/ci_run_offline_checks.py,1,FAILNZ,,0.1,7eb6d44df32b2fc0,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/ci_run_offline_checks.py,0,optimised,.venv/bin/python -O tools/ci_run_offline_checks.py,1,FAILNZ,,0.1,7eb6d44df32b2fc0,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/ci_run_offline_checks.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/ci_run_offline_checks.py,1,FAILNZ,,0.1,7eb6d44df32b2fc0,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/ci_run_offline_checks.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/attestation.py,0,documented,.venv/bin/python tools/pilot001_first_run/attestation.py,1,DEP-MISSING,pilot001_first_run,0.0,ac60b5002aa2fc28,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/attestation.py,0,optimised,.venv/bin/python -O tools/pilot001_first_run/attestation.py,1,DEP-MISSING,pilot001_first_run,0.0,ac60b5002aa2fc28,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/attestation.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/pilot001_first_run/attestation.py,1,DEP-MISSING,pilot001_first_run,0.0,ac60b5002aa2fc28,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/attestation.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/cross_arch_equivalence.py,0,documented,.venv/bin/python tools/pilot001_first_run/cross_arch_equivalence.py,0,PASS0,,0.1,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/cross_arch_equivalence.py,0,optimised,.venv/bin/python -O tools/pilot001_first_run/cross_arch_equivalence.py,0,PASS0,,0.1,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/cross_arch_equivalence.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/pilot001_first_run/cross_arch_equivalence.py,0,PASS0,,0.1,,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/cross_arch_equivalence.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/gates.py,0,documented,.venv/bin/python tools/pilot001_first_run/gates.py,1,DEP-MISSING,pilot001_first_run,0.0,ce4e9f5c98db23d7,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/gates.py,0,optimised,.venv/bin/python -O tools/pilot001_first_run/gates.py,1,DEP-MISSING,pilot001_first_run,0.0,ce4e9f5c98db23d7,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/gates.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/pilot001_first_run/gates.py,1,DEP-MISSING,pilot001_first_run,0.0,ce4e9f5c98db23d7,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/gates.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/output_validator.py,0,documented,.venv/bin/python tools/pilot001_first_run/output_validator.py,0,PASS0,,0.0,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/output_validator.py,0,optimised,.venv/bin/python -O tools/pilot001_first_run/output_validator.py,0,PASS0,,0.0,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/output_validator.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/pilot001_first_run/output_validator.py,0,PASS0,,0.0,,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/pilot001_first_run/output_validator.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/probe_execution_conditions.R,,documented,,,NOT-RUN,extension .R: no generic runner in O2,,0c194e6f2d22e289,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/probe_execution_conditions.R,,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/probe_execution_conditions.py,0,documented,.venv/bin/python tools/probe_execution_conditions.py,1,FAILNZ,,0.2,620225491fd6fc5b,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/probe_execution_conditions.py,0,optimised,.venv/bin/python -O tools/probe_execution_conditions.py,1,FAILNZ,,0.1,620225491fd6fc5b,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/probe_execution_conditions.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/probe_execution_conditions.py,1,FAILNZ,,0.1,620225491fd6fc5b,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/probe_execution_conditions.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/run_cross_arch_equivalence.py,0,documented,.venv/bin/python tools/run_cross_arch_equivalence.py,2,NEEDS-ARGS,,0.1,587453317ab10898,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/run_cross_arch_equivalence.py,0,optimised,.venv/bin/python -O tools/run_cross_arch_equivalence.py,2,NEEDS-ARGS,,0.1,587453317ab10898,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/run_cross_arch_equivalence.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/run_cross_arch_equivalence.py,2,NEEDS-ARGS,,0.1,587453317ab10898,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/run_cross_arch_equivalence.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/tcga_ov_cohort_recompute.py,0,documented,.venv/bin/python tools/tcga_ov_cohort_recompute.py,0,PASS0,,0.0,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/tcga_ov_cohort_recompute.py,0,optimised,.venv/bin/python -O tools/tcga_ov_cohort_recompute.py,0,PASS0,,0.0,,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/tcga_ov_cohort_recompute.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/tcga_ov_cohort_recompute.py,0,PASS0,,0.0,,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/tcga_ov_cohort_recompute.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/trial_landscape_v2_recompute.py,0,documented,.venv/bin/python tools/trial_landscape_v2_recompute.py,0,PASS0,,6.8,f276b98eb0007d06,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/trial_landscape_v2_recompute.py,0,optimised,.venv/bin/python -O tools/trial_landscape_v2_recompute.py,0,PASS0,,9.1,f276b98eb0007d06,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/trial_landscape_v2_recompute.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/trial_landscape_v2_recompute.py,0,PASS0,,6.7,f276b98eb0007d06,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/trial_landscape_v2_recompute.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/validate.py,0,documented,.venv/bin/python tools/validate.py,0,PASS0,,0.2,21bcab003bffdeeb,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/validate.py,0,optimised,.venv/bin/python -O tools/validate.py,0,PASS0,,0.2,21bcab003bffdeeb,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/validate.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/validate.py,0,PASS0,,0.2,21bcab003bffdeeb,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/validate.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_identifiability_and_c20.py,19,documented,.venv/bin/python tools/verify_identifiability_and_c20.py,0,PASS0,,1.2,dabf40c2e1e23222,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_identifiability_and_c20.py,19,optimised,.venv/bin/python -O tools/verify_identifiability_and_c20.py,0,PASS0,,1.2,dabf40c2e1e23222,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_identifiability_and_c20.py,19,empty-cwd,.venv/bin/python repos/project-asma/tools/verify_identifiability_and_c20.py,0,PASS0,,1.1,dabf40c2e1e23222,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_identifiability_and_c20.py,19,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_published_auc.py,0,documented,.venv/bin/python tools/verify_published_auc.py,0,PASS0,,3.0,8051d42455b88acf,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_published_auc.py,0,optimised,.venv/bin/python -O tools/verify_published_auc.py,0,PASS0,,3.2,43d74c8b1a96adf9,no
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_published_auc.py,0,empty-cwd,.venv/bin/python repos/project-asma/tools/verify_published_auc.py,0,PASS0,,2.6,b3d5c01378aa1045,
+project-asma,48178217a88066212ec798a7e8031e6fc652493e,tools/verify_published_auc.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/audit.py,0,documented,.venv/bin/python scripts/audit.py,1,FAILNZ,,0.1,8f927befd01cc3ad,yes
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/audit.py,0,optimised,.venv/bin/python -O scripts/audit.py,1,FAILNZ,,0.1,8f927befd01cc3ad,yes
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/audit.py,0,empty-cwd,.venv/bin/python repos/proven-commons/scripts/audit.py,1,FAILNZ,,0.1,8f927befd01cc3ad,
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/audit.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/check-consistency.py,0,documented,.venv/bin/python scripts/check-consistency.py,1,FAILNZ,,0.1,6243cad4d5a3f08d,yes
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/check-consistency.py,0,optimised,.venv/bin/python -O scripts/check-consistency.py,0,PASS0,,0.1,22b372fb5fc7e5ff,no
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/check-consistency.py,0,empty-cwd,.venv/bin/python repos/proven-commons/scripts/check-consistency.py,0,PASS0,,0.1,22b372fb5fc7e5ff,
+proven-commons,903c1858be856776de21675cf5c4e26fb9eebcdf,scripts/check-consistency.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,documented,.venv/bin/python rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,PASS0,,4.1,c0f924c77be2a826,yes
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,optimised,.venv/bin/python -O rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,PASS0,,4.1,b14f017fb012f9cf,yes
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,empty-cwd,.venv/bin/python repos/rigid-realizations/rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,PASS0,,4.3,bd75d4168dd0eead,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_bartzos_baselines.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,4,documented,.venv/bin/python rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,0,PASS0,,0.9,d33734b06525b9a8,yes
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,4,optimised,.venv/bin/python -O rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,0,PASS0,,0.9,98b1cba92d93b8b2,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,4,empty-cwd,.venv/bin/python repos/rigid-realizations/rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,0,PASS0,,0.9,86e661ffd6a4ee9c,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_capco_laman.py,4,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,documented,.venv/bin/python rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,PASS0,,3.2,8d86ec774b77d27d,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,optimised,.venv/bin/python -O rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,PASS0,,3.0,90d71e3c33d8a3ef,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,empty-cwd,.venv/bin/python repos/rigid-realizations/rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,PASS0,,3.0,66eaa4e4c4caa4b5,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_independent.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,documented,.venv/bin/python rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,PASS0,,0.3,3af67daf718cb9dc,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,optimised,.venv/bin/python -O rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,PASS0,,0.3,3af67daf718cb9dc,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,empty-cwd,.venv/bin/python repos/rigid-realizations/rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,PASS0,,0.3,63eb8de3ec26a3a5,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,rigid_realizations_l880_pr_bundle/scripts/verify_l880_krawczyk.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,scripts/verify_note_schema_2d.py,0,documented,.venv/bin/python scripts/verify_note_schema_2d.py,0,PASS0,,0.0,,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,scripts/verify_note_schema_2d.py,0,optimised,.venv/bin/python -O scripts/verify_note_schema_2d.py,0,PASS0,,0.0,,no
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,scripts/verify_note_schema_2d.py,0,empty-cwd,.venv/bin/python repos/rigid-realizations/scripts/verify_note_schema_2d.py,0,PASS0,,0.0,,
+rigid-realizations,298926c5e7a03683bb83165931ac38a94260166f,scripts/verify_note_schema_2d.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_asma_interventions.py,0,documented,.venv/bin/python scripts/validate_asma_interventions.py,1,DEP-MISSING,vh,0.1,c9187c31ba127200,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_asma_interventions.py,0,optimised,.venv/bin/python -O scripts/validate_asma_interventions.py,1,DEP-MISSING,vh,0.0,c9187c31ba127200,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_asma_interventions.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_asma_interventions.py,1,DEP-MISSING,vh,0.0,c9187c31ba127200,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_asma_interventions.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_body.py,0,documented,.venv/bin/python scripts/validate_body.py,1,DEP-MISSING,vh,1.0,3b84bcd15019b23d,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_body.py,0,optimised,.venv/bin/python -O scripts/validate_body.py,1,DEP-MISSING,vh,0.7,3b84bcd15019b23d,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_body.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_body.py,1,DEP-MISSING,vh,0.6,3b84bcd15019b23d,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_body.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_evidence_bindings.py,0,documented,.venv/bin/python scripts/validate_evidence_bindings.py,1,DEP-MISSING,vh,0.0,a361c28ec56d3503,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_evidence_bindings.py,0,optimised,.venv/bin/python -O scripts/validate_evidence_bindings.py,1,DEP-MISSING,vh,0.0,a361c28ec56d3503,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_evidence_bindings.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_evidence_bindings.py,1,DEP-MISSING,vh,0.0,a361c28ec56d3503,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_evidence_bindings.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_graph.py,0,documented,.venv/bin/python scripts/validate_graph.py,1,DEP-MISSING,vh,0.1,4efa4f354aa7a477,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_graph.py,0,optimised,.venv/bin/python -O scripts/validate_graph.py,1,DEP-MISSING,vh,0.1,4efa4f354aa7a477,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_graph.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_graph.py,1,DEP-MISSING,vh,0.1,4efa4f354aa7a477,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_graph.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_model_contracts.py,0,documented,.venv/bin/python scripts/validate_model_contracts.py,1,DEP-MISSING,vh,0.0,061e880712d71861,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_model_contracts.py,0,optimised,.venv/bin/python -O scripts/validate_model_contracts.py,1,DEP-MISSING,vh,0.0,061e880712d71861,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_model_contracts.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_model_contracts.py,1,DEP-MISSING,vh,0.0,061e880712d71861,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_model_contracts.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_molecular.py,0,documented,.venv/bin/python scripts/validate_molecular.py,1,DEP-MISSING,jax,0.0,174473995698f009,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_molecular.py,0,optimised,.venv/bin/python -O scripts/validate_molecular.py,1,DEP-MISSING,jax,0.0,174473995698f009,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_molecular.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_molecular.py,1,DEP-MISSING,jax,0.0,174473995698f009,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_molecular.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_ovarian_parameter_ledger.py,0,documented,.venv/bin/python scripts/validate_ovarian_parameter_ledger.py,0,PASS0,,0.1,8afe4625ec08f4ec,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_ovarian_parameter_ledger.py,0,optimised,.venv/bin/python -O scripts/validate_ovarian_parameter_ledger.py,0,PASS0,,0.1,8afe4625ec08f4ec,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_ovarian_parameter_ledger.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_ovarian_parameter_ledger.py,0,PASS0,,0.1,8afe4625ec08f4ec,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_ovarian_parameter_ledger.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_quantum.py,0,documented,.venv/bin/python scripts/validate_quantum.py,1,DEP-MISSING,vh,0.1,38aa318882734d44,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_quantum.py,0,optimised,.venv/bin/python -O scripts/validate_quantum.py,1,DEP-MISSING,vh,0.1,38aa318882734d44,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_quantum.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_quantum.py,1,DEP-MISSING,vh,0.1,38aa318882734d44,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_quantum.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_reaction_experiments.py,0,documented,.venv/bin/python scripts/validate_reaction_experiments.py,1,DEP-MISSING,vh,0.4,8425cf38580e0437,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_reaction_experiments.py,0,optimised,.venv/bin/python -O scripts/validate_reaction_experiments.py,1,DEP-MISSING,vh,0.4,8425cf38580e0437,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_reaction_experiments.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_reaction_experiments.py,1,DEP-MISSING,vh,0.4,8425cf38580e0437,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_reaction_experiments.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_sbml.py,0,documented,.venv/bin/python scripts/validate_sbml.py,1,DEP-MISSING,vh,0.1,a251da10f5036f71,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_sbml.py,0,optimised,.venv/bin/python -O scripts/validate_sbml.py,1,DEP-MISSING,vh,0.1,a251da10f5036f71,no
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_sbml.py,0,empty-cwd,.venv/bin/python repos/virtual-human/scripts/validate_sbml.py,1,DEP-MISSING,vh,0.1,a251da10f5036f71,
+virtual-human,6b10b458704e36cd592552ab8165d55ce5fe64ec,scripts/validate_sbml.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/chirality_probe.py,10,documented,.venv/bin/python research/chirality_probe.py,0,PASS0,,1.4,f5bb7556d5f400bf,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/chirality_probe.py,10,optimised,.venv/bin/python -O research/chirality_probe.py,0,PASS0,,1.4,f5bb7556d5f400bf,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/chirality_probe.py,10,empty-cwd,.venv/bin/python repos/vitruvian3d/research/chirality_probe.py,0,PASS0,,1.4,f5bb7556d5f400bf,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/chirality_probe.py,10,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/connectors_verify.py,5,documented,.venv/bin/python research/connectors_verify.py,0,PASS0,,0.1,104a4ad24b7f9ab4,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/connectors_verify.py,5,optimised,.venv/bin/python -O research/connectors_verify.py,0,PASS0,,0.1,104a4ad24b7f9ab4,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/connectors_verify.py,5,empty-cwd,.venv/bin/python repos/vitruvian3d/research/connectors_verify.py,0,PASS0,,0.1,104a4ad24b7f9ab4,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/connectors_verify.py,5,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_verify.py,18,documented,.venv/bin/python research/passage_verify.py,0,PASS0,,0.5,5ea5a630810394ad,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_verify.py,18,optimised,.venv/bin/python -O research/passage_verify.py,0,PASS0,,0.4,5ea5a630810394ad,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_verify.py,18,empty-cwd,.venv/bin/python repos/vitruvian3d/research/passage_verify.py,0,PASS0,,0.4,5ea5a630810394ad,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_verify.py,18,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_window_verify.py,6,documented,.venv/bin/python research/passage_window_verify.py,0,PASS0,,50.9,8b0e66774daf98f8,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_window_verify.py,6,optimised,.venv/bin/python -O research/passage_window_verify.py,0,PASS0,,46.7,8b0e66774daf98f8,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_window_verify.py,6,empty-cwd,.venv/bin/python repos/vitruvian3d/research/passage_window_verify.py,0,PASS0,,50.3,8b0e66774daf98f8,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/passage_window_verify.py,6,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/replay_all.py,0,documented,.venv/bin/python research/replay_all.py,0,PASS0,,58.0,fb63bca7683acc1c,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/replay_all.py,0,optimised,.venv/bin/python -O research/replay_all.py,1,FAILNZ,,0.0,8a95d2488aeadb49,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/replay_all.py,0,empty-cwd,.venv/bin/python repos/vitruvian3d/research/replay_all.py,0,PASS0,,56.9,fb63bca7683acc1c,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/replay_all.py,0,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/reviews/passage_audit.py,8,documented,.venv/bin/python research/reviews/passage_audit.py,0,PASS0,,0.6,d4366f08af096602,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/reviews/passage_audit.py,8,optimised,.venv/bin/python -O research/reviews/passage_audit.py,0,PASS0,,0.5,d4366f08af096602,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/reviews/passage_audit.py,8,empty-cwd,.venv/bin/python repos/vitruvian3d/research/reviews/passage_audit.py,0,PASS0,,0.6,d4366f08af096602,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/reviews/passage_audit.py,8,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/audit_numeric_stress.py,15,documented,.venv/bin/python research/rotations/numerics/audit_numeric_stress.py,0,PASS0,,0.7,1d40a90e6094ecce,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/audit_numeric_stress.py,15,optimised,.venv/bin/python -O research/rotations/numerics/audit_numeric_stress.py,0,PASS0,,0.8,1d40a90e6094ecce,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/audit_numeric_stress.py,15,empty-cwd,.venv/bin/python repos/vitruvian3d/research/rotations/numerics/audit_numeric_stress.py,0,PASS0,,0.7,1d40a90e6094ecce,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/audit_numeric_stress.py,15,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/finite_branch_audit.py,4,documented,.venv/bin/python research/rotations/numerics/finite_branch_audit.py,0,PASS0,,0.6,546b6d2305cdd1e4,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/finite_branch_audit.py,4,optimised,.venv/bin/python -O research/rotations/numerics/finite_branch_audit.py,0,PASS0,,0.7,546b6d2305cdd1e4,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/finite_branch_audit.py,4,empty-cwd,.venv/bin/python repos/vitruvian3d/research/rotations/numerics/finite_branch_audit.py,0,PASS0,,0.6,546b6d2305cdd1e4,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/finite_branch_audit.py,4,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/vacancy_stress_verify.py,11,documented,.venv/bin/python research/rotations/numerics/vacancy_stress_verify.py,0,PASS0,,0.0,4b4d0ca0a7e66b07,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/vacancy_stress_verify.py,11,optimised,.venv/bin/python -O research/rotations/numerics/vacancy_stress_verify.py,0,PASS0,,0.0,4b4d0ca0a7e66b07,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/vacancy_stress_verify.py,11,empty-cwd,.venv/bin/python repos/vitruvian3d/research/rotations/numerics/vacancy_stress_verify.py,0,PASS0,,0.0,4b4d0ca0a7e66b07,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/rotations/numerics/vacancy_stress_verify.py,11,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/check.py,18,documented,.venv/bin/python research/transport-conductivity-20261112/check.py,2,NEEDS-ARGS,,0.0,39714624221d0839,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/check.py,18,optimised,.venv/bin/python -O research/transport-conductivity-20261112/check.py,1,FAILNZ,,0.0,cee976aac0dd0cde,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/check.py,18,empty-cwd,.venv/bin/python repos/vitruvian3d/research/transport-conductivity-20261112/check.py,2,NEEDS-ARGS,,0.0,39714624221d0839,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/check.py,18,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/independent-review/independent_bounds.py,30,documented,.venv/bin/python research/transport-conductivity-20261112/independent-review/independent_bounds.py,2,NEEDS-ARGS,,0.0,d92f57fe9a50ce3a,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/independent-review/independent_bounds.py,30,optimised,.venv/bin/python -O research/transport-conductivity-20261112/independent-review/independent_bounds.py,2,NEEDS-ARGS,,0.0,d92f57fe9a50ce3a,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/independent-review/independent_bounds.py,30,empty-cwd,.venv/bin/python repos/vitruvian3d/research/transport-conductivity-20261112/independent-review/independent_bounds.py,2,NEEDS-ARGS,,0.0,d92f57fe9a50ce3a,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport-conductivity-20261112/independent-review/independent_bounds.py,30,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_independent.py,3,documented,.venv/bin/python research/transport_independent.py,0,PASS0,,1.8,bb8bb5a945da790c,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_independent.py,3,optimised,.venv/bin/python -O research/transport_independent.py,0,PASS0,,1.7,e0f989515fb18c49,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_independent.py,3,empty-cwd,.venv/bin/python repos/vitruvian3d/research/transport_independent.py,0,PASS0,,1.7,e3a9ba97d649a11e,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_independent.py,3,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_probe.py,12,documented,.venv/bin/python research/transport_probe.py,0,PASS0,,33.2,16166949e181717e,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_probe.py,12,optimised,.venv/bin/python -O research/transport_probe.py,0,PASS0,,33.4,16166949e181717e,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_probe.py,12,empty-cwd,.venv/bin/python repos/vitruvian3d/research/transport_probe.py,0,PASS0,,33.4,16166949e181717e,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/transport_probe.py,12,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vacancy_independent.py,8,documented,.venv/bin/python research/vacancy_independent.py,0,PASS0,,1.0,c020c3e790c25409,yes
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vacancy_independent.py,8,optimised,.venv/bin/python -O research/vacancy_independent.py,0,PASS0,,1.0,c020c3e790c25409,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vacancy_independent.py,8,empty-cwd,.venv/bin/python repos/vitruvian3d/research/vacancy_independent.py,0,PASS0,,0.9,c020c3e790c25409,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vacancy_independent.py,8,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vitruvian_motion_probe.py,5,documented,.venv/bin/python research/vitruvian_motion_probe.py,0,PASS0,,0.2,bdc64389ac01f270,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vitruvian_motion_probe.py,5,optimised,.venv/bin/python -O research/vitruvian_motion_probe.py,0,PASS0,,0.2,bdc64389ac01f270,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vitruvian_motion_probe.py,5,empty-cwd,.venv/bin/python repos/vitruvian3d/research/vitruvian_motion_probe.py,0,PASS0,,0.2,bdc64389ac01f270,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/vitruvian_motion_probe.py,5,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/void_probe.py,2,documented,.venv/bin/python research/void_probe.py,0,PASS0,,0.8,e8ff64d9fb4eb1a9,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/void_probe.py,2,optimised,.venv/bin/python -O research/void_probe.py,0,PASS0,,0.8,e8ff64d9fb4eb1a9,no
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/void_probe.py,2,empty-cwd,.venv/bin/python repos/vitruvian3d/research/void_probe.py,0,PASS0,,0.7,e8ff64d9fb4eb1a9,
+vitruvian3d,7099f5cb317e77d6e675d798397e2351f7c42ad2,research/void_probe.py,2,corrupted,,,MANUAL,"per-verifier probe, F2",,6154ff40d43f60e2,
