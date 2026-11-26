@@ -1,16 +1,21 @@
 # Overlaps and overwrites, organisation scan (O1)
 
 Scope: all 35 public Foundation-0 repositories, mirrored
-2026-11-15. Default-branch heads match the H1 pins in
-`h1-method.md` unless a repository moved that day. Facts from
-runs carry [F]. Judgments carry [I]. Candidates here are not
-verdicts: read the commit before calling work lost.
+2026-11-15. A 36th public repository, `fibral-rigidity`
+(created 2026-11-15T03:19:40Z), sits outside this scan. The
+mirror run's clock time is not in the committed files, so
+this record does not claim it postdates the run; a follow-up
+scan covers that repository. Default-branch heads match the
+H1 pins in `h1-method.md` unless a repository moved that day.
+Facts from runs carry [F]. Judgments carry [I]. Candidates
+here are not verdicts: read the commit before calling work
+lost.
 
 ## How this was run
 
-Mirrors and PR lists come from the scripts on draft 40 at
-`9f98863` (`scripts/org/scan/`), run from a local copy.
-They stay homed there. This folder commits only the extra
+Mirrors and PR lists come from the scripts on draft 40
+(pull 40) at `9f98863` (`scripts/org/scan/`), run from a local
+copy. They stay homed there. This folder commits only the extra
 tool this run added, `tools/o1_extras.py`, plus outputs.
 
 ```
@@ -21,8 +26,17 @@ python3 -I scan/unlanded.py mirrors o1-unlanded.json lists/closed_unmerged.tsv l
 python3 -I scan/lost_units.py mirrors o1-lost-units.json
 python3 -I scan/stale_base.py mirrors o1-stale-base.json
 python3 -I scan/forensics.py mirrors lists/merged.tsv forensics-full.json
+# inputs not in this folder: inventory.csv sits on review/H1 (pull 45),
+# branches.csv on review/H2 (pull 46)
 python3 tools/o1_extras.py --mirrors mirrors --lists lists --inventory inventory.csv --h2-branches branches.csv --out .
 ```
+
+So a rerun of the last line from this folder alone needs those
+two files fetched from the pull 45 and pull 46 branches first.
+Timestamps in the CSVs and JSONs render as git printed them:
+`Z`, `+00:00` and numeric offsets are the same instants under
+different git versions and configs, so a rerun can print
+different but equivalent date text.
 
 The lost-units and stale-base scans complete this set,
 with forensics beside them. Their sections below carry
@@ -57,7 +71,9 @@ commit and one vitruvian3d commit outside its two-repo
 scope. Full rows sit in `o1-commits.json`.
 
 f0 itself: 25 first-parent commits, 7 direct, all before
-the November window. Its detail sits in `overlap-f0.md`. [F]
+the November window. Its detail sits in `overlap-f0.md` on the
+`review/o1-o2-f0` branch (pull 43); that file is on neither
+main nor this branch. [F]
 
 ## Superseded pull requests: gravity set checked
 
@@ -134,7 +150,8 @@ retargeting dependents.
 
 **Unlanded work, merges clean.** Among branches with no
 open PR in the H2 map, these add content and merge clean:
-the Phase 2 rows R2, R3, R6, R7 and R8 in `status.md`, plus
+the Phase 2 rows R2, R3, R6, R7 and R8 in `status.md` on the
+`review/o1-o2-f0` branch (pull 43), plus
 gaia-dr4 `prep/gaia-dr4-tasks` (R1, still blocked on the
 prep-or-slices choice). Their next steps sit in the
 recovery queue. Two rows in the scan, f0 `review/H1` and
@@ -178,12 +195,14 @@ That limit is recorded here, not filled with a guess.
 
 ## Lost units: named things gone from every branch
 
-`lost_units.py` ran 14m36s over the mirrors. It finds 128
-named units (Python defs, Lean declarations, claim IDs,
+`lost_units.py` ran over the mirrors in 14m36s (run-log
+duration; the committed outputs do not record it). It finds
+128 named units (Python defs, Lean declarations, claim IDs,
 Markdown headings, whole files) that sat on a default
 branch once and exist nowhere today (`o1-lost-units.json`).
 54 carry a removing message that names a removal, rename or
-refactor. 74 do not: 61 headings and 13 Python defs. [F]
+refactor. 74 do not: 61 headings and 13 Python units, 12 defs
+and 1 class (`py:class TestPreflight`). [F]
 
 The scan re-derives the one confirmed overwrite in issue
 42 from scratch. Four defs added by the refactor
@@ -209,7 +228,8 @@ loss as final. [I]
 
 ## Stale-base writes: one in the whole organisation
 
-`stale_base.py` ran 7m44s. It flags exactly one commit org
+`stale_base.py` ran in 7m44s (run-log duration; the committed
+outputs do not record it). It flags exactly one commit org
 wide (`o1-stale-base.json`): gravity `e855db6b4` writing
 `wave4_unified_field_solver.py` from the older `2913956d8`
 version (similarity 0.56) over the refactor it replaced
@@ -235,9 +255,11 @@ full line detail.
   squash commit `98d5aec` sits only on branch
   `codex/complete-result-commitments`. Main carries the
   same title as `abeb94b` under PR 33. 6 of its 17 files
-  match main today. Classification: re-landed in evolved
-  form, candidate only. A tree diff of `98d5aec` against
-  `abeb94b` settles whether anything unique remains.
+  match main today. The tree diff of `98d5aec` against
+  `abeb94b` is empty, and the PR 28 head tree is identical
+  to `abeb94b`, which is an ancestor of main: the content
+  reached main in full through PR 33, and nothing unique
+  remains. Classification: re-landed in full.
 
 **Fast deletions (clobbers): 9,029 line records in 238
 commits** that deleted lines another commit added within
