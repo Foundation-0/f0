@@ -31,3 +31,6 @@ jobs:
 
       - name: Gate corruption probes
         run: python3 tests/run_gate_corruptions.py
+
+      - name: Forum index (fetch script against canned answers, gate against corrupted copies)
+        run: python3 tests/run_discussions.py

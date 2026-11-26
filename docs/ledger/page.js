@@ -50,8 +50,8 @@
   var CREDIT = {
     'aska-cab-to-fcc-exact-fold': 'Founding member Ahraz Arifuddin’s own work at Aska Digital, done with a team of AI agents.',
     'eumemic-tess-faint-transit-candidates': 'Founding member eumemic’s search. Aska Digital built the first version of the project’s website and sent ten pull requests, four of them pipeline fixes; the authors merged all ten.',
-    'integer-mult-bounds-community': 'Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member rohanarun holds the current reviewed κ record (PR #1094); eumemic and Ryan Shea also contribute. Aska built the live tracker that grew into this site.',
-    'vdw-coefficient-community-refinement': 'Started by founding member rohanarun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.',
+    'integer-mult-bounds-community': 'Founding member Doug Colkitt (GitHub: Mister-Meeseeks) runs this open race in the CrocSwap repository. Founding member Rohan Arun holds the current reviewed κ record (PR #1094); eumemic and Ryan Shea also contribute. Aska built the live tracker that grew into this site.',
+    'vdw-coefficient-community-refinement': 'Started by founding member Rohan Arun with Codex and Claude; the last steps came from contributors DaysSky and artuskg.',
     'exact-dft-lean-record-shea-kothe': 'Founding member Ryan Shea’s record, built on Jeremy Kothe’s community circuit.',
     'gf2m-aes-field-multiplier-112': 'Swapnil Jain’s repository and result. Aska Digital contributed verified multipliers for four more fields, GF(2^9), GF(2^10), GF(2^11) and GF(2^128) (PR #1, merged; not records).',
     'mobius-x1-gf2-mobius-below-nlogn': 'Swapnil Jain’s repository and claim. Aska Digital wrote and ran the full-network check behind Theorem 2 (PR #1, merged).'

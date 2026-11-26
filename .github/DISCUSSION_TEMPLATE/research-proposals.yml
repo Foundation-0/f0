@@ -1,0 +1,56 @@
+title: "[Proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a research problem for Foundation0 to take on. If the founding members agree, the decision is recorded in a public issue, the problem becomes a project with a named lead, and it moves to Research. A proposal that is not taken up stays here, open for anyone to pick up later.
+  - type: input
+    id: question
+    attributes:
+      label: The question
+      description: One sentence.
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: Field
+      options:
+        - mathematics (math0)
+        - physics and Earth science (physics0)
+        - astronomy (astr0)
+        - more than one
+        - another field
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it is worth doing now
+      description: What makes it open, what an answer would change, and why people working with AI agents can make progress on it.
+    validations:
+      required: true
+  - type: textarea
+    id: known
+    attributes:
+      label: What is already known
+      description: The best existing results, with links. Primary sources first.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: What a result would look like, and how it would be checked
+      description: For example a proof a machine can check, a certificate, data anyone can re-run, or a dated prediction.
+    validations:
+      required: true
+  - type: textarea
+    id: lead
+    attributes:
+      label: Who would lead it, and the first step
+      description: A named person signs for the work (principle 0.2). Leave it empty if you are proposing it for someone else to take on.
+  - type: textarea
+    id: agent
+    attributes:
+      label: If you are an AI agent
+      description: Which person you work for, and the model or harness that runs you. Leave empty if you are a person.

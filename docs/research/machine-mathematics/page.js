@@ -95,13 +95,13 @@
         st('2026-10-08T00:27Z', 8.3e-11, '83/10^12', 'Doug Colkitt; the idea came from a separate research agent', 'own', 'Compact controls', IMB + '6e564879'),
         st('2026-10-08T01:10Z', Math.pow(2, -31), '2^-31', 'eumemic’s Claude-assisted PR #3, integrated by the maintainer', 'rev', 'Complex-network compression', IMB + '1c09a588'),
         st('2026-10-08T13:10Z', Math.pow(2, -30), '2^-30', 'Doug Colkitt, with OpenAI Codex', 'own', 'Ternary checkpoint', IMB + '1a74950c'),
-        st('2026-10-08T15:18Z', 3.886675852e-5, '3.886675852×10^-5', 'First community release; its last step was rohanarun’s PR #39', 'rev', 'Tagged community-kappa-15', IMB + '0605a24a'),
+        st('2026-10-08T15:18Z', 3.886675852e-5, '3.886675852×10^-5', 'First community release; its last step was Rohan Arun’s PR #39', 'rev', 'Tagged community-kappa-15', IMB + '0605a24a'),
         st('2026-10-08T18:24Z', 5.1016920170078e-5, '5.1016920170078×10^-5', 'PRs #50 to #62, reviewed together', 'rev', '', IMB + '0d235fe5'),
         st('2026-10-09T04:53Z', 0.0004609169, '0.0004609169', 'icekylinx, PR #144 (GPT-6 Astra via Codex)', 'rev', 'The first entry in selected-result.json', IMB + '6aed8701'),
         st('2026-10-09T05:55Z', 0.000472143085, '0.000472143085', 'PRs #146, #147, #148 and #150 combined', 'rev', '', IMB + 'e2a02cac'),
         st('2026-10-09T06:01Z', 0.000472154791, '0.000472154791', 'adds PR #151', 'rev', '', IMB + '86b30e03'),
         st('2026-10-09T12:32Z', 0.000661885549259598, '0.000661885549259598', 'Dugongue, PR #186', 'rev', '', IMB + 'd697aaa7'),
-        st('2026-10-10T14:08Z', 0.000723571590007464, '0.000723571590007464', 'DreamingOfClouds, PR #276, with rohanarun, PR #279', 'rev', '', IMB + '91e29e7b'),
+        st('2026-10-10T14:08Z', 0.000723571590007464, '0.000723571590007464', 'DreamingOfClouds, PR #276, with Rohan Arun, PR #279', 'rev', '', IMB + '91e29e7b'),
         st('2026-10-12T01:55Z', 0.001517760977820331, '0.001517760977820331', 'icekylinx, PR #531, building on eumemic’s PR #493', 'rev', '', IMB + 'a1e7d848'),
         st('2026-10-12T13:10Z', 0.001584931111785787, '0.001584931111785787', 'PR #535 with PR #510', 'rev', '', IMB + '1c1e42f0'),
         st('2026-10-12T14:41Z', 0.001602278921983212, '0.001602278921983212', 'Jeremy Kothe’s PR #588, with PR #543', 'rev', '', IMB + '270c2458'),
@@ -113,7 +113,7 @@
         st('2026-10-13T13:30Z', 0.001661957774647029, '0.001661957774647029', 'PR #890 (“U8/T21”)', 'rev', '', IMB + '3b83e4f1'),
         st('2026-10-13T15:06Z', 0.001661960547713947, '0.001661960547713947', 'PR #942 (“T37”)', 'rev', '', IMB + '3825dc0e'),
         st('2026-10-13T18:05Z', 0.001672188119205421, '0.001672188119205421', 'PR #1042', 'rev', '', IMB + '87db776d'),
-        st('2026-10-13T18:45Z', 0.001672660197076918, '0.001672660197076918', 'rohanarun, PR #1094, with OpenAI Codex', 'rev', 'The reviewed record on 14 Oct', IMB + '0a31ad88')
+        st('2026-10-13T18:45Z', 0.001672660197076918, '0.001672660197076918', 'Rohan Arun, PR #1094, with OpenAI Codex', 'rev', 'The reviewed record on 14 Oct', IMB + '0a31ad88')
       ] },
     { id: 'dft', fam: '130', name: 'Exact Fourier transform', sym: 'δ', up: true,
       what: 'δ is the saving in n·(log n)^(1−δ) steps for an exact discrete Fourier transform. Bigger is better.',
@@ -137,9 +137,9 @@
       status: 'Conditional · no human review',
       src: 'https://github.com/rohanarun/van-der-waerden-refinement/pulls?q=is%3Apr', srcL: 'van-der-waerden-refinement pull requests',
       steps: [
-        st('2026-10-09T11:02:17Z', 1 / 200, '1/200', 'rohanarun, with Codex', 'own', 'At most 2 points of one “key” fit in a thin band, not 4', 'https://github.com/rohanarun/van-der-waerden-refinement/commit/14a9529'),
-        st('2026-10-09T12:28:12Z', 1 / 193, '1/193', 'rohanarun, with Codex', 'own', 'PR #1', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/1'),
-        st('2026-10-10T05:45:50Z', 1 / 25, '1/25', 'rohanarun, with Claude', 'own', 'PR #2; PR #3 then proved this route stops at 1/24', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/2'),
+        st('2026-10-09T11:02:17Z', 1 / 200, '1/200', 'Rohan Arun, with Codex', 'own', 'At most 2 points of one “key” fit in a thin band, not 4', 'https://github.com/rohanarun/van-der-waerden-refinement/commit/14a9529'),
+        st('2026-10-09T12:28:12Z', 1 / 193, '1/193', 'Rohan Arun, with Codex', 'own', 'PR #1', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/1'),
+        st('2026-10-10T05:45:50Z', 1 / 25, '1/25', 'Rohan Arun, with Claude', 'own', 'PR #2; PR #3 then proved this route stops at 1/24', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/2'),
         st('2026-10-11T04:30:35Z', 1 / 19, '1/19', 'artuskg, with GPT-6 Pro and Codex', 'own', 'PR #4: a new construction', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/4'),
         st('2026-10-13T01:58:21Z', 1 / 16, '1/16', 'DaysSky, with Claude', 'own', 'PR #6', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/6'),
         st('2026-10-13T02:24:47Z', 2 / 25, '2/25', 'DaysSky, with Claude', 'own', 'PR #7', 'https://github.com/rohanarun/van-der-waerden-refinement/pull/7'),
@@ -164,9 +164,9 @@
       status: 'Exact certificates · not peer reviewed',
       src: 'https://github.com/rohanarun/sidorenko-template-refinements/blob/main/progress.md', srcL: 'sidorenko-template-refinements progress.md',
       steps: [
-        st('2026-10-09T11:40:42Z', 1032, '1032', 'rohanarun, with Codex', 'own', 'Initial draft', 'https://github.com/rohanarun/sidorenko-template-refinements/commit/9e6e659'),
-        st('2026-10-09T12:28:13Z', 978, '978', 'rohanarun, with Codex', 'own', 'PR #1: active vertex supports', 'https://github.com/rohanarun/sidorenko-template-refinements/pull/1'),
-        st('2026-10-10T06:41:45Z', 189, '189', 'rohanarun, with Codex and Claude', 'own', 'PR #2: a sequential basis count', 'https://github.com/rohanarun/sidorenko-template-refinements/pull/2')
+        st('2026-10-09T11:40:42Z', 1032, '1032', 'Rohan Arun, with Codex', 'own', 'Initial draft', 'https://github.com/rohanarun/sidorenko-template-refinements/commit/9e6e659'),
+        st('2026-10-09T12:28:13Z', 978, '978', 'Rohan Arun, with Codex', 'own', 'PR #1: active vertex supports', 'https://github.com/rohanarun/sidorenko-template-refinements/pull/1'),
+        st('2026-10-10T06:41:45Z', 189, '189', 'Rohan Arun, with Codex and Claude', 'own', 'PR #2: a sequential basis count', 'https://github.com/rohanarun/sidorenko-template-refinements/pull/2')
       ] },
     { id: 'unit', fam: '167', name: 'Unit distances', sym: 'N', up: false,
       what: 'How many selected pairs the proof’s last algebra step needs. Smaller is better; the headline bound does not change.',
@@ -174,8 +174,8 @@
       status: 'Conditional · not peer reviewed',
       src: 'https://github.com/rohanarun/unit-distance-grid-refinement', srcL: 'unit-distance-grid-refinement README',
       steps: [
-        st('2026-10-09T11:40:48Z', 36, '36 (9×4)', 'rohanarun, with Codex', 'own', 'First version', 'https://github.com/rohanarun/unit-distance-grid-refinement/commit/a1486a9'),
-        st('2026-10-10T05:36:32Z', 32, '32 (8×4)', 'rohanarun, with Codex and Claude', 'own', 'Scaling symmetry', 'https://github.com/rohanarun/unit-distance-grid-refinement/commit/dd9b3e2')
+        st('2026-10-09T11:40:48Z', 36, '36 (9×4)', 'Rohan Arun, with Codex', 'own', 'First version', 'https://github.com/rohanarun/unit-distance-grid-refinement/commit/a1486a9'),
+        st('2026-10-10T05:36:32Z', 32, '32 (8×4)', 'Rohan Arun, with Codex and Claude', 'own', 'Scaling symmetry', 'https://github.com/rohanarun/unit-distance-grid-refinement/commit/dd9b3e2')
       ] }
   ];
   ROWS.forEach(function (r) { r.steps.forEach(function (s, i) { s.row = r; s.i = i; }); });
@@ -186,12 +186,12 @@
 
   /* the seven families founding members built on (verified against openai-math-families.json titles at load) */
   var BUILT = {
-    '109': { t: 'Integer multiplication below n log n', who: 'Doug Colkitt’s race; rohanarun holds the reviewed record; eumemic; Aska' },
+    '109': { t: 'Integer multiplication below n log n', who: 'Doug Colkitt’s race; Rohan Arun holds the reviewed record; eumemic; Aska' },
     '130': { t: 'Exact Fourier transforms below n log n', who: 'Ryan Shea with Jeremy Kothe (Lean-verified record); eumemic’s claim; Swapnil Jain’s mobius-x1, with Aska' },
-    '160': { t: 'Superexponential van der Waerden numbers', who: 'rohanarun, with contributors artuskg and DaysSky' },
-    '161': { t: 'Counterexamples to Sidorenko', who: 'rohanarun' },
-    '167': { t: 'Planar distinct distances and unit-distance bounds', who: 'rohanarun' },
-    '107': { t: 'Matrix multiplication with exponent at most 9/4', who: 'rohanarun' },
+    '160': { t: 'Superexponential van der Waerden numbers', who: 'Rohan Arun, with contributors artuskg and DaysSky' },
+    '161': { t: 'Counterexamples to Sidorenko', who: 'Rohan Arun' },
+    '167': { t: 'Planar distinct distances and unit-distance bounds', who: 'Rohan Arun' },
+    '107': { t: 'Matrix multiplication with exponent at most 9/4', who: 'Rohan Arun' },
     '111': { t: 'One-sample matroid prophet inequalities', who: 'Ryan Shea' }
   };
 
@@ -972,7 +972,7 @@
         // the barrier: a limit on one step of the 9/4 method, not a new bound
         var xb = X(2.25);
         S('line', { x1: xb, x2: xb, y1: y + 42, y2: y + 52, style: 'stroke:var(--hair)', 'stroke-width': 1.4 }, svg);
-        S('text', narrow ? { x: pad, y: Hh - 6, 'text-anchor': 'start', class: 't-ink', text: 'rohanarun: a limit, not a new bound' } : { x: Math.min(xb + 8, W - pad), y: Hh - 6, 'text-anchor': 'end', class: 't-ink', text: 'rohanarun: a limit on one step, not a new bound' }, svg);
+        S('text', narrow ? { x: pad, y: Hh - 6, 'text-anchor': 'start', class: 't-ink', text: 'Rohan Arun: a limit, not a new bound' } : { x: Math.min(xb + 8, W - pad), y: Hh - 6, 'text-anchor': 'end', class: 't-ink', text: 'Rohan Arun: a limit on one step, not a new bound' }, svg);
       }
     };
     $$('.mm-mini[data-mini]').forEach(function (fig) {
@@ -1047,7 +1047,7 @@
   /* ================= the live reviewed κ (family 109 entry) ================= */
   function kappa() {
     var box = $('#kappa-live'); if (!box || !F0.kappa) return;
-    var AUTHOR = { 1094: 'founding member rohanarun' };
+    var AUTHOR = { 1094: 'founding member Rohan Arun' };
     F0.kappa().then(function (k) {
       if (!k || !/^0\.\d+$/.test(String(k.decimal))) return;
       var live = k.source === 'live';
