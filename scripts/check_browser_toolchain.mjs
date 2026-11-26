@@ -14,7 +14,12 @@ const expectedPlaywright = manifest.devDependencies.playwright;
 assert.equal(require('playwright/package.json').version, expectedPlaywright);
 const core = require.resolve('playwright-core/package.json');
 assert.equal(require(core).version, expectedPlaywright);
-const notices = fs.readFileSync(path.join(path.dirname(core), 'lib/utilsBundle.js.LICENSE'), 'utf8');
+let notices;
+try {
+  notices = fs.readFileSync(path.join(path.dirname(core), 'lib/utilsBundle.js.LICENSE'), 'utf8');
+} catch (e) {
+  throw new Error(`Playwright notices file lib/utilsBundle.js.LICENSE is not readable in the installed playwright-core (${e.code || e.message}); the bundled-dependency layout may have moved in a new Playwright version - inspect the installed package and update this check`);
+}
 const match = notices.match(/^- ws@(\d+)\.(\d+)\.(\d+) /m);
 assert.ok(match, 'Bundled ws version missing from Playwright notices; inspect the upgraded artifact');
 const [major, minor] = match.slice(1).map(Number);
