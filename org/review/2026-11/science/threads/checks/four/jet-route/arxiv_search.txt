@@ -1,0 +1,9 @@
+Searched 2026-11-15 via export.arxiv.org API (two queries, abstracts only):
+1. search_query=abs:Maxwell AND abs:charges, newest 25: nothing on four charges or >9 equilibria.
+2. search_query=abs:"point charges" AND (abs:equilibria OR abs:"critical points"), 19 hits: only 2607.27197 (five charges, >=24)
+   and 2501.05315 (general n) mention Maxwell's conjecture; none reports more than 9 equilibria for four charges.
+Also read (cached by the charges thread, S/threads/charges/sources/): abstracts of 2501.05315, 2607.27197, 2607.28785,
+2609.00336, 2609.03965, 2609.09637; full text of 2501.05315, 2607.27197, 2609.09637.
+2501.05315 treats the regular-tetrahedron centre as degenerate with local homology rank vector (0,0,3,0) and says perturbing
+gives "three 2-saddles near the center of the tetrahedron". It does not compute the Milnor number or report 11.
+2607.27197 builds its five-charge 24 from a degenerate point of a triangle configuration (21 near the origin + 3).

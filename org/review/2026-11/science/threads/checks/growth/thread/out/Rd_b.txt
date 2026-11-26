@@ -1,0 +1,36 @@
+d=4 top=random seed=1: complex finite 27 lost 0 (Bezout 27)
+  it 35: real 7 of 27 complex, index1 3 index2 4
+  it 97: real 9 of 27 complex, index1 4 index2 5
+  it 181: real 11 of 27 complex, index1 5 index2 6
+  it 275: real 13 of 27 complex, index1 6 index2 7
+  it 286: real 15 of 27 complex, index1 7 index2 8
+  it 410: real 17 of 27 complex, index1 8 index2 9
+d=4 top=random seed=1: best real 17 of 27 complex; index1 8 index2 9; 58s
+d=4 top=random seed=2: complex finite 27 lost 0 (Bezout 27)
+  it 43: real 9 of 27 complex, index1 6 index2 3
+  it 58: real 11 of 27 complex, index1 7 index2 4
+  it 455: real 13 of 27 complex, index1 8 index2 5
+  it 607: real 15 of 27 complex, index1 9 index2 6
+  it 1225: real 17 of 27 complex, index1 10 index2 7
+d=4 top=random seed=2: best real 17 of 27 complex; index1 10 index2 7; 61s
+d=4 top=K4 seed=7: complex finite 27 lost 0 (Bezout 27)
+  it 1: real 9 of 27 complex, index1 2 index2 7
+  it 3: real 11 of 27 complex, index1 3 index2 8
+  it 32: real 13 of 27 complex, index1 4 index2 9
+  it 185: real 15 of 27 complex, index1 5 index2 10
+  it 669: real 17 of 27 complex, index1 6 index2 11
+  it 2152: real 19 of 27 complex, index1 7 index2 12
+d=4 top=K4 seed=7: best real 19 of 27 complex; index1 7 index2 12; 103s
+d=6 top=random seed=1: complex finite 125 lost 0 (Bezout 125)
+  it 8: real 15 of 125 complex, index1 4 index2 11
+  it 22: real 17 of 125 complex, index1 5 index2 12
+  it 41: real 19 of 125 complex, index1 6 index2 13
+  it 57: real 21 of 125 complex, index1 7 index2 14
+  it 77: real 23 of 125 complex, index1 8 index2 15
+  it 146: real 25 of 125 complex, index1 9 index2 16
+  it 149: real 27 of 125 complex, index1 10 index2 17
+  it 213: real 29 of 125 complex, index1 11 index2 18
+  it 237: real 31 of 125 complex, index1 12 index2 19
+  it 240: real 33 of 125 complex, index1 13 index2 20
+  it 695: real 35 of 125 complex, index1 14 index2 21
+d=6 top=random seed=1: best real 35 of 125 complex; index1 14 index2 21; 106s

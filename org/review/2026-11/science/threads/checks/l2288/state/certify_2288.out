@@ -1,0 +1,5 @@
+graph: 11 vertices, 19 edges, Laman on all subsets, code 18120782205838348
+frame: v3 at origin, v9 on positive x-axis, v10 above it; 16 equations in 16 unknowns
+1144 boxes: each holds exactly one real solution with nonsingular Jacobian (worst contraction 1.080e-02, worst inclusion ratio 5.400e-03)
+pairwise disjoint: min L_inf centre separation 0.000849809 > 2r = 2.910e-11
+RESULT: 1144 distinct real realizations with v10 above the axis; with mirror images 2288 real realizations modulo direct isometries

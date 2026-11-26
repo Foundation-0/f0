@@ -1,0 +1,4 @@
+configs/n9.json: n=9
+  boxes=200000 stack=121 zeros=61 t=141s {'boxes': 200000, 'L1': 657, 'L2': 749, 'T1': 39586, 'T2': 133234, 'Z': 758, 'newton_tries': 24610, 'max_level': 45}
+RESULT configs/n9.json: count=64 index1=28 index2=36 m2-m1=8 n-1=8 {'boxes': 279385, 'L1': 1154, 'L2': 1069, 'T1': 55049, 'T2': 185608, 'Z': 1582, 'newton_tries': 34215, 'max_level': 45, 'seconds': 194.6}
+AGREES with claimed count 64

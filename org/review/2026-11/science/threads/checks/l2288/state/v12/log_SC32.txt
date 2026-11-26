@@ -1,0 +1,15 @@
+[SC32] x2.0: real 3852
+[SC32] x4.0: real 3836
+[SC32] x8.0: real 3812
+[SC32] x16.0: real 3764
+[SC32] x32.0: real 3700
+[SC32] start real 3700/6180, eps 5.77e-04
+[SC32] it 1 (3s): real 3700 -> 3708 via pair LP tr 1.2e-08, eps 5.8e-04, min real d2 8.2e-07
+[SC32] it 2 (5s): real 3708 -> 3712 via pair LP tr 2.0e-08, eps 5.8e-04, min real d2 3.0e-07
+[SC32] it 3 (8s): real 3712 -> 3720 via pair LP tr 3.4e-09, eps 5.8e-04, min real d2 5.4e-07
+[SC32] it 4 (13s): real 3720 -> 3728 via pair LP tr 6.1e-07, eps 5.8e-04, min real d2 6.0e-07
+[SC32] it 5 (15s): real 3728 -> 3744 via pair LP tr 2.2e-07, eps 5.8e-04, min real d2 6.5e-07
+[SC32] it 6 (18s): real 3744 -> 3764 via pair LP tr 2.0e-07, eps 5.8e-04, min real d2 4.7e-07
+[SC32] it 7 (72s): no step, tau 2.0e-01, real 3764, pairs 1208, min im2 1.9e-07, max im2 1.1e+09, min real d2 3.4e-07
+[SC32] it 8 (127s): no step, tau 8.0e-02, real 3764, pairs 1208, min im2 1.9e-07, max im2 1.1e+09, min real d2 3.4e-07
+[SC32] it 9 (187s): no step, tau 3.2e-02, real 3764, pairs 1208, min im2 1.9e-07, max im2 1.1e+09, min real d2 3.4e-07

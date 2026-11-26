@@ -1,0 +1,5 @@
+Q2. families with both modes proved: 88 (of 123 families); identical polynomial: 88; identical square-root part: 88
+Q3. entries tested with a separate machine (row states <= 260): 170
+    sqrt(P) annihilates the defect-free count: 168; and is minimal for it: 168
+    note: ('A268888', 'sqrt(P) does not annihilate the defect-free count; with the extra factor: True; extra = x + 1')
+    note: ('A268997', 'sqrt(P) does not annihilate the defect-free count; with the extra factor: True; extra = x + 1')

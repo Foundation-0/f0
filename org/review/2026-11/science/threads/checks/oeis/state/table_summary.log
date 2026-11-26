@@ -1,0 +1,63 @@
+211 proved rows; 25 skipped for cost
+ skipped A268910 7 X n 0..2 arrays, exactly one adjacent pair (horizontal/antidiagonal) with sum 2 skipped: cost (4374 states, 208896 transitions)
+ skipped A268977 7 X n 0..2 arrays, at most one adjacent pair (horizontal/antidiagonal) with sum 2 skipped: cost (4374 states, 208896 transitions)
+ skipped A269041 7 X n 0..2 arrays, exactly one adjacent pair (horizontal/diagonal/antidiagonal) with sum 2 skipped: cost (3006 states, 34020 transitions)
+ skipped A269058 7 X n 0..2 arrays, at most one adjacent pair (horizontal/diagonal/antidiagonal) with sum 2 skipped: cost (3690 states, 34020 transitions)
+ skipped A269096 n X 7 0..3 arrays, exactly one adjacent pair (horizontal/vertical) with sum 3 skipped: cost (11664 states, 10199448 transitions)
+ skipped A269108 n X 7 0..3 arrays, at most one adjacent pair (horizontal/vertical) with sum 3 skipped: cost (11664 states, 10199448 transitions)
+ skipped A269199 n X 6 0..3 arrays, at most one adjacent pair (horizontal/diagonal/antidiagonal) with sum 3 skipped: cost (3564 states, 583128 transitions)
+ skipped A269212 n X 6 0..3 arrays, exactly one adjacent pair (horizontal/diagonal/antidiagonal) with sum 3 skipped: cost (3564 states, 583128 transitions)
+ skipped A269274 n X 6 0..3 arrays, exactly one adjacent pair (horizontal/antidiagonal) with sum 3 skipped: cost (3564 states, 1622880 transitions)
+ skipped A269275 n X 7 0..3 arrays, exactly one adjacent pair (horizontal/antidiagonal) with sum 3 skipped: cost (11664 states, 12841920 transitions)
+ skipped A269281 6 X n 0..3 arrays, exactly one adjacent pair (horizontal/antidiagonal) with sum 3 skipped: cost (8192 states, 4015332 transitions)
+ skipped A269287 n X 6 0..3 arrays, at most one adjacent pair (horizontal/antidiagonal) with sum 3 skipped: cost (3564 states, 1622880 transitions)
+ skipped A269288 n X 7 0..3 arrays, at most one adjacent pair (horizontal/antidiagonal) with sum 3 skipped: cost (11664 states, 12841920 transitions)
+ skipped A269294 6 X n 0..3 arrays, at most one adjacent pair (horizontal/antidiagonal) with sum 3 skipped: cost (8192 states, 4015332 transitions)
+ skipped A269763 n X 4 0..5 arrays, exactly one adjacent pair (horizontal/vertical) with sum 5 skipped: cost (1950 states, 1079820 transitions)
+ skipped A269764 n X 5 0..5 arrays, exactly one adjacent pair (horizontal/vertical) with sum 5 skipped: cost (10500 states, 25957260 transitions)
+ skipped A269765 n X 6 0..5 arrays, exactly one adjacent pair (horizontal/vertical) with sum 5 skipped: cost (q^k=46656 rows)
+ skipped A269766 n X 7 0..5 arrays, exactly one adjacent pair (horizontal/vertical) with sum 5 skipped: cost (q^k=279936 rows)
+ skipped A269898 n X 4 0..6 arrays, exactly one adjacent pair (horizontal/vertical) with sum 6 skipped: cost (3780 states, 4507524 transitions)
+ skipped A269899 n X 5 0..6 arrays, exactly one adjacent pair (horizontal/vertical) with sum 6 skipped: cost (24192 states, 158299764 transitions)
+ skipped A269900 n X 6 0..6 arrays, exactly one adjacent pair (horizontal/vertical) with sum 6 skipped: cost (q^k=117649 rows)
+ skipped A269934 n X 4 0..6 arrays, exactly one adjacent pair (horizontal/vertical/diagonal/antidiagonal) with sum 6 skipped: cost (3780 states, 2276760 transitions)
+ skipped A270055 n X 5 0..4 arrays, exactly one adjacent pair (horizontal/vertical) with sum 4 skipped: cost (3840 states, 2825680 transitions)
+ skipped A270056 n X 6 0..4 arrays, exactly one adjacent pair (horizontal/vertical) with sum 4 skipped: cost (16640 states, 41743000 transitions)
+ skipped A270057 n X 7 0..4 arrays, exactly one adjacent pair (horizontal/vertical) with sum 4 skipped: cost (q^k=78125 rows)
+pool: 344 entries with "neighbor totalling"; 36 tables T(n,k); 265 parsed strip/single-width entries; 238 with Empirical recurrence parsed; 27 without
+unparsed (n X n diagonal etc.): 43
+  no parsed recurrence A269080 terms=16 formula=none
+  no parsed recurrence A269081 terms=15 formula=none
+  no parsed recurrence A269141 terms=11 formula=none
+  no parsed recurrence A269142 terms=11 formula=none
+  no parsed recurrence A269150 terms=11 formula=none
+  no parsed recurrence A269151 terms=11 formula=none
+  no parsed recurrence A269184 terms=12 formula=none
+  no parsed recurrence A269185 terms=11 formula=none
+  no parsed recurrence A269192 terms=12 formula=none
+  no parsed recurrence A269193 terms=11 formula=none
+  no parsed recurrence A269200 terms=11 formula=none
+  no parsed recurrence A269206 terms=11 formula=none
+  no parsed recurrence A269207 terms=11 formula=none
+  no parsed recurrence A269213 terms=11 formula=none
+  no parsed recurrence A269219 terms=11 formula=none
+  no parsed recurrence A269220 terms=11 formula=none
+  no parsed recurrence A269282 terms=10 formula=none
+  no parsed recurrence A269295 terms=10 formula=none
+  no parsed recurrence A269826 terms=11 formula=none
+  no parsed recurrence A269827 terms=10 formula=none
+  no parsed recurrence A269828 terms=10 formula=none
+  no parsed recurrence A269885 terms=10 formula=none
+  no parsed recurrence A269886 terms=9 formula=none
+  no parsed recurrence A269887 terms=8 formula=none
+  no parsed recurrence A269901 terms=7 formula=none
+  no parsed recurrence A269935 terms=9 formula=none
+  no parsed recurrence A269936 terms=9 formula=none
+stated start == proved minimal start: 121 ; stated later than necessary: []
+stated absent: 90  of which start==natural: 90
+proved 211 new (not in repo): 200
+proof kinds Counter({'vector_chain': 203, 'scalar_window': 8})
+families (q, nbrs, mode): 34
+order range 2 68 states range 7 2048
+terms in OEIS data: min 11 cases with terms <= order: [268627, 268747, 268748, 268749, 268765, 268773, 268780, 268786, 268787, 268788, 268795, 268796, 268797, 268806, 268807, 268808, 268890, 268891, 268892, 268909, 268976, 268999, 269000, 269001, 269010, 269016, 269017, 269033, 269034, 269039, 269040, 269050, 269051, 269056, 269057, 269074, 269086, 269087, 269088, 269094, 269106, 269139, 269140, 269148, 269149, 269182, 269183, 269190, 269191, 269198] 61
+start - natural distribution Counter({0: 90, 1: 72, 2: 27, 3: 12, 4: 4, 6: 2, 8: 2, 5: 2})

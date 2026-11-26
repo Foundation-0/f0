@@ -1,0 +1,5 @@
+candidates found by Newton from 6,000 starts: 27
+coefficients a1..a5: ['-3872488251/50000000000000', '187978497/100000000000', '184864277/50000000', '455453599/10000000000', '-451419319/10000000000']
+distances of the proved critical points from the origin: 0.00735 0.00922 0.0215 0.0215 0.0215 0.0298 0.0298 0.0298 0.0928 0.0928 0.0928 2.23 2.29 2.29 2.29 2.46 2.46 2.46 2.47 2.47 2.47 2.48 2.48 2.48 2.68 2.68 2.68
+PROVED: 27 real non-degenerate critical points; det(Hessian) positive at 16, negative at 11
+OK: all 27 critical points are real and simple

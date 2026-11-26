@@ -1,0 +1,2 @@
+RESULT n4_eleven_short.json: count=11 index1=4 index2=7 m2-m1=3 n-1=3 {'boxes': 32721, 'L1': 349, 'L2': 103, 'T1': 536, 'T2': 27171, 'Z': 472, 'newton_tries': 3764, 'max_level': 18, 'seconds': 13.7}
+AGREES with claimed count 11

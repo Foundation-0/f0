@@ -1,0 +1,31 @@
+{
+ "valid": true,
+ "reasons": [],
+ "states": 501,
+ "m": 1,
+ "final_density": 0.7404804896930619,
+ "max_density": 0.7404804896930619,
+ "contacts_per_ball_min": 12,
+ "contacts_per_ball_mean": 12.0,
+ "contacts_per_ball_max": 12,
+ "contact_pairs": 36,
+ "contact_degree_histogram": {
+  "12": 6
+ },
+ "end_lattice_lengths": [
+  1.4348778704286014,
+  1.4348778704286014,
+  1.4348778704286014
+ ],
+ "end_lattice_cos_angles": [
+  -0.5,
+  0.16666666666666669,
+  0.16666666666666666
+ ],
+ "extra_contacts_beyond_bars": 21,
+ "flex_bars_only": 6,
+ "flex_bars_plus_contacts": 0,
+ "first_order_density_ascent_rate": -0.0,
+ "first_order_jammed": true
+}
+$P autoresearch-fold/verify.py ../continuous-fcc.npz  0.62s user 0.08s system 87% cpu 0.802 total

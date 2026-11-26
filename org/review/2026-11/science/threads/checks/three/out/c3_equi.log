@@ -1,0 +1,16 @@
+candidates 2645, excluded boxes 1180 (0.0s)
+phase A depth 0: 2645 boxes, 941 certified (J 204, V3 497, V4 240), 1704 split (2.8s)
+phase A depth 1: 6402 boxes, 6402 certified (J 2811, V3 2415, V4 1176), 0 split (5.2s)
+leaves 7343
+overlapping leaf pairs 121485 (5.3s)
+phase B round 1: pairs 121485, disjoint 0, contained 64968, unresolved 56517 (5.7s)
+phase B round 2: pairs 777729, disjoint 627951, contained 18594, unresolved 131184 (11.1s)
+phase B round 3: pairs 1846941, disjoint 1529756, contained 21339, unresolved 295846 (25.9s)
+phase B round 4: pairs 4275658, disjoint 3647416, contained 25752, unresolved 602490 (52.3s)
+phase B round 5: pairs 8771431, disjoint 7748694, contained 31044, unresolved 991693 (106.6s)
+phase B round 6: pairs 14479080, disjoint 13417374, contained 24673, unresolved 1037033 (189.8s)
+phase B round 7: pairs 14941885, disjoint 14212791, contained 8245, unresolved 720849 (280.7s)
+phase B round 8: pairs 10210070, disjoint 9926224, contained 2606, unresolved 281240 (350.1s)
+phase B round 9: pairs 3794289, disjoint 3790054, contained 50, unresolved 4185 (377.8s)
+phase B round 10: pairs 41224, disjoint 41224, contained 0, unresolved 0 (378.1s)
+RESULT PROVED {'contained': 197271, 'disjoint': 54941484, 'split_rounds': 0}

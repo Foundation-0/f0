@@ -1,0 +1,26 @@
+sigma_T/sigma_M500: min 0.89, quartiles 1.01 1.06 1.11, max 1.29 (n=63)
+c500 two-point vs published (V06, S09 where given): ratio min 0.22, quartiles 0.88 1.09 1.40, max 5.17 (n=27)
+mP in2500        g=2: min 1.60, quartiles 2.20 2.35 2.51, max 2.78 (n=51)
+mP in2500        g=4: min 1.35, quartiles 1.85 1.98 2.11, max 2.34 (n=51)
+mTG in2500        g=2: min 1.91, quartiles 2.62 2.80 2.98, max 3.31 (n=51)
+mTG in2500        g=4: min 1.60, quartiles 2.20 2.35 2.51, max 2.78 (n=51)
+   trend mP in2500 g2: log m = 0.42 + -0.18 log kT  (r = -0.87, n=51)
+mP shell         g=2: min 0.63, quartiles 0.72 0.75 0.93, max 1.03 (n=10)
+mP shell         g=4: min 0.53, quartiles 0.61 0.63 0.78, max 0.87 (n=10)
+mTG shell         g=2: min 0.75, quartiles 0.86 0.89 1.11, max 1.23 (n=10)
+mTG shell         g=4: min 0.63, quartiles 0.72 0.75 0.93, max 1.03 (n=10)
+   trend mP shell g2: log m = 0.00 + -0.19 log kT  (r = -0.66, n=10)
+mP local0.5r2500 g=2: min 1.56, quartiles 2.45 2.68 2.96, max 3.22 (n=50)
+mP local0.5r2500 g=4: min 1.32, quartiles 2.06 2.26 2.49, max 2.71 (n=50)
+mTG local0.5r2500 g=2: min 1.86, quartiles 2.92 3.19 3.52, max 3.83 (n=50)
+mTG local0.5r2500 g=4: min 1.56, quartiles 2.45 2.68 2.96, max 3.22 (n=50)
+   trend mP local0.5r2500 g2: log m = 0.48 + -0.22 log kT  (r = -0.85, n=50)
+first-look convention (sigma from M500), mP in2500 g2: min 1.56, quartiles 2.31 2.53 2.71, max 3.03 (n=51)
+shell extra density negative (extra mass falls outward) in 41 of 51 systems
+abundance-equivalent m (g=2, one species; m = 2.084 eV x M_extra/M_b): r500 min -0.59, quartiles 0.64 1.43 2.15, max 4.02 (n=63); r2500 min 1.07, quartiles 2.59 4.72 6.09, max 8.92 (n=51)
+   trend m_ab r500: log m = -0.34 + +1.15 log kT  (r = +0.57, n=55)
+   trend m_ab r2500: log m = 0.38 + +0.78 log kT  (r = +0.80, n=51)
+kT 0-1.5 keV n=20: median mP(in2500,g2) 2.49, m_ab r500 0.15, r2500 2.27, radial ratio 0.14
+kT 1.5-3 keV n=23: median mP(in2500,g2) 2.33, m_ab r500 1.45, r2500 5.24, radial ratio 0.63
+kT 3-6 keV n=4: median mP(in2500,g2) 1.98, m_ab r500 3.03, r2500 7.79, radial ratio 1.03
+kT 6-12 keV n=4: median mP(in2500,g2) 1.70, m_ab r500 3.28, r2500 8.27, radial ratio 1.07

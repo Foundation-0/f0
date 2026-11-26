@@ -1,0 +1,27 @@
+tetra: {'n': 4, 'total': 2, 'm1': 0, 'm2': 2, 'other': 0, 'M1': False, 'min_abs_eig_rel': 5.166354780603681e-06, 'walls': 2, 'failed': 0, 'pairs': 1, 'components': 3, 'loops': 1, 'M2': False} 1.0s
+tetra jitter1e-3: {'n': 4, 'total': 3, 'm1': 0, 'm2': 3, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.08150145829270361, 'walls': 3, 'failed': 0, 'pairs': 3, 'components': 1, 'loops': 0, 'M2': True} 8.4s
+tetra +centre 0.01: {'n': 5, 'total': 4, 'm1': 0, 'm2': 4, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.49999999999999956, 'walls': 4, 'failed': 0, 'pairs': 4, 'components': 1, 'loops': 0, 'M2': True} 10.1s
+tetra +centre 0.0001: {'n': 5, 'total': 4, 'm1': 0, 'm2': 4, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.49999999999999745, 'walls': 4, 'failed': 0, 'pairs': 4, 'components': 1, 'loops': 0, 'M2': True} 6.8s
+tetra +centre 1e-06: {'n': 5, 'total': 4, 'm1': 0, 'm2': 4, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.49999999999997985, 'walls': 4, 'failed': 0, 'pairs': 4, 'components': 1, 'loops': 0, 'M2': True} 2.5s
+octa: {'n': 6, 'total': 0, 'm1': 0, 'm2': 0, 'other': 0, 'M1': False, 'min_abs_eig_rel': None, 'walls': 0, 'failed': 0, 'pairs': 0, 'components': 6, 'loops': 0, 'M2': True} 1.5s
+octa jitter1e-3: {'n': 6, 'total': 5, 'm1': 0, 'm2': 5, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.1317284752968608, 'walls': 5, 'failed': 0, 'pairs': 5, 'components': 1, 'loops': 0, 'M2': True} 10.2s
+octa +centre 0.01: {'n': 7, 'total': 6, 'm1': 0, 'm2': 6, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.49999999999999967, 'walls': 6, 'failed': 0, 'pairs': 6, 'components': 1, 'loops': 0, 'M2': True} 11.5s
+octa +centre 0.0001: {'n': 7, 'total': 6, 'm1': 0, 'm2': 6, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.4999999999999977, 'walls': 6, 'failed': 0, 'pairs': 6, 'components': 1, 'loops': 0, 'M2': True} 11.4s
+octa +centre 1e-06: {'n': 7, 'total': 6, 'm1': 0, 'm2': 6, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.49999999999999084, 'walls': 6, 'failed': 0, 'pairs': 6, 'components': 1, 'loops': 0, 'M2': True} 11.3s
+cube: {'n': 8, 'total': 12, 'm1': 0, 'm2': 12, 'other': 0, 'M1': False, 'min_abs_eig_rel': 0.1856113364854907, 'walls': 12, 'failed': 0, 'pairs': 12, 'components': 1, 'loops': 5, 'M2': False} 3.9s
+cube jitter1e-3: {'n': 8, 'total': 17, 'm1': 5, 'm2': 12, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.15727068316578383, 'walls': 12, 'failed': 0, 'pairs': 12, 'components': 1, 'loops': 5, 'M2': True} 6.4s
+cube +centre 0.01: {'n': 9, 'total': 8, 'm1': 0, 'm2': 8, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.499999999999998, 'walls': 8, 'failed': 0, 'pairs': 8, 'components': 1, 'loops': 0, 'M2': True} 6.1s
+cube +centre 0.0001: {'n': 9, 'total': 32, 'm1': 12, 'm2': 20, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.18446608002560105, 'walls': 20, 'failed': 0, 'pairs': 20, 'components': 1, 'loops': 12, 'M2': True} 5.7s
+cube +centre 1e-06: {'n': 9, 'total': 32, 'm1': 12, 'm2': 20, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.18559995705645616, 'walls': 20, 'failed': 0, 'pairs': 20, 'components': 1, 'loops': 12, 'M2': True} 5.7s
+ico: {'n': 12, 'total': 0, 'm1': 0, 'm2': 0, 'other': 0, 'M1': False, 'min_abs_eig_rel': None, 'walls': 0, 'failed': 0, 'pairs': 0, 'components': 12, 'loops': 0, 'M2': True} 3.6s
+ico jitter1e-3: {'n': 12, 'total': 11, 'm1': 0, 'm2': 11, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.25580480219888163, 'walls': 11, 'failed': 0, 'pairs': 11, 'components': 1, 'loops': 0, 'M2': True} 16.5s
+ico +centre 0.01: {'n': 13, 'total': 12, 'm1': 0, 'm2': 12, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.4999999999999972, 'walls': 12, 'failed': 0, 'pairs': 12, 'components': 1, 'loops': 0, 'M2': True} 17.4s
+ico +centre 0.0001: {'n': 13, 'total': 12, 'm1': 0, 'm2': 12, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.499999999999977, 'walls': 12, 'failed': 0, 'pairs': 12, 'components': 1, 'loops': 0, 'M2': True} 18.3s
+ico +centre 1e-06: {'n': 13, 'total': 12, 'm1': 0, 'm2': 12, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.4999999999996547, 'walls': 12, 'failed': 0, 'pairs': 12, 'components': 1, 'loops': 0, 'M2': True} 18.5s
+dodeca: {'n': 20, 'total': 30, 'm1': 0, 'm2': 30, 'other': 0, 'M1': False, 'min_abs_eig_rel': 0.2673489234165444, 'walls': 30, 'failed': 0, 'pairs': 30, 'components': 1, 'loops': 11, 'M2': False} 12.0s
+dodeca jitter1e-3: {'n': 20, 'total': 43, 'm1': 12, 'm2': 31, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.17198460685556935, 'walls': 31, 'failed': 0, 'pairs': 31, 'components': 1, 'loops': 12, 'M2': True} 17.7s
+dodeca +centre 0.01: {'n': 21, 'total': 80, 'm1': 30, 'm2': 50, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.2595449029554, 'walls': 50, 'failed': 0, 'pairs': 50, 'components': 1, 'loops': 30, 'M2': True} 15.8s
+dodeca +centre 0.0001: {'n': 21, 'total': 80, 'm1': 30, 'm2': 50, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.26727364012453964, 'walls': 50, 'failed': 0, 'pairs': 50, 'components': 1, 'loops': 30, 'M2': True} 14.7s
+dodeca +centre 1e-06: {'n': 21, 'total': 80, 'm1': 30, 'm2': 50, 'other': 0, 'M1': True, 'min_abs_eig_rel': 0.2673481708458677, 'walls': 50, 'failed': 0, 'pairs': 50, 'components': 1, 'loops': 30, 'M2': True} 14.3s
+
+[exited with code 0]

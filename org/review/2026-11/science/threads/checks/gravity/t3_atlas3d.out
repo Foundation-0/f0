@@ -1,0 +1,93 @@
+galaxies matched: 260 ; quality>=1: 187
+
+=== IMF Salpeter: observable log10(M_tot/M_star) within r=Re ; RAR-only prediction log nu(y) ===
+-- binned by sigma_e (quality>=1)
+   bin            n  obs mean   sem   | RAR  |  A(sig_e) A(Vc) | B(sig_e) B(Vc)
+     0.00- 100.00  36  -0.011 0.031 | +0.118 | +0.118 +0.118 | +0.118 +0.118
+   100.00- 150.00  63  -0.044 0.018 | +0.059 | +0.059 +0.085 | +0.059 +0.063
+   150.00- 185.59  52  -0.033 0.015 | +0.033 | +0.033 +0.394 | +0.033 +0.143
+   185.59- 200.00  14  -0.010 0.022 | +0.037 | +0.206 +0.585 | +0.037 +0.288
+   200.00- 230.00  15  +0.008 0.027 | +0.037 | +0.530 +0.725 | +0.229 +0.438
+   230.00- 260.00   3  +0.018 0.091 | +0.028 | +0.688 +0.813 | +0.398 +0.529
+   260.00- 400.00   4  -0.001 0.024 | +0.032 | +0.745 +0.832 | +0.458 +0.550
+-- binned by Vc_max/sqrt2 (quality>=1)
+   bin            n  obs mean   sem   | RAR  |  A(sig_e) A(Vc) | B(sig_e) B(Vc)
+     0.00- 100.00  14  +0.050 0.055 | +0.156 | +0.156 +0.156 | +0.156 +0.156
+   100.00- 150.00  45  -0.045 0.025 | +0.078 | +0.078 +0.078 | +0.078 +0.078
+   150.00- 185.59  39  -0.042 0.021 | +0.049 | +0.049 +0.049 | +0.049 +0.049
+   185.59- 200.00  17  -0.043 0.023 | +0.046 | +0.046 +0.251 | +0.046 +0.046
+   200.00- 230.00  37  -0.028 0.017 | +0.035 | +0.056 +0.483 | +0.035 +0.177
+   230.00- 260.00  19  -0.028 0.021 | +0.037 | +0.290 +0.661 | +0.096 +0.370
+   260.00- 400.00  16  +0.024 0.027 | +0.037 | +0.598 +0.786 | +0.323 +0.502
+-- binned by log L_r (quality>=1)
+   bin            n  obs mean   sem   | RAR  |  A(sig_e) A(Vc) | B(sig_e) B(Vc)
+     9.00-   9.80  52  +0.010 0.024 | +0.075 | +0.102 +0.138 | +0.087 +0.105
+     9.80-  10.10  63  -0.027 0.017 | +0.052 | +0.069 +0.219 | +0.056 +0.104
+    10.10-  10.40  47  -0.046 0.015 | +0.054 | +0.134 +0.383 | +0.081 +0.191
+    10.40-  10.70  15  -0.083 0.029 | +0.044 | +0.261 +0.560 | +0.106 +0.289
+    10.70-  11.50  10  -0.030 0.018 | +0.059 | +0.563 +0.751 | +0.321 +0.470
+  sigma_e>185.59 (36 gal): model A needs log(M*/L)/(M*/L)_Salpeter = -0.440 (median -0.443, max +0.033)
+     fraction of these galaxies where obs >= model A prediction: 0.028
+  sigma_e>185.59 (36 gal): model B needs log(M*/L)/(M*/L)_Salpeter = -0.193 (median -0.166, max +0.073)
+     fraction of these galaxies where obs >= model B prediction: 0.111
+  sigma_e>200 (22 gal): obs mean +0.008; RAR +0.035
+  slope d obs/d log sigma for 60-185.59: obs -0.12, RAR -0.27, A -0.27, B -0.27  (n=150)
+  slope d obs/d log sigma for 185.59-400: obs +0.25, RAR -0.03, A +4.03, B +2.99  (n=36)
+
+=== IMF Kroupa: observable log10(M_tot/M_star) within r=Re ; RAR-only prediction log nu(y) ===
+-- binned by sigma_e (quality>=1)
+   bin            n  obs mean   sem   | RAR  |  A(sig_e) A(Vc) | B(sig_e) B(Vc)
+     0.00- 100.00  36  +0.189 0.031 | +0.164 | +0.164 +0.164 | +0.164 +0.164
+   100.00- 150.00  63  +0.156 0.018 | +0.091 | +0.091 +0.115 | +0.091 +0.095
+   150.00- 185.59  52  +0.167 0.015 | +0.056 | +0.056 +0.405 | +0.056 +0.161
+   185.59- 200.00  14  +0.190 0.022 | +0.062 | +0.223 +0.592 | +0.062 +0.303
+   200.00- 230.00  15  +0.208 0.027 | +0.062 | +0.539 +0.730 | +0.246 +0.448
+   230.00- 260.00   3  +0.218 0.091 | +0.047 | +0.693 +0.817 | +0.406 +0.536
+   260.00- 400.00   4  +0.199 0.024 | +0.056 | +0.750 +0.836 | +0.468 +0.558
+-- binned by Vc_max/sqrt2 (quality>=1)
+   bin            n  obs mean   sem   | RAR  |  A(sig_e) A(Vc) | B(sig_e) B(Vc)
+     0.00- 100.00  14  +0.250 0.055 | +0.210 | +0.210 +0.210 | +0.210 +0.210
+   100.00- 150.00  45  +0.155 0.025 | +0.115 | +0.115 +0.115 | +0.115 +0.115
+   150.00- 185.59  39  +0.158 0.021 | +0.078 | +0.078 +0.078 | +0.078 +0.078
+   185.59- 200.00  17  +0.157 0.023 | +0.072 | +0.072 +0.268 | +0.072 +0.072
+   200.00- 230.00  37  +0.172 0.017 | +0.058 | +0.079 +0.492 | +0.058 +0.195
+   230.00- 260.00  19  +0.172 0.021 | +0.061 | +0.305 +0.667 | +0.118 +0.382
+   260.00- 400.00  16  +0.224 0.027 | +0.062 | +0.607 +0.791 | +0.338 +0.511
+-- binned by log L_r (quality>=1)
+   bin            n  obs mean   sem   | RAR  |  A(sig_e) A(Vc) | B(sig_e) B(Vc)
+     9.00-   9.80  52  +0.210 0.024 | +0.109 | +0.136 +0.171 | +0.121 +0.139
+     9.80-  10.10  63  +0.173 0.017 | +0.080 | +0.097 +0.243 | +0.084 +0.130
+    10.10-  10.40  47  +0.154 0.015 | +0.085 | +0.163 +0.403 | +0.111 +0.217
+    10.40-  10.70  15  +0.117 0.029 | +0.072 | +0.282 +0.569 | +0.132 +0.307
+    10.70-  11.50  10  +0.170 0.018 | +0.093 | +0.578 +0.759 | +0.342 +0.485
+  sigma_e>185.59 (36 gal): model A needs log(M*/L)/(M*/L)_Kroupa = -0.251 (median -0.247, max +0.208)
+     fraction of these galaxies where obs >= model A prediction: 0.139
+  sigma_e>185.59 (36 gal): model B needs log(M*/L)/(M*/L)_Kroupa = -0.012 (median +0.022, max +0.230)
+     fraction of these galaxies where obs >= model B prediction: 0.528
+  sigma_e>200 (22 gal): obs mean +0.208; RAR +0.059
+  slope d obs/d log sigma for 60-185.59: obs -0.12, RAR -0.34, A -0.34, B -0.34  (n=150)
+  slope d obs/d log sigma for 185.59-400: obs +0.25, RAR -0.05, A +3.93, B +2.88  (n=36)
+published f_DM(Re) (Cappellari+2013b, NFW models), sigma_e 0-185.59: median 0.11, mean 0.13, n=151
+published f_DM(Re) (Cappellari+2013b, NFW models), sigma_e 185.59-400: median 0.12, mean 0.11, n=36
+model A f_DM(Re) predicted for sigma_e>185.59 (Kroupa stars): median 0.67
+model B f_DM(Re) predicted for sigma_e>185.59 (Kroupa stars): median 0.33
+
+=== differential test (Salpeter; IMF offset cancels) ===
+  f_trap from sigma_e   model RAR sigma_e  185.6-  230: residual step +0.052 +/- 0.021 dex (+2.5 sigma), n=29
+  f_trap from sigma_e   model RAR sigma_e  230.0-  400: residual step +0.066 +/- 0.043 dex (+1.5 sigma), n=7
+  f_trap from sigma_e   model RAR sigma_e  185.6-  400: residual step +0.054 +/- 0.020 dex (+2.8 sigma), n=36
+  f_trap from sigma_e   model A   sigma_e  185.6-  230: residual step -0.285 +/- 0.036 dex (-7.8 sigma), n=29
+  f_trap from sigma_e   model A   sigma_e  230.0-  400: residual step -0.624 +/- 0.047 dex (-13.3 sigma), n=7
+  f_trap from sigma_e   model A   sigma_e  185.6-  400: residual step -0.351 +/- 0.039 dex (-9.1 sigma), n=36
+  f_trap from sigma_e   model B   sigma_e  185.6-  230: residual step -0.048 +/- 0.026 dex (-1.8 sigma), n=29
+  f_trap from sigma_e   model B   sigma_e  230.0-  400: residual step -0.336 +/- 0.048 dex (-7.0 sigma), n=7
+  f_trap from sigma_e   model B   sigma_e  185.6-  400: residual step -0.104 +/- 0.030 dex (-3.4 sigma), n=36
+  f_trap from Vc/sqrt2  model RAR sigma_e  185.6-  230: residual step +0.052 +/- 0.021 dex (+2.5 sigma), n=29
+  f_trap from Vc/sqrt2  model RAR sigma_e  230.0-  400: residual step +0.066 +/- 0.043 dex (+1.5 sigma), n=7
+  f_trap from Vc/sqrt2  model RAR sigma_e  185.6-  400: residual step +0.054 +/- 0.020 dex (+2.8 sigma), n=36
+  f_trap from Vc/sqrt2  model A   sigma_e  185.6-  230: residual step -0.354 +/- 0.034 dex (-10.4 sigma), n=29
+  f_trap from Vc/sqrt2  model A   sigma_e  230.0-  400: residual step -0.513 +/- 0.050 dex (-10.2 sigma), n=7
+  f_trap from Vc/sqrt2  model A   sigma_e  185.6-  400: residual step -0.385 +/- 0.034 dex (-11.4 sigma), n=36
+  f_trap from Vc/sqrt2  model B   sigma_e  185.6-  230: residual step -0.214 +/- 0.029 dex (-7.4 sigma), n=29
+  f_trap from Vc/sqrt2  model B   sigma_e  230.0-  400: residual step -0.382 +/- 0.047 dex (-8.1 sigma), n=7
+  f_trap from Vc/sqrt2  model B   sigma_e  185.6-  400: residual step -0.247 +/- 0.028 dex (-8.7 sigma), n=36

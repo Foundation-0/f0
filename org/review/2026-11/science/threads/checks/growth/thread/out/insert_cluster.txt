@@ -1,0 +1,6 @@
+outer cube + small oct (6 charges): best local count 30 at lam=0.1 (index1 12, index2 18); per charge 5.00
+outer cube + small cube (8 charges): best local count 32 at lam=0.1 (index1 12, index2 20); per charge 4.00
+outer octa + small oct (6 charges): best local count 6 at lam=0.001 (index1 0, index2 6); per charge 1.00
+outer octa + small cube (8 charges): best local count 56 at lam=0.1 (index1 24, index2 32); per charge 7.00
+
+[exited with code 0]

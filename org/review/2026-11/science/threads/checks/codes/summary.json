@@ -1,0 +1,32 @@
+{
+ "7": {
+  "cells": 5050,
+  "gaps": 4071,
+  "certified_direct": 88,
+  "improved": 94,
+  "base": 12,
+  "derived": 82,
+  "improved_beyond_table_own_closure": 94,
+  "table_cells_stale_vs_own_closure": 0
+ },
+ "8": {
+  "cells": 8515,
+  "gaps": 7202,
+  "certified_direct": 737,
+  "improved": 1408,
+  "base": 62,
+  "derived": 1346,
+  "improved_beyond_table_own_closure": 1408,
+  "table_cells_stale_vs_own_closure": 0
+ },
+ "9": {
+  "cells": 8515,
+  "gaps": 7265,
+  "certified_direct": 694,
+  "improved": 1377,
+  "base": 48,
+  "derived": 1329,
+  "improved_beyond_table_own_closure": 916,
+  "table_cells_stale_vs_own_closure": 531
+ }
+}

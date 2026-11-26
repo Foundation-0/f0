@@ -1,0 +1,7 @@
+SPARC_outer    n= 153  median sigma     75  median r     12.4 kpc  median log g_b/a0 -1.32  median deltaA -0.52  median yB -0.19
+SPARC_inner    n= 152  median sigma     75  median r      3.1 kpc  median log g_b/a0 -0.67  median deltaA -0.10  median yB -0.09
+giant_spirals  n=  57  median sigma    213  median r     24.5 kpc  median log g_b/a0 -0.38  median deltaA +0.43  median yB +0.33
+ATLAS3D_Re     n= 187  median sigma    145  median r      2.1 kpc  median log g_b/a0 +0.54  median deltaA +0.26  median yB +0.27
+GC_r500        n=  63  median sigma    540  median r    658.0 kpc  median log g_b/a0 -1.58  median deltaA +2.06  median yB +0.68
+GC_r2500       n=  51  median sigma    521  median r    277.0 kpc  median log g_b/a0 -1.29  median deltaA +4.73  median yB +2.26
+highz_RC100    n= 100  median sigma    158  median r      5.6 kpc  median log g_b/a0 +0.18  median deltaA +0.04  median yB +0.04

@@ -1,0 +1,4 @@
+control: the ledger with the review's false sentence put back (868 at eps 0.01)
+FAIL  unit-point.md: "856 at eps 0.01 and 860 at eps 0.003"  ->  checks/unit/certray_868.json gives 856, the note needs 868
+192 of 193 claims hold
+exit status 1

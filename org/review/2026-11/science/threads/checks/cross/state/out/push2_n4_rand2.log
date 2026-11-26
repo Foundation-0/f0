@@ -1,0 +1,101 @@
+*** [n4_rand2 0 it 35] physical 3 -> 5
+[n4_rand2 0] best 5, nearest T at best count 3.988e-01, kicks 3, iters 150, 16s
+[n4_rand2 1] best 3, nearest T at best count 5.298e-03, kicks 0, iters 150, 12s
+*** [n4_rand2 2 it 64] physical 3 -> 5
+[n4_rand2 2] best 5, nearest T at best count 2.075e-01, kicks 4, iters 150, 15s
+[n4_rand2 3] best 3, nearest T at best count 8.519e-03, kicks 3, iters 150, 16s
+*** [n4_rand2 4 it 18] physical 3 -> 5
+[n4_rand2 4] best 5, nearest T at best count 6.914e-02, kicks 2, iters 150, 14s
+[n4_rand2 5] best 3, nearest T at best count 1.888e-01, kicks 0, iters 150, 13s
+[n4_rand2 6] best 3, nearest T at best count 3.764e-02, kicks 1, iters 150, 13s
+[n4_rand2 7] best 3, nearest T at best count 2.437e-03, kicks 1, iters 150, 15s
+*** [n4_rand2 8 it 58] physical 3 -> 5
+*** [n4_rand2 8 it 80] physical 3 -> 5
+*** [n4_rand2 8 it 82] physical 5 -> 7
+[n4_rand2 8] best 7, nearest T at best count 3.301e-01, kicks 4, iters 149, 14s
+*** [n4_rand2 9 it 45] physical 3 -> 5
+[n4_rand2 9] best 5, nearest T at best count 9.634e-01, kicks 4, iters 131, 19s
+[n4_rand2 10] best 3, nearest T at best count 1.184e-01, kicks 2, iters 150, 12s
+*** [n4_rand2 11 it 23] physical 3 -> 5
+*** [n4_rand2 11 it 53] physical 3 -> 5
+[n4_rand2 11] best 5, nearest T at best count 1.653e-01, kicks 2, iters 150, 15s
+*** [n4_rand2 12 it 21] physical 3 -> 5
+[n4_rand2 12] best 5, nearest T at best count 1.787e-01, kicks 2, iters 150, 13s
+*** [n4_rand2 13 it 85] physical 3 -> 5
+[n4_rand2 13] best 5, nearest T at best count 3.710e-01, kicks 2, iters 150, 18s
+[n4_rand2 14] best 3, nearest T at best count 1.038e+00, kicks 0, iters 150, 23s
+*** [n4_rand2 15 it 6] physical 3 -> 5
+*** [n4_rand2 15 it 50] physical 3 -> 5
+[n4_rand2 15] best 5, nearest T at best count 5.530e-02, kicks 1, iters 150, 26s
+*** [n4_rand2 16 it 19] physical 3 -> 5
+*** [n4_rand2 16 it 104] physical 3 -> 5
+[n4_rand2 16] best 5, nearest T at best count 4.295e-03, kicks 2, iters 150, 16s
+*** [n4_rand2 17 it 25] physical 3 -> 5
+[n4_rand2 17] best 5, nearest T at best count 1.240e-01, kicks 2, iters 150, 19s
+[n4_rand2 18] best 3, nearest T at best count 9.312e-03, kicks 1, iters 150, 19s
+*** [n4_rand2 19 it 80] physical 3 -> 5
+*** [n4_rand2 19 it 113] physical 5 -> 7
+[n4_rand2 19] best 7, nearest T at best count 1.313e-01, kicks 3, iters 150, 15s
+*** [n4_rand2 20 it 13] physical 3 -> 5
+[n4_rand2 20] best 5, nearest T at best count 8.301e-02, kicks 3, iters 150, 34s
+[n4_rand2 21] best 3, nearest T at best count 3.273e-03, kicks 0, iters 150, 13s
+*** [n4_rand2 22 it 6] physical 3 -> 5
+[n4_rand2 22] best 5, nearest T at best count 1.680e-01, kicks 1, iters 150, 21s
+*** [n4_rand2 23 it 20] physical 3 -> 5
+[n4_rand2 23] best 5, nearest T at best count 2.492e-01, kicks 3, iters 150, 11s
+*** [n4_rand2 24 it 114] physical 3 -> 5
+[n4_rand2 24] best 5, nearest T at best count 2.450e-02, kicks 2, iters 150, 17s
+[n4_rand2 25] best 3, nearest T at best count 2.518e-01, kicks 0, iters 150, 12s
+[n4_rand2 26] best 3, nearest T at best count 2.611e-01, kicks 0, iters 150, 16s
+*** [n4_rand2 27 it 12] physical 3 -> 5
+[n4_rand2 27] best 5, nearest T at best count 3.532e-01, kicks 0, iters 150, 22s
+[n4_rand2 28] best 3, nearest T at best count 3.465e-03, kicks 0, iters 150, 15s
+*** [n4_rand2 29 it 41] physical 3 -> 5
+[n4_rand2 29] best 5, nearest T at best count 2.476e-03, kicks 3, iters 150, 15s
+[n4_rand2 30] best 3, nearest T at best count 2.958e-01, kicks 1, iters 150, 13s
+*** [n4_rand2 31 it 12] physical 3 -> 5
+[n4_rand2 31] best 5, nearest T at best count 1.445e+00, kicks 4, iters 113, 14s
+[n4_rand2 32] best 3, nearest T at best count 1.677e-02, kicks 2, iters 150, 23s
+*** [n4_rand2 33 it 71] physical 3 -> 5
+[n4_rand2 33] best 5, nearest T at best count 3.169e-01, kicks 3, iters 150, 20s
+*** [n4_rand2 34 it 15] physical 3 -> 5
+[n4_rand2 34] best 5, nearest T at best count 1.980e-01, kicks 1, iters 150, 19s
+[n4_rand2 35] best 3, nearest T at best count 7.327e-02, kicks 0, iters 150, 13s
+[n4_rand2 36] best 3, nearest T at best count 5.161e-03, kicks 3, iters 150, 20s
+*** [n4_rand2 37 it 98] physical 3 -> 5
+[n4_rand2 37] best 5, nearest T at best count 8.991e-02, kicks 2, iters 150, 15s
+*** [n4_rand2 38 it 121] physical 3 -> 5
+[n4_rand2 38] best 5, nearest T at best count 6.700e-02, kicks 3, iters 150, 15s
+[n4_rand2 39] best 3, nearest T at best count 3.817e-02, kicks 1, iters 150, 21s
+*** [n4_rand2 40 it 15] physical 3 -> 5
+*** [n4_rand2 40 it 39] physical 3 -> 5
+*** [n4_rand2 40 it 112] physical 3 -> 5
+[n4_rand2 40] best 5, nearest T at best count 1.482e-01, kicks 2, iters 150, 15s
+*** [n4_rand2 41 it 31] physical 3 -> 5
+*** [n4_rand2 41 it 60] physical 3 -> 5
+[n4_rand2 41] best 5, nearest T at best count 3.679e-01, kicks 1, iters 150, 42s
+[n4_rand2 42] best 3, nearest T at best count 5.158e-03, kicks 2, iters 150, 28s
+*** [n4_rand2 43 it 120] physical 3 -> 5
+[n4_rand2 43] best 5, nearest T at best count 3.384e-01, kicks 4, iters 150, 12s
+*** [n4_rand2 44 it 0] physical 3 -> 5
+[n4_rand2 44] best 5, nearest T at best count 2.095e-01, kicks 4, iters 134, 15s
+[n4_rand2 45] best 3, nearest T at best count 8.081e-03, kicks 0, iters 150, 13s
+[n4_rand2 46] best 3, nearest T at best count 1.930e-03, kicks 2, iters 150, 23s
+[n4_rand2 47] best 3, nearest T at best count 7.430e-02, kicks 0, iters 150, 14s
+[n4_rand2 48] best 3, nearest T at best count 4.275e-02, kicks 1, iters 150, 12s
+*** [n4_rand2 49 it 80] physical 3 -> 5
+[n4_rand2 49] best 5, nearest T at best count 1.354e-01, kicks 4, iters 150, 24s
+[n4_rand2 50] best 3, nearest T at best count 2.920e-01, kicks 2, iters 150, 16s
+*** [n4_rand2 51 it 112] physical 3 -> 5
+*** [n4_rand2 51 it 144] physical 3 -> 5
+[n4_rand2 51] best 5, nearest T at best count 1.573e+00, kicks 3, iters 150, 25s
+[n4_rand2 52] best 3, nearest T at best count 1.508e-02, kicks 3, iters 150, 21s
+[n4_rand2 53] best 3, nearest T at best count 2.427e-03, kicks 1, iters 150, 13s
+[n4_rand2 54] best 3, nearest T at best count 1.754e-02, kicks 1, iters 150, 17s
+*** [n4_rand2 55 it 54] physical 3 -> 5
+[n4_rand2 55] best 5, nearest T at best count 5.579e-01, kicks 2, iters 150, 21s
+[n4_rand2 56] best 3, nearest T at best count 8.032e-03, kicks 1, iters 150, 28s
+[n4_rand2 57] best 3, nearest T at best count 9.936e-02, kicks 3, iters 150, 33s
+[n4_rand2 58] best 3, nearest T at best count 1.999e-01, kicks 0, iters 150, 13s
+[n4_rand2 59] best 3, nearest T at best count 3.126e-03, kicks 0, iters 150, 11s
+DONE n4_rand2

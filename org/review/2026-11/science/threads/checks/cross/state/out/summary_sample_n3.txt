@@ -1,0 +1,6 @@
+configs 2995 phys counts {2: 2994, 4: 1}
+real-x counts (real/2) {8: 2994, 10: 1}
+mixed class real-x counts {('+-+', 2): 2995, ('+--', 2): 2995, ('++-', 2): 2995}
+phys 2 n configs 2994 # non-real reps with all Re t>0: {2: 1371, 1: 1623}
+   nearest all-positive pair |Im|^2: min 0.0082, 1% 0.3963, median 6.5352
+phys 4 n configs 1 # non-real reps with all Re t>0: {0: 1}

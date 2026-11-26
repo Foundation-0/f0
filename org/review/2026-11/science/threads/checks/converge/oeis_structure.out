@@ -1,0 +1,11 @@
+Q1. characteristic polynomials: {'perfect square': 209, 'square times extra': 2} of 211
+    degree outside the square part: {0: 209, 1: 2}
+    largest multiplicity of any factor: {2: 211}
+    mode atmost: {'perfect square': 96, 'extra degree 1': 1}
+    mode exact: {'perfect square': 113, 'extra degree 1': 1}
+    examples of the extra factor (first 8 with one):
+      A268888 exact extra factor(s): ['x + 1']
+      A268997 atmost extra factor(s): ['x + 1']
+
+Q2. families with both modes proved: 0; identical polynomial in both modes: 0
+    of the 0 that differ, same square-root part: 0

@@ -1,0 +1,1892 @@
+[
+ {
+  "note": "four-charges-eleven.md",
+  "text": "Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1.",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_short.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1.",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_flat.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "Four positive point charges can have exactly 11 balance points, all non-degenerate: 7 of index 2 and 4 of index 1.",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/jet-route/n4_eleven_b12.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "7 of index 2 and 4 of index 1",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_short.indep.json",
+   "path": [
+    "index2"
+   ],
+   "equals": 7
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "7 of index 2 and 4 of index 1",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/verify/n4_eleven_short.indep.json",
+   "path": [
+    "index1"
+   ],
+   "equals": 4
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "| `lower_bound_check.py`, new | at least N | 11 | 11 |",
+  "test": {
+   "kind": "count",
+   "file": "checks/four/verify/lower_bound_check.out",
+   "pattern": "PROVED: at least 11 non-degenerate balance points; index 2: 7, index 1: 4",
+   "equals": 3
+  }
+ },
+ {
+  "note": "four-charges-eleven.md",
+  "text": "`lower_bound_check.py` asked to prove 12 stops with an error.",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/lower_bound_check_control.out",
+   "contains": "CheckFailure: proved 11, expected at least 12"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "| 9 | 4 | at least 26 | 17, 9 |",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d5_n9.lower.out",
+   "contains": "PROVED: at least 26 non-degenerate balance points; index 2: 17, index 1: 9"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "| 21 | 7 | at least 87 near the flat point | 47, 40 |",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d8_n21.lower.out",
+   "contains": "PROVED: at least 87 non-degenerate balance points; index 2: 47, index 1: 40"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack6_maxcoef.out",
+   "contains": "PROVED: 41 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack7_maxcoef.out",
+   "contains": "PROVED: 66 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "proves 6, 13, 24, 41 and 66 real non-degenerate critical points for D = 3 to 7",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack34_maxcoef.out",
+   "contains": "PROVED: 13 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "growth.md",
+  "text": "| I(p) - 1 | 5 | 7 | 11 | 17 | 25 | 31 | 39 | 49 | 61 | 71 |",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/levels_check.out",
+   "contains": "p = 12: directions found 71; claimed I_p - 1 = 71"
+  }
+ },
+ {
+  "note": "flat-centres.md",
+  "text": "proves 27 real and simple critical points for these coefficients, with 16 of one index and 11 of the other",
+  "test": {
+   "kind": "line",
+   "file": "checks/kflat/verify/quartic27_short.out",
+   "contains": "PROVED: 27 real non-degenerate critical points; det(Hessian) positive at 16, negative at 11"
+  }
+ },
+ {
+  "note": "flat-centres.md",
+  "text": "f = K4/3 - 0.00008 (x + y + z) + 0.0019 (xy + yz + zx) + 3.7 xyz",
+  "test": {
+   "kind": "line",
+   "file": "checks/kflat/verify/quartic27_short.out",
+   "contains": "coefficients a1..a5: ['-1/12500', '19/10000', '37/10', '23/500', '-9/200']"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "Each of 7,343 small boxes carries one of two certificates.",
+  "test": {
+   "kind": "json",
+   "file": "checks/three/out/c3_equi.json",
+   "path": [
+    "nleaves"
+   ],
+   "equals": 7343
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "each shown to have disjoint images (54,941,484) or to lie inside a region already certified (197,271)",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/c3_equi.log",
+   "contains": "RESULT PROVED {'contained': 197271, 'disjoint': 54941484"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "and resolved 400 of 400 sampled pairs",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/verify_pairs_rerun.log",
+   "contains": "\"sampled_nontrivial_pairs\": 400, \"resolved\": 400"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "found none from 250 starts",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/degenerate3_reviewer_order4.out",
+   "contains": "order 4: starts 250, converged solutions 0"
+  }
+ },
+ {
+  "note": "three-charges.md",
+  "text": "It found 88 cusps. The fourth derivative is negative at all 88",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/degenerate3_reviewer.out",
+   "contains": "positive 0, negative 88"
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "856 at eps 0.01 and 860 at eps 0.003",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_868.json",
+   "where": {
+    "eps": 0.01
+   },
+   "field": "real_full",
+   "equals": 856,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "856 at eps 0.01 and 860 at eps 0.003",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_868.json",
+   "where": {
+    "eps": 0.003
+   },
+   "field": "real_full",
+   "equals": 860,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "the count is 868 at its own eps of 0.0019 and at the 3 smaller values tested",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_868.json",
+   "where": {
+    "eps": 0.001
+   },
+   "field": "real_full",
+   "equals": 868,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "and 2,284 at 0.0001",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_2288.json",
+   "where": {
+    "eps": 0.0001
+   },
+   "field": "real_full",
+   "equals": 2284,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "unit-point.md",
+  "text": "880 of 880 at all 6 eps values tested",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/certray_880.json",
+   "where": {
+    "eps": 1e-05
+   },
+   "field": "real_full",
+   "equals": 880,
+   "rows": [
+    "profile"
+   ]
+  }
+ },
+ {
+  "note": "point-charges.md",
+  "text": "49",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n8.log",
+   "contains": "count=49 index1=21 index2=28"
+  }
+ },
+ {
+  "note": "point-charges.md",
+  "text": "64",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n9.log",
+   "contains": "count=64 index1=28 index2=36"
+  }
+ },
+ {
+  "note": "square-law.md",
+  "text": "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |",
+  "test": {
+   "kind": "count",
+   "file": "checks/square/verify_all.log",
+   "pattern": "PASS",
+   "equals": 238
+  }
+ },
+ {
+  "note": "square-law.md",
+  "text": "| Verifier passes, all 238 | 238 of 238, 236 dense and 2 tensor |",
+  "test": {
+   "kind": "files",
+   "glob": "checks/square/proofs/A*.json",
+   "equals": 238
+  }
+ },
+ {
+  "note": "square-law.md",
+  "text": "**VERIFIED** for the 46 entries that `checks/oeis/spot_proof.py` proves again",
+  "test": {
+   "kind": "line",
+   "file": "checks/oeis/spot_proof.out",
+   "contains": "46 entries chosen"
+  }
+ },
+ {
+  "note": "recurrences.md",
+  "text": "**VERIFIED** for the 46 entries that `spot_proof.py` proves again.",
+  "test": {
+   "kind": "count",
+   "file": "checks/oeis/spot_proof.out",
+   "pattern": "PROVED for all n >=",
+   "equals": 46
+  }
+ },
+ {
+  "note": "recurrences.md",
+  "text": "**VERIFIED** for the 46 entries that `spot_proof.py` proves again.",
+  "test": {
+   "kind": "line",
+   "file": "checks/oeis/spot_proof.out",
+   "contains": "failures: 0"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "lists the 22 checking programs. None has a bare `assert`, all can stop with an error, and 15 have a corruption test saved here",
+  "test": {
+   "kind": "line",
+   "file": "checks/claims/checkers.md",
+   "contains": "22 programs. 22 have no bare assert, 22 can stop with an error, 15 have a corruption test saved in this folder."
+  }
+ },
+ {
+  "note": "relational-geometry.md",
+  "text": "five pairs have 2 each, the three large pairs among them",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "number of walls shared by a pair: 1 walls: 4 pairs, 2 walls: 5 pairs"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "In eight certified configurations of 3 to 9 charges",
+  "test": {
+   "kind": "count",
+   "file": "checks/geometry/wall_graph.out",
+   "pattern": "index-2 points =",
+   "equals": 8
+  }
+ },
+ {
+  "note": "central-configurations.md",
+  "text": "In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.",
+  "test": {
+   "kind": "count",
+   "file": "checks/cc/corrupt_tests.out",
+   "pattern": "REJECT:",
+   "equals": 14
+  }
+ },
+ {
+  "note": "central-configurations.md",
+  "text": "In `corrupt_tests.out` that is 14 rejection lines for the first program and 1 for the second.",
+  "test": {
+   "kind": "count",
+   "file": "checks/cc/corrupt_tests.out",
+   "pattern": "FAIL: Krawczyk inclusion fails",
+   "equals": 1
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Three configurations, each proved by two exact programs and a third lower-bound proof",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_flat.repo.log",
+   "contains": "VERIFIED n4_eleven_flat: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Three configurations, each proved by two exact programs and a third lower-bound proof",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_short.repo.log",
+   "contains": "VERIFIED n4_eleven_short: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Three configurations, each proved by two exact programs and a third lower-bound proof",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/jet-route/n4_eleven_b12.repo.log",
+   "contains": "VERIFIED n4_eleven_b12: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Three configurations, each proved by two exact programs and a third lower-bound proof",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_short.lower.log",
+   "contains": "PROVED: at least 11 non-degenerate balance points; index 2: 7, index 1: 4"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Three configurations, each proved by two exact programs and a third lower-bound proof",
+  "test": {
+   "kind": "json",
+   "file": "checks/four/jet-route/n4_eleven_b12.indep.json",
+   "path": [
+    "count"
+   ],
+   "equals": 11
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "the centre of a regular tetrahedron of equal charges is a balance point of multiplicity 11",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/jet-route/milnor.out",
+   "contains": "tet deg<=4 [7, 10, 11, 11, 11, 11, 11]"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "At least 2,288 real realizations at certified lengths",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/l2288_independent.out",
+   "contains": "count matches the expected 2288"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "At least 2,288 real realizations at certified lengths",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/state/certify_arb_2288_dec6.out",
+   "contains": "RESULT: 1144 real solutions with v10 above the axis, 2288 with mirrors"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "above the published 2.3780",
+  "test": {
+   "kind": "line",
+   "file": "checks/laman/growth.log",
+   "contains": "r=860  (r/2)=430  (r/2)^(1/7)=2.3779887"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The complex count of 880 agrees in three implementations of one published recursion",
+  "test": {
+   "kind": "line",
+   "file": "checks/laman/validate_paper.log",
+   "contains": "L = 880 expected 880 OK"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The complex count of 880 agrees in three implementations of one published recursion",
+  "test": {
+   "kind": "line",
+   "file": "checks/laman/targets.log",
+   "contains": "cert complex count: 880"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The counts 4, 9, 24, 29 and 44 now have a proof by separate code",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n3.log",
+   "contains": "count=4 index1=1 index2=3 m2-m1=2 n-1=2"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The counts 4, 9, 24, 29 and 44 now have a proof by separate code",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n4.log",
+   "contains": "count=9 index1=3 index2=6 m2-m1=3 n-1=3"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The counts 4, 9, 24, 29 and 44 now have a proof by separate code",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n5.log",
+   "contains": "count=24 index1=10 index2=14 m2-m1=4 n-1=4"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The counts 4, 9, 24, 29 and 44 now have a proof by separate code",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n6.log",
+   "contains": "count=29 index1=12 index2=17 m2-m1=5 n-1=5"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The counts 4, 9, 24, 29 and 44 now have a proof by separate code",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n7.log",
+   "contains": "count=44 index1=19 index2=25 m2-m1=6 n-1=6"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "New exact counts: 49 for eight charges and 64 for nine",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_on_n8_n9.log",
+   "contains": "VERIFIED n8-c7-plus-centre: exactly 49 zeros"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "New exact counts: 49 for eight charges and 64 for nine",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_on_n8_n9.log",
+   "contains": "VERIFIED n9-abk-third-pair: exactly 64 zeros"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "49 and 64, each equal to Maxwell's bound",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n8.log",
+   "contains": "count=49 index1=21 index2=28 m2-m1=7 n-1=7"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "49 and 64, each equal to Maxwell's bound",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n9.log",
+   "contains": "count=64 index1=28 index2=36 m2-m1=8 n-1=8"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "One standard bound improves at least 2,418 entries of the reference tables for GF(7), GF(8) and GF(9)",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "7",
+    "improved_beyond_table_own_closure"
+   ],
+   "equals": 94
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "One standard bound improves at least 2,418 entries of the reference tables for GF(7), GF(8) and GF(9)",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "8",
+    "improved_beyond_table_own_closure"
+   ],
+   "equals": 1408
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "One standard bound improves at least 2,418 entries of the reference tables for GF(7), GF(8) and GF(9)",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "9",
+    "improved_beyond_table_own_closure"
+   ],
+   "equals": 916
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "238 recurrences that the OEIS lists as empirical are proved, 227 of them new",
+  "test": {
+   "kind": "csvrows",
+   "file": "checks/square/table.csv",
+   "equals": 238
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "238 recurrences that the OEIS lists as empirical are proved, 227 of them new",
+  "test": {
+   "kind": "count",
+   "file": "checks/oeis/table.csv",
+   "pattern": "control: already in repo",
+   "equals": 11
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "None of the empirical recurrences tested was false",
+  "test": {
+   "kind": "count",
+   "file": "checks/square/verify_all.log",
+   "pattern": "FAIL",
+   "equals": 0
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The theorem holds for dimensions 2 to 9 and the fold to the densest packing is confirmed",
+  "test": {
+   "kind": "line",
+   "file": "checks/incentre/out_c.txt",
+   "contains": "n=9: bars/cell=153 C11=1/162 C12=1/10368 C44=0 C11/C12=64"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The theorem holds for dimensions 2 to 9 and the fold to the densest packing is confirmed",
+  "test": {
+   "kind": "line",
+   "file": "checks/incentre/out_c.txt",
+   "contains": "ALL MATCH"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The theorem holds for dimensions 2 to 9 and the fold to the densest packing is confirmed",
+  "test": {
+   "kind": "line",
+   "file": "checks/incentre/out_fold.txt",
+   "contains": "ALL FOLD CHECKS PASSED"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "One wording error found",
+  "test": {
+   "kind": "line",
+   "file": "checks/incentre/out_c.txt",
+   "contains": "n=3: bars/cell=15 C11=2/9 C12=1/18 C44=0 C11/C12=4 C'=(C11-C12)/2=1/12"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "At least 20, 42 and 67 classes proved to exist for 8, 9 and 10 equal masses",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n8_O.out",
+   "contains": "ACCEPT: n = 8: 20 pairwise distinct classes"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "At least 20, 42 and 67 classes proved to exist for 8, 9 and 10 equal masses",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n9_O.out",
+   "contains": "ACCEPT: n = 9: 42 pairwise distinct classes"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "At least 20, 42 and 67 classes proved to exist for 8, 9 and 10 equal masses",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n10_O.out",
+   "contains": "ACCEPT: n = 10: 67 pairwise distinct classes"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "A second four-charge family with exactly 9 is certified",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n4-second-family.log",
+   "contains": "count=9 index1=3 index2=6 m2-m1=3 n-1=3"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "3,904 of 6,180 realizations real, certified",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/edge_frame_independent.out",
+   "contains": "count matches the expected 3904"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "3,904 of 6,180 realizations real, certified",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/v12/count12.out",
+   "contains": "Laman number of the 1-based edge list: 6180"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "The graph has no triangle, so it cannot raise the growth bound",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/v12/graph12.out",
+   "contains": "triangles []"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "All-real directions exist for 8, 9 and 10 vertices",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/rayprofile_n8.json",
+   "rows": [
+    "profile"
+   ],
+   "where": {
+    "eps": 1e-05
+   },
+   "field": "real_full",
+   "equals": 136
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "All-real directions exist for 8, 9 and 10 vertices",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/rayprofile_n9.json",
+   "rows": [
+    "profile"
+   ],
+   "where": {
+    "eps": 1e-05
+   },
+   "field": "real_full",
+   "equals": 344
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "All-real directions exist for 8, 9 and 10 vertices",
+  "test": {
+   "kind": "jsonrow",
+   "file": "checks/unit/rayprofile_n10.json",
+   "rows": [
+    "profile"
+   ],
+   "where": {
+    "eps": 1e-05
+   },
+   "field": "real_full",
+   "equals": 880
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Two predictions made from this held",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "number of walls shared by a pair: 1 walls: 22 pairs, 4 walls: 3 pairs"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Two predictions made from this held",
+  "test": {
+   "kind": "count",
+   "file": "checks/four/verify/n4_eleven_flat.walls.out",
+   "pattern": "index-2 point at",
+   "equals": 7
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "Proved with a computer for the equilateral triangle",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/c3_equi.log",
+   "contains": "RESULT PROVED"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "proved lower bounds of 26 for 9 charges and 87 near one point for 21",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d5_n9.lower.out",
+   "contains": "PROVED: at least 26 non-degenerate balance points"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "proved lower bounds of 26 for 9 charges and 87 near one point for 21",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d8_n21.lower.out",
+   "contains": "PROVED: at least 87 non-degenerate balance points"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "119 findings counted: no proved result failed, 46 of 68 problems are in prose, and 41 of 42 errors with a direction claim too much",
+  "test": {
+   "kind": "line",
+   "file": "checks/review-meta/classify.out",
+   "contains": "findings in the record: 119; confirmations (OK): 51; problem findings: 68"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "119 findings counted: no proved result failed, 46 of 68 problems are in prose, and 41 of 42 errors with a direction claim too much",
+  "test": {
+   "kind": "line",
+   "file": "checks/review-meta/classify.out",
+   "contains": "note         3  13  20   36"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "119 findings counted: no proved result failed, 46 of 68 problems are in prose, and 41 of 42 errors with a direction claim too much",
+  "test": {
+   "kind": "line",
+   "file": "checks/review-meta/classify.out",
+   "contains": "synthesis    2   1   7   10"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "119 findings counted: no proved result failed, 46 of 68 problems are in prose, and 41 of 42 errors with a direction claim too much",
+  "test": {
+   "kind": "line",
+   "file": "checks/review-meta/classify.out",
+   "contains": "findings with a direction: 42; claiming more than the evidence: 41; claiming less: 1"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "A harmonic quartic with all 27 critical points real is proved",
+  "test": {
+   "kind": "line",
+   "file": "checks/kflat/verify/quartic27_short.out",
+   "contains": "PROVED: 27 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "For the icosahedron's centre 77 of 125 were reached in the model",
+  "test": {
+   "kind": "json",
+   "file": "checks/kflat/thread/model_ico_chain_77_r1e-08_rho1e-12.json",
+   "path": [
+    "certified"
+   ],
+   "equals": 77
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "prints VERIFIED on a corrupted certificate when Python runs with `-O`",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_under_O.txt",
+   "contains": "VERIFIED n4-triangle-plus-centre: exactly 10 zeros"
+  }
+ },
+ {
+  "note": "README.md",
+  "text": "In this folder, `checks/claims/checkers.md` lists the 22 checking programs",
+  "test": {
+   "kind": "line",
+   "file": "checks/claims/checkers.md",
+   "contains": "22 programs. 22 have no bare assert"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "209 are perfect squares and the other two are a square times (x + 1)",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/oeis_structure.out",
+   "contains": "Q1. characteristic polynomials: {'perfect square': 209, 'square times extra': 2} of 211"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "In all 88 families where both conditions are proved",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/oeis_structure2.out",
+   "contains": "Q2. families with both modes proved: 88 (of 123 families); identical polynomial: 88"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "It re-proves the 211 and proves 27 more that were too large for the first method, 238 in all",
+  "test": {
+   "kind": "count",
+   "file": "checks/square/table.csv",
+   "pattern": "first211",
+   "equals": 211
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "It re-proves the 211 and proves 27 more that were too large for the first method, 238 in all",
+  "test": {
+   "kind": "count",
+   "file": "checks/square/table.csv",
+   "pattern": "skipped27",
+   "equals": 27
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The three large charges share 2, 2, 3, 3 and 4 walls per pair at 5, 6, 7, 8 and 9 charges",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "walls: 0-1 x2, 0-2 x2, 0-3 x1, 0-4 x2, 1-2 x2"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The three large charges share 2, 2, 3, 3 and 4 walls per pair at 5, 6, 7, 8 and 9 charges",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "walls: 0-1 x2, 0-2 x2, 0-3 x1, 0-4 x1, 0-5 x1, 1-2 x2"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The three large charges share 2, 2, 3, 3 and 4 walls per pair at 5, 6, 7, 8 and 9 charges",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "walls: 0-1 x3, 0-2 x3, 0-3 x1, 0-4 x1, 0-5 x1, 0-6 x1, 1-2 x3"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The three large charges share 2, 2, 3, 3 and 4 walls per pair at 5, 6, 7, 8 and 9 charges",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "walls: 0-1 x3, 0-2 x3, 0-3 x1, 0-4 x1, 0-5 x1, 0-6 x1, 0-7 x1, 1-2 x3"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The three large charges share 2, 2, 3, 3 and 4 walls per pair at 5, 6, 7, 8 and 9 charges",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "walls: 0-1 x4, 0-2 x4, 0-3 x1, 0-4 x1, 0-5 x1, 0-6 x1, 0-7 x1, 0-8 x1, 1-2 x4"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "four walls per large pair at nine charges, and seven walls for a four-charge configuration above the bound",
+  "test": {
+   "kind": "line",
+   "file": "checks/geometry/wall_graph.out",
+   "contains": "number of walls shared by a pair: 1 walls: 22 pairs, 4 walls: 3 pairs"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "four walls per large pair at nine charges, and seven walls for a four-charge configuration above the bound",
+  "test": {
+   "kind": "count",
+   "file": "checks/four/verify/n4_eleven_flat.walls.out",
+   "pattern": "index-2 point at",
+   "equals": 7
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "four walls per large pair at nine charges, and seven walls for a four-charge configuration above the bound",
+  "test": {
+   "kind": "count",
+   "file": "checks/four/verify/n4_eleven_short.walls.out",
+   "pattern": "index-2 point at",
+   "equals": 7
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "every edge within 0.8% of the same length",
+  "test": {
+   "kind": "json",
+   "file": "checks/l2288/lengths_2288.json",
+   "path": [
+    "lengths_approx",
+    7
+   ],
+   "equals": 1.0075590811064135
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "every edge within 0.8% of the same length",
+  "test": {
+   "kind": "json",
+   "file": "checks/l2288/lengths_2288.json",
+   "path": [
+    "lengths_approx",
+    8
+   ],
+   "equals": 0.9939496969162976
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "all 8 solutions were real in 2,197",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/flat-route/cubic_scan2.out",
+   "contains": "real-solution counts 0..8: [1442, 0, 28362, 0, 103108, 0, 64884, 0, 2197]"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "Across the whole family of flat configurations it was 139 in 200,000",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/flat-route/cubic_scan2.out",
+   "contains": "real-solution counts 0..8: [357, 0, 82424, 0, 91004, 0, 26068, 0, 139]"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The counts 5, 7, 11, 17, 25 and on to 71 were found by three numerical programs",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/levels_check.out",
+   "contains": "p = 12: directions found 71; claimed I_p - 1 = 71"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The stacked totals up to seven levels are proved by an exact one",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack7_maxcoef.out",
+   "contains": "PROVED: 66 real non-degenerate"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "At degrees 5 and 6 the searches reached 52 of 64 and 83 of 125",
+  "test": {
+   "kind": "json",
+   "file": "checks/kflat/thread/quintic_52.json",
+   "path": [
+    "certified"
+   ],
+   "equals": 52
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "At degrees 5 and 6 the searches reached 52 of 64 and 83 of 125",
+  "test": {
+   "kind": "json",
+   "file": "checks/kflat/thread/sextic_83.json",
+   "path": [
+    "certified"
+   ],
+   "equals": 83
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "2,418 entries improve. The drop is one unit in 2,066 of them, two in 344 and three in 8.",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "size of the drop in the upper bound: {1: 94}"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "2,418 entries improve. The drop is one unit in 2,066 of them, two in 344 and three in 8.",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "size of the drop in the upper bound: {1: 1144, 2: 256, 3: 8}"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "2,418 entries improve. The drop is one unit in 2,066 of them, two in 344 and three in 8.",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "size of the drop in the upper bound: {1: 828, 2: 88}"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "2,418 entries improve.",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "7",
+    "improved_beyond_table_own_closure"
+   ],
+   "equals": 94
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "2,418 entries improve.",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "8",
+    "improved_beyond_table_own_closure"
+   ],
+   "equals": 1408
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "2,418 entries improve.",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "9",
+    "improved_beyond_table_own_closure"
+   ],
+   "equals": 916
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The improvements close 7 to 10% of the remaining gap in those entries",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "total gap over improved entries: 950 -> 856 (9.9% closed)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The improvements close 7 to 10% of the remaining gap in those entries",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "total gap over improved entries: 23857 -> 22177 (7.0% closed)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The improvements close 7 to 10% of the remaining gap in those entries",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "total gap over improved entries: 13213 -> 12209 (7.6% closed)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "Three entries are settled exactly.",
+  "test": {
+   "kind": "csvrows",
+   "file": "checks/converge/settled_cells.csv",
+   "equals": 3
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the median 0.20 to 0.22 and the upper quartile 0.28 to 0.30",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "quartiles 0.140 0.220 0.303"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the median 0.20 to 0.22 and the upper quartile 0.28 to 0.30",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "quartiles 0.144 0.212 0.288"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the median 0.20 to 0.22 and the upper quartile 0.28 to 0.30",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/codes_stats.out",
+   "contains": "quartiles 0.136 0.200 0.275"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "In the 663 local rows of the table, from dwarf galaxies to clusters",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/unified_check.out",
+   "contains": "rows used: 663 classes:"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The exponent was above 1 in all 300 resamples",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/unified_baryon_law.out",
+   "contains": "share of resamples with p <= 1: 0.000"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "The 95% range of 1.32 to 1.39 comes from resampling rows",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/unified_baryon_law.out",
+   "contains": "bootstrap (300): p = 1.355 (68% 1.332 to 1.375; 95% 1.321 to 1.393)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "This law scores 0.148 dex against 0.190 for the standard relation alone",
+  "test": {
+   "kind": "line",
+   "file": "checks/converge/unified_baryon_law.out",
+   "contains": "M_extra = 10^10.377 (M_b/1e11)^1.356 Msun; score 0.1477 dex (standard relation alone 0.1895)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "gives a cosmic ratio of dark to baryonic matter of 3.96 and a ratio of 0.50 in a galaxy at 300 kpc",
+  "test": {
+   "kind": "line",
+   "file": "checks/fabric/fabric_numbers.out",
+   "contains": "cosmic ratio=3.96 | galaxy halo/baryons at 300 kpc=0.50"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "Its weakest point is the count of light species at recombination: 2.28 against a measured 2.99 \u00b1 0.17",
+  "test": {
+   "kind": "line",
+   "file": "checks/fabric/fabric_numbers.out",
+   "contains": "at recombination: 2.28 (ordinary neutrinos depleted to 0.75)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "Its weakest point is the count of light species at recombination: 2.28 against a measured 2.99 \u00b1 0.17",
+  "test": {
+   "kind": "line",
+   "file": "checks/fabric/fabric_numbers.out",
+   "contains": "Planck 2018 N_eff = 2.99 +- 0.17"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "Drawn blindly, four speeds landing that close has a chance of about 1 in 100,000",
+  "test": {
+   "kind": "line",
+   "file": "checks/gravity/unified/coincidence_audit.out",
+   "contains": "spread 0.0235 dex -> P = 1.05e-05"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the chance is about 2%, with a 16 to 84% range of 0.4% to 5%",
+  "test": {
+   "kind": "line",
+   "file": "checks/gravity/unified/coincidence_audit.out",
+   "contains": "P median 0.017 (16-84% 0.004-0.046)"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the eight fastest spirals sit 0.10 dex above the standard relation",
+  "test": {
+   "kind": "line",
+   "file": "checks/gravity/t1_sparc_threshold.out",
+   "contains": "above threshold: 8 galaxies. observed mean residual +0.0992"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "A slope of 0.553 \u00b1 0.063 in giant spirals looked like confirmation",
+  "test": {
+   "kind": "line",
+   "file": "checks/gravity/t2_massive_spirals.out",
+   "contains": "observed +0.553 +/- 0.063"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "It does shrink: 0.395 at 6 vertices, 0.090 at 7, and zero in every sample from 8 up",
+  "test": {
+   "kind": "line",
+   "file": "checks/unit/analysis.txt",
+   "contains": "0.833 0.833 1.000   158  0.395"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "It does shrink: 0.395 at 6 vertices, 0.090 at 7, and zero in every sample from 8 up",
+  "test": {
+   "kind": "line",
+   "file": "checks/unit/analysis.txt",
+   "contains": "0.714 0.786 0.929    36  0.090"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "It does shrink: 0.395 at 6 vertices, 0.090 at 7, and zero in every sample from 8 up",
+  "test": {
+   "kind": "line",
+   "file": "checks/unit/analysis.txt",
+   "contains": " 8 e0.001   300  300   0.0  0.7995  0.706 0.794 0.912     0  0.000"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "It does shrink: 0.395 at 6 vertices, 0.090 at 7, and zero in every sample from 8 up",
+  "test": {
+   "kind": "line",
+   "file": "checks/unit/analysis.txt",
+   "contains": "11 e0.001    93   93   0.0  0.6761  0.604 0.677 0.753     0  0.000"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "12,307 samples, with p-values between 1e-32 and 1e-121",
+  "test": {
+   "kind": "line",
+   "file": "checks/unit/analysis.txt",
+   "contains": "MW p=1.11e-121"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "12,307 samples, with p-values between 1e-32 and 1e-121",
+  "test": {
+   "kind": "line",
+   "file": "checks/unit/analysis.txt",
+   "contains": "n=11 e0.001: near mean 0.676 vs far 0.098; MW p=5.04e-32"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "lists the 22 checking programs: none has a bare `assert`, and 15 have a corruption test saved here",
+  "test": {
+   "kind": "line",
+   "file": "checks/claims/checkers.md",
+   "contains": "22 programs. 22 have no bare assert, 22 can stop with an error, 15 have a corruption test saved in this folder."
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "a verifier printed success on a corrupted certificate when Python ran with `-O`",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_under_O.txt",
+   "contains": "VERIFIED n4-triangle-plus-centre: exactly 10 zeros"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the Morse identity of the certified classes comes out exactly: 1/56, -1/72 and 1/90",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n8_O.out",
+   "contains": "Morse sum 1/56; Euler characteristic target 1/56; equal: True"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the Morse identity of the certified classes comes out exactly: 1/56, -1/72 and 1/90",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n9_O.out",
+   "contains": "Morse sum -1/72; Euler characteristic target -1/72; equal: True"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "the Morse identity of the certified classes comes out exactly: 1/56, -1/72 and 1/90",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n10_O.out",
+   "contains": "Morse sum 1/90; Euler characteristic target 1/90; equal: True"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "For every certified charge configuration, index-2 minus index-1 points equals the number of charges minus one",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n9.log",
+   "contains": "m2-m1=8 n-1=8"
+  }
+ },
+ {
+  "note": "convergences.md",
+  "text": "For every certified charge configuration, index-2 minus index-1 points equals the number of charges minus one",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_flat.indep.log",
+   "contains": "m2-m1=3 n-1=3"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "all 1,519 certificates then passed the reviewer's own checker, and nine live lookups matched",
+  "test": {
+   "kind": "line",
+   "file": "checks/codes/verify_all.out",
+   "contains": "88 certificates pass the exact check"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "all 1,519 certificates then passed the reviewer's own checker, and nine live lookups matched",
+  "test": {
+   "kind": "line",
+   "file": "checks/codes/verify_all.out",
+   "contains": "737 certificates pass the exact check"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "all 1,519 certificates then passed the reviewer's own checker, and nine live lookups matched",
+  "test": {
+   "kind": "line",
+   "file": "checks/codes/verify_all.out",
+   "contains": "694 certificates pass the exact check"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "all 1,519 certificates then passed the reviewer's own checker, and nine live lookups matched",
+  "test": {
+   "kind": "count",
+   "file": "checks/codes/verify_codes.out",
+   "pattern": "| live:",
+   "equals": 9
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Complex count back: 880 and 2,288 by three implementations.",
+  "test": {
+   "kind": "line",
+   "file": "checks/laman/validate_paper.log",
+   "contains": "L = 880 expected 880 OK"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Complex count back: 880 and 2,288 by three implementations.",
+  "test": {
+   "kind": "line",
+   "file": "checks/laman/validate_paper.log",
+   "contains": "L = 2288 expected 2288 OK"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The reviewer's exact checker confirmed it.",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/l2288_independent.out",
+   "contains": "count matches the expected 2288"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "12-vertex graph: 3,904 of 6,180 certified",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/edge_frame_independent.out",
+   "contains": "count matches the expected 3904"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "nothing above 11 in 180 runs",
+  "test": {
+   "kind": "count",
+   "file": "checks/four/push13/out/push3_summary.txt",
+   "pattern": "best counts {11: 30}",
+   "equals": 6
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The reviewer certified its second four-charge family.",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n4-second-family.log",
+   "contains": "AGREES with claimed count 9"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Point charges back: separate proof of the five counts, plus exact 49 and 64.",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n8.log",
+   "contains": "AGREES with claimed count 49"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Point charges back: separate proof of the five counts, plus exact 49 and 64.",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n9.log",
+   "contains": "AGREES with claimed count 64"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The reviewer re-proved 46 with a separate machine.",
+  "test": {
+   "kind": "count",
+   "file": "checks/oeis/spot_proof.out",
+   "pattern": "PROVED for all n >=",
+   "equals": 46
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Recurrences back: 211 proved.",
+  "test": {
+   "kind": "csvrows",
+   "file": "checks/oeis/table.csv",
+   "equals": 211
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The square law noticed in the factored polynomials, proved, and used: 238 recurrences.",
+  "test": {
+   "kind": "count",
+   "file": "checks/square/verify_all.log",
+   "pattern": "PASS",
+   "equals": 238
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "An exact program then proved 41.",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/stack6_maxcoef.out",
+   "contains": "PROVED: 41 real non-degenerate"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Both certified by two exact programs.",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_flat.repo.log",
+   "contains": "VERIFIED n4_eleven_flat: exactly 11 zeros"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "Both certified by two exact programs.",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/jet-route/n4_eleven_b12.repo.log",
+   "contains": "VERIFIED n4_eleven_b12: exactly 11 zeros"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "the offset rises with speed at 0.553 \u00b1 0.063 per dex",
+  "test": {
+   "kind": "line",
+   "file": "checks/gravity/t2_massive_spirals.out",
+   "contains": "observed +0.553 +/- 0.063"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "the eight fastest SPARC spirals sit 0.10 dex above the standard relation",
+  "test": {
+   "kind": "line",
+   "file": "checks/gravity/t1_sparc_threshold.out",
+   "contains": "above threshold: 8 galaxies. observed mean residual +0.0992"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "a harmonic quartic with all 27 critical points real, which the reviewer re-proved with two-digit coefficients",
+  "test": {
+   "kind": "line",
+   "file": "checks/kflat/verify/quartic27_short.out",
+   "contains": "PROVED: 27 real non-degenerate critical points"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The icosahedron's centre reached 77 of 125 in the model",
+  "test": {
+   "kind": "json",
+   "file": "checks/kflat/thread/model_ico_chain_77_r1e-08_rho1e-12.json",
+   "path": [
+    "certified"
+   ],
+   "equals": 77
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The equilateral triangle is proved for all charges, and every sampled cusp is harmless.",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/c3_equi.log",
+   "contains": "RESULT PROVED"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "The equilateral triangle is proved for all charges, and every sampled cusp is harmless.",
+  "test": {
+   "kind": "line",
+   "file": "checks/three/out/degenerate3_reviewer.out",
+   "contains": "positive 0, negative 88"
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "no seat, model or tool name appears in any text or commit message",
+  "test": {
+   "kind": "count",
+   "file": "LOG.md",
+   "pattern": "Claude",
+   "equals": 0
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "no seat, model or tool name appears in any text or commit message",
+  "test": {
+   "kind": "count",
+   "file": "LOG.md",
+   "pattern": "Opus",
+   "equals": 0
+  }
+ },
+ {
+  "note": "LOG.md",
+  "text": "no seat, model or tool name appears in any text or commit message",
+  "test": {
+   "kind": "count",
+   "file": "LOG.md",
+   "pattern": "Codex",
+   "equals": 0
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "three certified four-charge configurations with 11 balance points",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_flat.repo.log",
+   "contains": "VERIFIED n4_eleven_flat: exactly 11 zeros"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "three certified four-charge configurations with 11 balance points",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/verify/n4_eleven_short.repo.log",
+   "contains": "VERIFIED n4_eleven_short: exactly 11 zeros"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "three certified four-charge configurations with 11 balance points",
+  "test": {
+   "kind": "line",
+   "file": "checks/four/jet-route/n4_eleven_b12.repo.log",
+   "contains": "VERIFIED n4_eleven_b12: exactly 11 zeros"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "certificates for eight and nine charges, a second family with 9",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_on_n8_n9.log",
+   "contains": "VERIFIED n8-c7-plus-centre: exactly 49 zeros"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "certificates for eight and nine charges, a second family with 9",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_on_n8_n9.log",
+   "contains": "VERIFIED n9-abk-third-pair: exactly 64 zeros"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "certificates for eight and nine charges, a second family with 9",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/n4-second-family.log",
+   "contains": "AGREES with claimed count 9"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "the bound run over every open entry of three reference tables, 1,519 certificates, 2,418 improved entries",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "7",
+    "certified_direct"
+   ],
+   "equals": 88
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "the bound run over every open entry of three reference tables, 1,519 certificates, 2,418 improved entries",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "8",
+    "certified_direct"
+   ],
+   "equals": 737
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "the bound run over every open entry of three reference tables, 1,519 certificates, 2,418 improved entries",
+  "test": {
+   "kind": "json",
+   "file": "checks/codes/summary.json",
+   "path": [
+    "9",
+    "certified_direct"
+   ],
+   "equals": 694
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "238 proved recurrences, the square law with a full proof",
+  "test": {
+   "kind": "csvrows",
+   "file": "checks/square/table.csv",
+   "equals": 238
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "existence certificates for 20, 42 and 67 classes",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n8_O.out",
+   "contains": "ACCEPT: n = 8: 20 pairwise distinct classes"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "existence certificates for 20, 42 and 67 classes",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n9_O.out",
+   "contains": "ACCEPT: n = 9: 42 pairwise distinct classes"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "existence certificates for 20, 42 and 67 classes",
+  "test": {
+   "kind": "line",
+   "file": "checks/cc/verify_n10_O.out",
+   "contains": "ACCEPT: n = 10: 67 pairwise distinct classes"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "a correction: one shear modulus is zero, not both",
+  "test": {
+   "kind": "line",
+   "file": "checks/incentre/out_c.txt",
+   "contains": "n=3: bars/cell=15 C11=2/9 C12=1/18 C44=0 C11/C12=4 C'=(C11-C12)/2=1/12"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "the growth argument with its two proved lower bounds",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d5_n9.lower.out",
+   "contains": "PROVED: at least 26 non-degenerate balance points"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "the growth argument with its two proved lower bounds",
+  "test": {
+   "kind": "line",
+   "file": "checks/growth/verify/demo_d8_n21.lower.out",
+   "contains": "PROVED: at least 87 non-degenerate balance points"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "a 12-vertex result, a second count program",
+  "test": {
+   "kind": "line",
+   "file": "checks/l2288/edge_frame_independent.out",
+   "contains": "count matches the expected 3904"
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "a 12-vertex result, a second count program",
+  "test": {
+   "kind": "files",
+   "glob": "checks/laman/laman_count.py",
+   "equals": 1
+  }
+ },
+ {
+  "note": "SYMBIOSIS.md",
+  "text": "a fix for the verifier under `python -O`",
+  "test": {
+   "kind": "line",
+   "file": "checks/charges/out/repo_verifier_fixed_under_O_on_four.txt",
+   "contains": "VERIFIED n4_eleven_short: exactly 11 zeros"
+  }
+ }
+]

@@ -1,0 +1,23 @@
+kflat_scan.py octahedron 4000 1
+octahedron: leading form of degree 4, at most 27 critical points; samples 4000, solver failures 0
+real critical points (count: samples): {5: 2425, 7: 1303, 9: 240, 11: 28, 13: 4}
+best: 13 with 9 of positive determinant
+
+kflat_scan.py icosahedron 300 1
+icosahedron: leading form of degree 6, at most 125 critical points; samples 300, solver failures 284
+real critical points (count: samples): {11: 8, 13: 5, 15: 3}
+best: 15 with 13 of positive determinant
+
+kflat_climb.py octahedron 12000 <seed>, seeds 1 to 4
+octahedron seed 1: best real count 7 of 27, positive determinant 6
+octahedron seed 2: best real count 11 of 27, positive determinant 8
+octahedron seed 3: best real count 7 of 27, positive determinant 6
+octahedron seed 4: best real count 17 of 27, positive determinant 11
+
+outer_scan.py octahedron 3000 6000 <seed>, seeds 1 to 3
+real among the 19 outer critical points, random cubic terms (count: samples): {5: 1167, 7: 1213, 9: 243, 11: 27}
+after climbing: 13 of 19 real, 9 with positive determinant; nearest complex pair 1.94e-01
+real among the 19 outer critical points, random cubic terms (count: samples): {5: 1181, 7: 1195, 9: 269, 11: 12}
+after climbing: 13 of 19 real, 9 with positive determinant; nearest complex pair 1.50e+00
+real among the 19 outer critical points, random cubic terms (count: samples): {3: 2, 5: 1219, 7: 1143, 9: 240, 11: 14}
+after climbing: 13 of 19 real, 8 with positive determinant; nearest complex pair 1.23e+00

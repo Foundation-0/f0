@@ -1,0 +1,19 @@
+all local classes: M_extra = 10^10.377 (M_b/1e11)^1.356 Msun; score 0.1477 dex (standard relation alone 0.1895)
+   ratio M_extra/M_b at M_b = 1e9, 1e10, 1e11, 1e12, 1e13, 1e14: 0.046, 0.105, 0.238, 0.541, 1.226, 2.781
+threshold in baryonic mass (same number of parameters): best log M_J = 11.1, R = 1.46; score 0.1473 dex
+bootstrap (300): p = 1.355 (68% 1.332 to 1.375; 95% 1.321 to 1.393); log K = 10.375 (95% 10.305 to 10.451); share of resamples with p <= 1: 0.000
+fit on clusters only: log K = 10.796, p = 1.161
+     ATLAS3D_Re     PREDICTED median residual: standard +0.084 -> law -0.063; rms 0.148 -> 0.136
+     GC_r2500       trained   median residual: standard +0.294 -> law +0.111; rms 0.295 -> 0.115
+     GC_r500        trained   median residual: standard +0.123 -> law -0.085; rms 0.139 -> 0.113
+     SPARC_inner    PREDICTED median residual: standard -0.029 -> law -0.123; rms 0.208 -> 0.241
+     SPARC_outer    PREDICTED median residual: standard -0.054 -> law -0.153; rms 0.153 -> 0.200
+     giant_spirals  PREDICTED median residual: standard +0.082 -> law -0.075; rms 0.144 -> 0.137
+fit on galaxies only: log K = 10.263, p = 1.601
+     ATLAS3D_Re     trained   median residual: standard +0.084 -> law +0.057; rms 0.148 -> 0.138
+     GC_r2500       PREDICTED median residual: standard +0.294 -> law +0.028; rms 0.295 -> 0.075
+     GC_r500        PREDICTED median residual: standard +0.123 -> law -0.234; rms 0.139 -> 0.271
+     SPARC_inner    trained   median residual: standard -0.029 -> law -0.053; rms 0.208 -> 0.209
+     SPARC_outer    trained   median residual: standard -0.054 -> law -0.077; rms 0.153 -> 0.159
+     giant_spirals  trained   median residual: standard +0.082 -> law +0.006; rms 0.144 -> 0.116
+high redshift (100 galaxies, no refit): median residual standard +0.014, law -0.042; rms 0.117 -> 0.117

@@ -1,0 +1,23 @@
+class   1: one zero in radius 2^-30 box (Krawczyk ratio 1.13e-06), unique in radius 2^-12; Morse index 0, |Sym| 14; I in [15.530725735767, 15.530725735767]
+class   2: one zero in radius 2^-30 box (Krawczyk ratio 9.96e-06), unique in radius 2^-14; Morse index 1, |Sym| 4; I in [15.608917741866, 15.608917741866]
+class   3: one zero in radius 2^-30 box (Krawczyk ratio 3.60e-06), unique in radius 2^-12; Morse index 1, |Sym| 4; I in [15.618222511506, 15.618222511506]
+class   4: one zero in radius 2^-30 box (Krawczyk ratio 1.52e-06), unique in radius 2^-12; Morse index 2, |Sym| 2; I in [15.734023297082, 15.734023297082]
+class   5: one zero in radius 2^-30 box (Krawczyk ratio 3.88e-06), unique in radius 2^-12; Morse index 2, |Sym| 2; I in [15.740374074750, 15.740374074750]
+class   6: one zero in radius 2^-30 box (Krawczyk ratio 7.52e-06), unique in radius 2^-14; Morse index 3, |Sym| 8; I in [15.740937978759, 15.740937978759]
+class   7: one zero in radius 2^-30 box (Krawczyk ratio 8.69e-06), unique in radius 2^-14; Morse index 2, |Sym| 1; I in [15.863174098095, 15.863174098095]
+class   8: one zero in radius 2^-30 box (Krawczyk ratio 1.88e-05), unique in radius 2^-16; Morse index 3, |Sym| 2; I in [15.863301978302, 15.863301978302]
+class   9: one zero in radius 2^-30 box (Krawczyk ratio 2.64e-06), unique in radius 2^-12; Morse index 3, |Sym| 2; I in [15.900100046438, 15.900100046438]
+class  10: one zero in radius 2^-30 box (Krawczyk ratio 2.27e-06), unique in radius 2^-12; Morse index 3, |Sym| 16; I in [15.911021032220, 15.911021032221]
+class  11: one zero in radius 2^-30 box (Krawczyk ratio 1.65e-06), unique in radius 2^-12; Morse index 3, |Sym| 2; I in [15.964065574931, 15.964065574931]
+class  12: one zero in radius 2^-30 box (Krawczyk ratio 1.11e-06), unique in radius 2^-12; Morse index 3, |Sym| 2; I in [16.054922041212, 16.054922041212]
+class  13: one zero in radius 2^-30 box (Krawczyk ratio 1.01e-06), unique in radius 2^-12; Morse index 4, |Sym| 8; I in [16.174666143253, 16.174666143253]
+class  14: one zero in radius 2^-30 box (Krawczyk ratio 1.28e-06), unique in radius 2^-12; Morse index 3, |Sym| 2; I in [16.258205330640, 16.258205330640]
+class  15: one zero in radius 2^-30 box (Krawczyk ratio 1.62e-06), unique in radius 2^-12; Morse index 4, |Sym| 1; I in [16.442521688987, 16.442521688987]
+class  16: one zero in radius 2^-30 box (Krawczyk ratio 6.78e-07), unique in radius 2^-12; Morse index 4, |Sym| 4; I in [16.838485938219, 16.838485938219]
+class  17: one zero in radius 2^-30 box (Krawczyk ratio 1.23e-06), unique in radius 2^-12; Morse index 4, |Sym| 2; I in [16.982468709091, 16.982468709092]
+class  18: one zero in radius 2^-30 box (Krawczyk ratio 1.63e-06), unique in radius 2^-12; Morse index 5, |Sym| 2; I in [17.320837853169, 17.320837853169]
+class  19: one zero in radius 2^-30 box (Krawczyk ratio 1.33e-06), unique in radius 2^-12; Morse index 5, |Sym| 2; I in [18.149590685999, 18.149590685999]
+class  20: one zero in radius 2^-30 box (Krawczyk ratio 1.31e-06), unique in radius 2^-12; Morse index 6, |Sym| 4; I in [19.856752629950, 19.856752629950]
+labelled count (mod rotation, mirror images separate) 676080; Morse polynomial coefficients {0: 5760, 1: 40320, 2: 161280, 3: 216720, 4: 151200, 5: 80640, 6: 20160}
+Morse sum 1/56; Euler characteristic target 1/56; equal: True
+ACCEPT: n = 8: 20 pairwise distinct classes of planar central configurations, each certified to exist and be unique in its box (so at least 20 classes)

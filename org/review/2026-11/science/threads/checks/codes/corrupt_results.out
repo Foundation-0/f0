@@ -1,0 +1,10 @@
+neg_coef verify_certs: gf7-n55-k10-exclude-d40: sign condition fails
+neg_coef verify_binomial: gf7-n55-k10-exclude-d40: sign
+smaller_d verify_certs: gf7-n55-k10-exclude-d40: f positive on [d,n]
+smaller_d verify_binomial: gf7-n55-k10-exclude-d40: f>0 on [d,n]
+smaller_k verify_certs: gf7-n55-k10-exclude-d40: bound not below q^k
+smaller_k verify_binomial: gf7-n55-k10-exclude-d40: bound not below q^k
+wrong_bound verify_certs: gf7-n55-k10-exclude-d40: size_bound differs from f(0)/a_0
+wrong_bound verify_binomial: 1 certificates pass the binomial-sum exact check
+halved_coef verify_certs: gf7-n55-k10-exclude-d40: f positive on [d,n]
+halved_coef verify_binomial: gf7-n55-k10-exclude-d40: f>0 on [d,n]

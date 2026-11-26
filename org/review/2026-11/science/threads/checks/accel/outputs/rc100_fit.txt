@@ -1,0 +1,70 @@
+Baryonic v^2 at Re, my model vs paper (1-fDM)Vc^2: thin disc median +0.066 dex (std 0.106); disc v^2 factor 0.775 brings median to +0.000 (std 0.106)
+A_thick0.78_press-pub_dM+0.0_dMdz+0.00   A-fixed  p=+0.10 [68%: -0.05,+0.25] [95%: -0.25,+0.40] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+32.8
+A_thick0.78_press-pub_dM+0.0_dMdz+0.00   A-prior  p=-0.01 [68%: -0.25,+0.20] [95%: -0.50,+0.45] sint=0.000 A=1.34e-10 | -2lnL(p=1)-(p=0)=+18.4
+A_thick0.78_press-pub_dM+0.0_dMdz+0.00   A-free   p=-0.74 [68%: -1.25,-0.25] [95%: -1.80,+0.25] sint=0.000 A=2.70e-10 | -2lnL(p=1)-(p=0)=+9.8
+    power: frac gN<a0(const)=0.29, frac gN<a0_H=0.71, median gN/a0=1.63 (IQR 0.91-2.93), median dlogv(p0->p1)=0.052 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.20
+A_thick1.00_press-pub_dM+0.0_dMdz+0.00   A-fixed  p=-0.23 [68%: -0.45,-0.05] [95%: -0.70,+0.15] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+48.8
+A_thick1.00_press-pub_dM+0.0_dMdz+0.00   A-prior  p=-0.31 [68%: -0.55,-0.05] [95%: -0.90,+0.20] sint=0.000 A=1.30e-10 | -2lnL(p=1)-(p=0)=+26.2
+A_thick1.00_press-pub_dM+0.0_dMdz+0.00   A-free   p=-0.98 [68%: -1.60,-0.40] [95%: -2.30,+0.15] sint=0.000 A=2.41e-10 | -2lnL(p=1)-(p=0)=+9.0
+    power: frac gN<a0(const)=0.24, frac gN<a0_H=0.66, median gN/a0=1.90 (IQR 1.01-3.28), median dlogv(p0->p1)=0.049 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.21
+B_thick0.78_press-pub_dM+0.0_dMdz+0.00   A-fixed  p=-0.44 [68%: -0.70,-0.20] [95%: -1.05,+0.05] sint=0.048 A=1.20e-10 | -2lnL(p=1)-(p=0)=+34.2
+B_thick0.78_press-pub_dM+0.0_dMdz+0.00   A-prior  p=-0.54 [68%: -0.85,-0.25] [95%: -1.25,+0.05] sint=0.047 A=1.31e-10 | -2lnL(p=1)-(p=0)=+23.5
+B_thick0.78_press-pub_dM+0.0_dMdz+0.00   A-free   p=-1.71 [68%: -2.60,-0.95] [95%: -4.00,-0.25] sint=0.039 A=3.58e-10 | -2lnL(p=1)-(p=0)=+8.1
+    power: frac gN<a0(const)=0.23, frac gN<a0_H=0.55, median gN/a0=2.19 (IQR 1.14-4.85), median dlogv(p0->p1)=0.045 dex, median sigma_logv=0.115, Fisher sigma_p(no scatter)=0.26
+A_thick0.78_press-half_dM+0.0_dMdz+0.00  A-fixed  p=-0.58 [68%: -0.80,-0.35] [95%: -1.15,-0.15] sint=0.029 A=1.20e-10 | -2lnL(p=1)-(p=0)=+45.1
+A_thick0.78_press-half_dM+0.0_dMdz+0.00  A-prior  p=-0.72 [68%: -1.00,-0.45] [95%: -1.40,-0.15] sint=0.026 A=1.37e-10 | -2lnL(p=1)-(p=0)=+30.4
+A_thick0.78_press-half_dM+0.0_dMdz+0.00  A-free   p=-2.23 [68%: -3.20,-1.50] [95%: -4.00,-0.80] sint=0.000 A=4.85e-10 | -2lnL(p=1)-(p=0)=+11.1
+    power: frac gN<a0(const)=0.29, frac gN<a0_H=0.71, median gN/a0=1.63 (IQR 0.91-2.93), median dlogv(p0->p1)=0.052 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.20
+A_thick0.78_press-none_dM+0.0_dMdz+0.00  A-fixed  p=-2.24 [68%: -4.00,-1.15] [95%: -4.00,-0.35] sint=0.353 A=1.20e-10 | -2lnL(p=1)-(p=0)=+11.2
+A_thick0.78_press-none_dM+0.0_dMdz+0.00  A-prior  p=-2.25 [68%: -4.00,-1.15] [95%: -4.00,-0.35] sint=0.353 A=1.22e-10 | -2lnL(p=1)-(p=0)=+10.2
+A_thick0.78_press-none_dM+0.0_dMdz+0.00  A-free   p=-6.32 [68%: -4.00,-2.35] [95%: -4.00,+0.30] sint=0.349 A=29.92e-10 | -2lnL(p=1)-(p=0)=+1.0
+    power: frac gN<a0(const)=0.29, frac gN<a0_H=0.71, median gN/a0=1.63 (IQR 0.91-2.93), median dlogv(p0->p1)=0.052 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.20
+A_thick0.78_press-x1.5_dM+0.0_dMdz+0.00  A-fixed  p=+0.50 [68%: +0.35,+0.65] [95%: +0.20,+0.80] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+3.3
+A_thick0.78_press-x1.5_dM+0.0_dMdz+0.00  A-prior  p=+0.40 [68%: +0.20,+0.60] [95%: -0.05,+0.85] sint=0.000 A=1.33e-10 | -2lnL(p=1)-(p=0)=+4.4
+A_thick0.78_press-x1.5_dM+0.0_dMdz+0.00  A-free   p=-0.19 [68%: -0.65,+0.25] [95%: -1.10,+0.70] sint=0.000 A=2.37e-10 | -2lnL(p=1)-(p=0)=+6.5
+    power: frac gN<a0(const)=0.29, frac gN<a0_H=0.71, median gN/a0=1.63 (IQR 0.91-2.93), median dlogv(p0->p1)=0.052 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.20
+A_thick0.78_press-pub_dM+0.2_dMdz+0.00   A-fixed  p=-1.33 [68%: -1.80,-1.00] [95%: -2.50,-0.70] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+52.4
+A_thick0.78_press-pub_dM+0.2_dMdz+0.00   A-prior  p=-1.35 [68%: -1.85,-0.95] [95%: -2.65,-0.60] sint=0.000 A=1.22e-10 | -2lnL(p=1)-(p=0)=+35.8
+A_thick0.78_press-pub_dM+0.2_dMdz+0.00   A-free   p=-1.74 [68%: -4.00,-0.65] [95%: -4.00,+0.30] sint=0.000 A=1.62e-10 | -2lnL(p=1)-(p=0)=+4.5
+    power: frac gN<a0(const)=0.17, frac gN<a0_H=0.51, median gN/a0=2.58 (IQR 1.44-4.65), median dlogv(p0->p1)=0.043 dex, median sigma_logv=0.102, Fisher sigma_p(no scatter)=0.25
+A_thick0.78_press-pub_dM-0.2_dMdz+0.00   A-fixed  p=+1.02 [68%: +0.90,+1.10] [95%: +0.75,+1.25] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=-45.6
+A_thick0.78_press-pub_dM-0.2_dMdz+0.00   A-prior  p=+0.73 [68%: +0.55,+0.90] [95%: +0.35,+1.10] sint=0.000 A=1.60e-10 | -2lnL(p=1)-(p=0)=-10.3
+A_thick0.78_press-pub_dM-0.2_dMdz+0.00   A-free   p=-0.43 [68%: -0.80,-0.05] [95%: -1.20,+0.30] sint=0.000 A=5.10e-10 | -2lnL(p=1)-(p=0)=+12.8
+    power: frac gN<a0(const)=0.47, frac gN<a0_H=0.83, median gN/a0=1.03 (IQR 0.57-1.85), median dlogv(p0->p1)=0.058 dex, median sigma_logv=0.098, Fisher sigma_p(no scatter)=0.17
+A_thick0.78_press-pub_dM+0.0_dMdz+0.10   A-fixed  p=-0.03 [68%: -0.20,+0.15] [95%: -0.40,+0.30] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+38.9
+A_thick0.78_press-pub_dM+0.0_dMdz+0.10   A-prior  p=-0.25 [68%: -0.50,-0.00] [95%: -0.75,+0.20] sint=0.000 A=1.49e-10 | -2lnL(p=1)-(p=0)=+26.6
+A_thick0.78_press-pub_dM+0.0_dMdz+0.10   A-free   p=-1.73 [68%: -2.30,-1.20] [95%: -2.95,-0.70] sint=0.000 A=5.80e-10 | -2lnL(p=1)-(p=0)=+17.2
+    power: frac gN<a0(const)=0.31, frac gN<a0_H=0.69, median gN/a0=1.67 (IQR 0.86-3.36), median dlogv(p0->p1)=0.051 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.21
+A_thick0.78_press-pub_dM+0.0_dMdz-0.10   A-fixed  p=+0.25 [68%: +0.10,+0.40] [95%: -0.10,+0.55] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+22.2
+A_thick0.78_press-pub_dM+0.0_dMdz-0.10   A-prior  p=+0.25 [68%: +0.05,+0.45] [95%: -0.25,+0.70] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+9.4
+A_thick0.78_press-pub_dM+0.0_dMdz-0.10   A-free   p=+0.23 [68%: -0.25,+0.70] [95%: -0.75,+1.20] sint=0.000 A=1.23e-10 | -2lnL(p=1)-(p=0)=+2.2
+    power: frac gN<a0(const)=0.32, frac gN<a0_H=0.73, median gN/a0=1.57 (IQR 0.91-2.89), median dlogv(p0->p1)=0.052 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.19
+A_thick0.78_press-pub_dM+0.0_dMdz-0.20   A-fixed  p=+0.42 [68%: +0.30,+0.55] [95%: +0.10,+0.70] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=+9.7
+A_thick0.78_press-pub_dM+0.0_dMdz-0.20   A-prior  p=+0.52 [68%: +0.30,+0.75] [95%: +0.05,+0.95] sint=0.000 A=1.08e-10 | -2lnL(p=1)-(p=0)=-0.4
+A_thick0.78_press-pub_dM+0.0_dMdz-0.20   A-free   p=+1.19 [68%: +0.70,+1.70] [95%: +0.25,+2.25] sint=0.000 A=0.55e-10 | -2lnL(p=1)-(p=0)=-5.7
+    power: frac gN<a0(const)=0.32, frac gN<a0_H=0.72, median gN/a0=1.46 (IQR 0.85-2.73), median dlogv(p0->p1)=0.052 dex, median sigma_logv=0.100, Fisher sigma_p(no scatter)=0.19
+A_thick0.78_press-pub_dM+0.0_dMdz-0.30   A-fixed  p=+0.59 [68%: +0.45,+0.70] [95%: +0.30,+0.85] sint=0.000 A=1.20e-10 | -2lnL(p=1)-(p=0)=-4.2
+A_thick0.78_press-pub_dM+0.0_dMdz-0.30   A-prior  p=+0.80 [68%: +0.60,+1.00] [95%: +0.35,+1.20] sint=0.000 A=0.97e-10 | -2lnL(p=1)-(p=0)=-10.9
+A_thick0.78_press-pub_dM+0.0_dMdz-0.30   A-free   p=+2.16 [68%: +1.65,+2.70] [95%: +1.15,+3.30] sint=0.000 A=0.23e-10 | -2lnL(p=1)-(p=0)=-13.9
+    power: frac gN<a0(const)=0.32, frac gN<a0_H=0.70, median gN/a0=1.38 (IQR 0.79-2.65), median dlogv(p0->p1)=0.053 dex, median sigma_logv=0.099, Fisher sigma_p(no scatter)=0.18
+B_thick0.78_press-pub_dM+0.0_dMdz+0.10   A-fixed  p=-0.49 [68%: -0.75,-0.25] [95%: -1.15,-0.00] sint=0.068 A=1.20e-10 | -2lnL(p=1)-(p=0)=+32.4
+B_thick0.78_press-pub_dM+0.0_dMdz+0.10   A-prior  p=-0.63 [68%: -0.95,-0.35] [95%: -1.35,-0.00] sint=0.066 A=1.38e-10 | -2lnL(p=1)-(p=0)=+23.8
+B_thick0.78_press-pub_dM+0.0_dMdz+0.10   A-free   p=-2.73 [68%: -3.95,-1.85] [95%: -4.00,-1.10] sint=0.048 A=7.69e-10 | -2lnL(p=1)-(p=0)=+10.0
+    power: frac gN<a0(const)=0.22, frac gN<a0_H=0.55, median gN/a0=2.31 (IQR 1.12-4.84), median dlogv(p0->p1)=0.044 dex, median sigma_logv=0.117, Fisher sigma_p(no scatter)=0.27
+B_thick0.78_press-pub_dM+0.0_dMdz-0.10   A-fixed  p=-0.34 [68%: -0.60,-0.10] [95%: -0.90,+0.10] sint=0.036 A=1.20e-10 | -2lnL(p=1)-(p=0)=+33.3
+B_thick0.78_press-pub_dM+0.0_dMdz-0.10   A-prior  p=-0.37 [68%: -0.70,-0.10] [95%: -1.05,+0.20] sint=0.036 A=1.23e-10 | -2lnL(p=1)-(p=0)=+21.1
+B_thick0.78_press-pub_dM+0.0_dMdz-0.10   A-free   p=-0.67 [68%: -1.40,-0.00] [95%: -2.25,+0.65] sint=0.035 A=1.61e-10 | -2lnL(p=1)-(p=0)=+5.0
+    power: frac gN<a0(const)=0.22, frac gN<a0_H=0.57, median gN/a0=2.08 (IQR 1.14-4.52), median dlogv(p0->p1)=0.045 dex, median sigma_logv=0.115, Fisher sigma_p(no scatter)=0.25
+C_paper_decomposition_RAR                A-fixed  p=-0.24 [68%: -0.35,-0.15] [95%: -0.45,-0.05] sint=0.019 A=1.20e-10 | -2lnL(p=1)-(p=0)=+88.7
+C_paper_decomposition_RAR                A-prior  p=-0.31 [68%: -0.50,-0.15] [95%: -0.70,+0.05] sint=0.018 A=1.29e-10 | -2lnL(p=1)-(p=0)=+42.5
+C_paper_decomposition_RAR                A-free   p=-0.51 [68%: -0.80,-0.20] [95%: -1.10,+0.10] sint=0.018 A=1.56e-10 | -2lnL(p=1)-(p=0)=+17.7
+bootstrap (200 galaxy resamples) main A-free: p percentiles 2.5/16/50/84/97.5 = [-1.48 -1.16 -0.76 -0.37 -0.  ]
+bootstrap (200 galaxy resamples) main A-prior: p percentiles 2.5/16/50/84/97.5 = [-0.35 -0.15 -0.01  0.15  0.27]
+A bin z 0.6-1.0 n=26 zmed=0.81: a0 = 1.82 [1.38, 2.29] e-10  (H-tracking from 1.20: 1.92)
+A bin z 1.0-1.6 n=26 zmed=1.41: a0 = 1.51 [1.09, 1.99] e-10  (H-tracking from 1.20: 2.71)
+A bin z 1.6-2.2 n=24 zmed=2.11: a0 = 1.15 [0.72, 1.58] e-10  (H-tracking from 1.20: 3.83)
+A bin z 2.2-2.6 n=24 zmed=2.30: a0 = 1.26 [0.87, 1.66] e-10  (H-tracking from 1.20: 4.16)
+B bin z 0.6-1.0 n=26 zmed=0.81: a0 = 1.51 [1.15, 1.99] e-10  (H-tracking from 1.20: 1.92)
+B bin z 1.0-1.6 n=26 zmed=1.41: a0 = 0.91 [0.57, 1.32] e-10  (H-tracking from 1.20: 2.71)
+B bin z 1.6-2.2 n=24 zmed=2.11: a0 = 0.55 [0.23, 0.95] e-10  (H-tracking from 1.20: 3.83)
+B bin z 2.2-2.6 n=24 zmed=2.30: a0 = 0.63 [0.25, 1.15] e-10  (H-tracking from 1.20: 4.16)

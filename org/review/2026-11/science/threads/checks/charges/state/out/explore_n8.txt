@@ -1,0 +1,5 @@
+n8 q8=2^-80: ring radius ~1.22e-06; local zeros within 1e-5: 9 (idx1 3, idx2 6); radii [1.09e-06, 1.56e-06, 2.72e-06]
+n8 q8=2^-84: ring radius ~4.82e-07; local zeros within 1e-5: 9 (idx1 3, idx2 6); radii [4.6e-07, 5.14e-07, 2.98e-06]
+n8 q8=2^-86: ring radius ~3.04e-07; local zeros within 1e-5: 9 (idx1 3, idx2 6); radii [2.94e-07, 3.16e-07, 2.99e-06]
+n8 q8=2^-88: ring radius ~1.91e-07; local zeros within 1e-5: 9 (idx1 3, idx2 6); radii [1.88e-07, 1.96e-07, 2.99e-06]
+n8 q8=2^-92: ring radius ~7.6e-08; local zeros within 1e-5: 9 (idx1 3, idx2 6); radii [7.53e-08, 7.66e-08, 2.99e-06]

@@ -1,0 +1,11 @@
+coverage ok
+leaf 0 {'J': 0, 'V3': 0, 'V4': 0}
+leaf 1000 {'J': 204, 'V3': 549, 'V4': 247}
+leaf 2000 {'J': 204, 'V3': 1276, 'V4': 520}
+leaf 3000 {'J': 395, 'V3': 1604, 'V4': 1001}
+leaf 4000 {'J': 1041, 'V3': 1855, 'V4': 1104}
+leaf 5000 {'J': 1785, 'V3': 2066, 'V4': 1149}
+leaf 6000 {'J': 2514, 'V3': 2337, 'V4': 1149}
+leaf 7000 {'J': 3015, 'V3': 2770, 'V4': 1215}
+{"coverage": "ok (1698 boxes excluded by the verifier)", "leaves": {"J": 3015, "V3": 2912, "V4": 1416}, "sampled_pairs": "2827 of 3000 random leaf pairs resolved at leaf level (rest rely on phase-B refinement)"}
+VERIFIED (phase A, coverage); phase B sampled only

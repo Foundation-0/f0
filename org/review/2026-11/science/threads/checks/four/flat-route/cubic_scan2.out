@@ -1,0 +1,6 @@
+spread 0.05 samples 200000 incomplete 7
+real-solution counts 0..8: [1442, 0, 28362, 0, 103108, 0, 64884, 0, 2197]
+spread 0.15 samples 200000 incomplete 2
+real-solution counts 0..8: [1089, 0, 52495, 0, 99887, 0, 45886, 0, 641]
+spread 9.0 samples 200000 incomplete 8
+real-solution counts 0..8: [357, 0, 82424, 0, 91004, 0, 26068, 0, 139]

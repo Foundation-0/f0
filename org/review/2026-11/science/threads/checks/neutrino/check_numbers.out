@@ -1,0 +1,7 @@
+mean speed km/s per eV mass: 158.3820770507807
+3 species, m=2eV, T=1keV, sigma=400 km/s: rho=1.67e-24 kg/m3 (PS05 quote 4.8e-24)
+   in Msun/pc3 per species: 8.244652205959217e-06  (Angus08 quote 7e-5 per species)
+11 eV, sigma/c=1e-3: rho=0.00319 Msun/pc3 ; Angus10 eq14 coefficient 3.15e6*(1e-3)^3 = 0.00315
+1e-28 g/cm3 in Msun/pc3: 1.4775173606322183e-06 (quoted 1.5e-6)
+Omega h2 per eV: 0.010629159668990872  (1/93.14=0.01074)
+Omega h2 for 11 eV if one species with active-neutrino abundance: 0.1181

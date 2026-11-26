@@ -1,0 +1,5 @@
+n4_eleven_a.repo.json
+  11 zero boxes verified (0.1s)
+  completeness: 49227 boxes {'natural': 1164, 'centred': 23342, 'dominance': 81, 'inside': 27} (8.7s)
+VERIFIED n4_eleven_a: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7; m2-m1 = 3 = n-1: True
+$P $S/threads/charges/repo_copy/verify_arb.py n4_eleven_a.repo.json  7.86s user 0.16s system 91% cpu 8.768 total

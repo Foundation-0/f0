@@ -1,0 +1,6 @@
+shapes scanned: 2184 (errors 0, empty R_min 0)
+(cusps, self-intersections of fold image) counts: [((3, 0), 2184)]
+star-shaped flag false (ray sampling artefact on thin shapes): 475
+max normalised cusp coefficient over all shapes: -0.333334 (all cusps of the minus type iff < 0)
+min over shapes of max |m| margin: mumax min 0.500000
+a range [0.0025, 0.5], b range [7.07e-05, 0.866]

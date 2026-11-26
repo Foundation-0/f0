@@ -1,0 +1,16 @@
+q=7: 88 certificates pass my checker
+q=8: 737 certificates pass my checker
+q=9: 694 certificates pass my checker
+total 1519
+base cells: 122; bookkeeping failures: 0
+improved cells by q: {7: 94, 8: 1408, 9: 1377}
+new_upper below table lower anywhere: 0
+q=8 n=97 k=15: csv lower/upper 60/72 -> new 71 | live: ('60', '72')
+q=7 n=74 k=10: csv lower/upper 49/56 -> new 55 | live: ('49', '56')
+q=8 n=118 k=15: csv lower/upper 76/91 -> new 89 | live: ('76', '91')
+q=9 n=83 k=8: csv lower/upper 63/68 -> new 67 | live: ('63', '68')
+q=9 n=94 k=17: csv lower/upper 55/70 -> new 68 | live: ('55', '70')
+q=9 n=89 k=19: csv lower/upper 51/63 -> new 62 | live: ('51', '63')
+q=9 n=76 k=12: csv lower/upper 50/58 -> new 57 | live: ('50', '58')
+q=9 n=114 k=10: csv lower/upper 83/93 -> new 92 | live: ('83', '93')
+q=9 n=67 k=9: csv lower/upper 47/53 -> new 52 | live: ('47', '53')

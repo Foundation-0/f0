@@ -1,0 +1,3 @@
+VERIFIED n4_eleven_short: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7; m2-m1 = 3 = n-1: True
+VERIFIED n4_eleven_flat: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7; m2-m1 = 3 = n-1: True
+VERIFIED n4_eleven_b12: exactly 11 zeros, all non-degenerate; index 1: 4, index 2: 7; m2-m1 = 3 = n-1: True

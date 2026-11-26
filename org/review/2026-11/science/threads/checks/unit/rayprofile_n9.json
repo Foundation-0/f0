@@ -1,0 +1,111 @@
+{
+ "n": 9,
+ "climb_eps": 0.001,
+ "u": [
+  0.3492908593552298,
+  -0.1073085790097154,
+  -0.5916643624923711,
+  0.1627164884225347,
+  -0.30901565372119366,
+  0.1941057809159315,
+  0.14970619723758094,
+  -0.44531232440844354,
+  -0.009801477949589849,
+  0.24168630042392372,
+  -0.016007293149682553,
+  0.14476280053890186,
+  0.18803874030899725,
+  -0.07505828065869266,
+  0.1238608041865889
+ ],
+ "profile": [
+  {
+   "eps": 0.3,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.37608969007975795,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.1,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.3098688968786612,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.05,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.3086247069739522,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.03,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.30274708631266667,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.01,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.24627515570971634,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.003,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.2235178083538232,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.001,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.2166128259356669,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.0003,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.21414732268512313,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 0.0001,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.21343802934864825,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 3e-05,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.21318925776346898,
+   "min_imag_nonreal": null
+  },
+  {
+   "eps": 1e-05,
+   "ok": true,
+   "real_full": 344,
+   "N_full": 344,
+   "minsep": 0.21311813044405745,
+   "min_imag_nonreal": null
+  }
+ ]
+}

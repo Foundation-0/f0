@@ -1,0 +1,31 @@
+{
+ "n": 10,
+ "eps": 0.001,
+ "rows": [
+  {
+   "theta": 0.02,
+   "ok": 20,
+   "allreal": 8
+  },
+  {
+   "theta": 0.05,
+   "ok": 20,
+   "allreal": 2
+  },
+  {
+   "theta": 0.1,
+   "ok": 20,
+   "allreal": 0
+  },
+  {
+   "theta": 0.2,
+   "ok": 20,
+   "allreal": 0
+  },
+  {
+   "theta": 0.4,
+   "ok": 20,
+   "allreal": 0
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+n3-triangle.json: mine=4 cert=4 matched one-to-one=4 unmatched cert boxes=0 problems=0
+n4-triangle-plus-centre.json: mine=9 cert=9 matched one-to-one=9 unmatched cert boxes=0 problems=0
+n5-abk-bipyramid.json: mine=24 cert=24 matched one-to-one=24 unmatched cert boxes=0 problems=0
+n6-abk-plus-centre.json: mine=29 cert=29 matched one-to-one=29 unmatched cert boxes=0 problems=0
+n7-abk-second-pair.json: mine=44 cert=44 matched one-to-one=44 unmatched cert boxes=0 problems=0

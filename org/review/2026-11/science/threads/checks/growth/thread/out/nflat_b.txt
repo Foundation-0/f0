@@ -1,0 +1,6 @@
+d=4 n=5: none in 100 tries (101s)
+d=4 n=6: FOUND at try 0, jet Jacobian rank 15 of 15 conditions (0s)
+d=5 n=9: FOUND at try 0, jet Jacobian rank 24 of 24 conditions (1s)
+d=8 n=19: none in 40 tries (38s)
+d=8 n=20: none in 40 tries (34s)
+d=8 n=21: FOUND at try 8, jet Jacobian rank 63 of 63 conditions (10s)

@@ -1,0 +1,11 @@
+code 4778440734593 n 10 edges 17 laman True mine 880 2.9s lnumber 880
+  edges [(0, 1), (1, 4), (2, 4), (3, 4), (0, 5), (2, 5), (3, 5), (1, 6), (2, 6), (1, 7), (3, 7), (0, 8), (3, 8), (7, 8), (0, 9), (2, 9), (6, 9)]
+code 18120782205838348 n 11 edges 19 laman True mine 2288 13.6s lnumber 2288
+  edges [(1, 2), (0, 3), (0, 5), (3, 5), (4, 5), (2, 6), (3, 6), (4, 6), (0, 7), (1, 7), (4, 7), (1, 8), (2, 8), (4, 8), (2, 9), (3, 9), (0, 10), (1, 10), (9, 10)]
+cert edges [(1, 4), (1, 8), (1, 10), (2, 3), (2, 7), (2, 10), (3, 7), (3, 9), (4, 8), (4, 9), (5, 7), (5, 8), (5, 10), (6, 7), (6, 8), (6, 9), (9, 10)] n 10 cert code 19357482790944928
+isomorphic: True
+decoded vertex -> certificate vertex: {0: 9, 1: 10, 2: 8, 3: 7, 4: 5, 5: 6, 6: 1, 7: 2, 8: 3, 9: 4}
+mapped decoded edges == certificate edges: True
+number of automorphisms of the graph: 4
+cert certificate graph name: L880 cert complex count: 880
+certificate vertices are 1-based; cert graph Laman (shifted to 0-based): True

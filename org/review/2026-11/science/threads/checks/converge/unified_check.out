@@ -1,0 +1,13 @@
+rows used: 663 classes: {'ATLAS3D_Re': 187, 'GC_r2500': 51, 'GC_r500': 63, 'SPARC_inner': 152, 'SPARC_outer': 153, 'giant_spirals': 57}
+standard relation alone: 0.1895 dex
+two-variable law: logK = 10.821, a = 4.171, b = 0.415; score 0.1257 dex
+fully packed phase space a=3, b=3: logK = 9.143; score 0.1703 dex
+isothermal a=2, b=1: logK = 11.183; score 0.1608 dex
+proportional to baryons: factor 0.302; score 0.1743 dex
+bootstrap (200): a = 4.16 (68% 4.06 to 4.28; 95% 3.98 to 4.39); b = 0.42 (68% 0.38 to 0.45; 95% 0.36 to 0.47); corr -0.88
+  ATLAS3D_Re     n=187 median residual: standard +0.084  two-variable -0.012
+  GC_r2500       n= 51 median residual: standard +0.294  two-variable +0.058
+  GC_r500        n= 63 median residual: standard +0.123  two-variable -0.043
+  SPARC_inner    n=152 median residual: standard -0.029  two-variable -0.067
+  SPARC_outer    n=153 median residual: standard -0.054  two-variable -0.069
+  giant_spirals  n= 57 median residual: standard +0.082  two-variable +0.015

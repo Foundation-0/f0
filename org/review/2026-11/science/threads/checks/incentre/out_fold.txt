@@ -1,0 +1,7 @@
+non-overlap: 6516 (n,v) pairs in box [-3,3]^3 proved >= 0 on [0,1]; 18 identically zero (bars); 24 more touch at s=1; Bernstein leaves 6498
+far images: L(s) L(s)^T - I is PSD on [0,1] (all 7 principal minors certified >= 0), so |nL+v| >= |n|-2
+L(1) = [['2', '-1', '-1'], ['1', '2', '-1'], ['1', '-1', '2']]
+endpoint: det 12, 12 contacts at each of 6 balls; density = 6*(4pi/3)(1/sqrt2)^3/12 = pi/sqrt18
+density: det L(s) strictly decreasing on [0,1] (exact Bernstein, all coefficients of -Q(s)/s positive)
+ALL FOLD CHECKS PASSED
+$P -I fold_indep.py  1.39s user 0.03s system 98% cpu 1.447 total

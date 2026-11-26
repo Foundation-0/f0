@@ -1,0 +1,20 @@
+     6.5s starts=3000 NEW class #1 I=24.6173839149 P=I^1.5=122.14138716
+     6.5s starts=3000 NEW class #2 I=24.6173843312 P=I^1.5=122.14139026
+     6.5s starts=3000 NEW class #3 I=24.6173839377 P=I^1.5=122.14138733
+     6.5s starts=3000 converged=2999 classes=3 last_new_at=3000
+    12.6s starts=6000 NEW class #4 I=24.3995782771 P=I^1.5=120.52398426
+    12.6s starts=6000 NEW class #5 I=24.5467838816 P=I^1.5=121.61633134
+    12.6s starts=6000 NEW class #6 I=24.5621032636 P=I^1.5=121.73019826
+    12.6s starts=6000 NEW class #7 I=24.3988678966 P=I^1.5=120.51872081
+    12.6s starts=6000 NEW class #8 I=23.9881314504 P=I^1.5=117.48830277
+    12.6s starts=6000 NEW class #9 I=24.2832038124 P=I^1.5=119.66274950
+    12.6s starts=6000 NEW class #10 I=24.0286035208 P=I^1.5=117.78576236
+    12.6s starts=6000 NEW class #11 I=24.2610337555 P=I^1.5=119.49891253
+    12.6s starts=6000 NEW class #12 I=23.9389096494 P=I^1.5=117.12687289
+    12.6s starts=6000 NEW class #13 I=24.2270903755 P=I^1.5=119.24821560
+    12.6s starts=6000 NEW class #14 I=24.0456258653 P=I^1.5=117.91094722
+    12.6s starts=6000 NEW class #15 I=24.2326698369 P=I^1.5=119.28941199
+    12.6s starts=6000 converged=5999 classes=15 last_new_at=6000
+    19.1s starts=9000 converged=8999 classes=15 last_new_at=6000
+    25.5s starts=12000 converged=11999 classes=15 last_new_at=6000
+done

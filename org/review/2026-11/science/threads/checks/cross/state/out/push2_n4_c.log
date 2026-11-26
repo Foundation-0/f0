@@ -1,0 +1,33 @@
+*** [n4_c 0 it 18] physical 3 -> 5
+*** [n4_c 0 it 27] physical 5 -> 7
+*** [n4_c 0 it 191] physical 3 -> 5
+[n4_c 0] best 9, nearest T at best count 6.588e-04, kicks 6, iters 221, 20s
+*** [n4_c 1 it 0] physical 3 -> 5
+*** [n4_c 1 it 9] physical 5 -> 7
+*** [n4_c 1 it 61] physical 3 -> 5
+*** [n4_c 1 it 63] physical 5 -> 7
+*** [n4_c 1 it 127] physical 3 -> 5
+[n4_c 1] best 7, nearest T at best count 6.114e-04, kicks 6, iters 235, 20s
+*** [n4_c 2 it 29] physical 3 -> 5
+*** [n4_c 2 it 67] physical 3 -> 5
+*** [n4_c 2 it 99] physical 3 -> 5
+*** [n4_c 2 it 194] physical 3 -> 5
+*** [n4_c 2 it 198] physical 5 -> 7
+[n4_c 2] best 7, nearest T at best count 3.364e-04, kicks 6, iters 232, 22s
+*** [n4_c 3 it 3] physical 3 -> 5
+*** [n4_c 3 it 7] physical 5 -> 7
+*** [n4_c 3 it 174] physical 3 -> 5
+[n4_c 3] best 7, nearest T at best count 3.408e-03, kicks 6, iters 217, 21s
+*** [n4_c 4 it 0] physical 3 -> 5
+*** [n4_c 4 it 8] physical 5 -> 7
+*** [n4_c 4 it 159] physical 3 -> 5
+*** [n4_c 4 it 195] physical 3 -> 5
+*** [n4_c 4 it 204] physical 5 -> 7
+[n4_c 4] best 7, nearest T at best count 6.190e-04, kicks 5, iters 250, 24s
+*** [n4_c 5 it 3] physical 3 -> 5
+*** [n4_c 5 it 5] physical 5 -> 7
+*** [n4_c 5 it 18] physical 7 -> 9
+*** [n4_c 5 it 62] physical 3 -> 5
+*** [n4_c 5 it 71] physical 5 -> 7
+[n4_c 5] best 9, nearest T at best count 2.300e-04, kicks 6, iters 250, 22s
+DONE n4_c

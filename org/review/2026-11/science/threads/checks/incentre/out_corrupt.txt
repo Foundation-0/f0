@@ -1,0 +1,5 @@
+# t = 2 - sqrt2
+n=2: bars/cell=6 C11=1/4 C12=1/4 C44=0 C11/C12=1 C'=(C11-C12)/2=0 nu100=1 rankC=1 q0: zero modes=3 self-stresses=1 | affine A11=(6 + -4*sqrt2) A12=(3 + -2*sqrt2) A44=(3 + -2*sqrt2) | match=False
+n=3: bars/cell=15 C11=2/9 C12=1/18 C44=0 C11/C12=4 C'=(C11-C12)/2=1/12 nu100=1/5 rankC=3 q0: zero modes=6 self-stresses=3 | affine A11=(9/2 + -3*sqrt2) A12=(3/2 + -1*sqrt2) A44=(3/2 + -1*sqrt2) | match=False
+n=4: bars/cell=28 C11=9/64 C12=1/64 C44=0 C11/C12=9 C'=(C11-C12)/2=1/16 nu100=1/11 rankC=4 q0: zero modes=10 self-stresses=6 | affine A11=(3 + -2*sqrt2) A12=(3/4 + -1/2*sqrt2) A44=(3/4 + -1/2*sqrt2) | match=False
+MISMATCH

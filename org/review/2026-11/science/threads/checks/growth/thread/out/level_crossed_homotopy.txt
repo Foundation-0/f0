@@ -1,0 +1,7 @@
+p=3: homotopy nonzero finite 5 of 7, real 5, I-1 = 5
+p=4: homotopy nonzero finite 11 of 19, real 7, I-1 = 7
+p=5: homotopy nonzero finite 19 of 37, real 11, I-1 = 11
+p=6: homotopy nonzero finite 29 of 61, real 17, I-1 = 17
+p=7: homotopy nonzero finite 41 of 91, real 25, I-1 = 25
+p=8: homotopy nonzero finite 55 of 127, real 31, I-1 = 31
+p=9: homotopy nonzero finite 71 of 169, real 39, I-1 = 39
