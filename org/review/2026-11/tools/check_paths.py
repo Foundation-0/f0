@@ -9,6 +9,9 @@ Rules:
 - `repo/rest` resolves if rest exists inside mirrors/repo.
 - Any other slashed token resolves if the same relative path exists in some mirror,
   or if it names a branch in some mirror.
+- Without tools/mirrors/ (a bare checkout, before clone-all.sh) the mirror-dependent
+  tokens are reported as skipped instead of missed, so the check still runs: the
+  tokens that resolve inside this folder are checked, the rest are counted as skipped.
 - heads.tsv, repos.tsv and mirrors/ are written by clone-all.sh, so they are allowed
   by name.
 Prints the misses and exits 1 if there is any.
@@ -24,22 +27,29 @@ SOURCES = os.path.join(TOOLS, "sources")
 DOCS = [os.path.join(BASE, "h1-method.md"), os.path.join(BASE, "numbers.md")]
 OUT = BASE
 MIRRORS = os.path.join(TOOLS, "mirrors")
-if not os.path.isdir(MIRRORS):
-    print("mirrors/ is missing; run clone-all.sh first", file=sys.stderr)
-    sys.exit(1)
-repos = sorted(d for d in os.listdir(MIRRORS)
-               if os.path.isdir(os.path.join(MIRRORS, d)))
+HAVE_MIRRORS = os.path.isdir(MIRRORS)
+if HAVE_MIRRORS:
+    repos = sorted(d for d in os.listdir(MIRRORS)
+                   if os.path.isdir(os.path.join(MIRRORS, d)))
+else:
+    # Bare checkout: the repository names come from repos.tsv, and tokens that
+    # would need a mirror are reported as skipped, not missed.
+    print("mirrors/ is missing; mirror-dependent tokens are skipped "
+          "(run clone-all.sh first)", file=sys.stderr)
+    repos = [l.split("\t")[0] for l in open(os.path.join(TOOLS, "repos.tsv")) if l.strip()]
 GENERATED = {"heads.tsv", "repos.tsv", "mirrors/"}
 
 branches = set()
-for r in repos:
-    out = subprocess.run(
-        ["git", "-C", os.path.join(MIRRORS, r), "for-each-ref",
-         "--format=%(refname:lstrip=3)", "refs/remotes/origin"],
-        capture_output=True, text=True, check=False).stdout
-    branches.update(line for line in out.split() if line and line != "HEAD")
+if HAVE_MIRRORS:
+    for r in repos:
+        out = subprocess.run(
+            ["git", "-C", os.path.join(MIRRORS, r), "for-each-ref",
+             "--format=%(refname:lstrip=3)", "refs/remotes/origin"],
+            capture_output=True, text=True, check=False).stdout
+        branches.update(line for line in out.split() if line and line != "HEAD")
 
 misses = []
+skipped = []
 checked = 0
 for doc in DOCS:
     if not os.path.exists(doc):
@@ -56,6 +66,9 @@ for doc in DOCS:
         checked += 1
         if os.path.exists(os.path.join(OUT, tok)):
             continue
+        if not HAVE_MIRRORS:
+            skipped.append(tok)
+            continue
         first, _, rest = tok.partition("/")
         if first in repos and os.path.exists(os.path.join(MIRRORS, first, rest)):
             continue
@@ -67,5 +80,6 @@ for doc in DOCS:
 
 for doc, tok in misses:
     print("MISS", doc, tok)
-print(f"checked {checked} path tokens, {len(misses)} miss(es)")
+note = ", %d skipped (no tools/mirrors/)" % len(skipped) if skipped else ""
+print(f"checked {checked} path tokens, {len(misses)} miss(es){note}")
 sys.exit(1 if misses else 0)

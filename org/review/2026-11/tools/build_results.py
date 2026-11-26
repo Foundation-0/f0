@@ -8,9 +8,10 @@ provisional ID of the form <repository>/R-<n>.
 
 Three sources, all mechanical:
 
-  1. table rows, where the header has a subject column (result, claim, theorem,
-     proposition, lemma, statement, evidence, question, contribution, project,
-     area) and a status column (label, status, verdict);
+  1. table rows, where the header has a subject column (result, statement,
+     theorem, claim, contribution, question, track, area, proposition, lemma,
+     evidence, in that priority order) and a status column (label, status,
+     verdict);
   2. the title and statement of every PROOF.md and THEOREM.md;
   3. lines that begin Theorem, Proposition, Lemma, Conjecture or Result in a
      file typed paper, monograph or note.

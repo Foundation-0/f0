@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """H2: numbers for the owners' decisions.
 
-Writes out/h2/*.csv and out/h2/numbers.md.
+Writes open-prs.csv, open-issues.csv, licences.csv and zenodo-credits.csv in
+this folder; make_docs.py --h2 writes numbers.md from them.
 Sources: the mirrors at the pinned heads and the frozen API answers in
 sources/ (repo-list.json, open-prs.json, open-issues-items.json, the Zenodo
-records). No live call remains: the licence column reads licenseInfo from
-the frozen repo-list.json, and the Zenodo fallback only fires when a frozen
-record file is missing.
+records), public repositories only. No live call remains: the licence column
+reads licenseInfo from the frozen repo-list.json, and a frozen record file
+that is missing stops the run with an error instead of fetching.
 """
 import collections
 import csv
@@ -26,8 +27,8 @@ MIRRORS = os.path.join(TOOLS, "mirrors")
 # repo-list.json licenseInfo. Verified against the committed licences.csv:
 # all 35 rows match. A key of "other" means a licence file GitHub cannot
 # place in a known family; the endpoint reports those as NOASSERTION.
-# A missing licenseInfo means no detectable licence, which the endpoint
-# reports as a 404 and the old code read as "".
+# A null licenseInfo means no detectable licence, which the endpoint
+# reports as a 404, read as "".
 SPDX_BY_KEY = {"apache-2.0": "Apache-2.0", "mit": "MIT", "other": "NOASSERTION"}
 
 
@@ -39,8 +40,8 @@ def public_repos():
     """The repository list, from the snapshot in sources/.
 
     `gh repo list Foundation-0 --limit 200 --json name,isPrivate,
-    defaultBranchRef,licenseInfo,hasIssuesEnabled` produced this file on
-    15 November. Reading it keeps a rerun offline.
+    defaultBranchRef,licenseInfo --jq '.[] | select(.isPrivate==false)'`
+    produced this file on 15 November. Reading it keeps a rerun offline.
     """
     out = json.load(open(os.path.join(SOURCES, "repo-list.json")))
     return {r["name"]: r for r in out if not r["isPrivate"]}
@@ -133,8 +134,18 @@ def main():
                 low = fn.lower()
                 if low.startswith("licence") or low.startswith("license") or low == "copying":
                     files.append(os.path.relpath(os.path.join(root, fn), d))
-        info = repos[name].get("licenseInfo") or {}
-        gh_license = SPDX_BY_KEY.get(info.get("key"), "")
+        if "licenseInfo" not in repos[name]:
+            sys.exit("sources/repo-list.json has no licenseInfo for %s; "
+                     "refresh the frozen snapshot" % name)
+        info = repos[name]["licenseInfo"] or {}
+        key = info.get("key")
+        if key is None:
+            gh_license = ""  # the endpoint 404s: no detectable licence
+        elif key in SPDX_BY_KEY:
+            gh_license = SPDX_BY_KEY[key]
+        else:
+            sys.exit("sources/repo-list.json: unmapped licenseInfo key %r for %s"
+                     % (key, name))
         zen = os.path.join(d, ".zenodo.json")
         zen_license = ""
         if os.path.exists(zen):
@@ -159,12 +170,10 @@ def main():
     extra = []
     for rid in more_ids:
         p = os.path.join(SOURCES, f"z-{rid}.json")
-        if os.path.exists(p):
-            extra.append(json.load(open(p)))
-        else:
-            raw = sh(["curl", "-s", f"https://zenodo.org/api/records/{rid}"])
-            if raw.strip():
-                extra.append(json.loads(raw))
+        if not os.path.exists(p):
+            sys.exit("sources/z-%s.json is missing; refresh the frozen record "
+                     "(no live fetch)" % rid)
+        extra.append(json.load(open(p)))
     allrec = {r["doi"]: r for r in records + extra}
 
     credit_rows = []
@@ -273,8 +282,8 @@ def main():
         "%s (%s)" % (r["repository"], r["github_detected_license"])
         for r in lic_rows
         if r["github_detected_license"] not in ("", "Apache-2.0", "NOASSERTION")))
-    with open(os.path.join(OUT, "numbers.md"), "w") as f:
-        f.write("\n".join(lines) + "\n")
+    # The summary goes to stdout only; make_docs.py --h2 writes numbers.md, so
+    # running this script alone does not clobber the narrative.
     print("\n".join(lines))
 
 
